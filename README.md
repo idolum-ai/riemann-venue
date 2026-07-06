@@ -23,3 +23,12 @@ This repository accompanies Daniel Rodriguez's essay sequence on primes, zeros, 
 ## Caution
 
 This repository is exploratory. It aims to make pieces of the essay inspectable, reproducible, and eventually formalizable, without claiming to prove the Riemann Hypothesis.
+
+## Exhibit sheets
+
+The first uploaded artifact is the condensed exhibit-sheet PDF for the third installment:
+
+- `artifacts/exhibit-sheets/a-motion-to-change-venue-exhibit-sheets.pdf`
+- `docs/typst/exhibit-sheets-reproduction-notes.md`
+
+The reproduction notes describe the current visual system and the planned Typst route for recreating the PDF faithfully enough to support later edits.
