@@ -27,4 +27,4 @@ keywords:
   - formalization
   - GCD sums
 repository-code: "https://github.com/idolum-ai/riemann-venue"
-license: NOASSERTION
+license: Apache-2.0
