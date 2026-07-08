@@ -1,108 +1,132 @@
 # riemann-venue
 
-Formal and computational notes around changing the venue of the Riemann Hypothesis: cancellation, positivity, and spectral recentering.
+A machine-checked research workspace around the finite-place spectral geometry
+of divisibility: the normalized gcd kernel, its boundary behavior at the
+critical exponent `σ = 1/2`, and the instruments that geometry turns out to
+need — including the first formalization of Kakutani's dichotomy for infinite
+product measures known to us in any proof assistant.
 
-This repository accompanies Daniel Rodriguez's essay sequence on primes, zeros, and the Riemann Hypothesis. It is not a proof of RH. It is a workspace for making selected finite and structural claims inspectable in Lean, Python, and expository notes.
+**What this is not.** This repository does not prove the Riemann Hypothesis,
+does not claim to, and deliberately declines to state RH-strength theorems
+even as conjectural equivalences (see `RiemannVenue/Weil/Positivity.lean`,
+where the absence of a `weil_positivity_iff_RH` theorem is documented as a
+design decision). Every claim in this repository is either machine-checked,
+or explicitly labeled as computed / designed / open in the
+[status ledger](docs/status-ledger.md).
 
-## Thesis
+**Why a mathematician can skip the trust question.** Correctness here does
+not rest on trusting any author, human or artificial. The Lean 4 proofs are
+checked by the kernel against a pinned Mathlib; CI enforces a zero-`sorry`
+policy; the main theorems carry axiom audits (`propext, Classical.choice,
+Quot.sound`); the numerics are deterministic scripts with committed outputs.
+The collaboration story (below) is about discovery, not validity.
 
-The guiding thesis is that RH may be better understood not only as a placement problem for zeros, but as a venue problem: arithmetic needs to be represented in a setting where cancellation becomes length, positivity becomes structural, and zeros become spectral events of the right object.
+## Main results (machine-checked)
 
-> Cancellation does not know its sign until it is represented as length.
+All in Lean 4 against pinned Mathlib; declaration names are exact.
 
-## Status
+**Kakutani's dichotomy (1948), both directions, arbitrary index types** — to
+our knowledge its first formalization in any proof assistant:
 
-The finite core is proved, the analytic bridges are anchored, and the
-speculative layer is stated without pretense. See `docs/status-ledger.md` for
-the row-by-row claim inventory.
+- `MeasureTheory.Measure.infinitePi_mutuallySingular` — vanishing Hellinger
+  affinity product ⟹ mutual singularity of infinite product measures
+  (`RiemannVenue/Kakutani/Singular.lean`; cylinder squeeze + Borel–Cantelli).
+- `MeasureTheory.Measure.infinitePi_absolutelyContinuous_of_summable` —
+  summable deficits ⟹ absolute continuity, with two-sided corollaries
+  (`RiemannVenue/Kakutani/Equivalence.lean`; no martingales, no Lp theory).
+- Supporting instruments new to the formal literature: the Hellinger affinity
+  with `H = 0 ↔ ⟂ₘ` (`Kakutani/Affinity.lean`), `pi_withDensity`
+  tensorization and a lintegral product-Fubini (`Kakutani/FiniteProduct.lean`),
+  and a hypothesis-light Bochner window-factorization over `infinitePi`
+  (`Kakutani/SpectralMeasure.lean`).
 
-- **Proved in Lean (no `sorry`)**: finite divisibility poset laws; finite
-  Mobius inversion on `{1, …, N}`; the Gram factorization
-  `[gcd] = B · diag φ · Bᴴ`; positive semidefiniteness of the gcd matrix and
-  of the normalized kernel `K(m,n) = gcd(m,n)/√(mn)`
-  (`normalizedGcdKernel_posSemidef`).
-- **Anchored**: build-verified restatements of Mathlib's L-series/zeta
-  identification, Euler product, completed functional equation and residue,
-  Gaussian self-duality, and the `Γ_ℝ` factor.
-- **Stated only**: the finite prime-power side of the explicit formula,
-  `WeilPositivity`, and the Boundary Positivity Problem — with the
-  `iff RH` theorem deliberately absent.
-- **Computed**: four executed notebooks with committed figures (kernel
-  spectra, Euler shadows, Kakutani threshold, radial derivative).
+**The phase boundary of the divisibility geometry:**
 
-No proof of RH is claimed.
+- `RiemannVenue.Kernels.poissonProduct_dichotomy`
+  (`RiemannVenue/Kakutani/PoissonDichotomy.lean`) — the family of product
+  Poisson measures over the primes, at ratios `a_p = p^{-σ}`, is mutually
+  singular with product Haar **iff `σ ≤ 1/2`** and equivalent to it
+  **iff `σ > 1/2`**. The type change happens exactly at the critical exponent,
+  endpoint on the singular side.
 
-## What belongs here
+**The gcd kernel, three faces, one object:**
 
-This repository is for:
+- *Overlap*: `normalizedGcdKernel_posSemidef` — `K(m,n) = gcd(m,n)/√(mn)` is
+  positive semidefinite at every truncation (`Kernels/Positivity.lean`), via
+  the Gram factorization `[gcd] = B·diag(φ)·Bᴴ` (`Kernels/GCD.lean`);
+  `kappa_posSemidef` extends this to a positive-definite function on `ℚ₊^×`
+  (`Kernels/Kappa.lean`).
+- *Response*: `response_eq_poisson` — the two-sided sum
+  `∑_{k∈ℤ} ξ_k e^{ikθ} ξ_k` with `ξ_k = (√a)^{|k|}` **is** the Poisson kernel
+  (`Kernels/Response.lean`).
+- *Spectrum*: `integral_character_infinitePoisson_half_eq_kappa` — κ is the
+  Fourier coefficient of the product Poisson measure on the **infinite**
+  prime torus (`Kakutani/SpectralMeasure.lean`).
 
-- finite formal anchors that can be checked in Lean;
-- computational experiments that generate reproducible evidence;
-- notes that clarify the essay's mathematical dependencies;
-- visual/expository artifacts that make the program legible.
+**A new theorem, found inside this program:**
 
-This repository is not for:
+- `RiemannVenue.Kernels.primorial_rayleigh_upper_bound`
+  (`Kernels/PrimorialBound.lean`) — an explicit Möbius-signed vector on
+  primorial divisors achieves Rayleigh quotient `∏_{p∈S}(1 − p^{-1/2})` for
+  the gcd kernel, giving `λ_min(K_N) ≤ exp(−(2+o(1))√(log N)/log log N)`.
+  Conjectured from computed eigenvector portraits, derived on paper, validated
+  numerically to `4×10⁻¹⁵`, then machine-checked
+  (see `notes/lambda-min-upper-design.md` and `notes/lambda-min-rate.md`).
 
-- claiming a proof of RH;
-- hiding speculative steps inside formal language;
-- replacing references with vibes;
-- treating numerical experiments as proof.
+**The program's own negative result, machine-checked:**
 
-## Repository map
+- `not_summable_kappa_consecutive` (`Venue/NonRadon.lean`) — the direct
+  length-side limit of the finite Euler shadows fails to be Radon; the
+  accompanying essay's "False as stated" table row, verified with the same
+  rigor as its positive claims.
 
-- `RiemannVenue/` - Lean 4 / Mathlib formal anchors.
-- `RiemannVenue.lean` - top-level Lean import file.
-- `notebooks/` - computational experiments and figures.
-- `scripts/` - reproducibility helpers.
-- `essay/` - essay drafts and companion text.
-- `exhibits/` - Typst sources and rendered exhibit sheets.
-- `artifacts/` - received/generated binary artifacts.
-- `docs/` - research-program notes, status ledger, glossary, and Typst reproduction notes.
-- `notes/` - focused mathematical notes.
-- `figures/` - generated images and diagrams.
-- `references.bib` - bibliography seeds.
+Further instruments (moment identities, strict Hellinger deficit, the
+criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the Liouville
+conjugation identity, finite Möbius inversion, Zeta/Tate anchors onto
+Mathlib) are indexed row-by-row in the [status ledger](docs/status-ledger.md).
 
-## Lean spine
+## Open problems posed by this repository
 
-The original first targets are done: initial segments and divisibility
-(`Divisibility/Poset.lean`), incidence predicates (`Divisibility/Incidence.lean`),
-finite Mobius inversion (`Divisibility/Mobius.lean`), gcd-kernel truncations
-and their positivity (`Kernels/`). Computational evidence lives in
-`notebooks/`; formal claims live in Lean; the two are never conflated — the
-ledger marks which is which.
+Precisely stated, numerically instrumented, and (to our knowledge) new:
 
-Headline theorems:
+1. **The bottom-edge rate**: `λ_min(K_N) = exp(−(log N)^{1/2+o(1)})`? The
+   data (exact sparse spectra to `N = 1.3×10⁷` via the Möbius inverse) reject
+   both `c/(log N)²` and the product-family barrier law; every product-type
+   test family is provably insufficient — the minimizer entangles across
+   primes. See `notes/lambda-min-rate.md`.
+2. **The reciprocal-edges law**: `λ_min·λ_max ≈ 0.389` constant over five
+   decades of `N`. The Liouville conjugation identity
+   (`Kernels/LiouvilleConjugation.lean`) provides the underlying symmetry
+   (Poisson reciprocity `P_a(0)·P_a(π) = 1`); the constant is its truncation
+   deficit. See `notes/lambda-min-upper-design.md`.
+3. **The Boundary Positivity Problem** — the completed, renormalized
+   log-scale distribution and its positivity. RH-strength by Weil's
+   criterion; stated as a `Prop` shape and deliberately not attacked here
+   (`Venue/SpectralRecenter.lean`).
 
-```
-RiemannVenue.Divisibility.mobius_inversion_initialSegment
-RiemannVenue.Kernels.gcdMatrix_eq_factorization
-RiemannVenue.Kernels.normalizedGcdKernel_posSemidef
-RiemannVenue.Venue.noLeak_finite
-```
+## Where to start
 
-## Essay and exhibit sheets
+- **Mathematicians**: this README, then [docs/status-ledger.md](docs/status-ledger.md)
+  (every claim, its status, its artifact), then the Lean files named above.
+  `notes/kakutani-design.md` shows the design-then-verify method the
+  formalizations were built with.
+- **Non-specialists**: [docs/tour.md](docs/tour.md) — a plain-language
+  walkthrough of what this repository is, what was found, and why the number
+  1/2 keeps appearing.
+- **Interpretation and process**: `notes/formalization-findings.md` —
+  what building the record revealed, kept honest as it grew (including our
+  own corrected overclaims).
 
-The essay is the motion: the argument for changing venue.
-
-The exhibit sheets are the record: a compressed visual docket of claims, known facts, open gaps, and requested relief.
-
-Together they define the current research program for this repository.
-
-Current artifact:
-
-- `artifacts/exhibit-sheets/a-motion-to-change-venue-exhibit-sheets.pdf`
-- `docs/typst/exhibit-sheets-reproduction-notes.md`
-
-## Validation
+## Verification
 
 All of these run in CI (`.github/workflows/ci.yml`):
 
 ```bash
-# Lean: full build, and the sorry guard
+# Lean: full build against pinned Mathlib, and the sorry guard
 lake exe cache get && lake build
 grep -rn "sorry\|admit" RiemannVenue/ RiemannVenue.lean && exit 1
 
-# Notebooks: validate JSON and execute top-to-bottom
+# Notebooks: validate and execute top-to-bottom
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/check_notebooks.py --execute
 .venv/bin/python scripts/export_figures.py
@@ -113,3 +137,46 @@ typst compile exhibits/exhibit-sheets.typ exhibits/exhibit-sheets.pdf
 # Hygiene
 git diff --check
 ```
+
+Toolchain: Lean 4 (`lean-toolchain`), Mathlib pinned in `lake-manifest.json`.
+
+## Repository map
+
+- `RiemannVenue/` — Lean 4 formalizations: `Divisibility/` (finite poset,
+  Möbius inversion), `Kernels/` (the gcd kernel's three faces and its
+  spectral instruments), `Kakutani/` (the dichotomy and its applications),
+  `Zeta/`, `Tate/` (anchors onto Mathlib), `Weil/`, `Venue/` (the honestly
+  fenced statements layer).
+- `notebooks/`, `scripts/`, `figures/` — deterministic computational
+  experiments with committed outputs.
+- `notes/` — mathematical notes: designs, findings, open-problem dossiers.
+- `docs/` — status ledger, glossary, research program, tour.
+- `exhibits/`, `artifacts/` — the exhibit sheets (Typst source + received PDF).
+- `essay/` — pointer and claim-to-artifact map for the accompanying essay
+  (the essay text itself lives outside the repository).
+
+## Context: the essay
+
+This repository accompanies Daniel Rodriguez's essay *A Motion to Change
+Venue for the Riemann Hypothesis*, which argues that RH should be approached
+as a boundary-positivity problem for a completed log-scale distribution. The
+repository is the essay's evidentiary record: its unconditional claims are
+machine-checked here, its negative results too, and its open problems are
+posed with instruments attached. The essay is the motion; this is the docket.
+
+> Cancellation does not know its sign until it is represented as length.
+
+## Authorship and collaboration
+
+This repository was created by **Daniel Rodriguez**, in collaboration with
+two AI systems, credited here with their roles:
+
+- **Claude Fable 5** (Anthropic) — co-developed the Lean formalizations,
+  computational experiments, and research notes in interactive sessions,
+  under Daniel's direction and scope decisions throughout.
+- **GPT 5.5 Pro** (OpenAI) — provided feedback on the accompanying essay and
+  on the repository's initial outline.
+
+All mathematical content is machine-checked or explicitly labeled otherwise;
+correctness rests on the Lean kernel and the reproducibility scripts, not on
+trust in any author, human or artificial. See `CITATION.cff` for citation.
