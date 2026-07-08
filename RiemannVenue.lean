@@ -17,6 +17,7 @@ import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
 import RiemannVenue.Kakutani.Singular
+import RiemannVenue.Kakutani.Equivalence
 import RiemannVenue.Kakutani.PoissonSingular
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
