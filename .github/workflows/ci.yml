@@ -51,6 +51,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
+      # Drift gate: executed notebooks are committed evidence, so rerunning them
+      # must not change their tracked JSON.
+      - name: Notebook drift gate
+        run: git diff --exit-code -- notebooks/*.ipynb
       - name: Regenerate figures
         run: python scripts/export_figures.py
       # Drift gate: the five deterministic claim-figures must byte-match the
