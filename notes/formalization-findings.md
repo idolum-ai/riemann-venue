@@ -205,9 +205,14 @@ Represent divisibility as length (the kernel), ask for the shortest
 direction, and the geometry answers with the signs of Möbius/Liouville
 cancellation. The direction in which the positive geometry is closest to
 collapse *is* the cancellation direction; the rate of that collapse
-(`λ_min` decay, conjectured `exp(-c√(log N))` vs `c/(log N)²`, undecided at
-`N = 25600`) measures how much positivity the finite venue has in reserve
-against it. The companion regularity `λ_min·λ_max ≈ 0.390` (±1% over
+measures how much positivity the finite venue has in reserve against it.
+(Third-expedition update: the exact sparse inverse — `B⁻¹` is the Möbius
+matrix, so `K⁻¹` is two sparse triangular-pattern matvecs — extended the
+grid to `N = 1.3×10⁷`; `c/(log N)²` is rejected on the computed range and
+`A·exp(−c√(log N))` survives with `c ≈ 1.36` and slow drift; see
+`notes/lambda-min-rate.md` §6. That Möbius inversion, the repository's
+first theorem, is also the algorithm that broke the numerical ceiling is
+finding-1 in computational form.) The companion regularity `λ_min·λ_max ≈ 0.390` (±1% over
 `283 ≤ N ≤ 25600`) says the two spectral edges open reciprocally —
 unexplained, recorded.
 

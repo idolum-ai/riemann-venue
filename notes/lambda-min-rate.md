@@ -239,3 +239,107 @@ GCD-sums technology is built for.
 six octaves). If real, the bottom-edge law is pinned to the top-edge law,
 `λ_max ≈ 0.47(log N)²`, whose interval asymptotics may be tractable by the
 Hilberdink α = 1 method transposed to α = 1/2.
+
+## 6. Large-N Lanczos probe (N up to 1.3·10⁷): the (log N)⁻² law is rejected
+
+Extension of the §1 measurement three decades past dense-solver reach, via the
+exact sparse inverse of the Gram factor. Artifacts:
+`scripts/lambda_min_lanczos.py` (deterministic, seed 20260708; reproduces
+every number below), `figures/lambda-min-lanczos.png`, incremental JSON dump
+`/tmp/lambda_min_lanczos_progress.json`.
+
+**Method.** `K = C Cᵀ` with `C = D B diag(√φ)` (§0). `B` is unit lower
+triangular and its inverse is the Möbius matrix on the *same* sparsity
+pattern, `B⁻¹[m,d] = μ(m/d)` for `d | m`, so
+
+```text
+C⁻¹ = diag(φ^{-1/2}) B⁻¹ diag(√n)
+```
+
+is explicitly available with ~`(6/π²)·N log N` nonzeros, and `K⁻¹x =
+C⁻ᵀ(C⁻¹x)` costs two sparse matvecs. Lanczos (`eigsh`, `which='LA'`, `k=2`)
+on this exact inverse targets `1/λ_min` as a *dominant* eigenvalue — no
+shift-invert, no dense algebra anywhere. `λ_max` comes from plain Lanczos on
+`K`. At `N = 13107200` the factor has 2.2·10⁸ nonzeros and the bottom solve
+takes minutes on a laptop-class machine.
+
+**Validation.** All checks passed before trusting the new points:
+
+- against the dense `eigvalsh` anchors: rel. difference 4.9·10⁻⁸ at `N = 800`,
+  9.1·10⁻⁶ at 3200, 1.1·10⁻⁵ at 12800, 2.5·10⁻⁷ at 25600 — i.e. agreement to
+  the full quoted precision of the anchors (λ_min(12800) = 0.009088,
+  λ_min(25600) = 0.0077544);
+- the algebraic identity `C⁻¹(Cx) = x` holds to ≤ 2.6·10⁻¹⁶ (relative, random
+  `x`) at every `N`;
+- eigen-residuals measured on `K` itself (not the inverse):
+  `‖Kv − λ_min v‖ ≤ 2.7·10⁻¹⁴` across the grid (top edge ≤ 2.1·10⁻¹²).
+
+**Results** (half-octave grid `800·2^{k/2}`, 28 points, `800 ≤ N ≤ 13107200`;
+selected rows):
+
+| N | `λ_min` | `λ_min·(log N)²` | `λ_min·e^{1.472√(log N)}` | `λ_min·λ_max` |
+|---|---------|------------------|---------------------------|----------------|
+| 51200 | 0.0066590 | 0.7830 | 0.8483 | 0.3893 |
+| 102400 | 0.0057524 | 0.7656 | 0.8535 | 0.3889 |
+| 204800 | 0.0049992 | 0.7477 | 0.8601 | 0.3888 |
+| 409600 | 0.0043680 | 0.7295 | 0.8678 | 0.3889 |
+| 819200 | 0.0038332 | 0.7107 | 0.8760 | 0.3890 |
+| 1638400 | 0.0033769 | 0.6914 | 0.8846 | 0.3891 |
+| 3276800 | 0.0029862 | 0.6721 | 0.8938 | 0.3892 |
+| 6553600 | 0.0026502 | 0.6529 | 0.9036 | 0.3893 |
+| 13107200 | 0.0023598 | 0.6338 | 0.9138 | 0.3895 |
+
+**Verdict on the two §5 candidates.**
+
+- **`λ_min ≈ c₁/(log N)²` is rejected on the computed range.** The
+  compensated sequence `λ_min·(log N)²` falls monotonically from its dense
+  window plateau 0.83 to 0.634 at `N = 1.3·10⁷` — a 24% decline with no
+  flattening. Calibrated at the `N = 25600` anchor, the `(log N)⁻²`
+  extrapolation overshoots the measured `λ_min(13107200)` by **+26.1%**. The
+  local log-power exponent, which the law requires to fall back to 2, instead
+  rises monotonically: 2.1–2.2 (dense window) → 2.31 (`N ~ 4·10⁴`) → 2.69
+  (top octave). Free-exponent fits confirm no stable `a` exists (2.31 → 2.48
+  → 2.59 as the fit window moves up, rms 3× worse than the exp law in every
+  window).
+- **`λ_min ≈ A·exp(−c√(log N))` survives, with a slowly drifting `c`.** The
+  refit constants by window: `c = 1.411` (all `N ≥ 800`, rms 0.0092 in log),
+  `c = 1.379` (`N ≥ 25600`, rms 0.0031), `c = 1.358` (`N ≥ 409600`, rms
+  0.0008). The dense-window value 1.472 of §1/§5 is thus revised downward;
+  the local rate `c_loc = −Δlog λ_min/Δ√(log N)` decreases ≈ 0.010 per octave
+  through 1.341 at the top octave. A strong internal consistency check: the
+  exp law predicts a local log-power exponent `(c/2)·√(log N)`; at the top
+  octave this gives 2.686 vs. 2.686 measured — the log-power drift is
+  *exactly* what the exp law forces.
+- The extrapolated dense-window exp law (`0.84·e^{−1.472√(log N)}`)
+  undershoots at `N = 1.3·10⁷` by −7.7% — imperfect, but 3.4× closer than the
+  log-power overshoot and correctable by the refit (top-window law
+  `0.576·e^{−1.358√(log N)}` reproduces its 10 points to 0.08% rms).
+
+**Remaining ambiguity, quantified.** Pure `exp(−c√(log N))` requires
+`c_loc → const`; the observed decline (1.424 → 1.341 between `N ~ 3.6·10⁴`
+and `1.3·10⁷`) is much *slower* than the `∝ 1/√(log N)` collapse a log-power
+law forces, but it is not zero. A three-parameter hybrid
+`A·(log N)^{−β}·e^{−c√(log N)}` fits the drift with `β ≈ 0.7`, `c ≈ 1.0`
+(then `c_loc = c + 2β/√(log N)`), and ABS-type slowly varying corrections
+inside the square root remain equally compatible — as anticipated in §5,
+these cannot be separated on any feasible window: discriminating them needs
+`c_loc` to ~0.5% per octave at `N ≳ 10⁹`. The present method reaches
+`N ≈ 5·10⁷` in RAM (32 GB); beyond that the matvec must go matrix-free
+(divisor-loop, no stored factor), which changes nothing structurally.
+
+**Companion observation, sharpened.** `λ_min·λ_max` stays in `[0.3887,
+0.3895]` from `N = 204800` to `1.3·10⁷` (±0.1%, with a very slight upward
+drift ~+0.02% per octave at the top), while each factor moves by a factor
+~1.9. Correspondingly `λ_max/(log N)²` (0.533 at `4·10⁵`, 0.615 at `1.3·10⁷`)
+has left the §1 plateau 0.47 for good: the §1 forms `λ_max ≈ 0.47(log N)²`
+and `λ_min ≈ 0.83/(log N)²` fail *jointly*, in reciprocal fashion, exactly as
+the constant product demands. Whatever the true edge law is, the two spectral
+edges of `K_N` obey `λ_min·λ_max → ≈ 0.389` to high precision across five
+decades of `N` — this now looks like the most robust unexplained regularity
+in the data set.
+
+**Convergence caveat.** The bottom edge is an accumulation edge and the
+cluster tightens slowly: `λ₂/λ_min` falls from 1.52 (`N = 800`) to 1.309
+(`N = 1.3·10⁷`). Lanczos on the exact inverse remains comfortable at this
+gap; the `k = 2` computation returns both edge eigenvalues and the residuals
+above certify each reported `λ_min` independently of convergence heuristics.
