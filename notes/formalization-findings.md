@@ -245,17 +245,23 @@ deficit `hellinger_lt_one`) is the local input Kakutani's criterion consumes.
 Phase 2 (expansion bounds + the product criterion bridge) closes the gap to
 the dichotomy's statement; Phase 3 (Kakutani proper) is the summit.
 
-**Milestone (Phase 3, M4+M6):** the singular direction of Kakutani's
-dichotomy is proved (`infinitePi_mutuallySingular`, arbitrary index, via
-cylinder squeeze + Borel–Cantelli — no martingales), and with it the
-essay's phase boundary as a statement about measures:
-`poissonProduct_mutuallySingular` — for `0 < σ ≤ 1/2` the product Poisson
-measure over the primes is mutually singular with product Haar, endpoint
-included. The essay's sentence "the vacuum is not transported across the
-boundary as a measure" is now a citation to a kernel-checked theorem. The
-`σ > 1/2` equivalence half is M5. As far as we know this is the first
-formalization of Kakutani (1948) in any proof assistant, and it was built
-as an instrument for this program.
+**Milestone (Phase 3, complete): Kakutani's dichotomy is formalized —
+both directions — and the essay's phase boundary is a theorem.**
+`infinitePi_mutuallySingular` (cylinder squeeze + Borel–Cantelli, no
+martingales) and `infinitePi_absolutelyContinuous_of_summable` (quantitative
+cylinder comparison + measure-dense cylinder algebra + `Summable.vanishing`,
+no Lp spaces, one ENNReal crossing), both for **arbitrary index types** —
+stronger than designed. Axiom audit: `propext, Classical.choice, Quot.sound`.
+The capstone `poissonProduct_dichotomy` states the essay's boldest
+unconditional row as a single biconditional pair: the family of product
+Poisson measures over the primes is **singular with respect to product Haar
+iff `σ ≤ 1/2`, and equivalent iff `σ > 1/2`** — the type change at exactly
+the critical exponent, endpoint on the singular side, as the essay claimed.
+As far as we know this is the first formalization of Kakutani (1948) in any
+proof assistant, built as an instrument for this program. Method note: all
+five Phase 3 implementation waves compiled green on first or near-first
+attempts against the scout's grep-verified design — design-then-implement
+with verified names has been the decisive process discovery of this project.
 
 **Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
 Infinite products of probability measures *do* exist in the pinned Mathlib

@@ -19,6 +19,7 @@ import RiemannVenue.Kakutani.Cylinder
 import RiemannVenue.Kakutani.Singular
 import RiemannVenue.Kakutani.Equivalence
 import RiemannVenue.Kakutani.PoissonSingular
+import RiemannVenue.Kakutani.PoissonDichotomy
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
