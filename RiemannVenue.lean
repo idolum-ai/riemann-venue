@@ -33,6 +33,7 @@ import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
 import RiemannVenue.Tate.Gaussian
 import RiemannVenue.Tate.LocalFactors
+import RiemannVenue.Tate.LocalIntegral
 import RiemannVenue.Weil.ExplicitFormula
 import RiemannVenue.Weil.LogDerivative
 import RiemannVenue.Weil.TraceArchitecture
