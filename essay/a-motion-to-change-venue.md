@@ -432,7 +432,7 @@ $$
 \sum_p\frac{\cos(u\log p)}p
 $$
 
-has a finite Abel/prime-zeta boundary value for $u\ne0$, reflecting the classical fact that $\zeta(1+iu)$ is finite and nonzero off $u=0$, a consequence of the Hadamard--de la Vallée Poussin zero-free line used in the [Prime Number Theorem](https://math.mit.edu/classes/18.785/2021fa/LectureNotes16.pdf). Thus the nonzero scale shifts are expelled at the same threshold:
+converges with bounded partial sums for $u\ne0$ — the mode of convergence Kakutani's criterion consumes, since the full series has nonnegative terms. This is [Prime Number Theorem](https://math.mit.edu/classes/18.785/2021fa/LectureNotes16.pdf) strength: it reflects the classical fact that $\zeta(1+iu)$ is finite and nonzero off $u=0$, the Hadamard--de la Vallée Poussin zero-free line. Thus the nonzero scale shifts are expelled at the same threshold:
 
 $$
 (T_u)_*\mu_\sigma\sim\mu_\sigma\quad(\sigma>1/2),
