@@ -516,7 +516,7 @@
 		\input glyphtounicode
 		\pdfgentounicode=1
 	}{}%
-\fi 
+\fi
 \IfFileExists{lmodern.sty}{\RequirePackage{lmodern}}{}
 \IfFileExists{fontawesome5.sty}{%
 \RequirePackage{fontawesome5}%
@@ -937,7 +937,7 @@ pdfsubject={LIPIcs, Vol.\@SeriesVolume, \@EventShortTitle; Copyright (C) \ifx\au
   \textcolor{lipicsGray}{\fontsize{9}{12}\sffamily\bfseries
                        Related Version\enskip}}
 \def\supplement#1{\def\@supplement{#1}}
-\let\@supplement\@empty 
+\let\@supplement\@empty
 \define@key{supplementdetails}{linktext}{\def\supplementdetails@linktext{#1}}
 \define@key{supplementdetails}{cite}{\def\supplementdetails@cite{#1}}
 \define@key{supplementdetails}{subcategory}{\def\supplementdetails@subcategory{#1}}
@@ -1074,7 +1074,7 @@ pdfsubject={LIPIcs, Vol.\@SeriesVolume, \@EventShortTitle; Copyright (C) \ifx\au
 		\kern0.05em{\color{lipicsYellow}\rule{0.73em}{0.73em}}%
 		\hspace*{0.67em}\small%
 \ProcSty{\ProcFnt\algocf@procname\ifthenelse{\boolean{algocf@procnumbered}}{\nobreakspace\thealgocf\algocf@typo\algocf@capseparator}{\relax}}%
-    \nobreakspace\ProcNameSty{\ProcNameFnt\algocf@captname #2@}% Name of the procedure in ProcName Style. 
+    \nobreakspace\ProcNameSty{\ProcNameFnt\algocf@captname #2@}% Name of the procedure in ProcName Style.
     \ifthenelse{\equal{\algocf@captparam #2@}{\arg@e}}{}{% if no argument, write nothing
       \ProcNameSty{\ProcNameFnt(}\ProcArgSty{\ProcArgFnt\algocf@captparam #2@}\ProcNameSty{\ProcNameFnt)}%else put arguments in ProcArgSty:
     }% endif

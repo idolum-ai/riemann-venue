@@ -276,13 +276,13 @@ $$
 So the finite-place theorem is:
 
 > **Finite-place divisibility spectrum.** The positive-definite function
-> 
+>
 > $$
 > \kappa(q)=\prod_p p^{-|v_p(q)|/2}
 > $$
-> 
+>
 > on $\mathbb Q_+^\times$ is the Fourier transform of the product Poisson measure $\mu=\bigotimes_p\mu_p$ on the prime torus $\mathbb T^{\mathcal P}$:
-> 
+>
 > $$
 > \kappa(q)=\int_{\mathbb T^{\mathcal P}}\chi_z(q)\,d\mu(z).
 > $$
@@ -856,11 +856,11 @@ $$
 The missing problem is now precise:
 
 > **Boundary Positivity Problem.** Starting from the finite-place Poisson spectral geometry, construct the completed, renormalized log-scale distribution $W$ whose finite-place component is the prime-power distribution above, whose archimedean component is the gamma contribution, and whose pole terms match the completed explicit formula. Then prove
-> 
+>
 > $$
 > W(h^* * h)\ge0
 > $$
-> 
+>
 > for every test function $h$ on log-scale.
 
 By [Weil's criterion](https://eudml.org/doc/252338), as stated in Bombieri's form, this positivity is equivalent to RH. It is not a final technical step. It is the locked chamber.
