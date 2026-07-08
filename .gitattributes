@@ -1,0 +1,3 @@
+# Binary artifacts — never diffed as text (whitespace checks, merge drivers)
+*.pdf binary
+*.png binary

@@ -1,0 +1,28 @@
+# Lean / Lake build artifacts
+.lake/
+*.olean
+*.ilean
+*.c
+*.o
+*.so
+*.a
+
+# Python / notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Environment / local secrets
+.env
+.env.*
+!.env.example
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# Generated local logs
+*.log

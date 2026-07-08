@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "riemann-venue: a machine-checked workspace for the finite-place spectral geometry of divisibility"
+message: >-
+  If you use this repository — the Kakutani dichotomy formalization, the
+  gcd-kernel spectral instruments, the primorial bound, or the open-problem
+  dossiers — please cite it as below.
+type: software
+authors:
+  - family-names: Rodriguez
+    given-names: Daniel
+notes: >-
+  Created by Daniel Rodriguez in collaboration with two AI systems:
+  Claude Fable 5 (Anthropic), which co-developed the Lean formalizations,
+  computational experiments, and research notes in interactive sessions
+  under the author's direction; and GPT 5.5 Pro (OpenAI), which provided
+  feedback on the accompanying essay and the repository's initial outline.
+  All mathematical content is machine-checked (Lean 4 / Mathlib, zero-sorry
+  CI policy, axiom audits) or explicitly labeled otherwise in
+  docs/status-ledger.md; correctness rests on the Lean kernel and the
+  reproducibility scripts, not on trust in any author, human or artificial.
+keywords:
+  - Riemann Hypothesis
+  - gcd kernel
+  - Kakutani dichotomy
+  - Lean 4
+  - Mathlib
+  - formalization
+  - GCD sums
+repository-code: "https://github.com/idolum-ai/riemann-venue"
+license: Apache-2.0
