@@ -244,6 +244,37 @@ theorem hellingerAffinity_eq_zero_iff [IsFiniteMeasure μ] [IsFiniteMeasure ν] 
       simp only [Pi.zero_apply] at hx
       simp [hx]
 
+/-- **The affinity is positive exactly on non-singular pairs** — the
+contrapositive reading of `hellingerAffinity_eq_zero_iff`, via the `ℝ≥0∞`
+order. -/
+theorem hellingerAffinity_pos_iff [IsFiniteMeasure μ] [IsFiniteMeasure ν] :
+    0 < hellingerAffinity μ ν ↔ ¬ μ ⟂ₘ ν := by
+  rw [pos_iff_ne_zero, ne_eq, hellingerAffinity_eq_zero_iff]
+
+/-- The affinity is monotone in its first argument: enlarging `μ` enlarges
+`∫⁻ √(dμ/dν) dν`. The Radon–Nikodym comparison comes from splitting
+`μ' = (μ' - μ) + μ` and `rnDeriv_add'`. -/
+theorem hellingerAffinity_mono_left {μ' : Measure Ω} [IsFiniteMeasure μ]
+    [IsFiniteMeasure μ'] [IsFiniteMeasure ν] (h : μ ≤ μ') :
+    hellingerAffinity μ ν ≤ hellingerAffinity μ' ν := by
+  rw [hellingerAffinity_eq_lintegral_rnDeriv, hellingerAffinity_eq_lintegral_rnDeriv]
+  have hle : μ.rnDeriv ν ≤ᵐ[ν] μ'.rnDeriv ν := by
+    have hadd := Measure.rnDeriv_add' (μ' - μ) μ ν
+    rw [sub_add_cancel_of_le h] at hadd
+    filter_upwards [hadd] with x hx
+    rw [hx]
+    exact le_add_self
+  refine lintegral_mono_ae ?_
+  filter_upwards [hle] with x hx
+  exact ENNReal.rpow_le_rpow hx (by norm_num)
+
+/-- The affinity is monotone in its second argument, by symmetry. -/
+theorem hellingerAffinity_mono_right {ν' : Measure Ω} [IsFiniteMeasure μ]
+    [IsFiniteMeasure ν] [IsFiniteMeasure ν'] (h : ν ≤ ν') :
+    hellingerAffinity μ ν ≤ hellingerAffinity μ ν' := by
+  rw [hellingerAffinity_comm μ ν, hellingerAffinity_comm μ ν']
+  exact hellingerAffinity_mono_left h
+
 end Measure
 
 end MeasureTheory

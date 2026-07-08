@@ -382,3 +382,30 @@ and a null-set subtraction, because the definition had been shaped for it
 three milestones earlier. Total definitions are cheap insurance — the
 hypothesis was never load-bearing, only the scaffolding that let M4 land
 before M3's density lemmas were re-derived in general form.
+
+## 14. The packaged dichotomy: the iff needs only half the hypotheses
+
+`RiemannVenue/Kakutani/Dichotomy.lean` mints the two statements the PR-plan
+Equivalence table asks for in place of `_and_symm` conjunction-conclusions:
+`infinitePi_absolutelyContinuous_or_mutuallySingular` (two-sided a.c. ∨
+mutually singular, under mutual local a.c.) and
+`infinitePi_absolutelyContinuous_iff` (`⨂ μ ≪ ⨂ ν ↔ 0 < ⨅ ∏ H`). Both are
+short — the `ℝ≥0∞` order split `eq_zero_or_pos` on the criterion carrier is
+exhaustive with no case analysis debt — which confirms the plan's "two-line
+corollary" prediction.
+
+The finding: the iff is *sharper than the design asked for*. Design §2.2
+stated it under mutual local a.c.; the hac-free singular direction (finding
+13) means the forward implication is pure exclusivity — absolute continuity
+plus singularity annihilates a probability measure — consuming no local
+hypothesis at all. So the iff holds under the one-sided `∀ i, μ i ≪ ν i`
+only, and the mutual-a.c. conjunction form of the design is a corollary via
+`hellingerAffinity_comm`. Hypothesis drops propagate: weaken a lemma once
+and every downstream packaging weakens for free.
+
+Riders in Affinity.lean for the live PR 1 review: `hellingerAffinity_pos_iff`
+(one rewrite chain off `eq_zero_iff`), and monotonicity in each argument —
+`hellingerAffinity_mono_left/right`. Monotonicity was expected to be the
+risky one, but the pin's `Measure.sub` API (`sub_add_cancel_of_le` +
+`rnDeriv_add'`) makes `dμ/dν ≤ᵐ dμ'/dν` for `μ ≤ μ'` a five-line split
+`μ' = (μ' − μ) + μ`; the right version is symmetry.

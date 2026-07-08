@@ -17,11 +17,13 @@ import RiemannVenue.Kernels.LiouvilleConjugation
 import RiemannVenue.Kernels.PrimorialBound
 import RiemannVenue.Kernels.SmithDeterminant
 import RiemannVenue.Kernels.PinnedIdentity
+import RiemannVenue.Kernels.LiouvilleGauge
 import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
 import RiemannVenue.Kakutani.Singular
 import RiemannVenue.Kakutani.Equivalence
+import RiemannVenue.Kakutani.Dichotomy
 import RiemannVenue.Kakutani.PoissonSingular
 import RiemannVenue.Kakutani.PoissonDichotomy
 import RiemannVenue.Kakutani.SpectralMeasure
