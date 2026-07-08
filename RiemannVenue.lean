@@ -30,6 +30,7 @@ import RiemannVenue.Tate.Gaussian
 import RiemannVenue.Tate.LocalFactors
 import RiemannVenue.Weil.ExplicitFormula
 import RiemannVenue.Weil.LogDerivative
+import RiemannVenue.Weil.TraceArchitecture
 import RiemannVenue.Weil.Positivity
 import RiemannVenue.Venue.NoLeak
 import RiemannVenue.Venue.NonRadon
