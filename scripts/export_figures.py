@@ -35,6 +35,11 @@ def gcd_kernel(n: int) -> np.ndarray:
     return g / np.sqrt(np.outer(i, i))
 
 
+def stable_eigvalsh(matrix: np.ndarray) -> np.ndarray:
+    """Round LAPACK-dependent last bits before rendering evidence plots."""
+    return np.round(np.linalg.eigvalsh(matrix), 10)
+
+
 def fig_gcd_kernel_spectrum() -> None:
     """Claim: K(m,n)=gcd(m,n)/sqrt(mn) is positive semidefinite.
 
@@ -43,7 +48,7 @@ def fig_gcd_kernel_spectrum() -> None:
     Ns = [50, 200, 800]
     fig, axes = plt.subplots(1, 2, figsize=(11, 4))
     for N in Ns:
-        vals = np.linalg.eigvalsh(gcd_kernel(N))
+        vals = stable_eigvalsh(gcd_kernel(N))
         axes[0].semilogy(np.arange(1, N + 1) / N, vals[::-1], label=f"N={N}")
     axes[0].set_xlabel("normalized index k/N")
     axes[0].set_ylabel("eigenvalue (log)")
@@ -51,7 +56,7 @@ def fig_gcd_kernel_spectrum() -> None:
     axes[0].legend()
 
     Ns_min = np.array([2 ** k for k in range(2, 11)])
-    minvals = [np.linalg.eigvalsh(gcd_kernel(int(N)))[0] for N in Ns_min]
+    minvals = [stable_eigvalsh(gcd_kernel(int(N)))[0] for N in Ns_min]
     axes[1].loglog(Ns_min, minvals, "o-")
     axes[1].set_xlabel("N")
     axes[1].set_ylabel("smallest eigenvalue")
