@@ -269,6 +269,39 @@ five Phase 3 implementation waves compiled green on first or near-first
 attempts against the scout's grep-verified design — design-then-implement
 with verified names has been the decisive process discovery of this project.
 
+## 11. Close of the fourth expedition: the venue produces its own mathematics
+
+The leg that began with "Ring 1, then the antechamber" closed with:
+
+- **The Finite-place Spectral Theorem, complete** (`SpectralMeasure.lean`):
+  κ as the Fourier coefficient of the product Poisson measure on the
+  infinite prime torus. All three faces of the kernel formal at the
+  infinite level.
+- **The primorial bound** (`PrimorialBound.lean`): the first theorem
+  *discovered inside this program* — conjectured from the measured
+  minimizer's portrait, derived on paper (`lambda-min-upper-design.md`),
+  validated numerically to 4×10⁻¹⁵ over 19 grid points
+  (`lambda-min-rate.md` §7), then machine-checked, axioms
+  `propext, Classical.choice, Quot.sound`. The observe → conjecture →
+  derive → validate → formalize pipeline executed end to end.
+- **The Liouville conjugation** (`LiouvilleConjugation.lean`): the θ↦θ+π
+  rotation is conjugation by `diag(λ)`; the 0.389 law reframed as the
+  truncation deficit of an exact reciprocity.
+- **The rate question, sharpened**: true `λ_min` beats every product-type
+  family; honest target `exp(−(log N)^{1/2+o(1)})`; the beyond-product
+  mechanism is the flagship open problem, precisely posed.
+
+Interpretive point for the essay revision: until this leg, every theorem
+*defended* the essay; the primorial bound is the first the venue *found on
+its own* — a question unaskable in placement coordinates (it exists only
+once divisibility is represented as length). The historical pattern the
+essay invokes (rebuilt coordinates generate results the old coordinates
+could not ask for) is now instantiated inside the program itself.
+
+Next arc (agreed): repo polish → Mathlib PR extraction (Kakutani tree +
+`integral_finset_prod_infinitePi` + Hellinger affinity) → revision brief →
+the essay, second edition, filed with its record attached.
+
 **Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
 Infinite products of probability measures *do* exist in the pinned Mathlib
 (`Measure.infinitePi`, built on Ionescu–Tulcea, with cylinder/restriction/

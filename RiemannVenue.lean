@@ -14,6 +14,7 @@ import RiemannVenue.Kernels.Moments
 import RiemannVenue.Kernels.Polydisc
 import RiemannVenue.Kernels.CriterionBridge
 import RiemannVenue.Kernels.LiouvilleConjugation
+import RiemannVenue.Kernels.PrimorialBound
 import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
