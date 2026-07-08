@@ -52,7 +52,7 @@ theorem integral_cos_mul_cos (n j : ℕ) :
           + Real.cos ((((n : ℤ) + (j : ℤ) + 2 : ℤ) : ℝ) * θ)) / 2 := by
     funext θ
     rw [cos_mul_cos_eq]
-    congr 2 <;> push_cast <;> ring
+    congr 2 <;> push_cast <;> ring_nf
   have hint1 : IntervalIntegrable
       (fun θ : ℝ => Real.cos ((((n : ℤ) - (j : ℤ) : ℤ) : ℝ) * θ))
       volume (-Real.pi) Real.pi :=
