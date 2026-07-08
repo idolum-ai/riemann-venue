@@ -1,4 +1,163 @@
 #!/usr/bin/env python3
-"""Placeholder for future figure export pipeline."""
+"""Regenerate every figure under figures/ deterministically.
 
-print("No figure export pipeline is defined yet.")
+Each figure is produced by a pure function of fixed parameters (no RNG, no
+timestamps), so re-running this script yields stable PNGs for review diffs.
+The mathematical objects mirror the essay's claims; each function's docstring
+names the claim it evidences.
+"""
+from __future__ import annotations
+
+import math
+from pathlib import Path
+
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+from sympy import primerange
+
+root = Path(__file__).resolve().parents[1]
+figdir = root / "figures"
+
+
+def gcd_kernel(n: int) -> np.ndarray:
+    i = np.arange(1, n + 1)
+    g = np.gcd.outer(i, i).astype(float)
+    return g / np.sqrt(np.outer(i, i))
+
+
+def fig_gcd_kernel_spectrum() -> None:
+    """Claim: K(m,n)=gcd(m,n)/sqrt(mn) is positive semidefinite.
+
+    Evidence: min eigenvalue of K_N stays >= 0 across N; spectrum plot.
+    """
+    Ns = [50, 200, 800]
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4))
+    for N in Ns:
+        vals = np.linalg.eigvalsh(gcd_kernel(N))
+        axes[0].semilogy(np.arange(1, N + 1) / N, vals[::-1], label=f"N={N}")
+    axes[0].set_xlabel("normalized index k/N")
+    axes[0].set_ylabel("eigenvalue (log)")
+    axes[0].set_title("Spectrum of the normalized gcd kernel")
+    axes[0].legend()
+
+    Ns_min = np.array([2 ** k for k in range(2, 11)])
+    minvals = [np.linalg.eigvalsh(gcd_kernel(int(N)))[0] for N in Ns_min]
+    axes[1].loglog(Ns_min, minvals, "o-")
+    axes[1].set_xlabel("N")
+    axes[1].set_ylabel("smallest eigenvalue")
+    axes[1].set_title("Minimum eigenvalue stays positive")
+    fig.tight_layout()
+    fig.savefig(figdir / "gcd-kernel-spectrum.png", dpi=150)
+    plt.close(fig)
+
+
+def fig_euler_shadows() -> None:
+    """Claim: finite Euler shadows F_S(u) equal zeta_S(1)^{-1} |zeta_S(1/2+iu)|^2."""
+    u = np.linspace(-30, 30, 4001)
+    fig, ax = plt.subplots(figsize=(10, 4))
+    for bound in (10, 30, 100):
+        primes = list(primerange(2, bound))
+        F = np.ones_like(u)
+        for p in primes:
+            a = p ** -0.5
+            F *= (1 - a * a) / np.abs(1 - a * np.exp(-1j * u * math.log(p))) ** 2
+        ax.plot(u, F, lw=1, label=f"S = primes < {bound}")
+    ax.set_xlabel("u (log-scale frequency)")
+    ax.set_ylabel(r"$F_S(u)$")
+    ax.set_title(r"Finite Euler shadows $F_S(u)=\prod_{p\in S}P_{p^{-1/2}}(u\log p)$")
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(figdir / "euler-shadows.png", dpi=150)
+    plt.close(fig)
+
+
+def fig_nonradon_mass() -> None:
+    """Claim: the direct length-side limit is non-Radon; kappa((n+1)/n) ~ 1/n has divergent partial sums."""
+    n = np.arange(1, 200001)
+    kappa = 1.0 / np.sqrt(n * (n + 1.0))
+    fig, ax = plt.subplots(figsize=(7, 4))
+    ax.semilogx(n, np.cumsum(kappa))
+    ax.set_xlabel("n")
+    ax.set_ylabel(r"$\sum_{m\le n}\kappa\left(\frac{m+1}{m}\right)$")
+    ax.set_title("Mass accumulating at 0: divergent partial sums (log axis)")
+    fig.tight_layout()
+    fig.savefig(figdir / "nonradon-mass.png", dpi=150)
+    plt.close(fig)
+
+
+def fig_kakutani_threshold() -> None:
+    """Claim: product Poisson measures change type at sigma = 1/2 (Kakutani)."""
+    sigmas = np.linspace(0.3, 1.0, 141)
+    theta = np.linspace(-math.pi, math.pi, 4001)
+    fig, ax = plt.subplots(figsize=(7, 4))
+    for bound in (100, 1000, 10000):
+        primes = np.array(list(primerange(2, bound)), dtype=float)
+        prods = []
+        for s in sigmas:
+            a = primes ** (-s)
+            log_H_sum = 0.0
+            for ai in a:
+                H = np.trapz(
+                    np.sqrt((1 - ai * ai) / (1 - 2 * ai * np.cos(theta) + ai * ai)), theta
+                ) / (2 * math.pi)
+                log_H_sum += math.log(H)
+            prods.append(math.exp(log_H_sum))
+        ax.plot(sigmas, prods, label=f"primes < {bound}")
+    ax.axvline(0.5, color="k", ls="--", lw=1, label=r"$\sigma=1/2$")
+    ax.set_xlabel(r"$\sigma$")
+    ax.set_ylabel(r"$\prod_{p\in S} H_p(\sigma)$")
+    ax.set_title("Kakutani Hellinger products collapse below the critical exponent")
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(figdir / "kakutani-threshold.png", dpi=150)
+    plt.close(fig)
+
+
+def fig_radial_derivative() -> None:
+    """Claim: -d/dsigma of the denominator log-product at 1/2 isolates prime powers."""
+    u = np.linspace(0, 12, 6001)
+    primes = list(primerange(2, 200))
+    D = np.zeros_like(u)
+    for p in primes:
+        lp = math.log(p)
+        for r in range(1, 40):
+            w = (p ** (-r / 2.0)) * lp
+            if w < 1e-12:
+                break
+            D += 2 * w * np.cos(u * r * lp)
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(u, D, lw=0.8)
+    for p in (2, 3, 5, 7, 11):
+        for r in (1, 2):
+            x = r * math.log(p)
+            if x <= 12:
+                ax.axvline(x, color="r", ls=":", lw=0.6)
+    ax.set_xlabel("u")
+    ax.set_ylabel(r"$-\partial_\sigma L_{S,\sigma}(u)\,\big|_{\sigma=1/2}$")
+    ax.set_title("Radial derivative concentrates at prime-power logs (dotted: $r\\log p$)")
+    fig.tight_layout()
+    fig.savefig(figdir / "radial-derivative.png", dpi=150)
+    plt.close(fig)
+
+
+FIGURES = {
+    "gcd-kernel-spectrum": fig_gcd_kernel_spectrum,
+    "euler-shadows": fig_euler_shadows,
+    "nonradon-mass": fig_nonradon_mass,
+    "kakutani-threshold": fig_kakutani_threshold,
+    "radial-derivative": fig_radial_derivative,
+}
+
+
+def main() -> None:
+    figdir.mkdir(exist_ok=True)
+    for name, fn in FIGURES.items():
+        fn()
+        print(f"wrote figures/{name}.png")
+
+
+if __name__ == "__main__":
+    main()
