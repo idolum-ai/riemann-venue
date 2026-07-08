@@ -33,6 +33,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 | Kakutani Hellinger products collapse for `σ ≤ 1/2` | computed | `notebooks/kakutani-threshold.ipynb`, `figures/kakutani-threshold.png` |
 | Radial derivative concentrates at prime-power logs | computed | `notebooks/radial-derivative.ipynb`, `figures/radial-derivative.png` |
 | The 10 exhibit sheets reproduce from Typst source | rendered (deviations listed in `exhibits/README.md`) | `exhibits/exhibit-sheets.typ`, `exhibits/exhibit-sheets.pdf` |
-| Tate local zeta integrals; Kakutani/Bochner infinite-product layer | notes only (absent from Mathlib) | `notes/tate-vacuum.md`, `notes/gcd-kernel.md` |
+| Tate local zeta integrals; Hellinger-affinity layer | notes only (absent from Mathlib) | `notes/tate-vacuum.md`, `notes/gcd-kernel.md` |
+| Infinite product measures (`Measure.infinitePi`, Ionescu–Tulcea) | available in pinned Mathlib (earlier "absent" claim was stale; corrected by the Phase 3 scout) | `notes/kakutani-design.md` |
+| Kakutani dichotomy: design + milestone ladder (M1–M6; singular direction via Borel–Cantelli lands first) | designed; implementation in progress | `notes/kakutani-design.md` |
 | Weil positivity of the completed distribution; modular/trace realizations | notes only / programmatic | `notes/weil-functional.md` |
 | This repository proves RH | explicitly not claimed | `README.md` |

@@ -244,3 +244,14 @@ the supporting bench (moment identity, normalization, strict Hellinger
 deficit `hellinger_lt_one`) is the local input Kakutani's criterion consumes.
 Phase 2 (expansion bounds + the product criterion bridge) closes the gap to
 the dichotomy's statement; Phase 3 (Kakutani proper) is the summit.
+
+**Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
+Infinite products of probability measures *do* exist in the pinned Mathlib
+(`Measure.infinitePi`, built on Ionescu–Tulcea, with cylinder/restriction/
+re-indexing API) — our earlier "absent from Mathlib" claim was stale.
+Hellinger affinity remains genuinely absent, as do `pi_withDensity`
+tensorization and the `∏(1−xᵢ)`↔`Summable` bridge; those are the actual
+missing blocks, and they are elementary. See `notes/kakutani-design.md`
+for the M1–M6 ladder. Notably, the *singular* direction (the essay's
+headline at `σ ≤ 1/2`) needs only Borel–Cantelli — no martingales, no
+zero–one law — and lands before the equivalence direction.
