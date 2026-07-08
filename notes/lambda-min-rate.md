@@ -343,3 +343,115 @@ cluster tightens slowly: `λ₂/λ_min` falls from 1.52 (`N = 800`) to 1.309
 (`N = 1.3·10⁷`). Lanczos on the exact inverse remains comfortable at this
 gap; the `k = 2` computation returns both edge eigenvalues and the residuals
 above certify each reported `λ_min` independently of convergence heuristics.
+
+## 7. Test-family validation gate
+
+Validation of the B1 upper-bound design (`notes/lambda-min-upper-design.md`)
+against the measured data above, deciding the B3 checkpoint. Artifacts:
+`scripts/lambda_min_testfamily.py` (deterministic, seed 20260708; every
+number below reproducible from it), `figures/lambda-min-testfamily.png`,
+JSON dump `/tmp/lambda_min_testfamily.json`. The measured `λ_min` inputs are
+the §1/§6 values transcribed into the script; the `N = 25600` bottom/top
+pair is re-derived independently inside the run (rel. diff `2.5·10⁻⁷` /
+exact to quoted digits).
+
+**Families implemented** exactly per the design note §8.1: B-μ (Möbius on
+divisors of the largest primorial `≤ N`), B-sine (Liouville × per-prime sine
+taper on the greedy knapsack box), B-eig (per-prime minimal eigenvectors of
+the KMS blocks `T_{L_p}(p^{-1/2})` on the same box). Greedy schedules
+recomputed from exact small eigensolves (gain/cost heap over length
+increments, budget `Σ(L_p−1)log p ≤ log N`).
+
+**Factorization cross-check** [verified-numerically]. For every `N` on the
+19-point grid (`800 ≤ N ≤ 5.2·10⁷`) and every family, `R(x)` was evaluated
+three exact ways — per-prime product formula, direct `O(|supp|²)` double sum
+with integer gcds, sieve identity `Σ_d φ(d)S(d)²` — and, at
+`N ∈ {10⁴, 12800, 102400, 10⁶, 10⁷}`, a fourth: `‖CᵀX‖²` with the full
+sparse Gram factor over `{1..N}`. Worst relative deviation across all
+checks: **4.2·10⁻¹⁵** (full-matvec ≤ 2.1·10⁻¹⁵). The design note's exact
+per-prime factorization claim holds at machine precision everywhere tested,
+far beyond the single `N = 12800` scratch check.
+
+**Predictions reproduced** [verified-numerically]. All 9 greedy schedules of
+the design note §8.2 (`N = 10⁴ … 5.2·10⁷`) are reproduced identically, and
+all 27 predicted values (B-eig, B-sine, B-μ) agree to `≤ 3.5·10⁻⁷` absolute
+— i.e. to the note's quoting precision.
+
+**Best box vs truth** [verified-numerically]:
+
+| N | `R_B-eig` | `λ_min` | ratio |
+|---|---|---|---|
+| 800 | 0.031860 | 0.018566 | 1.72 |
+| 3 200 | 0.022623 | 0.012735 | 1.78 |
+| 12 800 | 0.018813 | 0.009088 | 2.07 |
+| 25 600 | 0.017905 | 0.0077544 | 2.31 |
+| 102 400 | 0.014427 | 0.0057524 | 2.51 |
+| 409 600 | 0.011419 | 0.0043680 | 2.61 |
+| 1 638 400 | 0.010425 | 0.0033769 | 3.09 |
+| 3 276 800 | 0.009496 | 0.0029862 | 3.18 |
+| 13 107 200 | 0.0082511 | 0.0023598 | 3.50 |
+
+The design note's factor-2.1–3.5 tracking claim is confirmed on its anchors,
+and extends to 1.7–3.5 on the full grid. One correction: the drift is
+**≈ +5.2% per octave** on average (never above +9% on any 3-octave step),
+not the "+11% per octave" quoted in the design note §4.3 — the 2.07 → 3.50
+rise spans 10 octaves, giving `(3.50/2.07)^{1/10} = 1.054`. The ratio rises
+monotonically with no sign of flattening: on the computed window the true
+minimizer strictly outruns the best product family, at a slow (polylog-
+compatible) pace — the V3 falsifier ("acceleration past every polylog") is
+*not* triggered, but neither is the flattening that would certify the box
+shape as the true rate.
+
+**Refits: the barrier-shaped law loses decisively** [verified-numerically].
+The B1 barrier makes `exp(−C·√(log N)/log log N)` the natural product-family
+law; §6 never tested it. Fitted on the measured `λ_min` (rms in `log λ`):
+
+| window | `A·e^{−c√(log N)}` | `A·e^{−C√(log N)/log log N}` (C free) | `A(log N)^{−a}` |
+|---|---|---|---|
+| all 13 pts (`N ≥ 800`) | c = 1.406, rms **0.0097** | C = 20.2, rms 0.164 | a = 2.32, rms 0.031 |
+| `N ≥ 25600` | c = 1.378, rms **0.0036** | C = 16.1, rms 0.030 | a = 2.48, rms 0.0092 |
+| `N ≥ 409600` | c = 1.358, rms **0.0009** | C = 14.4, rms 0.0062 | a = 2.59, rms 0.0027 |
+
+The barrier form is 7–17× worse than the exp law in every window, needs an
+absurd prefactor (`A ~ 10⁶–10¹⁰`), and is structurally unable to follow the
+data: `√(log N)/log log N` is non-monotone below `N = e^{e²} ≈ 1620` and
+nearly flat across the whole computed window (1.36 → 1.45 while `λ_min`
+falls 7.9×), which is the same value-vs-slope inconsistency as the design
+note §4.3 (α(value) = 4.2 vs α(slope) = 13.3 at the top octave; for the box
+family itself: 3.4 vs 12.6 — the *product family's own R* does not follow
+its asymptotic law on this window either, so the window cannot certify
+asymptotic shape for either sequence). Three-parameter fits prefer an
+effective exponent slightly *below* 1/2: `θ`-scan gives
+`λ ≈ A·exp(−c(log N)^θ)` with `θ = 0.36–0.38` (rms 0.0002–0.0007), and the
+§6 hybrid `A(log N)^{−β}e^{−c√(log N)}` gives `β ≈ 0.6–0.7`, `c ≈ 1.0`
+(rms 0.00006–0.0009). Verdict: on current data the effective decay exponent
+sits between the product-family shape (`≈ (log N)^{0.5}/log log N`) and the
+pure `√(log N)` law, and everything remains consistent with the revised
+conjecture `λ_min = exp(−(log N)^{1/2+o(1)})` [conjectured] with a
+negative slowly-varying `o(1)`; the pure two-parameter barrier form is the
+only candidate the data actively reject.
+
+**The 0.389 rider probe** (`N = 25600`) [verified-numerically]. Bottom and
+top eigenvectors from the same machinery: `λ_min·λ_max = 0.3898`
+(reproduces §1). Sign structure is exactly the Poisson-point pairing story:
+the bottom vector's signs equal Liouville `λ(n)` with mass-weighted
+agreement 1.000000 (`θ = π` in every prime direction), the top vector is
+Perron-positive (`θ = 0`). Magnitude structure is only partially paired:
+both edges live on small smooth numbers (top-10 supports share 6 of 10
+elements — bottom {30, 6, 12, 60, 42, 210, 10, 2, 18, 84}, top
+{12, 60, 6, 24, 30, 120, 36, 4, 18, 72}), but `cos(|v_min|, v_max) = 0.68`
+and the top vector spreads much further out (mass on `n ≤ 100`: 0.52 bottom
+vs 0.13 top, favoring deeper prime powers 24, 120, 72). So the
+`P_a(0)P_a(π) = 1` mechanism is supported at the level of sign pattern,
+shared smooth support, and the constancy of the product, but the two
+extremal profiles are not mirror images — consistent with the design note's
+own hedge that boxes (for which the pairing would be exact as `L → ∞`) are
+not the true extremal vectors [heuristic status unchanged].
+
+**Gate verdict for B3** (one sentence): family validated and rate question
+re-opened — the B1 construction is numerically exact and tracks `λ_min`
+within a slowly growing small factor, but the true `λ_min` decays strictly
+faster than the product-family barrier form on the computed window (which
+the data reject as a two-parameter law), so the honest working target is
+`exp(−(log N)^{1/2+o(1)})` with the gap mechanism beyond product families
+still unexplained.
