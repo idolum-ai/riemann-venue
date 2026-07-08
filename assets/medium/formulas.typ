@@ -14,3 +14,11 @@ $ lambda_min (K_N) = exp(-(log N)^(1\/2 + o(1))) quad ? $
 #pagebreak()
 
 $ mu_sigma perp "Haar" quad (sigma <= 1\/2), quad quad mu_sigma tilde.op "Haar" quad (sigma > 1\/2) $
+
+#pagebreak()
+
+$ mu * zeta = delta $
+
+#pagebreak()
+
+$ W(h^* convolve h) >= 0 $
