@@ -4,7 +4,8 @@
 Default: JSON-validate every notebook under notebooks/.
 With --execute: run each notebook top to bottom with nbclient and fail on
 any cell error. Executed outputs are written back in place so the committed
-notebooks carry their evidence.
+notebooks carry textual/numeric evidence. Rich image payloads are stripped
+because plotted artifacts are byte-gated separately under figures/.
 """
 from __future__ import annotations
 
@@ -14,6 +15,12 @@ import sys
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
+
+VOLATILE_DISPLAY_MIME_TYPES = {
+    "image/jpeg",
+    "image/png",
+    "image/svg+xml",
+}
 
 
 def validate(path: Path) -> None:
@@ -40,6 +47,10 @@ def _normalize_outputs(outputs: list[object]) -> list[object]:
         if not isinstance(output, dict):
             merged.append(output)
             continue
+        data = output.get("data")
+        if isinstance(data, dict):
+            for mime_type in VOLATILE_DISPLAY_MIME_TYPES:
+                data.pop(mime_type, None)
         if output.get("output_type") == "stream":
             if (
                 merged

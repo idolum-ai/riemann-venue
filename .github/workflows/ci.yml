@@ -51,8 +51,9 @@ jobs:
         run: pip install -r requirements.txt
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
-      # Drift gate: executed notebooks are committed evidence, so rerunning them
-      # must not change their tracked JSON.
+      # Drift gate: executed notebooks are committed textual/numeric evidence,
+      # so rerunning them must not change their tracked JSON. Plot image bytes
+      # are normalized out here and covered by the figure drift gate below.
       - name: Notebook drift gate
         run: git diff --exit-code -- notebooks/*.ipynb
       - name: Regenerate figures
