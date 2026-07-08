@@ -71,24 +71,34 @@
     definite for every $N$, and its quadratic form is the Gál-type GCD sum at
     the critical exponent $alpha = 1\/2$; while the top of the spectrum is
     governed by a well-developed theory, the decay of the smallest eigenvalue
-    $lambda_(min)(N)$ appears not to have been studied. We prove an explicit,
-    unconditional upper bound: whenever the primorial $product_(p <= y) p$ is
-    at most $N$, the Möbius-signed indicator of its divisors achieves Rayleigh
-    quotient exactly $product_(p <= y)(1 - p^(-1\/2))$, whence
-    $lambda_(min)(N) <= exp(-(2+o(1)) sqrt(log N)\/log log N)$. The
-    quadratic-form identity behind the bound is machine-checked in Lean 4. We
-    further show that no test family of product (tensor) type can beat
-    $exp(-(4+o(1)) sqrt(log N)\/log log N)$. On the computational side, the
+    $lambda_(min)(N)$ appears not to have been studied. We bound it on both
+    sides, unconditionally. From above: whenever the primorial
+    $product_(p <= y) p$ is at most $N$, the Möbius-signed indicator of its
+    divisors achieves Rayleigh quotient exactly
+    $product_(p <= y)(1 - p^(-1\/2))$, whence
+    $lambda_(min)(N) <= exp(-(2+o(1)) sqrt(log N)\/log log N)$; the
+    quadratic-form identity behind the bound is machine-checked in Lean 4,
+    and no test family of product (tensor) type can beat
+    $exp(-(4+o(1)) sqrt(log N)\/log log N)$. From below: the explicit Möbius
+    inverse hides no cancellation. It factors as $K_N^(-1) = Delta_lambda
+    thin |K_N^(-1)| thin Delta_lambda$ with $Delta_lambda$ the diagonal
+    matrix of Liouville signs, so the minimizing eigenvector carries the
+    exact Liouville sign pattern for every $N$ (Perron–Frobenius), and a
+    weighted Schur test with weight $rho^(Omega(n))\/sqrt(n)$ on the
+    nonnegative factor gives
+    $lambda_(min)(N) >= exp(-(2+o(1)) sqrt(log N))$. Together the two bounds
+    settle the exponent: $-log lambda_(min)(N) = (log N)^(1\/2 + o(1))$;
+    open is only the slowly varying factor. On the computational side, the
     inverse of the Cholesky-type Gram factor of $K_N$ is an explicit sparse
     Möbius matrix, which turns $1\/lambda_(min)$ into a dominant eigenvalue
     accessible to Lanczos iteration; we compute $lambda_(min)(N)$ with
-    certified residuals up to $N = 1.3 times 10^7$. The data reject both the
-    law $c (log N)^(-2)$ and the product-family rate, and support the
-    conjecture $lambda_(min)(N) = exp(-(log N)^(1\/2 + o(1)))$. Finally, an
-    exact symmetry is proved (also machine-checked): conjugation by the
-    diagonal matrix of Liouville signs realizes the half-turn of every prime
-    circle underlying the kernel. It is set beside an unexplained empirical
-    regularity: $lambda_(min) dot lambda_(max) approx 0.389$, constant to
+    certified residuals up to $N = 1.3 times 10^7$. The data reject the law
+    $c (log N)^(-2)$, reject the product-family rate, and land inside the
+    proved corridor. Finally, an exact symmetry is proved (also
+    machine-checked): conjugation by the diagonal matrix of Liouville signs
+    realizes the half-turn of every prime circle underlying the kernel. It
+    is set beside an unexplained empirical regularity:
+    $lambda_(min) dot lambda_(max) approx 0.389$, constant to
     $plus.minus 0.1%$ across the last two decades of the computed range.
   ]
 ]
@@ -154,9 +164,10 @@ is unbounded above and $0$ is a spectral accumulation point from below: the
 truncations $K_N$ straddle a non-compact critical operator, the two spectral
 edges open up as $N -> oo$, and quantitative rates become the question. For
 the bottom edge on the interval at $alpha = 1\/2$, we have found no source
-stating even a conjectural rate; to the author's knowledge the question is
-open (see @sec-related for the full sweep, including the smallest-eigenvalue
-literature for unnormalized GCD matrices [HL04]).
+stating even a conjectural rate; to the author's knowledge the question
+appears here for the first time (see @sec-related for the full sweep,
+including the smallest-eigenvalue literature for unnormalized GCD matrices
+[HL04]).
 
 == Results
 
@@ -180,25 +191,45 @@ $log N$.
 A companion barrier shows the construction is essentially the best of its
 kind: no test vector of product (tensor) type over the primes can achieve a
 Rayleigh quotient below $exp(-(4+o(1)) sqrt(log N)\/log log N)$
-(@sec-barrier). The numerics of @sec-numerics (exact sparse computations of
-$lambda_(min)$ to $N = 1.3 times 10^7$) reject both the two-parameter law
-$c(log N)^(-2)$ and the product-family rate on the computed window, which
-motivates:
+(@sec-barrier).
 
-*Conjecture (@sec-conjecture).*
-$lambda_(min)(N) = exp(-(log N)^(1\/2 + o(1)))$.
+The matching lower bound comes from the inverse. Its entries are explicit,
+and they hide no cancellation:
 
-Note that the upper-bound half of this conjecture is a theorem: since
-$sqrt(log N)\/log log N = (log N)^(1\/2 - log log log N \/ log log N)$,
-Theorem A gives $lambda_(min)(N) <= exp(-(log N)^(1\/2 + o(1)))$
-unconditionally. What is open is the matching lower bound.
+*Theorem B (Liouville gauge; @sec-lower).* _The inverse factors as
+$K_N^(-1) = Delta_lambda thin |K_N^(-1)| thin Delta_lambda$, where
+$Delta_lambda = "diag"(lambda(1), dots, lambda(N))$ is the diagonal matrix
+of Liouville signs and $|K_N^(-1)|$ is entrywise nonnegative and
+irreducible. Consequently $lambda_(min)(N)$ is a simple eigenvalue for every
+$N$, and its eigenvector has sign pattern exactly $lambda(n)$._
+
+*Theorem C (lower bound; @sec-lower).* _Unconditionally,_
+$
+  lambda_(min)(N) >= exp(-(2 + o(1)) sqrt(log N)) ,
+$
+_with the PNT-free explicit variant $exp(-2.36 sqrt(log N))$ for all
+sufficiently large $N$._
+
+Theorems A and C together settle the exponent:
+
+*Corollary D (the rate; @sec-lower).*
+$-log lambda_(min)(N) = (log N)^(1\/2 + o(1))$.
+
+What remains open is the slowly varying factor: the corridor
+$-log lambda_(min) \/ sqrt(log N) in [0.99\/log log N, thin 2 + o(1)]$ has
+relative width of shape $log log N$, and the numerics of @sec-numerics
+(exact sparse computations of $lambda_(min)$ to $N = 1.3 times 10^7$, which
+reject both the two-parameter law $c(log N)^(-2)$ and the product-family
+rate on the computed window) measure the window-effective value at
+$approx 1.36$–$1.41$, inside the corridor.
 
 Finally, @sec-conjecture records an exact symmetry and an unexplained
 regularity. The half-turn $theta_p |-> theta_p + pi$ of every circle in the
 prime-torus (polydisc) representation of the kernel acts on $K_N$ as
 conjugation by the diagonal matrix of Liouville signs
 $"diag"(lambda(1), dots, lambda(N))$: an involutive similarity, also
-machine-checked. Beside it sits the most robust unexplained pattern in the
+machine-checked, carrying the same signs Theorem B proves are the
+minimizer's. Beside it sits the most robust unexplained pattern in the
 data: $lambda_(min)(N) dot lambda_(max)(N) approx 0.389$, constant to
 $plus.minus 0.1%$ from $N approx 2 times 10^5$ to $1.3 times 10^7$ while each
 factor moves by a factor of about $1.9$.
@@ -214,7 +245,12 @@ $0.999$ (@fig-dense, right panel). The primorial test vector is the simplest
 exact structure matching that portrait. The identity was then derived on
 paper, validated numerically at machine precision (worst relative deviation
 $4.2 times 10^(-15)$ across four independent evaluation routes on a 19-point
-grid), and finally formalized in Lean 4 against a pinned Mathlib. Correctness
+grid), and finally formalized in Lean 4 against a pinned Mathlib. The lower
+side repeated the pattern: the Liouville sign structure of Theorem B was
+first a measured fact (mass-weighted sign agreement above $0.999$; the
+identity $lambda_(max)(|K_N^(-1)|) = lambda_(max)(K_N^(-1))$ holding to all
+printed digits) and became a three-line gauge identity once the entry
+formula of the inverse was written down. Correctness
 of the machine-checked claims does not rest on trusting any author, human or
 artificial: the proofs are checked by the Lean kernel, the repository [RV26]
 enforces a zero-`sorry` policy in continuous integration, and the named
@@ -514,6 +550,208 @@ sets with which Bondarenko and Seip [BS17] beat plain Gál sets at the top
 edge. What replaces product structure at the bottom edge is, at present,
 unknown.
 
+= The lower bound <sec-lower>
+
+Everything in this section carries the label *derived*: complete paper
+proofs with classical inputs as marked, none of it formalized. The route is
+the second of the two the object offers: $1\/lambda_(min)(K_N) =
+lambda_(max)(K_N^(-1))$, and the inverse is explicit. The derivation, with
+numerical spot-checks at machine precision, is recorded in the research
+note `notes/lambda-min-lower-attack.md` of [RV26].
+
+== The explicit inverse and the Liouville gauge
+
+From the Gram factorization $K_N = C C^tack.b$ with $C = D B
+"diag"(sqrt(phi))$ and $B^(-1)[m, d] = mu(m\/d)$ (the same object
+@sec-numerics uses computationally),
+$
+  (K_N^(-1))_(m n)
+  = sqrt(m n) sum_(k <= N, thin m divides k, thin n divides k)
+    (mu(k\/m) thin mu(k\/n)) / phi(k) .
+$
+
+#lemma(name: [sign purification])[
+  Fix $m, n <= N$, put $g = gcd(m, n)$ and $l = m n\/g$. Then
+  $
+    (K_N^(-1))_(m n)
+    = mu(m\/g) thin mu(n\/g) dot sqrt(m n)
+      sum_(t <= N\/l, thin mu^2(t) = 1, thin gcd(t, thin l\/g) = 1)
+      1 / phi(l t) ,
+  $
+  nonzero exactly when $l <= N$ and $m\/g$, $n\/g$ are both squarefree.
+  Every term of the $k$-sum above carries the same sign, and on the support
+  this sign is $mu(m\/g) mu(n\/g) = lambda(m) lambda(n)$.
+] <lem-purify>
+
+#proof[
+  Every $k$ in the sum is a common multiple of $m$ and $n$, so $k = l t$,
+  and $k\/m = (n\/g) t$, $k\/n = (m\/g) t$. A nonzero term forces $m\/g$,
+  $n\/g$ and $t$ squarefree with $gcd(t, (m\/g)(n\/g)) = 1$ (otherwise one
+  of the two ratios contains a square), and then
+  $
+    mu(k\/m) thin mu(k\/n)
+    = mu(n\/g) mu(t) dot mu(m\/g) mu(t)
+    = mu(m\/g) thin mu(n\/g) ,
+  $
+  independent of $k$; note that $t$ may share primes with $g$, since only
+  coprimality to $l\/g = (m\/g)(n\/g)$ is forced. On the support $m\/g$ and
+  $n\/g$ are squarefree, so $mu(m\/g) mu(n\/g) =
+  (-1)^(Omega(m) + Omega(n) - 2 Omega(g)) = lambda(m) lambda(n)$.
+]
+
+#theorem(name: [Liouville gauge; derived])[
+  Let $Delta_lambda = "diag"(lambda(1), dots, lambda(N))$ and $M_N =
+  |K_N^(-1)|$ entrywise. Then
+  $
+    K_N^(-1) = Delta_lambda thin M_N thin Delta_lambda ,
+  $
+  $M_N$ is nonnegative and irreducible, and consequently:
+  $lambda_(max)(K_N^(-1)) = lambda_(max)(M_N)$ exactly; $lambda_(min)(K_N)$
+  is a simple eigenvalue for every $N$; and the minimizing eigenvector has
+  no zero component and sign pattern exactly $"sign"(v_n) = lambda(n)$.
+] <thm-gauge>
+
+#proof[
+  The factorization restates @lem-purify entrywise, and $Delta_lambda^2 =
+  I$, so $K_N^(-1)$ and $M_N$ are similar. Irreducibility: for a prime $p
+  divides n$, the entry of $M_N$ at $(n, n\/p)$ is nonzero (@lem-purify
+  with $g = n\/p$, $l = n <= N$, ratios $p$ and $1$, both squarefree);
+  iterating over the prime factors connects every $n$ to $1$. By
+  Perron–Frobenius for irreducible nonnegative matrices [classical], the
+  top eigenvalue of $M_N$ is simple with a strictly positive eigenvector
+  $u$; then $v = Delta_lambda u$ is the top eigenvector of $K_N^(-1)$, that
+  is, the bottom eigenvector of $K_N$, with $"sign"(v_n) = lambda(n)$.
+]
+
+#remark[
+  Two readings. First, the theorem upgrades the eigenvector portrait of
+  @sec-numerics from measurement (mass-weighted sign agreement above
+  $0.999$) to an exact statement for every $N$. Second, it removes a worry:
+  bounding $lambda_(max)(K_N^(-1))$ through $|K_N^(-1)|$ costs nothing,
+  because there is no Möbius cancellation on the inverse side to lose. The
+  bottom edge of $K_N$ is a Perron–Frobenius problem for the explicit
+  nonnegative matrix $M_N$.
+]
+
+== The weighted Schur test
+
+For a symmetric matrix $A$ and any weight $w > 0$, $lambda_(max)(A) <=
+max_m w_m^(-1) sum_n |A_(m n)| w_n$ [classical]; for an irreducible
+nonnegative matrix the bound is attained at the Perron weight, so on $M_N$
+the only loss is the distance from $w$ to the Perron vector. The choice of
+family matters: the unweighted row sums of $M_N$ grow like $sqrt(N)$ (the
+$sqrt(n)$ column weights integrate to $sqrt(N)$ regardless of the
+arithmetic), and the power family $w_n = n^(-beta)$ caps at
+$exp(-(log 2 + o(1)) log N \/ log log N)$, pinned by rows with many prime
+factors. The weight that breaks through damps prime multiplicity directly:
+$
+  w_n = rho^(Omega(n)) / sqrt(n) , quad rho > 0 .
+$
+
+#theorem(name: [lower bound; derived])[
+  Unconditionally, as $N -> oo$,
+  $
+    lambda_(min)(K_N) >= exp(-(2 + o(1)) sqrt(log N)) .
+  $
+  With Robin's unconditional bound $omega(m) <= 1.3841 thin log m \/ log
+  log m$ [Rob83] in place of the prime number theorem, the constant
+  $2 sqrt(1.3841) < 2.36$ is admissible for all $N$ beyond an explicitly
+  computable $N_0$.
+] <thm-lower>
+
+#proof[
+  Write $T_m (rho)$ for the weighted row sum $w_m^(-1) sum_n (M_N)_(m n)
+  w_n$. By @lem-purify the entries of $M_N$ are termwise absolute sums over
+  common multiples $k <= N$, so, exchanging the order of summation over $n$
+  and $k$ and writing $k = m s$,
+  $
+    T_m (rho) = m thin rho^(-Omega(m))
+    sum_(s <= N\/m, thin mu^2(s) = 1)
+    rho^(Omega(m s) - omega(m s)) (1 + rho)^(omega(m s)) / phi(m s) ,
+  $
+  where the inner sum over the divisors $n$ of each $k$ with $k\/n$
+  squarefree was evaluated exactly:
+  $
+    sum_(n divides k, thin mu^2(k\/n) = 1) rho^(Omega(n))
+    = product_(p^e parallel k) (rho^e + rho^(e - 1))
+    = rho^(Omega(k) - omega(k)) (1 + rho)^(omega(k)) .
+  $
+  Split $s = u v$ with $u$ composed of primes dividing $m$ and $v$ coprime
+  to $m$; then $Omega(m s) - omega(m s) = Omega(m) + omega(u) - omega(m)$
+  and $omega(m s) = omega(m) + omega(v)$, and with $phi(m u v) >= phi(m)
+  phi(u) phi(v)$ and the truncation $s <= N\/m$ dropped,
+  $
+    T_m (rho) <= m / phi(m) thin (1 + 1\/rho)^(omega(m))
+    product_(p divides m) (1 + rho/(p - 1))
+    product_(p <= N) (1 + (1 + rho)/(p - 1)) .
+  $
+  Take logarithms, bound $log(1 + x) <= x$, and insert four classical
+  inputs: $sum_(p <= N) 1\/(p - 1) <= log log N + B$ with an absolute
+  constant $B$ [Mertens; see Ten15, Ch. I.1]; $m\/phi(m) <= e^gamma log log
+  m + O(1\/log log m)$ [RS62]; $sum_(p divides m) 1\/(p - 1) <= (1 + o(1))
+  log log log N$ for $m <= N$ (at worst the reciprocals of the first
+  $omega(m)$ primes, which lie below $(1 + o(1)) log N$); and $r_N :=
+  max_(m <= N) omega(m) = (1 + o(1)) log N \/ log log N$ (primorial
+  inversion; PNT for the constant, or [Rob83] unconditionally). This gives
+  $
+    log T_m (rho) <= r_N / rho + (1 + rho)(log log N + B)
+    + rho thin (1 + o(1)) log log log N + log(e^gamma log log N + O(1)) ,
+  $
+  and the choice $rho = sqrt(r_N \/ log log N) = (1 + o(1)) sqrt(log N) \/
+  log log N$ balances the two leading terms:
+  $
+    log lambda_(max)(K_N^(-1)) <= max_m log T_m (rho)
+    <= 2 sqrt(r_N log log N) thin (1 + o(1))
+    = (2 + o(1)) sqrt(log N) .
+  $
+  By @thm-gauge no factor was lost in passing to $M_N$. The explicit
+  variant substitutes $r_N <= 1.3841 thin log N \/ log log N$ [Rob83]
+  throughout.
+]
+
+#remark[
+  On the constant. Per-prime tuning $w_n = product_p rho_p^(v_p (n))$ with
+  $rho_p approx sqrt(p)$ would seem to improve the primorial rows to the
+  barrier shape $4 sqrt(log N)\/log log N$, but the binding rows migrate
+  (products of $approx log N\/log log N$ primes just above $log N$) and
+  restore $2 sqrt(log N)$; within multiplicative weight families the
+  constant $2$ appears robust. That observation is heuristic; only the
+  uniform-$rho$ family is derived above. The intrinsic ceiling of the route
+  is the Perron weight, that is, $lambda_(max)(K_N^(-1))$ itself,
+  numerically $exp(approx 1.4 sqrt(log N))$ on the computed window; the
+  measured looseness of the uniform-$rho$ test grows only from $1.6$ to
+  $2.4$ over $10^2 <= N <= 10^6$ (spot-check tables in the research note).
+  Each evaluated row-sum bound is also a certificate at its own $N$: at
+  $N = 10^6$ the test gives $lambda_(min) >= 1\/654.7 = 1.53 times 10^(-3)$
+  against the true $3.70 times 10^(-3)$.
+]
+
+== The rate
+
+#corollary(name: [the exponent; derived])[
+  Unconditionally,
+  $
+    exp(-(2 + o(1)) sqrt(log N)) <= lambda_(min)(K_N)
+    <= exp(-0.99 thin sqrt(log N) / log log N)
+    quad ("the right side for" N >= 3.3 times 10^7) ,
+  $
+  hence $-log lambda_(min)(K_N) = (log N)^(1\/2 + o(1))$.
+] <cor-rate>
+
+#proof[
+  Combine @thm-lower with @cor-asymp and its explicit variant; for the
+  exponent, $sqrt(log N)\/log log N = (log N)^(1\/2 - log log log N \/ log
+  log N)$.
+]
+
+The gap is now a corridor: $-log lambda_(min) \/ sqrt(log N) in
+[0.99\/log log N, thin 2 + o(1)]$, of relative width $log log N$. Where
+each side loses is identified: the upper bound on $lambda_(min)$ gives away
+only what lies beyond the product class (@sec-barrier), the lower bound
+only the distance from multiplicative weights to the Perron vector of
+$M_N$. The numerics of the next section measure the window value at
+$approx 1.36$–$1.41$.
+
 = Numerics to $N = 1.3 times 10^7$ <sec-numerics>
 
 All computations in this section are *numerical* in the sense of the label
@@ -567,7 +805,7 @@ integers: the largest components sit at $n = 6, 30, 2, 12, 10, 42, 60, 3, 4,
 18, dots$, with $78%$ of the mass on $n <= 100$ and only $1%$ on the entire
 upper half. Its *signs follow the Liouville function* $lambda(n) =
 (-1)^(Omega(n))$ with mass-weighted agreement above $0.999$ (@fig-dense,
-right panel). The minimizer is a Liouville-signed measure on smooth numbers:
+right panel), the pattern @thm-gauge proves exact for every $N$. The minimizer is a Liouville-signed measure on smooth numbers:
 a finite-rank shadow of a $1\/zeta$-type mollifier (recall $sum lambda(n)
 n^(-s) = zeta(2s)\/zeta(s)$), not a truncation-boundary artifact. A useful
 classical benchmark calibrates the scale: pinning $x_1 = 1$ gives the exact
@@ -714,8 +952,7 @@ $102 thin 400$, $3.09$ at $1.6 times 10^6$, $3.50$ at $1.3 times 10^7$, an
 average drift of about $+5.2%$ per octave. The true minimizer strictly
 outruns the entire product class at a slow, polylog-compatible pace: the
 measured gap neither flattens (which would certify the box shape) nor
-accelerates past every polylog (which would falsify the conjectured form
-below).
+accelerates past every polylog (which @cor-rate forbids in the limit).
 
 #figure(
   image("../../figures/lambda-min-lanczos.png", width: 100%),
@@ -730,35 +967,42 @@ below).
   ],
 ) <fig-lanczos>
 
-= The conjecture, and the reciprocal edges <sec-conjecture>
+= The remaining gap, and the reciprocal edges <sec-conjecture>
 
-== The conjectured rate
+== The corridor
 
-The proved upper bound (@cor-asymp), the product-family barrier
-(@prop-barrier), and the two numerical rejections of @sec-numerics leave one
-honest working form:
+@cor-rate settles the exponent; what it leaves open is the slowly varying
+factor. The walls stand at
+$
+  0.99 / (log log N)
+  <= (- log lambda_(min)(K_N)) / sqrt(log N)
+  <= 2 + o(1) ,
+$
+a corridor of relative width $log log N$, and the question is where inside
+it the truth lives:
 
-#conjecture(name: [bottom-edge rate])[
-  $ lambda_(min)(K_N) = exp(-(log N)^(1\/2 + o(1))) quad (N -> oo). $
-] <conj-rate>
+#block(above: 1.0em, below: 1.0em, inset: (x: 1.6em))[
+  _Does $-log lambda_(min)(K_N) \/ sqrt(log N)$ tend to a constant, decay
+  like a power of $1\/log log N$, or drift slowly between the walls?_
+]
 
-The upper-bound half is Theorem A: $sqrt(log N) \/ log log N = (log
-N)^(1\/2 - log log log N \/ log log N)$, so
-$lambda_(min) <= exp(-(log N)^(1\/2 + o(1)))$ holds unconditionally. Open is
-the lower bound $lambda_(min) >= exp(-(log N)^(1\/2 + o(1)))$. On the
-computed window the effective exponent sits between the product-family shape
-and the pure $sqrt(log N)$ law ($theta approx 0.36$–$0.38$ in the
-three-parameter scan), consistent with a negative slowly varying $o(1)$,
-as the only proved upper bound indeed carries. We deliberately do not
-conjecture the finer structure: window-effective constants such as the $c
-approx 1.36$–$1.47$ of the exponential fits should not be over-trusted, since
-$log log$-type factors inside the exponent are unresolvable at any feasible
-$N$. Two natural attack routes from the known side: the Poisson-integral
-representation of [ABS15] bounds the quadratic form from below by integrals
-that sieve methods can evaluate; and $1\/lambda_(min) =
-lambda_(max)(K_N^(-1))$ turns the question into a Gál-type *upper* bound for
-the explicitly arithmetic inverse matrix, the object the GCD-sums technology
-is built for.
+On the computed window the effective exponent sits between the
+product-family shape and the pure $sqrt(log N)$ law ($theta approx
+0.36$–$0.38$ in the three-parameter scan), with exponential-fit constants
+$c approx 1.36$–$1.47$, well inside the corridor. We deliberately do not
+conjecture the finer structure: window-effective constants should not be
+over-trusted, since $log log$-type factors inside the exponent are
+unresolvable at any feasible $N$ (@sec-numerics). What would move each side
+is identified in @sec-barrier and @sec-lower: improving the upper bound on
+$lambda_(min)$ means leaving the product class, which the barrier shows is
+exhausted; improving the lower bound means closing the distance from
+multiplicative weights to the Perron vector of $M_N = |K_N^(-1)|$, whose
+top eigenvalue is the answer itself (@thm-gauge). Both sides are now
+questions about the same object, the Perron vector of one explicit
+nonnegative arithmetic matrix. The Poisson-integral representation of
+[ABS15], which bounds the quadratic form from below by integrals that sieve
+methods can evaluate, remains the one known route not yet exploited on the
+lower side.
 
 == The Liouville conjugation symmetry
 
@@ -807,11 +1051,12 @@ lemma (`prod_neg_one_pow_natAbs_factorization`), the matrix-level statements
 (`liouvilleDiagonal_conj_posSemidef`).
 
 The relevance to the two spectral edges: the top eigenvector of $K_N$ is
-Perron-positive (all $theta_p = 0$), while the measured bottom eigenvector
-carries exactly the Liouville signs (all $theta_p = pi$; at $N = 25 thin 600$
-the mass-weighted sign agreement is $1.000000$). The conjugation
-@prop-liouville exchanges the two faces, and per prime the edge values obey
-the exact reciprocity $P_a (0) P_a (pi) = 1$.
+Perron-positive (all $theta_p = 0$), while the bottom eigenvector carries
+exactly the Liouville signs (all $theta_p = pi$), first measured
+(mass-weighted sign agreement $1.000000$ at $N = 25 thin 600$), then proved
+for every $N$ (@thm-gauge). The conjugation @prop-liouville exchanges the
+two faces, and per prime the edge values obey the exact reciprocity
+$P_a (0) P_a (pi) = 1$.
 
 == The constant product of the edges
 
@@ -843,7 +1088,8 @@ of the constant comes out flat but wrong ($0.21$–$0.25$). Consistently with
 correlates the primes at the bottom edge apparently does so at the top edge
 in a reciprocal way. Explaining the constancy of
 $lambda_(min) dot lambda_(max)$, even heuristically but quantitatively, is
-posed here as an open problem alongside @conj-rate.
+posed here as an open problem alongside the corridor problem above; by
+@thm-gauge the two are questions about the same Perron vector.
 
 = Related work <sec-related>
 
@@ -882,11 +1128,13 @@ critical normalization, where $lambda_(min) -> 0$ and the rate is the
 question.
 
 *Position of this paper.* To the author's knowledge, the decay rate of
-$lambda_(min)(K_N)$ for the interval at the critical exponent has not been
-posed or bounded in the literature; the construction of @sec-primorial is
+$lambda_(min)(K_N)$ for the interval at the critical exponent had not been
+posed or bounded in the literature; this paper poses it, bounds it on both
+sides, and settles the exponent. The construction of @sec-primorial is
 best described as implicit-in-Gál on the dual side: the support is Gál's
 classical extremal set; the Möbius signing and the bottom-edge application
-are new. The claim of novelty is a literature search, not a theorem, and is
+are new. The gauge identity of @sec-lower appears to have no antecedent
+either. The claim of novelty is a literature search, not a theorem, and is
 offered with that hedge.
 
 = Acknowledgments and artifacts
@@ -950,6 +1198,11 @@ figures are committed outputs of those artifacts.
 #bibentry("LS98")[
   P. Lindqvist and K. Seip, _Note on greatest common divisor matrices_, Acta
   Arith. 84 (1998), 149–154.
+]
+#bibentry("Rob83")[
+  G. Robin, _Estimation de la fonction de Tchebychef $theta$ sur le
+  $k$-ième nombre premier et grandes valeurs de la fonction $omega(n)$,
+  nombre de diviseurs premiers de $n$_, Acta Arith. 42 (1983), 367–389.
 ]
 #bibentry("RS62")[
   J. B. Rosser and L. Schoenfeld, _Approximate formulas for some functions
