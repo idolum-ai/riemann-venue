@@ -37,5 +37,6 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 | Infinite product measures (`Measure.infinitePi`, Ionescu–Tulcea) | available in pinned Mathlib (earlier "absent" claim was stale; corrected by the Phase 3 scout) | `notes/kakutani-design.md` |
 | Kakutani dichotomy: design + milestone ladder (M1–M6; singular direction via Borel–Cantelli lands first) | designed; implementation in progress | `notes/kakutani-design.md` |
 | Kakutani M1–M3: Hellinger affinity (`H = 0 ↔ ⟂ₘ`, `H ≤ 1`, multiplicativity over `Measure.pi`), `pi_withDensity` tensorization + lintegral product-Fubini, cylinder identities and the `∏ ↔ Summable` bridges | proved in Lean | `RiemannVenue/Kakutani/{Affinity,FiniteProduct,Cylinder}.lean` |
+| **Kakutani's dichotomy, singular direction** (1948; first formalization known to this repository): vanishing affinity product ⟹ `infinitePi μ ⟂ₘ infinitePi ν`, arbitrary index type, via cylinder squeeze + Borel–Cantelli | proved in Lean | `RiemannVenue/Kakutani/Singular.lean` (`infinitePi_mutuallySingular`, `infinitePi_mutuallySingular_of_not_summable`) |
 | Weil positivity of the completed distribution; modular/trace realizations | notes only / programmatic | `notes/weil-functional.md` |
 | This repository proves RH | explicitly not claimed | `README.md` |

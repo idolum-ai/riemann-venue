@@ -16,6 +16,7 @@ import RiemannVenue.Kernels.CriterionBridge
 import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
+import RiemannVenue.Kakutani.Singular
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
