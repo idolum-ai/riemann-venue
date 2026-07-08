@@ -215,9 +215,7 @@ theorem translate_poissonProduct_mutuallySingular {σ u : ℝ} (hσ₀ : 0 < σ)
   haveI : ∀ p : Nat.Primes, IsProbabilityMeasure
       (poissonMeasure ((p : ℝ) ^ (-σ))) := fun p =>
     isProbabilityMeasure_poissonMeasure (ha₀ p) (ha₁ p)
-  refine Measure.infinitePi_mutuallySingular_of_not_summable _ _
-    (fun p => rotatedPoissonMeasure_absolutelyContinuous (ha₀ p) (ha₁ p) _)
-    ?_
+  refine Measure.infinitePi_mutuallySingular_of_not_summable _ _ ?_
   intro hsum
   -- the abstract deficits are the bench deficits
   have hsum' : Summable (fun p : Nat.Primes =>

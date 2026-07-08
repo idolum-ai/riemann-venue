@@ -351,3 +351,34 @@ missing blocks, and they are elementary. See `notes/kakutani-design.md`
 for the M1–M6 ladder. Notably, the *singular* direction (the essay's
 headline at `σ ≤ 1/2`) needs only Borel–Cantelli — no martingales, no
 zero–one law — and lands before the equivalence direction.
+
+## 13. The hac polish: totality pays its dividend
+
+The singular direction of Kakutani's dichotomy now holds with no
+absolute-continuity hypothesis — `infinitePi_mutuallySingular` and its
+non-summability corollary lost the `∀ i, μ i ≪ ν i` argument entirely,
+as the M4 scoping note and the PR plan (§5) had recorded it should.
+Two mechanisms, both anticipated by the M1 design decision to define
+`hellingerAffinity` against `μ + ν`:
+
+- **The affinity identity is total.** `H(μ, ν) = ∫⁻ (dμ/dν)^(1/2) dν`
+  holds for arbitrary finite measures: by Lebesgue decomposition the
+  singular part's `(μ + ν)`-density lives where `ν`'s density vanishes,
+  so it drops out of the defining integral. The generalized
+  `hellingerAffinity_eq_lintegral_rnDeriv` made the M3 moment identity
+  hypothesis-free at zero cost to its proof.
+- **Singular parts only help singularity — and land in a null set.**
+  The cylinder density *identity* genuinely needs `μ i ≪ ν i`, but the
+  squeeze only needs an upper bound on the `μ∞`-mass off the union `T`
+  of coordinate cylinders over carriers of `(μ i).singularPart (ν i)` —
+  a `ν∞`-null set (countably many coordinates appear in the windows,
+  even for arbitrary `ι`). Off `T` each `μ i` restricts to its
+  absolutely continuous part (`restrict_pi_pi` does the finite-window
+  bookkeeping), and the separating set is `limsup (B k \ T)` instead of
+  `limsup B k`.
+
+The interpretive point: the generalization cost one new inequality lemma
+and a null-set subtraction, because the definition had been shaped for it
+three milestones earlier. Total definitions are cheap insurance — the
+hypothesis was never load-bearing, only the scaffolding that let M4 land
+before M3's density lemmas were re-derived in general form.

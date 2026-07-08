@@ -207,8 +207,7 @@ theorem poissonProduct_mutuallySingular {σ : ℝ} (hσ₀ : 0 < σ) (hσ : σ �
   haveI : ∀ p : Nat.Primes,
       IsProbabilityMeasure (poissonMeasure ((p : ℝ) ^ (-σ))) := fun p =>
     isProbabilityMeasure_poissonMeasure (ha₀ p) (ha₁ p)
-  refine Measure.infinitePi_mutuallySingular_of_not_summable _ _
-    (fun p => poissonMeasure_absolutelyContinuous _) ?_
+  refine Measure.infinitePi_mutuallySingular_of_not_summable _ _ ?_
   intro hsum
   have hsum' : Summable fun p : Nat.Primes => 1 - hellinger ((p : ℝ) ^ (-σ)) :=
     hsum.congr fun p =>

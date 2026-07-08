@@ -31,10 +31,17 @@ The product-side computations feeding both directions of Kakutani's dichotomy.
 
 * `Measure.infinitePi_cylinder_eq_setLIntegral_rnDeriv` — the cylinder density
   identity: for a cylinder `A` over the finite window `s`,
-  `μ∞ A = ∫⁻_A ∏ i ∈ s, (dμᵢ/dνᵢ)(xᵢ) dν∞`.
+  `μ∞ A = ∫⁻_A ∏ i ∈ s, (dμᵢ/dνᵢ)(xᵢ) dν∞`, under `μ i ≪ ν i` (a genuine
+  equality: singular parts of the `μ i` would add mass on the left).
+* `Measure.infinitePi_cylinder_diff_le_setLIntegral_rnDeriv` — the hac-free
+  cylinder density *bound*: off the union of the coordinate cylinders over
+  carriers `N i` of the singular parts, the `μ∞`-mass of a cylinder is at most
+  the `ν∞`-integral of the finite density product. This is what the singular
+  direction of the dichotomy consumes without absolute continuity.
 * `Measure.lintegral_prod_rnDeriv_rpow_infinitePi` — the affinity moment: the
   `ν∞`-integral of `√(Z_s)` is the finite partial product of Hellinger
-  affinities, `∏ i ∈ s, H(μ i, ν i)`.
+  affinities, `∏ i ∈ s, H(μ i, ν i)`. No absolute-continuity hypothesis: both
+  sides only see the `ν i`-absolutely-continuous parts of the `μ i`.
 
 Deviation from the design doc: the real-valued (Bochner) second-moment
 identity for the L² martingale argument is deferred to the M5 wave, per the
@@ -200,25 +207,23 @@ private lemma pi_restrict_eq_withDensity (hac : ∀ i, μ i ≪ ν i) (s : Finse
     rw [Measure.lintegral_rnDeriv (hac i), measure_univ]
     exact ENNReal.one_ne_top
 
-/-- **The cylinder density identity** (design name
-`cylinder_lintegral_density`): on a cylinder over the finite window `s`, the
-infinite product `μ∞` is computed by integrating the finite density
-`Z_s(x) = ∏ i ∈ s, (dμᵢ/dνᵢ)(xᵢ)` against `ν∞`. -/
-theorem infinitePi_cylinder_eq_setLIntegral_rnDeriv (hac : ∀ i, μ i ≪ ν i)
-    {s : Finset ι} {S : Set (Π i : s, X i)} (hS : MeasurableSet S) :
-    Measure.infinitePi μ (cylinder s S)
+omit [∀ i, IsProbabilityMeasure (μ i)] in
+/-- The `ν`-side of the cylinder identities: the finite-window integral of the
+density product against `Measure.pi` equals the cylinder integral against
+`Measure.infinitePi ν`. No hypothesis relating `μ` to `ν`. -/
+private lemma setLIntegral_pi_prod_rnDeriv_eq_setLIntegral_infinitePi
+    (s : Finset ι) {S : Set (Π i : s, X i)} (hS : MeasurableSet S) :
+    ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+        ∂Measure.pi (fun i : s => ν i)
       = ∫⁻ x in cylinder s S, ∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)
           ∂Measure.infinitePi ν := by
   have hg : Measurable fun y : Π i : s, X i =>
       ∏ i : s, (μ i).rnDeriv (ν i) (y i) :=
     Finset.measurable_prod _ fun i _ =>
       (measurable_rnDeriv _ _).comp (measurable_pi_apply i)
-  calc Measure.infinitePi μ (cylinder s S)
-      = Measure.pi (fun i : s => μ i) S := infinitePi_cylinder μ hS
-    _ = ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
-          ∂Measure.pi (fun i : s => ν i) := by
-        rw [pi_restrict_eq_withDensity μ ν hac s, withDensity_apply _ hS]
-    _ = ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+  calc ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+        ∂Measure.pi (fun i : s => ν i)
+      = ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
           ∂((Measure.infinitePi ν).map s.restrict) := by
         rw [Measure.infinitePi_map_restrict]
     _ = ∫⁻ x in s.restrict ⁻¹' S,
@@ -232,11 +237,96 @@ theorem infinitePi_cylinder_eq_setLIntegral_rnDeriv (hac : ∀ i, μ i ≪ ν i)
         simp only [Finset.restrict_def]
         exact Finset.prod_coe_sort s fun j => (μ j).rnDeriv (ν j) (x j)
 
+/-- **The cylinder density identity** (design name
+`cylinder_lintegral_density`): on a cylinder over the finite window `s`, the
+infinite product `μ∞` is computed by integrating the finite density
+`Z_s(x) = ∏ i ∈ s, (dμᵢ/dνᵢ)(xᵢ)` against `ν∞`. -/
+theorem infinitePi_cylinder_eq_setLIntegral_rnDeriv (hac : ∀ i, μ i ≪ ν i)
+    {s : Finset ι} {S : Set (Π i : s, X i)} (hS : MeasurableSet S) :
+    Measure.infinitePi μ (cylinder s S)
+      = ∫⁻ x in cylinder s S, ∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)
+          ∂Measure.infinitePi ν := by
+  calc Measure.infinitePi μ (cylinder s S)
+      = Measure.pi (fun i : s => μ i) S := infinitePi_cylinder μ hS
+    _ = ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+          ∂Measure.pi (fun i : s => ν i) := by
+        rw [pi_restrict_eq_withDensity μ ν hac s, withDensity_apply _ hS]
+    _ = ∫⁻ x in cylinder s S, ∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)
+          ∂Measure.infinitePi ν :=
+        setLIntegral_pi_prod_rnDeriv_eq_setLIntegral_infinitePi μ ν s hS
+
+/-- **The hac-free cylinder density bound**: off the union of the coordinate
+cylinders over carriers `N i` of the singular parts `(μ i).singularPart (ν i)`,
+the `μ∞`-mass of a cylinder over the finite window `s` is at most the
+`ν∞`-integral of the finite density product. The removed union traps every
+singular contribution, and what remains of each `μ i` is exactly
+`(ν i).withDensity ((μ i).rnDeriv (ν i))`. -/
+theorem infinitePi_cylinder_diff_le_setLIntegral_rnDeriv
+    {s : Finset ι} {S : Set (Π i : s, X i)} (hS : MeasurableSet S)
+    {N : (i : ι) → Set (X i)} (hN : ∀ i, MeasurableSet (N i))
+    (hNs : ∀ i, (μ i).singularPart (ν i) (N i)ᶜ = 0) :
+    Measure.infinitePi μ
+        (cylinder s S \ ⋃ i ∈ s, (fun x : Π j, X j => x i) ⁻¹' N i)
+      ≤ ∫⁻ x in cylinder s S, ∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)
+          ∂Measure.infinitePi ν := by
+  classical
+  haveI : ∀ i : s, IsFiniteMeasure
+      ((ν (i : ι)).withDensity ((μ (i : ι)).rnDeriv (ν (i : ι)))) := fun i =>
+    isFiniteMeasure_withDensity (Measure.lintegral_rnDeriv_lt_top _ _).ne
+  set C : Set (Π i : s, X i) :=
+    S ∩ Set.univ.pi fun i : s => (N (i : ι))ᶜ with hC_def
+  have hCmeas : MeasurableSet C :=
+    hS.inter (MeasurableSet.univ_pi fun i => (hN (i : ι)).compl)
+  have hCsub : C ⊆ Set.univ.pi fun i : s => (N (i : ι))ᶜ :=
+    Set.inter_subset_right
+  -- the difference is itself a cylinder over `s`
+  have hset : cylinder s S \ ⋃ i ∈ s, (fun x : Π j, X j => x i) ⁻¹' N i
+      = cylinder s C := by
+    ext x
+    simp only [hC_def, Set.mem_sdiff, Set.mem_iUnion, Set.mem_preimage,
+      exists_prop, not_exists, not_and, mem_cylinder, Set.mem_inter_iff,
+      Set.mem_univ_pi, Set.mem_compl_iff, Finset.restrict_def, Subtype.forall]
+  -- per coordinate, `μ i` restricted off `N i` is its absolutely continuous part
+  have hres : ∀ i : ι, (μ i).restrict (N i)ᶜ
+      = ((ν i).withDensity ((μ i).rnDeriv (ν i))).restrict (N i)ᶜ := fun i => by
+    conv_lhs => rw [← rnDeriv_add_singularPart (μ i) (ν i)]
+    rw [Measure.restrict_add, Measure.restrict_eq_zero.mpr (hNs i), add_zero]
+  calc Measure.infinitePi μ
+        (cylinder s S \ ⋃ i ∈ s, (fun x : Π j, X j => x i) ⁻¹' N i)
+      = Measure.pi (fun i : s => μ i) C := by
+        rw [hset]
+        exact infinitePi_cylinder μ hCmeas
+    _ = Measure.pi (fun i : s => (μ (i : ι)).restrict (N (i : ι))ᶜ) C := by
+        rw [← Measure.restrict_pi_pi, Measure.restrict_apply hCmeas,
+          Set.inter_eq_self_of_subset_left hCsub]
+    _ = Measure.pi (fun i : s =>
+          ((ν (i : ι)).withDensity ((μ (i : ι)).rnDeriv (ν (i : ι)))).restrict
+            (N (i : ι))ᶜ) C := by
+        rw [show (fun i : s => (μ (i : ι)).restrict (N (i : ι))ᶜ)
+          = fun i : s =>
+              ((ν (i : ι)).withDensity ((μ (i : ι)).rnDeriv (ν (i : ι)))).restrict
+                (N (i : ι))ᶜ from funext fun i => hres i]
+    _ = Measure.pi (fun i : s =>
+          (ν (i : ι)).withDensity ((μ (i : ι)).rnDeriv (ν (i : ι)))) C := by
+        rw [← Measure.restrict_pi_pi, Measure.restrict_apply hCmeas,
+          Set.inter_eq_self_of_subset_left hCsub]
+    _ = ∫⁻ y in C, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+          ∂Measure.pi (fun i : s => ν i) := by
+        rw [pi_withDensity _ (fun i => measurable_rnDeriv _ _)
+          (fun i => (Measure.lintegral_rnDeriv_lt_top _ _).ne),
+          withDensity_apply _ hCmeas]
+    _ ≤ ∫⁻ y in S, ∏ i : s, (μ i).rnDeriv (ν i) (y i)
+          ∂Measure.pi (fun i : s => ν i) :=
+        lintegral_mono_set Set.inter_subset_left
+    _ = ∫⁻ x in cylinder s S, ∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)
+          ∂Measure.infinitePi ν :=
+        setLIntegral_pi_prod_rnDeriv_eq_setLIntegral_infinitePi μ ν s hS
+
 /-- **The affinity moment identity** (design name `lintegral_sqrt_density`):
 the `ν∞`-integral of `√(Z_s)` is the finite partial product of Hellinger
-affinities over the window `s`. -/
-theorem lintegral_prod_rnDeriv_rpow_infinitePi (hac : ∀ i, μ i ≪ ν i)
-    (s : Finset ι) :
+affinities over the window `s`. No absolute-continuity hypothesis — both sides
+only see the `ν i`-absolutely-continuous parts of the `μ i`. -/
+theorem lintegral_prod_rnDeriv_rpow_infinitePi (s : Finset ι) :
     ∫⁻ x, (∏ i ∈ s, (μ i).rnDeriv (ν i) (x i)) ^ (1 / 2 : ℝ)
         ∂Measure.infinitePi ν
       = ∏ i ∈ s, hellingerAffinity (μ i) (ν i) := by
@@ -263,7 +353,7 @@ theorem lintegral_prod_rnDeriv_rpow_infinitePi (hac : ∀ i, μ i ≪ ν i)
           ENNReal.continuous_rpow_const.measurable.comp (measurable_rnDeriv _ _)
     _ = ∏ i : s, hellingerAffinity (μ i) (ν i) :=
         Finset.prod_congr rfl fun i _ =>
-          (hellingerAffinity_eq_lintegral_rnDeriv (hac i)).symm
+          hellingerAffinity_eq_lintegral_rnDeriv.symm
     _ = ∏ i ∈ s, hellingerAffinity (μ i) (ν i) :=
         Finset.prod_coe_sort s fun i => hellingerAffinity (μ i) (ν i)
 
