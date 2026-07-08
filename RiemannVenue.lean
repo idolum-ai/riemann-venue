@@ -15,6 +15,8 @@ import RiemannVenue.Kernels.Polydisc
 import RiemannVenue.Kernels.CriterionBridge
 import RiemannVenue.Kernels.LiouvilleConjugation
 import RiemannVenue.Kernels.PrimorialBound
+import RiemannVenue.Kernels.SmithDeterminant
+import RiemannVenue.Kernels.PinnedIdentity
 import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
