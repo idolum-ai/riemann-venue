@@ -12,16 +12,23 @@ The guiding thesis is that RH may be better understood not only as a placement p
 
 ## Status
 
-Exploratory. Early scaffold.
+The finite core is proved, the analytic bridges are anchored, and the
+speculative layer is stated without pretense. See `docs/status-ledger.md` for
+the row-by-row claim inventory.
 
-Current focus:
-
-- finite Mobius inversion on divisibility posets;
-- finite GCD kernels;
-- positivity experiments;
-- Tate/Gaussian completion notes;
-- Weil positivity / explicit formula notes;
-- Typst reproduction of the exhibit sheets.
+- **Proved in Lean (no `sorry`)**: finite divisibility poset laws; finite
+  Mobius inversion on `{1, …, N}`; the Gram factorization
+  `[gcd] = B · diag φ · Bᴴ`; positive semidefiniteness of the gcd matrix and
+  of the normalized kernel `K(m,n) = gcd(m,n)/√(mn)`
+  (`normalizedGcdKernel_posSemidef`).
+- **Anchored**: build-verified restatements of Mathlib's L-series/zeta
+  identification, Euler product, completed functional equation and residue,
+  Gaussian self-duality, and the `Γ_ℝ` factor.
+- **Stated only**: the finite prime-power side of the explicit formula,
+  `WeilPositivity`, and the Boundary Positivity Problem — with the
+  `iff RH` theorem deliberately absent.
+- **Computed**: four executed notebooks with committed figures (kernel
+  spectra, Euler shadows, Kakutani threshold, radial derivative).
 
 No proof of RH is claimed.
 
@@ -55,13 +62,23 @@ This repository is not for:
 - `figures/` - generated images and diagrams.
 - `references.bib` - bibliography seeds.
 
-## First Lean targets
+## Lean spine
 
-1. Define finite initial segments and divisibility relation.
-2. Define the finite zeta/incidence matrix.
-3. State and prove finite Mobius inversion in this setting.
-4. Define finite GCD-kernel truncations.
-5. Separate computational positivity experiments from formal positivity claims.
+The original first targets are done: initial segments and divisibility
+(`Divisibility/Poset.lean`), incidence predicates (`Divisibility/Incidence.lean`),
+finite Mobius inversion (`Divisibility/Mobius.lean`), gcd-kernel truncations
+and their positivity (`Kernels/`). Computational evidence lives in
+`notebooks/`; formal claims live in Lean; the two are never conflated — the
+ledger marks which is which.
+
+Headline theorems:
+
+```
+RiemannVenue.Divisibility.mobius_inversion_initialSegment
+RiemannVenue.Kernels.gcdMatrix_eq_factorization
+RiemannVenue.Kernels.normalizedGcdKernel_posSemidef
+RiemannVenue.Venue.noLeak_finite
+```
 
 ## Essay and exhibit sheets
 
@@ -78,11 +95,21 @@ Current artifact:
 
 ## Validation
 
-Current lightweight checks:
+All of these run in CI (`.github/workflows/ci.yml`):
 
 ```bash
-python3 -m json.tool notebooks/gcd-kernel-spectra.ipynb >/dev/null
+# Lean: full build, and the sorry guard
+lake exe cache get && lake build
+grep -rn "sorry\|admit" RiemannVenue/ RiemannVenue.lean && exit 1
+
+# Notebooks: validate JSON and execute top-to-bottom
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python scripts/check_notebooks.py --execute
+.venv/bin/python scripts/export_figures.py
+
+# Exhibits
+typst compile exhibits/exhibit-sheets.typ exhibits/exhibit-sheets.pdf
+
+# Hygiene
 git diff --check
 ```
-
-Lean builds are not yet claimed. Once the package is pinned and dependencies are available, add the appropriate `lake` commands here.
