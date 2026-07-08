@@ -54,6 +54,8 @@ Above one half, the two remain compatible. Each is absolutely continuous with re
 
 At one half and below, they are mutually singular. Each lives entirely on a set the other assigns probability zero. Two worlds, no passage, and no gradation in between.
 
+Mutual singularity is stronger than mere difference, and worth one plain picture. Two differently loaded dice still share a world: any face one can roll, the other can roll too, only at different rates, and no run of rolls can tell you with certainty which die you hold. Mutually singular objects do not share a world. There is an event, one specific set of outcomes, that happens with certainty under the first and never under the second; one observation of the right kind settles which side you are on, forever. That is the sense in which the two sides of one half cannot be mixed.
+
 Kakutani's criterion decides this with one number per prime. On each circle, compare the leaning distribution with the uniform one by integrating the square root of their pointwise product; the result, the Hellinger overlap, equals 1 for identical distributions and falls below 1 as they differ. Multiply the overlaps across all primes. If the infinite product stays positive, the two objects share a world; if it collapses to zero, they separate. The lean at the prime p costs an overlap deficit of about one part in 4p^2σ, so everything reduces to whether the sum of 1/p^2σ over the primes converges, and that sum converges precisely when σ exceeds one half. The freeze is the divergence of a series the primes have been pointing at since Euler.
 
 ![Hellinger products collapsing at the critical exponent](../figures/kakutani-threshold.png)
@@ -66,13 +68,23 @@ When we went to cite Kakutani's theorem in machine-checked form, there was no ma
 
 So here is the one result, stated as coldly as I can. The critical line of the Riemann zeta function appears, in the native geometry of divisibility, as a phase boundary between measures. Above it, water. At it and below, ice. That is now a theorem, and a machine has checked every step.
 
+## The failure we kept
+
+The first thing we tried at the boundary failed, and the failure is part of the record.
+
+The tempting move is to push the finite tables' shadows straight to their infinite limit and hope the object whose positivity encodes the Hypothesis falls out. It does not. Near frequency zero the mass piles up without bound, fed by the ratios of consecutive integers, and the limit fails to be a measure at all.
+
+![Divergent mass accumulating at zero](../figures/nonradon-mass.png)
+
+The motion had marked this route False as stated when it was written. The record now holds a machine-checked proof of the failure, at the same standard as the theorems. A docket that only verifies its wins is an advertisement.
+
 ## Because then
 
 Once the line is a phase boundary, several things follow, and I will keep each to its width.
 
 The reframe follows. A zero off the line is no longer a mislaid point; it is a mode that survives on the wrong side of a freeze, and the Hypothesis becomes a statement about what kind of object arithmetic is, rather than about where its landmarks sit.
 
-A map of the crossing follows. The tempting direct bridge from the finite tables to the Hypothesis provably fails, and the record verifies the failure at the same standard as the successes. What survives the crossing is subtler: the finite objects persist as responses, matrix coefficients of a trivial flow in which the state, and never the operator, carries all the arithmetic.
+A map of the crossing follows. The finite objects survive it as responses, matrix coefficients of a trivial flow in which the state, and never the operator, carries all the arithmetic.
 
 And the venue turned out to grow its own mathematics. Every finite table has a weakest direction, the combination of numbers on which its positivity comes nearest to failing; it is where a geometry confesses. We computed ours, and the confession came back wearing the signs of the Liouville function, the deep plus-minus rhythm of cancellation, at better than 99.99 percent agreement; no one put them there. That portrait suggested a bound, the bound became a theorem, the theorem is machine-checked, and, to my knowledge, new. The computation behind it reached tables of size thirteen million because the record's first theorem, Möbius inversion, turned out to be its fastest algorithm. What the true decay rate is remains open, precisely posed, with instruments attached.
 
