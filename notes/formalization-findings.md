@@ -216,3 +216,26 @@ identity `min_{x₁=1} xᵀK_N x = 1/∑_{k≤N} μ²(k)/φ(k)` — a Selberg-si
 suggesting the `λ_min` question is a sieve/mollifier problem in kernel
 clothing. That reframing, plus the Poisson-polydisc route (target 4 above),
 is the recommended attack.
+
+## 10. One kernel, three faces — all formal (third expedition)
+
+With `RiemannVenue/Kernels/Polydisc.lean` the essay's central object is now
+machine-checked in all three of its readings, at the finite-place level:
+
+- **Overlap** (Gram): `normalizedGcdKernel_posSemidef`, `kappa_posSemidef` —
+  divisibility sets, half-density normalization, inherited positivity.
+- **Response** (matrix coefficient): `response_eq_poisson` — the state
+  `ξ_k = (√a)^{|k|}` against the trivial diagonal flow yields the Poisson
+  kernel.
+- **Spectrum** (Bochner): `integral_polydisc_poissonKernel_mul_exp` and
+  `prod_rpow_half_factorization_eq_gcd_div_sqrt` — the finite-polydisc
+  product Poisson measure's Fourier coefficient at exponents
+  `k_p = v_p(m) − v_p(n)`, with `a_p = p^{-1/2}`, **is** `gcd(m,n)/√(mn)`.
+
+The only gap between this and the essay's Finite-place Spectral Theorem is
+the infinite tensor product over all primes — precisely the frontier object
+(finding 3). Everything on the near side of that limit is now formal, and
+the supporting bench (moment identity, normalization, strict Hellinger
+deficit `hellinger_lt_one`) is the local input Kakutani's criterion consumes.
+Phase 2 (expansion bounds + the product criterion bridge) closes the gap to
+the dichotomy's statement; Phase 3 (Kakutani proper) is the summit.

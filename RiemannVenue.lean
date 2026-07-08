@@ -11,6 +11,7 @@ import RiemannVenue.Kernels.Threshold
 import RiemannVenue.Kernels.Response
 import RiemannVenue.Kernels.Hellinger
 import RiemannVenue.Kernels.Moments
+import RiemannVenue.Kernels.Polydisc
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
