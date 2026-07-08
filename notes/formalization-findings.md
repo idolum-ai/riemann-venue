@@ -93,3 +93,41 @@ The findings above frame the stretch work honestly:
   with the finite truncations as its matrix shadows) would be the first step
   of actual frontier-crossing per finding 3 — the first claim whose formal
   prerequisites do not yet exist in Mathlib.
+
+## 7. The pressure-point round (the four charges)
+
+A second round of formalization targeted "cut lines": places where proved
+material and an unproved statement nearly touch, so a short proof mints a
+statement one level up. All four landed; what they taught:
+
+- **Clearing denominators is the whole proof.** `kappa_posSemidef`
+  (`RiemannVenue/Kernels/Kappa.lean`) upgrades the truncation theorem to
+  *κ is a positive-definite function on ℚ₊^×* — the essay's second table
+  row — and the entire mathematical content is: common denominator,
+  lowest-terms bookkeeping, submatrix of `normalizedGcdKernel`. Estimated at
+  2–4 days in the roadmap; took about an hour. The group-level statement was
+  never deep; it was the *same* statement wearing group clothing. It is also
+  exactly the hypothesis the (unformalized) Bochner–Herglotz theorem
+  consumes: the repo now ends flush against that frontier.
+- **The critical exponent now appears formally.**
+  `kakutani_criterion_summable_iff` (`Kernels/Threshold.lean`): the
+  criterion series `∑_p p^{-2σ}` converges iff `σ > 1/2`. The measure-theoretic
+  dichotomy stays prose; its arithmetic core does not.
+- **The chain "log → radial derivative → prime powers" is one theorem.**
+  `hasDerivAt_sum_primePower_terms` (`Weil/LogDerivative.lean`) states that
+  the σ-derivative of the finite log-sum at `σ = 1/2` equals
+  `−primePowerSideTruncated P R (cos(u·))` — the derivative lands *exactly*
+  on the formal object defined two commits earlier, signs and weights
+  matching with no retrofitting. When independently-built formal pieces meet
+  like that, it is strong evidence the informal decomposition was canonical.
+- **`⟨ξ, U_θ ξ⟩` is now a definition, not a metaphor.** `response_eq_poisson`
+  (`Kernels/Response.lean`): the two-sided sum
+  `∑_{k∈ℤ} conj(ξ_k)·e^{ikθ}·ξ_k` with `ξ_k = (√a)^{|k|}` *is* the Poisson
+  kernel `P_a(θ)`. The essay's response interpretation — trivial generator,
+  state carries the arithmetic — holds at the single-place level as a
+  kernel-checked identity, with the prime specialization `hasSum_primeShadow`.
+- Method note: both agent-built files needed exactly one iteration each, and
+  the failures were harness-shaped (un-beta-reduced redexes, module-era
+  instance paths), not mathematics-shaped. The mathematics never pushed back
+  in this round — consistent with finding 1: the near bank is genuinely
+  shallow everywhere we have touched it.
