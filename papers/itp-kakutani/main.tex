@@ -83,26 +83,31 @@ reproducibility scripts, not on trust in any author, human or artificial.}
 
 \begin{abstract}
 Kakutani's dichotomy (1948) states that an infinite product of probability
-measures is either absolutely continuous or mutually singular with respect to a
-second such product built from pairwise locally absolutely continuous factors,
-according to whether the infinite product of the Hellinger affinities of the
-factor pairs is positive or zero. We present a formalization of both directions
-of the theorem in Lean~4 over Mathlib, stated for families indexed by an
-arbitrary type; to the authors' knowledge this is the first formalization of the
-theorem in any proof assistant. The development defines the Hellinger affinity
-as a total \ennreal-valued function of a pair of measures, proves the singular
-direction by a cylinder squeeze and the Borel--Cantelli lemma, and proves the
-absolutely continuous direction by a quantitative comparison of the product
-measure with a finite-window density measure over the measure-dense algebra of
-cylinders. Martingale convergence, the Kolmogorov zero--one law, and
-$L^p$-completeness arguments are not used. As an application, a family of
-product Poisson measures on an infinite-dimensional torus indexed by the primes
-is shown to be mutually singular with product Haar measure exactly for
-parameters $\sigma \le 1/2$ and equivalent to it exactly for $\sigma > 1/2$.
-The development carries a zero-\texttt{sorry} continuous-integration policy,
-and the main theorems depend only on the axioms \texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound}. Upstreaming to Mathlib is
-planned as a sequence of six pull requests.
+measures, built from factors pairwise locally absolutely continuous, is either
+absolutely continuous or mutually singular with respect to a second such
+product, according to whether the infinite product of the Hellinger affinities
+of the factor pairs is positive or zero. We present a formalization of both
+directions of the theorem in Lean~4 over Mathlib, stated for families indexed
+by an arbitrary type, and with no absolute-continuity hypothesis at all in the
+singular direction; both are strengthenings of the classical statement, and to
+the authors' knowledge this is the first formalization of the theorem in any
+proof assistant. The development defines the Hellinger affinity as a total
+\ennreal-valued function of a pair of measures, proves the singular direction
+by a cylinder squeeze and the Borel--Cantelli lemma, and proves the absolutely
+continuous direction by a quantitative comparison of the product measure with
+a finite-window density measure over the measure-dense algebra of cylinders.
+Martingale convergence, the Kolmogorov zero--one law, and $L^p$-completeness
+arguments are not used. Two applications are reported. A family of product
+Poisson measures on an infinite-dimensional torus indexed by the primes is
+shown to be mutually singular with product Haar measure exactly for parameters
+$\sigma \le 1/2$ and equivalent to it exactly for $\sigma > 1/2$; and for
+every nonzero shift $|u| \le \pi/(3\log 4)$ the log-scale translate of the
+same family is shown to be mutually singular with the family itself
+throughout $0 < \sigma \le 1/2$, endpoint included, from Chebyshev prime
+bounds alone. The development carries a zero-\texttt{sorry}
+continuous-integration policy, and the main theorems depend only on the axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+Upstreaming to Mathlib is planned as a sequence of six pull requests.
 \end{abstract}
 
 \section{Introduction}
@@ -118,7 +123,10 @@ $H(\mu_i, \nu_i) = \int \sqrt{\smash[b]{\tfrac{d\mu_i}{d\nu_i}}}\, d\nu_i$: if
 $\prod_i H(\mu_i,\nu_i) > 0$ then $\mu \ll \nu$, and if the product is $0$ then
 $\mu$ and $\nu$ are mutually singular. When each pair is mutually absolutely
 continuous, the conclusion sharpens to a dichotomy between equivalence and
-mutual singularity, with no intermediate regime.
+mutual singularity, with no intermediate regime. The formalization presented
+here proves the singular direction without the hypothesis $\mu_i \ll \nu_i$;
+the affinity is defined so as to be total, and singular factor parts only help
+singularity (\autoref{sec:statements}).
 
 The theorem is a standard instrument of measure-theoretic probability. It is
 the ancestor of the Feldman--H\'ajek dichotomy for Gaussian measures
@@ -146,8 +154,10 @@ The contributions:
 \begin{itemize}
 \item Machine-checked statements and proofs of both directions of Kakutani's
   dichotomy in Lean~4 over Mathlib, for factor families indexed by an
-  \emph{arbitrary} type. This is stronger than the classical countable
-  statement, and it fell out of the proof routes rather than being a goal.
+  \emph{arbitrary} type, and with no absolute-continuity hypothesis in the
+  singular direction. Both strengthenings of the classical countable
+  statement fell out of the proof routes and the definitions rather than
+  being goals.
 \item A reusable definition of the Hellinger affinity as a total,
   \ennreal-valued, symmetric function of a pair of measures, with its basic
   API, including $H(\mu,\nu) = 0 \leftrightarrow \mu \perp \nu$
@@ -161,9 +171,12 @@ The contributions:
   cylinder squeeze and Borel--Cantelli, the absolutely continuous direction by
   a quantitative cylinder comparison. Neither uses martingales, the zero--one
   law, or $L^p$ completeness (\autoref{sec:engineering}).
-\item An application: the family of product Poisson measures over the primes at
-  ratios $p^{-\sigma}$ changes type against product Haar measure exactly at
-  $\sigma = 1/2$ (\autoref{sec:application}).
+\item Two applications: the family of product Poisson measures over the primes
+  at ratios $p^{-\sigma}$ changes type against product Haar measure exactly at
+  $\sigma = 1/2$; and its log-scale translate is mutually singular with the
+  family itself for all $0 < \sigma \le 1/2$ and explicit nonzero shifts,
+  endpoint included, with no prime number theorem input
+  (\autoref{sec:application}).
 \item A public artifact with zero-\texttt{sorry} CI, axiom audits, and a
   staged plan for upstreaming the general-purpose layer to Mathlib
   (\autoref{sec:artifact}).
@@ -171,7 +184,7 @@ The contributions:
 
 The formalization was built as an instrument for a research program on the
 spectral geometry of the greatest-common-divisor kernel \cite{riemannvenue};
-\autoref{sec:application} states the one theorem of that program that this
+\autoref{sec:application} states the two theorems of that program that this
 paper reports.
 
 \section{Mathematical background}
@@ -227,13 +240,14 @@ Cauchy sequence in $L^2(\nu)$, the limit identifies $\frac{d\mu}{d\nu}$, and
 absolute continuity follows; in the divergent case $Z_n \to 0$ almost
 everywhere under $\nu$ while $\mu$ concentrates where $Z_n$ survives, and a
 zero--one argument upgrades this to mutual singularity. The formalized proofs
-reach the same conclusions along different routes
-(\autoref{sec:engineering}).
+reach the same conclusions along different routes (\autoref{sec:engineering}),
+and the singular one without the hypothesis $\mu_i \ll \nu_i$.
 
 \section{The formalization}
 \label{sec:formalization}
 
-The development comprises six Lean files plus two application files under
+The development comprises seven general-purpose Lean files plus five
+application files under
 \texttt{RiemannVenue/}\allowbreak\texttt{Kakutani/} in the artifact \cite{riemannvenue}, built
 against a pinned Mathlib revision (\autoref{sec:artifact}). Everything in this
 section and the next lives in the \leanid{MeasureTheory} namespace, most of it
@@ -293,10 +307,17 @@ theorem hellingerAffinity_eq_zero_iff [IsFiniteMeasure @$\mu$@] [IsFiniteMeasure
 \end{lstlisting}
 holds with no hypotheses beyond finiteness, so degenerate factor pairs need no
 separate treatment. The remaining API proves symmetry, $H(\mu,\mu) = 1$,
-$H(\mu,\nu) \le 1$ (H\"older with exponents $2, 2$), the computation rules
-under $\mu \ll \nu$ and for \leanid{withDensity} reweightings, and
-tensorization over finite products
-(\leanid{hellingerAffinity\_pi}).
+$H(\mu,\nu) \le 1$ (H\"older with exponents $2, 2$), positivity
+($H(\mu,\nu) > 0 \leftrightarrow \lnot\, \mu \perp \nu$), monotonicity in
+each argument, the \leanid{withDensity} computation rule, tensorization over
+finite products (\leanid{hellingerAffinity\_pi}), and the identity
+$H(\mu,\nu) = \int (\tfrac{d\mu}{d\nu})^{1/2}\, d\nu$ for arbitrary finite
+measures: by Lebesgue decomposition the singular part of $\mu$ has its
+$(\mu+\nu)$-density supported where the density of $\nu$ vanishes, so it
+contributes nothing to the defining integral
+(\leanid{hellingerAffinity\_eq\_lintegral\_rnDeriv}). The totality of this
+identity is what later makes the moment identity of the singular route
+hypothesis-free.
 
 \subsection{The hypothesis carrier: infima of partial products}
 \label{sec:carrier}
@@ -337,9 +358,9 @@ variable {@$\iota$@ : Type*} {X : @$\iota$@ @$\to$@ Type*} {mX : @$\forall$@ i, 
   [@$\forall$@ i, IsProbabilityMeasure (@$\mu$@ i)] [@$\forall$@ i, IsProbabilityMeasure (@$\nu$@ i)]
 \end{lstlisting}
 with no constraint on $\iota$. The singular direction
-(\texttt{Singular.lean}):
+(\texttt{Singular.lean}), with no hypothesis on the factor pairs at all:
 \begin{lstlisting}
-theorem infinitePi_mutuallySingular (hac : @$\forall$@ i, @$\mu$@ i @$\ll$@ @$\nu$@ i)
+theorem infinitePi_mutuallySingular
     (h : @$\bigsqcap$@ s : Finset @$\iota$@, @$\prod$@ i @$\in$@ s, hellingerAffinity (@$\mu$@ i) (@$\nu$@ i) = 0) :
     Measure.infinitePi @$\mu$@ @$\perp$@@${}_{m}$@ Measure.infinitePi @$\nu$@
 \end{lstlisting}
@@ -361,23 +382,38 @@ theorem infinitePi_absolutelyContinuous_and_symm
     Measure.infinitePi @$\mu$@ @$\ll$@ Measure.infinitePi @$\nu$@ @$\wedge$@
       Measure.infinitePi @$\nu$@ @$\ll$@ Measure.infinitePi @$\mu$@
 \end{lstlisting}
+The packaged forms (\texttt{Dichotomy.lean}): the two-sided dichotomy, and
+the criterion as a biconditional,
+\begin{lstlisting}
+theorem infinitePi_absolutelyContinuous_or_mutuallySingular
+    (hac : @$\forall$@ i, @$\mu$@ i @$\ll$@ @$\nu$@ i) (hac' : @$\forall$@ i, @$\nu$@ i @$\ll$@ @$\mu$@ i) :
+    (Measure.infinitePi @$\mu$@ @$\ll$@ Measure.infinitePi @$\nu$@ @$\wedge$@
+        Measure.infinitePi @$\nu$@ @$\ll$@ Measure.infinitePi @$\mu$@) @$\vee$@
+      Measure.infinitePi @$\mu$@ @$\perp$@@${}_{m}$@ Measure.infinitePi @$\nu$@
+
+theorem infinitePi_absolutelyContinuous_iff (hac : @$\forall$@ i, @$\mu$@ i @$\ll$@ @$\nu$@ i) :
+    Measure.infinitePi @$\mu$@ @$\ll$@ Measure.infinitePi @$\nu$@ @$\leftrightarrow$@
+      0 < @$\bigsqcap$@ s : Finset @$\iota$@, @$\prod$@ i @$\in$@ s, hellingerAffinity (@$\mu$@ i) (@$\nu$@ i)
+\end{lstlisting}
+Both are order splits on the infimum, exhaustive in \ennreal{} with no case
+analysis debt. The biconditional needs only the one-sided hypothesis, which
+is sharper than the design asked for: its forward implication is exclusivity
+through the hypothesis-free singular direction, so weakening the singular
+statement once weakened every downstream packaging for free.
 
 Two remarks on the hypotheses, in the interest of precision. The index type is
 arbitrary in both directions; \autoref{sec:engineering} explains why
-countability is never needed. And the singular direction carries the local
-absolute-continuity hypothesis \leanid{hac} even though the affinity was
-defined so as not to need it: the hypothesis enters only because the finite
-window densities are built from \leanid{rnDeriv} against $\nu_i$. The singular
-parts of the $\mu_i$ can only help singularity, so the hypothesis is
-removable; the generalization is recorded in the file's docstring and deferred
-to the Mathlib port (\autoref{sec:artifact}). For the same reason, the
-packaged disjunction (``absolutely continuous or mutually singular'') is not a
-separate declaration in the artifact; under \leanid{hac} it is a two-line
-order split on the infimum, and it is scheduled to be added, in that packaged
-form, during the port. A degenerate-case lemma is included: if any single
-factor pair is mutually singular, the products are
-(\leanid{infinitePi\_mutuallySingular\_of\_mutuallySingular}), with no
-absolute-continuity hypothesis at all.
+countability is never needed. And the asymmetry between the directions is
+exact. The absolutely continuous direction keeps \leanid{hac}, as it must: a
+single factor with a nonzero singular part destroys $\mu \ll \nu$ while the
+affinity product can remain positive. The singular direction, which in earlier
+revisions carried \leanid{hac} as scaffolding (the finite window densities are
+built from \leanid{rnDeriv} against $\nu_i$), no longer needs it; the design
+had flagged the hypothesis as removable, and removing it cost one inequality
+lemma and a null-set subtraction, because the affinity had been total since
+its definition (\autoref{sec:singular-route}). A degenerate-case lemma is
+included: if any single factor pair is mutually singular, the products are
+(\leanid{infinitePi\_mutuallySingular\_of\_mutuallySingular}).
 
 \section{Proof engineering}
 \label{sec:engineering}
@@ -404,23 +440,32 @@ analysis stalls.
 Suppose the infimum of partial affinity products is $0$. For each $k$ extract
 a finite window $s_k$ with $\prod_{i \in s_k} H_i < 4^{-k}$, and consider the
 cylinder event $B_k = \{x \mid Z_{s_k}(x) < 4^{-k}\}$ where
-$Z_s(x) = \prod_{i \in s}\frac{d\mu_i}{d\nu_i}(x_i)$. Two one-line estimates
-squeeze this event from both sides:
+$Z_s(x) = \prod_{i \in s}\frac{d\mu_i}{d\nu_i}(x_i)$; the Radon--Nikodym
+derivative is total in Mathlib, so $Z_s$ needs no hypothesis to exist. Let
+$T$ be the union, over the windows $s_k$, of the coordinate cylinders over
+carriers of the singular parts $(\mu_i).\leanid{singularPart}\,(\nu_i)$; only
+countably many coordinates ever appear, so $T$ is $\nu^\infty$-null. Two
+one-line estimates squeeze the shaved events $B_k \setminus T$ from both
+sides:
 \begin{itemize}
-\item $\mu^\infty(B_k) \le 4^{-k} \le 2^{-k}$, because the cylinder density
-  identity (\leanid{infinitePi\_cylinder\_eq\_setLIntegral\_rnDeriv},
-  file \texttt{Cylinder.lean}) evaluates $\mu^\infty$ on a cylinder as the
-  $\nu^\infty$-integral of $Z_{s_k}$ over it, and the integrand is below
-  $4^{-k}$ there;
+\item $\mu^\infty(B_k \setminus T) \le 4^{-k} \le 2^{-k}$, because off $T$
+  each $\mu_i$ restricts to its absolutely continuous part, so the
+  $\mu^\infty$-mass of a cylinder is at most the $\nu^\infty$-integral of
+  $Z_{s_k}$ over it
+  (\leanid{infinitePi\_cylinder\_diff\_le\_setLIntegral\_rnDeriv},
+  file \texttt{Cylinder.lean}), and the integrand is below $4^{-k}$ there;
 \item $\nu^\infty(B_k^{\,c}) \le 2^{-k}$, by Markov's inequality applied to
   $\sqrt{Z_{s_k}}$ together with the moment identity
   $\int \sqrt{Z_s}\, d\nu^\infty = \prod_{i \in s} H_i$
-  (\leanid{lintegral\_prod\_rnDeriv\_rpow\_infinitePi}).
+  (\leanid{lintegral\_prod\_rnDeriv\_rpow\_infinitePi}), which is
+  hypothesis-free because the affinity identity of \autoref{sec:affinity} is.
 \end{itemize}
 Both bounds are geometrically summable, so the Borel--Cantelli lemma applies
-twice: $S = \limsup_k B_k$ is $\mu^\infty$-null, and its complement, contained
-in $\limsup_k B_k^{\,c}$, is $\nu^\infty$-null. The set $S$ witnesses mutual
-singularity directly.
+twice: $S = \limsup_k (B_k \setminus T)$ is $\mu^\infty$-null, and its
+complement, contained in $\limsup_k (B_k \setminus T)^{c}$, is
+$\nu^\infty$-null. The set $S$ witnesses mutual singularity directly. Under
+$\mu_i \ll \nu_i$ the set $T$ is empty and the argument reduces to the plain
+squeeze on $B_k$.
 
 This route uses no martingale convergence and no zero--one law, although both
 exist in Mathlib and were mapped as fallbacks during design. The payoff is
@@ -428,6 +473,18 @@ concrete: the entire proof is elementary integration against cylinders, and it
 is the reason the statement holds for arbitrary $\iota$, since only a
 \emph{sequence} of finite windows is ever extracted from the vanishing
 infimum.
+
+One methodological remark. The first implementation carried
+$\mu_i \ll \nu_i$, because the cylinder density \emph{identity} genuinely
+needs it: singular parts push $\mu^\infty$-mass above the density integral,
+and the checker refuses the equality without them. What the squeeze consumes,
+however, is only the $\le$ direction, and the excess mass lands inside a
+$\nu^\infty$-null set. Asking which direction of a refused identity the proof
+actually uses, and where the failure of the other direction lives, turned a
+scoping compromise into the stronger theorem; the total definition of the
+affinity, fixed three milestones earlier, had already paid for the moment
+identity, so the generalization cost one inequality lemma and a null-set
+subtraction.
 
 \subsection{The absolutely continuous direction: quantitative comparison}
 \label{sec:ac-route}
@@ -503,7 +560,7 @@ one pinned-toolchain workaround that remains
 (a \leanid{set\_option} guarding one Fubini proof) is flagged in the
 upstreaming plan.
 
-\section{Application: a phase boundary at the critical exponent}
+\section{Applications: the critical exponent as a phase boundary}
 \label{sec:application}
 
 The repository \cite{riemannvenue} studies the kernel
@@ -521,7 +578,12 @@ noncomputable def poissonMeasure (a : @$\mathbb{R}$@) : Measure @$\mathbb{R}$@ :
 \end{lstlisting}
 where \leanid{poissonKernel}~$a$~$\theta = (1-a^2)/\lvert 1 - a
 e^{i\theta}\rvert^2$ is the classical Poisson kernel, a strictly positive
-probability density for $0 < a < 1$. A computation
+probability density for $0 < a < 1$.
+
+\subsection{The dichotomy at the critical exponent}
+\label{sec:app-dichotomy}
+
+A computation
 (\leanid{hellingerAffinity\_poissonMeasure}) identifies the abstract affinity
 of the pair with the repository's analytic benchmark value
 $\operatorname{hellinger}(a) = (2\pi)^{-1} \int_{-\pi}^{\pi}
@@ -547,11 +609,68 @@ For $\sigma > 1/2$ the two products are in fact equivalent
 exclusivity, since a nonzero measure cannot be both absolutely continuous and
 mutually singular with respect to the same measure. The type change lands
 exactly at the critical exponent, with the endpoint $\sigma = 1/2$ on the
-singular side. Within the wider program this theorem is the machine-checked
-form of a claim the accompanying essay makes about the log-scale boundary
-behavior of the divisibility geometry; the program's other results and its
-open problems are catalogued in the repository's status ledger
-\cite{riemannvenue} and are out of scope here.
+singular side.
+
+\subsection{The translate flow, expelled without the prime number theorem}
+\label{sec:app-translate}
+
+There is a sharper statement in the same family. For $u \in \mathbb{R}$ the
+log-scale flow rotates the $p$-th circle by $u \log p$; classically, deciding
+whether the translated product Poisson measure stays in the measure class of
+the original leads, at the endpoint $\sigma = 1/2$, to the series
+$\sum_p \cos(u \log p)/p$, whose boundedness is equivalent to the
+nonvanishing of $\zeta(1+iu)$ --- prime number theorem strength. The
+formalized theorem (\texttt{TranslateSingular.lean}) shows that for an
+explicit range of shifts no such input is needed:
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+theorem translate_poissonProduct_mutuallySingular {@$\sigma$@ u : @$\mathbb{R}$@} (h@$\sigma$@@${}_{0}$@ : 0 < @$\sigma$@)
+    (h@$\sigma$@ : @$\sigma$@ @$\le$@ 1 / 2) (hu@${}_{0}$@ : u @$\ne$@ 0)
+    (hu : |u| @$\le$@ Real.pi / (3 * Real.log 4)) :
+    Measure.infinitePi (fun p : Nat.Primes =>
+        rotatedPoissonMeasure ((p : @$\mathbb{R}$@) ^ (-@$\sigma$@)) (u * Real.log p))
+      @$\perp$@@${}_{m}$@ Measure.infinitePi (fun p : Nat.Primes =>
+        poissonMeasure ((p : @$\mathbb{R}$@) ^ (-@$\sigma$@)))
+\end{lstlisting}
+Here \leanid{rotatedPoissonMeasure}~$a$~$t$ reweights the Haar slice by the
+shifted kernel $\theta \mapsto P_a(\theta + t)$; by $2\pi$-periodicity this is
+the wrapped density of the rotated measure, so no wrap map is needed. The
+theorem is unconditional, includes the endpoint, and every constant in the
+proof is explicit and verified in-proof. The proof has three moves
+(\texttt{BlockPhase.lean}):
+\begin{itemize}
+\item \emph{Deficit bound.} The abstract affinity of the rotated pair
+  identifies with the two-point integral
+  $H(a,t) = (2\pi)^{-1}\int \sqrt{P_a(\theta+t) P_a(\theta)}\, d\theta$, and
+  the exact defect identity
+  $1 - H(a,t) = (4\pi)^{-1}\int (\sqrt{P_a(\theta+t)} -
+  \sqrt{P_a(\theta)})^2\, d\theta$ yields, by an elementary pointwise chain,
+  $1 - H(a,t) \ge \tfrac{8}{2187}\, a^2 (1 - \cos t)$ for $0 < a \le 1/2$.
+\item \emph{4-adic Chebyshev blocks.} Mathlib's bounds on Chebyshev's
+  $\vartheta$ give $\vartheta(4^{k+1}) - \vartheta(4^k) \ge 4^k \log 2$ for
+  $k \ge 7$ (dyadic blocks fail: the leading terms of the upper and lower
+  bounds cancel exactly at ratio $2$), hence
+  $\sum_{4^k < p \le 4^{k+1}} p^{-2\sigma} \ge \tfrac{1}{8(k+1)}$ for
+  $\sigma \le 1/2$.
+\item \emph{Pigeonhole phase crossing.} The block phase $u \log p$ drifts by
+  $\delta = u \log 4 \le \pi/3$ per block, so every window of
+  $\lceil 2\pi/\delta \rceil + 1$ consecutive blocks contains one whose whole
+  phase interval lies in the arc where $1 - \cos \ge 3/2$. The good blocks
+  carry harmonic weight, and the resulting series diverges, so
+  $\sum_p p^{-2\sigma}(1 - \cos(u \log p))$ is not summable; the
+  hypothesis-free singular direction
+  (\leanid{infinitePi\_mutuallySingular\_of\_not\_summable}) concludes.
+\end{itemize}
+The shift range is the honest frontier of blockwise counting: beyond it one
+must count primes by phase within blocks, that is, use equidistribution of
+$u \log p$ modulo $2\pi$, which is again zero-free-line strength and absent
+from the pinned Mathlib. For $|u| \le \pi/(3 \log 4)$ the endpoint
+obstruction dissolves: the gate is the size of the shift, not the exponent.
+
+Within the wider program these two theorems are the machine-checked forms of
+claims the accompanying essay makes about the log-scale boundary behavior of
+the divisibility geometry; the program's other results and its open problems
+are catalogued in the repository's status ledger \cite{riemannvenue} and are
+out of scope here.
 
 \section{Related work}
 \label{sec:related}
@@ -597,14 +716,18 @@ The Kakutani layer is:
 \toprule
 File (\texttt{RiemannVenue/Kakutani/}) & Contents & Lines \\
 \midrule
-\texttt{Affinity.lean} & Hellinger affinity and API (M1) & 197 \\
+\texttt{Affinity.lean} & Hellinger affinity and API (M1) & 280 \\
 \texttt{FiniteProduct.lean} & \leanid{pi\_withDensity}, lintegral Fubini, tensorization (M2) & 143 \\
-\texttt{Cylinder.lean} & bridges, cylinder density and moment identities (M3) & 274 \\
-\texttt{Singular.lean} & singular direction (M4) & 208 \\
+\texttt{Cylinder.lean} & bridges, cylinder density and moment identities (M3) & 364 \\
+\texttt{Singular.lean} & singular direction, hypothesis-free (M4) & 258 \\
 \texttt{Equivalence.lean} & absolutely continuous direction (M5) & 484 \\
-\texttt{PoissonSingular.lean} & local Poisson model, singular half of M6 & 218 \\
+\texttt{Dichotomy.lean} & packaged dichotomy and biconditional & 86 \\
+\texttt{PoissonSingular.lean} & local Poisson model, singular half of M6 & 217 \\
 \texttt{PoissonDichotomy.lean} & equivalence half and the packaged boundary (M6) & 175 \\
 \texttt{SpectralMeasure.lean} & Bochner window factorization; spectral application & 248 \\
+\texttt{QuadraticForm.lean} & Parseval face of the spectral application & 311 \\
+\texttt{BlockPhase.lean} & rotated-affinity bench, 4-adic blocks, phase pigeonhole & 1059 \\
+\texttt{TranslateSingular.lean} & the translate-flow singularity & 297 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -612,11 +735,14 @@ File (\texttt{RiemannVenue/Kakutani/}) & Contents & Lines \\
 The toolchain is Lean 4 (\texttt{leanprover/lean4:v4.32.0-rc1}) with Mathlib
 pinned at revision \texttt{e2361c1}. Continuous integration builds the full
 repository and enforces a zero-\texttt{sorry} policy by a textual guard in
-addition to the build. Axiom audits via \leanid{\#print axioms} on the main
-declarations (\leanid{infinitePi\_mutuallySingular},
+addition to the build. {\sloppy Axiom audits via \leanid{\#print axioms}
+report exactly \leanid{propext}, \leanid{Classical.choice}, and
+\leanid{Quot.sound} on the main declarations:
+\leanid{infinitePi\_mutuallySingular},
 \leanid{infinitePi\_absolutelyContinuous\_of\_summable},
-\leanid{poissonProduct\_dichotomy}) report exactly \leanid{propext},
-\leanid{Classical.choice}, and \leanid{Quot.sound}. To build:
+\leanid{infinitePi\_absolutelyContinuous\_or\_mutuallySingular},
+\leanid{poissonProduct\_dichotomy}, and
+\leanid{translate\_poissonProduct\_mutuallySingular}.\par} To build:
 \begin{lstlisting}[language={}]
 lake exe cache get && lake build
 \end{lstlisting}
@@ -625,10 +751,10 @@ lake exe cache get && lake build
 Poisson application) is scheduled for Mathlib as six pull requests, about 31
 public declarations in total: (1) the Hellinger affinity file; (2)
 \leanid{pi\_withDensity} and the lintegral product Fubini; (3) the
-infinite-product/summability bridges; (4) the singular direction, with the
-\leanid{hac} hypothesis dropped as discussed in \autoref{sec:statements}; (5)
+infinite-product/summability bridges; (4) the singular direction, in its
+hypothesis-free form; (5)
 the absolutely continuous direction together with the packaged dichotomy and
-the equivalence restated as a biconditional; (6) the Bochner window
+the biconditional of \texttt{Dichotomy.lean}; (6) the Bochner window
 factorization over \leanid{infinitePi}, which is independent of the rest.
 PRs 1--3 and 6 have no interdependencies; 4 needs 1--3; 5 needs 4. The plan,
 including naming deltas, the module-system port, and known drift risks
@@ -644,17 +770,19 @@ knowledge'' will be retained regardless of the outcome.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Kakutani's dichotomy is now a machine-checked theorem, in a form slightly
-stronger than the classical one, with proof routes chosen so that the
-formalization consists of elementary integration against cylinders rather
-than martingale limit theory. The exercise supports a working hypothesis
-about formalizing graduate-level measure theory: the cost concentrates at
-value-type crossings, and route selection that minimizes those crossings can
-matter more than the availability of heavy machinery. Next steps are the
-removal of the residual absolute-continuity hypothesis on the singular
-direction, the Mathlib pull-request sequence, and, once a general
-$f$-divergence framework is in Mathlib, the bridging lemma tying the affinity
-to it. The Feldman--H\'ajek dichotomy is the natural continuation.
+Kakutani's dichotomy is now a machine-checked theorem, stronger than the
+classical one in both index generality and hypotheses, with proof routes
+chosen so that the formalization consists of elementary integration against
+cylinders rather than martingale limit theory. The exercise supports two
+working hypotheses about formalizing graduate-level measure theory: the cost
+concentrates at value-type crossings, and route selection that minimizes
+those crossings can matter more than the availability of heavy machinery;
+and total definitions are cheap insurance, since the hypothesis-free singular
+direction and the one-sided biconditional both trace back to a definition
+fixed before either was in scope. Next steps are the Mathlib pull-request
+sequence and, once a general $f$-divergence framework is in Mathlib, the
+bridging lemma tying the affinity to it. The Feldman--H\'ajek dichotomy is
+the natural continuation.
 
 \bibliography{kakutani}
 

@@ -126,3 +126,138 @@ named, not attacked — survived every expedition unchanged and is the reason
 everything else could be trusted. The revision should resist any temptation
 to soften "the last arrow is RH." Nothing in the record moved that wall;
 the record's honor is that it says so.
+
+## 7. Third-edition sync points (2026-07-08, sixth expedition eve)
+
+Four places where the second edition now trails the record: two hedges that
+became theorems, one open problem that became a sandwich, one adjacency that
+became an identity. For each: where it bites (quoting the current essay),
+the minimal edit, the maximal edit. The dials are Daniel's.
+
+### 7.1 The translate-flow singularity: proved interior, named frontier
+
+**Status.** `translate_poissonProduct_mutuallySingular`
+(`RiemannVenue/Kakutani/TranslateSingular.lean`, bench in
+`BlockPhase.lean`, design `notes/translate-kakutani-design.md`): for
+`0 < σ ≤ 1/2` and `0 < |u| ≤ π/(3 log 4)`, the log-scale translate
+`(T_u)_* μ_σ` is mutually singular with `μ_σ` — unconditional, endpoint
+included, PNT-free (deficit constant `8/2187`, 4-adic Chebyshev blocks,
+pigeonhole phase crossing; every constant verified in-proof). The PNT gate
+governs only large shifts; the hard ceiling of blockwise counting is
+`|u| < π/log 2`, beyond which prime-phase equidistribution (zero-free-line
+strength) is genuinely required.
+
+**Where it bites.** Claim-table row (translate clause): *"the translate
+version remains prose."* The endpoint paragraph at the
+`Σ_p cos(u log p)/p` display: *"converges with bounded partial sums for
+u≠0, the mode of convergence Kakutani's criterion consumes, since the full
+series has nonnegative terms. This is Prime Number Theorem strength: it
+reflects the classical fact that ζ(1+iu) is finite and nonzero off u=0, the
+Hadamard–de la Vallée Poussin zero-free line."* And the payoff line:
+*"the scale flow itself refuses to act within its measure class."*
+
+**Minimal.** Table row cites the declaration and drops "remains prose";
+one clause at the endpoint paragraph scopes the PNT sentence to shifts
+beyond `π/(3 log 4)`. This also retires fix 1 of §2 above for small shifts;
+the corrected clause survives only as the general-`u` frontier.
+
+**Maximal.** Rewrite the translate passage as a proved interior plus a
+named frontier: state the theorem with its explicit shift range, keep the
+PNT sentence as the frontier's name rather than the claim's cost, and let
+the payoff line stand on a theorem instead of a heuristic. Candidate
+one-liner (only if it earns its place): the endpoint obstruction is the
+size of the shift, not the exponent.
+
+### 7.2 The λ_min rate: the open problem is now a sandwich
+
+**Status.** `notes/lambda-min-lower-attack.md` (paper-math, claim-labeled —
+*derived*, not machine-checked; the essay's currency system must say so):
+weighted Gershgorin with weight `ρ^Ω(n)/√n` on the exact inverse gives
+`λ_min(K_N) ≥ exp(−(2+o(1))√(log N))` unconditionally; with the primorial
+bound above, `−log λ_min(K_N) = (log N)^{1/2+o(1)}` is derived, both sides
+confined to a `(log log N)^{±1}` corridor. En route, a structural fact: the
+Möbius signs of `K⁻¹` are a pure gauge (`μ(k/m)μ(k/n) = λ(m)λ(n)`), so by
+Perron–Frobenius the minimizer's Liouville signs are exact for every `N`.
+
+**Where it bites.** Yield, third item: *"The third is an open problem,
+posed here with numerics to N=1.3×10⁷. … The honest target is
+λ_min(K_N) = exp(−(log N)^{1/2+o(1)}), and the mechanism is unexplained."*
+Yield, first item: *"The first is a portrait, computed rather than proved.
+… carries the signs of the Liouville function with mass-weighted agreement
+above 0.999."*
+
+**Minimal.** The third item claims the exponent and poses only the
+slowly-varying factor: "open problem" becomes "derived sandwich, corridor
+open." The first item gains a clause: the signs are no longer only a
+portrait; the gauge identity makes them exact for every `N`, and the 0.999
+figure becomes the numerical shadow of an exact fact.
+
+**Maximal.** Recast the third Yield item as the venue's full arc: portrait
+→ primorial witness → gauge identity → Gershgorin sandwich, with the
+`(log log N)^{±1}` corridor as the surviving open problem. The analogy's
+final beat (§5 above) sharpens accordingly: the venue asked the question
+and then answered it to within a slowly-varying factor.
+
+### 7.3 The β = 2σ dictionary: a candidate exhibit for the response section
+
+**Status.** `notes/gibbs-temperature.md`: the essay's one-sided vector
+`ω_σ` and the Bost–Connes Gibbs state at inverse temperature `β = 2σ` have
+identical density matrices — an identity, not an analogy — so the
+machine-checked freeze at `σ = 1/2` sits exactly at the BC transition
+`β = 1`. The note's §7 literature pass finds the dictionary apparently
+unrecorded (Neshveyev's product-measure KMS states are the nearest miss);
+whether the two transitions are one phenomenon is posed, not claimed.
+
+**Where it bites.** The bookkeeping sentence: *"The bookkeeping is α=2σ:
+the absolutely convergent range α>1 is exactly the one-sided range σ>1/2."*
+The pole paragraph: *"the zeta-distribution vacuum forgets itself under
+every nonzero scale displacement at the pole boundary."* And the
+noncommutative section: *"These are not consequences of the gcd kernel.
+They are neighboring constructions…"*
+
+**Minimal.** One sentence at the bookkeeping display: under `β = 2σ` the
+normalized one-sided vacuum is the Bost–Connes Gibbs state, so the α = 2σ
+bookkeeping is a temperature scale and the freeze lands on the BC
+transition. The "neighboring constructions" sentence gains a qualifier:
+neighboring as constructions, identical as states.
+
+**Maximal.** A short exhibit in the response/temperature section: local
+Gibbs weights `β_p = σ log p`, the height Hamiltonian with
+`Z(β) = ζ(β)²/ζ(2β)`, the dictionary, and the posed question (one
+phenomenon or two). Publication posture per the note's §7: an observation
+with its adjacency list, Neshveyev cited as the bridgehead.
+
+### 7.4 Tate's nonarchimedean local integral: the strip narrows
+
+**Status.** `lintegral_norm_rpow` and
+`local_zeta_integral_tate_normalization`
+(`RiemannVenue/Tate/LocalIntegral.lean`): Haar measure on `ℤ_p`, shell
+volumes, `∫‖x‖^s = (1−1/p)/(1−p^{-(s+1)})`, and the Tate normalization
+recovering `(1−p^{-s})^{-1}` — machine-checked, no longer a restatement.
+
+**Where it bites.** Claim-table Tate row: *"Known from Tate's thesis;
+restated against Mathlib in the repository
+(`completed_zeta_eq_gamma_mul_tsum`)."* Completion section: *"the local
+zeta integral … recovers the local L-factor for the standard nonarchimedean
+vector f=1_𝒪, after the usual normalization."*
+
+**Minimal.** The table row keeps its "known" label (the mathematics is
+Tate's) and adds the two declarations; the artifact column upgrades from
+restatement to proof.
+
+**Maximal.** One sentence in the Completion section: the finite-place half
+of the displayed local integral is now machine-checked, so the
+known-but-unformalized strip has moved entirely to the archimedean and
+global side. This is the currency device of §0 doing its work: a "known"
+row acquiring a receipt.
+
+### Coda: citation refresh for the Kakutani rows
+
+Row 44's citation list should also absorb the sixth-expedition
+strengthenings: the singular direction is now hypothesis-free
+(`infinitePi_mutuallySingular`, no local absolute continuity), and the
+packaged forms exist as declarations
+(`infinitePi_absolutelyContinuous_or_mutuallySingular`,
+`infinitePi_absolutelyContinuous_iff`, `RiemannVenue/Kakutani/Dichotomy.lean`
+— the iff under a one-sided hypothesis only). All audit to
+`propext, Classical.choice, Quot.sound`.
