@@ -4,10 +4,11 @@ The essay — *A Motion to Change Venue for the Riemann Hypothesis* — motivate
 this repository. The repository is Lean-first: the essay argues, the record
 checks.
 
-**Current state:** the essay text lives outside the repository (it is
-unpublished). `motion-to-change-venue.md` holds the claim-to-artifact map:
-each of the essay's checkable claims and the machine-checked artifact that
-backs it.
+**Current state:** `a-motion-to-change-venue.md` is the second-edition
+working draft, seeded verbatim from the pre-repo text; revisions land as
+individual reviewable commits against that baseline.
+`motion-to-change-venue.md` holds the claim-to-artifact map: each of the
+essay's checkable claims and the machine-checked artifact that backs it.
 
 **Planned:** after the second-edition revision (see
 `../notes/essay-revision-brief.md` for the revision inventory), the annotated
