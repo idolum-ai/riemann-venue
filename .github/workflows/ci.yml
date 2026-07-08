@@ -95,6 +95,8 @@ jobs:
           else
             echo "no Typst sources yet; skipping"
           fi
+      - name: Compile second-edition motion (smoke test)
+        run: typst compile --root . essay/motion.typ /tmp/motion-ci.pdf
 
   hygiene:
     name: Repo hygiene
