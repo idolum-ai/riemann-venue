@@ -16,6 +16,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 | `κ` extends to a positive-definite function on `ℚ₊^×` | proved in Lean | `RiemannVenue/Kernels/Kappa.lean` (`kappa_posSemidef`) |
 | The Kakutani criterion series `∑_p p^{-2σ}` converges iff `σ > 1/2` | proved in Lean | `RiemannVenue/Kernels/Threshold.lean` (`kakutani_criterion_summable_iff`) |
 | The local response `∑_{k∈ℤ} a^{\|k\|} e^{ikθ}` is the Poisson kernel — the `⟨ξ, U_θ ξ⟩` reading | proved in Lean | `RiemannVenue/Kernels/Response.lean` (`hasSum_localResponse`, `response_eq_poisson`, `hasSum_primeShadow`) |
+| Poisson kernel closed form, positivity, normalization `∫P_a = 2π`, Hellinger affinity `H(a) ≤ 1` — instruments toward Kakutani | proved in Lean | `RiemannVenue/Kernels/Hellinger.lean` (`integral_poissonKernel`, `hellinger_le_one`) |
 | `−log‖1−p^{-σ}e^{iθ}‖` has the prime-power cosine expansion; its radial derivative at `σ = 1/2` is `−`(prime-power side vs. `cos`) | proved in Lean | `RiemannVenue/Weil/LogDerivative.lean` (`hasSum_neg_log_norm_one_sub`, `hasDerivAt_sum_primePower_terms`) |
 | L-series = ζ, Euler product, completed functional equation and residue | anchored | `RiemannVenue/Zeta/` |
 | Gaussian self-duality and the archimedean factor `Γ_ℝ` | anchored | `RiemannVenue/Tate/` |
