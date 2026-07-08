@@ -26,7 +26,7 @@ The guiding slogan is:
 
 That shadow is real. It is proved below as overlap, as spectrum, and as finite response. The bridge from the shadow to the Hypothesis is the completed boundary-state positivity problem, and it stays open on every page of this essay.
 
-Re-centering of this kind is not a strange request. It is how arithmetic has often developed. Zero was not found within the standing framework of number; it was installed. Negative quantities were called absurd for centuries and used anyway. The diagonal of the unit square admits no ratio of integers, so a larger continuum was constructed until it did not need one. The square root of a negative number was tolerated as a fiction and then promoted to an axis. Each was an impossibility in the standing coordinates, used before it was justified, paid for by constructions that became foundational once installed. When an absence is structured, persistent, and resistant to the standing coordinates, the historical remedy has been to rebuild the coordinates around it.
+Re-centering of this kind is not a strange request; it is how arithmetic has often developed — zero installed rather than found, negative quantities used while still called absurd, the diagonal of the unit square housed in a continuum built because no ratio would hold it, the square root of a negative number promoted from tolerated fiction to axis. When an absence is structured, persistent, and resistant to the standing coordinates, the historical remedy has been to rebuild the coordinates around it.
 
 ---
 
@@ -1167,7 +1167,7 @@ None of this touches the locked chamber. The yield is evidence of a different ki
 
 ## The Focus
 
-It is fair to ask whom the motion addresses. Not Connes; he is already inside the courtroom, and every unconditional object above sits on a record he helped write. The motion is addressed to the field's self-understanding of what kind of statement the Hypothesis is. Motions do not introduce evidence. They ask the court to change the question being tried.
+It is fair to ask whom the motion addresses. Not Connes; he is already inside the courtroom, and every unconditional object above sits on a record he helped write. The motion is addressed to the field's self-understanding of what kind of statement the Hypothesis is. Motions do not introduce evidence. They ask the court to change the question being tried. This edition, though, arrives with its record attached: the companion [repository](https://github.com/idolum-ai/riemann-venue) is the docket — the exhibits build, the failures are verified with the same rigor as the successes, and none of the checking requires trust in the author.
 
 The motion is this:
 
