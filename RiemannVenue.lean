@@ -26,6 +26,8 @@ import RiemannVenue.Kakutani.PoissonSingular
 import RiemannVenue.Kakutani.PoissonDichotomy
 import RiemannVenue.Kakutani.SpectralMeasure
 import RiemannVenue.Kakutani.QuadraticForm
+import RiemannVenue.Kakutani.BlockPhase
+import RiemannVenue.Kakutani.TranslateSingular
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
