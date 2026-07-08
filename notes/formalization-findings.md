@@ -239,7 +239,13 @@ machine-checked in all three of its readings, at the finite-place level:
 
 The only gap between this and the essay's Finite-place Spectral Theorem is
 the infinite tensor product over all primes — precisely the frontier object
-(finding 3). Everything on the near side of that limit is now formal, and
+(finding 3). *(Coda, fourth expedition: the gap is closed —
+`integral_character_infinitePoisson_half_eq_kappa` in
+`RiemannVenue/Kakutani/SpectralMeasure.lean` proves κ is the Fourier
+coefficient of the product Poisson measure on the **infinite** prime torus,
+via a new Bochner window-factorization lemma over `Measure.infinitePi` that
+Mathlib itself lacks. The Finite-place Spectral Theorem is complete; all
+three faces are formal at the infinite level.)* Everything on the near side of that limit is now formal, and
 the supporting bench (moment identity, normalization, strict Hellinger
 deficit `hellinger_lt_one`) is the local input Kakutani's criterion consumes.
 Phase 2 (expansion bounds + the product criterion bridge) closes the gap to
