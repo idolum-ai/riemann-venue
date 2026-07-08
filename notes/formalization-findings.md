@@ -302,6 +302,45 @@ Next arc (agreed): repo polish → Mathlib PR extraction (Kakutani tree +
 `integral_finset_prod_infinitePi` + Hellinger affinity) → revision brief →
 the essay, second edition, filed with its record attached.
 
+## 12. The deep-seams expedition: the venue answers its own question
+
+The fifth expedition set out to find impactful formalizations and latent
+findings. It returned with both, and with the program's open problem largely
+closed by the program:
+
+- **The rate sandwich.** The bottom-edge question posed in §8–§9 —
+  `λ_min(K_N) = exp(−(log N)^{1/2+o(1)})`? — is now *derived
+  unconditionally* (`notes/lambda-min-lower-attack.md`): the primorial bound
+  from above, a weighted Gershgorin bound `exp(−(2+o(1))√(log N))` from
+  below, only the slowly-varying factor open. The route ran through a
+  structural fact: the Möbius signs of `K⁻¹` are a pure gauge
+  (`μ(k/m)μ(k/n) = λ(m)λ(n)` independent of `k`), so the minimizer's
+  Liouville signs — the portrait that started the whole question — are exact
+  for every `N`, by Perron–Frobenius. The venue asked the question, and the
+  venue answered it.
+- **The translate-flow singularity, endpoint included, unconditional**
+  (`translate_poissonProduct_mutuallySingular`). The essay hedged the
+  endpoint toward PNT; the block-phase analysis shows the PNT gate governs
+  only large shifts, and for `|u| ≤ π/(3 log 4)` everything through
+  `σ = 1/2` is elementary. The essay's sharpest claim now has a proved
+  interior and a proved frontier.
+- **Smith 1876 machine-checked**, and with it the closed-form inverse and
+  the pinned Selberg identity — the lineage's origin and the sieve's entry
+  point, both formal.
+- **Tate's nonarchimedean local integral** (`lintegral_norm_rpow`): the
+  ledger's oldest "absent from Mathlib" row became a theorem once a compile
+  probe showed the instance gap was one Borel declaration wide. Frontier
+  estimates from grep alone run pessimistic; probes beat inventories.
+- **Parseval** and the **trace architecture** complete two circles: the
+  kernel's positivity is now proved through two independent faces, and the
+  gate's easy direction (`TraceRealization ⇒ WeilPositivity`) is formal with
+  its vacuity honestly measured.
+- **The β = 2σ dictionary** (`notes/gibbs-temperature.md`): the one-sided
+  divisibility vacuum is identically the Bost–Connes Gibbs state, and the
+  machine-checked freeze at `σ = 1/2` sits at the BC transition `β = 1`.
+  Two famous critical points, one axis. Whether the transitions are one
+  phenomenon is the expedition's bequest to the next.
+
 **Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
 Infinite products of probability measures *do* exist in the pinned Mathlib
 (`Measure.infinitePi`, built on Ionescu–Tulcea, with cylinder/restriction/
