@@ -38,6 +38,10 @@ every telling).
 
 ## Pre-publication checklist (all artifacts)
 
+- **The repository goes public before anything else does.** The essay, both
+  papers, and the Medium piece all link into it; the fourth currency is only
+  worth something if the reader can follow the links.
+
 - Re-verify the "first formalization of Kakutani (1948)" claim against
   Isabelle AFP, Coq, and Lean archives immediately before anything goes
   public; keep the "to the author's knowledge" phrasing regardless.
