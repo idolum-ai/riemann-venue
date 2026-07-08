@@ -1135,6 +1135,36 @@ The theorem is therefore not a theorem about RH. It is a theorem about the finit
 
 ---
 
+## The Yield
+
+A venue is tested by what it grows. The first edition argued that divisibility-as-length is the right ground; since then, the ground has begun producing questions and answers of its own. They are recorded in the same currencies as everything else.
+
+The first is a portrait, computed rather than proved. Ask the finite kernel $K_N$ for its softest direction — the eigenvector of the smallest eigenvalue — and the answer, computed through $N=25600$, concentrates on smooth numbers and carries the signs of the Liouville function with mass-weighted agreement above $0.999$. The thesis of this motion is that cancellation does not know its sign until it is represented as length. Represented as length and asked where it is weakest, the geometry answers with the signs of cancellation. No one put them there.
+
+The second is a theorem, machine-checked as `primorial_rayleigh_upper_bound`. Following the portrait's shape — Möbius signs on the divisors of a primorial — gives an explicit witness at the bottom of the spectrum: whenever $\prod_{p\le y}p\le N$,
+
+$$
+\lambda_{\min}(K_N)\;\le\;\prod_{p\le y}\left(1-p^{-1/2}\right).
+$$
+
+It was conjectured from the portrait, derived on paper, validated numerically to fifteen digits, and then checked by the kernel. To the author's knowledge the bound is new. It is small mathematics, but it is mathematics the venue produced, by the full route: observe, conjecture, derive, validate, verify.
+
+The third is an open problem, posed here with numerics to $N=1.3\times10^7$. The true bottom edge falls faster than the bound: the data reject $c/(\log N)^2$ decisively, and every product-type test family caps short of the observed rate. The honest target is
+
+$$
+\lambda_{\min}(K_N)\;=\;\exp\!\left(-(\log N)^{1/2+o(1)}\right),
+$$
+
+and the mechanism — how the minimizer entangles across primes to beat every per-prime construction — is unexplained. The [GCD-sums literature](https://arxiv.org/abs/1210.0741), through [Bondarenko and Seip](https://arxiv.org/abs/1402.0249), works the top of this spectrum; the bottom edge at the critical exponent appears untouched. The full dossier, with the attack routes, is in the repository's [open-problem notes](https://github.com/idolum-ai/riemann-venue/blob/main/notes/lambda-min-rate.md).
+
+The fourth is a symmetry with an unexplained constant. Across five decades of $N$, the product $\lambda_{\min}\cdot\lambda_{\max}$ holds near $0.389$ to within one percent. The symmetry beneath it is exact and machine-checked: rotating every circle of the prime torus by $\pi$ — the Poisson ratio $a\mapsto-a$ — acts on the kernel precisely as conjugation by the Liouville signs, an involution that preserves the spectrum, while the local reciprocity $P_a(0)\,P_a(\pi)=1$ pairs the two poles of each circle. The Perron-positive top of the spectrum and the Liouville-signed bottom are the two poles of one symmetry; the constant is its truncation deficit, and it is open.
+
+There is also a debt paid outward. The dichotomy this motion leans on — Kakutani, 1948 — had never been formalized in a proof assistant. It now is, both directions, together with the Hellinger affinity and the product-measure instruments it requires, and the formalization is being prepared for the common library. A change of venue that only consumed instruments would be suspect. This one has begun returning them.
+
+None of this touches the locked chamber. The yield is evidence of a different kind. The historical pattern this motion invokes did not end when the impossible object was installed; the rebuilt coordinates then began asking questions the old coordinates could not phrase. A question about the softest direction of divisibility-as-length does not exist in placement coordinates. The venue has started asking it.
+
+---
+
 ## The Focus
 
 It is fair to ask whom the motion addresses. Not Connes; he is already inside the courtroom, and every unconditional object above sits on a record he helped write. The motion is addressed to the field's self-understanding of what kind of statement the Hypothesis is. Motions do not introduce evidence. They ask the court to change the question being tried.
@@ -1230,6 +1260,8 @@ The critical line is where arithmetic should be recentered next.
 34. [Kiran S. Kedlaya](https://kskedlaya.org/weil-cohom/Weil-cohom-11.html), "Étale cohomology as a black box," in *Weil Cohomology Theories*, lecture notes, original lecture date October 28, 2019. Used as an expository source for how étale cohomology functions as a Weil cohomology framework in the Weil conjectures story.
 
 35. [Jens Marklof](https://people.maths.bris.ac.uk/~majm/bib/selberg.pdf), "Selberg's Trace Formula: An Introduction," lecture notes, University of Bristol, 2007, pp. 1-18. Used as an accessible reference for the compact-hyperbolic-surface trace formula relating Laplace spectrum to closed-geodesic lengths.
+
+36. [Andriy Bondarenko and Kristian Seip](https://arxiv.org/abs/1402.0249), "Large greatest common divisor sums and extreme values of the Riemann zeta function," arXiv:1402.0249, submitted February 2, 2014; published in *Duke Mathematical Journal* 166 (2017). Used for the state of the art at the top of the GCD-sum spectrum at the critical exponent, against which the bottom-edge question of The Yield appears open.
 
 ---
 
