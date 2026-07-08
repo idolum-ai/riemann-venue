@@ -171,5 +171,48 @@ Next-expedition targets, in recommended order:
    this program would originate.
 3. **The `λ_min(K_N)` rate question**: pose precisely, extend numerics,
    check against the gcd-sums literature.
-4. Consolidation (Rota loop via `IncidenceAlgebra.mu`, multi-prime response
+4. **The Poisson-polydisc representation** (Aistleitner–Berkes–Seip's
+   identification of GCD sums with Poisson integrals, at the finite-place
+   level). Decomposes as:
+   (a) the single-circle moment identity
+   `(1/2π)∫ P_a(θ)·e^{ikθ} dθ = a^{|k|}` — one step past the already-proved
+   normalization `integral_poissonKernel` (the `k = 0` case), with the same
+   dominated-convergence route;
+   (b) the finite-polydisc product version: for a finite prime set `S`, `κ`
+   restricted to `⟨S⟩` is the Fourier transform of `⊗_{p∈S}` Poisson
+   measures on `𝕋^S` — the essay's Bochner spectral measure with the
+   infinite tensor replaced by a finite one, entirely inside existing
+   measure-theoretic ground.
+   Payoffs: it is the spectral (second) face of the gcd kernel, completing
+   the "overlap and spectrum" pair formally; and it supplies the
+   lower-bound tool that the `λ_min` attack route in
+   `notes/lambda-min-rate.md` §5 calls for (the quadratic form as a
+   Poisson integral).
+5. Consolidation (Rota loop via `IncidenceAlgebra.mu`, multi-prime response
    product) — settled territory, lower priority.
+
+## 9. The softest direction carries the signs of cancellation
+
+From the `λ_min` investigation (`notes/lambda-min-rate.md`, second
+expedition): the minimizing eigenvector of `K_N` concentrates on smooth,
+highly divisible integers and its **signs follow the Liouville function**
+`λ(n) = (-1)^{Ω(n)}` with mass-weighted agreement > 0.999 — a finite-rank
+shadow of a `1/ζ`-type mollifier (`∑ λ(n) n^{-s} = ζ(2s)/ζ(s)`).
+
+Interpretation: the essay's load-bearing line — *cancellation does not know
+its sign until it is represented as length* — has a numerical portrait.
+Represent divisibility as length (the kernel), ask for the shortest
+direction, and the geometry answers with the signs of Möbius/Liouville
+cancellation. The direction in which the positive geometry is closest to
+collapse *is* the cancellation direction; the rate of that collapse
+(`λ_min` decay, conjectured `exp(-c√(log N))` vs `c/(log N)²`, undecided at
+`N = 25600`) measures how much positivity the finite venue has in reserve
+against it. The companion regularity `λ_min·λ_max ≈ 0.390` (±1% over
+`283 ≤ N ≤ 25600`) says the two spectral edges open reciprocally —
+unexplained, recorded.
+
+The unconditional core of the investigation is the pinned-coordinate
+identity `min_{x₁=1} xᵀK_N x = 1/∑_{k≤N} μ²(k)/φ(k)` — a Selberg-sieve sum,
+suggesting the `λ_min` question is a sieve/mollifier problem in kernel
+clothing. That reframing, plus the Poisson-polydisc route (target 4 above),
+is the recommended attack.
