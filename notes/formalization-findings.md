@@ -245,6 +245,18 @@ deficit `hellinger_lt_one`) is the local input Kakutani's criterion consumes.
 Phase 2 (expansion bounds + the product criterion bridge) closes the gap to
 the dichotomy's statement; Phase 3 (Kakutani proper) is the summit.
 
+**Milestone (Phase 3, M4+M6):** the singular direction of Kakutani's
+dichotomy is proved (`infinitePi_mutuallySingular`, arbitrary index, via
+cylinder squeeze + Borel–Cantelli — no martingales), and with it the
+essay's phase boundary as a statement about measures:
+`poissonProduct_mutuallySingular` — for `0 < σ ≤ 1/2` the product Poisson
+measure over the primes is mutually singular with product Haar, endpoint
+included. The essay's sentence "the vacuum is not transported across the
+boundary as a measure" is now a citation to a kernel-checked theorem. The
+`σ > 1/2` equivalence half is M5. As far as we know this is the first
+formalization of Kakutani (1948) in any proof assistant, and it was built
+as an instrument for this program.
+
 **Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
 Infinite products of probability measures *do* exist in the pinned Mathlib
 (`Measure.infinitePi`, built on Ionescu–Tulcea, with cylinder/restriction/
