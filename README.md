@@ -85,6 +85,27 @@ criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the Liouville
 conjugation identity, finite Möbius inversion, Zeta/Tate anchors onto
 Mathlib) are indexed row-by-row in the [status ledger](docs/status-ledger.md).
 
+## The chain
+
+The program's spine, arrow by arrow, each with its artifact:
+
+```
+Gram positivity              normalizedGcdKernel_posSemidef, kappa_posSemidef
+  → prime-torus spectrum     integral_character_infinitePoisson_half_eq_kappa
+  → log-scale boundary       poissonProduct_dichotomy
+                             (and the failed direct crossing, machine-checked:
+                              not_summable_kappa_consecutive)
+  → finite response          response_eq_poisson, hasSum_primeShadow
+  → logarithmic derivative   hasDerivAt_sum_primePower_terms
+                             (lands exactly on primePowerSideTruncated)
+  → completed Weil dist.     known bookkeeping — anchored onto Mathlib in
+                             RiemannVenue/Zeta/ and RiemannVenue/Tate/
+  → Weil positivity          LOCKED — stated as a Prop, fenced, not claimed
+                             (RiemannVenue/Weil/Positivity.lean)
+```
+
+Every arrow before the last is machine-checked. The last arrow is RH.
+
 ## Open problems posed by this repository
 
 Precisely stated, numerically instrumented, and (to our knowledge) new:
