@@ -36,5 +36,6 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 | Tate local zeta integrals; Hellinger-affinity layer | notes only (absent from Mathlib) | `notes/tate-vacuum.md`, `notes/gcd-kernel.md` |
 | Infinite product measures (`Measure.infinitePi`, Ionescu–Tulcea) | available in pinned Mathlib (earlier "absent" claim was stale; corrected by the Phase 3 scout) | `notes/kakutani-design.md` |
 | Kakutani dichotomy: design + milestone ladder (M1–M6; singular direction via Borel–Cantelli lands first) | designed; implementation in progress | `notes/kakutani-design.md` |
+| Kakutani M1–M3: Hellinger affinity (`H = 0 ↔ ⟂ₘ`, `H ≤ 1`, multiplicativity over `Measure.pi`), `pi_withDensity` tensorization + lintegral product-Fubini, cylinder identities and the `∏ ↔ Summable` bridges | proved in Lean | `RiemannVenue/Kakutani/{Affinity,FiniteProduct,Cylinder}.lean` |
 | Weil positivity of the completed distribution; modular/trace realizations | notes only / programmatic | `notes/weil-functional.md` |
 | This repository proves RH | explicitly not claimed | `README.md` |
