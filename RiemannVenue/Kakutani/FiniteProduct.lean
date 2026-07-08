@@ -136,7 +136,7 @@ theorem hellingerAffinity_pi {E : ι → Type*} {mE : ∀ i, MeasurableSpace (E 
           ENNReal.continuous_rpow_const.measurable.comp (hf i)
     _ = ∏ i, hellingerAffinity (μ i) (ν i) :=
         Finset.prod_congr rfl fun i _ =>
-          (hellingerAffinity_eq_lintegral_rnDeriv (hac i)).symm
+          hellingerAffinity_eq_lintegral_rnDeriv.symm
 
 end Measure
 

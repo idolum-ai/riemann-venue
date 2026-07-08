@@ -257,7 +257,7 @@ theorem infinitePi_cylinder_le_withDensity_add [DecidableEq ι]
       (fun i => ENNReal.continuous_rpow_const.measurable.comp (hf i)), hP_def]
     simp only [hint1, Finset.prod_const_one, one_mul]
     exact Finset.prod_congr rfl fun i _ =>
-      (hellingerAffinity_eq_lintegral_rnDeriv (hac i)).symm
+      hellingerAffinity_eq_lintegral_rnDeriv.symm
   -- the second-moment estimate `Q ≤ 2 - 2 P`
   set Q : ℝ≥0∞ := ∫⁻ x, Z x * ((c x - 1) * (c x - 1)) ∂Measure.infinitePi ν
     with hQ_def
