@@ -104,9 +104,9 @@ statement one level up. All four landed; what they taught:
   (`RiemannVenue/Kernels/Kappa.lean`) upgrades the truncation theorem to
   *κ is a positive-definite function on ℚ₊^×* — the essay's second table
   row — and the entire mathematical content is: common denominator,
-  lowest-terms bookkeeping, submatrix of `normalizedGcdKernel`. Estimated at
-  2–4 days in the roadmap; took about an hour. The group-level statement was
-  never deep; it was the *same* statement wearing group clothing. It is also
+  lowest-terms bookkeeping, submatrix of `normalizedGcdKernel`. The
+  group-level statement was never deep; it was the *same* statement wearing
+  group clothing. It is also
   exactly the hypothesis the (unformalized) Bochner–Herglotz theorem
   consumes: the repo now ends flush against that frontier.
 - **The critical exponent now appears formally.**
@@ -142,13 +142,15 @@ What the two rounds of formalization change about the program's map:
   anchored from Mathlib) versus *known-but-unformalized* (Tate 1950,
   Kakutani 1948, Weil 1952 — in every textbook, in no formal library).
   The program's argument crosses precisely the second territory.
-- **The distance scale was overestimated, likely still is.** The κ bridge
-  was estimated at days and took an hour, because the group-level statement
-  was the finite statement in group clothing. The known-but-unformalized
-  strip is probably similar: Kakutani's dichotomy is elementary analysis,
+- **The difficulty scale was overestimated, likely still is.** The κ bridge
+  reduced entirely to denominator-clearing — the group-level statement was
+  the finite statement in group clothing. The known-but-unformalized strip
+  is probably similar: Kakutani's dichotomy is elementary analysis,
   unformalized because unneeded, not because deep. Revised reading: that
   strip is *unclaimed valley*, not mountain. The immovable wall starts at
   renormalization (the `ζ_S(1)` divergence) and Weil positivity.
+  (No effort estimates are recorded here by policy: predicted-vs-actual
+  effort has been uninformative in both directions.)
 - **Every proof matched its prose argument structurally** — congruences for
   positivity, denominator-clearing for the group level, termwise derivatives
   landing on the predefined prime-power object. The essay's decompositions
