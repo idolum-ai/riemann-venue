@@ -623,6 +623,8 @@ $$
 =\frac{|\zeta(2\sigma+iu)|^2}{\zeta(2\sigma)^2}.
 $$
 
+The bookkeeping is $\alpha=2\sigma$: the absolutely convergent range $\alpha>1$ is exactly the one-sided range $\sigma>1/2$.
+
 The one-sided factor $\zeta(\alpha+it)/\zeta(\alpha)$ is the classical [Riemann zeta distribution](https://projecteuclid.org/journals/bernoulli/volume-7/issue-5/The-Riemann-zeta-distribution/bj/1079399543.full): Khinchine proved it is an infinitely divisible characteristic function for $\alpha>1$, and Lin and Hu developed the resulting distribution. The two-sided divisibility response is its symmetrized autocorrelation, the modulus square above.
 
 As $\alpha\downarrow1$, the normalized symmetrized response satisfies
