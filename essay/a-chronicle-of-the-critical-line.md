@@ -6,6 +6,8 @@
 
 The last chronicle ended on a shore that should not exist. I had gone into arithmetic looking for stones, discrete things, primes, and found a song instead; and following the song led to a horizon that receded at exactly the speed of my approach. Past every computation, arithmetic keeps a boundary where checking runs out, where only proof would serve, and where proof has not come. I stood at that horizon for a long time, the way you stand at property you will never own.
 
+That first journey was all breadth: algebra, then geometry, then spectra, every road walked until it bent away from the wall. Breadth is how you find a horizon. It is not how you cross one.
+
 This chronicle is about going back with one question instead of all of them.
 
 In 1859, Bernhard Riemann wrote that the interesting zeros of a certain function probably lie on a single line, confessed he could not prove it, and set the search aside, temporarily, in his own word. The field has lived inside that word ever since.
@@ -34,11 +36,13 @@ The table also hides a geometry. Send each number to the set of its multiples, n
 
 Now build the table's spectrum, exactly.
 
+The construction rests on one fact, unique factorization: every positive number is a product of primes in exactly one way, so every number is a list of winding counts, one count per prime. Twelve is two twice and three once. A space with one circular dimension per prime is therefore the natural home of multiplication; a number winds each circle as many times as its prime divides into it. Harmonic analysts call this space the infinite torus. It is the address system of divisibility.
+
 Give every prime its own circle. On the circle belonging to the prime p, place a probability distribution that leans toward angle zero. The distribution is classical, the Poisson kernel of harmonic analysis, and its lean is controlled by a single dial: the weight is p raised to the power minus σ. One exponent governs every prime at once.
 
-Multiply the distributions together, one factor per prime, into a single object on the infinite product of all the circles. At σ equal to one half, this object is the table's shadow in an exact sense: its Fourier coefficients are precisely the table's entries. Not approximately, not in a limit that requires forgiveness. The identity holds on the full infinite torus, and a machine has verified it.
+Multiply the distributions together, one factor per prime, into a single object on the infinite product of all the circles. At σ equal to one half, this object is the table's shadow in an exact sense: its Fourier coefficients are precisely the table's entries. Not approximately, not in a limit that requires forgiveness. Fourier coefficient means here exactly what it means on one circle, read jointly: integrate the object against the winding pattern of a ratio m/n, and the number that comes out is the table's entry at the pair (m, n). The identity holds on the full infinite torus, and a machine has verified it.
 
-That last clause changed meaning for me this year, so it deserves one plain paragraph. Everything this chronicle calls proved has been checked by a proof assistant, a program that accepts a proof only when every step follows from the axioms and rejects it otherwise. Wrong proofs do not compile. The repository holding this work forbids unfinished proofs mechanically and publishes its audit down to the axioms. I built it in collaboration with two machine intelligences, Claude Fable 5 and GPT 5.5 Pro, and the arrangement answers the question it seems to raise: the checker's kernel accepts or rejects the mathematics regardless of who wrote it. Nothing here asks to be believed.
+That last clause changed meaning for me this year, so it deserves one plain paragraph. Everything this chronicle calls proved has been checked by a proof assistant, a program that accepts a proof only when every step follows from the axioms and rejects it otherwise. Wrong proofs do not compile. The repository holding this work forbids unfinished proofs mechanically and publishes its audit down to the axioms. The instrument earned its keep on the first day, when an automated survey reported our opening scaffold fully proved and the compiler disagreed: two proofs had gaps the survey had missed. Claims drift toward overclaim unless something mechanical pushes back. I built it in collaboration with two machine intelligences, Claude Fable 5 and GPT 5.5 Pro, and the arrangement answers the question it seems to raise: the checker's kernel accepts or rejects the mathematics regardless of who wrote it. Nothing here asks to be believed.
 
 ## The freeze
 
@@ -49,6 +53,8 @@ When σ is large, every circle's distribution leans faintly; as σ falls, the le
 Above one half, the two remain compatible. Each is absolutely continuous with respect to the other; anything possible for one is possible for the other; they are two textures of the same world, and you can pass between them.
 
 At one half and below, they are mutually singular. Each lives entirely on a set the other assigns probability zero. Two worlds, no passage, and no gradation in between.
+
+Kakutani's criterion decides this with one number per prime. On each circle, compare the leaning distribution with the uniform one by integrating the square root of their pointwise product; the result, the Hellinger overlap, equals 1 for identical distributions and falls below 1 as they differ. Multiply the overlaps across all primes. If the infinite product stays positive, the two objects share a world; if it collapses to zero, they separate. The lean at the prime p costs an overlap deficit of about one part in 4p^2σ, so everything reduces to whether the sum of 1/p^2σ over the primes converges, and that sum converges precisely when σ exceeds one half. The freeze is the divergence of a series the primes have been pointing at since Euler.
 
 ![Hellinger products collapsing at the critical exponent](../figures/kakutani-threshold.png)
 
@@ -68,7 +74,7 @@ The reframe follows. A zero off the line is no longer a mislaid point; it is a m
 
 A map of the crossing follows. The tempting direct bridge from the finite tables to the Hypothesis provably fails, and the record verifies the failure at the same standard as the successes. What survives the crossing is subtler: the finite objects persist as responses, matrix coefficients of a trivial flow in which the state, and never the operator, carries all the arithmetic.
 
-And the venue turned out to grow its own mathematics. We asked the finite table for its weakest direction, and the answer came back wearing the signs of the Liouville function, the deep plus-minus rhythm of cancellation, at better than 99.99 percent agreement; no one put them there. That portrait suggested a bound, the bound became a theorem, the theorem is machine-checked, and, to my knowledge, new. The computation behind it reached tables of size thirteen million because the record's first theorem, Möbius inversion, turned out to be its fastest algorithm. What the true decay rate is remains open, precisely posed, with instruments attached.
+And the venue turned out to grow its own mathematics. Every finite table has a weakest direction, the combination of numbers on which its positivity comes nearest to failing; it is where a geometry confesses. We computed ours, and the confession came back wearing the signs of the Liouville function, the deep plus-minus rhythm of cancellation, at better than 99.99 percent agreement; no one put them there. That portrait suggested a bound, the bound became a theorem, the theorem is machine-checked, and, to my knowledge, new. The computation behind it reached tables of size thirteen million because the record's first theorem, Möbius inversion, turned out to be its fastest algorithm. What the true decay rate is remains open, precisely posed, with instruments attached.
 
 Zoom out once more and the whole becomes visible. A geometry where divisibility is length; its exact spectrum on the circles of the primes; a freeze at one half; the survivors of the crossing; and at the far end, one gate. By a theorem of André Weil from 1952, a single inequality about a single completed object carries the full strength of the Riemann Hypothesis:
 
