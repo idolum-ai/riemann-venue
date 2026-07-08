@@ -131,3 +131,43 @@ statement one level up. All four landed; what they taught:
   instance paths), not mathematics-shaped. The mathematics never pushed back
   in this round — consistent with finding 1: the near bank is genuinely
   shallow everywhere we have touched it.
+
+## 8. The revised map (after the first expedition)
+
+What the two rounds of formalization change about the program's map:
+
+- **"Known" splits into two territories.** The essay's table had
+  proved / known / open. The expedition revealed a border inside "known":
+  *known-and-formalized* (Euler product, completed functional equation —
+  anchored from Mathlib) versus *known-but-unformalized* (Tate 1950,
+  Kakutani 1948, Weil 1952 — in every textbook, in no formal library).
+  The program's argument crosses precisely the second territory.
+- **The distance scale was overestimated, likely still is.** The κ bridge
+  was estimated at days and took an hour, because the group-level statement
+  was the finite statement in group clothing. The known-but-unformalized
+  strip is probably similar: Kakutani's dichotomy is elementary analysis,
+  unformalized because unneeded, not because deep. Revised reading: that
+  strip is *unclaimed valley*, not mountain. The immovable wall starts at
+  renormalization (the `ζ_S(1)` divergence) and Weil positivity.
+- **Every proof matched its prose argument structurally** — congruences for
+  positivity, denominator-clearing for the group level, termwise derivatives
+  landing on the predefined prime-power object. The essay's decompositions
+  appear to be canonical, not merely correct.
+- **A side-valley opened:** the numerics show `λ_min(K_N)` decaying
+  (≈ 4.9×10⁻² at N=50 to ≈ 1.4×10⁻² at N=2000). The rate and its meaning
+  are unposed in the essay and apparently nearby to the
+  Aistleitner–Berkes–Seip gcd-sums literature. Open question, claimable.
+
+Next-expedition targets, in recommended order:
+1. **Machine-check the "False as stated" row**: ¬Summable of
+   `κ((n+1)/n) = 1/√(n(n+1))` (harmonic comparison) and `ζ_S(1) → ∞`
+   (Mathlib has `∑ 1/p` divergence). Formalizing one's own negative result
+   is the program's epistemics at full strength.
+2. **Instrument-making in the unclaimed valley**: Hellinger expansion
+   `H_p(σ) = 1 − p^{-2σ}/4 + O(p^{-4σ})`, then Kakutani's dichotomy for
+   product measures — a genuine contribution to the formal commons that
+   this program would originate.
+3. **The `λ_min(K_N)` rate question**: pose precisely, extend numerics,
+   check against the gcd-sums literature.
+4. Consolidation (Rota loop via `IncidenceAlgebra.mu`, multi-prime response
+   product) — settled territory, lower priority.
