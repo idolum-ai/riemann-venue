@@ -101,6 +101,46 @@ Exact inputs: `localState` and `response_eq_poisson`
 response section, `poissonProduct_dichotomy`
 (`Kakutani/PoissonDichotomy.lean`). References: Bost–Connes (Selecta 1995;
 essay ref 25); the essay's §§ on the response interpretation and the first
-locked door. The β = 2σ dictionary itself appears to be unrecorded;
-a literature pass should check the Bost–Connes secondary literature before
-any publication claim (same protocol as the Kakutani novelty hedge).
+locked door.
+
+## 7. Literature pass (2026-07-08)
+
+A web pass over the Bost–Connes secondary literature, the gcd-matrix
+spectral literature, the primon-gas corpus, and the NCG critical-line
+literature (four primary sources read in full text). Verdict: **the
+dictionary appears to be unrecorded**, with adjacent scaffolding on every
+side and no source assembling it:
+
+- Neshveyev (arXiv:math/0002141, read in full) constructs the BC KMS_β
+  states as *product measures over the primes*, `μ_β = ⊗_p μ_{β,p}` on
+  `∏_p ℤ_p`, and observes a support flip at β = 1 — the closest structural
+  match — but proves ergodicity via Dirichlet's theorem and never invokes
+  Kakutani, Hellinger, or any σ. His measures are a concrete target for Q1:
+  the Kakutani dichotomy applied to *his* family is the natural first
+  computation.
+- Neshveyev (arXiv:0907.1456, read in full) computes the type III₁ of BC
+  KMS states via Araki–Woods asymptotic ratio sets of product measures on
+  adelic spaces — the type-III cousin of Kakutani's dichotomy — with no
+  dichotomy-across-β statement.
+- Laca–Raeburn (arXiv:0907.3760): KMS states again from `⊗_p μ_{β,p}`;
+  zero occurrences of Kakutani.
+- Connes–Consani ("The Scaling Hamiltonian", read in full): the exponent
+  1/2 arises from L²-unitarity of scaling (`|x|^{1/2}`) — the same
+  squared-amplitude mechanism as §3 — with zero occurrences of KMS,
+  temperature, or Bost–Connes.
+- Feiler–Schleich (NJP 15 (2013) 063009): "zeta states" with amplitudes
+  `n^{−s/2}` explicitly called thermal phase states — level-(i) adjacency —
+  no KMS condition, no BC, no transition; their σ = 1/2 mechanism is the
+  functional-equation fixed point, not measure classes.
+- Primon-gas corpus (Julia, Spector, Bakas–Bowick): the fermionic
+  `ζ(s)/ζ(2s)` and fugacity-(−1) `ζ(2s)/ζ(s)` are standard; the two-sided
+  `Z(β) = ζ(β)²/ζ(2β)` as a partition function is not recorded (in Manin's
+  circle it is the height zeta function, never thermodynamic).
+
+Caveats: Julia (Physica A 1994) paywalled; Laca (JFA 1998) not read in
+full — its β_c-equals-abscissa-of-convergence principle is the closest
+published general principle (applied to squared coefficients it would give
+2σ_c = 1, which no source seems to have done); Connes–Marcolli's book only
+spot-checked. Publication posture: state the dictionary as an observation
+with the adjacency list above, and cite Neshveyev's product measures as the
+bridgehead — the hedge is now specific rather than generic.
