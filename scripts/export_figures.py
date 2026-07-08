@@ -81,7 +81,7 @@ def fig_nonradon_mass() -> None:
     fig, ax = plt.subplots(figsize=(7, 4))
     ax.semilogx(n, np.cumsum(kappa))
     ax.set_xlabel("n")
-    ax.set_ylabel(r"$\sum_{m\le n}\kappa\left(\frac{m+1}{m}\right)$")
+    ax.set_ylabel(r"$\sum_{m\leq n}\kappa\left(\frac{m+1}{m}\right)$")
     ax.set_title("Mass accumulating at 0: divergent partial sums (log axis)")
     fig.tight_layout()
     fig.savefig(figdir / "nonradon-mass.png", dpi=150)
@@ -100,7 +100,7 @@ def fig_kakutani_threshold() -> None:
             a = primes ** (-s)
             log_H_sum = 0.0
             for ai in a:
-                H = np.trapz(
+                H = np.trapezoid(
                     np.sqrt((1 - ai * ai) / (1 - 2 * ai * np.cos(theta) + ai * ai)), theta
                 ) / (2 * math.pi)
                 log_H_sum += math.log(H)
@@ -136,7 +136,7 @@ def fig_radial_derivative() -> None:
             if x <= 12:
                 ax.axvline(x, color="r", ls=":", lw=0.6)
     ax.set_xlabel("u")
-    ax.set_ylabel(r"$-\partial_\sigma L_{S,\sigma}(u)\,\big|_{\sigma=1/2}$")
+    ax.set_ylabel(r"$-\partial_\sigma L_{S,\sigma}(u)\,|_{\sigma=1/2}$")
     ax.set_title("Radial derivative concentrates at prime-power logs (dotted: $r\\log p$)")
     fig.tight_layout()
     fig.savefig(figdir / "radial-derivative.png", dpi=150)

@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lean:
+    name: Lean build (no sorry)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard against sorry/admit
+        run: |
+          if grep -rn "sorry\|admit" RiemannVenue/ RiemannVenue.lean; then
+            echo "::error::sorry/admit found in Lean sources"
+            exit 1
+          fi
+
+      - name: Install elan
+        run: |
+          curl -sSfL https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          ./elan-init -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Cache lake packages
+        uses: actions/cache@v4
+        with:
+          path: .lake
+          key: lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}
+          restore-keys: lake-${{ runner.os }}-
+
+      - name: Fetch mathlib olean cache
+        run: lake exe cache get
+
+      - name: Build
+        run: lake build
+
+  notebooks:
+    name: Execute notebooks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate and execute notebooks
+        run: python scripts/check_notebooks.py --execute
+      - name: Regenerate figures
+        run: python scripts/export_figures.py
+
+  exhibits:
+    name: Compile Typst exhibits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Typst
+        run: |
+          curl -sSfL https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz | tar xJ
+          echo "$PWD/typst-x86_64-unknown-linux-musl" >> "$GITHUB_PATH"
+      - name: Install fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-core
+      - name: Compile exhibit sheets
+        run: |
+          if [ -f exhibits/exhibit-sheets.typ ]; then
+            typst compile exhibits/exhibit-sheets.typ exhibits/exhibit-sheets.pdf
+          else
+            echo "no Typst sources yet; skipping"
+          fi
+
+  hygiene:
+    name: Repo hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Whitespace / conflict markers
+        run: git diff --check
