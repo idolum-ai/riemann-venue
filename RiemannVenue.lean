@@ -10,6 +10,7 @@ import RiemannVenue.Kernels.Kappa
 import RiemannVenue.Kernels.Threshold
 import RiemannVenue.Kernels.Response
 import RiemannVenue.Kernels.Hellinger
+import RiemannVenue.Kernels.Moments
 import RiemannVenue.Zeta.DirichletSeries
 import RiemannVenue.Zeta.EulerProduct
 import RiemannVenue.Zeta.Completed
