@@ -13,6 +13,7 @@ import RiemannVenue.Kernels.Hellinger
 import RiemannVenue.Kernels.Moments
 import RiemannVenue.Kernels.Polydisc
 import RiemannVenue.Kernels.CriterionBridge
+import RiemannVenue.Kernels.LiouvilleConjugation
 import RiemannVenue.Kakutani.Affinity
 import RiemannVenue.Kakutani.FiniteProduct
 import RiemannVenue.Kakutani.Cylinder
