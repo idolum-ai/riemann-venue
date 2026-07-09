@@ -232,6 +232,12 @@ branches to existing finite-place anchors: `hasSum_primeShadow` for finite
 response and `hasDerivAt_sum_primePower_terms` for log derivative. The
 remaining object to mine is now the coefficient functional itself.
 
+`RiemannVenue/Venue/BoundaryCoefficientFunctional.lean` makes the first
+coefficient attempt. The zero-frequency normalization residue of the finite
+response gives `coefficient(h) = -h(0)`. This is upstream of the target
+pairing, but it collapses to the zero-value rung up to sign, so it is a
+diagnostic residue rather than a surviving counterterm.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -286,6 +292,9 @@ The next work should choose one fork and deepen it:
 - If **coefficient-first**, specify either the finite-response extractor or
   the log-derivative scale-defect coefficient as the first concrete
   counterterm functional.
+- If **balanced-residue-first**, start from the safe normalization residue
+  `-h(0)` and add only response-side structure needed to avoid the bare
+  zero-value trap.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

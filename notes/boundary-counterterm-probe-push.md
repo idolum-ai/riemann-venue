@@ -61,3 +61,17 @@ The push made the fork sharper:
 The next concrete move is to specify one coefficient functional. The
 log-derivative branch may be easier to make concrete first because the repo
 already has the finite derivative theorem.
+
+## First Coefficient Attempt
+
+`RiemannVenue/Venue/BoundaryCoefficientFunctional.lean` tries the first
+coefficient that can be read directly from finite response normalization:
+
+```text
+normalizationResidueCoefficient(h) = -h(0)
+```
+
+It is safe in the no-target-leak sense, but it collapses to the zero-value
+rung up to sign. The log-derivative branch remains anchored, but its finite
+output is the prime-power side itself, not a scalar coefficient for
+`sum_{p in S} 1/p`.

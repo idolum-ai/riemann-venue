@@ -32,8 +32,10 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    blocked, and live regions so the next excavation can target concrete live
    cells. The current focus is the two-prong live-cell probe:
    finite-response/Schwartz and log-derivative/smooth-compact. Both probes
-   are now attached to existing finite-place anchors; the next concrete
-   object is the coefficient functional itself.
+   are now attached to existing finite-place anchors. The first concrete
+   coefficient attempt, the finite-response normalization residue `-h(0)`,
+   is safe but collapses to the zero-value rung, so the next object is a
+   balanced response-side residue.
 
 ## Design rule
 
