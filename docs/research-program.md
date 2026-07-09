@@ -16,7 +16,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    `RiemannVenue/Venue/BoundaryType.lean` plus
    `notes/boundary-type-excavation.md`. The current excavation branch keeps
    two comparison spikes beside it: renormalization-first and
-   state/trace-first.
+   state/trace-first. It also records a carrier trap matrix so proposed
+   vector/state/trace/weight objects can be rejected before they become
+   hidden assumptions.
 
 ## Design rule
 

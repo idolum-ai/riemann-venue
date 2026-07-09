@@ -147,6 +147,36 @@ renormalization spike knows more about the finite-place crossing. The state
 spike knows more about what a real positive type would have to be. The next
 deepening should decide which side becomes primary.
 
+## Carrier trap matrix
+
+The two spikes suggest a third workbench object:
+`RiemannVenue/Venue/BoundaryCarrier.lean`. It names the positive carrier
+before choosing whether that carrier is a vector, state, trace, weight, or
+renormalized weight.
+
+This is a trap matrix rather than a construction. It asks a proposed carrier
+to survive:
+
+1. structural anti-fake traps: upstream construction, no square-root
+   shortcut, observable discipline, and scale compatibility;
+2. positivity-domain traps: positivity comes from carrier squares and, for
+   weights, is finite on the Weil test ideal;
+3. existing-ore traps: finite-window vector states, the renormalized response
+   crossing, and the log-derivative bridge; and
+4. completion/no-leak traps: gamma, pole, and trivial-zero bookkeeping,
+   zero modes as leaks/no-leaks, and no imported zeros.
+
+The intended direction is now sharper:
+
+```text
+BoundaryCarrierCandidate survives traps
+  -> derives BoundaryTypeCandidate obligations
+  -> inherited positive type becomes the locked gate
+```
+
+This does not settle vector vs. weight. It makes that disagreement precise
+enough to mine.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -175,6 +205,9 @@ The next work should choose one fork and deepen it:
 - If **two-layer**, define the carrier and the derived pairing together, with
   renormalization evidence tying the pairing back to the finite response
   family.
+- If **trap-first**, make the cheap anti-fake obligations less propositional:
+  observable linearity/functoriality, weight finiteness on the test ideal,
+  and finite-window compatibility with the known response vector states.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

@@ -26,6 +26,12 @@ Workbench name for the route that tries to identify the boundary type from a
 non-tautological positive carrier whose observables derive the completed
 explicit-formula pairing.
 
+## Boundary carrier
+
+Workbench name for the vector/state/trace/weight-like object from which the
+completed explicit-formula pairing would be derived. A proposed carrier must
+survive anti-tautology traps before it can support the boundary type.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.
