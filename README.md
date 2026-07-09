@@ -176,7 +176,8 @@ Toolchain: Lean 4 (`lean-toolchain`), Mathlib pinned in `lake-manifest.json`.
   experiments with committed outputs.
 - `notes/` — mathematical notes: designs, findings, open-problem dossiers.
 - `docs/` — status ledger, glossary, research program, tour.
-- `exhibits/`, `artifacts/` — the exhibit sheets (Typst source + received PDF).
+- `exhibits/`, `artifacts/` — exhibit sheets and committed reproducibility
+  artifacts for longer-running numerical notes.
 - `essay/` — pointer and claim-to-artifact map for the accompanying essay
   (the essay text itself lives outside the repository).
 
@@ -194,13 +195,16 @@ posed with instruments attached. The essay is the motion; this is the docket.
 ## Authorship and collaboration
 
 This repository was created by **Daniel Rodriguez**, in collaboration with
-two AI systems, credited here with their roles:
+three AI systems, credited here with their roles:
 
 - **Claude Fable 5** (Anthropic) — co-developed the Lean formalizations,
   computational experiments, and research notes in interactive sessions,
   under Daniel's direction and scope decisions throughout.
 - **GPT 5.5 Pro** (OpenAI) — provided feedback on the accompanying essay and
   on the repository's initial outline.
+- **OpenAI Codex** — assisted with repository maintenance, pull-request
+  preparation, reproducibility checks, and review passes during the later
+  formalization-review cycle.
 
 All mathematical content is machine-checked or explicitly labeled otherwise;
 correctness rests on the Lean kernel and the reproducibility scripts, not on

@@ -834,9 +834,10 @@ exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
   On the constant, and on the class. Within the scheme of the proof the
   $2$ is a forced balance: row premium and column mass both equal
   $(1 + o(1)) V$ at the optimal schedule, and the small-prime block forces
-  $log y_0 <= (1 + o(1)) log log N$, so no geometric schedule goes below
-  $2 sqrt(log N \/ log log N)$. Whether the full multiplicative class can
-  go lower is a different question, and numerically no barrier is visible:
+  the crossing to have $log y_1 <= (1 + o(1)) log log N$, so no geometric
+  schedule goes below $2 sqrt(log N \/ log log N)$. Whether the full
+  multiplicative class can go lower is a different question, and
+  numerically no barrier is visible:
   minimizing $max_m T_m (w)$ over all multiplicative weights is a convex
   problem in the prime-power log-increments (a log-sum-exp of affine
   functions, so every evaluated weight is a rigorous certificate), and the

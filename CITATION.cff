@@ -9,11 +9,14 @@ authors:
   - family-names: Rodriguez
     given-names: Daniel
 notes: >-
-  Created by Daniel Rodriguez in collaboration with two AI systems:
+  Created by Daniel Rodriguez in collaboration with three AI systems:
   Claude Fable 5 (Anthropic), which co-developed the Lean formalizations,
   computational experiments, and research notes in interactive sessions
   under the author's direction; and GPT 5.5 Pro (OpenAI), which provided
-  feedback on the accompanying essay and the repository's initial outline.
+  feedback on the accompanying essay and the repository's initial outline;
+  and OpenAI Codex, which assisted with repository maintenance, pull-request
+  preparation, reproducibility checks, and review passes during the later
+  formalization-review cycle.
   All mathematical content is machine-checked (Lean 4 / Mathlib, zero-sorry
   CI policy, axiom audits) or explicitly labeled otherwise in
   docs/status-ledger.md; correctness rests on the Lean kernel and the
