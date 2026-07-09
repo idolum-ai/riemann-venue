@@ -104,7 +104,29 @@ theorems in it beyond bookkeeping is open.
    Probe: riding with the Perron-vector wave (its item 4); no separate
    work.
 
-## 6. Artifacts
+## 6½. The two impossible boundaries [dictionary; posed, not claimed]
+
+RH and P ≠ NP run parallel at three depths. (a) Both are limit statements
+whose finite shadows are uniformly healthy; nothing freezes at any finite
+stage (cf. finding 4 of `notes/formalization-findings.md`). RH is Π₁ and
+finitely falsifiable; P ≠ NP is not — the honest disanalogy. (b) Both have
+change-of-venue programs that are the same move: Weil positivity and
+Geometric Complexity Theory each recast their boundary as a positivity
+statement in a rigid venue, and each is stuck at the gate of exhibiting
+the positive object. (c) Both are defended by barrier theorems with the
+same content in this note's vocabulary: Razborov–Rudich (natural,
+positivity-flavored properties cannot separate P from NP if
+pseudorandomness exists) and the parity problem of sieve theory (sieves —
+engineered positivity, Λ² literally squared and hence gauge-trivial —
+provably cannot detect the sign of λ). The boundary asserts frustration;
+unfrustrated technology provably cannot see frustration. Breaking parity
+requires bilinear (Type II) input, the frustrated tool class, exactly as
+breaking natural proofs requires non-natural properties. On the
+complexity side the freezing is literal: random CSP has a rigorous
+freezing transition where solution clusters lock, and hardness condenses
+there.
+
+## 7. Artifacts
 
 Gauge identity and its consequences: `notes/lambda-min-lower-attack.md` §1,
 `papers/lambda-min/main.typ` §sec-lower; Klein/gas touchpoints:
