@@ -50,3 +50,4 @@ import RiemannVenue.Venue.BoundaryCarrier
 import RiemannVenue.Venue.BoundaryCarrierDiscipline
 import RiemannVenue.Venue.BoundaryCarrierModelProbes
 import RiemannVenue.Venue.BoundaryWeight
+import RiemannVenue.Venue.BoundaryWeightSearch

@@ -24,7 +24,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    route with a weight-like relaxation against the divergent critical
    boundary criterion. The weight workbench now requires finite-window
    projectivity and an upstream renormalization bridge before the completed
-   identification can be discussed.
+   identification can be discussed. The current search slice fixes
+   cylindrical restrictions, a finite test-ideal ladder, and finite-part
+   counterterm charges as the next tractable surface.
 
 ## Design rule
 

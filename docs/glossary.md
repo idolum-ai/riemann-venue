@@ -50,6 +50,12 @@ Workbench name for a renormalized weight-like carrier whose finite-window
 restrictions retain the known vector-state response and whose boundary value
 is finite on a canonical test ideal.
 
+## Finite-part renormalization
+
+Workbench name for a boundary-weight procedure that subtracts or otherwise
+absorbs finite-window counterterms derived from response data before taking a
+boundary value.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

@@ -204,6 +204,13 @@ bridge. Its local restrictions must stay anchored in the proved vector
 response, while the boundary value must be finite through a named test ideal
 and must not be defined by reading the target Weil pairing.
 
+`RiemannVenue/Venue/BoundaryWeightSearch.lean` bounds the search space:
+cylindrical restrictions, a short test-ideal ladder, and finite-part
+renormalization with response-derived counterterms. This makes failure
+diagnostic: a candidate can now fail for non-projective restriction,
+noncanonical domain, target-pairing leakage, imported zeros, lost finite
+contact, or incompatibility with the log-derivative bridge.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -244,6 +251,9 @@ The next work should choose one fork and deepen it:
 - If **renormalization-bridge-first**, propose the finite-window restriction
   maps and boundary renormalization functional before attempting the
   archimedean/pole/no-leak identification.
+- If **finite-part-first**, test concrete counterterm schemes against the
+  cylindrical restrictions and the compact/smooth/Schwartz/Paley-Wiener
+  ideal ladder before adding completion terms.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

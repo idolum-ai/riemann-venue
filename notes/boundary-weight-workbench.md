@@ -79,3 +79,18 @@ The hard problem moved into a sharper box:
 
 That is better than "find a mysterious weight." It is a concrete failure
 surface.
+
+## Search Surface
+
+`RiemannVenue/Venue/BoundaryWeightSearch.lean` turns the next questions into
+a bounded search:
+
+- cylindrical finite-window restriction maps;
+- a finite test-ideal ladder; and
+- finite-part renormalization with counterterms derived from finite response
+  data.
+
+The main new rule is rejection by named failure: non-projective restriction,
+noncanonical test ideal, ambient infinite weight, target-pairing leak,
+imported zeros, no finite part, lost finite-window contact, or broken
+log-derivative bridge.
