@@ -93,3 +93,16 @@ The likely early results are:
 
 The next excavation should instantiate this matrix as a ledger and record
 which pairs fail by which named reason.
+
+## Matrix Initialized
+
+`RiemannVenue/Venue/BoundaryCountertermMatrix.lean` initializes the full
+25-cell matrix. The first-pass live region is now:
+
+```text
+logDerivativeVacuum x {smooth compact, Schwartz, Paley-Wiener, self-convolution closure}
+finiteResponseCoefficient x {smooth compact, Schwartz, Paley-Wiener, self-convolution closure}
+```
+
+The first recommended concrete targets are `logDerivativeVacuum` on smooth
+compact support and `finiteResponseCoefficient` on Schwartz tests.

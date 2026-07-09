@@ -217,6 +217,11 @@ counterterm matrix. The finite-window divergent factor is
 ladder is `h(0)`, `int h`, vacuum coefficient, log-derivative vacuum, and
 finite-response coefficient, each paired against the test-ideal ladder.
 
+`RiemannVenue/Venue/BoundaryCountertermMatrix.lean` initializes the 25-cell
+matrix. The first pass rejects `h(0)` and `int h`, blocks the abstract vacuum
+coefficient as underspecified, and leaves the log-derivative-vacuum and
+finite-response-coefficient rows live above the compact-continuous tier.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -263,6 +268,9 @@ The next work should choose one fork and deepen it:
 - If **counterterm-matrix-first**, instantiate the five coefficient shapes
   against the five test-ideal tiers and record the first named failure for
   each pair.
+- If **live-cell-first**, instantiate either the smooth-compact
+  log-derivative-vacuum cell or the Schwartz finite-response-coefficient cell
+  as the first concrete counterterm trial.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
