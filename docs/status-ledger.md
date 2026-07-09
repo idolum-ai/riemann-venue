@@ -27,6 +27,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 | Weil positivity as a property of an explicit-formula pairing | stated; `iff RH` deliberately absent | `RiemannVenue/Weil/Positivity.lean` |
 | Boundary Positivity Problem (shape of the open problem) | stated | `RiemannVenue/Venue/SpectralRecenter.lean` |
 | Boundary type candidate: the completed log-scale object as obligations around explicit-formula data, with the RH-strength positivity gate kept separate | stated / programmatic | `RiemannVenue/Venue/BoundaryType.lean`, `notes/boundary-type-excavation.md` |
+| Boundary type fork probes: renormalization-first and state/trace-first routes, each typed as obligations without claiming a completed object | stated / programmatic | `RiemannVenue/Venue/BoundaryRenormalization.lean`, `RiemannVenue/Venue/BoundaryState.lean`, `notes/boundary-renormalization-spike.md`, `notes/boundary-state-spike.md` |
 | gcd-kernel spectra: min eigenvalue positive through `N = 2000` | computed | `notebooks/gcd-kernel-spectra.ipynb`, `figures/gcd-kernel-spectrum.png` |
 | Euler shadows equal `ζ_S(1)⁻¹\|ζ_S(1/2+iu)\|²`; non-Radon mass at 0 | computed | `notebooks/euler-shadows.ipynb`, `figures/euler-shadows.png`, `figures/nonradon-mass.png` |
 | The direct length-side limit fails: `κ((n+2)/(n+1))` not summable; `∑_p 1/p` diverges (the "False as stated" row, itself machine-checked) | proved in Lean | `RiemannVenue/Venue/NonRadon.lean` (`not_summable_kappa_consecutive`, `not_summable_one_div_primes`) |

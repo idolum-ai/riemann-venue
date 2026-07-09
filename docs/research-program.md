@@ -14,7 +14,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    as an obligation contract rather than as a claimed construction. The
    current example is the boundary type candidate:
    `RiemannVenue/Venue/BoundaryType.lean` plus
-   `notes/boundary-type-excavation.md`.
+   `notes/boundary-type-excavation.md`. The current excavation branch keeps
+   two comparison spikes beside it: renormalization-first and
+   state/trace-first.
 
 ## Design rule
 

@@ -116,6 +116,37 @@ explicit-formula pairing plus obligations. The next serious forks are:
 The workbench should stop at any of these forks before choosing a deeper
 implementation path.
 
+## Two-spike comparison
+
+Two fork probes now sit beside the candidate contract:
+
+- `RiemannVenue/Venue/BoundaryRenormalization.lean` and
+  `notes/boundary-renormalization-spike.md` test the
+  **renormalization-first** path.
+- `RiemannVenue/Venue/BoundaryState.lean` and
+  `notes/boundary-state-spike.md` test the **state/trace-first** path.
+
+Their shared return is already informative: the missing type is probably
+not just `ExplicitFormulaData`. That pairing is the observable face. The
+object being quarried seems to need both:
+
+1. a state/trace-like carrier that can inherit positivity and make no-leak
+   semantics internal; and
+2. a derived completed explicit-formula pairing whose finite-place face is
+   identified by a renormalized response/log-derivative crossing.
+
+The two spikes therefore sharpen the next fork.
+
+- **Carrier-first.** Build the state/trace object first, then prove that its
+  derived pairing has the required completed explicit-formula decomposition.
+- **Pairing-first.** Build the completed pairing and renormalization bridge
+  first, then ask for a non-tautological carrier realizing it.
+
+The current recommendation is not to merge these routes prematurely. The
+renormalization spike knows more about the finite-place crossing. The state
+spike knows more about what a real positive type would have to be. The next
+deepening should decide which side becomes primary.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -141,6 +172,9 @@ The next work should choose one fork and deepen it:
   obstruction/renormalization surfaces before completion.
 - If **trace-first**, isolate what makes a trace realization non-tautological:
   spectral generator, observable map, and arithmetic identity constraints.
+- If **two-layer**, define the carrier and the derived pairing together, with
+  renormalization evidence tying the pairing back to the finite response
+  family.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
