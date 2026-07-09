@@ -1,0 +1,146 @@
+# Boundary Type Excavation
+
+Status: exploratory workbench note. This is not a proof of RH, not a
+construction of the completed Weil distribution, and not a PR-ready endpoint.
+It is the quarry ledger for the missing type named by the motion.
+
+## Thesis
+
+The essay's "zeros as a new type" should not be read as a request to make a
+datatype whose constructors are individual zeros. The sharper reading is:
+
+> The zeros should be understood as spectral/no-leak modes of a completed
+> log-scale boundary object. The missing type is the object in which that
+> sentence is well-typed.
+
+In placement coordinates, an off-line zero is a point with real part different
+from `1/2`. In the venue language, the same event is a leaking log-scale mode:
+after square-root normalization, it has a factor
+`exp((β - 1/2)t)` instead of a unitary oscillation. The type to dig is
+therefore not the zero alone, but the completed boundary state/distribution
+whose positivity makes the no-leak reading ordinary.
+
+## Existing ore map
+
+The current repository already fixes several faces of the missing object.
+
+- **Finite-place length geometry.** The normalized gcd kernel is positive at
+  every finite level. This is the finite no-leak anchor
+  (`RiemannVenue/Venue/NoLeak.lean`).
+- **Prime-torus spectrum.** The same kernel is the Fourier coefficient of the
+  infinite product Poisson measure at `σ = 1/2`.
+- **Phase boundary.** Kakutani's dichotomy makes `σ = 1/2` a genuine
+  measure-class boundary: equivalent to Haar above, singular at and below.
+- **Response, not cargo.** Direct finite Euler shadows do not converge as
+  length-side measures; the same finite objects survive as matrix
+  coefficients of a diagonal scale flow.
+- **Correct operation.** Logarithm plus radial derivative removes rational
+  interference and isolates the prime-power side of the explicit formula.
+- **Completion target.** Tate supplies the archimedean gamma factor and the
+  completed zeta bookkeeping supplies pole and trivial-zero terms.
+- **Locked gate.** Weil positivity is already stated as positive type on
+  self-convolutions (`RiemannVenue/Weil/Positivity.lean`), and the easy trace
+  implication is formal (`RiemannVenue/Weil/TraceArchitecture.lean`).
+
+These are enough to specify the missing type's contract. They are not enough
+to exhibit it.
+
+## Candidate type contract
+
+A boundary type candidate should package a completed log-scale
+explicit-formula pairing together with obligations explaining why it is the
+right completed object.
+
+The obligations are:
+
+1. **Finite-place prime-power face.** The finite-place component agrees with
+   the prime-power distribution isolated by the finite logarithmic radial
+   derivative.
+2. **Renormalized response crossing.** It arises from, or is compatible with,
+   a critical renormalization of the finite Poisson response family rather
+   than the false direct length-side limit.
+3. **Log-derivative bridge.** The passage from response to explicit-formula
+   distribution is by the log/radial-derivative operation already validated
+   at finite level.
+4. **Archimedean completion.** The gamma contribution is the Tate/Gaussian
+   one, not an ad hoc correction.
+5. **Pole and trivial-zero bookkeeping.** The completed zeta pole and
+   trivial-zero terms are present with the convention of the completed
+   explicit formula.
+6. **No-leak semantics.** The zero side is represented so that critical-line
+   zeros are unitary log-scale modes and off-line zeros are precisely leaks.
+7. **Positive type.** The resulting pairing is nonnegative on
+   self-convolutions, i.e. it satisfies `WeilPositivity`.
+
+The first six obligations identify the object. The seventh is the locked
+gate. For the correct completed object, proving it is RH-strength by Weil's
+criterion; this repository must not disguise that fact.
+
+## Anti-types
+
+Several nearby objects are explicitly not the missing type.
+
+- **Raw finite shadow limit.** It has arbitrary rational frequencies and
+  non-Radon mass near zero. This route is already false as stated.
+- **Bare completed zeta probability law.** Probability laws built from `ξ`
+  or ratios of `ξ` may be meaningful, but they are not automatically Weil
+  positivity.
+- **Tautological trace realization.** A positive pairing can be represented
+  by the square-root trick on `ℝ`; this proves nothing about the arithmetic
+  spectral object.
+- **GNS alone.** Positive type gives a Hilbert representation. It does not
+  give a trace formula or identify the zeta zeros as spectral data.
+- **Finite-place positivity alone.** The gcd kernel's positivity is the near
+  boundary geometry. It does not survive differentiation/completion for free.
+
+## Fork ledger
+
+The first cut is **boundary-object first**: define the completed
+explicit-formula pairing plus obligations. The next serious forks are:
+
+- **Distribution-first vs. state-first.** Do we refine
+  `ExplicitFormulaData` into the completed distribution first, or define a
+  positive state whose distribution is derived? This changes the shape of the
+  type and should be decided before adding more formal structure.
+- **Renormalization-first vs. completion-first.** Do we type the critical
+  finite-response limit before naming the completed explicit-formula object,
+  or do we name the completed object and require compatibility with such a
+  limit? This changes what counts as primary evidence.
+- **Trace-first vs. positivity-first.** Do we next strengthen
+  `TraceRealization`, or refine the positive-type pairing and only later ask
+  for a spectral trace object? This changes the burden of the next theorem.
+- **Zero-mode vocabulary.** Do we introduce a formal mode/no-leak interface,
+  or keep no-leak as prose plus the existing finite anchor until more
+  analytic structure exists?
+
+The workbench should stop at any of these forks before choosing a deeper
+implementation path.
+
+## Current excavation result
+
+`RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
+Lean statement shape. Its fields are Prop-valued obligations, deliberately
+abstract. The module has two jobs:
+
+1. keep the missing type named in the formal namespace; and
+2. make overclaiming mechanically visible by separating identification
+   obligations from `WeilPositivity`.
+
+It does not construct the completed distribution, assert the obligations, or
+prove any implication to `RH`.
+
+## Next dig targets
+
+The next work should choose one fork and deepen it:
+
+- If **distribution-first**, refine `ExplicitFormulaData` from a bare pairing
+  into a structured explicit-formula decomposition.
+- If **state-first**, define the minimum state/algebra interface whose
+  derived pairing is an `ExplicitFormulaData`.
+- If **renormalization-first**, type finite response families and the exact
+  obstruction/renormalization surfaces before completion.
+- If **trace-first**, isolate what makes a trace realization non-tautological:
+  spectral generator, observable map, and arithmetic identity constraints.
+
+Until one fork is chosen, this note should remain an excavation ledger rather
+than a proof plan.

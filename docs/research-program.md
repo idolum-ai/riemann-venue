@@ -10,6 +10,11 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
 2. Study the finite GCD kernel computationally.
 3. Separate formal claims from numerical evidence.
 4. Track the speculative bridge toward Tate/Weil/spectral language in notes only until precise statements are isolated.
+5. When a speculative bridge becomes precise enough to type, record it first
+   as an obligation contract rather than as a claimed construction. The
+   current example is the boundary type candidate:
+   `RiemannVenue/Venue/BoundaryType.lean` plus
+   `notes/boundary-type-excavation.md`.
 
 ## Design rule
 
