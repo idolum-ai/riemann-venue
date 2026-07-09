@@ -55,3 +55,15 @@ anti-tautology bet. The log-derivative branch is the stronger explicit-formula
 bridge bet. If either becomes ready for a concrete `BoundaryCountertermTrial`,
 the search has found the next object to formalize. If both fail, the failure
 mode tells us how to widen.
+
+## Pushed Anchors
+
+`RiemannVenue/Venue/BoundaryCountertermProbePush.lean` records the existing
+formal anchors for both branches:
+
+- finite response is anchored by `hasSum_primeShadow`;
+- log derivative is anchored by `hasDerivAt_sum_primePower_terms`.
+
+So the remaining problem is no longer contact with the repo. It is the
+coefficient itself: finite-response extractor versus log-derivative
+scale-defect coefficient.

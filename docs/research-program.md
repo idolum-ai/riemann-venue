@@ -31,7 +31,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    choice into a finite test matrix. The matrix is initialized with rejected,
    blocked, and live regions so the next excavation can target concrete live
    cells. The current focus is the two-prong live-cell probe:
-   finite-response/Schwartz and log-derivative/smooth-compact.
+   finite-response/Schwartz and log-derivative/smooth-compact. Both probes
+   are now attached to existing finite-place anchors; the next concrete
+   object is the coefficient functional itself.
 
 ## Design rule
 

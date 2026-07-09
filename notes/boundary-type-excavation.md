@@ -227,6 +227,11 @@ most informative live cells: finite response on Schwartz tests and
 log-derivative vacuum on smooth compact support. Their first expected failure
 gates are target-pairing leakage and log-derivative mismatch, respectively.
 
+`RiemannVenue/Venue/BoundaryCountertermProbePush.lean` then attaches both
+branches to existing finite-place anchors: `hasSum_primeShadow` for finite
+response and `hasDerivAt_sum_primePower_terms` for log derivative. The
+remaining object to mine is now the coefficient functional itself.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -278,6 +283,9 @@ The next work should choose one fork and deepen it:
   as the first concrete counterterm trial.
 - If **two-prong-first**, push both live cells until one either becomes a
   `BoundaryCountertermTrial` or fails by its named first gate.
+- If **coefficient-first**, specify either the finite-response extractor or
+  the log-derivative scale-defect coefficient as the first concrete
+  counterterm functional.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
