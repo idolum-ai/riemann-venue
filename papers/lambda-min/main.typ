@@ -84,11 +84,15 @@
     thin |K_N^(-1)| thin Delta_lambda$ with $Delta_lambda$ the diagonal
     matrix of Liouville signs, so the minimizing eigenvector carries the
     exact Liouville sign pattern for every $N$ (Perron–Frobenius), and a
-    weighted Schur test with weight $rho^(Omega(n))\/sqrt(n)$ on the
-    nonnegative factor gives
-    $lambda_(min)(N) >= exp(-(2+o(1)) sqrt(log N))$. Together the two bounds
-    settle the exponent: $-log lambda_(min)(N) = (log N)^(1\/2 + o(1))$;
-    open is only the slowly varying factor. On the computational side, the
+    weighted Schur test on the nonnegative factor, with per-prime geometric
+    weights scheduled in proportion to the logarithmic budget
+    $sum_(p divides n) log p <= log n$, gives
+    $lambda_(min)(N) >= exp(-(2+o(1)) sqrt(log N \/ log log N))$. Together
+    the two bounds settle the exponent, $-log lambda_(min)(N) =
+    (log N)^(1\/2 + o(1))$, confine the slowly varying factor to a corridor
+    of relative width $sqrt(log log N)$, and exclude the pure law
+    $exp(-(c+o(1)) sqrt(log N))$: the exponential-rate constants fitted at
+    finite $N$ are transient. On the computational side, the
     inverse of the Cholesky-type Gram factor of $K_N$ is an explicit sparse
     Möbius matrix, which turns $1\/lambda_(min)$ into a dominant eigenvalue
     accessible to Lanczos iteration; we compute $lambda_(min)(N)$ with
@@ -205,23 +209,29 @@ $N$, and its eigenvector has sign pattern exactly $lambda(n)$._
 
 *Theorem C (lower bound; @sec-lower).* _Unconditionally,_
 $
-  lambda_(min)(N) >= exp(-(2 + o(1)) sqrt(log N)) ,
+  lambda_(min)(N) >= exp(-(2 + o(1)) sqrt(log N / log log N)) ,
 $
-_with the PNT-free explicit variant $exp(-2.36 sqrt(log N))$ for all
-sufficiently large $N$._
+_by a weighted Schur test on $|K_N^(-1)|$ whose per-prime weights are
+scheduled in proportion to the logarithmic budget. The classical inputs
+are Mertens' theorem, Rosser–Schoenfeld bounds, and Chebyshev-grade prime
+sums; neither the prime number theorem nor Robin's bound is used._
 
-Theorems A and C together settle the exponent:
+Theorems A and C together settle the exponent and exclude a law:
 
 *Corollary D (the rate; @sec-lower).*
-$-log lambda_(min)(N) = (log N)^(1\/2 + o(1))$.
+$-log lambda_(min)(N) = (log N)^(1\/2 + o(1))$, _and
+$lambda_(min)(N) = exp(-(c + o(1)) sqrt(log N))$ holds for no constant
+$c > 0$._
 
 What remains open is the slowly varying factor: the corridor
-$-log lambda_(min) \/ sqrt(log N) in [0.99\/log log N, thin 2 + o(1)]$ has
-relative width of shape $log log N$, and the numerics of @sec-numerics
-(exact sparse computations of $lambda_(min)$ to $N = 1.3 times 10^7$, which
-reject both the two-parameter law $c(log N)^(-2)$ and the product-family
-rate on the computed window) measure the window-effective value at
-$approx 1.36$–$1.41$, inside the corridor.
+$-log lambda_(min) in [0.99 sqrt(log N)\/log log N, thin
+(2 + o(1)) sqrt(log N\/log log N)]$ has relative width of shape
+$sqrt(log log N)$, and the numerics of @sec-numerics (exact sparse
+computations of $lambda_(min)$ to $N = 1.3 times 10^7$, which reject both
+the two-parameter law $c(log N)^(-2)$ and the product-family rate on the
+computed window) measure the window-effective exponential constant at
+$approx 1.36$–$1.41$, inside the corridor; by Corollary D that constant
+cannot settle, and its measured decline is forced.
 
 Finally, @sec-conjecture records an exact symmetry and an unexplained
 regularity. The half-turn $theta_p |-> theta_p + pi$ of every circle in the
@@ -555,9 +565,10 @@ unknown.
 Everything in this section carries the label *derived*: complete paper
 proofs with classical inputs as marked, none of it formalized. The route is
 the second of the two the object offers: $1\/lambda_(min)(K_N) =
-lambda_(max)(K_N^(-1))$, and the inverse is explicit. The derivation, with
-numerical spot-checks at machine precision, is recorded in the research
-note `notes/lambda-min-lower-attack.md` of [RV26].
+lambda_(max)(K_N^(-1))$, and the inverse is explicit. The derivations, with
+numerical spot-checks at machine precision, are recorded in the research
+notes `notes/lambda-min-lower-attack.md` and `notes/perron-vector-attack.md`
+of [RV26].
 
 == The explicit inverse and the Liouville gauge
 
@@ -648,7 +659,7 @@ $
   w_n = rho^(Omega(n)) / sqrt(n) , quad rho > 0 .
 $
 
-#theorem(name: [lower bound; derived])[
+#theorem(name: [lower bound, uniform weight; derived])[
   Unconditionally, as $N -> oo$,
   $
     lambda_(min)(K_N) >= exp(-(2 + o(1)) sqrt(log N)) .
@@ -710,20 +721,137 @@ $
 ]
 
 #remark[
-  On the constant. Per-prime tuning $w_n = product_p rho_p^(v_p (n))$ with
-  $rho_p approx sqrt(p)$ would seem to improve the primorial rows to the
-  barrier shape $4 sqrt(log N)\/log log N$, but the binding rows migrate
-  (products of $approx log N\/log log N$ primes just above $log N$) and
-  restore $2 sqrt(log N)$; within multiplicative weight families the
-  constant $2$ appears robust. That observation is heuristic; only the
-  uniform-$rho$ family is derived above. The intrinsic ceiling of the route
-  is the Perron weight, that is, $lambda_(max)(K_N^(-1))$ itself,
-  numerically $exp(approx 1.4 sqrt(log N))$ on the computed window; the
-  measured looseness of the uniform-$rho$ test grows only from $1.6$ to
-  $2.4$ over $10^2 <= N <= 10^6$ (spot-check tables in the research note).
-  Each evaluated row-sum bound is also a certificate at its own $N$: at
-  $N = 10^6$ the test gives $lambda_(min) >= 1\/654.7 = 1.53 times 10^(-3)$
-  against the true $3.70 times 10^(-3)$.
+  The intrinsic ceiling of the route is the Perron weight, that is,
+  $lambda_(max)(K_N^(-1))$ itself; the measured looseness of the
+  uniform-$rho$ test grows from $1.6$ to $2.4$ over $10^2 <= N <= 10^6$
+  (spot-check tables in the research notes). Each evaluated row-sum bound
+  is also a certificate at its own $N$: at $N = 10^6$ the uniform test
+  gives $lambda_(min) >= 1\/654.7 = 1.53 times 10^(-3)$ against the true
+  $3.70 times 10^(-3)$.
+]
+
+== The budget-proportional schedule
+
+The uniform weight pays $r_N\/rho$ because it charges every prime equally
+while the binding rows are exactly those with many prime factors. A
+per-prime weight can charge each prime in proportion to its share of
+$log m$; since $sum_(p divides m) log p <= log m <= log N$ for every
+$m <= N$, the row premium is then bounded by the budget itself, no row is
+exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
+
+#theorem(name: [lower bound, scheduled weight; derived])[
+  Unconditionally, as $N -> oo$,
+  $
+    lambda_(min)(K_N) >= exp(-(2 + o(1)) sqrt(log N / log log N)) .
+  $
+  The classical inputs are Mertens' theorem, Rosser–Schoenfeld bounds for
+  $m\/phi(m)$, and Chebyshev-grade bounds for $sum_(p <= x) p^(-1\/2)$ and
+  $sum_(p > x) 1\/(p log p)$; neither the prime number theorem nor Robin's
+  bound is used.
+] <thm-lower-eta>
+
+#proof[
+  Let $w$ be any multiplicative weight with $w(1) = 1$ and write $W(n) =
+  sqrt(n) thin w(n)$. The opening of the proof of @thm-lower carries over
+  unchanged: exchanging summation over $n$ and common multiples $k = m s$
+  and evaluating the inner divisor sum,
+  $
+    T_m (w) = m/W(m) sum_(s <= N\/m, thin mu^2(s) = 1)
+      1/phi(m s) product_(p^e parallel m s) (W(p^e) + W(p^(e-1))) .
+  $
+  Split $s = u v$ with $u$ composed of primes dividing $m$ and $v$ coprime
+  to $m$, use $phi(m u v) >= phi(m) phi(u) phi(v)$, and drop the
+  truncation:
+  $
+    T_m <= m/phi(m) thin product_(p^a parallel m) F_p (a)
+      product_(p <= N, thin p divides.not m) G_p ,
+  $
+  $
+    F_p (a) = 1 + W(p^(a-1))/W(p^a)
+      + (W(p^(a+1)) + W(p^a)) / (W(p^a)(p - 1)) ,
+    quad
+    G_p = 1 + (W(p) + 1)/(p - 1) .
+  $
+  Now take $W$ geometric in each prime, $W(p^a) = eta_p^a$, with the
+  schedule
+  $
+    eta_p = cases(
+      sqrt(p - 1) & "for" p <= y_0,
+      sqrt(log N dot log log N) \/ log p & "for" p > y_0,
+    )
+    quad quad y_0 = log N / (log log N)^3 ,
+  $
+  and write $V = sqrt(log N \/ log log N)$, so that $1\/eta_p =
+  (V\/log N) log p$ on the second branch. For geometric $W$ the factor
+  $F_p (a) = 1 + 1\/eta_p + (eta_p + 1)\/(p - 1)$ does not depend on $a$,
+  and since $(1 + x + y)\/(1 + y) <= 1 + x$,
+  $
+    log T_m <= log(m\/phi(m)) + sum_(p divides m) log(1 + 1/eta_p)
+      + sum_(p <= N) log G_p .
+  $
+  Each piece in turn.
+  - _Row premium, small primes._ $sum_(p <= y_0) log(1 + 1\/sqrt(p - 1))
+    <= sum_(p <= y_0) 1\/sqrt(p - 1) = O(sqrt(y_0)\/log y_0) =
+    O(sqrt(log N)\/(log log N)^(5\/2)) = o(V)$ [Chebyshev-grade partial
+    summation, classical].
+  - _Row premium, large primes._ For every $m <= N$, squarefree or not,
+    $
+      sum_(p divides m, thin p > y_0) log(1 + 1/eta_p)
+      <= V/(log N) sum_(p divides m) log p <= V (log m)/(log N) <= V :
+    $
+    the cost metric is the budget metric, so the bound is uniform in $m$,
+    and deep exponents cost nothing because $F_p (a)$ is independent of
+    $a$.
+  - _Column mass._ $log G_p <= (eta_p + 1)\/(p - 1)$. The primes $p <=
+    y_0$ contribute $O(sqrt(y_0)\/log y_0) = o(V)$ as above; the $+1$
+    contributes $log log N + O(1)$ [Mertens] $= o(V)$; and, with
+    $sum_(p > x) 1\/(p log p) = (1 + o(1))\/log x$ [classical, partial
+    summation on Mertens],
+    $
+      sum_(p > y_0) eta_p/(p - 1)
+      = sqrt(log N log log N) dot (1 + o(1))/(log y_0)
+      = (1 + o(1)) thin V ,
+    $
+    since $log y_0 = (1 - o(1)) log log N$.
+  - _The prefactor._ $log(m\/phi(m)) = O(log log log N)$ uniformly for
+    $m <= N$ [RS62], again $o(V)$.
+  Collecting, $log T_m <= (2 + o(1)) V$ uniformly in $m <= N$, so
+  $lambda_(max)(K_N^(-1)) <= exp((2 + o(1)) sqrt(log N \/ log log N))$,
+  and by @thm-gauge nothing was lost in passing to $M_N$.
+]
+
+#remark[
+  Certificates improve as well: the one-parameter family $eta_p =
+  min(sqrt(p - 1), thin A\/log p)$ with $A = 0.7 sqrt(log N log log N)$
+  beats the uniform family at every computed $N$; at $N = 10^6$ it gives
+  $lambda_(min) >= 1\/554.2 = 1.80 times 10^(-3)$. Its binding rows are
+  primorials, and its compensated value $log T\/sqrt(log N)$ declines
+  ($1.749 -> 1.700$ over $10^3 <= N <= 10^6$) where the uniform family's
+  stayed flat near $1.75$: the signature of leaving the
+  $exp(c sqrt(log N))$ class.
+]
+
+#remark[
+  On the constant, and on the class. Within the scheme of the proof the
+  $2$ is a forced balance: row premium and column mass both equal
+  $(1 + o(1)) V$ at the optimal schedule, and the small-prime block forces
+  $log y_0 <= (1 + o(1)) log log N$, so no geometric schedule goes below
+  $2 sqrt(log N \/ log log N)$. Whether the full multiplicative class can
+  is a different question, and numerically no barrier is visible:
+  minimizing $max_m T_m (w)$ over all multiplicative weights is a convex
+  problem in the prime-power log-increments (a log-sum-exp of affine
+  functions, so every evaluated weight is a rigorous certificate), and the
+  global optimum at $N = 10^3$–$10^6$ lands within $7$–$10%$ of
+  $lambda_(max)(K_N^(-1))$ itself, with the compensated gap flat across
+  three decades [numerical; research notes]. The remaining distance from
+  the theorem to the truth is the distance from geometric schedules to the
+  Perron vector of $M_N$, whose per-prime profiles are factorial-damped
+  rather than geometric and whose breadth follows the same $1\/log p$
+  plateau as the schedule above [numerical]. The shape and constant
+  $exp(2 sqrt(log N \/ log log N))$ also appear in [ABS15] as the floor
+  for critical GCD sums over extremal sets; the extremal arithmetic on
+  both sides is the same budget-constrained allocation of $log N$ across
+  the primes.
 ]
 
 == The rate
@@ -731,26 +859,31 @@ $
 #corollary(name: [the exponent; derived])[
   Unconditionally,
   $
-    exp(-(2 + o(1)) sqrt(log N)) <= lambda_(min)(K_N)
+    exp(-(2 + o(1)) sqrt(log N / log log N)) <= lambda_(min)(K_N)
     <= exp(-0.99 thin sqrt(log N) / log log N)
     quad ("the right side for" N >= 3.3 times 10^7) ,
   $
-  hence $-log lambda_(min)(K_N) = (log N)^(1\/2 + o(1))$.
+  hence $-log lambda_(min)(K_N) = (log N)^(1\/2 + o(1))$, and
+  $lambda_(min)(K_N) = exp(-(c + o(1)) sqrt(log N))$ holds for no constant
+  $c > 0$.
 ] <cor-rate>
 
 #proof[
-  Combine @thm-lower with @cor-asymp and its explicit variant; for the
+  Combine @thm-lower-eta with @cor-asymp and its explicit variant; for the
   exponent, $sqrt(log N)\/log log N = (log N)^(1\/2 - log log log N \/ log
-  log N)$.
+  log N)$. For the exclusion, the lower bound forces
+  $-log lambda_(min) \/ sqrt(log N) <= (2 + o(1)) \/ sqrt(log log N) -> 0$.
 ]
 
-The gap is now a corridor: $-log lambda_(min) \/ sqrt(log N) in
-[0.99\/log log N, thin 2 + o(1)]$, of relative width $log log N$. Where
-each side loses is identified: the upper bound on $lambda_(min)$ gives away
-only what lies beyond the product class (@sec-barrier), the lower bound
-only the distance from multiplicative weights to the Perron vector of
-$M_N$. The numerics of the next section measure the window value at
-$approx 1.36$–$1.41$.
+The gap is now a corridor: $0.99 sqrt(log N)\/log log N <= -log
+lambda_(min) <= (2 + o(1)) sqrt(log N \/ log log N)$, of relative width
+$sqrt(log log N)$. Where each side loses is identified: the upper bound on
+$lambda_(min)$ gives away only what lies beyond the product class
+(@sec-barrier), the lower bound only the distance from multiplicative
+weights to the Perron vector of $M_N$, measured at $7$–$10%$ of the
+logarithm at computable $N$. The numerics of the next section measure the
+window value of the exponential fit at $approx 1.36$–$1.41$; the corollary
+makes that value a finite-size effect.
 
 = Numerics to $N = 1.3 times 10^7$ <sec-numerics>
 
@@ -888,14 +1021,17 @@ times 10^4$, $2.69$ on the top octave; free-exponent fits find no stable
 value ($2.31 -> 2.48 -> 2.59$ as the window moves up, with rms residuals
 three times worse than the exponential law in every window).
 
-*The law $A exp(-c sqrt(log N))$ survives, with a slowly drifting $c$.*
-Refitting by window on the measured grid: $c = 1.411$ (all $N >= 800$),
-$c = 1.379$ ($N >= 25 thin 600$), $c = 1.358$ ($N >= 409 thin 600$, rms
-$0.0008$ in $log lambda$); the local rate declines by roughly $0.010$ per
-octave through $1.341$ at the top octave. One internal consistency
+*The law $A exp(-c sqrt(log N))$ fits each window, with a slowly drifting
+$c$.* Refitting by window on the measured grid: $c = 1.411$ (all $N >=
+800$), $c = 1.379$ ($N >= 25 thin 600$), $c = 1.358$ ($N >= 409 thin 600$,
+rms $0.0008$ in $log lambda$); the local rate declines by roughly $0.010$
+per octave through $1.341$ at the top octave. One internal consistency
 check: this law predicts a local log-power exponent $(c\/2) sqrt(log N)$,
 which at the top octave gives $2.686$, against $2.686$ measured. The
-log-power drift is exactly what the exponential law forces.
+log-power drift is exactly what the exponential law forces. The decline
+of $c$ is in turn a consequence of @thm-lower-eta, which excludes the pure
+exponential law asymptotically: the fitted $c$ is a window-effective value
+and must tend to zero.
 
 *The product-family (barrier-shaped) law loses decisively.* @prop-barrier
 makes $A exp(-C sqrt(log N)\/log log N)$ the natural law for product
@@ -935,7 +1071,8 @@ $log lambda$):
 
 Three-parameter fits refine rather than overturn this picture: the scan
 $lambda approx A exp(-c (log N)^theta)$ prefers an effective exponent
-slightly *below* $1\/2$, $theta approx 0.36$–$0.38$, and the hybrid $A (log
+slightly *below* $1\/2$, $theta approx 0.36$–$0.38$ (the direction
+@thm-lower-eta makes mandatory), and the hybrid $A (log
 N)^(-beta) e^(-c sqrt(log N))$ gives $beta approx 0.6$–$0.7$, $c approx 1.0$.
 On any feasible window these cannot be separated from slowly varying
 corrections inside the square root (the ABS-type $log log$ factors);
@@ -971,38 +1108,44 @@ accelerates past every polylog (which @cor-rate forbids in the limit).
 
 == The corridor
 
-@cor-rate settles the exponent; what it leaves open is the slowly varying
-factor. The walls stand at
+@cor-rate settles the exponent and rules out one law; what it leaves open
+is the slowly varying factor. The walls stand at
 $
-  0.99 / (log log N)
-  <= (- log lambda_(min)(K_N)) / sqrt(log N)
-  <= 2 + o(1) ,
+  0.99 thin sqrt(log N) / (log log N)
+  <= - log lambda_(min)(K_N)
+  <= (2 + o(1)) sqrt(log N / log log N) ,
 $
-a corridor of relative width $log log N$, and the question is where inside
-it the truth lives:
+a corridor of relative width $sqrt(log log N)$, and the question is where
+inside it the truth lives:
 
 #block(above: 1.0em, below: 1.0em, inset: (x: 1.6em))[
-  _Does $-log lambda_(min)(K_N) \/ sqrt(log N)$ tend to a constant, decay
-  like a power of $1\/log log N$, or drift slowly between the walls?_
+  _Does $-log lambda_(min)(K_N) \/ sqrt(log N \/ log log N)$ tend to a
+  constant, does the truth follow the lower wall's shape
+  $sqrt(log N)\/log log N$, or does it drift between the two?_
 ]
 
-On the computed window the effective exponent sits between the
-product-family shape and the pure $sqrt(log N)$ law ($theta approx
-0.36$–$0.38$ in the three-parameter scan), with exponential-fit constants
-$c approx 1.36$–$1.47$, well inside the corridor. We deliberately do not
-conjecture the finer structure: window-effective constants should not be
-over-trusted, since $log log$-type factors inside the exponent are
-unresolvable at any feasible $N$ (@sec-numerics). What would move each side
-is identified in @sec-barrier and @sec-lower: improving the upper bound on
+The pure law $exp(-(c + o(1)) sqrt(log N))$ is no longer among the
+options. On the computed window the exponential-fit constant sits at
+$c approx 1.36$–$1.47$, and the local rate's measured decline ($approx
+0.010$ per octave) is the visible part of a drift @cor-rate leaves no way
+around. In the corridor's own units the measured value
+$-log lambda_(min) \/ sqrt(log N \/ log log N)$ runs from $2.13$ at
+$N = 800$ to $2.50$ at $N = 1.3 times 10^7$, rising, with no tension
+against either wall. We still decline to conjecture the finer structure:
+window-effective constants should not be over-trusted, since
+$log log$-type factors inside the exponent are unresolvable at any
+feasible $N$ (@sec-numerics). What would move each side is identified in
+@sec-barrier and @sec-lower: improving the upper bound on
 $lambda_(min)$ means leaving the product class, which the barrier shows is
 exhausted; improving the lower bound means closing the distance from
 multiplicative weights to the Perron vector of $M_N = |K_N^(-1)|$, whose
-top eigenvalue is the answer itself (@thm-gauge). Both sides are now
-questions about the same object, the Perron vector of one explicit
-nonnegative arithmetic matrix. The Poisson-integral representation of
-[ABS15], which bounds the quadratic form from below by integrals that sieve
-methods can evaluate, remains the one known route not yet exploited on the
-lower side.
+top eigenvalue is the answer itself (@thm-gauge) and which the full
+multiplicative class already matches to $7$–$10%$ at computable $N$. Both
+sides are now questions about the same object, the Perron vector of one
+explicit nonnegative arithmetic matrix. The Poisson-integral
+representation of [ABS15], which bounds the quadratic form from below by
+integrals that sieve methods can evaluate, remains the one known route not
+yet exploited on the lower side.
 
 == The Liouville conjugation symmetry
 

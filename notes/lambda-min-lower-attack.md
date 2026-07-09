@@ -453,3 +453,20 @@ Open item this note surfaces (candidate W3b): estimate the Perron vector of
 `M_N` well enough to run the Schur test with a near-optimal weight — the
 constant `2` in the theorem and the constant in `λ_min·λ_max ≈ 0.389` are
 now provably the *same kind* of question about the same nonnegative matrix.
+
+---
+
+## Addendum (2026-07-09): superseded in part by `notes/perron-vector-attack.md`
+
+The W3b note improves §3.2's theorem by a factor `√(log log N)` in the
+exponent: the per-prime geometric schedule `η_p = min(√(p−1),
+√(log N·log log N)/log p)` gives `λ_min(K_N) ≥
+exp(−(2+o(1))·√(log N/log log N))`, with lighter classical inputs (no
+Robin, no PNT) and better finite-N certificates (`1.80·10⁻³` at `N = 10⁶`
+vs §4.2's `1.53·10⁻³`). §3.3's migration heuristic ("2 is robust within
+multiplicative families") is refuted for the full multiplicative class
+(the convex class optimum lands within 7–10% of `λ_max(K⁻¹)` at
+`N = 10³…10⁶`) and survives only for geometric `ρ_p ≈ √p` schedules.
+§4.1's sandwich accordingly narrows to `−log λ_min ∈
+[0.99·√(log N)/log log N, (2+o(1))·√(log N/log log N)]`, relative width
+`√(log log N)`, which excludes the pure `exp(−c√(log N))` law.
