@@ -222,6 +222,11 @@ matrix. The first pass rejects `h(0)` and `int h`, blocks the abstract vacuum
 coefficient as underspecified, and leaves the log-derivative-vacuum and
 finite-response-coefficient rows live above the compact-continuous tier.
 
+`RiemannVenue/Venue/BoundaryCountertermLiveCells.lean` narrows onto the two
+most informative live cells: finite response on Schwartz tests and
+log-derivative vacuum on smooth compact support. Their first expected failure
+gates are target-pairing leakage and log-derivative mismatch, respectively.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -271,6 +276,8 @@ The next work should choose one fork and deepen it:
 - If **live-cell-first**, instantiate either the smooth-compact
   log-derivative-vacuum cell or the Schwartz finite-response-coefficient cell
   as the first concrete counterterm trial.
+- If **two-prong-first**, push both live cells until one either becomes a
+  `BoundaryCountertermTrial` or fails by its named first gate.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

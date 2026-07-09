@@ -30,7 +30,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    now isolates the first forced divergent factor and turns the coefficient
    choice into a finite test matrix. The matrix is initialized with rejected,
    blocked, and live regions so the next excavation can target concrete live
-   cells.
+   cells. The current focus is the two-prong live-cell probe:
+   finite-response/Schwartz and log-derivative/smooth-compact.
 
 ## Design rule
 

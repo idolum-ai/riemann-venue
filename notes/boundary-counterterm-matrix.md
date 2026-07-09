@@ -63,3 +63,12 @@ natural first targets are:
 - `finiteResponseCoefficient` on Schwartz tests.
 
 Those are now recorded as live marker theorems in Lean.
+
+## Two-Prong Focus
+
+`RiemannVenue/Venue/BoundaryCountertermLiveCells.lean` now narrows onto those
+two targets. The finite-response/Schwartz branch must avoid
+`responseCoefficientLeaksTarget`; the log-derivative/smooth-compact branch
+must avoid `logDerivativeMismatch`.
+
+This is the next real fork: finite response first, or log derivative first.
