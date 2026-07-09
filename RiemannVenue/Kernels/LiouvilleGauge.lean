@@ -244,8 +244,10 @@ theorem isUnit_liouvilleDiagonal (N : ℕ) : IsUnit (liouvilleDiagonal N) :=
 `spec(M_N) = spec(K⁻¹)`.
 
 The gauge `M_N = L·K⁻¹·L⁻¹` is conjugation by the unit `L`, and conjugation
-preserves the spectrum: the bottom edge of `K_N` is exactly the top of the
-spectrum of the nonnegative matrix `M_N` — a Perron–Frobenius problem. -/
+preserves the spectrum. This reduces the bottom-edge problem for `K_N` to
+the top spectrum of the nonnegative matrix `M_N` via the inverse — a
+Perron–Frobenius problem; the eigenvalue-order bridge (bottom of `K_N` =
+reciprocal of the top of `K_N⁻¹`) is standard and not formalized here. -/
 theorem spectrum_absInverseKernel (N : ℕ) :
     spectrum ℝ (absInverseKernel N) =
       spectrum ℝ ((normalizedGcdKernel N)⁻¹) := by

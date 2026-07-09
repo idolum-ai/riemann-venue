@@ -114,3 +114,32 @@ jobs:
             BASE=$(git rev-parse HEAD~1 2>/dev/null || git hash-object -t tree /dev/null)
           fi
           git diff --check "$BASE" HEAD
+      # Hidden/bidirectional Unicode guard: git diff --check does not catch
+      # this class. Mathematical Unicode is welcome; banned are the invisible
+      # and direction-override characters that can render differently from
+      # what the compiler sees.
+      - name: Hidden and bidirectional Unicode guard
+        run: |
+          python3 - <<'EOF'
+          import pathlib, sys, unicodedata
+          banned = {0x202A,0x202B,0x202C,0x202D,0x202E,0x2066,0x2067,0x2068,
+                    0x2069,0x200B,0x200C,0x200D,0x200E,0x200F,0xFEFF,0x00AD,
+                    0x2060,0x2061,0x2062,0x2063,0x2064}
+          bad = []
+          for p in pathlib.Path('.').rglob('*'):
+              s = str(p)
+              if not p.is_file() or any(x in s for x in ('.git/','.lake/','.venv/')):
+                  continue
+              if p.suffix in ('.pdf','.png','.jpg','.ipynb'):
+                  continue
+              try:
+                  t = p.read_text(encoding='utf-8')
+              except (UnicodeDecodeError, PermissionError):
+                  continue
+              for i, c in enumerate(t):
+                  if ord(c) in banned or (unicodedata.category(c) == 'Cc' and c not in '\n\t'):
+                      bad.append(f"{p}: offset {i}: U+{ord(c):04X}")
+          if bad:
+              print("\n".join(bad)); sys.exit(1)
+          print("no hidden or bidirectional characters found")
+          EOF

@@ -81,6 +81,23 @@ theorem infinitePi_absolutelyContinuous_iff (hac : ∀ i, μ i ≪ ν i) :
     (eq_zero_of_absolutelyContinuous_of_mutuallySingular hAC
       (infinitePi_mutuallySingular μ ν h0))
 
+/-- Intended API usage (also a compile-checked example): under mutual local
+absolute continuity, non-singularity of the infinite products upgrades to
+mutual absolute continuity — read the dichotomy right to left. -/
+example (hac : ∀ i, μ i ≪ ν i) (hac' : ∀ i, ν i ≪ μ i)
+    (h : ¬ Measure.infinitePi μ ⟂ₘ Measure.infinitePi ν) :
+    Measure.infinitePi μ ≪ Measure.infinitePi ν :=
+  ((infinitePi_absolutelyContinuous_or_mutuallySingular μ ν hac hac').resolve_right
+    h).1
+
+/-- Intended API usage: the iff transports one-sided absolute continuity of
+the products directly to positivity of the affinity-product infimum, with no
+symmetric hypothesis — the form a downstream criterion computation consumes. -/
+example (hac : ∀ i, μ i ≪ ν i)
+    (hAC : Measure.infinitePi μ ≪ Measure.infinitePi ν) :
+    0 < ⨅ s : Finset ι, ∏ i ∈ s, hellingerAffinity (μ i) (ν i) :=
+  (infinitePi_absolutelyContinuous_iff μ ν hac).mp hAC
+
 end Measure
 
 end MeasureTheory
