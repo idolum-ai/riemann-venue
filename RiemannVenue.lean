@@ -48,3 +48,4 @@ import RiemannVenue.Venue.BoundaryRenormalization
 import RiemannVenue.Venue.BoundaryState
 import RiemannVenue.Venue.BoundaryCarrier
 import RiemannVenue.Venue.BoundaryCarrierDiscipline
+import RiemannVenue.Venue.BoundaryCarrierModelProbes

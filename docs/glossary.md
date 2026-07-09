@@ -38,6 +38,12 @@ Workbench name for the log-scale tests on which a boundary weight is allowed
 to be evaluated. It must contain the compactly supported continuous tests
 used by Weil positivity, and the weight must be finite on their squares.
 
+## Critical boundary criterion
+
+The divergent all-primes criterion `Summable (fun p : Nat.Primes => p^{-1})`.
+It marks the first obstruction for naive unrenormalized critical vector
+models in the boundary-carrier workbench.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

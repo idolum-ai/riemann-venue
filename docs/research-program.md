@@ -20,7 +20,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    vector/state/trace/weight objects can be rejected before they become
    hidden assumptions. The first hardened batch turns observable discipline,
    weight-domain finiteness, and finite-window response contact into typed
-   interfaces.
+   interfaces. The current model probes compare the naive honest-vector
+   route with a weight-like relaxation against the divergent critical
+   boundary criterion.
 
 ## Design rule
 

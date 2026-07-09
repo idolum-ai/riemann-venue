@@ -154,3 +154,27 @@ The carrier problem is now split into two visibly different jobs:
 
 This separation is useful because the discipline job can fail before any
 RH-strength positivity claim is even nearby.
+
+## Detonation: Vector vs. Weight Probe
+
+`RiemannVenue/Venue/BoundaryCarrierModelProbes.lean` compares two disciplined
+carrier flavors against the same first trap batch.
+
+The naive vector probe keeps the finite-place vector-state prototype but
+asks for an ordinary all-primes critical vector. The charge is the critical
+criterion:
+
+```text
+Summable (fun p : Nat.Primes => p^{-1})
+```
+
+The repository already proves this false as
+`criticalBoundaryCriterion_fails`, by reusing
+`not_summable_one_div_primes`. Therefore any naive vector model whose
+critical vector existence implies that criterion breaks before the
+completed explicit formula is identified.
+
+The weight-like probe is the surviving relaxation. It is not accepted for
+free: it must retain the finite-window vector response, be finite only
+through a named test ideal, avoid ambient infinite-weight behavior, and keep
+completion/no-leak identification as explicit debt.

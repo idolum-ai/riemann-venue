@@ -190,6 +190,14 @@ The new split is useful: a carrier can now fail the discipline job before
 any completed explicit-formula identification or RH-strength positivity
 question is touched.
 
+`RiemannVenue/Venue/BoundaryCarrierModelProbes.lean` applies that split to
+two first models. The naive honest-vector probe breaks conditionally at the
+critical all-primes criterion: if ordinary vector existence would require
+`Summable (fun p : Nat.Primes => p^{-1})`, the repository already proves the
+criterion false. The weight-like probe is therefore not a solution but a
+surviving relaxation: finite on a canonical test ideal, locally compatible
+with the vector response, and still owing the completed identification.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -224,6 +232,9 @@ The next work should choose one fork and deepen it:
 - If **discipline-first**, instantiate `BoundaryCarrierHardenedTrapBatch` for
   candidate vector, state, weight, or renormalized-weight models and compare
   where each one first fails.
+- If **weight-first**, define a canonical renormalized test ideal whose
+  finite-window restrictions are the known local vector states and whose
+  domain is not chosen from the target Weil pairing.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
