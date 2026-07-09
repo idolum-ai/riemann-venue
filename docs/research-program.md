@@ -18,7 +18,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    two comparison spikes beside it: renormalization-first and
    state/trace-first. It also records a carrier trap matrix so proposed
    vector/state/trace/weight objects can be rejected before they become
-   hidden assumptions.
+   hidden assumptions. The first hardened batch turns observable discipline,
+   weight-domain finiteness, and finite-window response contact into typed
+   interfaces.
 
 ## Design rule
 

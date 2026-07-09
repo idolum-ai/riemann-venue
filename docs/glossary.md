@@ -32,6 +32,12 @@ Workbench name for the vector/state/trace/weight-like object from which the
 completed explicit-formula pairing would be derived. A proposed carrier must
 survive anti-tautology traps before it can support the boundary type.
 
+## Boundary test ideal
+
+Workbench name for the log-scale tests on which a boundary weight is allowed
+to be evaluated. It must contain the compactly supported continuous tests
+used by Weil positivity, and the weight must be finite on their squares.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

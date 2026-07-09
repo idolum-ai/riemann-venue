@@ -177,6 +177,19 @@ BoundaryCarrierCandidate survives traps
 This does not settle vector vs. weight. It makes that disagreement precise
 enough to mine.
 
+`RiemannVenue/Venue/BoundaryCarrierDiscipline.lean` then detonates the first
+cheap charges. It replaces three slogans with interfaces:
+
+- observable discipline as zero/addition/scalar/translation laws;
+- weight-domain discipline as a named test ideal with finite values on Weil
+  squares; and
+- finite-window contact as the already-proved local vector response and
+  prime-shadow response from `Response.lean`.
+
+The new split is useful: a carrier can now fail the discipline job before
+any completed explicit-formula identification or RH-strength positivity
+question is touched.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -208,6 +221,9 @@ The next work should choose one fork and deepen it:
 - If **trap-first**, make the cheap anti-fake obligations less propositional:
   observable linearity/functoriality, weight finiteness on the test ideal,
   and finite-window compatibility with the known response vector states.
+- If **discipline-first**, instantiate `BoundaryCarrierHardenedTrapBatch` for
+  candidate vector, state, weight, or renormalized-weight models and compare
+  where each one first fails.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
