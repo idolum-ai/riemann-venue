@@ -40,6 +40,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    `sum_{p in S} p^{-1} * (h(0) - (h(log p)+h(-log p))/2)`.
    This widened the counterterm interface to p-local kernels and pinned the
    next exact local coefficient target to the asymptotic constant `1/2`.
+   The live branch is now narrowed to the half-normalized version of that
+   kernel; exact local asymptotics come before finite-part survival claims.
 
 ## Design rule
 

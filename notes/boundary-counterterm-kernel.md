@@ -66,3 +66,17 @@ The search has learned a structural fact. If the balanced residue is the
 right ore, the first counterterm should be a local kernel, not a scalar
 coefficient. Finite-part testing should use this widened interface; otherwise
 it will be testing the wrong shape.
+
+## Narrowed Branch
+
+`RiemannVenue/Venue/BoundaryBalancedNarrowing.lean` now narrows the live
+branch to the half-normalized balanced kernel:
+
+```text
+(1/2) * sum_{p in S} (1/p)
+  * (h(0) - (h(log p) + h(-log p)) / 2)
+```
+
+The branch status is `needsExactLocalAsymptotic`. So the next move is not to
+invent more kernels; it is to prove or break the exact `1/2` local
+asymptotic.

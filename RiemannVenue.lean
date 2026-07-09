@@ -58,3 +58,4 @@ import RiemannVenue.Venue.BoundaryCountertermProbePush
 import RiemannVenue.Venue.BoundaryCoefficientFunctional
 import RiemannVenue.Venue.BoundaryBalancedResidue
 import RiemannVenue.Venue.BoundaryCountertermKernel
+import RiemannVenue.Venue.BoundaryBalancedNarrowing

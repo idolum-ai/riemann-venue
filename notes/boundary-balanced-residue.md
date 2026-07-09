@@ -98,3 +98,15 @@ That exact theorem is still open in the repo.
 The interface-widening charge succeeds structurally: scalar counterterms embed
 as local kernels, and the balanced p-local counterterm fits the widened
 interface with linearity and constant-cancellation checks.
+
+## Narrowed Candidate
+
+The active branch is now the half-normalized version:
+
+```text
+(1/2) * balancedCounterterm_S(h)
+```
+
+The factor `1/2` is no longer a loose guess; it is the exact local coefficient
+target for the translated Hellinger defect. What remains open is proving that
+asymptotic in Lean.

@@ -250,6 +250,11 @@ coefficient charge now targets the asymptotic constant `1/2`; the interface
 charge succeeds by embedding the old scalar form as a special case and
 installing the balanced residue as a linear local kernel.
 
+`RiemannVenue/Venue/BoundaryBalancedNarrowing.lean` then narrows the branch
+again: the only active candidate is the half-normalized balanced local kernel.
+The current blocker is the exact translated-Hellinger asymptotic with
+coefficient `1/2`.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -312,6 +317,8 @@ The next work should choose one fork and deepen it:
   whether the balanced residue has a finite part.
 - If **exact-local-asymptotic-first**, prove the translated Hellinger
   asymptotic with coefficient `1/2` before finite-part testing.
+- If **finite-part-first**, do it only as a provisional probe against the
+  half-balanced kernel, with the exact-asymptotic debt still explicit.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
