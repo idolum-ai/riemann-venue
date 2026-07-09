@@ -1,0 +1,120 @@
+perron_certificates.py  seed=20260708  (float64, deterministic)
+certificate: lambda_min(K_N) >= 1/max_m T_m, exact weighted row sums of M_N = |K_N^{-1}|
+
+schedule exhibit: old cutoff y0 = L/L2^3 vs true min-crossing y1
+(branch1 = sqrt(y0-1), branch2 = A/log y0; the pre-correction text
+ claimed branch2 <= branch1 at y0 -- the ratio column refutes it)
+  log10 N         y0   branch1   branch2    b2/b1     ~L2          y1        L/L2  log y1     [L2-L3, L2]
+        3     0.9569       nan       nan      nan   1.933      5.5476      3.5742   1.713 [ 1.274, 1.933]
+        4     0.8414       nan       nan      nan   2.220      6.6748      4.1482   1.898 [ 1.423, 2.220]
+        5     0.7892       nan       nan      nan   2.443      7.7279      4.7117   2.045 [ 1.550, 2.443]
+        6     0.7631       nan       nan      nan   2.626      8.7283      5.2615   2.167 [ 1.660, 2.626]
+       10     0.7462       nan       nan      nan   3.137      12.396       7.341   2.517 [ 1.993, 3.137]
+       20     0.8198       nan       nan      nan   3.830      20.397      12.025   3.015 [ 2.487, 3.830]
+       50      1.077       nan     315.4      nan   4.746      40.752      24.258   3.707 [ 3.189, 4.746]
+      100      1.431       nan     98.77      nan   5.439      70.264      42.333   4.252 [ 3.746, 5.439]
+     1000      4.962     1.991     83.35     41.9   7.742      471.43      297.42   6.156 [ 5.695, 7.742]
+  1000000      732.4     27.04     880.5     32.6  14.650   2.225e+05  1.5718e+05  12.313 [11.965,14.650]
+(y0 < 2 for every N below ~1e300: the old 'first branch' region is
+ empty at any computable N, and asymptotically b2/b1 -> log log N.)
+
+classical-input sweep over every prime x in [286, 10000000]:
+  [C1            ] min slack 1.2400 at x = 24137
+  [C2            ] min slack 1.0019 at x = 9999863  (tail(P) window [0.061684, 0.062400])
+  [Mertens_upper ] min slack 1.0009 at x = 19
+  [Mertens_lower ] min slack 1.0006 at x = 9993079
+  (slack = bound/value; every value >= 1 means the displayed
+   inequality holds everywhere on the sweep)
+
+N=10^3: eta-schedule best fac=0.75 maxT=99.0 argmax m=30 | uniform-rho best rho=1.65 maxT=100.4 | lambda_max(Kinv)=57.27 | cert lambda_min >= 1.010e-02
+  formula check (section 3.1 divisor sum vs matvec), m in {1,2,6,30,210,30}: max rel diff 1.09e-15
+N=10^4: eta-schedule best fac=0.75 maxT=192.2 argmax m=210 | uniform-rho best rho=1.55 maxT=206.9 | lambda_max(Kinv)=104.17 | cert lambda_min >= 5.204e-03
+N=10^5: eta-schedule best fac=0.65 maxT=337.6 argmax m=2310 | uniform-rho best rho=1.70 maxT=390.2 | lambda_max(Kinv)=173.05 | cert lambda_min >= 2.962e-03
+N=10^6: eta-schedule best fac=0.75 maxT=553.2 argmax m=210 | uniform-rho best rho=1.60 maxT=654.7 | lambda_max(Kinv)=270.65 | cert lambda_min >= 1.808e-03
+
+certificate table (eta-schedule, exact max_m T_m):
+       N best fac   T (eta)  argmax m best rho uniform-rho  lam_max logT/sqrtL  logT/V cert lam_min >=
+    1000     0.75      99.0        30     1.65       100.4    57.27      1.748   2.431       1.010e-02
+   10000     0.75     192.2       210     1.55       206.9   104.17      1.733   2.582       5.204e-03
+  100000     0.65     337.6      2310     1.70       390.2   173.05      1.716   2.682       2.962e-03
+ 1000000     0.75     553.2       210     1.60       654.7   270.65      1.699   2.753       1.808e-03
+
+block validation at N=1000 (fac=1 theorem schedule): y1=5.548 (primes on sqrt branch: 3), V=1.8906, 2V=3.7811, m*=6=[(2, 1), (3, 1)], log T*=4.6465
+  F_p(a) = G_p + 1/eta_p identity: max abs err 4.4e-16
+  inequality                  value      bound   slack  note
+  step1_master               4.6465     6.5058   1.400  log T* <= log[(m/phi m) prod F prod G]  (section 3.1)
+  step2_row_premium          0.5656     1.2279   2.171  sum_{p|m*} log(F_p/G_p) <= sum log(1+1/eta_p)
+  R1_small_row               1.2279     1.6334   1.330  sum_{p|m*, p<=y1} log(1+1/sqrt(p-1)) <= sum over ALL p<=y1
+  R1_closed_form             1.6334    12.4231   7.606  sum_{p<=y1} log(1+1/sqrt(p-1)) <= log 2 + 3.1(sqrt y1/log y1)(1+3/log y1)
+  R2_large_row               0.0000     0.0000       -  sum_{p|m*, p>y1} log(1+1/eta_p) <= (1/A) sum_{p|m*} log p
+  R2_budget_vs_V             0.0000     0.4904       -  (1/A) sum_{p|m*, p>y1} log p <= log m*/A  (<= L/A = V at fac=1)
+  Cs_small_column            2.4499     3.9571   1.615  sum_{p<=y1} log G_p <= sum [1/sqrt(p-1) + 1/(p-1)]
+  Cl_large_column            2.3917     2.5616   1.071  sum_{p>y1} log G_p <= A sum 1/((p-1)log p) + sum 1/(p-1)
+  Cl_main_vs_C2              0.3669     0.9813   2.675  sum_{y1<p<=N} 1/((p-1)log p) <= (1+2/log^2 y1)/log y1  [C2]
+  Cl_mertens_piece           1.2211     2.9942   2.452  sum_{y1<p<=N} 1/(p-1) <= loglog N - loglog y1 + 1.6
+  Phi_m_over_phi             3.0000     5.3363   1.779  m/phi(m) <= e^gamma loglog m + 2.50637/loglog m  [RS Thm 15]
+  C1_at_5                    1.7317     9.5298   5.503  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  C1_at_1000                12.6536    16.5463   1.308  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  total_chain                4.6465     7.7435   1.667  log T* <= Phi + R1 + R2 + Cs + Cl (all blocks at their bounds)
+  asymptotic_envelope        4.6465    26.6402   5.733  log T* <= 2V + V[(L2-l)/l + 2L2/l^3] + 9.5 sqrt(L)/l + L2 + L3 + 4 (l = log y1; valid for y1 >= 286)
+  block ledger: Phi=1.099, R1(all p<=y1)=1.633, R2(budget)=0.000, Cs=2.450, Cl_main=1.340, Cl_mertens=1.221, sum=7.744, log_T_star=4.646, 2V=3.781
+
+block validation at N=10000 (fac=1 theorem schedule): y1=6.675 (primes on sqrt branch: 3), V=2.0367, 2V=4.0734, m*=30=[(2, 1), (3, 1), (5, 1)], log T*=5.3806
+  F_p(a) = G_p + 1/eta_p identity: max abs err 4.4e-16
+  inequality                  value      bound   slack  note
+  step1_master               5.3806     7.6986   1.431  log T* <= log[(m/phi m) prod F prod G]  (section 3.1)
+  step2_row_premium          0.8169     1.6334   1.999  sum_{p|m*} log(F_p/G_p) <= sum log(1+1/eta_p)
+  R1_small_row               1.6334     1.6334   1.000  sum_{p|m*, p<=y1} log(1+1/sqrt(p-1)) <= sum over ALL p<=y1
+  R1_closed_form             1.6334    11.5864   7.093  sum_{p<=y1} log(1+1/sqrt(p-1)) <= log 2 + 3.1(sqrt y1/log y1)(1+3/log y1)
+  R2_large_row               0.0000     0.0000       -  sum_{p|m*, p>y1} log(1+1/eta_p) <= (1/A) sum_{p|m*} log p
+  R2_budget_vs_V             0.0000     0.7521       -  (1/A) sum_{p|m*, p>y1} log p <= log m*/A  (<= L/A = V at fac=1)
+  Cs_small_column            2.4499     3.9571   1.615  sum_{p<=y1} log G_p <= sum [1/sqrt(p-1) + 1/(p-1)]
+  Cl_large_column            3.1100     3.3275   1.070  sum_{p>y1} log G_p <= A sum 1/((p-1)log p) + sum 1/(p-1)
+  Cl_main_vs_C2              0.4027     0.8191   2.034  sum_{y1<p<=N} 1/((p-1)log p) <= (1+2/log^2 y1)/log y1  [C2]
+  Cl_mertens_piece           1.5062     3.1794   2.111  sum_{y1<p<=N} 1/(p-1) <= loglog N - loglog y1 + 1.6
+  Phi_m_over_phi             3.7500     4.2277   1.127  m/phi(m) <= e^gamma loglog m + 2.50637/loglog m  [RS Thm 15]
+  C1_at_6                    1.7317     8.8496   5.110  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  C1_at_10000               29.1437    36.2725   1.245  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  total_chain                5.3806     8.7325   1.623  log T* <= Phi + R1 + R2 + Cs + Cl (all blocks at their bounds)
+  asymptotic_envelope        5.3806    27.9465   5.194  log T* <= 2V + V[(L2-l)/l + 2L2/l^3] + 9.5 sqrt(L)/l + L2 + L3 + 4 (l = log y1; valid for y1 >= 286)
+  block ledger: Phi=1.322, R1(all p<=y1)=1.633, R2(budget)=0.000, Cs=2.450, Cl_main=1.821, Cl_mertens=1.506, sum=8.733, log_T_star=5.381, 2V=4.073
+
+block validation at N=100000 (fac=1 theorem schedule): y1=7.728 (primes on sqrt branch: 4), V=2.1706, 2V=4.3413, m*=30=[(2, 1), (3, 1), (5, 1)], log T*=5.9595
+  F_p(a) = G_p + 1/eta_p identity: max abs err 4.4e-16
+  inequality                  value      bound   slack  note
+  step1_master               5.9595     8.2748   1.389  log T* <= log[(m/phi m) prod F prod G]  (section 3.1)
+  step2_row_premium          0.8169     1.6334   1.999  sum_{p|m*} log(F_p/G_p) <= sum log(1+1/eta_p)
+  R1_small_row               1.6334     1.9758   1.210  sum_{p|m*, p<=y1} log(1+1/sqrt(p-1)) <= sum over ALL p<=y1
+  R1_closed_form             1.9758    11.0974   5.617  sum_{p<=y1} log(1+1/sqrt(p-1)) <= log 2 + 3.1(sqrt y1/log y1)(1+3/log y1)
+  R2_large_row               0.0000     0.0000       -  sum_{p|m*, p>y1} log(1+1/eta_p) <= (1/A) sum_{p|m*} log p
+  R2_budget_vs_V             0.0000     0.6413       -  (1/A) sum_{p|m*, p>y1} log p <= log m*/A  (<= L/A = V at fac=1)
+  Cs_small_column            2.9041     4.5320   1.561  sum_{p<=y1} log G_p <= sum [1/sqrt(p-1) + 1/(p-1)]
+  Cl_large_column            3.2320     3.3582   1.039  sum_{p>y1} log G_p <= A sum 1/((p-1)log p) + sum 1/(p-1)
+  Cl_main_vs_C2              0.3387     0.7230   2.134  sum_{y1<p<=N} 1/((p-1)log p) <= (1+2/log^2 y1)/log y1  [C2]
+  Cl_mertens_piece           1.5618     3.3282   2.131  sum_{y1<p<=N} 1/(p-1) <= loglog N - loglog y1 + 1.6
+  Phi_m_over_phi             3.7500     4.2277   1.127  m/phi(m) <= e^gamma loglog m + 2.50637/loglog m  [RS Thm 15]
+  C1_at_7                    2.1096     8.4520   4.006  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  C1_at_100000              70.0505    87.2538   1.246  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  total_chain                5.9595     9.5599   1.604  log T* <= Phi + R1 + R2 + Cs + Cl (all blocks at their bounds)
+  asymptotic_envelope        5.9595    29.1057   4.884  log T* <= 2V + V[(L2-l)/l + 2L2/l^3] + 9.5 sqrt(L)/l + L2 + L3 + 4 (l = log y1; valid for y1 >= 286)
+  block ledger: Phi=1.322, R1(all p<=y1)=1.976, R2(budget)=0.000, Cs=2.904, Cl_main=1.796, Cl_mertens=1.562, sum=9.560, log_T_star=5.960, 2V=4.341
+
+block validation at N=1000000 (fac=1 theorem schedule): y1=8.728 (primes on sqrt branch: 4), V=2.2938, 2V=4.5876, m*=210=[(2, 1), (3, 1), (5, 1), (7, 1)], log T*=6.4867
+  F_p(a) = G_p + 1/eta_p identity: max abs err 4.4e-16
+  inequality                  value      bound   slack  note
+  step1_master               6.4867     9.1504   1.411  log T* <= log[(m/phi m) prod F prod G]  (section 3.1)
+  step2_row_premium          1.0474     1.9758   1.886  sum_{p|m*} log(F_p/G_p) <= sum log(1+1/eta_p)
+  R1_small_row               1.9758     1.9758   1.000  sum_{p|m*, p<=y1} log(1+1/sqrt(p-1)) <= sum over ALL p<=y1
+  R1_closed_form             1.9758    10.7805   5.456  sum_{p<=y1} log(1+1/sqrt(p-1)) <= log 2 + 3.1(sqrt y1/log y1)(1+3/log y1)
+  R2_large_row               0.0000     0.0000       -  sum_{p|m*, p>y1} log(1+1/eta_p) <= (1/A) sum_{p|m*} log p
+  R2_budget_vs_V             0.0000     0.8878       -  (1/A) sum_{p|m*, p>y1} log p <= log m*/A  (<= L/A = V at fac=1)
+  Cs_small_column            2.9041     4.5320   1.561  sum_{p<=y1} log G_p <= sum [1/sqrt(p-1) + 1/(p-1)]
+  Cl_large_column            3.7230     3.8709   1.040  sum_{p>y1} log G_p <= A sum 1/((p-1)log p) + sum 1/(p-1)
+  Cl_main_vs_C2              0.3532     0.6582   1.864  sum_{y1<p<=N} 1/((p-1)log p) <= (1+2/log^2 y1)/log y1  [C2]
+  Cl_mertens_piece           1.7438     3.4526   1.980  sum_{y1<p<=N} 1/(p-1) <= loglog N - loglog y1 + 1.6
+  Phi_m_over_phi             4.3750     4.4810   1.024  m/phi(m) <= e^gamma loglog m + 2.50637/loglog m  [RS Thm 15]
+  C1_at_8                    2.1096     8.1945   3.884  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  C1_at_1000000            176.3517   222.0121   1.259  sum_{p<=x} 1/sqrt(p) <= 2.52 (sqrt x/log x)(1+3/log x)
+  total_chain                6.4867    10.2267   1.577  log T* <= Phi + R1 + R2 + Cs + Cl (all blocks at their bounds)
+  asymptotic_envelope        6.4867    30.1474   4.648  log T* <= 2V + V[(L2-l)/l + 2L2/l^3] + 9.5 sqrt(L)/l + L2 + L3 + 4 (l = log y1; valid for y1 >= 286)
+  block ledger: Phi=1.476, R1(all p<=y1)=1.976, R2(budget)=0.000, Cs=2.904, Cl_main=2.127, Cl_mertens=1.744, sum=10.227, log_T_star=6.487, 2V=4.588

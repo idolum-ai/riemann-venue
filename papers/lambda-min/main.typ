@@ -773,14 +773,15 @@ exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
   Now take $W$ geometric in each prime, $W(p^a) = eta_p^a$, with the
   schedule
   $
-    eta_p = cases(
-      sqrt(p - 1) & "for" p <= y_0,
-      sqrt(log N dot log log N) \/ log p & "for" p > y_0,
-    )
-    quad quad y_0 = log N / (log log N)^3 ,
+    eta_p = min(sqrt(p - 1), thin A / log p) ,
+    quad A = sqrt(log N dot log log N) ,
   $
-  and write $V = sqrt(log N \/ log log N)$, so that $1\/eta_p =
-  (V\/log N) log p$ on the second branch. For geometric $W$ the factor
+  and write $V = sqrt(log N \/ log log N)$, so that $1\/eta_p >=
+  (log p)\/A$ everywhere, with equality on the large-prime branch. Since
+  $sqrt(p - 1) dot log p$ is increasing, the minimum switches once, at the
+  crossing $y_1$ solving $sqrt(y_1 - 1) dot log y_1 = A$; it satisfies
+  $log N \/ log log N <= y_1 <= log N$ and $log y_1 = (1 + o(1)) log log
+  N$. For geometric $W$ the factor
   $F_p (a) = 1 + 1\/eta_p + (eta_p + 1)\/(p - 1)$ does not depend on $a$,
   and since $(1 + x + y)\/(1 + y) <= 1 + x$,
   $
@@ -788,29 +789,29 @@ exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
       + sum_(p <= N) log G_p .
   $
   Each piece in turn.
-  - _Row premium, small primes._ $sum_(p <= y_0) log(1 + 1\/sqrt(p - 1))
-    <= sum_(p <= y_0) 1\/sqrt(p - 1) = O(sqrt(y_0)\/log y_0) =
-    O(sqrt(log N)\/(log log N)^(5\/2)) = o(V)$ [Chebyshev-grade partial
-    summation, classical].
+  - _Row premium, small primes._ $sum_(p <= y_1) log(1 + 1\/sqrt(p - 1))
+    <= sum_(p <= y_1) 1\/sqrt(p - 1) = O(sqrt(y_1)\/log y_1) =
+    O(sqrt(log N)\/log log N) = O(V \/ sqrt(log log N)) = o(V)$
+    [Chebyshev-grade partial summation, classical].
   - _Row premium, large primes._ For every $m <= N$, squarefree or not,
     $
-      sum_(p divides m, thin p > y_0) log(1 + 1/eta_p)
-      <= V/(log N) sum_(p divides m) log p <= V (log m)/(log N) <= V :
+      sum_(p divides m, thin p > y_1) log(1 + 1/eta_p)
+      <= 1/A sum_(p divides m) log p <= (log m)/A <= (log N)/A = V :
     $
     the cost metric is the budget metric, so the bound is uniform in $m$,
     and deep exponents cost nothing because $F_p (a)$ is independent of
     $a$.
   - _Column mass._ $log G_p <= (eta_p + 1)\/(p - 1)$. The primes $p <=
-    y_0$ contribute $O(sqrt(y_0)\/log y_0) = o(V)$ as above; the $+1$
+    y_1$ contribute $O(sqrt(y_1)\/log y_1) = o(V)$ as above; the $+1$
     contributes $log log N + O(1)$ [Mertens] $= o(V)$; and, with
     $sum_(p > x) 1\/(p log p) = (1 + o(1))\/log x$ [classical, partial
     summation on Mertens],
     $
-      sum_(p > y_0) eta_p/(p - 1)
-      = sqrt(log N log log N) dot (1 + o(1))/(log y_0)
+      sum_(p > y_1) eta_p/(p - 1)
+      = sqrt(log N log log N) dot (1 + o(1))/(log y_1)
       = (1 + o(1)) thin V ,
     $
-    since $log y_0 = (1 - o(1)) log log N$.
+    since $log y_1 = (1 + o(1)) log log N$.
   - _The prefactor._ $log(m\/phi(m)) = O(log log log N)$ uniformly for
     $m <= N$ [RS62], again $o(V)$.
   Collecting, $log T_m <= (2 + o(1)) V$ uniformly in $m <= N$, so
@@ -833,9 +834,10 @@ exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
   On the constant, and on the class. Within the scheme of the proof the
   $2$ is a forced balance: row premium and column mass both equal
   $(1 + o(1)) V$ at the optimal schedule, and the small-prime block forces
-  $log y_0 <= (1 + o(1)) log log N$, so no geometric schedule goes below
-  $2 sqrt(log N \/ log log N)$. Whether the full multiplicative class can
-  go lower is a different question, and numerically no barrier is visible:
+  the crossing to have $log y_1 <= (1 + o(1)) log log N$, so no geometric
+  schedule goes below $2 sqrt(log N \/ log log N)$. Whether the full
+  multiplicative class can go lower is a different question, and
+  numerically no barrier is visible:
   minimizing $max_m T_m (w)$ over all multiplicative weights is a convex
   problem in the prime-power log-increments (a log-sum-exp of affine
   functions, so every evaluated weight is a rigorous certificate), and the
