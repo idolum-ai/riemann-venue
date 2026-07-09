@@ -211,6 +211,12 @@ diagnostic: a candidate can now fail for non-projective restriction,
 noncanonical domain, target-pairing leakage, imported zeros, lost finite
 contact, or incompatibility with the log-derivative bridge.
 
+`RiemannVenue/Venue/BoundaryCountertermSearch.lean` then isolates the first
+counterterm matrix. The finite-window divergent factor is
+`sum_{p in S} 1/p`; the coefficient is the variable. The first coefficient
+ladder is `h(0)`, `int h`, vacuum coefficient, log-derivative vacuum, and
+finite-response coefficient, each paired against the test-ideal ladder.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -254,6 +260,9 @@ The next work should choose one fork and deepen it:
 - If **finite-part-first**, test concrete counterterm schemes against the
   cylindrical restrictions and the compact/smooth/Schwartz/Paley-Wiener
   ideal ladder before adding completion terms.
+- If **counterterm-matrix-first**, instantiate the five coefficient shapes
+  against the five test-ideal tiers and record the first named failure for
+  each pair.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

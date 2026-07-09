@@ -56,6 +56,13 @@ Workbench name for a boundary-weight procedure that subtracts or otherwise
 absorbs finite-window counterterms derived from response data before taking a
 boundary value.
 
+## Critical counterterm
+
+Workbench name for the first response-derived subtraction candidate:
+`coefficient(h) * sum_{p in S} 1/p` on finite prime windows. The coefficient
+is under search; the divergent finite-window factor is forced by the critical
+boundary obstruction.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

@@ -87,3 +87,29 @@ The hard part did not disappear. It moved to a precise next excavation:
 > find a response-derived counterterm and canonical test ideal whose finite
 > part survives these charges before asking for gamma/pole/no-leak
 > identification.
+
+## Counterterm Ladder
+
+`RiemannVenue/Venue/BoundaryCountertermSearch.lean` starts that excavation.
+It fixes the first divergent finite-window factor:
+
+```text
+criticalWindowDivergence(S) = sum_{p in S} 1/p
+```
+
+and makes the first counterterm form:
+
+```text
+counterterm_S(h) = coefficient(h) * criticalWindowDivergence(S)
+```
+
+The search is now the coefficient/test-ideal matrix:
+
+- coefficient shapes: `h(0)`, `int h`, vacuum coefficient,
+  log-derivative vacuum, finite-response coefficient;
+- test-ideal tiers: compact continuous, smooth compact, Schwartz,
+  Paley-Wiener, self-convolution closure.
+
+The named failure modes make the next pass diagnostic rather than rhetorical:
+translation failure, locality failure, underspecified vacuum coefficient,
+log-derivative mismatch, target leak, weak/narrow ideal, or no finite part.

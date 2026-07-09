@@ -26,7 +26,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    projectivity and an upstream renormalization bridge before the completed
    identification can be discussed. The current search slice fixes
    cylindrical restrictions, a finite test-ideal ladder, and finite-part
-   counterterm charges as the next tractable surface.
+   counterterm charges as the next tractable surface. The counterterm search
+   now isolates the first forced divergent factor and turns the coefficient
+   choice into a finite test matrix.
 
 ## Design rule
 
