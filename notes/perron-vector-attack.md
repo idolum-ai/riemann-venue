@@ -8,13 +8,16 @@ weight and left one open item: estimate the Perron vector well enough to
 run the Schur test with a near-optimal weight.
 
 Labels: **derived** (complete paper-math argument here, modulo classical
-cited inputs), **heuristic**, **numerical** (float64, this session,
-deterministic seed 20260708), **classical**. Work scripts are scratch
+cited inputs), **heuristic**, **numerical** (float64, deterministic seed
+20260708), **classical**. Reproducibility split: the §3.3 finite-N
+certificates, the §3.2 schedule/block validation, and the classical-input
+sweep are committed — `scripts/perron_certificates.py`, output artifact
+`artifacts/perron-certificates.{txt,json}`. The exploratory Perron-profile
+measurements (§1, §2, §4, §5) are session-computed scratch
 (`/tmp/pv_common.py`, `/tmp/pv_item{1,2,2b,3,4,4b}.py` + JSON dumps,
-reusing the factor-building code of `scripts/lambda_min_lanczos.py`); per
-mission instructions only this note lands in the repo. Inputs read:
-`notes/lambda-min-lower-attack.md`, `notes/lambda-min-rate.md` §6–7,
-`papers/lambda-min/main.typ` §sec-lower.
+reusing the factor-building code of `scripts/lambda_min_lanczos.py`; see
+§7). Inputs read: `notes/lambda-min-lower-attack.md`,
+`notes/lambda-min-rate.md` §6–7, `papers/lambda-min/main.typ` §sec-lower.
 
 **Headlines.**
 
@@ -25,8 +28,11 @@ mission instructions only this note lands in the repo. Inputs read:
    a `√(log log N)` improvement of the W3a/paper Theorem C, same constant
    2, lighter classical inputs (Mertens + Rosser–Schoenfeld + Chebyshev;
    no Robin, no PNT). The schedule is immune to the §3.3 binding-row
-   migration *by construction*: its row cost is proportional to the
-   row's log-budget, `Σ_{p|m} log(1+1/η_p) ≤ V·(log m/log N) ≤ V`.
+   migration *by construction*: its large-prime row cost is proportional
+   to the row's log-budget, `Σ_{p|m, p>y₁} log(1+1/η_p) ≤ V·(log m/log N)
+   ≤ V`, and its small-prime row cost is `o(V)` uniformly in m. (§3.2;
+   corrected 2026-07-09 — the original split point was wrong, the bound
+   survives, see the correction line at §3.)
 2. [derived, corollary] **The pure `exp(−c√(log N))` law is dead.** The
    new bound forces `−log λ_min/√(log N) → 0`: the rate note's primary
    conjecture candidate (`c ≈ 1.47`, later `1.36–1.41`) is excluded
@@ -176,6 +182,23 @@ breadth (see §3 for what replaces it).
 
 ## 3. The theorem: budget-proportional schedules [derived]
 
+**Correction (2026-07-09).** The original §3.2 stated the schedule as a
+hard two-branch cutoff at `y₀ := log N/(log log N)³` and asserted "the
+second branch is below the first at the crossover". False: at `p = y₀`
+the `A/log p` branch *exceeds* `√(p−1)` by a factor
+`L₂²/(L₂−3L₃) = (1+o(1))·log log N` (and `y₀ < 2` for every
+`N < 10³⁰⁰`, so the claimed first-branch region is empty at any
+computable N) — the piecewise schedule was not the min family used by
+the headline and the §3.3 certificates. The two branches actually cross
+where `p·(log p)² ≈ log N·log log N`, i.e. at
+`y₁ = (1+o(1))·log N/log log N`, not `log N/(log log N)³`. §3.2 below
+now analyzes the min schedule itself, split at the true crossing `y₁`,
+with all four estimate blocks recomputed and every inequality
+displayed; the theorem and the constant 2 survive unchanged. Numerical
+exhibit of the false crossover and of every corrected block:
+`scripts/perron_certificates.py` → `artifacts/perron-certificates.txt`
+(schedule exhibit + per-N block validation, all slack factors ≥ 1).
+
 ### 3.1 Row-sum bound for a general multiplicative weight
 
 Let `W(n) = √n·w(n)` be any multiplicative weight with `W(1) = 1`. By the
@@ -196,58 +219,147 @@ F_p(a) = 1 + W(p^{a−1})/W(p^a) + (W(p^{a+1}) + W(p^a))/(W(p^a)·(p−1)) ,
 G_p    = 1 + (W(p) + 1)/(p−1) .
 ```
 
-Since `(1+x+y)/(1+y) ≤ 1+x`, the row premium over the universal column
-product is controlled per prime:
+Multiplying and dividing by `∏_{p|m} G_p`, the row premium over the
+universal column product is controlled per prime:
 
 ```text
 log T_m ≤ log(m/φ(m)) + Σ_{p^a ∥ m} log( F_p(a)/G_p ) + Σ_{p ≤ N} log G_p ,
-   with  log(F_p(a)/G_p) ≤ log(1 + W(p^{a−1})/W(p^a)) + [cross terms],
 ```
 
-everything exact-to-inequality, no arithmetic input yet.
-
-### 3.2 The schedule and the bound
-
-Take per-prime **geometric** `W(p^a) = η_p^a` with
+and the premium factor closes in two explicit steps (write
+`r_a := W(p^{a−1})/W(p^a)`, `s_a := W(p^{a+1})/W(p^a)`):
 
 ```text
-η_p = √(p−1)                        for p ≤ y₀ := log N/(log log N)³ ,
-η_p = √(log N·log log N) / log p    for p > y₀ ,
+F_p(a) ≤ (1 + r_a)·(1 + (s_a+1)/(p−1))                      [1+x+y ≤ (1+x)(1+y)]
+(1 + (s_a+1)/(p−1)) / G_p = 1 + (s_a − W(p))/(p + W(p))     [exact identity]
+⟹  log(F_p(a)/G_p) ≤ log(1 + r_a) + log(1 + (s_a − W(p))/(p + W(p))) ,
 ```
 
-(the second branch is below the first at the crossover, so the schedule is
-continuous-in-spirit; V := √(log N/log log N) throughout).
+everything exact-to-inequality, no arithmetic input yet. The second
+(cross) term is `≤ 0` whenever the depth increments are non-increasing
+(`s_a ≤ s_0 = W(p)`, i.e. `W` log-concave in the exponent); for the
+per-prime **geometric** schedules used in §3.2 it vanishes identically —
+there `F_p(a) = G_p + 1/η_p` exactly, so
+`log(F_p(a)/G_p) ≤ log(1 + 1/η_p)` with no cross term at all.
 
-- **Small primes** (`p ≤ y₀`): `F_p(a) = (1 + 1/√(p−1))²` for every
-  `a ≥ 1` — depth-independent, the KMS-symmetric choice. Row premium
-  `Σ_{p ≤ y₀} 2·log(1+1/√(p−1)) ≤ (4+o(1))√y₀/log y₀ =
-  O(√(log N)/(log log N)^{5/2})` [Chebyshev-grade partial summation,
-  classical] — `o(V)`. Column part `Σ_{p≤y₀} log G_p ≈ Σ 1/√p =
-  O(√y₀/log y₀)` — also `o(V)`.
-- **Medium and large primes** (`p > y₀`): the row premium is
-  budget-proportional:
+### 3.2 The schedule and the bound (corrected 2026-07-09)
+
+Write `L := log N`, `L₂ := log log N`, `L₃ := log log log N`,
+`A := √(L·L₂)`, `V := √(L/L₂) = A/L₂`, and take per-prime **geometric**
+`W(p^a) = η_p^a` with the min schedule of the headline itself:
+
+```text
+η_p := min( √(p−1) , A/log p ) .
+```
+
+Since `√(p−1)·log p` is strictly increasing, the min switches exactly
+once, at the unique `y₁` solving
+
+```text
+√(y₁−1)·log y₁ = A ,     with     L/L₂ ≤ y₁ ≤ L     and     L₂−L₃ ≤ log y₁ ≤ L₂
+```
+
+(left wall: at `y = L/L₂`, `√(y−1)·log y < √(L/L₂)·L₂ = A`; right wall:
+at `y = L`, `(L−1)·L₂² > L·L₂` once `L₂ ≥ 2`; finite-N values of `y₁` in
+the schedule exhibit of `artifacts/perron-certificates.txt`). So
+`η_p = √(p−1)` for `p ≤ y₁`, `η_p = A/log p` for `p > y₁`, and
+`y₁ = (1+o(1))·L/L₂` — the branches cross where `p(log p)² ≈ L·L₂`, not
+at `L/L₂³`. By §3.1, for geometric `W` the premium closes with no cross
+term (`F_p(a) = G_p + 1/η_p`, `a`-independent), so uniformly in the
+exponent pattern of `m`:
+
+```text
+log T_m ≤ log(m/φ(m)) + Σ_{p|m} log(1 + 1/η_p) + Σ_{p≤N} log G_p ,
+G_p = 1 + (η_p+1)/(p−1) ≤ exp( (η_p+1)/(p−1) ) .
+```
+
+Four blocks, split at `y₁`; `ℓ := log y₁` throughout.
+
+- **(R1) Small-prime row premium** (`p ≤ y₁`, `η_p = √(p−1)`) — bounded
+  uniformly in `m` by summing over *all* `p ≤ y₁`, so no binding-row
+  migration is possible in this block:
   ```text
-  log(1 + 1/η_p) ≤ 1/η_p = (V/log N)·log p·(1+o(1))
-  ⟹  Σ_{p | m, p > y₀} log(1+1/η_p) ≤ (V/log N)·Σ_{p|m} log p ≤ V·(log m/log N) ≤ V
+  Σ_{p|m, p≤y₁} log(1+1/√(p−1)) ≤ Σ_{p≤y₁} log(1+1/√(p−1))
+    ≤ log 2 + 1.23·Σ_{3≤p≤y₁} p^{−1/2}          [1/√(p−1) ≤ 1.23/√p for p ≥ 3]
+    ≤ 0.7 + 3.1·(√y₁/ℓ)·(1 + 3/ℓ)               [C1]
+    ≤ 0.7 + 4.75·√L/(L₂−L₃) = 0.7 + V·(4.75·√L₂/(L₂−L₃)) = o(V)
+                                                [√y₁ ≤ √L, ℓ ≥ L₂−L₃, 1+3/ℓ ≤ 1.53 for ℓ ≥ 5.7] .
+  ```
+  The worst admissible `m` (the primorial of the primes `≤ y₁`,
+  `log m = θ(y₁) = (1+o(1))·L/L₂ ≤ L`, admissible) attains the middle
+  line within `O(1)`.
+- **(R2) Large-prime row premium** (`p > y₁`, `η_p = A/log p`) is
+  budget-proportional, with *exact* proportionality constant:
+  ```text
+  log(1 + 1/η_p) ≤ 1/η_p = log p/A
+  ⟹  Σ_{p|m, p>y₁} log(1+1/η_p) ≤ (1/A)·Σ_{p|m} log p ≤ log m/A ≤ L/A = V
   ```
   for **every** `m ≤ N` — squarefree or not, primorial or medium-prime
   product; migration is impossible because the cost metric *is* the
   budget metric. Deep exponents ride free: `F_p(a)` is `a`-independent
   for geometric `W`, and `Σ_{p|m} log p ≤ log m` regardless of
   multiplicities.
-- **Column mass**: with `Σ_{p>x} 1/(p log p) = (1+o(1))/log x`
-  [classical, partial summation on Mertens],
+- **(Cs) Small-prime column mass.** On the geometric branch the `η_p`
+  factor *cancels*: `(η_p+1)/(p−1) = 1/√(p−1) + 1/(p−1)` — a `Σ 1/√p`
+  cost, not an `η_p`-weighted one. Hence
   ```text
-  Σ_{p > y₀} (η_p+1)/(p−1) = (log N/V)·(1+o(1))/log y₀ + log log N + O(1)
-                           = (log N)/(V·log log N)·(1+o(1)) + …
+  Σ_{p≤y₁} log G_p ≤ Σ_{p≤y₁} [ 1/√(p−1) + 1/(p−1) ]
+    ≤ [ 1 + 3.1·(√y₁/ℓ)(1+3/ℓ) ] + [ log log y₁ + B₁ + 1/ℓ² + 0.774 ]   [C1; M; Σ_p 1/(p(p−1)) < 0.774]
+    ≤ 3.1·(√y₁/ℓ)(1+3/ℓ) + log log y₁ + 2.1 = o(V) + O(L₃) = o(V) .
   ```
-  (`log y₀ = log log N·(1−o(1))`; the `+1` part is Mertens' `log log N`).
-- Cross terms (`(η_p+1)/(p−1)` inside `F_p` for `p | m`, `m/φ(m)`,
-  `B₂`-type constants) are all `o(V)` — checked term by term, the largest
-  being `(log N/V)·[1/log y₀ − 1/log log N] = O(log N·logloglog N/
-  (V·(log log N)²))`.
+- **(Cl) Large-prime column mass** — the block where the second `V`
+  lives:
+  ```text
+  Σ_{y₁<p≤N} log G_p ≤ A·Σ_{p>y₁} 1/((p−1)·log p) + Σ_{y₁<p≤N} 1/(p−1)
+    ≤ A·(1 + 2/ℓ²)/ℓ + [ L₂ − log log y₁ + 0.2 ]                        [C2; M at both ends]
+    = V·(1 + (L₂−ℓ)/ℓ + 2L₂/ℓ³) + L₂ − log log y₁ + 0.2
+    ≤ V·(1 + L₃/(L₂−L₃) + 2L₂/(L₂−L₃)³) + L₂ = V·(1+o(1)) + o(V) .
+  ```
+- **(Φ)** `log(m/φ(m)) ≤ log(e^γ·L₂ + 2.51/L₂) ≤ L₃ + γ + 0.15 = o(V)`
+  for `L₂ ≥ 3` [Rosser–Schoenfeld Thm 15, `m ≥ 3`].
 
-Balancing `V + log N/(V·log log N)` at `V = √(log N/log log N)`:
+Classical inputs, explicit (checked at every prime `x ∈ [286, 10⁷]` by
+the committed sweep, minimum slacks 1.24, 1.002, 1.001, 1.001):
+
+```text
+[C1]  Σ_{p≤x} p^{−1/2} ≤ 2.52·(√x/log x)·(1 + 3/log x)                 (x ≥ 286)
+[C2]  Σ_{p>x} 1/((p−1)·log p) ≤ (1 + 2/log²x)/log x                    (x ≥ 286)
+[M]   log log x + B₁ − 1/(2log²x) ≤ Σ_{p≤x} 1/p ≤ log log x + B₁ + 1/log²x
+      (upper for x > 1, lower for x ≥ 286; B₁ = 0.26150) ,
+      Σ_{p≤x} 1/(p−1) ≤ Σ_{p≤x} 1/p + 0.774 .
+```
+
+`[C1]` is Rosser–Schoenfeld `π(t) < 1.25506·t/log t` (t > 1) plus partial
+summation — `Σ_{p≤x} p^{−1/2} = π(x)/√x + ½∫₂ˣ π(t)·t^{−3/2} dt` and
+`∫₂ˣ t^{−1/2} dt/log t = ∫_{√2}^{√x} du/log u = (2√x/log x)(1+o(1))`,
+asymptotic constant `2×1.25506 = 2.511`, the stated finite form swept
+numerically. `[C2]` is the Fubini identity
+`1/log p = ∫_p^∞ dt/(t·log²t)` against the two Mertens walls `[M]`:
+
+```text
+Σ_{p>x} 1/(p·log p) = ∫_x^∞ [ Σ_{x<p≤t} 1/p ] dt/(t·log²t)
+  ≤ ∫_x^∞ [ log log t − log log x + 3/(2log²x) ] dt/(t·log²t)
+  = 1/log x + 3/(2·log³x)                        [∫₁^∞ v^{−2}·log v·dv = 1] ,
+```
+
+and `Σ_{p>x} 1/(p(p−1)log p) ≤ 1/(x·log x)` mops up the `p → p−1` shift.
+
+**Assembly.** Summing Φ + R1 + R2 + Cs + Cl (the `log log y₁` of Cs
+cancels against Cl), for `N` large enough that `y₁ ≥ 286`:
+
+```text
+max_{m≤N} log T_m ≤ 2V + E(N) ,
+E(N) := V·[ (L₂−ℓ)/ℓ + 2L₂/ℓ³ ] + 9.5·√L/ℓ + L₂ + L₃ + 4
+      ≤ V·[ L₃/(L₂−L₃) + 2L₂/(L₂−L₃)³ + 9.5·√L₂/(L₂−L₃) ] + L₂ + L₃ + 4 ,
+```
+
+every term traced to its block: R2 and Cl contribute the two `V`'s; the
+`9.5·√L/ℓ` is R1 + Cs (`6.2·(√y₁/ℓ)(1+3/ℓ)`, `√y₁ ≤ √L`, `1+3/ℓ ≤ 1.53`);
+the `(L₂−ℓ)/ℓ ≤ L₃/(L₂−L₃)` and `2L₂/ℓ³` are Cl's `log y₁ ≥ L₂−L₃` and
+`[C2]` corrections; the additive `L₂` is Cl's Mertens piece — the
+dominant term at computable N (cf. §3.3). Since `L₂ = o(V)` and
+`√L₂/(L₂−L₃) → 0`, `E(N) = O(V/√L₂) = o(V)`, i.e.
+`max_m log T_m ≤ 2V·(1 + O(1/√L₂))`:
 
 ```text
 **Theorem (derived, unconditional).**
@@ -255,37 +367,78 @@ Balancing `V + log N/(V·log log N)` at `V = √(log N/log log N)`:
 hence   λ_min(K_N) ≥ exp( −(2+o(1))·√(log N / log log N) ) .
 ```
 
-Classical inputs: Mertens with explicit constant, Rosser–Schoenfeld for
-`m/φ(m)`, Chebyshev-grade `Σ_{p≤x} p^{−1/2}` and `Σ_{p>x} 1/(p log p)`.
-**No PNT and no Robin** — the old proof needed `max ω(m)`; this one only
-needs `Σ_{p|m} log p ≤ log m`, which is trivial. An explicit-constant
-variant is therefore mechanical. Status: derived this session,
-paper-math, not yet independently checked; the finite-N certificates
-below are machine-verified.
+Classical inputs: `[M]` (Mertens with explicit constant), `[C2]` (its
+Fubini corollary), `[C1]` (Chebyshev-grade `Σ_{p≤x} p^{−1/2}`), and
+Rosser–Schoenfeld Thm 15 for `m/φ(m)` — all displayed above with their
+constants and validity ranges. **No PNT and no Robin** — the old proof
+needed `max ω(m)`; this one only needs `Σ_{p|m} log p ≤ log m`, which is
+trivial. Status: derived (corrected 2026-07-09), paper-math, every
+displayed inequality evaluated numerically with its slack factor at
+`N = 10³…10⁶` and the classical inputs swept over every prime
+`x ∈ [286, 10⁷]` (`scripts/perron_certificates.py`); the finite-N
+certificates below are reproducible from the same committed script.
 
-### 3.3 Finite-N certificates and consistency [numerical]
+### 3.3 Finite-N certificates and consistency [numerical, reproducible]
 
 Exact `max_m T_m` for the one-parameter family
-`η_p = min(√(p−1), A/log p)`, `A = fac·√(log N·log log N)`:
+`η_p = min(√(p−1), A/log p)`, `A = fac·√(log N·log log N)` — computed by
+the committed `scripts/perron_certificates.py` (deterministic, seed
+20260708; output artifact `artifacts/perron-certificates.{txt,json}`),
+which rebuilds the exact sparse Möbius inverse, evaluates the row sums
+`T_m = λ(m)·(K⁻¹(λ·w))_m / w(m)` for all m as two sparse matvecs per
+weight, cross-checks the §3.1 divisor-sum formula against the matvec row
+sums at `N = 10³` (max rel diff `1.1·10⁻¹⁵`), and prints every §3.2
+block inequality with its slack factor at each N. At `fac = 0.7`:
 
-| N | best fac | T (η-schedule) | uniform-ρ | `log T/√(log N)` | `log T/√(logN/loglogN)` |
+| N | fac | T (η-schedule) | uniform-ρ | `log T/√(log N)` | `log T/√(logN/loglogN)` |
 |---|---|---|---|---|---|
-| 10³ | 0.7 | 99.1 | 100.7 | 1.749 | 2.431 |
-| 10⁴ | 0.7 | 193.8 | 208.1 | 1.736 | 2.586 |
+| 10³ | 0.7 | 99.1 | 100.4 | 1.749 | 2.431 |
+| 10⁴ | 0.7 | 193.8 | 206.9 | 1.736 | 2.586 |
 | 10⁵ | 0.7 | 340.0 | 390.2 | 1.718 | 2.685 |
 | 10⁶ | 0.7 | 554.2 | 654.7 | 1.700 | 2.754 |
 
-The η-schedule beats the uniform family at every N (each row is a
-rigorous certificate, e.g. `λ_min(K_{10⁶}) ≥ 1/554.2 = 1.80·10⁻³`,
-improving W3a's `1.53·10⁻³`), its argmax rows are primorials (30, 210,
-210, 2310 — the equalized configuration), and its old-units compensated
-value *declines* (1.749 → 1.700) where the uniform family's was flat at
-≈ 1.75 — the signature of escaping the `exp(c√(log N))` class. The
-best-fac 0.7 matches the Perron plateau's 0.87 within family-tuning slack.
-The new-units column is still far above 2 and rising: at these N the
-`o(1)` is dominated by `+log log N/V ≈ 1.0–1.16` and the small-prime
-block; the same situation as W3a's 1.75-vs-2 (asymptotic ceiling not yet
-binding, finite-N certificates carrying the content).
+(The script's finer fac scan improves these marginally — 99.0 / 192.2 /
+337.6 / 553.2 at fac 0.75 / 0.75 / 0.65 / 0.75 — the optimum is flat to
+< 1% over `fac ∈ [0.65, 0.8]`; the quotable certificates are the
+fac-0.7 rows. The uniform-ρ column is the script's own scan of
+`w = ρ^Ω/√n`, ρ-step 0.05, marginally below the W3a-quoted 100.7/208.1
+at small N.) The η-schedule beats the uniform family at every N (each
+row is a rigorous certificate, e.g.
+`λ_min(K_{10⁶}) ≥ 1/554.2 = 1.80·10⁻³`, improving W3a's `1.53·10⁻³`),
+its argmax rows are primorials (30, 210, 210, 2310 — the equalized
+configuration), and its old-units compensated value *declines*
+(1.749 → 1.700) where the uniform family's was flat at ≈ 1.75 — the
+signature of escaping the `exp(c√(log N))` class. The best-fac ≈ 0.7
+matches the Perron plateau's 0.87 within family-tuning slack. The
+new-units column is still far above 2 and rising: at these N the `o(1)`
+is dominated by `+log log N/V ≈ 1.0–1.16` (Cl's Mertens piece) and the
+small-prime block; the same situation as W3a's 1.75-vs-2 (asymptotic
+ceiling not yet binding, finite-N certificates carrying the content).
+
+**Block validation** (same script, theorem schedule `fac = 1`, at
+`N = 10⁶`; `y₁ = 8.73`, so `{2,3,5,7}` sit on the `√(p−1)` branch;
+binding row `m* = 210`, `log T* = 6.487` vs `2V = 4.588`): every §3.2
+inequality holds with slack ≥ 1 —
+
+| inequality | value | bound | slack |
+|---|---|---|---|
+| §3.1 master `T* ≤ (m/φ)·∏F·∏G` | 6.487 | 9.150 | 1.41 |
+| premium `Σ log(F/G) ≤ Σ log(1+1/η)` | 1.047 | 1.976 | 1.89 |
+| R1 (worst-m over all `p ≤ y₁`) | 1.976 | 1.976 | 1.00 |
+| R2 budget `≤ log m*/A` | 0 | 0.888 | — |
+| Cs `≤ Σ[1/√(p−1)+1/(p−1)]` | 2.904 | 4.532 | 1.56 |
+| Cl `≤ A·Σ 1/((p−1)log p) + Σ 1/(p−1)` | 3.723 | 3.871 | 1.04 |
+| `[C2]` at `x = y₁` (truncated at N) | 0.353 | 0.658 | 1.86 |
+| Cl Mertens piece | 1.744 | 3.453 | 1.98 |
+| `m*/φ(m*)` vs RS Thm 15 (ratios, not logs) | 4.375 | 4.481 | 1.02 |
+| `[C1]` at `x = 10⁶` | 176.4 | 222.0 | 1.26 |
+| block sum vs `log T*` | 6.487 | 10.227 | 1.58 |
+
+(the binding row at fac = 1 exhausts the R1 budget exactly — slack 1.00,
+the primorial-of-`p ≤ y₁` prediction; Cl is the tight block, slack 1.04;
+the classical-input sweep over every prime `x ∈ [286, 10⁷]` gives min
+slacks `[C1]` 1.24, `[C2]` 1.002, `[M]` 1.001 both walls). Full tables
+for `N = 10³…10⁵` in the artifact.
 
 ### 3.4 Consequences [derived]
 
@@ -312,10 +465,11 @@ binding, finite-N certificates carrying the content).
   arithmetic (budget-constrained prime allocation at exponent 1/2) is the
   same LP, approached from opposite sides.
 - **What 2 means now.** Within the derivation scheme the 2 is again a
-  forced balance (`V + log N/(V·log log N)`), and `log y₀ ≤
-  (1+o(1))·log log N` is forced by the small-prime block, so the scheme
-  cannot go below `2√(log N/log log N)` — the constant migrated to the new
-  shape intact. Whether the *class* can go lower is exactly the question
+  forced balance (`V + log N/(V·log y₁)`), and `log y₁ = (1+o(1))·log
+  log N` is forced by the min structure itself (the crossing solves
+  `p(log p)² ≈ log N·log log N`), so the scheme cannot go below
+  `2√(log N/log log N)` — the constant migrated to the new shape
+  intact. Whether the *class* can go lower is exactly the question
   of whether `λ_max(M_N)` itself is `exp(Θ(√(log N/log log N)))`; §2's
   numerics say class ≈ Perron to 10% at computable N.
 
@@ -410,9 +564,9 @@ trend a future account should reproduce first.
 ## 6. Verdict
 
 - **Did the upper wall move?** Yes [derived]: `2√(log N)` →
-  `(2+o(1))·√(log N/log log N)`, with lighter inputs and machine-checked
-  finite-N certificates that already beat the published family at every
-  computed N. The corridor's relative width drops from `log log N` to
+  `(2+o(1))·√(log N/log log N)`, with lighter inputs and finite-N
+  certificates, reproducible from `scripts/perron_certificates.py`, that
+  already beat the published family at every computed N. The corridor's relative width drops from `log log N` to
   `√(log log N)`, and the pure `exp(−c√(log N))` law for `λ_min` is
   excluded — the first shape-level consequence of the corridor since the
   W3a sandwich.
@@ -442,11 +596,15 @@ trend a future account should reproduce first.
   circulation/test-vector duals against the §3 upper bound — is the
   named next expedition.
 
-## 7. Spot-check inventory [numerical; deterministic, scratch in /tmp]
+## 7. Spot-check inventory [numerical; deterministic]
 
 All with `.venv/bin/python` (numpy 2.4.6/scipy 1.17.1), seed 20260708,
-reusing the sieve/factor construction of `scripts/lambda_min_lanczos.py`;
-nothing committed to `scripts/`:
+reusing the sieve/factor construction of `scripts/lambda_min_lanczos.py`.
+The repro-critical items — §3.3 certificates, §3.2 schedule/block
+validation, classical-input sweep — are committed as
+`scripts/perron_certificates.py`
+(→ `artifacts/perron-certificates.{txt,json}`). The exploratory items
+below are session-computed scratch in `/tmp`:
 
 - `pv_common.py`: shared sieves/factors; gauge check
   `λ_max(|K⁻¹|) = λ_max(K⁻¹)` to 1.5·10⁻¹⁴ at N = 100; Schur evaluator
@@ -460,7 +618,9 @@ nothing committed to `scripts/`:
   schedules in a follow-up run (`pv_item2c.json`) after an indexing bug
   in the *reporting* path (optimization itself unaffected; re-optimized
   T values reproduce to 4 digits: 112.67, 189.12).
-- `pv_item2b.py` (→ `pv_item2b.json`): η-schedule certificates (§3.3).
+- `pv_item2b.py` (→ `pv_item2b.json`): η-schedule certificates —
+  superseded by the committed `scripts/perron_certificates.py` (§3.3),
+  which reproduces its fac-0.7 table to all printed digits.
 - `pv_item3.py` (→ `pv_item3.json`): dense spectra to N = 6400, exact
   moments r ≤ 12, Hutchinson at 10⁵/10⁶ validated against dense at 3200;
   tail fits (§4).
