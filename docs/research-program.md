@@ -41,9 +41,12 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    This widened the counterterm interface to p-local kernels and pinned the
    next exact local coefficient target to the asymptotic constant `1/2`.
    The live branch is now narrowed to the half-normalized version of that
-   kernel. The exact local asymptotic has now been proved; finite-part
-   survival for that half-balanced local kernel is now reduced, on cosine
-   atoms, to summability or cancellation of the exact local residual.
+   kernel. The exact local asymptotic and cosine-atom finite-part survival are
+   now proved: a uniform cubic local estimate bounds the residual by
+   `780 p^(-3/2)` outside two finite primes, so the residual converges
+   absolutely without prime cancellation. The next boundary question is
+   whether this construction extends from individual cosine atoms to a named
+   test ideal with uniform restriction and completion control.
 
 ## Design rule
 

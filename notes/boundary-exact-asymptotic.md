@@ -42,9 +42,9 @@ exactLocalCoefficientChargeDischarged_verdict
 The coefficient `1/2` survived the trap. The exact-local-asymptotic blocker
 for the half-balanced p-local counterterm is gone.
 
-This does not prove a finite-part theorem and does not construct the boundary
-weight. The next ore face is narrower and is started in
-`RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`: after instantiating the
-cosine-atom finite-window raw value, prove enough residual summability or
-cancellation to get an actual finite part without importing the completed Weil
-pairing.
+This module alone does not prove a finite-part theorem and does not construct
+the boundary weight. Its next ore face is completed downstream:
+`BoundaryFinitePartSurvival.lean` instantiates the cosine-atom finite-window
+raw value, and `BoundaryResidualSummability.lean` proves its exact residual is
+absolutely summable by an `O(p^(-3/2))` comparison. No completed Weil pairing
+enters that proof.

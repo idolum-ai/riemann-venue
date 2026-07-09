@@ -1,7 +1,7 @@
 # Boundary Finite-Part Survival
 
-Status: narrowed workbench branch. Finite-window bookkeeping is proved in Lean;
-the residual summability/rate bridge is still open.
+Status: cosine-atom finite-part survival is proved in Lean. The exact local
+residual is absolutely summable over the primes.
 
 ## What Changed
 
@@ -11,8 +11,8 @@ The exact local asymptotic removed the coefficient blocker:
 ((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)
 ```
 
-The next question is whether the half-balanced subtraction leaves a finite
-part over primes.
+The next question was whether the half-balanced subtraction leaves a finite
+part over primes. It does on every cosine atom.
 
 `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean` starts with the
 non-tautological cosine-atom surface. For a frequency `u`, it uses the exact
@@ -28,9 +28,10 @@ and subtracts the half-balanced local counterterm:
 (1/2) * p^(-1) * (1 - cos(u log p)).
 ```
 
-## Lean Bookkeeping
+## Lean Result
 
-The module proves:
+`RiemannVenue/Venue/BoundaryFinitePartSurvival.lean` proves the finite-window
+bookkeeping:
 
 ```text
 balancedDefectAperture_cosineLogTest
@@ -46,18 +47,49 @@ sum_{p in S}
     - (1/2) * p^(-1) * (1 - cos(u log p))).
 ```
 
-If that local residual is summable over primes, the cosine-atom finite part is
-the corresponding prime sum.
-
-## Current Ore Face
-
-Exact local asymptotics give the coefficient. They do not by themselves prove
-that the residual is summable over primes. The next analytic charge is a
-stronger remainder estimate or cancellation theorem, for example a rate like:
+`RiemannVenue/Venue/BoundaryResidualSummability.lean` then proves:
 
 ```text
-local residual = O(p^(-3/2))
+abs_sqrt_poissonKernel_sub_linear_le
+abs_translatedHellingerDefectRemainder_le
+abs_exactCosineLocalRemainder_le
+summable_abs_exactCosineLocalRemainder
+cosineFinitePartSurvival_holds
 ```
 
-or better. That would be enough to turn the cosine-atom finite-part surface
-from a conditional survival statement into a proved finite part.
+The key uniform local estimate is
+
+```text
+|sqrt(P_a(theta)) - (1 + a cos theta)| <= 26 a^2
+```
+
+for `0 < a <= 1/2`. Taking translated differences and subtracting the
+quadratic term gives
+
+```text
+|(1 - H(a,t)) - (1/2) a^2 (1 - cos t)| <= 780 a^3.
+```
+
+At `a = p^(-1/2)`, every prime `p >= 5` therefore satisfies
+
+```text
+|local residual| <= 780 p^(-3/2).
+```
+
+The primes `2` and `3` are finite exceptions, so comparison with the
+convergent prime `3/2`-series proves absolute convergence for every real
+frequency `u`. The cosine-atom finite part is the corresponding prime sum.
+
+## What This Decides
+
+The half-balanced residual does not retain another divergent local piece at
+the precision needed for cosine atoms. No cancellation between primes is
+needed: absolute convergence already settles survival.
+
+The constant `780` is deliberately coarse. The symmetry
+`H(-a,t) = H(a,t)` suggests that the true first omitted term is quartic, but
+that sharpening is unnecessary for summability and is not claimed here.
+
+The next non-tautological question is domain enlargement: identify a named
+test ideal whose finite-window restrictions admit comparable uniform control,
+rather than proving one frequency at a time.

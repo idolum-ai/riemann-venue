@@ -20,7 +20,8 @@ The exact asymptotic identifies the local coefficient, but finite-part
 survival over primes needs more: the prime-indexed residual after subtraction
 must be summable, or must have cancellation strong enough to define a finite
 part. This file proves the finite-window bookkeeping and names that residual
-summability bridge as the next ore face.
+summability bridge. The downstream `BoundaryResidualSummability` module
+discharges it by a uniform cubic local estimate.
 -/
 
 namespace RiemannVenue.Venue
@@ -189,9 +190,10 @@ structure HalfBalancedFinitePartSurvivalState where
   /-- Current status. -/
   status : BoundaryFinitePartSurvivalStatus
 
-/-- Current result: exact local asymptotics and finite-window bookkeeping are
-proved; the next analytic charge is summability/rate control of the local
-residual. -/
+/-- Pre-discharge checkpoint: exact local asymptotics and finite-window
+bookkeeping are proved here, while summability/rate control is intentionally
+left as the next layer. `BoundaryResidualSummability` constructs the
+discharged state without creating an import cycle. -/
 noncomputable def currentHalfBalancedFinitePartSurvivalState :
     HalfBalancedFinitePartSurvivalState where
   exactResidue := translatedQuadraticDefectExactResidue_holds

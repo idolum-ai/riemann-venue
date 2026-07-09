@@ -253,12 +253,14 @@ installing the balanced residue as a linear local kernel.
 `RiemannVenue/Venue/BoundaryBalancedNarrowing.lean` then narrows the branch
 again: the only active candidate is the half-normalized balanced local kernel.
 `RiemannVenue/Venue/BoundaryExactAsymptotic.lean` discharges the exact
-translated-Hellinger asymptotic with coefficient `1/2`; the current blocker is
-finite-part survival for that half-balanced local kernel on a named test
-ideal. `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean` starts that step
-on cosine atoms: the finite-window remainder is now a proved prime sum of
-exact local residuals, and the next analytic charge is summability/rate
-control for that residual.
+translated-Hellinger asymptotic with coefficient `1/2`.
+`RiemannVenue/Venue/BoundaryFinitePartSurvival.lean` reduces cosine-atom
+finite windows to exact local residuals, and
+`RiemannVenue/Venue/BoundaryResidualSummability.lean` closes that charge: a
+uniform cubic local estimate gives `|residual_p(u)| <= 780 p^(-3/2)` outside
+the two finite exceptional primes. Thus every cosine atom has an absolutely
+convergent finite part without invoking cancellation between primes. The live
+blocker has moved from local summability to extension over a named test ideal.
 
 ## Current excavation result
 
@@ -324,8 +326,9 @@ The next work should choose one fork and deepen it:
 - If **exact-local-asymptotic-first**, prove the translated Hellinger
   asymptotic with coefficient `1/2`; this fork has discharged its first
   blocker.
-- If **finite-part-first**, do it only as a provisional probe against the
-  half-balanced kernel, now with residual summability/rate control explicit.
+- If **finite-part-first**, extend the discharged cosine-atom result to a
+  named linear test ideal, with a uniform majorant strong enough to exchange
+  the test-function decomposition and the prime sum.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

@@ -60,5 +60,7 @@ The next work should stay narrow:
 
 The first downstream instantiation is now in
 `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`: cosine atoms reduce the
-finite-window remainder to a prime sum of local residuals. The remaining
-finite-part survival blocker is residual summability/rate control.
+finite-window remainder to a prime sum of local residuals.
+`RiemannVenue/Venue/BoundaryResidualSummability.lean` discharges that residual
+blocker by an absolute `O(p^(-3/2))` comparison. The remaining work is to
+extend the cosine-atom result to a named test ideal.

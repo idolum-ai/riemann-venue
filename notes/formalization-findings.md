@@ -441,3 +441,25 @@ The sixth expedition opened the doors the fifth revealed. What it taught:
   already counted the Weil form's negative eigenvalues as off-line zeros —
   frustration counting RH failures before the word existed
   (`notes/unfrustrated-cancellation-survey.md`).
+
+## 16. The local counterterm survives without arithmetic cancellation
+
+The half-balanced translated-Hellinger counterterm now has its first genuine
+finite part. The decisive move was not a prime-sum cancellation theorem but a
+uniform local estimate. On the half-radius disc, Lean proves
+
+```text
+|sqrt(P_a(theta)) - (1 + a cos theta)| <= 26 a^2.
+```
+
+After taking translated differences, squaring, and subtracting the forced
+quadratic coefficient, the exact local residual is at most `780 a^3`.
+At the critical radius `a = p^(-1/2)`, this is `780 p^(-3/2)` outside the
+finite primes `2` and `3`; absolute convergence follows immediately.
+
+The methodological finding is useful: the exact second-order coefficient and
+a coarse uniform first-order remainder were enough. We did not need a closed
+form for the Hellinger overlap, a third derivative under the integral, or
+phase cancellation across primes. The next risk is no longer local
+divergence. It is whether a sufficiently rich test ideal preserves this
+uniform control when cosine atoms are assembled into actual test functions.
