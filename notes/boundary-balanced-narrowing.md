@@ -12,14 +12,14 @@ The active candidate is now the half-normalized balanced local kernel:
   * (h(0) - (h(log p) + h(-log p)) / 2)
 ```
 
-The factor `1/2` is the expected exact local coefficient from:
+The factor `1/2` is the exact local coefficient from:
 
 ```text
 1 - H(a,t) ~ (1/2) * a^2 * (1 - cos t).
 ```
 
-So the previous balanced kernel was the right aperture but not yet the
-right normalization.
+So the previous balanced kernel was the right aperture but not the right
+normalization.
 
 ## What Is Now Fixed
 
@@ -33,16 +33,17 @@ right normalization.
 This means the branch is no longer exploring a family of counterterms. It is
 testing one object.
 
-## Current Blocker
+## Exact-Asymptotic Discharge
 
-The current status is:
+`RiemannVenue/Venue/BoundaryBalancedNarrowing.lean` records the pre-discharge
+status:
 
 ```text
 needsExactLocalAsymptotic
 ```
 
-The exact local asymptotic must be proved before a finite-part survival claim
-should be trusted:
+That blocker is now discharged downstream in
+`RiemannVenue/Venue/BoundaryExactAsymptotic.lean`:
 
 ```text
 ((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)
@@ -54,6 +55,5 @@ as `a -> 0+`.
 
 The next work should stay narrow:
 
-1. prove the exact local asymptotic, or produce a formal obstruction;
-2. only then instantiate the finite-part probe for smooth compact or
+1. instantiate the finite-part probe for smooth compact or
    Schwartz tests.

@@ -18,7 +18,9 @@ This file detonates two charges:
    finite-window local kernels while embedding the old interface as a special
    case.
 
-No exact asymptotic theorem or finite-part theorem is proved here.
+No exact asymptotic theorem or finite-part theorem is proved in this layer.
+`BoundaryExactAsymptotic.lean` discharges the exact local asymptotic
+downstream, after this interface is available.
 -/
 
 namespace RiemannVenue.Venue
@@ -32,8 +34,8 @@ expansion:
 
 `1 - H(a,t) ~ (1/2) * a^2 * (1 - cos t)`.
 
-The repository currently has uniform lower bounds and the critical
-summability bridge, not this exact asymptotic. -/
+This file records the target before it is discharged downstream in
+`BoundaryExactAsymptotic.lean`. -/
 noncomputable def translatedQuadraticDefectExpectedCoefficient : ℝ :=
   1 / 2
 
@@ -44,9 +46,8 @@ noncomputable def translatedQuadraticDefectExpectedCoefficient : ℝ :=
 /-- The exact residue theorem the local coefficient charge wants.
 
 This is the precise asymptotic target behind the balanced p-local aperture.
-It is deliberately a `Prop` target here: the current repository proves
-quadratic bounds and divergence at the critical exponent, not this exact
-little-o statement. -/
+It is deliberately a `Prop` target here: this interface layer records the
+obligation, while `BoundaryExactAsymptotic.lean` proves it downstream. -/
 def TranslatedQuadraticDefectExactResidue
     (c : ℝ) : Prop :=
   ∀ t : ℝ,
@@ -69,8 +70,8 @@ inductive ExactLocalCoefficientChargeVerdict where
 
 /-- The exact local coefficient charge after detonation.
 
-The charge has found the target coefficient `1/2`; it has not discharged the
-exact residue theorem. -/
+The charge has found the target coefficient `1/2`; this pre-discharge object
+records the obligation before the downstream exact-asymptotic proof. -/
 structure ExactLocalCoefficientCharge where
   /-- The predicted exact coefficient. -/
   expectedCoefficient : ℝ

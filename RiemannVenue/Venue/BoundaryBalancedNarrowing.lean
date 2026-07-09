@@ -18,7 +18,8 @@ So the candidate to test next is
 
 This file does not prove the exact local asymptotic and does not prove a
 finite-part theorem. It pins the single candidate and the finite-part probe
-surface that should be tested next.
+surface that should be tested next. The exact local asymptotic is discharged
+downstream in `BoundaryExactAsymptotic.lean`.
 -/
 
 namespace RiemannVenue.Venue
@@ -167,9 +168,10 @@ def BoundaryBalancedResidueNarrowing.hasReadyFinitePartProbe
   ∃ P : BoundaryKernelFinitePartProbe,
     P.countertermKernel = N.halfKernel ∧ P.ready
 
-/-- Current narrowed branch: the candidate is fixed, but the exact local
-asymptotic remains the first blocker before finite-part survival should be
-claimed. -/
+/-- Current narrowed branch at this layer: the candidate is fixed, and this
+pre-discharge status names exact local asymptotics as the first blocker before
+finite-part survival should be claimed. `BoundaryExactAsymptotic.lean`
+discharges that blocker downstream. -/
 noncomputable def currentBoundaryBalancedResidueNarrowing :
     BoundaryBalancedResidueNarrowing where
   exactCoefficientCharge := exactLocalCoefficientCharge

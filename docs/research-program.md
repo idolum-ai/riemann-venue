@@ -41,7 +41,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    This widened the counterterm interface to p-local kernels and pinned the
    next exact local coefficient target to the asymptotic constant `1/2`.
    The live branch is now narrowed to the half-normalized version of that
-   kernel; exact local asymptotics come before finite-part survival claims.
+   kernel. The exact local asymptotic has now been proved; finite-part
+   survival for that half-balanced local kernel is the next narrow test.
 
 ## Design rule
 

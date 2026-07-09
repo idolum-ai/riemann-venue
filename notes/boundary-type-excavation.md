@@ -252,8 +252,10 @@ installing the balanced residue as a linear local kernel.
 
 `RiemannVenue/Venue/BoundaryBalancedNarrowing.lean` then narrows the branch
 again: the only active candidate is the half-normalized balanced local kernel.
-The current blocker is the exact translated-Hellinger asymptotic with
-coefficient `1/2`.
+`RiemannVenue/Venue/BoundaryExactAsymptotic.lean` discharges the exact
+translated-Hellinger asymptotic with coefficient `1/2`; the current blocker is
+finite-part survival for that half-balanced local kernel on a named test
+ideal.
 
 ## Current excavation result
 

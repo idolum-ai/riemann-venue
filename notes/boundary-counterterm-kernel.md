@@ -17,15 +17,20 @@ So the exact local coefficient charge now has a target:
 translatedQuadraticDefectExpectedCoefficient = 1/2
 ```
 
-The repository already proves the critical divergence and a translated lower
-bound. It does not yet prove the exact asymptotic:
+At this layer, the repository had already proved the critical divergence and
+a translated lower bound, but the exact asymptotic was still an obligation:
 
 ```text
 ((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)
 ```
 
-as `a -> 0+`. So charge 1 is not discharged, but it is no longer vague. The
-next proof obligation is exact local asymptotics, not coefficient guessing.
+as `a -> 0+`.
+
+That downstream obligation is now discharged in
+`RiemannVenue/Venue/BoundaryExactAsymptotic.lean` by
+`tendsto_hellingerPair_deficit_div_sq` and
+`translatedQuadraticDefectExactResidue_holds`. So charge 1 has moved from
+coefficient guessing to a proved local input for finite-part testing.
 
 ## Charge 4: Interface Widening
 
@@ -77,6 +82,7 @@ branch to the half-normalized balanced kernel:
   * (h(0) - (h(log p) + h(-log p)) / 2)
 ```
 
-The branch status is `needsExactLocalAsymptotic`. So the next move is not to
-invent more kernels; it is to prove or break the exact `1/2` local
-asymptotic.
+The narrowing file records the pre-discharge branch status
+`needsExactLocalAsymptotic`; the downstream exact-asymptotic file discharges
+that blocker. The next move is not to invent more kernels; it is to instantiate
+the finite-part probe for the half-balanced local kernel.
