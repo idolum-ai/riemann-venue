@@ -255,7 +255,10 @@ again: the only active candidate is the half-normalized balanced local kernel.
 `RiemannVenue/Venue/BoundaryExactAsymptotic.lean` discharges the exact
 translated-Hellinger asymptotic with coefficient `1/2`; the current blocker is
 finite-part survival for that half-balanced local kernel on a named test
-ideal.
+ideal. `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean` starts that step
+on cosine atoms: the finite-window remainder is now a proved prime sum of
+exact local residuals, and the next analytic charge is summability/rate
+control for that residual.
 
 ## Current excavation result
 
@@ -315,12 +318,14 @@ The next work should choose one fork and deepen it:
   `-h(0)` and add only response-side structure needed to avoid the bare
   zero-value trap.
 - If **nonseparable-counterterm-first**, widen the counterterm interface from
-  `coefficient(h) * sum 1/p` to finite-window p-local apertures and test
-  whether the balanced residue has a finite part.
+  `coefficient(h) * sum 1/p` to finite-window p-local apertures, use the
+  exact local coefficient, and test whether the resulting exact residual has
+  a finite part.
 - If **exact-local-asymptotic-first**, prove the translated Hellinger
-  asymptotic with coefficient `1/2` before finite-part testing.
+  asymptotic with coefficient `1/2`; this fork has discharged its first
+  blocker.
 - If **finite-part-first**, do it only as a provisional probe against the
-  half-balanced kernel, with the exact-asymptotic debt still explicit.
+  half-balanced kernel, now with residual summability/rate control explicit.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

@@ -57,3 +57,8 @@ The next work should stay narrow:
 
 1. instantiate the finite-part probe for smooth compact or
    Schwartz tests.
+
+The first downstream instantiation is now in
+`RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`: cosine atoms reduce the
+finite-window remainder to a prime sum of local residuals. The remaining
+finite-part survival blocker is residual summability/rate control.

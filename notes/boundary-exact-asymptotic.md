@@ -43,6 +43,8 @@ The coefficient `1/2` survived the trap. The exact-local-asymptotic blocker
 for the half-balanced p-local counterterm is gone.
 
 This does not prove a finite-part theorem and does not construct the boundary
-weight. The next ore face is narrower: instantiate the finite-window raw value
-and test whether subtracting the half-balanced local kernel leaves a finite
-part on a named test ideal without importing the completed Weil pairing.
+weight. The next ore face is narrower and is started in
+`RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`: after instantiating the
+cosine-atom finite-window raw value, prove enough residual summability or
+cancellation to get an actual finite part without importing the completed Weil
+pairing.

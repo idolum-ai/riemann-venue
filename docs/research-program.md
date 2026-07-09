@@ -42,7 +42,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    next exact local coefficient target to the asymptotic constant `1/2`.
    The live branch is now narrowed to the half-normalized version of that
    kernel. The exact local asymptotic has now been proved; finite-part
-   survival for that half-balanced local kernel is the next narrow test.
+   survival for that half-balanced local kernel is now reduced, on cosine
+   atoms, to summability or cancellation of the exact local residual.
 
 ## Design rule
 
