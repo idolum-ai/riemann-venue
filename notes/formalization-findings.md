@@ -463,3 +463,31 @@ form for the Hellinger overlap, a third derivative under the integral, or
 phase cancellation across primes. The next risk is no longer local
 divergence. It is whether a sufficiently rich test ideal preserves this
 uniform control when cosine atoms are assembled into actual test functions.
+
+## 17. Study-report alignment: the caveat moved into the record
+
+An external source-text study at commit `bb541cd` found the same structural
+story the ledger is meant to make inspectable: proved positive results,
+proved negative results, explicit non-claims around RH, and a status table
+that separates checked statements from programs and notes.
+
+Its important caveat was methodological: the study did not run `lake build`
+locally at the studied commit, so its zero-`sorry` and zero-axiom findings
+rested on source inspection plus the repository's recorded CI posture. The
+repo's trust boundary remains the one in the README: rerun `lake build`
+against the pinned toolchain, not just grep the sources.
+
+The same study also highlighted the documentation pressure point around the
+boundary excavation. The branch has since discharged the exact local
+coefficient:
+
+```text
+((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)
+```
+
+and the half-balanced cosine finite part now survives absolutely by the
+uniform residual estimate `780 p^(-3/2)` outside two finite primes. Future
+status rows should keep the remaining distinction visible: cosine-atom
+survival is proved; extension to a named test ideal and construction of the
+completed boundary distribution remain open; the RH-strength positivity gate
+is still locked.
