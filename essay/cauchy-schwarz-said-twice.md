@@ -21,19 +21,19 @@ measures, and nobody looks at it twice either.
 
 These are the same fact.
 
-Not analogous: the same. The bridge is a family of measures that
+The bridge is a family of measures that
 statistical mechanics has kept on file since 1995. The Bost–Connes system
 assigns to each inverse temperature $\beta$ a Gibbs state, and Neshveyev
 showed these states are product measures over the primes, one independent
 coordinate per prime, living on the finite adeles. Compute the Hellinger
 affinity of two temperatures, prime by prime, and multiply. The product
-telescopes into
+assembles into
 
 $$H(\mu_\beta, \mu_{\beta'}) \;=\; \frac{\zeta\!\left(\tfrac{\beta+\beta'}{2}\right)}{\sqrt{\zeta(\beta)\,\zeta(\beta')}}.$$
 
 The probabilist's $H \le 1$ *is* the analyst's log-convexity. One
 inequality, two accents: termwise on a Dirichlet series, or
-measure-theoretically on the adeles. Even the equality cases agree —
+measure-theoretically on the adeles. Even the equality cases agree:
 affinity one means the measures coincide, which means $\beta = \beta'$,
 which is where midpoint convexity degenerates.
 
@@ -49,11 +49,11 @@ and starts classifying.
 
 Applied to the temperature family, the classification says: all
 temperatures with $\beta > 1$ inhabit a single measure class, one shared
-world. Every temperature with $\beta \le 1$ is alone — singular to all the
+world. Every temperature with $\beta \le 1$ is alone: singular to all the
 others, and to everything above. The wall at $\beta = 1$ is the
 Bost–Connes phase transition, the same critical point the system exhibits
 through its KMS-state structure, now visible through a second instrument.
-And there is an inversion worth sitting with: the phase where the Gibbs
+And there is an inversion: the phase where the Gibbs
 state is unique is the measure-theoretically shattered one, and the phase
 where symmetry breaks into many extremal states is where all the measures
 agree on what is possible. Uniqueness above the wall, unity below it.

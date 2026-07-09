@@ -455,3 +455,16 @@ faster than the product-family barrier form on the computed window (which
 the data reject as a two-parameter law), so the honest working target is
 `exp(−(log N)^{1/2+o(1)})` with the gap mechanism beyond product families
 still unexplained.
+
+---
+
+## Addendum (2026-07-09): the §5 pure law is now excluded
+
+`notes/perron-vector-attack.md` (W3b) derives `λ_min(K_N) ≥
+exp(−(2+o(1))·√(log N/log log N))`, which excludes the §5 conjecture
+candidate `λ_min = exp(−(c+o(1))·√(log N))` for every constant `c > 0`:
+the window values `c ≈ 1.36–1.47` of §1/§5/§7 are provably transient, and
+the slow decline of `c_loc` recorded in §7 is forced by the theorem. The
+revised conjecture `λ_min = exp(−(log N)^{1/2+o(1)})` of §7 survives
+unchanged and is now a derived sandwich (`notes/lambda-min-lower-attack.md`
+§4.1 plus its addendum), corridor of relative width `√(log log N)` open.

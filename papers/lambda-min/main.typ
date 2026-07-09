@@ -209,12 +209,11 @@ $N$, and its eigenvector has sign pattern exactly $lambda(n)$._
 
 *Theorem C (lower bound; @sec-lower).* _Unconditionally,_
 $
-  lambda_(min)(N) >= exp(-(2 + o(1)) sqrt(log N / log log N)) ,
+  lambda_(min)(N) >= exp(-(2 + o(1)) sqrt(log N / log log N)) .
 $
-_by a weighted Schur test on $|K_N^(-1)|$ whose per-prime weights are
-scheduled in proportion to the logarithmic budget. The classical inputs
-are Mertens' theorem, Rosser–Schoenfeld bounds, and Chebyshev-grade prime
-sums; neither the prime number theorem nor Robin's bound is used._
+The weight is a per-prime scheduled Schur test on $|K_N^(-1)|$; the
+inputs are Mertens, Rosser–Schoenfeld, and Chebyshev-grade bounds
+only — neither the prime number theorem nor Robin's bound is used.
 
 Theorems A and C together settle the exponent and exclude a law:
 
@@ -230,8 +229,7 @@ $sqrt(log log N)$, and the numerics of @sec-numerics (exact sparse
 computations of $lambda_(min)$ to $N = 1.3 times 10^7$, which reject both
 the two-parameter law $c(log N)^(-2)$ and the product-family rate on the
 computed window) measure the window-effective exponential constant at
-$approx 1.36$–$1.41$, inside the corridor; by Corollary D that constant
-cannot settle, and its measured decline is forced.
+$approx 1.36$–$1.41$, inside the corridor; by Corollary D its measured decline is forced.
 
 Finally, @sec-conjecture records an exact symmetry and an unexplained
 regularity. The half-turn $theta_p |-> theta_p + pi$ of every circle in the
@@ -837,7 +835,7 @@ exceptional, and a factor $sqrt(log log N)$ comes off the exponent.
   $(1 + o(1)) V$ at the optimal schedule, and the small-prime block forces
   $log y_0 <= (1 + o(1)) log log N$, so no geometric schedule goes below
   $2 sqrt(log N \/ log log N)$. Whether the full multiplicative class can
-  is a different question, and numerically no barrier is visible:
+  go lower is a different question, and numerically no barrier is visible:
   minimizing $max_m T_m (w)$ over all multiplicative weights is a convex
   problem in the prime-power log-increments (a log-sum-exp of affine
   functions, so every evaluated weight is a rigorous certificate), and the
@@ -1029,9 +1027,7 @@ per octave through $1.341$ at the top octave. One internal consistency
 check: this law predicts a local log-power exponent $(c\/2) sqrt(log N)$,
 which at the top octave gives $2.686$, against $2.686$ measured. The
 log-power drift is exactly what the exponential law forces. The decline
-of $c$ is in turn a consequence of @thm-lower-eta, which excludes the pure
-exponential law asymptotically: the fitted $c$ is a window-effective value
-and must tend to zero.
+of $c$ is the finite-size effect @cor-rate forces.
 
 *The product-family (barrier-shaped) law loses decisively.* @prop-barrier
 makes $A exp(-C sqrt(log N)\/log log N)$ the natural law for product
@@ -1072,7 +1068,7 @@ $log lambda$):
 Three-parameter fits refine rather than overturn this picture: the scan
 $lambda approx A exp(-c (log N)^theta)$ prefers an effective exponent
 slightly *below* $1\/2$, $theta approx 0.36$–$0.38$ (the direction
-@thm-lower-eta makes mandatory), and the hybrid $A (log
+@thm-lower-eta forces), and the hybrid $A (log
 N)^(-beta) e^(-c sqrt(log N))$ gives $beta approx 0.6$–$0.7$, $c approx 1.0$.
 On any feasible window these cannot be separated from slowly varying
 corrections inside the square root (the ABS-type $log log$ factors);
@@ -1120,8 +1116,7 @@ inside it the truth lives:
 
 #block(above: 1.0em, below: 1.0em, inset: (x: 1.6em))[
   _Does $-log lambda_(min)(K_N) \/ sqrt(log N \/ log log N)$ tend to a
-  constant, does the truth follow the lower wall's shape
-  $sqrt(log N)\/log log N$, or does it drift between the two?_
+  constant, sink toward the lower wall, or drift between the two?_
 ]
 
 The pure law $exp(-(c + o(1)) sqrt(log N))$ is no longer among the

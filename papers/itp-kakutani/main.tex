@@ -82,13 +82,13 @@ reproducibility scripts, not on trust in any author, human or artificial.}
 \maketitle
 
 \begin{abstract}
-Kakutani's dichotomy (1948) states that an infinite product of probability
-measures, built from factors pairwise locally absolutely continuous, is either
-absolutely continuous or mutually singular with respect to a second such
-product, according to whether the infinite product of the Hellinger affinities
+Kakutani's dichotomy (1948) states that for two infinite products of
+probability measures whose factor pairs are locally absolutely continuous, the
+first is either absolutely continuous or mutually singular with respect to the
+second, according to whether the infinite product of the Hellinger affinities
 of the factor pairs is positive or zero. We present a formalization of both
 directions of the theorem in Lean~4 over Mathlib, stated for families indexed
-by an arbitrary type, and with no absolute-continuity hypothesis at all in the
+by an arbitrary type, and with no absolute-continuity hypothesis in the
 singular direction; both are strengthenings of the classical statement, and to
 the authors' knowledge this is the first formalization of the theorem in any
 proof assistant. The development defines the Hellinger affinity as a total
@@ -401,7 +401,7 @@ is sharper than the design asked for: its forward implication is exclusivity
 through the hypothesis-free singular direction, so weakening the singular
 statement once weakened every downstream packaging for free.
 
-Two remarks on the hypotheses, in the interest of precision. The index type is
+Two remarks on the hypotheses. The index type is
 arbitrary in both directions; \autoref{sec:engineering} explains why
 countability is never needed. And the asymmetry between the directions is
 exact. The absolutely continuous direction keeps \leanid{hac}, as it must: a
@@ -477,7 +477,7 @@ infimum.
 One methodological remark. The first implementation carried
 $\mu_i \ll \nu_i$, because the cylinder density \emph{identity} genuinely
 needs it: singular parts push $\mu^\infty$-mass above the density integral,
-and the checker refuses the equality without them. What the squeeze consumes,
+and the checker refuses the equality without that hypothesis. What the squeeze consumes,
 however, is only the $\le$ direction, and the excess mass lands inside a
 $\nu^\infty$-null set. Asking which direction of a refused identity the proof
 actually uses, and where the failure of the other direction lives, turned a
@@ -611,7 +611,7 @@ mutually singular with respect to the same measure. The type change lands
 exactly at the critical exponent, with the endpoint $\sigma = 1/2$ on the
 singular side.
 
-\subsection{The translate flow, expelled without the prime number theorem}
+\subsection{The translate flow: singular without the prime number theorem}
 \label{sec:app-translate}
 
 There is a sharper statement in the same family. For $u \in \mathbb{R}$ the

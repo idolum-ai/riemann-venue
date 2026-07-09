@@ -341,38 +341,6 @@ closed by the program:
   Two famous critical points, one axis. Whether the transitions are one
   phenomenon is the expedition's bequest to the next.
 
-## 15. The open-doors expedition: the gauge pays out
-
-The sixth expedition opened the doors the fifth revealed. What it taught:
-
-- **The checker simplifies again.** The gauge identity's paper proof ran
-  through gcd/lcm reparametrization; the Lean proof found the sign
-  purification is termwise complete multiplicativity, one line per common
-  multiple (`LiouvilleGauge.lean`). Formalization pressure compresses
-  proofs as often as it resists them.
-- **Hypothesis drops propagate.** (§14's point, now twice observed): the
-  hac-free singular direction made the equivalence iff one-sided
-  (`Dichotomy.lean`), sharper than its own design doc dared ask.
-- **The corridor moved the day it was published.** The scheduled weight
-  is immune to binding-row migration by construction; the lower wall
-  improved by `√(log log N)` and the pure `exp(−c√(log N))` law died
-  (`notes/perron-vector-attack.md`). A paper that poses a question in the
-  morning should expect to revise it by evening, in this venue.
-- **The Neshveyev inversion.** Kakutani applied to the BC Gibbs family:
-  uniqueness above the wall, unity below it — and `H ≤ 1` unmasked as
-  midpoint log-convexity of ζ. Our machine, their object, nobody's
-  theorem (`notes/neshveyev-kakutani.md`).
-- **The constant lives on the critical line.** `c₂ = Tr(K⁻²)/N`'s Mellin
-  form is a weighted average of an Euler product over `Re s = 1/2`, the
-  symmetry axis of its own pair swap (`notes/inverse-moments.md`). The
-  venue's axis keeps appearing uninvited.
-- **The frame has five orphaned ancestors.** The gauge test has been
-  rediscovered at least five times across fields with near-zero
-  cross-citation; no arithmetic instance predates ours, and Bombieri 2000
-  already counted the Weil form's negative eigenvalues as off-line zeros —
-  frustration counting RH failures before the word
-  (`notes/unfrustrated-cancellation-survey.md`).
-
 **Correction (Phase 3 scout):** the frontier was mapped too pessimistically.
 Infinite products of probability measures *do* exist in the pinned Mathlib
 (`Measure.infinitePi`, built on Ionescu–Tulcea, with cylinder/restriction/
@@ -441,3 +409,35 @@ Riders in Affinity.lean for the live PR 1 review: `hellingerAffinity_pos_iff`
 risky one, but the pin's `Measure.sub` API (`sub_add_cancel_of_le` +
 `rnDeriv_add'`) makes `dμ/dν ≤ᵐ dμ'/dν` for `μ ≤ μ'` a five-line split
 `μ' = (μ' − μ) + μ`; the right version is symmetry.
+
+## 15. The open-doors expedition: the gauge pays out
+
+The sixth expedition opened the doors the fifth revealed. What it taught:
+
+- **The checker simplifies again.** The gauge identity's paper proof ran
+  through gcd/lcm reparametrization; the Lean proof found the sign
+  purification is termwise complete multiplicativity, one line per common
+  multiple (`LiouvilleGauge.lean`). Formalization pressure compresses
+  proofs as often as it resists them.
+- **Hypothesis drops propagate.** (§14's point, now twice observed): the
+  hac-free singular direction made the equivalence iff one-sided
+  (`Dichotomy.lean`), sharper than its own design doc dared ask.
+- **The corridor moved the day it was published.** The scheduled weight
+  is immune to binding-row migration by construction; the lower wall
+  improved by `√(log log N)` and the pure `exp(−c√(log N))` law died
+  (`notes/perron-vector-attack.md`). In this venue, a paper that poses a
+  question in the morning should expect to revise it by evening.
+- **The Neshveyev inversion.** Kakutani applied to the BC Gibbs family:
+  uniqueness above the wall, unity below it — and `H ≤ 1` unmasked as
+  midpoint log-convexity of ζ. Our machine, their object, nobody's
+  theorem (`notes/neshveyev-kakutani.md`).
+- **The constant lives on the critical line.** `c₂ = Tr(K⁻²)/N`'s Mellin
+  form is a weighted average of an Euler product over `Re s = 1/2`, the
+  symmetry axis of its own pair swap (`notes/inverse-moments.md`). The
+  venue's axis keeps appearing uninvited.
+- **The frame has five orphaned ancestors.** The gauge test has been
+  rediscovered at least five times across fields with near-zero
+  cross-citation; no arithmetic instance predates ours, and Bombieri 2000
+  already counted the Weil form's negative eigenvalues as off-line zeros —
+  frustration counting RH failures before the word existed
+  (`notes/unfrustrated-cancellation-survey.md`).

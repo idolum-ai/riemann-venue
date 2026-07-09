@@ -170,12 +170,15 @@ size of the shift, not the exponent.
 
 ### 7.2 The λ_min rate: the open problem is now a sandwich
 
-**Status.** `notes/lambda-min-lower-attack.md` (paper-math, claim-labeled —
-*derived*, not machine-checked; the essay's currency system must say so):
-weighted Gershgorin with weight `ρ^Ω(n)/√n` on the exact inverse gives
-`λ_min(K_N) ≥ exp(−(2+o(1))√(log N))` unconditionally; with the primorial
-bound above, `−log λ_min(K_N) = (log N)^{1/2+o(1)}` is derived, both sides
-confined to a `(log log N)^{±1}` corridor. En route, a structural fact: the
+**Status.** `notes/lambda-min-lower-attack.md`, wall since moved by
+`notes/perron-vector-attack.md` (paper-math, claim-labeled — *derived*,
+not machine-checked; the essay's currency system must say so): weighted
+Gershgorin with the budget-proportional schedule on the exact inverse gives
+`λ_min(K_N) ≥ exp(−(2+o(1))√(log N/log log N))` unconditionally (the
+uniform-weight `exp(−(2+o(1))√(log N))` is the pedagogically prior form);
+with the primorial bound above, `−log λ_min(K_N) = (log N)^{1/2+o(1)}` is
+derived, the corridor narrowed to relative width `√(log log N)`, and the
+pure `exp(−c√(log N))` law is excluded. En route, a structural fact: the
 Möbius signs of `K⁻¹` are a pure gauge (`μ(k/m)μ(k/n) = λ(m)λ(n)`), so by
 Perron–Frobenius the minimizer's Liouville signs are exact for every `N`.
 
@@ -194,7 +197,7 @@ figure becomes the numerical shadow of an exact fact.
 
 **Maximal.** Recast the third Yield item as the venue's full arc: portrait
 → primorial witness → gauge identity → Gershgorin sandwich, with the
-`(log log N)^{±1}` corridor as the surviving open problem. The analogy's
+`√(log log N)`-wide corridor as the surviving open problem. The analogy's
 final beat (§5 above) sharpens accordingly: the venue asked the question
 and then answered it to within a slowly-varying factor.
 

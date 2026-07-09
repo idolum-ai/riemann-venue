@@ -110,11 +110,15 @@ Every arrow before the last is machine-checked. The last arrow is RH.
 
 Precisely stated, numerically instrumented, and (to our knowledge) new:
 
-1. **The bottom-edge rate**: `λ_min(K_N) = exp(−(log N)^{1/2+o(1)})`? The
-   data (exact sparse spectra to `N = 1.3×10⁷` via the Möbius inverse) reject
-   both `c/(log N)²` and the product-family barrier law; every product-type
-   test family is provably insufficient — the minimizer entangles across
-   primes. See `notes/lambda-min-rate.md`.
+1. **The bottom-edge corridor**: `−log λ_min(K_N) = (log N)^{1/2+o(1)}` is
+   now derived (paper-math, claim-labeled), the two walls a corridor of
+   relative width `√(log log N)`; the surviving open problem is the corridor
+   itself. The data (exact sparse spectra to `N = 1.3×10⁷` via the Möbius
+   inverse) reject `c/(log N)²` and the product-family barrier law, the pure
+   `exp(−c√(log N))` law is excluded, and every product-type test family is
+   provably insufficient — the minimizer entangles across primes. See
+   `notes/lambda-min-rate.md`, `notes/lambda-min-lower-attack.md`,
+   `notes/perron-vector-attack.md`.
 2. **The reciprocal-edges law**: `λ_min·λ_max ≈ 0.389` constant over five
    decades of `N`. The Liouville conjugation identity
    (`Kernels/LiouvilleConjugation.lean`) provides the underlying symmetry

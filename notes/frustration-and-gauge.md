@@ -80,7 +80,9 @@ theorems in it beyond bookkeeping is open.
    §3.4). The explicit inverse makes `lim Tr(K^{−2r})/N` a candidate exact
    Euler product for each fixed `r`. Probe: derive `r = 1` in closed form.
    Cut-line grade if it works; the generating function in `r` would be the
-   fermionic gas's moment dual.
+   fermionic gas's moment dual. *(Resolved this expedition:
+   `notes/inverse-moments.md` — `c₂ = 33.178348741(3)`, exact, not a pure
+   Euler product; cut-line grade, closed.)*
 3. **The σ-flow portrait of the minimizer.** Vary the weight `p^{−σ}` and
    watch the Perron/minimizer eigenvector as σ crosses 1/2 — the
    *eigenvector's* phase transition, beside the measure-class one already
@@ -104,7 +106,7 @@ theorems in it beyond bookkeeping is open.
    Probe: riding with the Perron-vector wave (its item 4); no separate
    work.
 
-## 6½. The two impossible boundaries [dictionary; posed, not claimed]
+## 6. The two impossible boundaries [dictionary; posed, not claimed]
 
 RH and P ≠ NP run parallel at three depths. (a) Both are limit statements
 whose finite shadows are uniformly healthy; nothing freezes at any finite
