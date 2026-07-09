@@ -38,6 +38,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    balanced response-side residue. The first balanced candidate is now
    p-local rather than separable:
    `sum_{p in S} p^{-1} * (h(0) - (h(log p)+h(-log p))/2)`.
+   This widened the counterterm interface to p-local kernels and pinned the
+   next exact local coefficient target to the asymptotic constant `1/2`.
 
 ## Design rule
 

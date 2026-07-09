@@ -75,3 +75,26 @@ The candidate still owes:
 - compatibility with the log-derivative prime-power bridge; and
 - a decision about whether the counterterm interface should widen from
   separable scalar coefficients to p-local response apertures.
+
+## Charges Detonated
+
+`RiemannVenue/Venue/BoundaryCountertermKernel.lean` detonates the first and
+fourth charges.
+
+The exact local coefficient target is now pinned as:
+
+```text
+1/2
+```
+
+for the asymptotic
+
+```text
+1 - H(a,t) ~ (1/2) * a^2 * (1 - cos t).
+```
+
+That exact theorem is still open in the repo.
+
+The interface-widening charge succeeds structurally: scalar counterterms embed
+as local kernels, and the balanced p-local counterterm fits the widened
+interface with linearity and constant-cancellation checks.

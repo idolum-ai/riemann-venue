@@ -244,6 +244,12 @@ response-defect residue. The p-local aperture
 the Hellinger/translated-defect critical scale. Its cost is structural: it is
 not a single scalar coefficient multiplying `sum_{p in S} 1/p`.
 
+`RiemannVenue/Venue/BoundaryCountertermKernel.lean` widens the interface from
+scalar coefficients to finite-window local kernels. The exact local
+coefficient charge now targets the asymptotic constant `1/2`; the interface
+charge succeeds by embedding the old scalar form as a special case and
+installing the balanced residue as a linear local kernel.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -304,6 +310,8 @@ The next work should choose one fork and deepen it:
 - If **nonseparable-counterterm-first**, widen the counterterm interface from
   `coefficient(h) * sum 1/p` to finite-window p-local apertures and test
   whether the balanced residue has a finite part.
+- If **exact-local-asymptotic-first**, prove the translated Hellinger
+  asymptotic with coefficient `1/2` before finite-part testing.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
