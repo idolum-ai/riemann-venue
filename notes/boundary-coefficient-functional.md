@@ -63,3 +63,22 @@ The search found a safe residue, not a surviving counterterm. The next
 candidate should be a balanced residue: something that starts from the
 zero-frequency finite-response normalization but adds enough response-side
 structure to avoid being merely `h(0)` in disguise.
+
+## Balanced Residue Follow-up
+
+`RiemannVenue/Venue/BoundaryBalancedResidue.lean` tries that next shape. It
+uses the translated quadratic-defect aperture
+
+```text
+h(0) - (h(log p) + h(-log p)) / 2
+```
+
+and forms the finite-window sum
+
+```text
+sum_{p in S} (1/p) * aperture_p(h).
+```
+
+This cancels constant tests, so it escapes the bare zero-value trap. But it is
+not separable as `coefficient(h) * sum_{p in S} 1/p`; the aperture depends on
+`p`.

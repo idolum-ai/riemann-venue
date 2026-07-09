@@ -238,6 +238,12 @@ response gives `coefficient(h) = -h(0)`. This is upstream of the target
 pairing, but it collapses to the zero-value rung up to sign, so it is a
 diagnostic residue rather than a surviving counterterm.
 
+`RiemannVenue/Venue/BoundaryBalancedResidue.lean` then tries the quadratic
+response-defect residue. The p-local aperture
+`h(0) - (h(log p) + h(-log p))/2` cancels constant tests and is anchored in
+the Hellinger/translated-defect critical scale. Its cost is structural: it is
+not a single scalar coefficient multiplying `sum_{p in S} 1/p`.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -295,6 +301,9 @@ The next work should choose one fork and deepen it:
 - If **balanced-residue-first**, start from the safe normalization residue
   `-h(0)` and add only response-side structure needed to avoid the bare
   zero-value trap.
+- If **nonseparable-counterterm-first**, widen the counterterm interface from
+  `coefficient(h) * sum 1/p` to finite-window p-local apertures and test
+  whether the balanced residue has a finite part.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
