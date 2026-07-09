@@ -80,3 +80,9 @@ So the next serious mining question is:
 > Can we build a renormalized weight whose finite windows are the known
 > vector states and whose test ideal is canonical enough to avoid the
 > square-root trap?
+
+`RiemannVenue/Venue/BoundaryWeight.lean` starts that mining pass. It splits a
+weight candidate into finite-window weights, an upstream renormalization
+bridge, and remaining completion/no-leak debt. The main lesson is that
+"weight" is only useful when it is projective over finite windows and finite
+on a canonical test ideal; otherwise it is just ambient infinity.

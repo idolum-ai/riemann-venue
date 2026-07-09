@@ -178,3 +178,19 @@ The weight-like probe is the surviving relaxation. It is not accepted for
 free: it must retain the finite-window vector response, be finite only
 through a named test ideal, avoid ambient infinite-weight behavior, and keep
 completion/no-leak identification as explicit debt.
+
+## Detonation: Weight Workbench
+
+`RiemannVenue/Venue/BoundaryWeight.lean` deepens the surviving branch. A
+renormalized boundary weight must now expose:
+
+- a finite-window weight system over prime windows;
+- projective compatibility across restrictions;
+- anchoring in the already-proved vector response contact;
+- an upstream renormalization bridge; and
+- explicit remaining debt for the completed explicit formula and no-leak
+  semantics.
+
+This makes the next failure point concrete: either we find a canonical test
+ideal and renormalization bridge, or the weight route is just a name for the
+divergence it was meant to absorb.

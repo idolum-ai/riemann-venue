@@ -22,7 +22,9 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    weight-domain finiteness, and finite-window response contact into typed
    interfaces. The current model probes compare the naive honest-vector
    route with a weight-like relaxation against the divergent critical
-   boundary criterion.
+   boundary criterion. The weight workbench now requires finite-window
+   projectivity and an upstream renormalization bridge before the completed
+   identification can be discussed.
 
 ## Design rule
 

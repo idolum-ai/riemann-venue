@@ -44,6 +44,12 @@ The divergent all-primes criterion `Summable (fun p : Nat.Primes => p^{-1})`.
 It marks the first obstruction for naive unrenormalized critical vector
 models in the boundary-carrier workbench.
 
+## Boundary weight
+
+Workbench name for a renormalized weight-like carrier whose finite-window
+restrictions retain the known vector-state response and whose boundary value
+is finite on a canonical test ideal.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

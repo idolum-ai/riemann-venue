@@ -198,6 +198,12 @@ criterion false. The weight-like probe is therefore not a solution but a
 surviving relaxation: finite on a canonical test ideal, locally compatible
 with the vector response, and still owing the completed identification.
 
+`RiemannVenue/Venue/BoundaryWeight.lean` sharpens the relaxation. A weight
+candidate must now be a finite-window system plus an upstream renormalization
+bridge. Its local restrictions must stay anchored in the proved vector
+response, while the boundary value must be finite through a named test ideal
+and must not be defined by reading the target Weil pairing.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -235,6 +241,9 @@ The next work should choose one fork and deepen it:
 - If **weight-first**, define a canonical renormalized test ideal whose
   finite-window restrictions are the known local vector states and whose
   domain is not chosen from the target Weil pairing.
+- If **renormalization-bridge-first**, propose the finite-window restriction
+  maps and boundary renormalization functional before attempting the
+  archimedean/pole/no-leak identification.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.
