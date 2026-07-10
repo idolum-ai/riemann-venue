@@ -206,15 +206,16 @@ flux with the actual derivative at `sigma = 1/2`. Canonical finite prime
 windows therefore converge to an enumeration-independent critical
 Hellinger-flux finite part.
 
-## Remaining Arithmetic Gate
+## Observable Decision Gate
 
-The Hellinger channel now has a genuine finite normal derivative and an
-absolutely summable renormalized critical flux. This proves convergence of
-the boundary derivative series, but not yet a full theorem differentiating
-the infinite `sigma`-dependent prime sum on a neighborhood of `1/2`; that
-stronger interchange needs one neighborhood-uniform majorant plus treatment
-of finitely many large-radius primes. It also does not make the Hellinger flux
-equal to the Euler logarithmic derivative.
+The infinite Hellinger tail is now differentiable term by term throughout
+`5/12 < sigma < 7/12`, under a strip-uniform summable majorant. The only
+remaining terms in the full critical derivative are primes `2` and `3`, which
+need the finite circle-integral differentiation theorem extended from
+`a < 1/2` to arbitrary `a < 1`.
+
+This stronger analytic theorem still does not make the Hellinger flux equal
+to the Euler logarithmic derivative. The amplitude-order trap explains why.
 
 The two observations still have different local expansions. The Hellinger
 flux begins with the centered first harmonic
@@ -227,8 +228,15 @@ while the Euler channel retains the full prime-power ladder with amplitudes
 `(log p) p^(-r/2) cos(r u log p)`. The counterterm compatibility theorem
 explains one exact overlap, but not the full identity.
 
-The next gate is therefore arithmetic and architectural: determine whether a
-single completed first boundary jet combines these channels, whether an
-additional transform is required, or whether the Hellinger value and Euler
-flux must remain distinct observables joined only after archimedean
-completion. No such identification is claimed here.
+Lean now proves that no regular scalar post-processing of the Hellinger
+defect can recover the nonzero Euler linear amplitude. It also proves the
+positive replacement: the centered log density of the same Poisson response
+is exactly the centered Euler logarithmic potential. The low-order
+Hellinger-energy/Euler-score matrix has determinant `-(1 - cos t)^2`, so the
+paired observables are generically nonsingular even though the Hellinger row
+alone loses the linear sector.
+
+The decision is therefore to retain typed energy and score channels as
+Cauchy data of one scale family. The next gate is archimedean completion and
+the construction of a canonical Weil projection from that paired boundary
+jet. See `notes/boundary-observable-decision-gate.md`.

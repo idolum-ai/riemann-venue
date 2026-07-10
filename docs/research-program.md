@@ -50,10 +50,14 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    frequency-side `L1` test space. The normal derivative has now also been
    constructed from the same Hellinger response: after the differentiated
    quadratic counterterm is removed, its critical log-scale residual is
-   absolutely summable with rate `O((log p)p^(-3/2))`. The next boundary
-   question is the arithmetic identification problem: whether this finite
-   Hellinger flux can be related to the Euler prime-power logarithmic
-   derivative and then completed by the archimedean place.
+   absolutely summable with rate `O((log p)p^(-3/2))`, and the infinite tail
+   is differentiable on an open strip around the critical exponent. A regular
+   scalar identification with the Euler flux is now ruled out by amplitude
+   order. Instead, the centered log density of the same Poisson response
+   realizes the Euler score exactly, and the paired energy/score coefficient
+   matrix is generically nonsingular. The next boundary question is how to
+   complete this typed pair at the archimedean place and project it onto the
+   Weil functional.
 
 ## Design rule
 

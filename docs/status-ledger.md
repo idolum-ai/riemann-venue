@@ -224,6 +224,35 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     identification with the Euler prime-power flux
   - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`
 
+- **Claim:** The infinite compensated Hellinger prime tail is differentiable term by
+  term throughout `5/12 < sigma < 7/12`; completing the full critical prime sum is
+  reduced to the general-radius circle-integral derivative for primes `2` and `3`
+
+  - **Status:** tail theorem proved in Lean; two finite local terms remain open
+  - **Artifact:**
+    `RiemannVenue/Venue/BoundaryHellingerInfiniteDifferentiation.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** The centered log-density observable of the Poisson response is exactly
+  the centered Euler logarithmic potential, and its outward score is the full
+  log-weighted prime-power ladder
+
+  - **Status:** proved in Lean, including finite-window critical specialization to
+    the existing centered Weil prime-power side
+  - **Artifact:** `RiemannVenue/Venue/BoundaryLogPoissonBridge.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** No scalar transformation differentiable at zero can identify the
+  quadratic Hellinger defect with the nondegenerate linear Euler first harmonic;
+  the paired Hellinger-energy/Euler-score coefficient matrix is nonsingular when
+  `cos t != 1`
+
+  - **Status:** proved in Lean; singular transforms, polarization, and typed
+    multi-observable carriers are not excluded
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerOrderTrap.lean`,
+    `RiemannVenue/Venue/BoundaryHarmonicMatrix.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 

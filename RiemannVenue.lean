@@ -66,3 +66,7 @@ import RiemannVenue.Venue.BoundaryFinitePartStructure
 import RiemannVenue.Venue.BoundaryFourierL1
 import RiemannVenue.Venue.BoundaryScaleJet
 import RiemannVenue.Venue.BoundaryHellingerFlux
+import RiemannVenue.Venue.BoundaryHellingerInfiniteDifferentiation
+import RiemannVenue.Venue.BoundaryHellingerOrderTrap
+import RiemannVenue.Venue.BoundaryLogPoissonBridge
+import RiemannVenue.Venue.BoundaryHarmonicMatrix
