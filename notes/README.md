@@ -41,7 +41,8 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   `((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)` as `a -> 0+`.
 - `boundary-finite-part-survival.md` — completes the half-balanced cosine-atom
   finite-part pass: a uniform cubic local bound makes the exact residual
-  absolutely summable over primes.
+  absolutely summable over primes; finite windows converge uniformly to a
+  continuous even function vanishing at zero.
 - `lambda-min-rate.md` — the λ_min(K_N) decay-rate question: numerics (extended to N = 1.3×10⁷ in §6 and the §7 validation gate), the Liouville-signed minimizer, literature placement, conjecture candidates, and attack routes.
 - `lambda-min-upper-design.md` — the upper-bound attack design: the primorial test family, the exact per-prime factorization, the product-family barrier, and the reciprocal-edges mechanism.
 - `perron-vector-attack.md` — a Perron-vector/Schur-certificate attack note

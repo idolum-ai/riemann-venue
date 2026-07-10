@@ -56,6 +56,10 @@ abs_exactCosineLocalRemainder_le
 summable_abs_exactCosineLocalRemainder
 cosineFinitePartSurvival_holds
 tendsto_exactCosineFiniteRemainder
+continuous_cosineFinitePartCandidate
+cosineFinitePartCandidate_neg
+cosineFinitePartCandidate_zero
+tendstoUniformly_exactCosineFiniteRemainder
 ```
 
 The key uniform local estimate is
@@ -143,9 +147,11 @@ The constant `780` is deliberately coarse. The symmetry
 `H(-a,t) = H(a,t)` suggests that the true first omitted term is quartic, but
 that sharpening is unnecessary for summability and is not claimed here.
 
-The uniform majorant suggests a first structural package: uniform convergence
-in `u`, continuity, evenness, and value zero at `u = 0`. Those facts are not
-yet packaged as theorems. After that, the next non-tautological question is
-domain enlargement: identify a named test ideal whose finite-window
-restrictions admit comparable uniform control, rather than proving one
-frequency at a time.
+`RiemannVenue/Venue/BoundaryFinitePartStructure.lean` now packages the first
+structural consequences. The finite-prime windows converge uniformly on all
+of `ℝ`, and the resulting cosine finite part is continuous, even, and zero at
+`u = 0`.
+
+The next non-tautological question is domain enlargement: identify a named
+test ideal whose finite-window restrictions admit comparable uniform control,
+rather than proving one frequency at a time.

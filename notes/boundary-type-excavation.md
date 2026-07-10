@@ -259,8 +259,11 @@ finite windows to exact local residuals, and
 `RiemannVenue/Venue/BoundaryResidualSummability.lean` closes that charge: a
 uniform cubic local estimate gives `|residual_p(u)| <= 780 p^(-3/2)` outside
 the two finite exceptional primes. Thus every cosine atom has an absolutely
-convergent finite part without invoking cancellation between primes. The live
-blocker has moved from local summability to extension over a named test ideal.
+convergent finite part without invoking cancellation between primes.
+`RiemannVenue/Venue/BoundaryFinitePartStructure.lean` strengthens this to
+uniform convergence on the entire frequency line and proves that the limit is
+continuous, even, and zero at the origin. The live blocker has moved from
+function-level existence to extension over a named test ideal.
 
 This success is specifically in the quadratic weight/energy sector. Its
 summability proof uses no arithmetic input beyond comparison with the prime

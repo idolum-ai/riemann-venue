@@ -144,8 +144,10 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    is more local: the coefficient `1/2` in the half-balanced p-local
    counterterm is proved from the translated Hellinger response, and its
    cosine-atom residual is absolutely summable by an `O(p^{-3/2})` bound.
-   Extending that finite part to a named test ideal and completing the Weil
-   distribution remain open; neither result is Weil positivity.
+   Its finite windows converge uniformly to a continuous even function that
+   vanishes at zero. Extending that finite part to a named test ideal and
+   completing the Weil distribution remain open; none of these results is
+   Weil positivity.
 
 ## Where to start
 

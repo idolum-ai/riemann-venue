@@ -44,9 +44,11 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    kernel. The exact local asymptotic and cosine-atom finite-part survival are
    now proved: a uniform cubic local estimate bounds the residual by
    `780 p^(-3/2)` outside two finite primes, so the residual converges
-   absolutely without prime cancellation. The next boundary question is
-   whether this construction extends from individual cosine atoms to a named
-   test ideal with uniform restriction and completion control.
+   absolutely without prime cancellation. The finite windows in fact converge
+   uniformly on the frequency line to a continuous even function that
+   vanishes at zero. The next boundary question is whether this construction
+   extends from individual cosine atoms to a named test ideal with uniform
+   restriction and completion control.
 
 ## Design rule
 

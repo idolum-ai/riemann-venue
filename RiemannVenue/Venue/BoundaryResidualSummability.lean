@@ -359,7 +359,7 @@ theorem abs_exactCosineLocalRemainder_le {p : Nat.Primes}
       (criticalPrimeRadius_pos p) (criticalPrimeRadius_le_half hp)
       (u * Real.log (p : ℝ))
 
-private theorem eventually_prime_ge_four :
+theorem eventually_prime_ge_four :
     ∀ᶠ p : Nat.Primes in cofinite, 4 ≤ (p : ℕ) := by
   rw [Filter.eventually_cofinite]
   apply Set.Finite.of_finite_image
