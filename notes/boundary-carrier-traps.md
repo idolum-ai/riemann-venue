@@ -28,6 +28,9 @@ batches.
 ### 1. Structural anti-fake traps
 
 - The carrier is constructed upstream of the completed Weil pairing.
+- The claimed identification with the Weil pairing is sensitive to the
+  arithmetic finite-place data. Generic positivity may survive replacing the
+  primes by arbitrary local sites; the arithmetic identification may not.
 - The observable map is not the square-root shortcut
   `h -> sqrt(D(h* * h))`.
 - The observable assignment has linear or functorial discipline.
@@ -35,6 +38,15 @@ batches.
   action.
 
 These traps prevent arbitrary per-test-function hacks.
+
+The second item is the **arithmetic-identification trap**. It is deliberately
+about identification, not bare positivity. Autocorrelation and positive-square
+constructions can remain positive for many non-prime site families. That is
+not a defect. The defect would be claiming that such universal positivity has
+already identified the completed Weil pairing. The current Lean field names
+this charge as an obligation; hardening it requires parameterizing the
+finite-place input and showing that an impostor substitution breaks the
+arithmetic identity.
 
 ### 2. Positivity-domain traps
 

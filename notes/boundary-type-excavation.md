@@ -262,6 +262,14 @@ the two finite exceptional primes. Thus every cosine atom has an absolutely
 convergent finite part without invoking cancellation between primes. The live
 blocker has moved from local summability to extension over a named test ideal.
 
+This success is specifically in the quadratic weight/energy sector. Its
+summability proof uses no arithmetic input beyond comparison with the prime
+`3/2`-series, so it does not yet identify the completed arithmetic object.
+The critical counterterm retains the `p^(-1)` and `u log p` site data, while
+the full `(log p) p^(-k/2)` prime-power distribution still belongs to the
+logarithmic radial derivative of the unsquared response. The identity joining
+these surfaces, and the archimedean completion of that identity, remain open.
+
 ## Current excavation result
 
 `RiemannVenue/Venue/BoundaryType.lean` records the candidate contract as a
@@ -292,7 +300,8 @@ The next work should choose one fork and deepen it:
   family.
 - If **trap-first**, make the cheap anti-fake obligations less propositional:
   observable linearity/functoriality, weight finiteness on the test ideal,
-  and finite-window compatibility with the known response vector states.
+  finite-window compatibility with the known response vector states, and an
+  arithmetic-identification test that fails under impostor site substitution.
 - If **discipline-first**, instantiate `BoundaryCarrierHardenedTrapBatch` for
   candidate vector, state, weight, or renormalized-weight models and compare
   where each one first fails.
@@ -329,6 +338,9 @@ The next work should choose one fork and deepen it:
 - If **finite-part-first**, extend the discharged cosine-atom result to a
   named linear test ideal, with a uniform majorant strong enough to exchange
   the test-function decomposition and the prime sum.
+- If **state-reentry-first**, first prove or break conditional negative
+  definiteness of the compensated residual. It is a difference of two
+  state-shaped kernels, so CND does not follow formally from either term.
 
 Until one fork is chosen, this note should remain an excavation ledger rather
 than a proof plan.

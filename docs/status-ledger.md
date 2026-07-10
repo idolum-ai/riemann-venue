@@ -131,8 +131,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `notes/boundary-state-spike.md`
 
 - **Claim:** Boundary carrier trap matrix: vector/state/trace/weight candidates must survive
-  anti-fake, positivity-domain, finite-ore, completion, and no-leak traps before supporting the
-  boundary type contract
+  anti-fake, arithmetic-identification, positivity-domain, finite-ore, completion, and no-leak
+  traps before supporting the boundary type contract
 
   - **Status:** stated / programmatic
   - **Artifact:** `RiemannVenue/Venue/BoundaryCarrier.lean`,

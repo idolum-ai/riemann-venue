@@ -105,10 +105,47 @@ and hence analytic input beyond the elementary prime comparison used here. At
 `u = 0`, the translated defect and counterterm both vanish, so survival is the
 degenerate zero case and says nothing about necessity.
 
+## Where The Arithmetic Went
+
+The convergence proof uses the primes only through the summability of the
+majorant `p^(-3/2)`. The same proof pattern would accept a non-prime site
+family with comparable radii. This does not make the resulting function
+independent of the primes, but it means that absolute convergence alone does
+not identify an arithmetic boundary object.
+
+The leading counterterm retains the critical arithmetic scale:
+
+```text
+(1/2) * p^(-1) * (1 - cos(u log p)).
+```
+
+Relating its oscillatory part to boundary values of the Euler product is not
+proved here. Nor does the compensated residual recover the explicit-formula
+weights `(log p) * p^(-k/2)` or the full prime-power ladder. Those belong to
+the existing logarithmic radial-derivative route on the unsquared response.
+Differentiating the Hellinger defect can introduce `log p`, but remains in the
+quadratic weight/energy sector and does not by itself recover that ladder.
+
+This is also why positivity of a future Hellinger-derived state cannot close
+the boundary problem by itself. Positive-square semantics are generic. The
+load-bearing step is an arithmetic identity tying the carrier-derived pairing
+to the completed Weil pairing, including the archimedean gamma, pole, and
+trivial-zero terms.
+
+Conditional negative definiteness is a separate prove-or-break charge. Even
+if the untranslated defect and cosine counterterm are each conditionally
+negative definite, the compensated residual is their difference, and that
+property is not preserved by subtraction. A Schoenberg or Lévy-Khinchine
+interpretation must therefore follow an actual CND theorem; it cannot be
+inferred from the positive-square origin of the two terms.
+
 The constant `780` is deliberately coarse. The symmetry
 `H(-a,t) = H(a,t)` suggests that the true first omitted term is quartic, but
 that sharpening is unnecessary for summability and is not claimed here.
 
-The next non-tautological question is domain enlargement: identify a named
-test ideal whose finite-window restrictions admit comparable uniform control,
-rather than proving one frequency at a time.
+The uniform majorant suggests a first structural package: uniform convergence
+in `u`, continuity, evenness, and value zero at `u = 0`. Those facts are not
+yet packaged as theorems. After that, the next non-tautological question is
+domain enlargement: identify a named test ideal whose finite-window
+restrictions admit comparable uniform control, rather than proving one
+frequency at a time.

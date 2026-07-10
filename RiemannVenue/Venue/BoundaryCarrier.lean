@@ -67,6 +67,13 @@ structure BoundaryCarrierCandidate where
   /-- The carrier is constructed upstream of the completed Weil pairing,
   rather than from the pairing it is supposed to explain. -/
   constructionUpstream : Prop
+  /-- The claimed identification is sensitive to the arithmetic finite-place
+  data. Generic positivity may survive replacement of the primes by arbitrary
+  local sites, but the identification with the completed Weil pairing must
+  not survive that replacement for free. This names the charge; a hardened
+  version must parameterize the finite-place input and exhibit the failure of
+  an impostor substitution. -/
+  arithmeticIdentificationSensitive : Prop
   /-- The observable map is not the tautological square-root shortcut
   `h ↦ sqrt (D (h⋆ * h))`. -/
   noSquareRootShortcut : Prop
@@ -110,6 +117,7 @@ wrong order or by arbitrary per-test square roots. -/
 def BoundaryCarrierCandidate.structuralTraps
     (C : BoundaryCarrierCandidate) : Prop :=
   C.constructionUpstream ∧
+  C.arithmeticIdentificationSensitive ∧
   C.noSquareRootShortcut ∧
   C.observableLinearity ∧
   C.observableScaleCompatibility
