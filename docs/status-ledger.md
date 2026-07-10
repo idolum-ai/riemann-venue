@@ -184,6 +184,35 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean (arithmetic-sensitivity trap)
   - **Artifact:** `RiemannVenue/Venue/BoundaryFourierL1.lean`
 
+- **Claim:** One finite arithmetic scale family supplies both the critical Hellinger value
+  and logarithmic normal flux; the value recovers the existing finite residual, while the
+  flux recovers the existing truncated prime-power distribution
+
+  - **Status:** proved in Lean at finite prime and power windows
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`,
+    `notes/boundary-scale-jet.md`
+
+- **Claim:** Finite logarithmic radial jets form a graded derivative family, with grade zero
+  equal to the log response and grade one equal to minus the prime-power flux
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`
+
+- **Claim:** The Hellinger value counterterm is one quarter of the centered first-harmonic
+  logarithmic response at doubled exponent, and its outward flux is one half of the
+  corresponding centered logarithmic flux
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`,
+    `notes/boundary-scale-jet.md`
+
+- **Claim:** The Poisson kernel, its square root, and the translated squared Hellinger
+  integrand have explicit radial derivatives at every local interior radius
+
+  - **Status:** proved in Lean; differentiation under the final interval integral remains open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`,
+    `notes/boundary-scale-jet.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 

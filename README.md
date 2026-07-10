@@ -149,7 +149,9 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    on a named frequency-side `L1` test space, with finite windows converging
    in dual operator norm. Complex Fourier/Wiener closure and completion of
    the Weil distribution remain open; none of these results is Weil
-   positivity.
+   positivity. A common finite-window scale family now derives both this
+   Hellinger value and the logarithmic prime-power flux, with an exact
+   centered first-harmonic compatibility law for the counterterm.
 
 ## Where to start
 

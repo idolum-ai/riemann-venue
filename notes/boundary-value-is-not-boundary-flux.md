@@ -216,21 +216,27 @@ sites. The completed flux pairing must know the primes, prime powers, gamma
 factor, and zero spectrum. If positivity arrives before that identity, it is
 positivity of the frame, not yet of the arithmetic picture.
 
-## The next finite-window experiment
+## The finite-window experiment
+
+The first finite-window pass is now implemented in
+`RiemannVenue/Venue/BoundaryScaleJet.lean`; see
+`notes/boundary-scale-jet.md` for the proof ledger. It derives the Hellinger
+value and logarithmic flux from one local Poisson scale point, proves the flux
+is the existing prime-power distribution, and identifies the value
+counterterm as a centered first-harmonic logarithmic response at doubled
+exponent.
+
+The remaining route is local and finite before it is global:
 
 The safest route is local and finite before it is global:
 
-1. Define a `sigma > 1/2` finite-window response family from which both the
-   Hellinger value and logarithmic response are derived.
-2. Keep prime windows finite and differentiate the logarithmic branch exactly.
-3. Record the derivative of every value-sector counterterm rather than
-   assuming it vanishes.
-4. Compare the resulting flux with `primePowerSideTruncated`.
-5. Ask whether the value controls a test domain on which the flux sequence has
+1. Differentiate the raw Hellinger value in the radial coordinate.
+2. Prove a uniform derivative-remainder estimate near the critical exponent.
+3. Decide whether the infinite finite-part limit commutes with radial
+   differentiation.
+4. Ask whether the value controls a test domain on which the flux sequence has
    a distributional limit.
-6. Only then test whether critical finite part and radial derivative commute,
-   or whether an additional counterterm is forced.
-7. Add the archimedean flux and compare the completed object with the Weil
+5. Add the archimedean flux and compare the completed object with the Weil
    pairing.
 
 Most of these steps can fail informatively. Failure of commutation would name

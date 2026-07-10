@@ -51,6 +51,16 @@ not interchangeable: the proved Hellinger finite part supplies the former,
 while the logarithmic radial derivative supplies the finite prime-power face
 expected of the latter. See `notes/boundary-value-is-not-boundary-flux.md`.
 
+`RiemannVenue/Venue/BoundaryScaleJet.lean` now implements the first finite
+version of that decomposition. One local Poisson scale point derives both
+observations; the critical value recovers the existing finite residual, the
+normal logarithmic flux recovers the existing prime-power distribution, and
+the Hellinger counterterm is exactly a centered first-harmonic logarithmic
+response at doubled exponent. `BoundaryHellingerFlux.lean` proves the
+pointwise radial derivatives needed for the value channel. The remaining
+compatibility debt is differentiation under the Hellinger integral and then
+through the infinite prime-window limit.
+
 ## Candidate type contract
 
 A boundary type candidate should package a completed log-scale

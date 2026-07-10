@@ -64,3 +64,5 @@ import RiemannVenue.Venue.BoundaryFinitePartSurvival
 import RiemannVenue.Venue.BoundaryResidualSummability
 import RiemannVenue.Venue.BoundaryFinitePartStructure
 import RiemannVenue.Venue.BoundaryFourierL1
+import RiemannVenue.Venue.BoundaryScaleJet
+import RiemannVenue.Venue.BoundaryHellingerFlux

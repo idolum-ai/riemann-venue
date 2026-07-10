@@ -513,3 +513,25 @@ negative near `u = 14`, stabilizing around `-0.038530` through primes below
 must be nonnegative, the compensated residual does not appear to inherit CND
 for free. This remains a computed signal rather than a Lean theorem; a formal
 rejection needs a certified sign and tail estimate.
+
+## 19. Boundary value and flux meet first through the counterterm
+
+The first common scale-family implementation has now landed. A local Poisson
+scale point with radius `p^(-sigma)` and phase `u log p` produces both the
+translated Hellinger value and the Euler logarithmic response. At the critical
+exponent, the former recovers the proved finite residual and the normal
+derivative of the latter recovers the existing prime-power distribution.
+
+The first cross-channel identity is unexpectedly exact: the Hellinger
+counterterm is one quarter of the centered first-harmonic logarithmic response
+at doubled exponent `2 sigma`. Its outward normal flux is one half of the
+matching centered logarithmic flux. Thus value and flux are not one scalar
+jet, but neither are they unrelated; the renormalization term is already a
+precise bridge between them.
+
+The remaining difficulty has become analytic rather than architectural. Lean
+now proves radial derivatives of the Poisson kernel, its square root, and the
+translated squared Hellinger integrand at every interior radius. What remains
+is to pass that derivative through the finite interval integral and prove a
+uniform `O(a^2)` derivative remainder strong enough to exchange radial
+differentiation with the infinite prime-window limit.
