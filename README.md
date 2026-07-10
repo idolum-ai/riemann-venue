@@ -21,6 +21,17 @@ policy; the main theorems carry axiom audits (`propext, Classical.choice,
 Quot.sound`); the numerics are deterministic scripts with committed outputs.
 The collaboration story (below) is about discovery, not validity.
 
+## Claims at a glance
+
+This is the short reader's map. It is deliberately coarser than the
+[artifact-by-artifact status ledger](docs/status-ledger.md).
+
+| Category | What the repository supports |
+|---|---|
+| **Proved in Lean** | The gcd kernel's finite positivity and infinite prime-torus spectral representation; both directions of Kakutani's dichotomy; the product-Poisson phase change exactly at `σ = 1/2`; the exact translated Hellinger boundary coefficient and absolutely convergent cosine finite part; the primorial Rayleigh upper bound; and failure of the direct length-side limit. |
+| **Computed** | Reproducible finite spectra and Euler-shadow experiments; Hellinger-threshold and radial-derivative experiments; and large-window numerical evidence for the bottom spectral edge and reciprocal-edges law. Computation is evidence, not proof. |
+| **Open** | Construction and positivity of the completed boundary distribution; the sharp bottom-edge corridor; and the mechanism and constant behind the reciprocal-edges law. In particular, RH is not proved here. |
+
 ## Main results (machine-checked)
 
 All in Lean 4 against pinned Mathlib; declaration names are exact.
@@ -171,6 +182,9 @@ git diff --check
 ```
 
 Toolchain: Lean 4 (`lean-toolchain`), Mathlib pinned in `lake-manifest.json`.
+The current RC pin is inherited from that exact Mathlib revision; its rationale
+and the stable-upgrade gate are recorded in
+[docs/toolchain-policy.md](docs/toolchain-policy.md).
 
 ## Repository map
 
