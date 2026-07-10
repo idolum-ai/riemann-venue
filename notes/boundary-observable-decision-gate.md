@@ -112,10 +112,28 @@ score/log channel     : centered log density and prime-power flux.
 
 The pairing is not an arbitrary product of unrelated constructions. Both
 rows are exact observations of the same density, and their low-order
-coefficient matrix is generically nonsingular. The next construction should
-therefore test a paired energy/score boundary jet, then add the archimedean
-score and ask whether the completed Weil functional is a canonical projection
-of that type.
+coefficient matrix is generically nonsingular.
+
+## Continuation
+
+The first continuation is now complete:
+
+- compact local domination extends Hellinger differentiation to every
+  `0 < a < 1`, discharging the critical primes `2` and `3`;
+- the complete critical Hellinger prime sum has its flux as an unconditional
+  normal derivative;
+- a generic channel-indexed first Cauchy datum packages the finite energy and
+  score channels, with both derivative laws proved;
+- the archimedean score is
+  `-(log pi)/2 + digamma(s/2)/2`, proved equal to `logDeriv Gamma_R(s)` on the
+  positive half-plane; and
+- a typed projection contract maps this field into the repository's stable
+  completed-boundary contract.
+
+The projection is not instantiated. The remaining non-positivity work is the
+completed test topology, the finite-score distributional limit, the Gamma
+pairing convention, and pole/trivial-zero terms. Once those are supplied,
+Weil positivity is exactly the separate locked gate.
 
 ## Artifacts
 
@@ -123,3 +141,7 @@ of that type.
 - `RiemannVenue/Venue/BoundaryHellingerOrderTrap.lean`
 - `RiemannVenue/Venue/BoundaryLogPoissonBridge.lean`
 - `RiemannVenue/Venue/BoundaryHarmonicMatrix.lean`
+- `RiemannVenue/Venue/BoundaryHellingerGeneralRadius.lean`
+- `RiemannVenue/Venue/BoundaryEnergyScoreJet.lean`
+- `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
+- `RiemannVenue/Venue/BoundaryCompletedProjection.lean`

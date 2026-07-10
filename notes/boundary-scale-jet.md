@@ -209,10 +209,10 @@ Hellinger-flux finite part.
 ## Observable Decision Gate
 
 The infinite Hellinger tail is now differentiable term by term throughout
-`5/12 < sigma < 7/12`, under a strip-uniform summable majorant. The only
-remaining terms in the full critical derivative are primes `2` and `3`, which
-need the finite circle-integral differentiation theorem extended from
-`a < 1/2` to arbitrary `a < 1`.
+`5/12 < sigma < 7/12`, under a strip-uniform summable majorant. Compact local
+domination extends the finite circle-integral theorem to every `0 < a < 1`,
+so the critical primes `2` and `3` are now discharged and the complete prime
+sum has its unconditional normal derivative.
 
 This stronger analytic theorem still does not make the Hellinger flux equal
 to the Euler logarithmic derivative. The amplitude-order trap explains why.
@@ -237,6 +237,8 @@ paired observables are generically nonsingular even though the Hellinger row
 alone loses the linear sector.
 
 The decision is therefore to retain typed energy and score channels as
-Cauchy data of one scale family. The next gate is archimedean completion and
-the construction of a canonical Weil projection from that paired boundary
-jet. See `notes/boundary-observable-decision-gate.md`.
+Cauchy data of one scale family. That channel-indexed first jet is now
+constructed at finite windows, and the archimedean score is derived from the
+logarithmic derivative of `Gamma_R`. The remaining gate is the completed test
+topology and canonical Weil projection, including pole/trivial-zero terms.
+See `notes/boundary-observable-decision-gate.md`.

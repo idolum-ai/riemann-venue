@@ -55,9 +55,13 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    scalar identification with the Euler flux is now ruled out by amplitude
    order. Instead, the centered log density of the same Poisson response
    realizes the Euler score exactly, and the paired energy/score coefficient
-   matrix is generically nonsingular. The next boundary question is how to
-   complete this typed pair at the archimedean place and project it onto the
-   Weil functional.
+   matrix is generically nonsingular. The channel-indexed first jet is now
+   constructed at finite windows, the full critical Hellinger sum has its
+   actual normal derivative, and the archimedean score is identified with the
+   logarithmic derivative of `Gamma_R`. The next boundary question is the
+   completed projection itself: the test topology, pole/trivial-zero terms,
+   and identity with the Weil functional. These remain explicit obligations,
+   with positivity separate as the locked gate.
 
 ## Design rule
 

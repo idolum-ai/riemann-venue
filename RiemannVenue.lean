@@ -70,3 +70,7 @@ import RiemannVenue.Venue.BoundaryHellingerInfiniteDifferentiation
 import RiemannVenue.Venue.BoundaryHellingerOrderTrap
 import RiemannVenue.Venue.BoundaryLogPoissonBridge
 import RiemannVenue.Venue.BoundaryHarmonicMatrix
+import RiemannVenue.Venue.BoundaryHellingerGeneralRadius
+import RiemannVenue.Venue.BoundaryEnergyScoreJet
+import RiemannVenue.Venue.BoundaryArchimedeanScore
+import RiemannVenue.Venue.BoundaryCompletedProjection

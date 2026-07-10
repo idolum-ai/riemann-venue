@@ -207,11 +207,12 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `notes/boundary-scale-jet.md`
 
 - **Claim:** The Poisson kernel, its square root, and the translated squared Hellinger
-  integrand have explicit radial derivatives at every local interior radius; below the
-  half-radius boundary, differentiation passes through the circle integral
+  integrand have explicit radial derivatives at every local interior radius, and
+  differentiation passes through the circle integral for every `0 < a < 1`
 
   - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`,
+    `RiemannVenue/Venue/BoundaryHellingerGeneralRadius.lean`,
     `notes/boundary-scale-jet.md`
 
 - **Claim:** The quadratic-counterterm-subtracted Hellinger radial derivative is
@@ -225,12 +226,13 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`
 
 - **Claim:** The infinite compensated Hellinger prime tail is differentiable term by
-  term throughout `5/12 < sigma < 7/12`; completing the full critical prime sum is
-  reduced to the general-radius circle-integral derivative for primes `2` and `3`
+  term throughout `5/12 < sigma < 7/12`, and the complete critical prime sum has the
+  constructed flux as its unconditional normal derivative
 
-  - **Status:** tail theorem proved in Lean; two finite local terms remain open
+  - **Status:** proved in Lean; the general-radius theorem discharges primes `2` and `3`
   - **Artifact:**
     `RiemannVenue/Venue/BoundaryHellingerInfiniteDifferentiation.lean`,
+    `RiemannVenue/Venue/BoundaryHellingerGeneralRadius.lean`,
     `notes/boundary-observable-decision-gate.md`
 
 - **Claim:** The centered log-density observable of the Poisson response is exactly
@@ -252,6 +254,29 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerOrderTrap.lean`,
     `RiemannVenue/Venue/BoundaryHarmonicMatrix.lean`,
     `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** The selected energy and score observables form one generic
+  channel-indexed Cauchy datum, and both finite-window normal entries are the actual
+  increasing-`sigma` derivatives of their value entries
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryEnergyScoreJet.lean`
+
+- **Claim:** The archimedean score is the logarithmic derivative of
+  `Gamma_R(s) = pi^(-s/2) Gamma(s/2)`, with closed form
+  `-(log pi)/2 + digamma(s/2)/2` on `Re(s) > 0`
+
+  - **Status:** proved in Lean, including its real critical-boundary specialization
+  - **Artifact:** `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
+
+- **Claim:** A typed energy/score field plus the Gamma score maps into the existing
+  completed-boundary contract through explicit finite, archimedean, and pole
+  projection obligations; once those non-positivity obligations hold, Weil
+  positivity is exactly the remaining locked gate
+
+  - **Status:** contract and reduction proved in Lean; no completed projection
+    candidate is instantiated
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs

@@ -161,7 +161,14 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    has a nonzero linear term. The centered log density of the same Poisson
    response supplies the Euler score exactly, and the paired energy/score
    coefficient matrix is generically nonsingular. This points to a typed
-   multi-observable boundary jet rather than a scalar identification.
+   multi-observable boundary jet rather than a scalar identification. That
+   jet is now constructed at finite windows, with both channel derivatives
+   proved, and the complete critical Hellinger prime sum differentiates
+   without exceptional primes. The matching archimedean score is derived as
+   `-(log pi)/2 + digamma(s/2)/2`, the logarithmic derivative of `Gamma_R`.
+   A typed projection contract now isolates the still-open completed test
+   topology, pole terms, and Weil identity; positivity remains the final
+   locked gate.
 
 ## Where to start
 
