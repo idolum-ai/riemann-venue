@@ -45,6 +45,12 @@ The current repository already fixes several faces of the missing object.
 These are enough to specify the missing type's contract. They are not enough
 to exhibit it.
 
+The current excavation further separates the critical response into a
+renormalized **boundary value** and an arithmetic **boundary flux**. They are
+not interchangeable: the proved Hellinger finite part supplies the former,
+while the logarithmic radial derivative supplies the finite prime-power face
+expected of the latter. See `notes/boundary-value-is-not-boundary-flux.md`.
+
 ## Candidate type contract
 
 A boundary type candidate should package a completed log-scale

@@ -85,3 +85,6 @@ The next construction should not add another positivity wrapper. It should:
 
 Until step 3 lands, this is a genuine boundary functional but still a
 universal weight-sector carrier rather than the arithmetic boundary type.
+The conceptual distinction between this value-sector functional and the
+Weil-facing radial response is developed in
+`notes/boundary-value-is-not-boundary-flux.md`.
