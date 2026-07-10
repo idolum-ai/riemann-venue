@@ -267,9 +267,9 @@ essay's phase boundary: the local datum of the product Poisson measure at the
 prime `p` is the deficit `1 - H(p^{-σ})`, and by the two-sided quadratic
 bounds it is comparable (beyond the finitely many primes with `p^{-σ} > 1/2`)
 to the criterion series `∑_p p^{-2σ}` of `kakutani_criterion_summable_iff`.
-Combined with the (unformalized) Kakutani dichotomy this says the product
-Poisson measures are equivalent to Haar measure above the critical line and
-singular at or below it; the dichotomy itself remains Phase 3. -/
+The later `PoissonDichotomy.lean` package combines this bridge with the
+formalized Kakutani dichotomy to prove equivalence to Haar above the critical
+line and singularity at or below it. -/
 theorem summable_hellinger_deficit_iff {σ : ℝ} (hσ : 0 < σ) :
     Summable (fun p : Nat.Primes => 1 - hellinger ((p : ℝ) ^ (-σ))) ↔ 1 / 2 < σ := by
   have hp1 : ∀ p : Nat.Primes, (1 : ℝ) < (p : ℝ) := fun p => by
@@ -358,7 +358,7 @@ theorem summable_hellinger_deficit_iff {σ : ℝ} (hσ : 0 < σ) :
 /-- **Divergence at the critical exponent**: the sum of local Hellinger
 deficits diverges at `σ = 1/2` itself. This is the endpoint case of
 `summable_hellinger_deficit_iff`: the phase boundary belongs to the singular
-side of the (unformalized) Kakutani dichotomy. -/
+side of the formalized Kakutani/Poisson dichotomy. -/
 theorem not_summable_hellinger_deficit_critical :
     ¬ Summable (fun p : Nat.Primes => 1 - hellinger ((p : ℝ) ^ (-(1 / 2 : ℝ)))) := by
   intro h

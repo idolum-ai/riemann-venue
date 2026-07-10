@@ -11,8 +11,9 @@ finite Gram matrix `[κ(qᵢ/qⱼ)]` is positive semidefinite.
 The proof is a change of venue in miniature: clear denominators, land inside
 a finite truncation `normalizedGcdKernel N`, and inherit positivity as a
 submatrix. No measure theory appears; this theorem is exactly the *input*
-that the (unformalized) Bochner–Herglotz theorem would consume to produce the
-prime-torus spectral measure.
+that a Bochner–Herglotz route would consume. The repository now proves the
+corresponding product-Poisson spectral statement directly in
+`RiemannVenue/Kakutani/SpectralMeasure.lean`.
 -/
 
 namespace RiemannVenue.Kernels
@@ -126,8 +127,8 @@ theorem kappa_natCast_div {m n : ℕ} (hm : 0 < m) (hn : 0 < n) :
 of positive rationals, the Gram matrix `[κ(qᵢ/qⱼ)]` is positive
 semidefinite. This upgrades the truncation theorem
 `normalizedGcdKernel_posSemidef` to the group the essay actually works on,
-and is the exact hypothesis of the Bochner–Herglotz theorem for the
-(unformalized) prime-torus spectral measure. -/
+and is the exact positivity input behind the prime-torus spectral theorem now
+proved in `RiemannVenue/Kakutani/SpectralMeasure.lean`. -/
 theorem kappa_posSemidef {k : ℕ} (q : Fin k → ℚ) (hq : ∀ i, 0 < q i) :
     (Matrix.of fun i j => kappa (q i / q j)).PosSemidef := by
   classical

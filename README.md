@@ -81,9 +81,11 @@ our knowledge its first formalization in any proof assistant:
   rigor as its positive claims.
 
 Further instruments (moment identities, strict Hellinger deficit, the
-criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the Liouville
-conjugation identity, finite Möbius inversion, Zeta/Tate anchors onto
-Mathlib) are indexed row-by-row in the [status ledger](docs/status-ledger.md).
+criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the exact translated
+Hellinger asymptotic at the boundary, the absolutely convergent half-balanced
+cosine finite part, the Liouville conjugation identity, finite Möbius
+inversion, Zeta/Tate anchors onto Mathlib) are indexed row-by-row in the
+[status ledger](docs/status-ledger.md).
 
 ## The chain
 
@@ -127,7 +129,12 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
 3. **The Boundary Positivity Problem** — the completed, renormalized
    log-scale distribution and its positivity. RH-strength by Weil's
    criterion; stated as a `Prop` shape and deliberately not attacked here
-   (`Venue/SpectralRecenter.lean`).
+   (`Venue/SpectralRecenter.lean`). The current boundary-weight excavation
+   is more local: the coefficient `1/2` in the half-balanced p-local
+   counterterm is proved from the translated Hellinger response, and its
+   cosine-atom residual is absolutely summable by an `O(p^{-3/2})` bound.
+   Extending that finite part to a named test ideal and completing the Weil
+   distribution remain open; neither result is Weil positivity.
 
 ## Where to start
 

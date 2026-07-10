@@ -153,8 +153,10 @@ structure BalancedQuadraticResidueAttempt where
   /-- This shape is p-local, not a single scalar coefficient times
   `criticalWindowDivergence`. -/
   nonseparableFromCriticalWindow : Prop
-  /-- It still owes exact asymptotic constants and finite-part survival on a
-  named test ideal. -/
+  /-- At this layer it still owes the exact coefficient and finite-part
+  survival. Downstream, `BoundaryExactAsymptotic.lean` discharges the
+  coefficient and `BoundaryResidualSummability.lean` proves cosine-atom
+  survival; extension to a named test ideal remains open. -/
   exactResidueDebt : Prop
   /-- Current verdict. -/
   verdict : BoundaryBalancedResidueVerdict
