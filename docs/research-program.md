@@ -46,9 +46,14 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    `780 p^(-3/2)` outside two finite primes, so the residual converges
    absolutely without prime cancellation. The finite windows in fact converge
    uniformly on the frequency line to a continuous even function that
-   vanishes at zero. The next boundary question is whether this construction
-   extends from individual cosine atoms to a named test ideal with uniform
-   restriction and completion control.
+   vanishes at zero, and the resulting multiplier extends to a named
+   frequency-side `L1` test space. The normal derivative has now also been
+   constructed from the same Hellinger response: after the differentiated
+   quadratic counterterm is removed, its critical log-scale residual is
+   absolutely summable with rate `O((log p)p^(-3/2))`. The next boundary
+   question is the arithmetic identification problem: whether this finite
+   Hellinger flux can be related to the Euler prime-power logarithmic
+   derivative and then completed by the archimedean place.
 
 ## Design rule
 

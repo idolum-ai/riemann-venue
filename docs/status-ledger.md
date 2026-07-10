@@ -207,11 +207,22 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `notes/boundary-scale-jet.md`
 
 - **Claim:** The Poisson kernel, its square root, and the translated squared Hellinger
-  integrand have explicit radial derivatives at every local interior radius
+  integrand have explicit radial derivatives at every local interior radius; below the
+  half-radius boundary, differentiation passes through the circle integral
 
-  - **Status:** proved in Lean; differentiation under the final interval integral remains open
+  - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`,
     `notes/boundary-scale-jet.md`
+
+- **Claim:** The quadratic-counterterm-subtracted Hellinger radial derivative is
+  `O(a²)`; its logarithmic radial flux is `O(a³)`, and at critical prime radius the
+  scale-derivative residual is absolutely summable with majorant
+  `O((log p) p^(-3/2))`, so canonical finite prime windows converge to a flux
+  finite part
+
+  - **Status:** proved in Lean; this is a Hellinger-flux finite part, not an
+    identification with the Euler prime-power flux
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs

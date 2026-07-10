@@ -151,7 +151,12 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    the Weil distribution remain open; none of these results is Weil
    positivity. A common finite-window scale family now derives both this
    Hellinger value and the logarithmic prime-power flux, with an exact
-   centered first-harmonic compatibility law for the counterterm.
+   centered first-harmonic compatibility law for the counterterm. The
+   Hellinger channel itself is now differentiable through its circle
+   integral: after subtracting the differentiated quadratic counterterm,
+   its critical log-scale residual is absolutely summable with rate
+   `O((log p)p^{-3/2})`. Identifying this finite Hellinger flux with the
+   Euler prime-power flux remains open.
 
 ## Where to start
 
