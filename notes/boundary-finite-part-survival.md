@@ -55,6 +55,7 @@ abs_translatedHellingerDefectRemainder_le
 abs_exactCosineLocalRemainder_le
 summable_abs_exactCosineLocalRemainder
 cosineFinitePartSurvival_holds
+tendsto_exactCosineFiniteRemainder
 ```
 
 The key uniform local estimate is
@@ -79,12 +80,30 @@ At `a = p^(-1/2)`, every prime `p >= 5` therefore satisfies
 The primes `2` and `3` are finite exceptions, so comparison with the
 convergent prime `3/2`-series proves absolute convergence for every real
 frequency `u`. The cosine-atom finite part is the corresponding prime sum.
+Equivalently, the finite-window remainders converge to that value along the
+canonical net of finite prime sets ordered by inclusion. No enumeration of the
+primes is selected.
 
 ## What This Decides
 
 The half-balanced residual does not retain another divergent local piece at
 the precision needed for cosine atoms. No cancellation between primes is
 needed: absolute convergence already settles survival.
+
+## Honest Frontier
+
+This proves that the half-balanced subtraction is sufficient: its residual is
+absolutely summable. It does not prove that the subtraction is necessary for
+every nonzero frequency. Such a result would require control of the
+oscillatory prime term
+
+```text
+sum_p p^(-1) cos(u log p),
+```
+
+and hence analytic input beyond the elementary prime comparison used here. At
+`u = 0`, the translated defect and counterterm both vanish, so survival is the
+degenerate zero case and says nothing about necessity.
 
 The constant `780` is deliberately coarse. The symmetry
 `H(-a,t) = H(a,t)` suggests that the true first omitted term is quartic, but

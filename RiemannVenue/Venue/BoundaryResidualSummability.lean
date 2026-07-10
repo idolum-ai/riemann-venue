@@ -409,6 +409,20 @@ theorem cosineFinitePartSurvival_holds (u : ℝ) :
   cosineFinitePartSurvival_of_summable
     (cosineLocalRemainderSummability_holds u)
 
+/-- The finite-window remainders converge along the canonical net of finite
+prime sets ordered by inclusion.  This is the explicit finite-window form of
+cosine finite-part survival; in particular, it is independent of an
+enumeration of the primes. -/
+theorem tendsto_exactCosineFiniteRemainder (u : ℝ) :
+    Tendsto (fun S : PrimeWindow => exactCosineFiniteRemainder S u) atTop
+      (nhds (cosineFinitePartCandidate u)) := by
+  rw [show (fun S : PrimeWindow => exactCosineFiniteRemainder S u) =
+      (fun S : PrimeWindow => ∑ p ∈ S, exactCosineLocalRemainder p u) by
+    funext S
+    exact exactCosineFiniteRemainder_eq_sum S u]
+  change CosineFinitePartSurvival u
+  exact cosineFinitePartSurvival_holds u
+
 /-- The discharged finite-part state: the residual-summability bridge is now
 a theorem and every cosine frequency survives. -/
 noncomputable def dischargedHalfBalancedFinitePartSurvivalState :

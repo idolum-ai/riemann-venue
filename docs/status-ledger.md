@@ -243,7 +243,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 
 - **Claim:** Boundary finite-part survival: after half-balanced subtraction, the exact cosine
   residual is bounded by `780 p^(-3/2)` outside two finite primes, hence absolutely summable for
-  every frequency; the cosine finite part survives without prime cancellation
+  every frequency; the finite-window remainders converge along the canonical inclusion-ordered
+  net without prime cancellation
 
   - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`,

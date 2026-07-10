@@ -36,11 +36,11 @@ def testIdealTierAxis : List BoundaryTestIdealTier :=
 
 /-- The matrix axis really has five counterterm shapes. -/
 theorem countertermShapeAxis_length : countertermShapeAxis.length = 5 := by
-  native_decide
+  rfl
 
 /-- The matrix axis really has five test-ideal tiers. -/
 theorem testIdealTierAxis_length : testIdealTierAxis.length = 5 := by
-  native_decide
+  rfl
 
 /-- First-pass status for a counterterm matrix cell. -/
 inductive BoundaryCountertermMatrixStatus where
@@ -123,7 +123,7 @@ def initialCountertermMatrix : List BoundaryCountertermMatrixCell :=
 /-- The initialized counterterm matrix has all 25 cells. -/
 theorem initialCountertermMatrix_length :
     initialCountertermMatrix.length = 25 := by
-  native_decide
+  rfl
 
 /-- A cell is live precisely when its status is `liveCandidate`. -/
 def BoundaryCountertermMatrixCell.isLive
