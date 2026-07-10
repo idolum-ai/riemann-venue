@@ -170,6 +170,28 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Artifact:** `RiemannVenue/Venue/BoundaryWeightSearch.lean`,
     `notes/boundary-weight-search.md`
 
+- **Claim:** The compensated cosine finite part is a bounded continuous multiplier on a named
+  frequency-side `L1` test space; finite prime windows converge to its continuous linear
+  functional in dual operator norm, and the limit functional is reflection invariant
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFourierL1.lean`,
+    `notes/boundary-fourier-l1.md`
+
+- **Claim:** The same functional construction works for arbitrary norm-summable local
+  multiplier families, so Banach-carrier existence alone does not identify prime arithmetic
+
+  - **Status:** proved in Lean (arithmetic-sensitivity trap)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFourierL1.lean`
+
+- **Claim:** Growing finite prime windows of the compensated residual are negative near
+  `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
+
+  - **Status:** computed probe; not a certified infinite-sum theorem
+  - **Artifact:** `scripts/probe_boundary_finite_part.py`,
+    `artifacts/boundary-finite-part-cnd.txt`,
+    `notes/boundary-fourier-l1.md`
+
 - **Claim:** Boundary counterterm search: first critical counterterm form
   `coefficient(h) * sum_{p in S} 1/p`, five coefficient shapes, test-ideal pairing trials, and
   named failure modes

@@ -49,6 +49,10 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Boundary finite-part probe drift gate
+        run: |
+          python scripts/probe_boundary_finite_part.py > /tmp/boundary-finite-part-cnd.txt
+          diff -u artifacts/boundary-finite-part-cnd.txt /tmp/boundary-finite-part-cnd.txt
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
       # Drift gate: executed notebooks are committed textual/numeric evidence,

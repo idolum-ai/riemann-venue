@@ -491,3 +491,25 @@ status rows should keep the remaining distinction visible: cosine-atom
 survival is proved; extension to a named test ideal and construction of the
 completed boundary distribution remain open; the RH-strength positivity gate
 is still locked.
+
+## 18. The finite part has a Banach carrier, and the carrier exposes its ceiling
+
+The cosine residual now defines a bounded continuous frequency multiplier and
+hence a continuous linear functional on `L1(R)`. Finite prime windows converge
+in the dual operator norm, so the phrase "finite part survives" now has an
+explicit test space and a uniform finite-window interface behind it. Reflection
+invariance also descends from the even multiplier to the functional itself.
+
+The same formalization immediately proves its own limitation. Any
+norm-summable family of bounded continuous local multipliers produces the same
+kind of functional and the same operator-norm convergence. The construction is
+therefore an honest weight-sector carrier, but its existence is not the
+arithmetic identification. That debt has narrowed to the unsquared logarithmic
+radial derivative, the full prime-power ladder, and the archimedean completion.
+
+A numerical rejection probe adds a second warning: finite prime windows are
+negative near `u = 14`, stabilizing around `-0.038530` through primes below
+`100000`. Since a conditionally negative definite function vanishing at zero
+must be nonnegative, the compensated residual does not appear to inherit CND
+for free. This remains a computed signal rather than a Lean theorem; a formal
+rejection needs a certified sign and tail estimate.

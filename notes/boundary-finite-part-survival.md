@@ -152,6 +152,9 @@ structural consequences. The finite-prime windows converge uniformly on all
 of `ℝ`, and the resulting cosine finite part is continuous, even, and zero at
 `u = 0`.
 
-The next non-tautological question is domain enlargement: identify a named
-test ideal whose finite-window restrictions admit comparable uniform control,
-rather than proving one frequency at a time.
+`RiemannVenue/Venue/BoundaryFourierL1.lean` now performs the first domain
+enlargement: the bounded residual multiplier acts on frequency-side `L1`, and
+finite windows converge in dual operator norm. The remaining ideal question
+is stricter: complexify this realization and prove the Fourier/Wiener
+translation and convolution laws needed by Weil tests, rather than merely
+pairing against arbitrary integrable frequency densities.

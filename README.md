@@ -145,9 +145,11 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    counterterm is proved from the translated Hellinger response, and its
    cosine-atom residual is absolutely summable by an `O(p^{-3/2})` bound.
    Its finite windows converge uniformly to a continuous even function that
-   vanishes at zero. Extending that finite part to a named test ideal and
-   completing the Weil distribution remain open; none of these results is
-   Weil positivity.
+   vanishes at zero. The resulting bounded multiplier now acts continuously
+   on a named frequency-side `L1` test space, with finite windows converging
+   in dual operator norm. Complex Fourier/Wiener closure and completion of
+   the Weil distribution remain open; none of these results is Weil
+   positivity.
 
 ## Where to start
 
