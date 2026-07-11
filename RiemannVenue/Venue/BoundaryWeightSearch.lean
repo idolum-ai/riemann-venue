@@ -110,13 +110,13 @@ def BoundaryTestIdealCandidate.survivesIdealCharges
   T.restrictionStable ∧
   T.finitePartDomain
 
-/-- The underlying `BoundaryTestIdeal` still contains the compactly supported
-continuous tests required by Weil positivity. -/
+/-- The underlying `BoundaryTestIdeal` still contains the smooth compactly
+supported tests required by Weil positivity. -/
 theorem BoundaryTestIdealCandidate.contains_weil_tests
     (T : BoundaryTestIdealCandidate)
-    (h : ℝ → ℝ) (hc : Continuous h) (hcs : HasCompactSupport h) :
+    (h : ℝ → ℝ) (hsmooth : ContDiff ℝ ⊤ h) (hcs : HasCompactSupport h) :
     T.ideal.admissible h :=
-  T.ideal.contains_weil_tests h hc hcs
+  T.ideal.contains_weil_tests h hsmooth hcs
 
 /-- A finite-part renormalization functional.
 

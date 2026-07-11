@@ -35,7 +35,7 @@ survive anti-tautology traps before it can support the boundary type.
 ## Boundary test ideal
 
 Workbench name for the log-scale tests on which a boundary weight is allowed
-to be evaluated. It must contain the compactly supported continuous tests
+to be evaluated. It must contain the smooth compactly supported tests
 used by Weil positivity, and the weight must be finite on their squares.
 
 ## Critical boundary criterion

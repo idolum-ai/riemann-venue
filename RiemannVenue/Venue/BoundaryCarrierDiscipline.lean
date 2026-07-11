@@ -57,13 +57,13 @@ structure BoundaryCarrierObservableDiscipline
     C.toObservable (logTranslate t h) = scaleAction t (C.toObservable h)
 
 /-- A named test ideal for a boundary carrier. The ideal must at least contain
-the compactly supported continuous tests used by Weil positivity. -/
+the smooth compactly supported tests used by Weil positivity. -/
 structure BoundaryTestIdeal where
   /-- Membership in the carrier's admissible test domain. -/
   admissible : (ℝ → ℝ) → Prop
   /-- All Weil tests lie in the domain. -/
   contains_weil_tests :
-    ∀ h : ℝ → ℝ, Continuous h → HasCompactSupport h → admissible h
+    ∀ h : ℝ → ℝ, ContDiff ℝ ⊤ h → HasCompactSupport h → admissible h
 
 /-- The weight/domain discipline for a carrier.
 
@@ -86,15 +86,15 @@ structure BoundaryCarrierWeightDiscipline
     ∀ h : ℝ → ℝ, testIdeal.admissible h →
       weightValue (square (C.toObservable h)) ≠ ⊤
 
-/-- Compactly supported continuous tests are finite for a disciplined
+/-- Smooth compactly supported tests are finite for a disciplined
 boundary weight. -/
 theorem BoundaryCarrierWeightDiscipline.finite_on_weil_squares
     {C : BoundaryCarrierCandidate.{u}}
     (W : BoundaryCarrierWeightDiscipline C)
-    (h : ℝ → ℝ) (hc : Continuous h) (hcs : HasCompactSupport h) :
+    (h : ℝ → ℝ) (hsmooth : ContDiff ℝ ⊤ h) (hcs : HasCompactSupport h) :
     W.weightValue (W.square (C.toObservable h)) ≠ ⊤ :=
   W.finite_on_admissible_squares h
-    (W.testIdeal.contains_weil_tests h hc hcs)
+    (W.testIdeal.contains_weil_tests h hsmooth hcs)
 
 /-- The known finite local vector response, phrased as a reusable contact
 surface for boundary carriers. -/

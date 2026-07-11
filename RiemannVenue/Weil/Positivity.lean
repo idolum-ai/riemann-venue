@@ -35,12 +35,12 @@ noncomputable def selfConvolution (h : ℝ → ℝ) : ℝ → ℝ :=
   fun t => ∫ x : ℝ, h x * h (x + t)
 
 /-- Weil positivity for a pairing `D`: nonnegativity on all self-convolutions
-of continuous compactly supported test functions. For the completed Weil
+of smooth compactly supported test functions. For the completed Weil
 distribution this property is equivalent to `RH` by Weil's criterion; that
 equivalence is **not** stated here because the completed distribution is not
 constructed. -/
 def WeilPositivity (D : ExplicitFormulaData) : Prop :=
-  ∀ h : ℝ → ℝ, Continuous h → HasCompactSupport h →
+  ∀ h : ℝ → ℝ, ContDiff ℝ ⊤ h → HasCompactSupport h →
     0 ≤ D.pairing (selfConvolution h)
 
 end RiemannVenue.Weil

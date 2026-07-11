@@ -58,10 +58,18 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    matrix is generically nonsingular. The channel-indexed first jet is now
    constructed at finite windows, the full critical Hellinger sum has its
    actual normal derivative, and the archimedean score is identified with the
-   logarithmic derivative of `Gamma_R`. The next boundary question is the
-   completed projection itself: the test topology, pole/trivial-zero terms,
-   and identity with the Weil functional. These remain explicit obligations,
-   with positivity separate as the locked gate.
+   logarithmic derivative of `Gamma_R`. Compact log tests now give an
+   eventually stable prime-power functional, and a cosine-synthesis test
+   projects the centered score after one forced vacuum counterterm. The Gamma
+   and pole place pairings are separately constructed. The next boundary
+   question is now narrower: the normalized Fourier/cosine lift exists for
+   every smooth compact test, and the nonnegative squared-modulus lift for
+   self-convolutions is identified by Wiener--Khinchin and has an integrable
+   first absolute frequency moment. A measurable at-most-linear bound for the
+   critical Gamma score now suffices for Gamma admission; proving that
+   digamma bound is the next analytic lemma. Then fix the completed sign
+   convention and prove the Weil identity. Positivity remains separate as the
+   locked gate.
 
 ## Design rule
 

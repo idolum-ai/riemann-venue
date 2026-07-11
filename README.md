@@ -166,9 +166,20 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    proved, and the complete critical Hellinger prime sum differentiates
    without exceptional primes. The matching archimedean score is derived as
    `-(log pi)/2 + digamma(s/2)/2`, the logarithmic derivative of `Gamma_R`.
-   A typed projection contract now isolates the still-open completed test
-   topology, pole terms, and Weil identity; positivity remains the final
-   locked gate.
+   Compactly supported log tests now carry an eventually stable full
+   prime-power functional. On tests equipped with an integrable cosine
+   synthesis, the finite score projects exactly; the centered jet exposes one
+   forced vacuum counterterm and then stabilizes to that functional. The
+   Gamma boundary pairing and the distinct pole exponential-moment pairing
+   are also constructed. Every smooth compact test now has an exact canonical
+   Fourier/cosine lift, including the `2*pi` normalization. For the positive
+   self-convolution sector, the normalized squared-modulus density is
+   integrable and nonnegative and reconstructs the self-convolution exactly
+   by a proved Wiener--Khinchin identity. Its first absolute frequency moment
+   is also integrable, reducing Gamma admission to a named at-most-linear
+   growth bound for the critical digamma score. That analytic bound and the
+   completed Weil identity remain, followed by the final locked positivity
+   gate.
 
 ## Where to start
 

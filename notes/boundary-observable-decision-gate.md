@@ -130,10 +130,17 @@ The first continuation is now complete:
 - a typed projection contract maps this field into the repository's stable
   completed-boundary contract.
 
-The projection is not instantiated. The remaining non-positivity work is the
-completed test topology, the finite-score distributional limit, the Gamma
-pairing convention, and pole/trivial-zero terms. Once those are supplied,
-Weil positivity is exactly the separate locked gate.
+The completed projection is not instantiated, but its first three analytic
+faces are now concrete. Compact log tests give an eventually stable
+prime-power functional. Every smooth compact test has a canonical normalized
+cosine synthesis and therefore projects the centered score after a forced
+vacuum counterterm. Gamma and pole place pairings are constructed as distinct
+real-boundary and off-boundary operations. The positive
+squared-modulus/self-convolution identification is proved by Plancherel. The
+first absolute frequency moment is integrable, reducing Gamma admission to a
+named measurable at-most-linear digamma bound. That bound and the exact
+completed Weil identity remain. See
+`notes/completed-test-ideal-decision-gate.md`.
 
 ## Artifacts
 
@@ -145,3 +152,7 @@ Weil positivity is exactly the separate locked gate.
 - `RiemannVenue/Venue/BoundaryEnergyScoreJet.lean`
 - `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
 - `RiemannVenue/Venue/BoundaryCompletedProjection.lean`
+- `RiemannVenue/Venue/BoundaryArithmeticSensitivity.lean`
+- `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`
+- `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`
+- `RiemannVenue/Venue/BoundarySmoothTestCore.lean`

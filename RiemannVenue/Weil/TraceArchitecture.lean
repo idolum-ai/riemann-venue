@@ -84,7 +84,7 @@ structure TraceRealization (D : ExplicitFormulaData) (A : Type*)
   observable : (ℝ → ℝ) → A
   /-- The trace identity: the explicit-formula pairing of a self-convolution
   is the state of the corresponding square `star (π h) * π h`. -/
-  realizes : ∀ h : ℝ → ℝ, Continuous h → HasCompactSupport h →
+  realizes : ∀ h : ℝ → ℝ, ContDiff ℝ ⊤ h → HasCompactSupport h →
     D.pairing (selfConvolution h) = state (star (observable h) * observable h)
 
 /-- **The easy direction of the conjectural trace row.** A trace/state
@@ -99,8 +99,8 @@ the correct completed `D`, exhibiting a `TraceRealization` would carry the
 RH-strength content, and none is exhibited here. -/
 theorem WeilPositivity.of_traceRealization {D : ExplicitFormulaData}
     (R : TraceRealization D A) : WeilPositivity D := by
-  intro h hc hcs
-  rw [R.realizes h hc hcs]
+  intro h hsmooth hcs
+  rw [R.realizes h hsmooth hcs]
   exact R.state.map_nonneg (star_mul_self_nonneg _)
 
 end TraceRealization
@@ -120,8 +120,8 @@ noncomputable def TraceRealization.ofWeilPositivity {D : ExplicitFormulaData}
     (hD : WeilPositivity D) : TraceRealization D ℝ where
   state := PositiveLinearMap.id ℝ ℝ
   observable h := Real.sqrt (D.pairing (selfConvolution h))
-  realizes h hc hcs := by
-    simp [Real.mul_self_sqrt (hD h hc hcs)]
+  realizes h hsmooth hcs := by
+    simp [Real.mul_self_sqrt (hD h hsmooth hcs)]
 
 /-! ## The GNS anchor: arrow 1, and the deliberate absence of arrow 2
 

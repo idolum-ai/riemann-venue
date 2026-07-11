@@ -74,3 +74,8 @@ import RiemannVenue.Venue.BoundaryHellingerGeneralRadius
 import RiemannVenue.Venue.BoundaryEnergyScoreJet
 import RiemannVenue.Venue.BoundaryArchimedeanScore
 import RiemannVenue.Venue.BoundaryCompletedProjection
+import RiemannVenue.Venue.BoundaryArithmeticSensitivity
+import RiemannVenue.Venue.BoundaryCompletedTestIdeal
+import RiemannVenue.Venue.BoundaryCompletedPlaces
+import RiemannVenue.Venue.BoundarySmoothTestCore
+import RiemannVenue.Venue.BoundarySmoothCosineLift

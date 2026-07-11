@@ -278,6 +278,69 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     candidate is instantiated
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`
 
+- **Claim:** On compactly supported continuous log-scale tests, the full
+  symmetrized prime-power distribution is locally finite: diagonal finite
+  truncations eventually stabilize to an algebraic linear functional
+
+  - **Status:** proved in Lean; continuity for an LF test-space topology is not claimed
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** The RH-facing Weil-positivity domain is the smooth compact core
+  `C_c^infinity(R)`, while continuous compact support remains the larger
+  finite-place envelope
+
+  - **Status:** encoded in Lean, aligned with the essay; the canonical
+    normalized Fourier/cosine lift is constructed on this core
+  - **Artifact:** `RiemannVenue/Weil/Positivity.lean`,
+    `RiemannVenue/Venue/BoundaryCarrierDiscipline.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** Smooth compact log tests map canonically to complex Schwartz
+  functions, their Fourier transforms remain Schwartz with integrable squared
+  modulus, and self-convolution stays in the smooth compact core
+
+  - **Status:** proved in Lean; Fourier inversion and the exact `2*pi`
+    rescaling also construct an integrable cosine density for every test. The
+    normalized squared-modulus density for self-convolutions is integrable
+    and nonnegative, has an integrable first absolute frequency moment, and
+    reconstructs self-convolution exactly by Wiener--Khinchin
+  - **Artifact:** `RiemannVenue/Venue/BoundarySmoothTestCore.lean`,
+    `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** A compact log test with an integrable cosine-synthesis density
+  projects the uncentered finite Poisson score exactly to the finite
+  prime-power pairing. For the centered energy/score jet, one explicit vacuum
+  counterterm restores that pairing, and the renormalized diagonal projection
+  eventually stabilizes
+
+  - **Status:** proved in Lean; every smooth compact test now instantiates the
+    synthesis contract canonically, including a nonnegative instance for each
+    self-convolution. A named measurable at-most-linear Gamma-score bound is
+    proved sufficient for Gamma-weighted integrability; proving that digamma
+    bound remains open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** Finite support and linearity do not identify arithmetic weights:
+  a unit-weight perturbation of the canonical finite prime-power data gives a
+  different linear functional already at `P = 2`, `R = 1`
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryArithmeticSensitivity.lean`
+
+- **Claim:** The Gamma contribution is a real-critical-boundary score pairing,
+  while the completed-zeta pole factor is an off-boundary exponential-moment
+  pairing with kernel `exp(t/2) + exp(-t/2)`
+
+  - **Status:** both place functionals constructed in Lean; a conditional
+    constructor admits every positive self-convolution lift under the exact
+    `GammaBoundaryLinearControl` obligation. That bound, the common sign
+    convention, and identity with the completed Weil distribution remain open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 
