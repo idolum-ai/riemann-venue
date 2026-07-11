@@ -68,27 +68,34 @@ sum.
 
 ## Honest frontier
 
-Two constructions remain:
-
-1. a finite-geometry compiler which, from the finitely many completed-Xi
-   zeros in a rectangle and a zero-free boundary, builds a certified
-   `RectangleExcisionTree` with exactly those charged leaves; and
-2. selected expanding heights at which the horizontal edges vanish and the
-   vertical edges become the von Mangoldt, Gamma, and pole terms.
+The remaining construction is an expanding edge limit: the horizontal edges
+must vanish while the vertical edges become the von Mangoldt, Gamma, and pole
+terms.
 
 Pinned Mathlib has Cauchy-Goursat for rectangles but no general residue theorem
 or argument principle. The repository now has the required local residue and
-recursive global subdivision theorems without adding either as an axiom. What
-is not yet automated is the finite geometric passage from an isolated finite
-zero set to a guillotine partition certificate. The completed-Xi growth
-estimate used for zero counting also does not by itself control
-`logDeriv completedXiCore` on horizontal edges, so zero-avoiding-height
-estimates remain a genuinely separate zeta-specific input.
+recursive global subdivision theorems without adding either as an axiom. The
+finite geometric passage is now compiled as well:
+`FiniteRectanglePoleData.exists_excisionTree` chooses safe split lines,
+handles aligned poles, and constructs a partition whose total charge is the
+supplied finite sum.
+
+The zero-avoiding-height layer now selects one height in every unit interval,
+proves that these heights tend to infinity, gives each selected height
+positive global clearance from all zero ordinates, and proves a finite bound
+for `logDeriv completedXiCore` on the corresponding horizontal edge. These
+last two statements are qualitative. Existing completed-Xi growth and
+zero-count estimates give no rate for the clearance or edge bound, so they do
+not yet imply that fourth-order test-transform decay makes the horizontal
+integrals vanish. A quantitative minimum-modulus or logarithmic-derivative
+theorem is now the precise zeta-specific input.
 
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`
 - `RiemannVenue/Venue/BoundaryRectangleExcision.lean`
+- `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`
+- `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`
 - `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `notes/completed-explicit-formula-zero-counting.md`

@@ -171,6 +171,67 @@ theorem completedXiCore_eq_zero_at_nontrivialZetaZero
     exact hzeta.resolve_right hGamma
   rw [completedXiCore_eq_mul_completedRiemannZeta hz0 hz1, hcompleted, mul_zero]
 
+/-- Inside the open critical strip, the zeros of the entire completed-Xi core
+are exactly the indexed nontrivial zeros of zeta. -/
+theorem completedXiCore_eq_zero_iff_nontrivialZetaZero
+    {z : ℂ} (hzre0 : 0 < z.re) (hzre1 : z.re < 1) :
+    completedXiCore z = 0 ↔
+      ∃ rho : nontrivialRiemannZetaZeros,
+        nontrivialZetaZeroValue rho = z := by
+  constructor
+  · intro hxi
+    have hz0 : z ≠ 0 := by
+      intro hz
+      rw [hz, Complex.zero_re] at hzre0
+      exact lt_irrefl 0 hzre0
+    have hz1 : z ≠ 1 := by
+      intro hz
+      rw [hz, Complex.one_re] at hzre1
+      exact lt_irrefl 1 hzre1
+    have hcompleted : completedRiemannZeta z = 0 := by
+      rw [completedXiCore_eq_mul_completedRiemannZeta hz0 hz1] at hxi
+      exact (mul_eq_zero.mp hxi).resolve_left
+        (mul_ne_zero hz0 (sub_ne_zero.mpr hz1))
+    have hzeta : riemannZeta z = 0 := by
+      rw [riemannZeta_def_of_ne_zero hz0, hcompleted]
+      simp
+    let rho : nontrivialRiemannZetaZeros :=
+      ⟨⟨z, hzeta⟩, hzre0, hzre1⟩
+    exact ⟨rho, rfl⟩
+  · rintro ⟨rho, rfl⟩
+    exact completedXiCore_eq_zero_at_nontrivialZetaZero rho
+
+/-- The completed-Xi core has no zeros on the right edge of the critical
+strip. At `s = 1` this follows directly from pole clearing; elsewhere it is
+zeta nonvanishing on `re(s) = 1`. -/
+theorem completedXiCore_ne_zero_of_re_eq_one {z : ℂ} (hzre : z.re = 1) :
+    completedXiCore z ≠ 0 := by
+  by_cases hz1 : z = 1
+  · subst z
+    simp [completedXiCore]
+  · have hz0 : z ≠ 0 := by
+      intro hz
+      rw [hz, Complex.zero_re] at hzre
+      norm_num at hzre
+    rw [completedXiCore_eq_mul_completedRiemannZeta hz0 hz1]
+    apply mul_ne_zero (mul_ne_zero hz0 (sub_ne_zero.mpr hz1))
+    have hzeta : riemannZeta z ≠ 0 :=
+      riemannZeta_ne_zero_of_one_le_re hzre.ge
+    rw [riemannZeta_def_of_ne_zero hz0] at hzeta
+    exact fun hcompleted => hzeta (by rw [hcompleted]; simp)
+
+/-- Functional-equation reflection transfers right-edge nonvanishing to the
+left edge of the critical strip. -/
+theorem completedXiCore_ne_zero_of_re_eq_zero {z : ℂ} (hzre : z.re = 0) :
+    completedXiCore z ≠ 0 := by
+  have hsym : completedXiCore (1 - z) = completedXiCore z := by
+    rw [completedXiCore, completedXiCore,
+      completedRiemannZeta₀_one_sub]
+    ring
+  rw [← hsym]
+  apply completedXiCore_ne_zero_of_re_eq_one
+  simp [hzre]
+
 theorem completedZetaZeroMultiplicity_pos
     (rho : nontrivialRiemannZetaZeros) :
     0 < completedZetaZeroMultiplicity rho := by

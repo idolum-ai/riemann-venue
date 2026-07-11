@@ -48,11 +48,17 @@ itself.
 
 ## Current decision gate
 
-The finite-pole rectangle charge has now reached a precise intermediate sill.
-Square winding, arbitrary-order local logarithmic residues, holomorphic test
-weights, and recursive rectangle subdivision are proved. Every completed-Xi
-zero supplies the exact weighted charged leaf used by the global zero sum.
-The remaining generic step is a finite-geometry compiler from the zeros in an
-outer rectangle to a certified recursive partition. Zero-avoiding heights
-remain downstream until we decide whether to close that compiler first or
-carry it as an explicit finite-window hypothesis.
+The finite-pole rectangle charge is now closed at the generic level. Square
+winding, arbitrary-order local logarithmic residues, holomorphic test weights,
+recursive subdivision, and the finite-set-to-partition compiler are proved.
+The compiler chooses internal lines avoiding every pole and handles poles
+with shared real or imaginary coordinates.
+
+The zero-avoiding-height layer has also crossed its qualitative sill. There is
+a cofinal selected height in every unit interval, every selected horizontal
+edge is zero-free, its global ordinate clearance is positive, and `Xi'/Xi` is
+bounded on that compact edge. The new decision gate is quantitative: neither
+the clearance nor the edge bound has a proved growth rate. Closing the
+horizontal-edge limit now requires a minimum-modulus, Hadamard-factorization,
+or direct logarithmic-derivative estimate strong enough to be dominated by
+the already-proved fourth-order transform decay.

@@ -91,12 +91,13 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    arbitrary-multiplicity weighted logarithmic residues, and recursive
    rectangle excision identify every certified finite partition with the sum
    of its charges. Every completed-Xi zero supplies a local charged leaf whose
-   charge is exactly its completed zero summand. The remaining geometric input
-   is a compiler from the finite zero set in an outer rectangle to such a
-   partition. The separate analytic input is zero-avoiding expanding-height
-   control for the logarithmic derivative. An explicit expanding-contour
-   witness isolates these inputs from the place-side edge limit and is proved
-   sufficient for the completed formula.
+   charge is exactly its completed zero summand. The generic finite-set
+   partition compiler is now proved. Cofinal zero-avoiding heights, positive
+   per-height zero clearance, and finite per-edge logarithmic-derivative bounds
+   are also proved. The remaining analytic input is quantitative control of
+   those bounds sufficient to make the weighted horizontal edges vanish. An
+   explicit expanding-contour witness isolates this input from the place-side
+   edge limit and is proved sufficient for the completed formula.
 
 ## Design rule
 

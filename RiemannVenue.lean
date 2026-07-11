@@ -86,3 +86,5 @@ import RiemannVenue.Venue.BoundaryCompletedXiGrowth
 import RiemannVenue.Venue.BoundaryZeroTransformDecay
 import RiemannVenue.Venue.BoundaryExplicitFormulaContour
 import RiemannVenue.Venue.BoundaryRectangleExcision
+import RiemannVenue.Venue.BoundaryRectangleCompiler
+import RiemannVenue.Venue.BoundaryZeroAvoidingHeights

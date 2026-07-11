@@ -373,12 +373,17 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     rectangle excision are also proved: every certified partition has outer
     integral `2*pi*i` times its total charge, and every completed-Xi zero has
     a weighted charged leaf with exactly the global zero-sum normalization.
-    Automatic construction of a partition from an arbitrary finite zero
-    window, and the selected expanding-edge limit, remain open and are exposed
-    by `CompletedExpandingContourWitness`; such witnesses are proved
-    sufficient for the completed Weil formula
+    Automatic finite-set partition construction is proved generically by
+    `FiniteRectanglePoleData.exists_excisionTree`. Cofinal zero-avoiding
+    heights, positive qualitative clearance, and finite horizontal-edge
+    `Xi'/Xi` bounds are also proved. Quantitative control sufficient for the
+    selected expanding-edge limit remains open and is exposed by
+    `CompletedExpandingContourWitness`; such witnesses are proved sufficient
+    for the completed Weil formula
   - **Artifact:** `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`,
     `RiemannVenue/Venue/BoundaryRectangleExcision.lean`,
+    `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-contour.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
