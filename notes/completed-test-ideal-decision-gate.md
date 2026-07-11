@@ -103,19 +103,20 @@ self-convolution sector, the normalized squared Fourier modulus is separately
 proved integrable and nonnegative. Its change-of-variables formula is exact,
 and translation covariance plus Plancherel prove its Wiener--Khinchin
 identification with self-convolution. Its first absolute frequency moment is
-also integrable. Consequently a measurable at-most-linear bound for the
-critical Gamma score is sufficient to construct a `CompletedGammaTest`; the
-missing load-bearing theorem is now exactly that digamma growth bound.
+also integrable. A fixed Beta-integral majorant and Cauchy's derivative
+estimate prove a measurable at-most-linear bound for the critical Gamma
+score. Every positive smooth self-convolution therefore constructs a
+`CompletedGammaTest` unconditionally.
 
-Only after that Gamma admission theorem should the three constructed place
-values be assembled into `ExplicitFormulaData` and compared with the
-classical completed Weil identity. Positivity remains downstream of that
-comparison.
+The three constructed place values can now be assembled into
+`ExplicitFormulaData` and compared with the classical completed Weil
+identity. Positivity remains downstream of that comparison.
 
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryArithmeticSensitivity.lean`
 - `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`
 - `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`
+- `RiemannVenue/Venue/BoundaryGammaGrowth.lean`
 - `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`

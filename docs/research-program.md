@@ -65,11 +65,11 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    question is now narrower: the normalized Fourier/cosine lift exists for
    every smooth compact test, and the nonnegative squared-modulus lift for
    self-convolutions is identified by Wiener--Khinchin and has an integrable
-   first absolute frequency moment. A measurable at-most-linear bound for the
-   critical Gamma score now suffices for Gamma admission; proving that
-   digamma bound is the next analytic lemma. Then fix the completed sign
-   convention and prove the Weil identity. Positivity remains separate as the
-   locked gate.
+   first absolute frequency moment. A Beta-integral/Cauchy argument proves a
+   measurable at-most-linear bound for the critical Gamma score, so every
+   smooth compact self-convolution enters the Gamma domain unconditionally.
+   The next step is to fix the completed sign convention and prove the Weil
+   identity. Positivity remains separate as the locked gate.
 
 ## Design rule
 

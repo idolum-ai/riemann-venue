@@ -38,10 +38,10 @@ noncomputable def CompletedGammaTest.zero : CompletedGammaTest where
     filter_upwards [] with u
     simp [CompletedCosineTest.zero]
 
-/-- Exact analytic obligation left by the current Mathlib digamma surface.
-At-most-linear growth is deliberately weaker than the expected logarithmic
-growth, but already sufficient for every positive smooth self-convolution
-lift constructed above. -/
+/-- Exact analytic contract needed for Gamma admission. At-most-linear growth
+is deliberately weaker than the expected logarithmic growth and sufficient
+for every positive smooth self-convolution lift. `BoundaryGammaGrowth`
+discharges this contract without requiring Stirling asymptotics. -/
 def GammaBoundaryLinearControl : Prop :=
   AEStronglyMeasurable archimedeanGammaBoundaryScore ∧
     ∃ C : ℝ, 0 ≤ C ∧ ∀ u : ℝ,

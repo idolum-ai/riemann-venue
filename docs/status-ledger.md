@@ -317,10 +317,11 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 
   - **Status:** proved in Lean; every smooth compact test now instantiates the
     synthesis contract canonically, including a nonnegative instance for each
-    self-convolution. A named measurable at-most-linear Gamma-score bound is
-    proved sufficient for Gamma-weighted integrability; proving that digamma
-    bound remains open
+    self-convolution. A Beta-integral/Cauchy argument proves the named
+    measurable at-most-linear Gamma-score bound, so the Gamma-weighted lift is
+    unconditional
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
+    `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
     `notes/completed-test-ideal-decision-gate.md`
 
 - **Claim:** Finite support and linearity do not identify arithmetic weights:
@@ -334,11 +335,13 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   while the completed-zeta pole factor is an off-boundary exponential-moment
   pairing with kernel `exp(t/2) + exp(-t/2)`
 
-  - **Status:** both place functionals constructed in Lean; a conditional
-    constructor admits every positive self-convolution lift under the exact
-    `GammaBoundaryLinearControl` obligation. That bound, the common sign
-    convention, and identity with the completed Weil distribution remain open
+  - **Status:** both place functionals constructed in Lean;
+    `GammaBoundaryLinearControl` is proved and every positive smooth
+    self-convolution has an unconditional `CompletedGammaTest`. The common
+    sign convention and identity with the completed Weil distribution remain
+    open
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
+    `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
     `notes/completed-test-ideal-decision-gate.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near

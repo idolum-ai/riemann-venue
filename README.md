@@ -176,9 +176,10 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    self-convolution sector, the normalized squared-modulus density is
    integrable and nonnegative and reconstructs the self-convolution exactly
    by a proved Wiener--Khinchin identity. Its first absolute frequency moment
-   is also integrable, reducing Gamma admission to a named at-most-linear
-   growth bound for the critical digamma score. That analytic bound and the
-   completed Weil identity remain, followed by the final locked positivity
+   is also integrable. A Beta-integral/Cauchy argument proves the required
+   at-most-linear critical digamma bound, so every smooth compact
+   self-convolution now has an unconditional Gamma pairing. The exact
+   completed Weil identity remains, followed by the final locked positivity
    gate.
 
 ## Where to start

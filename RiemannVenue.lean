@@ -76,6 +76,7 @@ import RiemannVenue.Venue.BoundaryArchimedeanScore
 import RiemannVenue.Venue.BoundaryCompletedProjection
 import RiemannVenue.Venue.BoundaryArithmeticSensitivity
 import RiemannVenue.Venue.BoundaryCompletedTestIdeal
-import RiemannVenue.Venue.BoundaryCompletedPlaces
 import RiemannVenue.Venue.BoundarySmoothTestCore
 import RiemannVenue.Venue.BoundarySmoothCosineLift
+import RiemannVenue.Venue.BoundaryCompletedPlaces
+import RiemannVenue.Venue.BoundaryGammaGrowth

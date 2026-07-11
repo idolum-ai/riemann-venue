@@ -137,9 +137,9 @@ cosine synthesis and therefore projects the centered score after a forced
 vacuum counterterm. Gamma and pole place pairings are constructed as distinct
 real-boundary and off-boundary operations. The positive
 squared-modulus/self-convolution identification is proved by Plancherel. The
-first absolute frequency moment is integrable, reducing Gamma admission to a
-named measurable at-most-linear digamma bound. That bound and the exact
-completed Weil identity remain. See
+first absolute frequency moment is integrable. A Beta-integral/Cauchy argument
+proves the named measurable at-most-linear digamma bound, so Gamma admission
+is unconditional. The exact completed Weil identity remains. See
 `notes/completed-test-ideal-decision-gate.md`.
 
 ## Artifacts
