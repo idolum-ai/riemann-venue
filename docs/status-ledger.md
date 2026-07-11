@@ -364,6 +364,18 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`,
     `notes/completed-explicit-formula-zero-counting.md`
 
+- **Claim:** Finite-multiplicity logarithmic residues of the completed-Xi core
+  agree with the stored zeta multiplicities; weighting by the canonical
+  contour test gives the completed zero-transform summands, whose symmetric
+  finite windows converge to the unconditional zero sum
+
+  - **Status:** proved in Lean. The finite-pole rectangle residue theorem and
+    selected expanding-edge limit remain open and are exposed by
+    `CompletedExpandingContourWitness`; such witnesses are proved sufficient
+    for the completed Weil formula
+  - **Artifact:** `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`,
+    `notes/completed-explicit-formula-contour.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 

@@ -89,6 +89,11 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    strip, and the generic bucket theorem closes global zero-sum convergence.
    The next inputs are a finite-pole rectangle residue theorem and
    zero-avoiding expanding-height control for the logarithmic derivative.
+   The local contour layer now proves arbitrary-multiplicity logarithmic
+   residues, identifies the weighted Xi residues with the completed zero
+   summands, and proves convergence of symmetric finite zero windows. An
+   explicit expanding-contour witness isolates rectangle excision from the
+   place-side edge limit and is proved sufficient for the completed formula.
 
 ## Design rule
 

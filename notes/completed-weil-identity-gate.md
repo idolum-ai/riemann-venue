@@ -87,4 +87,6 @@ proved.
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
 - `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
+- `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`
+- `notes/completed-explicit-formula-contour.md`
 - `notes/completed-explicit-formula-zero-counting.md`

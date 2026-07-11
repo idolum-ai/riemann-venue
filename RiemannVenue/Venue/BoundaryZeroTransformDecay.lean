@@ -1,4 +1,5 @@
 import Mathlib.Analysis.Calculus.Deriv.Support
+import Mathlib.MeasureTheory.Integral.Bochner.Set
 import Mathlib.MeasureTheory.Integral.IntegralEqImproper
 import RiemannVenue.Venue.BoundaryCompletedXiGrowth
 
@@ -14,6 +15,33 @@ namespace RiemannVenue.Venue
 open Set MeasureTheory
 
 noncomputable section
+
+/-- The completed zero transform depends continuously on its complex
+frequency. Compact support supplies one common integration set for every
+parameter. -/
+theorem continuous_completedZeroTestTransform
+    (h : SmoothCompletedLogTest) :
+    Continuous (completedZeroTestTransform h) := by
+  have hint : ContinuousOn
+      (fun p : ℂ × ℝ =>
+        (h p.2 : ℂ) * Complex.cos (p.1 * (p.2 : ℂ)))
+      (Set.univ ×ˢ Set.univ) := by
+    fun_prop
+  have hsupp : ∀ z : ℂ, ∀ t : ℝ, z ∈ Set.univ →
+      t ∉ tsupport h →
+      (h t : ℂ) * Complex.cos (z * (t : ℂ)) = 0 := by
+    intro z t _ ht
+    have ht0 : h t = 0 := by
+      by_contra hne
+      exact ht (subset_tsupport h (Function.mem_support.mpr hne))
+    simp [ht0]
+  have hcont : Continuous (fun z : ℂ =>
+      ∫ t : ℝ, (h t : ℂ) * Complex.cos (z * (t : ℂ))) := by
+    apply continuousOn_univ.mp
+    exact continuousOn_integral_of_compact_support
+      h.hasCompactSupport hint hsupp
+  unfold completedZeroTestTransform
+  exact continuous_const.mul hcont
 
 private noncomputable def complexLogTest (h : SmoothCompletedLogTest) : ℝ → ℂ :=
   fun t => h t
