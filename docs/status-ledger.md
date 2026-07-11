@@ -355,10 +355,11 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   while a generic bucket theorem reduces completed zero-transform convergence
   to summability of `N(n) * a(n)`
 
-  - **Status:** proved in Lean; the zeta-specific sphere-growth estimate,
-    `N(T) = O(T log T)`, transform decay, and global zero-sum convergence remain
-    explicitly unproved
+  - **Status:** proved in Lean, including the completed-Xi sphere-growth
+    estimate and `N(T) = O(T log T)`; transform decay and global zero-sum
+    convergence remain explicitly unproved
   - **Artifact:** `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`,
     `notes/completed-explicit-formula-zero-counting.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near

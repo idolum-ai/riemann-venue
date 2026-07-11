@@ -54,12 +54,12 @@ The repository has the local residue machinery, completed-zeta functional
 equation, finite Euler logarithmic derivative, and all three target place
 terms. The zero-counting project now supplies the canonical multiplicity-aware
 height count, identifies it with the divisor of an entire completed-Xi core,
-and proves the Jensen reduction to a large-circle estimate. It also supplies
-the generic bucket theorem that will turn a quantitative count and transform
-decay into zero-sum convergence. The completed-Xi sphere-growth estimate and
-the transform decay theorem remain open, so steps 1 through 4 are still not a
-complete global theorem chain. Adding the desired equality as a field or
-assumption would only rename this gap.
+and proves the Jensen reduction to a large-circle estimate. The companion
+growth theorem now discharges that estimate and proves `N(T) = O(T log T)`.
+The generic bucket theorem will turn this count and transform decay into
+zero-sum convergence. The transform decay theorem remains open, so steps 1
+through 4 are still not a complete global theorem chain. Adding the desired
+equality as a field or assumption would only rename this gap.
 
 ## Assessment
 
@@ -83,4 +83,5 @@ proved.
 - `RiemannVenue/Venue/BoundaryGammaGrowth.lean`
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
+- `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
 - `notes/completed-explicit-formula-zero-counting.md`

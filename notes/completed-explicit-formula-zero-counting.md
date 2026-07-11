@@ -54,15 +54,19 @@ implies
 N(T) <= log(M(T) / ||XiCore(2)||) / log 2.
 ```
 
-Consequently, an estimate of logarithmic size `O(T log T)` on those spheres
-implies the familiar sufficient zero-count shape `N(T) = O(T log T)`. Both
-contracts are named, but only the implication is proved: the zeta-specific
-large-circle estimate is not present in Mathlib and is not assumed here.
+The companion growth file now proves the required estimate. It uses the
+Dirichlet series and a coarse Gamma bound on `Re(s) >= 2`, reflects
+`Re(s) <= -1` through the completed functional equation, and bounds the fixed
+middle strip directly from the defining Mellin integral. The resulting global
+bound has the deliberately coarse order-one shape
 
-This locates the next analytic charge exactly. A proof can use the integral
-representation of `Lambda_0`, Gamma/Stirling estimates, or a different
-entire-function growth argument. Whichever route is chosen must produce the
-same checked sphere-bound interface.
+```text
+||XiCore(s)|| <= K (||s|| + 3) ^ (3 (||s|| + 3)).
+```
+
+Specializing this to the Jensen spheres proves `CompletedXiJensenGrowth` and
+hence the familiar sufficient count `N(T) = O(T log T)`. No Stirling
+asymptotic or pre-existing zeta zero-count theorem is imported.
 
 ## How transforms consume the count
 
@@ -75,36 +79,34 @@ sum_n N(n) a(n) < infinity.
 ```
 
 A specialization compiles such a norm envelope directly into
-`CompletedZetaZeroSumConverges h`. Once `N(n) = O(n log n)` is available,
-the rapid decay expected from a smooth compact test supplies many valid
-envelopes. This separates the arithmetic growth theorem from the test-space
-decay theorem and lets both be improved independently.
+`CompletedZetaZeroSumConverges h`. Since `N(n) = O(n log n)` is now proved,
+the remaining input is the rapid decay expected from a smooth compact test.
+This separates the arithmetic growth theorem from the test-space decay theorem
+and lets both be improved independently.
 
 ## Honest frontier
 
 This phase does **not** prove any of the following:
 
-1. the completed-Xi sphere-growth contract;
-2. `N(T) = O(T log T)` or the sharper Riemann-von Mangoldt asymptotic;
-3. rapid vertical-strip decay of `completedZeroTestTransform`;
-4. convergence of every completed zero sum; or
-5. the expanding-contour explicit formula.
+1. the sharper Riemann-von Mangoldt asymptotic;
+2. rapid vertical-strip decay of `completedZeroTestTransform`;
+3. convergence of every completed zero sum; or
+4. the expanding-contour explicit formula.
 
 The next logical order is therefore:
 
-1. prove a usable large-circle bound for `XiCore`;
-2. derive `N(T) = O(T log T)` through the existing Jensen bridge;
-3. prove a bucketwise rapid-decay estimate for the entire cosine transform;
-4. discharge `CompletedZetaZeroSumConverges` through the generic summability
+1. prove a bucketwise rapid-decay estimate for the entire cosine transform;
+2. discharge `CompletedZetaZeroSumConverges` through the generic summability
    theorem; and
-5. begin the residue-theorem rectangle and edge-limit infrastructure.
+3. begin the residue-theorem rectangle and edge-limit infrastructure.
 
-The first four steps settle whether the zero side is a legitimate global
-functional. The fifth identifies it with the place side. None of these steps
-uses RH; positivity remains a later and separate gate.
+The first two steps settle whether the zero side is a legitimate global
+functional. The third begins its identification with the place side. None of
+these steps uses RH; positivity remains a later and separate gate.
 
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
+- `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
 - `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`
 - `notes/completed-weil-identity-gate.md`

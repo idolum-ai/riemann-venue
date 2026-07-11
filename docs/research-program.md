@@ -80,10 +80,13 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    the divisor of one entire pole-cleared completed-Xi function, and proves
    the full Jensen handoff from a large-circle bound to `N(T)`. A generic
    height-bucket theorem then turns any summable `N(n) * a(n)` envelope into
-   completed zero-transform convergence. The remaining first analytic input
-   is no longer vague: prove completed-Xi sphere growth strong enough to yield
-   `N(T) = O(T log T)`, then combine it with vertical-strip decay of the test
-   transform before opening the expanding-contour argument.
+   completed zero-transform convergence. The completed-Xi sphere growth and
+   resulting `N(T) = O(T log T)` estimate are now proved by a three-region
+   argument: Dirichlet series plus coarse Gamma growth, functional-equation
+   reflection, and direct Mellin domination on the fixed middle strip. The
+   next analytic input is vertical-strip decay of the test transform; after
+   that the generic bucket theorem can close global zero-sum convergence
+   before the expanding-contour argument opens.
 
 ## Design rule
 
