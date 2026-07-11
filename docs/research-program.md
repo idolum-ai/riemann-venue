@@ -67,9 +67,14 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    self-convolutions is identified by Wiener--Khinchin and has an integrable
    first absolute frequency moment. A Beta-integral/Cauchy argument proves a
    measurable at-most-linear bound for the critical Gamma score, so every
-   smooth compact self-convolution enters the Gamma domain unconditionally.
-   The next step is to fix the completed sign convention and prove the Weil
-   identity. Positivity remains separate as the locked gate.
+   smooth compact test enters the Gamma domain unconditionally. The completed
+   place functional now fixes the convention `pole + Gamma - prime powers`.
+   Its entire cosine transform agrees with the real density, and its spectral
+   index contains exactly the nontrivial zeta zeros with analytic
+   multiplicity. The completed Weil identity is now an exact proposition;
+   proving it requires global zero-sum convergence and an expanding-contour
+   explicit-formula theorem not currently present in Mathlib. Positivity
+   remains separate as the locked gate.
 
 ## Design rule
 

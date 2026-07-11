@@ -65,9 +65,9 @@ The two remaining classical place shapes are analytically different:
   log tests by the exponential-moment kernel
   `exp(t/2) + exp(-t/2)`.
 
-Both pairings are now concrete. They are deliberately not declared equal to
-the completed Weil distribution. Their final sign and Fourier normalization
-belong to the completed identity.
+Both pairings are now concrete. The canonical completed functional fixes the
+convention `pole + Gamma - prime powers`. Its equality with the zero-side
+completed Weil distribution is stated precisely but not yet proved.
 
 ## The Domain Decision
 
@@ -105,12 +105,15 @@ and translation covariance plus Plancherel prove its Wiener--Khinchin
 identification with self-convolution. Its first absolute frequency moment is
 also integrable. A fixed Beta-integral majorant and Cauchy's derivative
 estimate prove a measurable at-most-linear bound for the critical Gamma
-score. Every positive smooth self-convolution therefore constructs a
-`CompletedGammaTest` unconditionally.
+score. Every smooth compact test therefore constructs a `CompletedGammaTest`
+unconditionally, including the positive self-convolution sector.
 
-The three constructed place values can now be assembled into
-`ExplicitFormulaData` and compared with the classical completed Weil
-identity. Positivity remains downstream of that comparison.
+The three place values are assembled into `completedPlaceFunctional` on the
+typed smooth core. The matching entire zero transform, nontrivial-zero index,
+and analytic multiplicities are constructed in
+`BoundaryCompletedFunctional.lean`. The remaining identity needs global
+zero-sum convergence and the completed-zeta contour formula; see
+`notes/completed-weil-identity-gate.md`. Positivity remains downstream.
 
 ## Artifacts
 
@@ -118,5 +121,6 @@ identity. Positivity remains downstream of that comparison.
 - `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`
 - `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`
 - `RiemannVenue/Venue/BoundaryGammaGrowth.lean`
+- `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`
 - `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`

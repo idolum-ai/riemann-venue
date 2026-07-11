@@ -344,6 +344,13 @@ noncomputable def SmoothCompletedLogTest.toCanonicalCompletedGammaTest
     (h : SmoothCompletedLogTest) : CompletedGammaTest :=
   h.toCompletedGammaTest gammaBoundaryLinearControl
 
+/-- The canonical Gamma-domain realization of an arbitrary smooth compact
+test. Unlike `toCanonicalCompletedGammaTest`, this does not first pass to a
+positive self-convolution. -/
+noncomputable def SmoothCompletedLogTest.toCanonicalGeneralCompletedGammaTest
+    (h : SmoothCompletedLogTest) : CompletedGammaTest :=
+  h.toGeneralCompletedGammaTest gammaBoundaryLinearControl
+
 end
 
 end RiemannVenue.Venue

@@ -104,6 +104,37 @@ theorem integrable_naturalCosineDensity (h : SmoothCompletedLogTest) :
     (R := 2 * Real.pi) (mul_ne_zero (by norm_num) Real.pi_ne_zero)
   exact hcomp.const_mul (1 / (2 * Real.pi))
 
+theorem integrable_abs_mul_re_fourierSchwartz
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun xi : ℝ => |xi| * (h.fourierSchwartz xi).re) := by
+  have hweighted := h.fourierSchwartz.integrable_pow_mul
+    (volume : Measure ℝ) 1
+  apply hweighted.mono
+  · fun_prop
+  · filter_upwards [] with xi
+    simp only [Real.norm_eq_abs, abs_mul, abs_abs, pow_one]
+    apply mul_le_mul_of_nonneg_left _ (abs_nonneg xi)
+    simpa only [abs_of_nonneg (norm_nonneg _)] using
+      Complex.abs_re_le_norm (h.fourierSchwartz xi)
+
+/-- One absolute frequency moment of the canonical (possibly signed) cosine
+density is integrable. This admits every smooth compact test, not only the
+positive self-convolution sector, against at-most-linear multipliers. -/
+theorem integrable_abs_mul_naturalCosineDensity
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun u : ℝ => |u| * h.naturalCosineDensity u) := by
+  have hbase := h.integrable_abs_mul_re_fourierSchwartz
+  have hcomp := hbase.comp_div
+    (R := 2 * Real.pi) (mul_ne_zero (by norm_num) Real.pi_ne_zero)
+  apply hcomp.congr
+  filter_upwards [] with u
+  rw [naturalCosineDensity]
+  have hpi : 0 < 2 * Real.pi := mul_pos (by norm_num) Real.pi_pos
+  rw [show |u| = (2 * Real.pi) * |u / (2 * Real.pi)| by
+    rw [abs_div, abs_of_pos hpi]
+    field_simp [Real.pi_ne_zero]]
+  field_simp [Real.pi_ne_zero]
+
 theorem fourier_inversion_complex (h : SmoothCompletedLogTest) (t : ℝ) :
     (h t : ℂ) = ∫ xi : ℝ,
       Complex.exp (((2 * Real.pi * xi * t : ℝ) : ℂ) * Complex.I) *

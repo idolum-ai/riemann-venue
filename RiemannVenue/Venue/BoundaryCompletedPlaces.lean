@@ -47,36 +47,54 @@ def GammaBoundaryLinearControl : Prop :=
     ∃ C : ℝ, 0 ≤ C ∧ ∀ u : ℝ,
       |archimedeanGammaBoundaryScore u| ≤ C * (1 + |u|)
 
+/-- A sign-agnostic admission lemma for at-most-linear multipliers. The
+frequency density need not be positive: integrability and one absolute
+moment are the complete interface used by the proof. -/
+theorem gammaIntegrable_of_linearControl
+    {rho : ℝ → ℝ} (hrho : Integrable rho)
+    (hmoment : Integrable (fun u : ℝ => |u| * rho u))
+    (hc : GammaBoundaryLinearControl) :
+    Integrable (fun u : ℝ =>
+      rho u * archimedeanGammaBoundaryScore u) := by
+  rcases hc with ⟨hmeas, C, hC, hbound⟩
+  have hsum : Integrable (fun u : ℝ => |rho u| + |u| * |rho u|) := by
+    exact hrho.norm.add (hmoment.norm.congr (by
+      filter_upwards [] with u
+      simp only [Real.norm_eq_abs, abs_mul, abs_abs]))
+  have hdom : Integrable (fun u : ℝ =>
+      C * (|rho u| + |u| * |rho u|)) := hsum.const_mul C
+  apply hdom.mono
+  · exact hrho.aestronglyMeasurable.mul hmeas
+  · filter_upwards [] with u
+    have hb := hbound u
+    have hsum0 : 0 ≤ |rho u| + |u| * |rho u| := by positivity
+    change |rho u * archimedeanGammaBoundaryScore u| ≤
+      |C * (|rho u| + |u| * |rho u|)|
+    rw [abs_mul, abs_of_nonneg (mul_nonneg hC hsum0)]
+    calc
+      |rho u| * |archimedeanGammaBoundaryScore u| ≤
+          |rho u| * (C * (1 + |u|)) :=
+        mul_le_mul_of_nonneg_left hb (abs_nonneg _)
+      _ = C * (|rho u| + |u| * |rho u|) := by ring
+
 theorem SmoothCompletedLogTest.gammaIntegrable_of_linearControl
     (h : SmoothCompletedLogTest) (hc : GammaBoundaryLinearControl) :
     Integrable (fun u : ℝ =>
       h.normalizedSelfConvolutionFrequencyDensity u *
         archimedeanGammaBoundaryScore u) := by
-  rcases hc with ⟨hmeas, C, hC, hbound⟩
-  let rho := h.normalizedSelfConvolutionFrequencyDensity
-  have hrho := h.integrable_normalizedSelfConvolutionFrequencyDensity
-  have hmoment :=
-    h.integrable_abs_mul_normalizedSelfConvolutionFrequencyDensity
-  have hsum : Integrable (fun u : ℝ => rho u + |u| * rho u) :=
-    hrho.add hmoment
-  have hdom : Integrable (fun u : ℝ => C * (rho u + |u| * rho u)) :=
-    hsum.const_mul C
-  apply hdom.mono
-  · exact hrho.aestronglyMeasurable.mul hmeas
-  · filter_upwards [] with u
-    have hrho0 := h.normalizedSelfConvolutionFrequencyDensity_nonneg u
-    change 0 ≤ rho u at hrho0
-    have hb := hbound u
-    change ‖rho u * archimedeanGammaBoundaryScore u‖ ≤
-      ‖C * (rho u + |u| * rho u)‖
-    rw [Real.norm_eq_abs, Real.norm_eq_abs, abs_mul,
-      abs_of_nonneg hrho0]
-    have hsum0 : 0 ≤ rho u + |u| * rho u := by positivity
-    rw [abs_of_nonneg (mul_nonneg hC hsum0)]
-    calc
-      rho u * |archimedeanGammaBoundaryScore u| ≤
-          rho u * (C * (1 + |u|)) := mul_le_mul_of_nonneg_left hb hrho0
-      _ = C * (rho u + |u| * rho u) := by ring
+  exact RiemannVenue.Venue.gammaIntegrable_of_linearControl
+    h.integrable_normalizedSelfConvolutionFrequencyDensity
+    h.integrable_abs_mul_normalizedSelfConvolutionFrequencyDensity hc
+
+/-- Every smooth compact test, without a positivity restriction, enters the
+Gamma domain through its canonical Fourier cosine density. -/
+noncomputable def SmoothCompletedLogTest.toGeneralCompletedGammaTest
+    (h : SmoothCompletedLogTest) (hc : GammaBoundaryLinearControl) :
+    CompletedGammaTest where
+  toCompletedCosineTest := h.toCompletedCosineTest
+  gammaIntegrable := RiemannVenue.Venue.gammaIntegrable_of_linearControl
+    h.integrable_naturalCosineDensity
+    (SmoothCompletedLogTest.integrable_abs_mul_naturalCosineDensity h) hc
 
 /-- Conditional only on the named Gamma growth lemma, the positive
 self-convolution lift enters the full finite-plus-archimedean domain. -/

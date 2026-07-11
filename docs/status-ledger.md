@@ -336,12 +336,16 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   pairing with kernel `exp(t/2) + exp(-t/2)`
 
   - **Status:** both place functionals constructed in Lean;
-    `GammaBoundaryLinearControl` is proved and every positive smooth
-    self-convolution has an unconditional `CompletedGammaTest`. The common
-    sign convention and identity with the completed Weil distribution remain
-    open
+    `GammaBoundaryLinearControl` is proved and every smooth compact test has
+    an unconditional `CompletedGammaTest`. The completed place functional is
+    assembled with convention `pole + Gamma - prime powers`. Its matching
+    entire zero transform and multiplicity-expanded nontrivial-zero index are
+    constructed; global zero-sum convergence and the completed Weil identity
+    remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
     `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`,
+    `notes/completed-weil-identity-gate.md`,
     `notes/completed-test-ideal-decision-gate.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
