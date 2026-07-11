@@ -157,6 +157,11 @@ theorem continuous_completedContourTest (h : SmoothCompletedLogTest) :
   exact (continuous_completedZeroTestTransform h).comp
     ((continuous_id.sub continuous_const).div_const Complex.I)
 
+theorem differentiable_completedContourTest (h : SmoothCompletedLogTest) :
+    Differentiable ℂ (completedContourTest h) := by
+  exact (differentiable_completedZeroTestTransform h).comp
+    ((differentiable_id.sub_const (1 / 2 : ℂ)).div_const Complex.I)
+
 theorem completedContourTest_at_nontrivialZetaZero
     (h : SmoothCompletedLogTest) (rho : nontrivialRiemannZetaZeros) :
     completedContourTest h (nontrivialZetaZeroValue rho) =

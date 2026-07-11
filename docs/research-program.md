@@ -87,13 +87,16 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    reflection, and direct Mellin domination on the fixed middle strip. The
    smooth compact transform now has uniform fourth-order decay on the zero
    strip, and the generic bucket theorem closes global zero-sum convergence.
-   The next inputs are a finite-pole rectangle residue theorem and
-   zero-avoiding expanding-height control for the logarithmic derivative.
-   The local contour layer now proves arbitrary-multiplicity logarithmic
-   residues, identifies the weighted Xi residues with the completed zero
-   summands, and proves convergence of symmetric finite zero windows. An
-   explicit expanding-contour witness isolates rectangle excision from the
-   place-side edge limit and is proved sufficient for the completed formula.
+   The finite-pole rectangle algebra is now proved: explicit square winding,
+   arbitrary-multiplicity weighted logarithmic residues, and recursive
+   rectangle excision identify every certified finite partition with the sum
+   of its charges. Every completed-Xi zero supplies a local charged leaf whose
+   charge is exactly its completed zero summand. The remaining geometric input
+   is a compiler from the finite zero set in an outer rectangle to such a
+   partition. The separate analytic input is zero-avoiding expanding-height
+   control for the logarithmic derivative. An explicit expanding-contour
+   witness isolates these inputs from the place-side edge limit and is proved
+   sufficient for the completed formula.
 
 ## Design rule
 

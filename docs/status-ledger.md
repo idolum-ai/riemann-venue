@@ -369,11 +369,16 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   contour test gives the completed zero-transform summands, whose symmetric
   finite windows converge to the unconditional zero sum
 
-  - **Status:** proved in Lean. The finite-pole rectangle residue theorem and
-    selected expanding-edge limit remain open and are exposed by
-    `CompletedExpandingContourWitness`; such witnesses are proved sufficient
-    for the completed Weil formula
+  - **Status:** proved in Lean. Explicit square winding and recursive finite
+    rectangle excision are also proved: every certified partition has outer
+    integral `2*pi*i` times its total charge, and every completed-Xi zero has
+    a weighted charged leaf with exactly the global zero-sum normalization.
+    Automatic construction of a partition from an arbitrary finite zero
+    window, and the selected expanding-edge limit, remain open and are exposed
+    by `CompletedExpandingContourWitness`; such witnesses are proved
+    sufficient for the completed Weil formula
   - **Artifact:** `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`,
+    `RiemannVenue/Venue/BoundaryRectangleExcision.lean`,
     `notes/completed-explicit-formula-contour.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near

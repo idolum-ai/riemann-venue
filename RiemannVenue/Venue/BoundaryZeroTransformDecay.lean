@@ -1,4 +1,5 @@
 import Mathlib.Analysis.Calculus.Deriv.Support
+import Mathlib.Analysis.Calculus.ParametricIntegral
 import Mathlib.MeasureTheory.Integral.Bochner.Set
 import Mathlib.MeasureTheory.Integral.IntegralEqImproper
 import RiemannVenue.Venue.BoundaryCompletedXiGrowth
@@ -12,7 +13,8 @@ the horizontal strip occupied by nontrivial-zero frequencies.
 
 namespace RiemannVenue.Venue
 
-open Set MeasureTheory
+open Set MeasureTheory Filter
+open scoped Topology
 
 noncomputable section
 
@@ -42,6 +44,107 @@ theorem continuous_completedZeroTestTransform
       h.hasCompactSupport hint hsupp
   unfold completedZeroTestTransform
   exact continuous_const.mul hcont
+
+private theorem norm_complex_sin_le_exp_abs_im (z : ℂ) :
+    ‖Complex.sin z‖ ≤ Real.exp |z.im| := by
+  rw [Complex.sin]
+  calc
+    ‖(Complex.exp (-z * Complex.I) - Complex.exp (z * Complex.I)) *
+        Complex.I / 2‖ ≤
+        (‖Complex.exp (-z * Complex.I)‖ +
+          ‖Complex.exp (z * Complex.I)‖) / 2 := by
+      rw [norm_div, norm_mul]
+      norm_num
+      exact div_le_div_of_nonneg_right (norm_sub_le _ _) (by norm_num)
+    _ ≤ (Real.exp |z.im| + Real.exp |z.im|) / 2 := by
+      rw [Complex.norm_exp, Complex.norm_exp]
+      gcongr
+      · simp [Complex.mul_re]
+        exact le_abs_self z.im
+      · simp [Complex.mul_re]
+        exact neg_le_abs z.im
+    _ = Real.exp |z.im| := by ring
+
+/-- The completed zero transform is entire. Compact support gives a local
+integrable derivative majorant for differentiation under the integral. -/
+theorem differentiable_completedZeroTestTransform
+    (h : SmoothCompletedLogTest) :
+    Differentiable ℂ (completedZeroTestTransform h) := by
+  intro z₀
+  let F : ℂ → ℝ → ℂ := fun z t =>
+    (h t : ℂ) * Complex.cos (z * (t : ℂ))
+  let F' : ℂ → ℝ → ℂ := fun z t =>
+    (h t : ℂ) * (-Complex.sin (z * (t : ℂ)) * (t : ℂ))
+  let bound : ℝ → ℝ := fun t =>
+    ‖(h t : ℂ)‖ * Real.exp ((|z₀.im| + 1) * |t|) * |t|
+  have hFmeas : ∀ᶠ z in 𝓝 z₀, AEStronglyMeasurable (F z) volume := by
+    filter_upwards [] with z
+    exact ((Complex.continuous_ofReal.comp h.continuous).mul
+      (Complex.continuous_cos.comp
+        (continuous_const.mul Complex.continuous_ofReal))).aestronglyMeasurable
+  have hFint : Integrable (F z₀) volume := by
+    apply Continuous.integrable_of_hasCompactSupport
+    · exact (Complex.continuous_ofReal.comp h.continuous).mul
+        (Complex.continuous_cos.comp
+          (continuous_const.mul Complex.continuous_ofReal))
+    · apply h.hasCompactSupport.mono
+      intro t ht
+      exact fun hzero => ht (by simp [F, hzero])
+  have hF'meas : AEStronglyMeasurable (F' z₀) volume := by
+    exact ((Complex.continuous_ofReal.comp h.continuous).mul
+      ((Complex.continuous_sin.comp
+        (continuous_const.mul Complex.continuous_ofReal)).neg.mul
+          Complex.continuous_ofReal)).aestronglyMeasurable
+  have hboundInt : Integrable bound volume := by
+    apply Continuous.integrable_of_hasCompactSupport
+    · exact ((Complex.continuous_ofReal.comp h.continuous).norm.mul
+        (Real.continuous_exp.comp
+          (continuous_const.mul continuous_abs))).mul continuous_abs
+    · apply h.hasCompactSupport.mono
+      intro t ht
+      exact fun hzero => ht (by simp [bound, hzero])
+  have hderiv : ∀ᵐ t ∂volume, ∀ z ∈ Metric.ball z₀ 1,
+      HasDerivAt (F · t) (F' z t) z := by
+    filter_upwards [] with t z hz
+    have hinner : HasDerivAt (fun w : ℂ => w * (t : ℂ)) (t : ℂ) z :=
+      by simpa using (hasDerivAt_id z).mul_const (t : ℂ)
+    have hcos := Complex.hasDerivAt_cos (z * (t : ℂ)) |>.comp z hinner
+    simpa [F, F', mul_assoc] using hcos.const_mul (h t : ℂ)
+  have hbound : ∀ᵐ t ∂volume, ∀ z ∈ Metric.ball z₀ 1,
+      ‖F' z t‖ ≤ bound t := by
+    filter_upwards [] with t z hz
+    have hzim : |z.im| ≤ |z₀.im| + 1 := by
+      calc
+        |z.im| ≤ |z₀.im| + |z.im - z₀.im| := by
+          linarith [abs_sub_abs_le_abs_sub z.im z₀.im]
+        _ ≤ |z₀.im| + ‖z - z₀‖ := by
+          gcongr
+          simpa only [Complex.sub_im] using Complex.abs_im_le_norm (z - z₀)
+        _ ≤ |z₀.im| + 1 := by
+          rw [Metric.mem_ball, Complex.dist_eq] at hz
+          linarith
+    have him : |(z * (t : ℂ)).im| ≤ (|z₀.im| + 1) * |t| := by
+      rw [Complex.mul_im]
+      simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, zero_add,
+        abs_mul]
+      exact mul_le_mul_of_nonneg_right hzim (abs_nonneg t)
+    have hsin := norm_complex_sin_le_exp_abs_im (z * (t : ℂ))
+    have hexp : Real.exp |(z * (t : ℂ)).im| ≤
+        Real.exp ((|z₀.im| + 1) * |t|) := Real.exp_le_exp.mpr him
+    calc
+      ‖F' z t‖ = ‖(h t : ℂ)‖ *
+          ‖Complex.sin (z * (t : ℂ))‖ * |t| := by
+        simp [F', mul_assoc]
+      _ ≤ ‖(h t : ℂ)‖ *
+          Real.exp |(z * (t : ℂ)).im| * |t| := by gcongr
+      _ ≤ bound t := by
+        dsimp [bound]
+        gcongr
+  have hmain := hasDerivAt_integral_of_dominated_loc_of_deriv_le
+    (Metric.ball_mem_nhds z₀ (by norm_num : (0 : ℝ) < 1))
+    hFmeas hFint hF'meas hbound hboundInt hderiv
+  unfold completedZeroTestTransform
+  exact (hmain.2.const_mul (1 / (2 * Real.pi) : ℂ)).differentiableAt
 
 private noncomputable def complexLogTest (h : SmoothCompletedLogTest) : ℝ → ℂ :=
   fun t => h t
