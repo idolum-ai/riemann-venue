@@ -413,10 +413,14 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     three continuous channels without a principal-value convention. The
     displaced Abel arithmetic score is also proved equal to its pole
     counterterm minus the absolutely convergent von Mangoldt L-series for
-    every positive displacement. The Fourier/L-series interchange, improper
-    full-line limits, and identification with the completed pole, Gamma, and
-    compact prime-power pairings remain open
+    every positive displacement. The one-monomial Fourier identity and every
+    finite prime-power interchange are proved, with value exactly one half of
+    the existing truncated prime-power pairing and no dependence on the Abel
+    displacement. The infinite L-series interchange, improper full-line
+    limits, and identification with the completed pole and Gamma pairings
+    remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
+    `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-right-edge.md`
 

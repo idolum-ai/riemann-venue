@@ -41,6 +41,23 @@ theorem hasCompactSupport (h : SmoothCompletedLogTest) :
     HasCompactSupport h :=
   h.1.hasCompactSupport
 
+/-- Exponential tilting preserves the smooth compact test core. This is the
+space-side object whose Fourier transform describes a displaced vertical
+contour. -/
+noncomputable def expTilt (h : SmoothCompletedLogTest) (a : ℝ) :
+    SmoothCompletedLogTest := by
+  let f : ℝ → ℝ := fun t => h t * Real.exp (a * t)
+  have hfcont : Continuous f :=
+    h.continuous.mul (Real.continuous_exp.comp (continuous_const.mul continuous_id))
+  have hfsupp : HasCompactSupport f := by
+    exact h.hasCompactSupport.mul_right
+  refine ⟨CompletedLogTest.ofWeilTest f hfcont hfsupp, ?_⟩
+  change ContDiff ℝ (⊤ : ℕ∞) f
+  exact h.2.mul (Real.contDiff_exp.comp (contDiff_const.mul contDiff_id))
+
+@[simp] theorem expTilt_apply (h : SmoothCompletedLogTest) (a t : ℝ) :
+    h.expTilt a t = h t * Real.exp (a * t) := rfl
+
 /-- The smooth compact core is nonempty. -/
 noncomputable def zero : SmoothCompletedLogTest :=
   ⟨0, by

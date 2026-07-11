@@ -71,6 +71,31 @@ identity against the displaced completed contour test, justify exchanging the
 absolutely convergent L-series with the Fourier integral, identify the compact
 prime-power sum, and pass `epsilon -> 0+` in the combined expression.
 
+The finite normalization gate is also closed. Exponential tilting preserves
+the smooth compact test core, and Fourier inversion proves the one-monomial
+identity
+
+```text
+integral_y K_epsilon(y) * exp(-i*y*x)
+  = (1/2) * exp((1/2 + epsilon)*x) * (h(x) + h(-x)).
+```
+
+Multiplying by the Dirichlet factor `exp(-(1+epsilon)*x)` cancels every
+dependence on `epsilon` and leaves `exp(-x/2)`. Consequently Lean proves, for
+every finite prime/power rectangle,
+
+```text
+integral_y K_epsilon(y) * AbelPrimePowerPolynomial(P,R,epsilon,y)
+  = (1/2) * primePowerSideTruncated(P,R,h).
+```
+
+The factor `1/2` is exactly the one-sided right-edge normalization; completed
+functional-equation symmetry doubles it in the full vertical contour. The
+remaining upgrade is now purely analytic: justify the infinite
+von-Mangoldt-L-series interchange for positive `epsilon`. Compact support then
+forces the resulting prime-power value to stabilize at
+`compactPrimePowerPairing h`.
+
 The elementary and Gamma channels can be developed independently: establish
 their full-line integrability from fourth-order test decay, identify their
 limits by contour shift/Fourier inversion, and then leave the Abel arithmetic
@@ -79,6 +104,7 @@ identity as the sole right-edge theorem.
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`
+- `RiemannVenue/Venue/BoundaryAbelFourier.lean`
 - `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`
 - `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
 - `notes/completed-explicit-formula-contour.md`

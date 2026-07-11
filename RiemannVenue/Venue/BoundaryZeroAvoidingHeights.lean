@@ -1,6 +1,6 @@
 import Mathlib.Order.Interval.Set.Infinite
+import RiemannVenue.Venue.BoundaryAbelFourier
 import RiemannVenue.Venue.BoundaryRectangleCompiler
-import RiemannVenue.Venue.BoundaryRightEdgeDecomposition
 
 /-!
 # Zero-avoiding contour heights
