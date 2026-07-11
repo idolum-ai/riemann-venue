@@ -1137,10 +1137,11 @@ theorem rectangleBoundaryIntegral_mul_logDeriv_of_local_factorization
       rw [rectangleBoundaryIntegral_inv_mul_eq hk center r hr]
       ring
 
-theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order
+theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order_lt
     {f k : ℂ → ℂ} {center : ℂ} (hf : AnalyticAt ℂ f center)
-    (hfinite : analyticOrderAt f center ≠ ⊤) (hk : Differentiable ℂ k) :
-    ∃ r : ℝ, 0 < r ∧
+    (hfinite : analyticOrderAt f center ≠ ⊤) (hk : Differentiable ℂ k)
+    {δ : ℝ} (hδ : 0 < δ) :
+    ∃ r : ℝ, 0 < r ∧ r < δ ∧
       rectangleBoundaryIntegral (fun z => k z * logDeriv f z)
         (center.re - r) (center.re + r)
         (center.im - r) (center.im + r) =
@@ -1165,8 +1166,10 @@ theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order
       with z hz hdz hgz hgnz
     exact ⟨hz, hdz, hgz, hgnz⟩
   rcases Metric.mem_nhds_iff.mp hlocal with ⟨ε, hε, hεlocal⟩
-  let r := ε / 4
+  let r := min (ε / 4) (δ / 2)
   have hr : 0 < r := by dsimp [r]; positivity
+  have hrε : r ≤ ε / 4 := min_le_left _ _
+  have hrδ : r < δ := (min_le_right (ε / 4) (δ / 2)).trans_lt (by linarith)
   have hsquare : ∀ z ∈
       Set.Icc (center.re - r) (center.re + r) ×ℂ
         Set.Icc (center.im - r) (center.im + r),
@@ -1184,8 +1187,8 @@ theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order
       ‖z - center‖ ≤ |(z - center).re| + |(z - center).im| :=
         Complex.norm_le_abs_re_add_abs_im _
       _ ≤ r + r := add_le_add hre him
-      _ < ε := by dsimp [r]; linarith
-  refine ⟨r, hr, ?_⟩
+      _ < ε := by linarith
+  refine ⟨r, hr, hrδ, ?_⟩
   apply rectangleBoundaryIntegral_mul_logDeriv_of_local_factorization hr hk
   · intro z hz
     exact (hεlocal (hsquare z hz)).1
@@ -1195,6 +1198,21 @@ theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order
     exact (hεlocal (hsquare z hz)).2.2.1
   · intro z hz
     exact (hεlocal (hsquare z hz)).2.2.2
+
+/-- Every finite-order zero admits a weighted charged square. -/
+theorem AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order
+    {f k : ℂ → ℂ} {center : ℂ} (hf : AnalyticAt ℂ f center)
+    (hfinite : analyticOrderAt f center ≠ ⊤) (hk : Differentiable ℂ k) :
+    ∃ r : ℝ, 0 < r ∧
+      rectangleBoundaryIntegral (fun z => k z * logDeriv f z)
+        (center.re - r) (center.re + r)
+        (center.im - r) (center.im + r) =
+          (2 * Real.pi * Complex.I) *
+            ((analyticOrderNatAt f center : ℂ) * k center) := by
+  obtain ⟨r, hr, _hrlt, hcharge⟩ :=
+    AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order_lt
+      hf hfinite hk (by norm_num : (0 : ℝ) < 1)
+  exact ⟨r, hr, hcharge⟩
 
 /-- Weighted completed-Xi charged leaf. Its charge is precisely multiplicity
 times the canonical zero-transform value. -/

@@ -162,6 +162,17 @@ theorem differentiable_completedContourTest (h : SmoothCompletedLogTest) :
   exact (differentiable_completedZeroTestTransform h).comp
     ((differentiable_id.sub_const (1 / 2 : ℂ)).div_const Complex.I)
 
+/-- The contour test is symmetric about the completed functional-equation
+axis. -/
+theorem completedContourTest_one_sub
+    (h : SmoothCompletedLogTest) (s : ℂ) :
+    completedContourTest h (1 - s) = completedContourTest h s := by
+  rw [completedContourTest, completedContourTest,
+    ← completedZeroTestTransform_neg h]
+  congr 1
+  field_simp [Complex.I_ne_zero]
+  ring
+
 theorem completedContourTest_at_nontrivialZetaZero
     (h : SmoothCompletedLogTest) (rho : nontrivialRiemannZetaZeros) :
     completedContourTest h (nontrivialZetaZeroValue rho) =

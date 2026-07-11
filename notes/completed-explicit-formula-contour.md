@@ -90,6 +90,24 @@ not yet imply that fourth-order test-transform decay makes the horizontal
 integrals vanish. A quantitative minimum-modulus or logarithmic-derivative
 theorem is now the precise zeta-specific input.
 
+Finite residue compilation is now fully specialized as well. Controlled local
+squares extend to arbitrary singleton rectangles, the generic compiler applies
+to every positive zero-avoiding height, and the resulting distinct-location
+charge sum is proved equal to the canonical multiplicity-expanded zero-window
+sum. `CompletedXiQuadraticSelectedHeightFamily` fixes the remaining analytic
+contract without tying it to the earlier arbitrary qualitative selector. Its
+upper-edge quadratic bound implies vanishing of both horizontal edges, the
+lower one by completed-Xi symmetry. The stronger literature-facing
+`CompletedXiLogSquaredSelectedHeightFamily` is pinned to Titchmarsh IX.9.6(A)
+and IX.9.7 and is proved to imply the quadratic downstream contract.
+
+The vertical contour has also been reduced exactly. The completed zero
+transform is even, the completed-Xi logarithmic derivative is odd under
+`s -> 1-s`, and therefore the two vertical sides equal twice the right edge.
+The final contour frontier is now a quantitatively selected family plus the
+one-sided `CompletedXiSelectedRightEdgeLimit`, whose target is
+`(I/2) * completedPlaceFunctional h`.
+
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`
@@ -99,3 +117,4 @@ theorem is now the precise zeta-specific input.
 - `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `notes/completed-explicit-formula-zero-counting.md`
+- `notes/completed-explicit-formula-height-engine.md`

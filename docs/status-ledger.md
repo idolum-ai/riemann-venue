@@ -386,6 +386,24 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-contour.md`
 
+- **Claim:** Finite completed-Xi rectangles have the exact canonical
+  multiplicity-expanded residue sum, and any quantitatively selected height
+  family with a quadratic upper-edge `Xi'/Xi` bound has vanishing weighted
+  horizontal edges
+
+  - **Status:** proved in Lean. Existence of
+    `CompletedXiQuadraticSelectedHeightFamily` remains a referenced/open
+    analytic input; the weaker arbitrary zero-avoiding family and qualitative
+    per-edge bounds are proved but do not imply the quantitative contract.
+    The stronger classical `O(log^2 T)` source contract is stated as
+    `CompletedXiLogSquaredSelectedHeightFamily` and proved to imply the
+    quadratic contract. Test and Xi symmetries also prove that the two
+    vertical sides equal twice the right edge, reducing the remaining place
+    limit to `CompletedXiSelectedRightEdgeLimit`
+  - **Artifact:** `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `notes/completed-explicit-formula-height-engine.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 

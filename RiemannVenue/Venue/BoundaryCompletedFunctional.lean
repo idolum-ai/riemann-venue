@@ -45,6 +45,17 @@ noncomputable def completedZeroTestTransform
   (1 / (2 * Real.pi) : ℂ) *
     ∫ t : ℝ, (h t : ℂ) * Complex.cos (z * (t : ℂ))
 
+/-- The completed zero transform is even. This is the test-side symmetry
+matching the functional equation around `s = 1/2`. -/
+theorem completedZeroTestTransform_neg
+    (h : SmoothCompletedLogTest) (z : ℂ) :
+    completedZeroTestTransform h (-z) = completedZeroTestTransform h z := by
+  unfold completedZeroTestTransform
+  congr 1
+  apply integral_congr_ae
+  filter_upwards [] with t
+  rw [neg_mul, Complex.cos_neg]
+
 private theorem integrable_completedZeroTestTransform_real
     (h : SmoothCompletedLogTest) (u : ℝ) :
     Integrable (fun t : ℝ =>

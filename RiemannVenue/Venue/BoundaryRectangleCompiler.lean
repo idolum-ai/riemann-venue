@@ -241,6 +241,154 @@ theorem FiniteRectanglePoleData.edgeIntegrable
     verticalEdge_intervalIntegrable hab hcd D.inside D.differentiableAway (Or.inr rfl),
     verticalEdge_intervalIntegrable hab hcd D.inside D.differentiableAway (Or.inl rfl)⟩
 
+theorem differentiableAt_mul_logDeriv_of_analyticAt
+    {f k : ℂ → ℂ} {z : ℂ} (hk : Differentiable ℂ k)
+    (hf : AnalyticAt ℂ f z) (hf0 : f z ≠ 0) :
+    DifferentiableAt ℂ (fun w => k w * logDeriv f w) z := by
+  rw [show (fun w => k w * logDeriv f w) =
+      fun w => k w * (deriv f w / f w) by
+    funext w
+    rw [logDeriv_apply]]
+  exact (hk z).mul (hf.deriv.differentiableAt.div hf.differentiableAt hf0)
+
+/-- A controlled local square plus four holomorphic surrounding rectangles
+extends the weighted residue charge to any rectangle containing exactly one
+zero. -/
+theorem rectangleBoundaryIntegral_mul_logDeriv_eq_order_of_unique_zero
+    {f k : ℂ → ℂ} {center : ℂ} {a b c d : ℝ}
+    (ha : a < center.re) (hb : center.re < b)
+    (hc : c < center.im) (hd : center.im < d)
+    (hf : ∀ z ∈ Set.Icc a b ×ℂ Set.Icc c d, AnalyticAt ℂ f z)
+    (hzero : ∀ z ∈ Set.Icc a b ×ℂ Set.Icc c d,
+      f z = 0 ↔ z = center)
+    (hfinite : analyticOrderAt f center ≠ ⊤)
+    (hk : Differentiable ℂ k) :
+    rectangleBoundaryIntegral (fun z => k z * logDeriv f z) a b c d =
+      (2 * Real.pi * Complex.I) *
+        ((analyticOrderNatAt f center : ℂ) * k center) := by
+  let δ := min (center.re - a) <|
+    min (b - center.re) <| min (center.im - c) (d - center.im)
+  have hδ : 0 < δ := by dsimp [δ]; positivity
+  have hcenterMem : center ∈ Set.Icc a b ×ℂ Set.Icc c d := by
+    rw [Complex.mem_reProdIm]
+    exact ⟨⟨ha.le, hb.le⟩, ⟨hc.le, hd.le⟩⟩
+  obtain ⟨r, hr, hrδ, hcharge⟩ :=
+    AnalyticAt.exists_rectangleBoundaryIntegral_mul_logDeriv_eq_order_lt
+      (hf center hcenterMem) hfinite hk hδ
+  have hra : a < center.re - r := by
+    have := lt_of_lt_of_le hrδ (min_le_left _ _)
+    linarith
+  have hrb : center.re + r < b := by
+    have := lt_of_lt_of_le hrδ
+      ((min_le_right (center.re - a) _).trans (min_le_left _ _))
+    linarith
+  have hrc : c < center.im - r := by
+    have := lt_of_lt_of_le hrδ
+      ((min_le_right (center.re - a) _).trans
+        ((min_le_right (b - center.re) _).trans (min_le_left _ _)))
+    linarith
+  have hrd : center.im + r < d := by
+    have := lt_of_lt_of_le hrδ
+      ((min_le_right (center.re - a) _).trans
+        ((min_le_right (b - center.re) _).trans
+          (min_le_right (center.im - c) _)))
+    linarith
+  let G : ℂ → ℂ := fun z => k z * logDeriv f z
+  have hGdiff : ∀ z ∈ Set.Icc a b ×ℂ Set.Icc c d, z ≠ center →
+      DifferentiableAt ℂ G z := by
+    intro z hz hzc
+    apply differentiableAt_mul_logDeriv_of_analyticAt hk (hf z hz)
+    exact fun hfz => hzc ((hzero z hz).mp hfz)
+  have hCenterInside : ∀ z ∈ ({center} : Finset ℂ),
+      center.re - r < z.re ∧ z.re < center.re + r ∧
+      center.im - r < z.im ∧ z.im < center.im + r := by
+    intro z hz
+    rw [Finset.mem_singleton] at hz
+    subst z
+    exact ⟨by linarith, by linarith, by linarith, by linarith⟩
+  have hCenterDiff : ∀ z ∈
+      Set.Icc (center.re - r) (center.re + r) ×ℂ
+        Set.Icc (center.im - r) (center.im + r),
+      z ∉ ({center} : Finset ℂ) → DifferentiableAt ℂ G z := by
+    intro z hz hznot
+    apply hGdiff z
+    · rw [Complex.mem_reProdIm] at hz ⊢
+      exact ⟨⟨hra.le.trans hz.1.1, hz.1.2.trans hrb.le⟩,
+        ⟨hrc.le.trans hz.2.1, hz.2.2.trans hrd.le⟩⟩
+    · simpa using hznot
+  have hCenter : RectangleEdgeIntegrable G
+      (center.re - r) (center.re + r)
+      (center.im - r) (center.im + r) := by
+    exact ⟨
+      horizontalEdge_intervalIntegrable (by linarith) (by linarith)
+        hCenterInside hCenterDiff (Or.inl rfl),
+      horizontalEdge_intervalIntegrable (by linarith) (by linarith)
+        hCenterInside hCenterDiff (Or.inr rfl),
+      verticalEdge_intervalIntegrable (by linarith) (by linarith)
+        hCenterInside hCenterDiff (Or.inr rfl),
+      verticalEdge_intervalIntegrable (by linarith) (by linarith)
+        hCenterInside hCenterDiff (Or.inl rfl)⟩
+  have hBottomDiff : DifferentiableOn ℂ G
+      (Set.Icc a b ×ℂ Set.Icc c (center.im - r)) := by
+    intro z hz
+    apply (hGdiff z ?_ ?_).differentiableWithinAt
+    · rw [Complex.mem_reProdIm] at hz ⊢
+      exact ⟨hz.1, ⟨hz.2.1, hz.2.2.trans (by linarith : center.im - r ≤ d)⟩⟩
+    · intro hzc
+      subst z
+      have hbad : center.im ≤ center.im - r := by simpa using hz.2.2
+      linarith
+  have hTopDiff : DifferentiableOn ℂ G
+      (Set.Icc a b ×ℂ Set.Icc (center.im + r) d) := by
+    intro z hz
+    apply (hGdiff z ?_ ?_).differentiableWithinAt
+    · rw [Complex.mem_reProdIm] at hz ⊢
+      exact ⟨hz.1, ⟨hrc.le.trans (by linarith [hz.2.1]), hz.2.2⟩⟩
+    · intro hzc
+      subst z
+      have hbad : center.im + r ≤ center.im := by simpa using hz.2.1
+      linarith
+  have hLeftDiff : DifferentiableOn ℂ G
+      (Set.Icc a (center.re - r) ×ℂ
+        Set.Icc (center.im - r) (center.im + r)) := by
+    intro z hz
+    apply (hGdiff z ?_ ?_).differentiableWithinAt
+    · rw [Complex.mem_reProdIm] at hz ⊢
+      exact ⟨⟨hz.1.1, hz.1.2.trans (by linarith : center.re - r ≤ b)⟩,
+        ⟨hrc.le.trans hz.2.1, hz.2.2.trans hrd.le⟩⟩
+    · intro hzc
+      subst z
+      have hbad : center.re ≤ center.re - r := by simpa using hz.1.2
+      linarith
+  have hRightDiff : DifferentiableOn ℂ G
+      (Set.Icc (center.re + r) b ×ℂ
+        Set.Icc (center.im - r) (center.im + r)) := by
+    intro z hz
+    apply (hGdiff z ?_ ?_).differentiableWithinAt
+    · rw [Complex.mem_reProdIm] at hz ⊢
+      exact ⟨⟨hra.le.trans (by linarith [hz.1.1]), hz.1.2⟩,
+        ⟨hrc.le.trans hz.2.1, hz.2.2.trans hrd.le⟩⟩
+    · intro hzc
+      subst z
+      have hbad : center.re + r ≤ center.re := by simpa using hz.1.1
+      linarith
+  have hBottom := RectangleEdgeIntegrable.of_continuousOn
+    (by linarith : a ≤ b) (by linarith : c ≤ center.im - r)
+    hBottomDiff.continuousOn
+  have hTop := RectangleEdgeIntegrable.of_continuousOn
+    (by linarith : a ≤ b) (by linarith : center.im + r ≤ d)
+    hTopDiff.continuousOn
+  have hLeft := RectangleEdgeIntegrable.of_continuousOn
+    (by linarith : a ≤ center.re - r) (by linarith)
+    hLeftDiff.continuousOn
+  have hRight := RectangleEdgeIntegrable.of_continuousOn
+    (by linarith : center.re + r ≤ b) (by linarith)
+    hRightDiff.continuousOn
+  rw [rectangleBoundaryIntegral_eq_center_square_of_surrounding_holomorphic
+    hr hra hrb hrc hrd hBottom hTop hLeft hCenter hRight
+    hBottomDiff hTopDiff hLeftDiff hRightDiff]
+  exact hcharge
+
 private theorem FiniteRectanglePoleData.restrictVerticalLeft
     {g charge : ℂ → ℂ} {S : Finset ℂ} {a b c d m : ℝ}
     (D : FiniteRectanglePoleData g charge S a b c d)

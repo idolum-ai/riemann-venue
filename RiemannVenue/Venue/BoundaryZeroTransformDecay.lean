@@ -255,7 +255,7 @@ private theorem norm_complex_cos_le_exp_abs_im (z : ℂ) :
         exact le_abs_self _
     _ = Real.exp |z.im| := by ring
 
-private noncomputable def completedZeroTransformFourthMajorant
+noncomputable def completedZeroTransformFourthMajorant
     (h : SmoothCompletedLogTest) : ℝ :=
   (1 / (2 * Real.pi)) *
     ∫ t : ℝ, ‖iteratedDeriv 4 (complexLogTest h) t‖ *
@@ -266,7 +266,7 @@ private noncomputable def completedZeroTransformBaseMajorant
   (1 / (2 * Real.pi)) *
     ∫ t : ℝ, ‖(h t : ℂ)‖ * Real.exp (|t| / 2)
 
-private theorem completedZeroTransformFourthMajorant_nonneg
+theorem completedZeroTransformFourthMajorant_nonneg
     (h : SmoothCompletedLogTest) :
     0 ≤ completedZeroTransformFourthMajorant h := by
   apply mul_nonneg
