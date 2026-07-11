@@ -404,6 +404,19 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-height-engine.md`
 
+- **Claim:** The completed-Xi logarithmic derivative has the expected
+  elementary, Gamma, and zeta decomposition in `re s > 1`; on `re s = 1`,
+  the zeta pole and `1/(s-1)` combine into a continuous regularized arithmetic
+  score with value the Euler--Mascheroni constant at height zero
+
+  - **Status:** proved in Lean. Every finite right-edge integral is split into
+    three continuous channels without a principal-value convention. The
+    improper full-line limits and their identification with the completed
+    pole, Gamma, and compact prime-power pairings remain open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `notes/completed-explicit-formula-right-edge.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 

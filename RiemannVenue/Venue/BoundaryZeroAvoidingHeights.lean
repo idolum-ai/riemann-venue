@@ -1,5 +1,6 @@
 import Mathlib.Order.Interval.Set.Infinite
 import RiemannVenue.Venue.BoundaryRectangleCompiler
+import RiemannVenue.Venue.BoundaryRightEdgeDecomposition
 
 /-!
 # Zero-avoiding contour heights
@@ -13,7 +14,7 @@ logarithmic-derivative bounds.
 
 namespace RiemannVenue.Venue
 
-open Filter Set
+open Filter MeasureTheory Set
 open scoped Topology
 
 noncomputable section
@@ -740,6 +741,74 @@ noncomputable def completedXiRightVerticalContour
   Complex.I * ∫ y in -heights n..heights n,
     completedContourTest h (1 + y * Complex.I) *
       logDeriv completedXiCore (1 + y * Complex.I)
+
+/-- Elementary nonsingular channel of the right vertical contour. -/
+noncomputable def completedXiRightElementaryContour
+    (h : SmoothCompletedLogTest) (heights : ℕ → ℝ) (n : ℕ) : ℂ :=
+  Complex.I * ∫ y in -heights n..heights n,
+    completedContourTest h (1 + y * Complex.I) *
+      completedXiRightElementaryLogScore y
+
+/-- Archimedean Gamma channel of the right vertical contour. -/
+noncomputable def completedXiRightGammaContour
+    (h : SmoothCompletedLogTest) (heights : ℕ → ℝ) (n : ℕ) : ℂ :=
+  Complex.I * ∫ y in -heights n..heights n,
+    completedContourTest h (1 + y * Complex.I) *
+      completedXiRightGammaLogScore y
+
+/-- Pole-regularized arithmetic channel of the right vertical contour. -/
+noncomputable def completedXiRightRegularizedZetaContour
+    (h : SmoothCompletedLogTest) (heights : ℕ → ℝ) (n : ℕ) : ℂ :=
+  Complex.I * ∫ y in -heights n..heights n,
+    completedContourTest h (1 + y * Complex.I) *
+      regularizedZetaBoundaryLogScore y
+
+/-- Every finite right edge splits into three individually continuous
+channels. The zeta pole and `1/(s-1)` counterterm remain together in the
+regularized arithmetic channel. -/
+theorem completedXiRightVerticalContour_eq_channels
+    (h : SmoothCompletedLogTest) (heights : ℕ → ℝ) (n : ℕ) :
+    completedXiRightVerticalContour h heights n =
+      completedXiRightElementaryContour h heights n +
+        completedXiRightGammaContour h heights n +
+          completedXiRightRegularizedZetaContour h heights n := by
+  let K : ℝ → ℂ := fun y => completedContourTest h (1 + y * Complex.I)
+  have hK : Continuous K :=
+    (continuous_completedContourTest h).comp (by fun_prop)
+  have he : IntervalIntegrable
+      (fun y => K y * completedXiRightElementaryLogScore y)
+      volume (-heights n) (heights n) :=
+    (hK.mul continuous_completedXiRightElementaryLogScore).intervalIntegrable _ _
+  have hg : IntervalIntegrable
+      (fun y => K y * completedXiRightGammaLogScore y)
+      volume (-heights n) (heights n) :=
+    (hK.mul continuous_completedXiRightGammaLogScore).intervalIntegrable _ _
+  have hr : IntervalIntegrable
+      (fun y => K y * regularizedZetaBoundaryLogScore y)
+      volume (-heights n) (heights n) :=
+    (hK.mul continuous_regularizedZetaBoundaryLogScore).intervalIntegrable _ _
+  unfold completedXiRightVerticalContour completedXiRightElementaryContour
+    completedXiRightGammaContour completedXiRightRegularizedZetaContour
+  change Complex.I * (∫ y in -heights n..heights n,
+      K y * completedXiRightLogScore y) =
+    Complex.I * (∫ y in -heights n..heights n,
+      K y * completedXiRightElementaryLogScore y) +
+    Complex.I * (∫ y in -heights n..heights n,
+      K y * completedXiRightGammaLogScore y) +
+    Complex.I * (∫ y in -heights n..heights n,
+      K y * regularizedZetaBoundaryLogScore y)
+  have hpoint : ∀ y : ℝ,
+      K y * completedXiRightLogScore y =
+        (K y * completedXiRightElementaryLogScore y +
+          K y * completedXiRightGammaLogScore y) +
+            K y * regularizedZetaBoundaryLogScore y := by
+    intro y
+    rw [completedXiRightLogScore_eq_channels]
+    ring
+  rw [intervalIntegral.integral_congr (fun y _hy => hpoint y),
+    intervalIntegral.integral_add (he.add hg) hr,
+    intervalIntegral.integral_add he hg]
+  ring
 
 /-- Test evenness and completed-Xi oddness identify the left edge with the
 negative of the right edge. Hence the full vertical contour is exactly twice

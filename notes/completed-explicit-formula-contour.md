@@ -108,6 +108,14 @@ The final contour frontier is now a quantitatively selected family plus the
 one-sided `CompletedXiSelectedRightEdgeLimit`, whose target is
 `(I/2) * completedPlaceFunctional h`.
 
+The right edge itself now has a safe channel decomposition. The elementary
+`1/s` and Gamma scores are separated, while `1/(s-1)` remains joined to
+`zeta'/zeta` in `regularizedZetaBoundaryLogScore`. That channel is continuous
+at height zero and its value there is proved to be the Euler--Mascheroni
+constant. Every finite right-edge integral splits into these three continuous
+channels without invoking a principal value. See
+`notes/completed-explicit-formula-right-edge.md`.
+
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`
@@ -118,3 +126,4 @@ one-sided `CompletedXiSelectedRightEdgeLimit`, whose target is
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `notes/completed-explicit-formula-zero-counting.md`
 - `notes/completed-explicit-formula-height-engine.md`
+- `notes/completed-explicit-formula-right-edge.md`

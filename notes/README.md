@@ -61,6 +61,9 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   gate: the exact quantitative selected-height contract, horizontal-edge
   closure, and comparison of canonical-product, minimum-modulus, and
   referenced selected-height engines.
+- `completed-explicit-formula-right-edge.md` — the right-edge risk gate:
+  open-half-plane place decomposition, the continuous pole-regularized zeta
+  channel, its Euler-constant removable value, and the Abel boundary route.
 - `boundary-excavation-progress-map.md` — high-level checkpoint from the
   original carrier forks through the current contour-analysis bedrock.
 - `lambda-min-rate.md` — the λ_min(K_N) decay-rate question: numerics (extended to N = 1.3×10⁷ in §6 and the §7 validation gate), the Liouville-signed minimizer, literature placement, conjecture candidates, and attack routes.

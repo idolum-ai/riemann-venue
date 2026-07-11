@@ -19,6 +19,39 @@ noncomputable section
 noncomputable def archimedeanGammaLogScore (s : ℂ) : ℂ :=
   -(Complex.log (Real.pi : ℂ)) / 2 + Complex.digamma (s / 2) / 2
 
+/-- The real Gamma factor is differentiable throughout the positive
+half-plane. Mathlib exposes the factors separately, so this packages the
+composition needed by completed logarithmic-derivative calculations. -/
+theorem differentiableAt_GammaR_of_re_pos {s : ℂ} (hs : 0 < s.re) :
+    DifferentiableAt ℂ Complex.Gammaℝ s := by
+  let f : ℂ → ℂ := fun z => (Real.pi : ℂ) ^ (-z / 2)
+  let g : ℂ → ℂ := fun z => Complex.Gamma (z / 2)
+  have hpi : (Real.pi : ℂ) ≠ 0 := by exact_mod_cast Real.pi_ne_zero
+  have hf : DifferentiableAt ℂ f s := by
+    exact ((hasDerivAt_id s).neg.div_const 2).const_cpow
+      (c := (Real.pi : ℂ)) (Or.inl hpi) |>.differentiableAt
+  have hsHalf : 0 < (s / 2).re := by
+    have heq : (s / 2).re = s.re / 2 := by
+      norm_num [Complex.div_re, Complex.normSq]
+    rw [heq]
+    linarith
+  have hg : DifferentiableAt ℂ g s := by
+    exact (Complex.differentiableAt_Gamma _ (fun m hm => by
+      have hre : (s / 2).re = (-(m : ℂ)).re := congrArg Complex.re hm
+      simp only [Complex.neg_re, Complex.natCast_re] at hre
+      linarith)).comp s ((hasDerivAt_id s).div_const 2).differentiableAt
+  change DifferentiableAt ℂ (fun z => f z * g z) s
+  exact hf.mul hg
+
+/-- The real Gamma factor is analytic at every point of the positive
+half-plane. -/
+theorem analyticAt_GammaR_of_re_pos {s : ℂ} (hs : 0 < s.re) :
+    AnalyticAt ℂ Complex.Gammaℝ s := by
+  rw [Complex.analyticAt_iff_eventually_differentiableAt]
+  filter_upwards [
+    (isOpen_lt continuous_const Complex.continuous_re).mem_nhds hs] with z hz
+  exact differentiableAt_GammaR_of_re_pos hz
+
 /-- The closed score is the actual logarithmic derivative of `Gammaℝ` in
 the positive half-plane. -/
 theorem logDeriv_GammaR_eq_archimedeanGammaLogScore {s : ℂ}
