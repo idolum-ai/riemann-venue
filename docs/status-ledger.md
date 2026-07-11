@@ -411,8 +411,11 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 
   - **Status:** proved in Lean. Every finite right-edge integral is split into
     three continuous channels without a principal-value convention. The
-    improper full-line limits and their identification with the completed
-    pole, Gamma, and compact prime-power pairings remain open
+    displaced Abel arithmetic score is also proved equal to its pole
+    counterterm minus the absolutely convergent von Mangoldt L-series for
+    every positive displacement. The Fourier/L-series interchange, improper
+    full-line limits, and identification with the completed pole, Gamma, and
+    compact prime-power pairings remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-right-edge.md`

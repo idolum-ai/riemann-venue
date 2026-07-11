@@ -55,6 +55,22 @@ the Abel boundary limit as `epsilon -> 0+`. Compact support of the log test
 should make the resulting prime-power projection finite after Fourier
 inversion, but the interchange and boundary passage remain to be proved.
 
+The first part of this route is compiled. `completedAbelZetaLogScore` extends
+the completed regularized channel to `re s = 1 + epsilon`; at `epsilon = 0`
+it is definitionally the boundary score, and for every positive `epsilon`
+Lean proves
+
+```text
+completedAbelZetaLogScore epsilon y
+  = 1/(epsilon + i*y)
+      - L(vonMangoldt)(1 + epsilon + i*y).
+```
+
+The remaining arithmetic theorem is therefore concrete: integrate this
+identity against the displaced completed contour test, justify exchanging the
+absolutely convergent L-series with the Fourier integral, identify the compact
+prime-power sum, and pass `epsilon -> 0+` in the combined expression.
+
 The elementary and Gamma channels can be developed independently: establish
 their full-line integrability from fourth-order test decay, identify their
 limits by contour shift/Fourier inversion, and then leave the Abel arithmetic

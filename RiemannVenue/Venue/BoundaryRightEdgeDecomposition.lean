@@ -1,4 +1,5 @@
 import Mathlib.NumberTheory.Harmonic.ZetaAsymp
+import Mathlib.NumberTheory.LSeries.Dirichlet
 import RiemannVenue.Venue.BoundaryArchimedeanScore
 import RiemannVenue.Venue.BoundaryCompletedXiGrowth
 
@@ -19,7 +20,7 @@ their completed combination is entire and nonzero there.
 namespace RiemannVenue.Venue
 
 open Filter Set
-open scoped Topology
+open scoped LSeries.notation Topology
 
 noncomputable section
 
@@ -326,6 +327,54 @@ theorem regularizedZetaBoundaryLogScore_zero :
     continuous_regularizedZetaBoundaryLogScore.continuousAt.mono_left
       nhdsWithin_le_nhds
   exact tendsto_nhds_unique hcontinuous hregularized
+
+/-- Completed regularization on the displaced right edge `re s = 1+epsilon`.
+At `epsilon = 0` this is the boundary channel above. -/
+noncomputable def completedAbelZetaLogScore (ε y : ℝ) : ℂ :=
+  let s : ℂ := 1 + ε + y * Complex.I
+  logDeriv completedXiCore s - 1 / s - logDeriv Complex.Gammaℝ s
+
+@[simp] theorem completedAbelZetaLogScore_zero (y : ℝ) :
+    completedAbelZetaLogScore 0 y = regularizedZetaBoundaryLogScore y := by
+  unfold completedAbelZetaLogScore regularizedZetaBoundaryLogScore
+  simp
+
+/-- In the open Dirichlet half-plane, completed regularization equals the
+literal zeta logarithmic derivative plus its pole counterterm. -/
+theorem completedAbelZetaLogScore_eq_zeta
+    {ε : ℝ} (hε : 0 < ε) (y : ℝ) :
+    completedAbelZetaLogScore ε y =
+      1 / ((ε : ℂ) + y * Complex.I) +
+        logDeriv riemannZeta (1 + ε + y * Complex.I) := by
+  let s : ℂ := 1 + ε + y * Complex.I
+  have hs : 1 < s.re := by simp [s, hε]
+  have hdecomp := logDeriv_completedXiCore_eq_places hs
+  unfold completedAbelZetaLogScore
+  dsimp only
+  rw [logDeriv_GammaR_eq_archimedeanGammaLogScore (by linarith : 0 < s.re),
+    show (1 : ℂ) + (ε : ℂ) + (y : ℂ) * Complex.I = s by rfl,
+    hdecomp]
+  have hsub : s - 1 = (ε : ℂ) + y * Complex.I := by
+    dsimp [s]
+    ring
+  rw [hsub]
+  ring
+
+/-- The Abel arithmetic channel is exactly a pole counterterm minus the
+absolutely convergent von Mangoldt L-series. This is the source-facing bridge
+for the future prime-power/Fourier interchange. -/
+theorem completedAbelZetaLogScore_eq_vonMangoldt
+    {ε : ℝ} (hε : 0 < ε) (y : ℝ) :
+    completedAbelZetaLogScore ε y =
+      1 / ((ε : ℂ) + y * Complex.I) -
+        L ↗ArithmeticFunction.vonMangoldt
+          ((1 : ℂ) + ε + y * Complex.I) := by
+  rw [completedAbelZetaLogScore_eq_zeta hε]
+  have hs : 1 < (((1 : ℂ) + ε + y * Complex.I).re) := by
+    simp [hε]
+  have hL := ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hs
+  rw [logDeriv_apply]
+  linear_combination hL
 
 end
 
