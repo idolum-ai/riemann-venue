@@ -71,9 +71,10 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    place functional now fixes the convention `pole + Gamma - prime powers`.
    Its entire cosine transform agrees with the real density, and its spectral
    index contains exactly the nontrivial zeta zeros with analytic
-   multiplicity. The completed Weil identity is now an exact proposition;
-   proving it requires global zero-sum convergence and an expanding-contour
-   explicit-formula theorem not currently present in Mathlib. Positivity
+   multiplicity. The completed Weil identity is now an exact proposition.
+   Global zero-sum convergence is proved; completing the identity requires an
+   expanding-contour explicit-formula theorem not currently present in
+   Mathlib. Positivity
    remains separate as the locked gate. The next phase is now a dedicated
    explicit-formula project. Its zero-counting spine constructs finite
    multiplicity-aware height windows, identifies their multiplicities with
@@ -84,9 +85,10 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    resulting `N(T) = O(T log T)` estimate are now proved by a three-region
    argument: Dirichlet series plus coarse Gamma growth, functional-equation
    reflection, and direct Mellin domination on the fixed middle strip. The
-   next analytic input is vertical-strip decay of the test transform; after
-   that the generic bucket theorem can close global zero-sum convergence
-   before the expanding-contour argument opens.
+   smooth compact transform now has uniform fourth-order decay on the zero
+   strip, and the generic bucket theorem closes global zero-sum convergence.
+   The next inputs are a finite-pole rectangle residue theorem and
+   zero-avoiding expanding-height control for the logarithmic derivative.
 
 ## Design rule
 

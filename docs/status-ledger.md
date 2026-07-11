@@ -340,8 +340,9 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     an unconditional `CompletedGammaTest`. The completed place functional is
     assembled with convention `pole + Gamma - prime powers`. Its matching
     entire zero transform and multiplicity-expanded nontrivial-zero index are
-    constructed; global zero-sum convergence and the completed Weil identity
-    remain open
+    constructed. Fourth-order strip decay and the completed-Xi zero-count
+    bound prove absolute convergence of the global zero sum. The completed
+    Weil identity remains open
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
     `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
     `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`,
@@ -356,10 +357,11 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   to summability of `N(n) * a(n)`
 
   - **Status:** proved in Lean, including the completed-Xi sphere-growth
-    estimate and `N(T) = O(T log T)`; transform decay and global zero-sum
-    convergence remain explicitly unproved
+    estimate, `N(T) = O(T log T)`, fourth-order strip decay of the smooth
+    compact transform, and global zero-sum convergence
   - **Artifact:** `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`,
     `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`,
+    `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`,
     `notes/completed-explicit-formula-zero-counting.md`
 
 - **Claim:** Growing finite prime windows of the compensated residual are negative near

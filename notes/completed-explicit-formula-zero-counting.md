@@ -79,8 +79,22 @@ sum_n N(n) a(n) < infinity.
 ```
 
 A specialization compiles such a norm envelope directly into
-`CompletedZetaZeroSumConverges h`. Since `N(n) = O(n log n)` is now proved,
-the remaining input is the rapid decay expected from a smooth compact test.
+`CompletedZetaZeroSumConverges h`. `BoundaryZeroTransformDecay.lean` now
+supplies the remaining input. Four whole-line integrations by parts prove,
+uniformly on `|Im z| <= 1/2`,
+
+```text
+||z||^4 ||completedZeroTestTransform h z|| <= C_4(h).
+```
+
+The low-frequency region is controlled separately by a zeroth-order compact
+support majorant. On the zero-frequency buckets these two estimates give an
+`O((n+1)^-4)` envelope. Combining it with the proved
+`N(n) = O(n log n)` count reduces the norm series to a shifted square
+`p`-series. Consequently `CompletedZetaZeroSumConverges h` is now a theorem
+for every smooth compact completed test, and the unconditional zero-side
+functional `completedZetaZeroValueUnconditional` is defined.
+
 This separates the arithmetic growth theorem from the test-space decay theorem
 and lets both be improved independently.
 
@@ -89,24 +103,30 @@ and lets both be improved independently.
 This phase does **not** prove any of the following:
 
 1. the sharper Riemann-von Mangoldt asymptotic;
-2. rapid vertical-strip decay of `completedZeroTestTransform`;
-3. convergence of every completed zero sum; or
-4. the expanding-contour explicit formula.
+2. a finite-pole rectangle residue theorem in the pinned library;
+3. zero-avoiding expanding heights with horizontal-edge control for
+   `logDeriv XiCore`; or
+4. the completed expanding-contour explicit formula.
 
 The next logical order is therefore:
 
-1. prove a bucketwise rapid-decay estimate for the entire cosine transform;
-2. discharge `CompletedZetaZeroSumConverges` through the generic summability
-   theorem; and
-3. begin the residue-theorem rectangle and edge-limit infrastructure.
+1. prove a finite-pole rectangle residue theorem from Mathlib's existing
+   Cauchy-Goursat rectangle and circle interfaces;
+2. specialize its local residues to the multiplicity-aware logarithmic
+   derivative of `XiCore`;
+3. construct zero-avoiding expanding rectangles and prove their horizontal
+   edges vanish; and
+4. identify the right edge with the von Mangoldt series and the remaining
+   completed factors with the pole and Gamma place terms.
 
-The first two steps settle whether the zero side is a legitimate global
-functional. The third begins its identification with the place side. None of
+The zero side is now a legitimate global functional. The remaining work is
+its identification with the independently constructed place side. None of
 these steps uses RH; positivity remains a later and separate gate.
 
 ## Artifacts
 
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
+- `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
 - `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`
 - `notes/completed-weil-identity-gate.md`

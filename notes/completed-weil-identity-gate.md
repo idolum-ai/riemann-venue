@@ -56,10 +56,12 @@ terms. The zero-counting project now supplies the canonical multiplicity-aware
 height count, identifies it with the divisor of an entire completed-Xi core,
 and proves the Jensen reduction to a large-circle estimate. The companion
 growth theorem now discharges that estimate and proves `N(T) = O(T log T)`.
-The generic bucket theorem will turn this count and transform decay into
-zero-sum convergence. The transform decay theorem remains open, so steps 1
-through 4 are still not a complete global theorem chain. Adding the desired
-equality as a field or assumption would only rename this gap.
+The generic bucket theorem and the fourth-order strip-decay theorem now turn
+this count into unconditional zero-sum convergence. Thus the first two
+analytic obligations are discharged; the finite-pole residue theorem,
+expanding-edge control, and place identification are still not a complete
+global theorem chain. Adding the desired equality as a field or assumption
+would only rename this gap.
 
 ## Assessment
 
@@ -84,4 +86,5 @@ proved.
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`
 - `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
 - `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
+- `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
 - `notes/completed-explicit-formula-zero-counting.md`
