@@ -74,7 +74,16 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    multiplicity. The completed Weil identity is now an exact proposition;
    proving it requires global zero-sum convergence and an expanding-contour
    explicit-formula theorem not currently present in Mathlib. Positivity
-   remains separate as the locked gate.
+   remains separate as the locked gate. The next phase is now a dedicated
+   explicit-formula project. Its zero-counting spine constructs finite
+   multiplicity-aware height windows, identifies their multiplicities with
+   the divisor of one entire pole-cleared completed-Xi function, and proves
+   the full Jensen handoff from a large-circle bound to `N(T)`. A generic
+   height-bucket theorem then turns any summable `N(n) * a(n)` envelope into
+   completed zero-transform convergence. The remaining first analytic input
+   is no longer vague: prove completed-Xi sphere growth strong enough to yield
+   `N(T) = O(T log T)`, then combine it with vertical-strip decay of the test
+   transform before opening the expanding-contour argument.
 
 ## Design rule
 

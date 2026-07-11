@@ -52,8 +52,14 @@ After convergence, the identity still needs the classical contour argument:
 
 The repository has the local residue machinery, completed-zeta functional
 equation, finite Euler logarithmic derivative, and all three target place
-terms. It does not have steps 1 through 4 as a global theorem chain. Adding
-the desired equality as a field or assumption would only rename this gap.
+terms. The zero-counting project now supplies the canonical multiplicity-aware
+height count, identifies it with the divisor of an entire completed-Xi core,
+and proves the Jensen reduction to a large-circle estimate. It also supplies
+the generic bucket theorem that will turn a quantitative count and transform
+decay into zero-sum convergence. The completed-Xi sphere-growth estimate and
+the transform decay theorem remain open, so steps 1 through 4 are still not a
+complete global theorem chain. Adding the desired equality as a field or
+assumption would only rename this gap.
 
 ## Assessment
 
@@ -76,3 +82,5 @@ proved.
 - `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`
 - `RiemannVenue/Venue/BoundaryGammaGrowth.lean`
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`
+- `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`
+- `notes/completed-explicit-formula-zero-counting.md`

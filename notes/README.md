@@ -50,6 +50,10 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.
+- `completed-explicit-formula-zero-counting.md` — first phase of the dedicated
+  explicit-formula project: multiplicity-aware height counts, the proved
+  Jensen handoff, the missing completed-Xi growth estimate, and the generic
+  bucket interface from zero counts to zero-transform convergence.
 - `lambda-min-rate.md` — the λ_min(K_N) decay-rate question: numerics (extended to N = 1.3×10⁷ in §6 and the §7 validation gate), the Liouville-signed minimizer, literature placement, conjecture candidates, and attack routes.
 - `lambda-min-upper-design.md` — the upper-bound attack design: the primorial test family, the exact per-prime factorization, the product-family barrier, and the reciprocal-edges mechanism.
 - `perron-vector-attack.md` — a Perron-vector/Schur-certificate attack note

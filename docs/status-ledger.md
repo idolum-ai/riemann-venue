@@ -348,6 +348,19 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `notes/completed-weil-identity-gate.md`,
     `notes/completed-test-ideal-decision-gate.md`
 
+- **Claim:** Nontrivial zeta zeros admit canonical finite height windows,
+  analytic multiplicities equal to the divisor multiplicities of one entire
+  pole-cleared completed-Xi function, and a monotone multiplicity-weighted
+  count. Jensen reduces this count to an explicit completed-Xi sphere bound,
+  while a generic bucket theorem reduces completed zero-transform convergence
+  to summability of `N(n) * a(n)`
+
+  - **Status:** proved in Lean; the zeta-specific sphere-growth estimate,
+    `N(T) = O(T log T)`, transform decay, and global zero-sum convergence remain
+    explicitly unproved
+  - **Artifact:** `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`,
+    `notes/completed-explicit-formula-zero-counting.md`
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 
