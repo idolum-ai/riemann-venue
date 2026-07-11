@@ -432,6 +432,311 @@ theorem integral_completedContourTest_mul_abelPrimePowerPolynomial
   rw [integral_completedContourTest_mul_abelPrimePowerTerm h ε hpPrime]
   ring
 
+/-! ## Infinite Abel--von Mangoldt upgrade -/
+
+/-- The natural-number-indexed Abel summand. Unlike the finite prime-power
+polynomial, this is indexed exactly as mathlib's von Mangoldt L-series. -/
+noncomputable def abelVonMangoldtTerm
+    (ε : ℝ) (n : ℕ) (y : ℝ) : ℂ :=
+  (ArithmeticFunction.vonMangoldt n : ℂ) *
+    (Real.exp (-(1 + ε) * Real.log n) : ℂ) *
+      Complex.exp (((-(y * Real.log n) : ℝ) : ℂ) * Complex.I)
+
+/-- In the open Abel half-plane, the natural-indexed Abel summand is exactly
+the corresponding von Mangoldt L-series term. -/
+theorem LSeries_term_vonMangoldt_eq_abelVonMangoldtTerm
+    (ε : ℝ) (n : ℕ) (y : ℝ) :
+    LSeries.term (fun m => (ArithmeticFunction.vonMangoldt m : ℂ))
+        ((1 : ℂ) + ε + y * Complex.I) n =
+      abelVonMangoldtTerm ε n y := by
+  rcases eq_or_ne n 0 with rfl | hn
+  · simp [abelVonMangoldtTerm]
+  rw [LSeries.term_of_ne_zero hn, abelVonMangoldtTerm,
+    Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr hn),
+    ← Complex.natCast_log, div_eq_mul_inv, ← Complex.exp_neg,
+    Complex.ofReal_exp]
+  have hexponent :
+      -(Complex.ofReal (Real.log n) *
+          ((1 : ℂ) + ε + y * Complex.I)) =
+        Complex.ofReal (-(1 + ε) * Real.log n) +
+          Complex.ofReal (-(y * Real.log n)) * Complex.I := by
+    push_cast
+    ring
+  rw [hexponent, Complex.exp_add]
+  ring
+
+/-- The critical-line von Mangoldt atom obtained after the Abel displacement
+cancels against the exponential tilt in Fourier inversion. -/
+noncomputable def criticalVonMangoldtTerm
+    (h : SmoothCompletedLogTest) (n : ℕ) : ℂ :=
+  (1 / 2 : ℂ) * (ArithmeticFunction.vonMangoldt n : ℂ) *
+    (Real.exp (-(1 / 2 : ℝ) * Real.log n) : ℂ) *
+      ((h (Real.log n) : ℂ) + (h (-Real.log n) : ℂ))
+
+/-- The natural-index presentation of the critical arithmetic pairing. -/
+noncomputable def criticalVonMangoldtPairing
+    (h : SmoothCompletedLogTest) : ℂ :=
+  ∑' n : ℕ, criticalVonMangoldtTerm h n
+
+/-- Termwise Fourier inversion for the natural-indexed Abel--von Mangoldt
+series. This is the infinite-index analogue of the prime-power monomial
+calculation above. -/
+theorem integral_completedContourTest_mul_abelVonMangoldtTerm
+    (h : SmoothCompletedLogTest) (ε : ℝ) (n : ℕ) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        abelVonMangoldtTerm ε n y) =
+      criticalVonMangoldtTerm h n := by
+  rcases eq_or_ne n 0 with rfl | hn
+  · simp [abelVonMangoldtTerm, criticalVonMangoldtTerm]
+  let x : ℝ := Real.log n
+  let A : ℂ := (ArithmeticFunction.vonMangoldt n : ℂ) *
+    (Real.exp (-(1 + ε) * x) : ℂ)
+  have hfun : (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        abelVonMangoldtTerm ε n y) =
+      fun (y : ℝ) => A *
+        (completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+          Complex.exp (((-(y * x) : ℝ) : ℂ) * Complex.I)) := by
+    funext y
+    simp only [abelVonMangoldtTerm, A, x]
+    ring
+  rw [hfun, integral_const_mul,
+    integral_completedContourTest_right_mul_phase]
+  have hcancel :
+      Real.exp (-(1 + ε) * x) * Real.exp ((1 / 2 + ε) * x) =
+        Real.exp (-(1 / 2 : ℝ) * x) := by
+    rw [← Real.exp_add]
+    congr 1
+    ring
+  unfold criticalVonMangoldtTerm
+  simp only [A, x]
+  have hcancelC :
+      (Real.exp (-(1 + ε) * Real.log n) : ℂ) *
+          (Real.exp ((1 / 2 + ε) * Real.log n) : ℂ) =
+        (Real.exp (-(1 / 2 : ℝ) * Real.log n) : ℂ) := by
+    exact_mod_cast hcancel
+  calc
+    _ = (1 / 2 : ℂ) * (ArithmeticFunction.vonMangoldt n : ℂ) *
+        ((Real.exp (-(1 + ε) * Real.log n) : ℂ) *
+          (Real.exp ((1 / 2 + ε) * Real.log n) : ℂ)) *
+        ((h (Real.log n) : ℂ) + (h (-Real.log n) : ℂ)) := by ring
+    _ = _ := by rw [hcancelC]
+
+/-- The displaced completed contour test itself is integrable. -/
+theorem integrable_completedContourTest_right
+    (h : SmoothCompletedLogTest) (ε : ℝ) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I)) := by
+  simpa using integrable_completedContourTest_right_mul_phase h ε 0
+
+/-- Every natural-indexed Abel--von Mangoldt summand is integrable against
+the displaced completed contour test. -/
+theorem integrable_completedContourTest_mul_abelVonMangoldtTerm
+    (h : SmoothCompletedLogTest) (ε : ℝ) (n : ℕ) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        abelVonMangoldtTerm ε n y) := by
+  let A : ℂ := (ArithmeticFunction.vonMangoldt n : ℂ) *
+    (Real.exp (-(1 + ε) * Real.log n) : ℂ)
+  apply (integrable_completedContourTest_right_mul_phase
+    h ε (Real.log n)).const_mul A |>.congr
+  filter_upwards [] with y
+  simp only [abelVonMangoldtTerm, A]
+  ring
+
+/-- The integral norms of the Abel--von Mangoldt summands are summable for
+every positive displacement. This is the Tonelli/Fubini gate for replacing
+the finite prime-power polynomial by the full Dirichlet series. -/
+theorem summable_integral_norm_completedContourTest_mul_abelVonMangoldtTerm
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    Summable (fun n : ℕ => ∫ y : ℝ,
+      ‖completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        abelVonMangoldtTerm ε n y‖) := by
+  let f : ℕ → ℂ := fun n => (ArithmeticFunction.vonMangoldt n : ℂ)
+  let s : ℂ := (1 : ℂ) + ε
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I)
+  let C : ℝ := ∫ y : ℝ, ‖K y‖
+  have hs : 1 < s.re := by
+    dsimp [s]
+    simp
+    linarith
+  have hL : LSeriesSummable f s := by
+    simpa only [f] using
+      (ArithmeticFunction.LSeriesSummable_vonMangoldt (s := s) hs)
+  have hK : Integrable K := by
+    exact integrable_completedContourTest_right h ε
+  have habNorm : ∀ n y,
+      ‖abelVonMangoldtTerm ε n y‖ = ‖LSeries.term f s n‖ := by
+    intro n y
+    change ‖abelVonMangoldtTerm ε n y‖ =
+      ‖LSeries.term (fun m => (ArithmeticFunction.vonMangoldt m : ℂ))
+        ((1 : ℂ) + ε) n‖
+    rw [show ((1 : ℂ) + ε) = (1 : ℂ) + ε + (0 : ℝ) * Complex.I by simp,
+      LSeries_term_vonMangoldt_eq_abelVonMangoldtTerm ε n 0]
+    simp only [abelVonMangoldtTerm, norm_mul, Complex.norm_real,
+      Real.norm_eq_abs, Complex.norm_exp_ofReal_mul_I, mul_one]
+  have hintegral : ∀ n,
+      (∫ y : ℝ, ‖K y * abelVonMangoldtTerm ε n y‖) =
+        ‖LSeries.term f s n‖ * C := by
+    intro n
+    calc
+      (∫ y : ℝ, ‖K y * abelVonMangoldtTerm ε n y‖) =
+          ∫ y : ℝ, ‖LSeries.term f s n‖ * ‖K y‖ := by
+        apply integral_congr_ae
+        filter_upwards [] with y
+        rw [norm_mul, habNorm]
+        ring
+      _ = ‖LSeries.term f s n‖ * C := by
+        rw [integral_const_mul]
+  apply (hL.norm.mul_right C).congr
+  intro n
+  exact hintegral n |>.symm
+
+/-- The full Abel--von Mangoldt Dirichlet series integrated against the
+completed contour test equals the sum of its critical-line atoms. This is the
+infinite upgrade of `integral_completedContourTest_mul_abelPrimePowerPolynomial`.
+-/
+theorem integral_completedContourTest_mul_LSeries_vonMangoldt
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        LSeries (fun n => (ArithmeticFunction.vonMangoldt n : ℂ))
+          ((1 : ℂ) + ε + y * Complex.I)) =
+      criticalVonMangoldtPairing h := by
+  let F : ℕ → ℝ → ℂ := fun n y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+      abelVonMangoldtTerm ε n y
+  have hFint : ∀ n, Integrable (F n) :=
+    integrable_completedContourTest_mul_abelVonMangoldtTerm h ε
+  have hFsum : Summable (fun n => ∫ y : ℝ, ‖F n y‖) :=
+    summable_integral_norm_completedContourTest_mul_abelVonMangoldtTerm h hε
+  have hseries : (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        LSeries (fun n => (ArithmeticFunction.vonMangoldt n : ℂ))
+          ((1 : ℂ) + ε + y * Complex.I)) =
+      fun y => ∑' n, F n y := by
+    funext y
+    simp only [LSeries, F]
+    rw [← tsum_mul_left]
+    apply tsum_congr
+    intro n
+    rw [LSeries_term_vonMangoldt_eq_abelVonMangoldtTerm]
+  rw [hseries,
+    ← MeasureTheory.integral_tsum_of_summable_integral_norm hFint hFsum]
+  unfold criticalVonMangoldtPairing
+  congr 1
+  funext n
+  exact integral_completedContourTest_mul_abelVonMangoldtTerm h ε n
+
+/-- The arithmetic component of the completed Abel score integrates to the
+critical von Mangoldt pairing. The pole term remains separate, exactly as in
+the completed right-edge channel decomposition. -/
+theorem integral_completedContourTest_mul_completedAbelArithmeticChannel
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        (1 / ((ε : ℂ) + y * Complex.I) -
+          completedAbelZetaLogScore ε y)) =
+      criticalVonMangoldtPairing h := by
+  rw [← integral_completedContourTest_mul_LSeries_vonMangoldt h hε]
+  apply integral_congr_ae
+  filter_upwards [] with y
+  rw [completedAbelZetaLogScore_eq_vonMangoldt hε]
+  ring
+
+/-- On a genuine prime power, the natural-index critical atom is exactly half
+of the repository's symmetrized prime-power atom. Thus the infinite analytic
+upgrade and the finite prime-power compiler use the same normalization. -/
+theorem criticalVonMangoldtTerm_prime_pow
+    (h : SmoothCompletedLogTest) {p r : ℕ}
+    (hp : p.Prime) (hr : r ≠ 0) :
+    criticalVonMangoldtTerm h (p ^ r) =
+      (1 / 2 : ℂ) * (RiemannVenue.Weil.primePowerWeight p r : ℂ) *
+        ((h (r * Real.log p) : ℂ) +
+          (h (-(r * Real.log p)) : ℂ)) := by
+  have hpR : (0 : ℝ) < p := by exact_mod_cast hp.pos
+  have hweight :
+      Real.exp (-(1 / 2 : ℝ) * ((r : ℝ) * Real.log p)) =
+        (p : ℝ) ^ (-(r : ℝ) / 2) := by
+    rw [Real.rpow_def_of_pos hpR]
+    congr 1
+    ring
+  unfold criticalVonMangoldtTerm RiemannVenue.Weil.primePowerWeight
+  rw [ArithmeticFunction.vonMangoldt_apply_pow hr,
+    ArithmeticFunction.vonMangoldt_apply_prime hp,
+    Nat.cast_pow, Real.log_pow, hweight]
+  push_cast
+  ring
+
+/-- The critical von Mangoldt atoms are absolutely summable. Compact support
+ultimately makes this series locally finite; analytically, the claim also
+follows directly from the summable integral norms at any positive Abel
+displacement. -/
+theorem summable_criticalVonMangoldtTerm
+    (h : SmoothCompletedLogTest) :
+    Summable (criticalVonMangoldtTerm h) := by
+  let ε : ℝ := 1
+  let F : ℕ → ℝ → ℂ := fun n y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+      abelVonMangoldtTerm ε n y
+  have hFsum : Summable (fun n => ∫ y : ℝ, ‖F n y‖) :=
+    summable_integral_norm_completedContourTest_mul_abelVonMangoldtTerm h
+      (by norm_num : 0 < ε)
+  rw [← summable_norm_iff]
+  apply hFsum.of_nonneg_of_le (fun n => norm_nonneg _)
+  intro n
+  rw [← integral_completedContourTest_mul_abelVonMangoldtTerm h ε n]
+  exact norm_integral_le_integral_norm _
+
+/-- Canonical infinite prime-power presentation of the critical arithmetic
+pairing. Mathlib's prime-power equivalence supplies the indexing, so no choice
+of prime-power enumeration enters the theorem. -/
+theorem criticalVonMangoldtPairing_eq_tsum_prime_powers
+    (h : SmoothCompletedLogTest) :
+    criticalVonMangoldtPairing h =
+      ∑' p : Nat.Primes, ∑' k : ℕ,
+        (1 / 2 : ℂ) *
+          (RiemannVenue.Weil.primePowerWeight p (k + 1) : ℂ) *
+            ((h ((k + 1) * Real.log p) : ℂ) +
+              (h (-((k + 1) * Real.log p)) : ℂ)) := by
+  let g : {n : ℕ // IsPrimePow n} → ℂ := fun n =>
+    criticalVonMangoldtTerm h n
+  have hsupp : Function.support (criticalVonMangoldtTerm h) ⊆
+      {n : ℕ | IsPrimePow n} := by
+    intro n hn
+    change IsPrimePow n
+    apply ArithmeticFunction.vonMangoldt_ne_zero_iff.mp
+    intro hzero
+    apply hn
+    simp [criticalVonMangoldtTerm, hzero]
+  have hsub : Summable g := by
+    exact (summable_criticalVonMangoldtTerm h).subtype
+      {n : ℕ | IsPrimePow n}
+  have hprod : Summable (fun pk : Nat.Primes × ℕ =>
+      g (Nat.Primes.prodNatEquiv pk)) := by
+    exact Nat.Primes.prodNatEquiv.summable_iff.mpr hsub
+  unfold criticalVonMangoldtPairing
+  calc
+    (∑' n : ℕ, criticalVonMangoldtTerm h n) = ∑' n, g n :=
+      (tsum_subtype_eq_of_support_subset hsupp).symm
+    _ = ∑' pk : Nat.Primes × ℕ,
+        g (Nat.Primes.prodNatEquiv pk) :=
+      (Nat.Primes.prodNatEquiv.tsum_eq g).symm
+    _ = ∑' p : Nat.Primes, ∑' k : ℕ,
+        g (Nat.Primes.prodNatEquiv (p, k)) := hprod.tsum_prod
+    _ = _ := by
+      apply tsum_congr
+      intro p
+      apply tsum_congr
+      intro k
+      simp only [g, Nat.Primes.coe_prodNatEquiv_apply]
+      simpa only [Nat.cast_add, Nat.cast_one] using
+        (criticalVonMangoldtTerm_prime_pow h p.prop
+          (Nat.add_one_ne_zero k))
+
+
 end
 
 end RiemannVenue.Venue

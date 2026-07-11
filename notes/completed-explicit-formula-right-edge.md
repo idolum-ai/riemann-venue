@@ -66,10 +66,29 @@ completedAbelZetaLogScore epsilon y
       - L(vonMangoldt)(1 + epsilon + i*y).
 ```
 
-The remaining arithmetic theorem is therefore concrete: integrate this
-identity against the displaced completed contour test, justify exchanging the
-absolutely convergent L-series with the Fourier integral, identify the compact
-prime-power sum, and pass `epsilon -> 0+` in the combined expression.
+The infinite arithmetic interchange is now compiled. Each von Mangoldt
+L-series term is proved equal to its Abel phase, its product with the displaced
+contour test is integrable, and the sequence of integral norms is summable by
+mathlib's absolute convergence theorem for the von Mangoldt L-series. Hence
+Tonelli/Fubini gives
+
+```text
+integral_y K_epsilon(y) * L(vonMangoldt)(1+epsilon+i*y)
+  = criticalVonMangoldtPairing(h).
+```
+
+Using the completed-score decomposition, Lean also proves directly
+
+```text
+integral_y K_epsilon(y)
+  * (1/(epsilon+i*y) - completedAbelZetaLogScore(epsilon,y))
+  = criticalVonMangoldtPairing(h).
+```
+
+The right side is independent of `epsilon`. It is absolutely summable and,
+through mathlib's canonical equivalence between prime powers and
+`Nat.Primes x Nat`, is proved equal to the full double prime-power sum with
+exactly half of the repository's critical prime-power weight.
 
 The finite normalization gate is also closed. Exponential tilting preserves
 the smooth compact test core, and Fourier inversion proves the one-monomial
@@ -91,10 +110,12 @@ integral_y K_epsilon(y) * AbelPrimePowerPolynomial(P,R,epsilon,y)
 
 The factor `1/2` is exactly the one-sided right-edge normalization; completed
 functional-equation symmetry doubles it in the full vertical contour. The
-remaining upgrade is now purely analytic: justify the infinite
-von-Mangoldt-L-series interchange for positive `epsilon`. Compact support then
-forces the resulting prime-power value to stabilize at
-`compactPrimePowerPairing h`.
+finite and infinite calculations now meet term by term with the same
+normalization. The remaining bookkeeping theorem is to use compact support to
+collapse the canonical double `tsum` to the existing cutoff implementation
+`compactPrimePowerPairing h`. The remaining analytic boundary theorem is then
+to pass `epsilon -> 0+` in the combined completed channel; the arithmetic
+component itself has already become constant after integration.
 
 The elementary and Gamma channels can be developed independently: establish
 their full-line integrability from fourth-order test decay, identify their

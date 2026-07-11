@@ -416,9 +416,14 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     every positive displacement. The one-monomial Fourier identity and every
     finite prime-power interchange are proved, with value exactly one half of
     the existing truncated prime-power pairing and no dependence on the Abel
-    displacement. The infinite L-series interchange, improper full-line
-    limits, and identification with the completed pole and Gamma pairings
-    remain open
+    displacement. The infinite von Mangoldt L-series interchange is also
+    proved from a summable integral-norm majorant, as is its completed-score
+    arithmetic-channel form. Its critical value is absolutely summable and
+    canonically reindexed as the full double sum over primes and positive
+    powers with the repository's critical prime-power weight. Collapsing that
+    double sum to the existing compact cutoff representation, the Abel
+    boundary passage for the combined channel, improper full-line limits, and
+    identification with the completed pole and Gamma pairings remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,

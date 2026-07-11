@@ -63,8 +63,9 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   referenced selected-height engines.
 - `completed-explicit-formula-right-edge.md` — the right-edge risk gate:
   open-half-plane place decomposition, the continuous pole-regularized zeta
-  channel, its Euler-constant removable value, the Abel boundary route, and
-  the exact finite Fourier/von-Mangoldt normalization.
+  channel, its Euler-constant removable value, the Abel boundary route, the
+  exact finite Fourier/von-Mangoldt normalization, and the norm-summable
+  infinite L-series interchange with canonical prime-power reindexing.
 - `boundary-excavation-progress-map.md` — high-level checkpoint from the
   original carrier forks through the current contour-analysis bedrock.
 - `lambda-min-rate.md` — the λ_min(K_N) decay-rate question: numerics (extended to N = 1.3×10⁷ in §6 and the §7 validation gate), the Liouville-signed minimizer, literature placement, conjecture candidates, and attack routes.
