@@ -368,6 +368,15 @@ theorem eventually_prime_ge_four :
     exact Nat.lt_of_not_ge hp
   · exact Set.injOn_of_injective Subtype.val_injective
 
+/-- The canonical summable cubic majorant used by the finite-part and
+infinite-differentiation arguments. -/
+noncomputable def cosineLocalRemainderMajorant (p : Nat.Primes) : ℝ :=
+  780 * (p : ℝ) ^ (-(3 / 2 : ℝ))
+
+theorem summable_cosineLocalRemainderMajorant :
+    Summable cosineLocalRemainderMajorant :=
+  (Nat.Primes.summable_rpow.mpr (by norm_num)).mul_left 780
+
 /-- The cubic local estimate supplies the concrete rate bridge requested by
 the finite-part survival layer. -/
 theorem cosineLocalRemainderRateBridge_holds (u : ℝ) :
@@ -382,11 +391,8 @@ primes. The primes `2` and `3` are harmless finite exceptions; the remaining
 tail is dominated by `780 p^(-3/2)`. -/
 theorem cosineLocalRemainderSummability_holds (u : ℝ) :
     CosineLocalRemainderSummability u := by
-  have hmajorant : Summable fun p : Nat.Primes =>
-      780 * (p : ℝ) ^ (-(3 / 2 : ℝ)) :=
-    (Nat.Primes.summable_rpow.mpr (by norm_num)).mul_left 780
   rw [CosineLocalRemainderSummability]
-  refine hmajorant.of_norm_bounded_eventually ?_
+  refine summable_cosineLocalRemainderMajorant.of_norm_bounded_eventually ?_
   filter_upwards [eventually_prime_ge_four] with p hp
   rw [Real.norm_eq_abs]
   exact abs_exactCosineLocalRemainder_le hp u
@@ -394,10 +400,7 @@ theorem cosineLocalRemainderSummability_holds (u : ℝ) :
 /-- Explicit absolute-convergence form of the residual theorem. -/
 theorem summable_abs_exactCosineLocalRemainder (u : ℝ) :
     Summable fun p : Nat.Primes => |exactCosineLocalRemainder p u| := by
-  have hmajorant : Summable fun p : Nat.Primes =>
-      780 * (p : ℝ) ^ (-(3 / 2 : ℝ)) :=
-    (Nat.Primes.summable_rpow.mpr (by norm_num)).mul_left 780
-  refine hmajorant.of_norm_bounded_eventually ?_
+  refine summable_cosineLocalRemainderMajorant.of_norm_bounded_eventually ?_
   filter_upwards [eventually_prime_ge_four] with p hp
   rw [Real.norm_eq_abs, abs_of_nonneg (abs_nonneg _)]
   exact abs_exactCosineLocalRemainder_le hp u
@@ -431,14 +434,15 @@ noncomputable def dischargedHalfBalancedFinitePartSurvivalState :
   cosineAperture := balancedDefectAperture_cosineLogTest
   remainderBookkeeping := exactCosineFiniteRemainder_eq_sum
   survivalOfSummability := fun _ h => cosineFinitePartSurvival_of_summable h
-  residualSummabilityBridge :=
-    ∀ u : ℝ, CosineLocalRemainderSummability u
+  residualSummabilityBridge := cosineLocalRemainderSummability_holds
   status := BoundaryFinitePartSurvivalStatus.cosineFinitePartProved
 
 theorem dischargedHalfBalancedFinitePartSurvivalState_bridge :
-    dischargedHalfBalancedFinitePartSurvivalState.residualSummabilityBridge :=
-  cosineLocalRemainderSummability_holds
+    ∀ u : ℝ, CosineLocalRemainderSummability u :=
+  dischargedHalfBalancedFinitePartSurvivalState.residualSummabilityBridge
 
+/-- Bookkeeping projection only; the proof content is carried by
+`residualSummabilityBridge`. -/
 theorem dischargedHalfBalancedFinitePartSurvivalState_status :
     dischargedHalfBalancedFinitePartSurvivalState.status =
       BoundaryFinitePartSurvivalStatus.cosineFinitePartProved :=

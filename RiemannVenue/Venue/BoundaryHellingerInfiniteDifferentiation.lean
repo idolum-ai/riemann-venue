@@ -254,22 +254,20 @@ theorem norm_scaleHellingerTailFluxLocalRemainder_le
 theorem summable_scaleHellingerTailLocalRemainder_half (u : ℝ) :
     Summable fun p : Nat.Primes =>
       scaleHellingerTailLocalRemainder p (1 / 2) u := by
-  have hmajorant : Summable fun p : Nat.Primes =>
-      780 * (p : ℝ) ^ (-(3 / 2 : ℝ)) :=
-    (Nat.Primes.summable_rpow.mpr (by norm_num)).mul_left 780
-  refine hmajorant.of_norm_bounded ?_
+  refine summable_cosineLocalRemainderMajorant.of_norm_bounded ?_
   intro p
   by_cases hp : 16 ≤ (p : ℕ)
   · rw [scaleHellingerTailLocalRemainder, if_pos hp, Real.norm_eq_abs]
     change |translatedHellingerDefectRemainder
       (criticalPrimeRadius p) (u * Real.log (p : ℝ))| ≤ _
-    simpa only [criticalPrimeRadius_cube] using
+    simpa only [criticalPrimeRadius_cube, cosineLocalRemainderMajorant] using
       abs_translatedHellingerDefectRemainder_le
         (criticalPrimeRadius_pos p)
         (criticalPrimeRadius_le_half (le_trans (by norm_num) hp))
         (u * Real.log (p : ℝ))
   · rw [scaleHellingerTailLocalRemainder, if_neg hp, norm_zero]
-    positivity
+    change 0 ≤ 780 * (p : ℝ) ^ (-(3 / 2 : ℝ))
+    exact mul_nonneg (by norm_num) (Real.rpow_nonneg (by positivity) _)
 
 /-- Infinite renormalized Hellinger value contributed by the uniform tail. -/
 noncomputable def scaleHellingerTailRemainder (sigma u : ℝ) : ℝ :=

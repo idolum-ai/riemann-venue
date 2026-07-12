@@ -185,29 +185,16 @@ structure HalfBalancedFinitePartSurvivalState where
   survivalOfSummability :
     ∀ u : ℝ, CosineLocalRemainderSummability u →
       CosineFinitePartSurvival u
-  /-- The remaining non-tautological residual summability/rate bridge. -/
-  residualSummabilityBridge : Prop
+  /-- The non-tautological residual summability theorem. This is proof data,
+  not a proposition-valued status label. -/
+  residualSummabilityBridge :
+    ∀ u : ℝ, CosineLocalRemainderSummability u
   /-- Current status. -/
   status : BoundaryFinitePartSurvivalStatus
 
-/-- Pre-discharge checkpoint: exact local asymptotics and finite-window
-bookkeeping are proved here, while summability/rate control is intentionally
-left as the next layer. `BoundaryResidualSummability` constructs the
-discharged state without creating an import cycle. -/
-noncomputable def currentHalfBalancedFinitePartSurvivalState :
-    HalfBalancedFinitePartSurvivalState where
-  exactResidue := translatedQuadraticDefectExactResidue_holds
-  cosineAperture := balancedDefectAperture_cosineLogTest
-  remainderBookkeeping := exactCosineFiniteRemainder_eq_sum
-  survivalOfSummability := fun _ h => cosineFinitePartSurvival_of_summable h
-  residualSummabilityBridge :=
-    ∀ u : ℝ, CosineLocalRemainderSummability u
-  status :=
-    BoundaryFinitePartSurvivalStatus.reducedToCosineResidualSummability
-
-theorem currentHalfBalancedFinitePartSurvivalState_status :
-    currentHalfBalancedFinitePartSurvivalState.status =
-      BoundaryFinitePartSurvivalStatus.reducedToCosineResidualSummability :=
-  rfl
+/-! No survival-state inhabitant is constructed in this pre-discharge module:
+the proof-valued `residualSummabilityBridge` is supplied only after
+`BoundaryResidualSummability` proves it. Historical search status remains in
+the notes rather than masquerading as an inhabited theorem package. -/
 
 end RiemannVenue.Venue

@@ -10,6 +10,9 @@ import sys
 
 AUDIT_FILE = "RiemannVenue/AxiomAudit.lean"
 EXPECTED_DECLARATIONS = {
+    "RiemannVenue.Venue.abs_translatedHellingerDefectRemainder_le",
+    "RiemannVenue.Venue.summable_abs_exactCosineLocalRemainder",
+    "RiemannVenue.Venue.cosineFinitePartSurvival_holds",
     "RiemannVenue.Venue.completedZetaZeroSumConverges_proved",
     "RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved",
     "RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional",

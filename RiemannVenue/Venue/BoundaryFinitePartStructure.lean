@@ -147,14 +147,6 @@ theorem exactCosineLocalRemainder_neg (p : Nat.Primes) (u : ℝ) :
       (u * Real.log (p : ℝ)) using 1
   ring_nf
 
-/-- The summable majorant used by the uniform M-test. -/
-noncomputable def cosineLocalRemainderMajorant (p : Nat.Primes) : ℝ :=
-  780 * (p : ℝ) ^ (-(3 / 2 : ℝ))
-
-theorem summable_cosineLocalRemainderMajorant :
-    Summable cosineLocalRemainderMajorant :=
-  (Nat.Primes.summable_rpow.mpr (by norm_num)).mul_left 780
-
 theorem eventually_norm_exactCosineLocalRemainder_le_majorant :
     ∀ᶠ p : Nat.Primes in cofinite, ∀ u : ℝ,
       ‖exactCosineLocalRemainder p u‖ ≤ cosineLocalRemainderMajorant p := by

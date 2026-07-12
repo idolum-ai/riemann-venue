@@ -9,6 +9,9 @@ exactly the repository's approved standard Mathlib axioms.
 -/
 
 #print axioms RiemannVenue.Venue.completedZetaZeroSumConverges_proved
+#print axioms RiemannVenue.Venue.abs_translatedHellingerDefectRemainder_le
+#print axioms RiemannVenue.Venue.summable_abs_exactCosineLocalRemainder
+#print axioms RiemannVenue.Venue.cosineFinitePartSurvival_holds
 #print axioms RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValueIdentified

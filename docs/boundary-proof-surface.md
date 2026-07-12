@@ -8,6 +8,12 @@ probe structure to stable semantic API.
 
 ## Unconditional endpoints
 
+- `abs_translatedHellingerDefectRemainder_le`: the exact translated local
+  remainder is bounded uniformly by `780 * a^3` on the half-radius disc.
+- `summable_abs_exactCosineLocalRemainder` and
+  `cosineFinitePartSurvival_holds`: the compensated critical prime residual is
+  absolutely summable and its finite windows converge independently of a prime
+  enumeration.
 - `completedZetaZeroSumConverges_proved`: every
   `SmoothCompletedLogTest` has an absolutely convergent,
   multiplicity-expanded completed zero sum.
