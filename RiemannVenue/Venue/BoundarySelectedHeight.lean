@@ -107,6 +107,40 @@ theorem card_local_zero_ordinates_le_count (T R : ℝ) :
       intro rho _hrho
       exact completedZetaZeroMultiplicity_pos rho
 
+/-- The proved `O(T log T)` estimate implies a convenient all-height
+quadratic envelope after absorbing the bounded initial interval. -/
+theorem exists_nontrivialZetaZeroCount_le_quadratic :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ T : ℝ, 0 ≤ T →
+      (nontrivialZetaZeroCount T : ℝ) ≤ C * (T + 1) ^ 2 := by
+  rcases nontrivialZetaZeroCountBigO_proved with
+    ⟨C, T0, hC, hT0, hlarge⟩
+  let K := max C (nontrivialZetaZeroCount T0 : ℝ)
+  have hK : 0 ≤ K := hC.trans (le_max_left _ _)
+  refine ⟨K, hK, ?_⟩
+  intro T hT
+  by_cases hTlarge : T0 ≤ T
+  · have hcount := hlarge T hTlarge
+    have hlog : Real.log T ≤ T := Real.log_le_self hT
+    have hT1 : 0 ≤ T + 1 := by linarith
+    calc
+      (nontrivialZetaZeroCount T : ℝ) ≤ C * T * Real.log T := hcount
+      _ ≤ C * T * T := by
+        gcongr
+      _ ≤ K * (T + 1) ^ 2 := by
+        have hCK : C ≤ K := le_max_left _ _
+        nlinarith [sq_nonneg T, sq_nonneg (T + 1)]
+  · have hTle : T ≤ T0 := le_of_not_ge hTlarge
+    have hcountNat := nontrivialZetaZeroCount_mono hTle
+    have hcount : (nontrivialZetaZeroCount T : ℝ) ≤
+        (nontrivialZetaZeroCount T0 : ℝ) := by exact_mod_cast hcountNat
+    have hbase : (1 : ℝ) ≤ (T + 1) ^ 2 := by nlinarith
+    calc
+      (nontrivialZetaZeroCount T : ℝ) ≤
+          (nontrivialZetaZeroCount T0 : ℝ) := hcount
+      _ ≤ K := le_max_right _ _
+      _ ≤ K * (T + 1) ^ 2 := by
+        exact le_mul_of_one_le_right hK hbase
+
 /-! ## Locally separated unit-interval heights -/
 
 /-- Center of the `n`th unit interval. -/
@@ -427,6 +461,125 @@ theorem completedWeilExplicitFormulaOnSmoothCore_of_titchmarshLocalControl
     CompletedWeilExplicitFormulaOnSmoothCore :=
   completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights
     C.toLogSquaredFamily
+
+/-! ## Coarse polynomial route -/
+
+/-- A weaker local analytic contract sufficient for the contour actually
+used in this repository. Linear local count and linear expansion error compile
+to a quadratic selected-height score, which fourth-order test decay absorbs.
+-/
+structure CompletedXiLinearLocalControl where
+  constant : ℝ
+  constant_nonneg : 0 ≤ constant
+  nearbyCard : ∀ n : ℕ,
+    ((completedZetaNearbyAbsoluteOrdinates n).card : ℝ) ≤
+      constant * (completedZetaLocallySeparatedHeight n + 1)
+  localCount : ∀ n : ℕ,
+    (nontrivialZetaLocalCount
+      (completedZetaLocallySeparatedHeight n) 1 : ℝ) ≤
+      constant * (completedZetaLocallySeparatedHeight n + 1)
+  expansion : ∀ n : ℕ, ∀ sigma ∈ Set.Icc (-1 : ℝ) 2,
+    ‖logDeriv completedXiCore
+        (sigma + completedZetaLocallySeparatedHeight n * Complex.I) -
+      completedXiLocalReciprocalZeroSum
+        (completedZetaLocallySeparatedHeight n) sigma‖ ≤
+      constant * (completedZetaLocallySeparatedHeight n + 1)
+
+private theorem norm_completedXiLocalReciprocalZeroSum_le_quadratic
+    (C : CompletedXiLinearLocalControl)
+    (n : ℕ) (sigma : ℝ) :
+    ‖completedXiLocalReciprocalZeroSum
+      (completedZetaLocallySeparatedHeight n) sigma‖ ≤
+      4 * C.constant * (C.constant + 1) *
+        (completedZetaLocallySeparatedHeight n + 1) ^ 2 := by
+  let T := completedZetaLocallySeparatedHeight n
+  let X := T + 1
+  let B := 4 * (((completedZetaNearbyAbsoluteOrdinates n).card : ℝ) + 1)
+  have hX : 1 ≤ X := by
+    dsimp [X, T]
+    linarith [completedZetaLocallySeparatedHeight_gt n]
+  have hcard : ((completedZetaNearbyAbsoluteOrdinates n).card : ℝ) + 1 ≤
+      (C.constant + 1) * X := by
+    calc
+      _ ≤ C.constant * X + X := by
+        exact add_le_add (by simpa [X, T] using C.nearbyCard n) hX
+      _ = _ := by ring
+  have hB : B ≤ 4 * (C.constant + 1) * X := by
+    dsimp [B]
+    nlinarith
+  unfold completedXiLocalReciprocalZeroSum
+  calc
+    ‖∑ rho ∈ completedZetaLocalIndexWindowFinset T 1,
+        1 / ((sigma : ℂ) + T * Complex.I -
+          nontrivialZetaZeroValue rho.1)‖ ≤
+        ∑ rho ∈ completedZetaLocalIndexWindowFinset T 1,
+          ‖1 / ((sigma : ℂ) + T * Complex.I -
+            nontrivialZetaZeroValue rho.1)‖ := norm_sum_le _ _
+    _ ≤ ∑ _rho ∈ completedZetaLocalIndexWindowFinset T 1, B := by
+      apply Finset.sum_le_sum
+      intro rho hrho
+      simpa [B, T] using
+        completedXiLocalReciprocalZeroTerm_le n sigma rho hrho
+    _ = (nontrivialZetaLocalCount T 1 : ℝ) * B := by
+      rw [Finset.sum_const, nsmul_eq_mul,
+        card_completedZetaLocalIndexWindowFinset]
+    _ ≤ (C.constant * X) * (4 * (C.constant + 1) * X) := by
+      apply mul_le_mul (by simpa [T, X] using C.localCount n) hB
+      · positivity
+      · exact mul_nonneg C.constant_nonneg (le_trans zero_le_one hX)
+    _ = 4 * C.constant * (C.constant + 1) * X ^ 2 := by ring
+
+/-- The coarse local control produces the exact quadratic selected-height
+family consumed by the already-proved contour machinery. -/
+noncomputable def CompletedXiLinearLocalControl.toQuadraticFamily
+    (C : CompletedXiLinearLocalControl) :
+    CompletedXiQuadraticSelectedHeightFamily where
+  heights := completedZetaLocallySeparatedHeight
+  lower := completedZetaLocallySeparatedHeight_gt
+  upper := completedZetaLocallySeparatedHeight_lt
+  avoids := completedZetaLocallySeparatedHeight_ne
+  constant := 4 * C.constant * (C.constant + 1) + C.constant
+  constant_nonneg := by
+    exact add_nonneg
+      (mul_nonneg
+        (mul_nonneg (by norm_num : (0 : ℝ) ≤ 4) C.constant_nonneg)
+        (by linarith [C.constant_nonneg] : 0 ≤ C.constant + 1))
+      C.constant_nonneg
+  bound := by
+    intro n sigma hsigma
+    let T := completedZetaLocallySeparatedHeight n
+    let X := T + 1
+    have hX : 1 ≤ X := by
+      dsimp [X, T]
+      linarith [completedZetaLocallySeparatedHeight_gt n]
+    have hsum := norm_completedXiLocalReciprocalZeroSum_le_quadratic C n sigma
+    have hrem := C.expansion n sigma hsigma
+    have hlinear : C.constant * X ≤ C.constant * X ^ 2 := by
+      apply mul_le_mul_of_nonneg_left _ C.constant_nonneg
+      nlinarith
+    calc
+      ‖logDeriv completedXiCore (sigma + T * Complex.I)‖ ≤
+          ‖logDeriv completedXiCore (sigma + T * Complex.I) -
+            completedXiLocalReciprocalZeroSum T sigma‖ +
+          ‖completedXiLocalReciprocalZeroSum T sigma‖ := by
+        have := norm_add_le
+          (logDeriv completedXiCore (sigma + T * Complex.I) -
+            completedXiLocalReciprocalZeroSum T sigma)
+          (completedXiLocalReciprocalZeroSum T sigma)
+        simpa using this
+      _ ≤ C.constant * X +
+          4 * C.constant * (C.constant + 1) * X ^ 2 := by
+        exact add_le_add (by simpa [T, X] using hrem)
+          (by simpa [T, X] using hsum)
+      _ ≤ C.constant * X ^ 2 +
+          4 * C.constant * (C.constant + 1) * X ^ 2 := by gcongr
+      _ = (4 * C.constant * (C.constant + 1) + C.constant) * X ^ 2 := by ring
+
+theorem completedWeilExplicitFormulaOnSmoothCore_of_linearLocalControl
+    (C : CompletedXiLinearLocalControl) :
+    CompletedWeilExplicitFormulaOnSmoothCore :=
+  completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits
+    C.toQuadraticFamily fun h => C.toQuadraticFamily.toRightEdgeLimit h
 
 end
 
