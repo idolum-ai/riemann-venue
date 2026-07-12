@@ -51,12 +51,15 @@ while wider-strip fourth-order test decay absorbs the quadratic score bound.
 What remains is sharply classical: construct the cited logarithmic-squared
 selected heights.
 
-The underlying cofinal heights have now been found in Lean. A finite-union
-measure argument selects `T_n in (n,n+1)` with explicit clearance from every
-zero ordinate, bounded below using the proved multiplicity-weighted `N(n+2)`.
-The unresolved refinement is local rather than existential: Titchmarsh's
-bounded-window `O(log T)` zero count and local logarithmic-derivative expansion
-must sharpen that global clearance into the `O(log^2 T)` score bound.
+The underlying cofinal heights have now been found in Lean, and their local
+clearance has been upgraded quantitatively. A translated Jensen argument at
+`2+iT` combines fixed-strip quadratic Xi growth with explicit Möbius/zeta and
+Gamma lower bounds. It proves a symmetric linear envelope for every radius-two
+zero window. That controls both the selected unit-window multiplicity and the
+absolute-ordinate cardinality in the clearance denominator. Consequently, the
+fourth-order contour no longer needs the sharper `O(log^2 T)` score: these
+linear local counts plus a linear expansion remainder compile to a sufficient
+quadratic selected-height family.
 
 ## Current decision gate
 
@@ -66,9 +69,12 @@ recursive subdivision, and the finite-set-to-partition compiler are proved.
 The compiler chooses internal lines avoiding every pole and handles poles
 with shared real or imaginary coordinates.
 
-The zero-avoiding-height layer has crossed its qualitative sill, and every
-logarithmic-squared selected-height family is proved sufficient for horizontal
-decay. The elementary, Gamma, and regularized arithmetic channels are all
-identified internally, so such a family now compiles directly to the completed
-Weil explicit formula on the smooth core. Its existence is the sole remaining
-bedrock obligation: the Titchmarsh/minimum-modulus selected-height input.
+The zero-avoiding-height layer has crossed both its qualitative and local-count
+sills. The elementary, Gamma, and regularized arithmetic channels are all
+identified internally. The only remaining bedrock obligation is now the named
+`CompletedXiLinearExpansionBound`: on the constructed heights, subtract the
+unit-window reciprocal-zero sum from `Xi'/Xi` and bound the analytic remainder
+linearly in height. Once supplied, the proved compiler immediately produces
+the quadratic selected-height family and the completed Weil explicit formula
+on the smooth core. The sharper Titchmarsh `O(log T)` theorem remains desirable,
+but is no longer required by this contour.
