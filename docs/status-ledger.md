@@ -868,6 +868,31 @@ repository status. The compact proof/open-contract API map is
   - **Status:** notes (interpretive + survey, claim-labeled)
   - **Artifact:** `notes/frustration-and-gauge.md`, `notes/unfrustrated-cancellation-survey.md`
 
+- **Claim:** **Complex completed autocorrelation and finite spectral compiler**:
+  `Z(h star h,z) = 2π A_h(z)A_h(-z)` on the smooth compact core; a realizable
+  target margin beating finite competitors forces a negative finite spectral
+  window; absolutely summable powered tails satisfy the uniform
+  `q^(n-1)` majorant
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryComplexAutocorrelation.lean`,
+    `BoundarySpectralOrbit.lean`, `BoundarySpectralAmplification.lean`
+
+- **Claim:** **Law-bearing completed arithmetic boundary**: the compact carrier
+  satisfies the finite response-limit, Gamma-flux, pole-trace, and completed
+  place-assembly laws without zero-side input
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTypeLaws.lean`
+
+- **Claim:** Every finite symmetry-compatible Fourier--Laplace prescription is
+  realized by a smooth compact real test
+
+  - **Status:** stated, deliberately unproved; a concrete nonzero smooth bump
+    seed is constructed
+  - **Artifact:** `RiemannVenue/Venue/BoundaryPaleyWienerGate.lean`
+    (`SmoothFiniteTransformInterpolation`, `canonicalSmoothBump`)
+
 - **Claim:** This repository proves RH
 
   - **Status:** explicitly not claimed

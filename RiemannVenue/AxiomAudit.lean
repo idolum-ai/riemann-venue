@@ -1,4 +1,4 @@
-import RiemannVenue.Venue.BoundaryPositivityReconnaissance
+import RiemannVenue.Venue.BoundarySpectralDetectionCompiler
 
 /-!
 # Terminal axiom audit
@@ -13,6 +13,11 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.summable_abs_exactCosineLocalRemainder
 #print axioms RiemannVenue.Venue.cosineFinitePartSurvival_holds
 #print axioms RiemannVenue.Venue.completedZetaZeroTsum_eq_completedPlaceFunctional_of_contour
+#print axioms RiemannVenue.Venue.completedZeroTestTransform_selfConvolution_complex
+#print axioms RiemannVenue.Venue.RealizableFiniteOrbitSeparator.windowValue_neg
+#print axioms RiemannVenue.Venue.tsum_spectralPowerTail_le
+#print axioms RiemannVenue.Venue.completedArithmeticBoundaryPackage_lawful
+#print axioms RiemannVenue.Venue.completedBoundaryPositivityDetectsRealSpectrum_of_negativeTests
 #print axioms RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValueIdentified

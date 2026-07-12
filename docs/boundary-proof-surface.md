@@ -83,12 +83,33 @@ broad Mathlib declarations throughout the environment.
   direction and remains open.
 - `CompletedOpenStripRH` has not been proved equivalent here to Mathlib's full
   `RiemannHypothesis`; the zero-classification bridge is separate.
-- `CompletedArithmeticBoundaryPackage` is a typed data package, not a semantic
-  boundary type enforcing derivative compatibility, positivity, or no-leak
-  laws.
-- Complex autocorrelation factorization, completed-zero orbit separation,
-  Paley-Wiener realizability, and uniform amplification belong to the next
-  project described in `notes/completed-weil-criterion-project.md`.
+- `CompletedArithmeticBoundaryPackage` remains the compact carrier;
+  `LawfulCompletedArithmeticBoundary` now supplies its proved place-side
+  semantic laws without asserting positivity.
+- Realizable Paley-Wiener interpolation and the resulting completed-zero
+  spectral detection remain open in the active project described in
+  `notes/completed-weil-criterion-project.md`.
+
+## Positivity Project Draft
+
+The follow-on draft proves the complex autocorrelation normalization
+
+```text
+Z(h star h, z) = 2*pi*A_h(z)*A_h(-z),
+```
+
+including real-test reflection and recovery of the real Wiener--Khinchin
+square law. It also proves a quantitative finite-window separator compiler
+and the geometric infinite-tail majorant
+
+```text
+sum_tail |g(rho)|^n <= q^(n-1) * sum_tail |g(rho)|.
+```
+
+The realizable Paley--Wiener interpolation theorem remains open. The draft
+contains a concrete nonzero smooth compact bump and the exact
+symmetry-compatible interpolation contract, but does not promote that
+contract to an assumption or claim spectral detection.
 
 ## Compatibility note
 

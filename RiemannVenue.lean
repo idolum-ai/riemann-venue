@@ -98,3 +98,5 @@ import RiemannVenue.Venue.BoundaryComplexAutocorrelation
 import RiemannVenue.Venue.BoundarySpectralOrbit
 import RiemannVenue.Venue.BoundarySpectralAmplification
 import RiemannVenue.Venue.BoundaryCompletedTypeLaws
+import RiemannVenue.Venue.BoundaryPaleyWienerGate
+import RiemannVenue.Venue.BoundarySpectralDetectionCompiler

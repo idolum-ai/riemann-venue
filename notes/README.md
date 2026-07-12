@@ -55,11 +55,14 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   forward Wiener--Khinchin, critical-line spectrum implying positivity,
   coefficient-perturbation failure, and the remaining spectral-detection
   direction of Weil's criterion.
-- `completed-weil-criterion-project.md` — next-project architecture for the
-  remaining spectral-detection direction: complex autocorrelation
+- `completed-weil-criterion-project.md` — active-project architecture for the
+  remaining spectral-detection direction: proved complex autocorrelation
   factorization, zero orbits, realizable Paley--Wiener separation,
   convolution-power amplification, uniform tail control, decision gates, and
   failure traps.
+- `completed-weil-positivity-progress.md` — current draft checkpoint: proved
+  complex product, finite-window and geometric-tail compilers, law-bearing
+  boundary wrapper, and the precise open smooth interpolation gate.
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.

@@ -1,6 +1,8 @@
 # Completed Weil-Criterion Project
 
-Status: next-project architecture. Nothing in this note upgrades the open
+Status: active draft project. Gate 1 and the abstract finite-window and
+geometric-tail compilers are proved. Gate 2, realizable smooth compact
+interpolation, remains open. Nothing in this note upgrades the open
 spectral-detection implication to a theorem.
 
 ## Starting point
@@ -333,8 +335,8 @@ Paley--Wiener route has been tested.
 
 ### Gate 1: complex factorization
 
-Proceed only if the complex autocorrelation identity specializes exactly to
-the proved real-frequency normalization.
+Passed in `BoundaryComplexAutocorrelation.lean`: the complex autocorrelation
+identity specializes exactly to the proved real-frequency normalization.
 
 ### Gate 2: realizable separation
 
@@ -342,11 +344,21 @@ Proceed only if the target orbit can be separated by an actual smooth compact
 test. If only arbitrary entire interpolation is available, stop: the test
 class has been changed.
 
+Current result: `BoundaryPaleyWienerGate.lean` constructs a concrete nonzero
+smooth compact bump and states `SmoothFiniteTransformInterpolation` on the
+exact test core. Mathlib has no packaged Paley--Wiener interpolation theorem,
+and the contract is not yet proved. This is the active decision gate.
+
 ### Gate 3: uniform tail control
 
 Proceed only if amplification constants and support growth are explicit
 enough to dominate the infinite zero tail. A theorem for each fixed test does
 not imply a uniform theorem for the test family.
+
+Partial pass: `BoundarySpectralAmplification.lean` proves the generic
+summable-base geometric tail estimate with explicit exponent dependence.
+The missing input is a realizable separator whose non-target coefficients
+obey the required strict global modulus gap.
 
 ### Gate 4: genuine spectral detection
 
