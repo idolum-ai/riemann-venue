@@ -88,3 +88,4 @@ import RiemannVenue.Venue.BoundaryExplicitFormulaContour
 import RiemannVenue.Venue.BoundaryRectangleExcision
 import RiemannVenue.Venue.BoundaryRectangleCompiler
 import RiemannVenue.Venue.BoundaryZeroAvoidingHeights
+import RiemannVenue.Venue.BoundarySelectedHeight
