@@ -13,8 +13,8 @@ cosine-synthesis density. Completion adds two analytically different faces:
 
 Keeping these as different typed surfaces prevents the pole correction from
 being hidden inside the real-frequency score channel. This file constructs
-both pairings but does not assert their final sign or normalization in a
-completed Weil identity.
+both pairings. Downstream contour and Cauchy-datum modules fix their completed
+normalization and identify the assembled value with the zero side.
 -/
 
 namespace RiemannVenue.Venue
@@ -29,8 +29,8 @@ structure CompletedGammaTest extends CompletedCosineTest where
   gammaIntegrable : Integrable (fun u : ℝ =>
     frequencyDensity u * archimedeanGammaBoundaryScore u)
 
-/-- The Gamma domain is nonempty. Proving that the canonical smooth Fourier
-lift lies in this weighted domain remains a separate analytic obligation. -/
+/-- The Gamma domain is nonempty. The canonical smooth Fourier lift is
+admitted downstream after proving the required Gamma growth bound. -/
 noncomputable def CompletedGammaTest.zero : CompletedGammaTest where
   toCompletedCosineTest := CompletedCosineTest.zero
   gammaIntegrable := by

@@ -47,6 +47,10 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   proved Hellinger finite part and the logarithmic radial derivative: what
   each boundary datum remembers, why they cannot be identified, and how their
   compatibility reframes the next construction.
+- `completed-boundary-cauchy-datum.md` — the post-explicit-formula boundary
+  type: renormalized energy value, finite and Gamma normal fluxes, the pole
+  off-boundary trace, downstream zero-side identification, and the remaining
+  smooth-core positivity gate.
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.

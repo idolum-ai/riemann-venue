@@ -90,3 +90,5 @@ import RiemannVenue.Venue.BoundaryRectangleCompiler
 import RiemannVenue.Venue.BoundaryZeroAvoidingHeights
 import RiemannVenue.Venue.BoundarySelectedHeight
 import RiemannVenue.Venue.BoundaryXiLocalExpansion
+import RiemannVenue.Venue.BoundaryCompletedCauchyDatum
+import RiemannVenue.Venue.BoundaryCompletedJetIdentification

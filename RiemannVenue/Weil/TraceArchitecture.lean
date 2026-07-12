@@ -72,9 +72,10 @@ pairing agrees with the state of the corresponding square.
 
 The trace identity is the entire bespoke content; positivity of the state
 on squares is not assumed, it is a theorem of star-ordered algebras. The
-*correct completed* `D` is not constructed in this repository, and no
-realization of it is exhibited; this structure records only what a trace
-formula *would* provide. -/
+completed pairing is now constructed on the canonical smooth compact core,
+but no extension to this all-functions `ExplicitFormulaData` interface and no
+positive trace realization is exhibited. This structure records only what
+such a trace formula would provide. -/
 structure TraceRealization (D : ExplicitFormulaData) (A : Type*)
     [NonUnitalSemiring A] [StarRing A] [PartialOrder A] [StarOrderedRing A]
     [Module ℝ A] where

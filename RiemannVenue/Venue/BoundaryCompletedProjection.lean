@@ -4,11 +4,12 @@ import RiemannVenue.Venue.BoundaryType
 /-!
 # Projection contract for the completed Weil functional
 
-The finite-place energy/score jet and the archimedean Gamma score are now
-concrete.  What remains open is their completion on a test ideal, the pole
-terms, and the identity with the completed Weil pairing.  This file records
-that boundary as a typed projection contract and maps it into the existing
-`BoundaryTypeCandidate` contract.
+This is the early contract that separated finite score, Gamma, pole, and
+no-leak obligations while the completed test domain was still open. Those
+surfaces are now constructed and identified downstream in
+`BoundaryCompletedCauchyDatum` and `BoundaryCompletedJetIdentification`.
+The contract remains as a record of the excavation boundary and maps into the
+older `BoundaryTypeCandidate` interface.
 
 No candidate is instantiated here.  In particular, the decomposition and
 projection laws are not replaced by a tautological pairing.

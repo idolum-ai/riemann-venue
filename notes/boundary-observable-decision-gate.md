@@ -130,10 +130,9 @@ The first continuation is now complete:
 - a typed projection contract maps this field into the repository's stable
   completed-boundary contract.
 
-The completed projection is not yet identified with the boundary jet, but its
-first three analytic faces are now concrete. Compact log tests give an
-eventually stable prime-power functional. Every smooth compact test has a
-canonical normalized
+The completed boundary jet is now constructed and identified. Compact log
+tests give an eventually stable prime-power functional. Every smooth compact
+test has a canonical normalized
 cosine synthesis and therefore projects the centered score after a forced
 vacuum counterterm. Gamma and pole place pairings are constructed as distinct
 real-boundary and off-boundary operations. The positive
@@ -142,9 +141,11 @@ first absolute frequency moment is integrable. A Beta-integral/Cauchy argument
 proves the named measurable at-most-linear digamma bound, so Gamma admission
 is unconditional. The exact completed Weil identity on the smooth compact
 core is now proved by `completedWeilExplicitFormulaOnSmoothCore_proved`.
-What remains here is the no-leak identification of that functional with the
-renormalized boundary jet, followed separately by positivity. See
-`notes/completed-weil-identity-gate.md`.
+`BoundaryCompletedCauchyDatum.lean` assembles the finite and Gamma fluxes with
+the pole trace without importing zeros; only the downstream identification
+module equates that datum with the zero sum. What remains is positivity and
+the semantic no-leak interpretation. See
+`notes/completed-boundary-cauchy-datum.md`.
 
 ## Artifacts
 
@@ -159,4 +160,6 @@ renormalized boundary jet, followed separately by positivity. See
 - `RiemannVenue/Venue/BoundaryArithmeticSensitivity.lean`
 - `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`
 - `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`
+- `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`
+- `RiemannVenue/Venue/BoundaryCompletedJetIdentification.lean`
 - `RiemannVenue/Venue/BoundarySmoothTestCore.lean`

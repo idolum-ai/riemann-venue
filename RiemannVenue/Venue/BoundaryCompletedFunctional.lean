@@ -10,11 +10,10 @@ canonical smooth compact test core. This file assembles them into a single
 typed place functional with fixed normalization.
 
 It also states the exact zero-side object needed for the completed Weil
-explicit formula. Mathlib proves that the zeta-zero set is discrete and
-locally finite, and analytic order supplies multiplicity. It does not yet
-prove convergence of the global zero sum or the explicit-formula identity.
-Those two clauses are therefore exposed as the next theorem, not hidden in
-an abstract pairing or assumed by the construction.
+explicit formula. This layer deliberately exposes convergence and equality
+as propositions rather than hiding them in an abstract pairing. Downstream
+modules now prove both clauses and identify this functional with independently
+assembled completed boundary Cauchy data.
 -/
 
 namespace RiemannVenue.Venue

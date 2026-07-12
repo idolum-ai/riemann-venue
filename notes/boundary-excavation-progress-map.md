@@ -80,7 +80,16 @@ closes the final local contract, and
 zero functional with `pole + 2 * Gamma - finite places` on the smooth compact
 core. The sharper Titchmarsh `O(log T)` expansion remains mathematically
 desirable, but only as a sharpening: the completed formula proved here no
-longer depends on it. The research frontier therefore returns to the original
-carrier question: identify the completed pairing with a boundary-jet state and
-locate the non-tautological positivity condition rather than building more
-contour infrastructure.
+longer depends on it.
+
+The first return to the carrier question is also complete. The Hellinger
+finite part remains the energy/value face. A new completed Cauchy datum puts
+the response-derived finite-place score and the actual `Gamma_R` score in
+normal-flux channels, while retaining the completed pole term as an
+off-boundary trace. Lean proves that the pole's real critical score vanishes,
+so forcing it into the flux channel would lose it. The channel assembly is
+proved equal to the completed place functional without spectral input; only
+in a downstream module is it identified with the zero sum. The remaining
+frontier is therefore precise: smooth-core positivity of this actual datum,
+plus the eventual semantic theorem connecting critical-line modes and no-leak
+behavior. More contour infrastructure is not on the critical path.

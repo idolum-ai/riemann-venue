@@ -11,10 +11,10 @@ integral, and controls the renormalized derivative uniformly.
 
 At critical prime radius, logarithmic scale differentiation produces an
 absolutely summable `O((log p) p^(-3/2))` residual after the quadratic flux is
-subtracted.  This constructs a genuine finite Hellinger boundary flux from
-the same scale family.  It does not identify that flux with the Euler
-prime-power logarithmic derivative; that arithmetic identity remains the
-next boundary-jet problem.
+subtracted. This constructs a genuine Hellinger boundary flux from the same
+scale family. It is not the Euler prime-power logarithmic derivative; the
+separate centered log-density score channel supplies that arithmetic flux and
+the completed Cauchy datum retains both roles without scalar identification.
 -/
 
 namespace RiemannVenue.Venue

@@ -269,14 +269,19 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean, including its real critical-boundary specialization
   - **Artifact:** `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
 
-- **Claim:** A typed energy/score field plus the Gamma score maps into the existing
-  completed-boundary contract through explicit finite, archimedean, and pole
-  projection obligations; once those non-positivity obligations hold, Weil
-  positivity is exactly the remaining locked gate
+- **Claim:** The completed boundary is typed Cauchy data rather than one scalar
+  derivative: finite-place and Gamma contributions are normal-flux channels,
+  while the completed pole factor is an off-boundary trace
 
-  - **Status:** contract and reduction proved in Lean; no completed projection
-    candidate is instantiated
-  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`
+  - **Status:** constructed and identified in Lean. The finite flux is the
+    limit of the response-derived centered score plus its forced vacuum
+    counterterm; the Gamma flux is the actual `Gamma_R` logarithmic
+    derivative; the pole trace is the sum of its growing and decaying
+    exponential moments. Its critical-line real score is proved to vanish,
+    so the trace geometry is necessary rather than cosmetic
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
+    `notes/completed-boundary-cauchy-datum.md`
 
 - **Claim:** On compactly supported continuous log-scale tests, the full
   symmetrized prime-power distribution is locally finite: diagonal finite
@@ -344,13 +349,17 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     constructed. Fourth-order strip decay and the completed-Xi zero-count
     bound prove absolute convergence of the global zero sum. Finite rectangle
     excision, selected-height control, and the three right-edge channels now
-    prove the completed Weil identity on the smooth compact core. Positivity
-    and identification with the proposed boundary jet remain open
+    prove the completed Weil identity on the smooth compact core. The
+    independently assembled boundary Cauchy value is now proved equal to both
+    the completed place functional and the multiplicity-expanded zero sum.
+    Smooth-core positivity remains open
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
     `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
     `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`,
     `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
     `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedJetIdentification.lean`,
     `notes/completed-weil-identity-gate.md`,
     `notes/completed-test-ideal-decision-gate.md`
 
