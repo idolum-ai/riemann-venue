@@ -38,7 +38,7 @@ jobs:
       - name: Build
         run: lake build
 
-      - name: Terminal axiom audit
+      - name: Terminal axiom and dependency audit
         run: python3 scripts/check_axioms.py
 
   notebooks:

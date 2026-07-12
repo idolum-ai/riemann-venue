@@ -5,8 +5,11 @@ import RiemannVenue.Venue.BoundaryGammaGrowth
 
 The finite prime-power, archimedean Gamma, and pole terms act on one canonical
 smooth compact test core. This place-only module fixes their normalization
-without importing zeta-zero definitions or the completed explicit-formula
-endpoint.
+without using zeta-zero definitions or the completed explicit-formula
+endpoint. Because the repository's shared foundation imports broad Mathlib,
+that provenance claim is enforced by the transitive declaration-dependency
+audit in `RiemannVenue/AxiomAudit.lean`, not by mere name availability in the
+environment.
 -/
 
 namespace RiemannVenue.Venue

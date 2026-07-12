@@ -5,7 +5,7 @@ import RiemannVenue.Venue.BoundaryCompletedPlaceFunctional
 /-!
 # The completed zero-side gate
 
-`BoundaryCompletedPlaceFunctional` assembles the place side without importing
+`BoundaryCompletedPlaceFunctional` assembles the place side without using
 zeta-zero data. This file adds the exact zero-side object needed for the
 completed Weil explicit formula. It deliberately exposes convergence and
 equality as propositions rather than hiding them in an abstract pairing.

@@ -15,7 +15,8 @@ probe structure to stable semantic API.
   functional equals that zero sum on the smooth compact core.
 - `completedBoundaryCauchyValue_eq_completedPlaceFunctional`: independently
   assembled finite, Gamma, and pole channel entries recover the completed
-  place value without importing zero-side data.
+  place value. CI rejects transitive declaration dependencies from this
+  construction onto the zero-side declarations.
 - `completedBoundaryCauchyValueIdentified`: the assembled scalar Cauchy value
   equals the completed zero value.
 - `completedBoundarySmoothCorePositivity_of_openStripRH` and
@@ -58,8 +59,10 @@ candidate interfaces, and provenance intentions. Proposition fields such as
 must not be cited as machine proof of provenance.
 
 For terminal results, the operative trust evidence is the direction of
-construction, module/import boundaries, concrete extensional theorems, the
-zero-`sorry` build, and the terminal axiom audit.
+construction, concrete extensional theorems, the zero-`sorry` build, the
+terminal axiom audit, and the transitive declaration-dependency audit. Import
+presence alone is not evidence because `RiemannVenue.Basic` exposes broad
+Mathlib declarations throughout the environment.
 
 ## Open contracts
 

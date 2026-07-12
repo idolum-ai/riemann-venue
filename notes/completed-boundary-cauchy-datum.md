@@ -51,9 +51,12 @@ The transformations are proved channel by channel:
 4. trace plus flux is the completed place functional
    `pole + 2 * Gamma - prime powers`.
 
-This construction imports no zero-side or contour endpoint. The dependency
-order is part of the no-leak discipline: local response first, completed
-local factors second, spectral identification last.
+The construction bodies use no zero-side or contour endpoint. Broad shared
+Mathlib imports make those names available in the environment, so CI checks
+the stronger relevant fact: the transitive declaration dependencies of the
+Cauchy datum, assembled value, and place-identification theorem contain none
+of the forbidden zero-side declarations. The dependency order remains local
+response first, completed local factors second, spectral identification last.
 
 ## Identification and remaining gate
 
