@@ -68,7 +68,8 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    first absolute frequency moment. A Beta-integral/Cauchy argument proves a
    measurable at-most-linear bound for the critical Gamma score, so every
    smooth compact test enters the Gamma domain unconditionally. The completed
-   place functional now fixes the convention `pole + Gamma - prime powers`.
+   place functional now fixes the contour-derived convention
+   `pole + 2 * Gamma - prime powers`.
    Its entire cosine transform agrees with the real density, and its spectral
    index contains exactly the nontrivial zeta zeros with analytic
    multiplicity. The completed Weil identity is now an exact proposition.

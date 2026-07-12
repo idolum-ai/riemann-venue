@@ -529,7 +529,7 @@ structure CompletedXiLogSquaredSelectedHeightFamily where
     |(nontrivialZetaZeroValue rho).im| ≠ heights n
   constant : ℝ
   constant_nonneg : 0 ≤ constant
-  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 1,
+  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤
         constant * (Real.log (heights n + 2)) ^ 2
@@ -544,7 +544,7 @@ structure CompletedXiQuadraticSelectedHeightFamily where
     |(nontrivialZetaZeroValue rho).im| ≠ heights n
   constant : ℝ
   constant_nonneg : 0 ≤ constant
-  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 1,
+  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤ constant * (heights n + 1) ^ 2
 
@@ -626,7 +626,8 @@ theorem norm_completedXiHorizontalContour_le
         apply (le_div_iff₀ (pow_pos hTpos 4)).mpr
         simpa [mul_comm] using hdecay
       rw [norm_mul]
-      exact (mul_le_mul htest (Q.bound n σ hσ') (norm_nonneg _) (by positivity)).trans_eq
+      exact (mul_le_mul htest (Q.bound n σ
+        ⟨hσ'.1, hσ'.2.trans (by norm_num)⟩) (norm_nonneg _) (by positivity)).trans_eq
         (by simp [E, A]; ring))
     simpa using hbound
   have hbottom : ‖∫ σ in (0 : ℝ)..1,
@@ -658,7 +659,8 @@ theorem norm_completedXiHorizontalContour_le
           apply Complex.ext <;> simp
         rw [heq] at hsym
         rw [hsym, norm_neg]
-        exact Q.bound n (1 - σ) hσref
+        exact Q.bound n (1 - σ)
+          ⟨hσref.1, hσref.2.trans (by norm_num)⟩
       rw [norm_mul]
       exact (mul_le_mul htest hlog (norm_nonneg _) (by positivity)).trans_eq
         (by simp [E, A]; ring))
@@ -776,6 +778,403 @@ noncomputable def completedXiRightGammaFullLine
   Complex.I * ∫ y : ℝ,
     completedContourTest h (1 + y * Complex.I) *
       completedXiRightGammaLogScore y
+
+/-- On the critical vertical line the holomorphic contour test is exactly
+the real canonical cosine density. -/
+theorem completedContourTest_criticalLine
+    (h : SmoothCompletedLogTest) (u : ℝ) :
+    completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) =
+      (h.naturalCosineDensity u : ℂ) := by
+  rw [completedContourTest]
+  have harg :
+      ((((1 / 2 : ℂ) + (u : ℂ) * Complex.I) - (1 / 2 : ℂ)) /
+        Complex.I) = (u : ℂ) := by
+    field_simp [Complex.I_ne_zero]
+    ring
+  rw [harg, completedZeroTestTransform_ofReal]
+
+/-- The critical-line complex Gamma score is continuous. -/
+theorem continuous_criticalGammaLogScore :
+    Continuous (fun u : ℝ => logDeriv Complex.Gammaℝ
+      ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) := by
+  rw [continuous_iff_continuousAt]
+  intro u
+  let s : ℂ := (1 / 2 : ℂ) + (u : ℂ) * Complex.I
+  have hsre : 0 < s.re := by simp [s]
+  have hgamma : Complex.Gammaℝ s ≠ 0 :=
+    Complex.Gammaℝ_ne_zero_of_re_pos hsre
+  have han := analyticAt_GammaR_of_re_pos hsre
+  have hlog : ContinuousAt (logDeriv Complex.Gammaℝ) s := by
+    change ContinuousAt
+      (fun z => deriv Complex.Gammaℝ z / Complex.Gammaℝ z) s
+    exact han.deriv.continuousAt.div han.continuousAt hgamma
+  exact hlog.comp_of_eq (by fun_prop) rfl
+
+set_option maxHeartbeats 800000 in
+/-- The critical Gamma channel is absolutely integrable before taking its
+real part. -/
+theorem integrable_completedContourTest_mul_criticalGammaLogScore
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun u : ℝ =>
+      completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) := by
+  have hK : Integrable (fun u : ℝ => |h.naturalCosineDensity u|) :=
+    h.integrable_naturalCosineDensity.norm
+  have hKu : Integrable (fun u : ℝ =>
+      |u| * |h.naturalCosineDensity u|) := by
+    apply h.integrable_abs_mul_naturalCosineDensity.norm.congr
+    filter_upwards [] with u
+    simp
+  have henv : Integrable (fun u : ℝ =>
+      gammaBoundaryLinearConstant *
+        (|h.naturalCosineDensity u| +
+          |u| * |h.naturalCosineDensity u|)) :=
+    (hK.add hKu).const_mul gammaBoundaryLinearConstant
+  apply henv.mono
+  · exact (((continuous_completedContourTest h).comp (by fun_prop)).mul
+      continuous_criticalGammaLogScore).aestronglyMeasurable
+  · filter_upwards [] with u
+    have hscore : ‖logDeriv Complex.Gammaℝ
+        ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+        gammaBoundaryLinearConstant * (1 + |u|)
+        := norm_logDeriv_GammaR_critical_le u
+    rw [completedContourTest_criticalLine, norm_mul, Complex.norm_real,
+      Real.norm_eq_abs, Real.norm_eq_abs,
+      abs_of_nonneg (mul_nonneg gammaBoundaryLinearConstant_nonneg (by positivity))]
+    calc
+      |h.naturalCosineDensity u| * ‖logDeriv Complex.Gammaℝ
+        ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+          |h.naturalCosineDensity u| *
+            (gammaBoundaryLinearConstant * (1 + |u|)) :=
+        mul_le_mul_of_nonneg_left hscore (abs_nonneg _)
+      _ = gammaBoundaryLinearConstant *
+          (|h.naturalCosineDensity u| +
+            |u| * |h.naturalCosineDensity u|) := by ring
+
+/-- The two horizontal Gamma-strip edges for the deterministic rectangles
+of height `n+1`. -/
+noncomputable def completedGammaShiftHorizontal
+    (h : SmoothCompletedLogTest) (n : ℕ) : ℂ :=
+  let T : ℝ := n + 1
+  (∫ sigma in (1 / 2 : ℝ)..1,
+      completedContourTest h (sigma + (-T) * Complex.I) *
+        logDeriv Complex.Gammaℝ (sigma + (-T) * Complex.I)) -
+    ∫ sigma in (1 / 2 : ℝ)..1,
+      completedContourTest h (sigma + T * Complex.I) *
+        logDeriv Complex.Gammaℝ (sigma + T * Complex.I)
+
+/-- Fourth-order test decay beats the strip-uniform linear Gamma growth on
+the horizontal edges. -/
+theorem norm_completedGammaShiftHorizontal_le
+    (h : SmoothCompletedLogTest) (n : ℕ) :
+    ‖completedGammaShiftHorizontal h n‖ ≤
+      completedZeroTransformFourthMajorant h * gammaBoundaryLinearConstant *
+        ((n : ℝ) + 2) / ((n : ℝ) + 1) ^ 4 := by
+  let T : ℝ := n + 1
+  let E := completedZeroTransformFourthMajorant h *
+    gammaBoundaryLinearConstant * (1 + T) / T ^ 4 / 2
+  have hTpos : 0 < T := by positivity
+  have hE : 0 ≤ E := by
+    exact div_nonneg (div_nonneg (mul_nonneg
+      (mul_nonneg (completedZeroTransformFourthMajorant_nonneg h)
+        gammaBoundaryLinearConstant_nonneg) (by positivity)) (by positivity))
+      (by norm_num)
+  have hedge : ∀ tau : ℝ, |tau| = T →
+      ‖∫ sigma in (1 / 2 : ℝ)..1,
+        completedContourTest h (sigma + tau * Complex.I) *
+          logDeriv Complex.Gammaℝ (sigma + tau * Complex.I)‖ ≤ E := by
+    intro tau htau
+    have hb := intervalIntegral.norm_integral_le_of_norm_le_const
+      (a := (1 / 2 : ℝ)) (b := 1) (C :=
+        completedZeroTransformFourthMajorant h *
+          gammaBoundaryLinearConstant * (1 + T) / T ^ 4)
+      (f := fun sigma : ℝ =>
+        completedContourTest h (sigma + tau * Complex.I) *
+          logDeriv Complex.Gammaℝ (sigma + tau * Complex.I)) (by
+      intro sigma hsigma
+      have hsigma' : sigma ∈ Set.Icc (1 / 2 : ℝ) 1 := by
+        rw [uIoc_of_le (by norm_num : (1 / 2 : ℝ) ≤ 1)] at hsigma
+        exact ⟨hsigma.1.le, hsigma.2⟩
+      have htest := height_pow_four_mul_norm_completedContourTest_le h
+        ⟨by linarith [hsigma'.1], hsigma'.2⟩ htau
+      have htest' : ‖completedContourTest h
+          (sigma + tau * Complex.I)‖ ≤
+          completedZeroTransformFourthMajorant h / T ^ 4 := by
+        apply (le_div_iff₀ (pow_pos hTpos 4)).mpr
+        simpa [mul_comm] using htest
+      have hscore : ‖logDeriv Complex.Gammaℝ
+          (sigma + tau * Complex.I)‖ ≤
+          gammaBoundaryLinearConstant * (1 + T) := by
+        convert norm_logDeriv_GammaR_strip_le
+          (u := tau) ⟨hsigma'.1, hsigma'.2.trans (by norm_num)⟩ using 1
+        rw [htau]
+      rw [norm_mul]
+      calc
+        _ ≤ (completedZeroTransformFourthMajorant h / T ^ 4) *
+            (gammaBoundaryLinearConstant * (1 + T)) :=
+          mul_le_mul htest' hscore (norm_nonneg _)
+            (div_nonneg (completedZeroTransformFourthMajorant_nonneg h)
+              (by positivity))
+        _ = _ := by ring)
+    dsimp [E]
+    convert hb using 1 <;> norm_num <;> ring
+  have hbottom := hedge (-T) (by simp [abs_of_pos hTpos])
+  have htop := hedge T (abs_of_pos hTpos)
+  change ‖(∫ sigma in (1 / 2 : ℝ)..1,
+      completedContourTest h (sigma + (-T) * Complex.I) *
+        logDeriv Complex.Gammaℝ (sigma + (-T) * Complex.I)) -
+    ∫ sigma in (1 / 2 : ℝ)..1,
+      completedContourTest h (sigma + T * Complex.I) *
+        logDeriv Complex.Gammaℝ (sigma + T * Complex.I)‖ ≤ _
+  calc
+    _ ≤ E + E := (norm_sub_le _ _).trans (add_le_add (by
+      simpa only [Complex.ofReal_neg] using hbottom) htop)
+    _ = completedZeroTransformFourthMajorant h *
+        gammaBoundaryLinearConstant * ((n : ℝ) + 2) /
+          ((n : ℝ) + 1) ^ 4 := by simp [E, T]; ring
+
+theorem tendsto_completedGammaShiftHorizontal_zero
+    (h : SmoothCompletedLogTest) :
+    Tendsto (completedGammaShiftHorizontal h) atTop (nhds 0) := by
+  let A := completedZeroTransformFourthMajorant h * gammaBoundaryLinearConstant
+  let r : ℕ → ℝ := fun n => 1 / ((n : ℝ) + 1)
+  have hr : Tendsto r atTop (nhds 0) := by
+    simpa [r] using
+      (tendsto_one_div_add_atTop_nhds_zero_nat :
+        Tendsto (fun n : ℕ => (1 : ℝ) / (n + 1)) atTop (nhds 0))
+  have hbound : Tendsto (fun n => A * (r n ^ 3 + r n ^ 4)) atTop (nhds 0) := by
+    convert tendsto_const_nhds.mul (hr.pow 3 |>.add (hr.pow 4)) using 1 <;> simp
+  rw [tendsto_zero_iff_norm_tendsto_zero]
+  apply squeeze_zero' (Filter.Eventually.of_forall fun n => norm_nonneg _)
+    (Filter.Eventually.of_forall fun n => (norm_completedGammaShiftHorizontal_le h n).trans_eq ?_)
+    hbound
+  have hn : (0 : ℝ) < (n : ℝ) + 1 := by positivity
+  dsimp [A, r]
+  field_simp
+  ring
+
+/-- Cauchy-Goursat on the pole-free Gamma strip relates the finite right and
+critical vertical edges, with the horizontal discrepancy made explicit. -/
+theorem completedGammaShift_finite_rectangle
+    (h : SmoothCompletedLogTest) (n : ℕ) :
+    (∫ u in -((n : ℝ) + 1)..((n : ℝ) + 1),
+      completedContourTest h ((1 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 : ℂ) + (u : ℂ) * Complex.I)) =
+    (∫ u in -((n : ℝ) + 1)..((n : ℝ) + 1),
+      completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) +
+      Complex.I * completedGammaShiftHorizontal h n := by
+  let f : ℂ → ℂ := fun z =>
+    completedContourTest h z * logDeriv Complex.Gammaℝ z
+  let T : ℝ := n + 1
+  have hdiff : DifferentiableOn ℂ f
+      (Set.Icc (1 / 2 : ℝ) 1 ×ℂ Set.Icc (-T) T) := by
+    intro z hz
+    rw [Complex.mem_reProdIm] at hz
+    have hzpos : 0 < z.re := lt_of_lt_of_le (by norm_num) hz.1.1
+    have han := analyticAt_GammaR_of_re_pos hzpos
+    have hgamma := Complex.Gammaℝ_ne_zero_of_re_pos hzpos
+    have hlog : DifferentiableAt ℂ (logDeriv Complex.Gammaℝ) z := by
+      change DifferentiableAt ℂ
+        (fun w => deriv Complex.Gammaℝ w / Complex.Gammaℝ w) z
+      exact han.deriv.differentiableAt.div han.differentiableAt hgamma
+    exact ((differentiable_completedContourTest h z).mul hlog).differentiableWithinAt
+  have hzero := rectangleBoundaryIntegral_eq_zero_of_differentiableOn
+    f (1 / 2 : ℝ) 1 (-T) T (by norm_num) (by
+      have hn : (0 : ℝ) ≤ (n : ℝ) := Nat.cast_nonneg n
+      dsimp [T]
+      linarith) hdiff
+  dsimp [rectangleBoundaryIntegral, f] at hzero
+  have hcast : (((1 / 2 : ℝ) : ℂ)) = (1 / 2 : ℂ) := by norm_num
+  rw [hcast] at hzero
+  let B : ℂ := ∫ sigma in (1 / 2 : ℝ)..1,
+    completedContourTest h ((sigma : ℂ) + ((-T : ℝ) : ℂ) * Complex.I) *
+      logDeriv Complex.Gammaℝ
+        ((sigma : ℂ) + ((-T : ℝ) : ℂ) * Complex.I)
+  let U : ℂ := ∫ sigma in (1 / 2 : ℝ)..1,
+    completedContourTest h ((sigma : ℂ) + (T : ℂ) * Complex.I) *
+      logDeriv Complex.Gammaℝ ((sigma : ℂ) + (T : ℂ) * Complex.I)
+  let R : ℂ := ∫ u in -T..T,
+    completedContourTest h ((1 : ℂ) + u * Complex.I) *
+      logDeriv Complex.Gammaℝ ((1 : ℂ) + u * Complex.I)
+  let L : ℂ := ∫ u in -T..T,
+    completedContourTest h ((1 / 2 : ℂ) + u * Complex.I) *
+      logDeriv Complex.Gammaℝ ((1 / 2 : ℂ) + u * Complex.I)
+  change B - U + Complex.I * R - Complex.I * L = 0 at hzero
+  have hRL : R = L + Complex.I * (B - U) := by
+    linear_combination -Complex.I * hzero + (R - L) * Complex.I_mul_I
+  simpa [R, L, B, U, T, completedGammaShiftHorizontal,
+    Complex.ofReal_neg] using hRL
+
+/-- The full-line right Gamma integral shifts to the critical line. All
+horizontal terms have disappeared by the proved cubic decay. -/
+theorem integral_completedGamma_right_eq_critical
+    (h : SmoothCompletedLogTest) :
+    (∫ u : ℝ,
+      completedContourTest h ((1 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 : ℂ) + (u : ℂ) * Complex.I)) =
+    ∫ u : ℝ,
+      completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) := by
+  let T : ℕ → ℝ := fun n => n + 1
+  have hT : Tendsto T atTop atTop := by
+    apply tendsto_atTop_mono' atTop
+      (Filter.Eventually.of_forall fun n => by
+        dsimp [T]
+        linarith)
+    exact (tendsto_natCast_atTop_atTop :
+      Tendsto (fun n : ℕ => (n : ℝ)) atTop atTop)
+  have hneg : Tendsto (fun n => -T n) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp hT
+  have hr : Tendsto (fun n =>
+      ∫ u in -T n..T n,
+        completedContourTest h ((1 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 : ℂ) + (u : ℂ) * Complex.I)) atTop
+      (nhds (∫ u : ℝ,
+        completedContourTest h ((1 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 : ℂ) + (u : ℂ) * Complex.I))) := by
+    simpa [completedXiRightGammaLogScore] using
+      intervalIntegral_tendsto_integral
+        (integrable_completedContourTest_mul_rightGammaLogScore h) hneg hT
+  have hc := intervalIntegral_tendsto_integral
+    (integrable_completedContourTest_mul_criticalGammaLogScore h) hneg hT
+  have hh := tendsto_completedGammaShiftHorizontal_zero h
+  have hih : Tendsto (fun n : ℕ =>
+      Complex.I * completedGammaShiftHorizontal h n) atTop (nhds 0) := by
+    simpa using (tendsto_const_nhds.mul hh : Tendsto (fun n : ℕ =>
+      Complex.I * completedGammaShiftHorizontal h n) atTop
+        (nhds (Complex.I * 0)))
+  have hsum := hc.add hih
+  have heq : ∀ n,
+      (∫ u in -T n..T n,
+        completedContourTest h ((1 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 : ℂ) + (u : ℂ) * Complex.I)) =
+      (∫ u in -T n..T n,
+        completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) +
+        Complex.I * completedGammaShiftHorizontal h n := by
+    intro n
+    simpa [T] using completedGammaShift_finite_rectangle h n
+  have hsum' : Tendsto (fun n =>
+      (∫ u in -T n..T n,
+        completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) +
+        Complex.I * completedGammaShiftHorizontal h n) atTop
+      (nhds (∫ u : ℝ,
+        completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+          logDeriv Complex.Gammaℝ
+            ((1 / 2 : ℂ) + (u : ℂ) * Complex.I))) := by
+    simpa using hsum
+  have hrCritical := hsum'.congr'
+    (Filter.Eventually.of_forall fun n => (heq n).symm)
+  exact tendsto_nhds_unique hr hrCritical
+
+/-- Conjugation symmetry cancels the imaginary part of the critical Gamma
+integral, leaving exactly the real archimedean boundary pairing. -/
+theorem integral_completedGamma_critical_eq_pairing
+    (h : SmoothCompletedLogTest) :
+    (∫ u : ℝ,
+      completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+        logDeriv Complex.Gammaℝ
+          ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) =
+      ((∫ u : ℝ, h.naturalCosineDensity u *
+        archimedeanGammaBoundaryScore u : ℝ) : ℂ) := by
+  let f : ℝ → ℂ := fun u =>
+    completedContourTest h ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) *
+      logDeriv Complex.Gammaℝ
+        ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)
+  have hf : Integrable f :=
+    integrable_completedContourTest_mul_criticalGammaLogScore h
+  have hsym : ∀ u : ℝ, f (-u) = (starRingEnd ℂ) (f u) := by
+    intro u
+    have hs := logDeriv_GammaR_star
+      ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)
+    have harg : (starRingEnd ℂ)
+        ((1 / 2 : ℂ) + (u : ℂ) * Complex.I) =
+        (1 / 2 : ℂ) + ((-u : ℝ) : ℂ) * Complex.I := by
+      apply Complex.ext <;> simp
+    rw [harg] at hs
+    dsimp [f]
+    rw [completedContourTest_criticalLine,
+      completedContourTest_criticalLine,
+      h.naturalCosineDensity_neg]
+    rw [show (starRingEnd ℂ)
+        ((h.naturalCosineDensity u : ℂ) *
+          logDeriv Complex.Gammaℝ
+            ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) =
+        (starRingEnd ℂ) (h.naturalCosineDensity u : ℂ) *
+          (starRingEnd ℂ) (logDeriv Complex.Gammaℝ
+            ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)) by
+      exact map_mul (starRingEnd ℂ) _ _]
+    rw [← hs]
+    congr 1
+    apply Complex.ext <;> simp
+  have hre : (∫ u : ℝ, f u).re =
+      ∫ u : ℝ, h.naturalCosineDensity u *
+        archimedeanGammaBoundaryScore u := by
+    calc
+      (∫ u : ℝ, f u).re = ∫ u : ℝ, (f u).re :=
+        (integral_re hf).symm
+      _ = _ := by
+        apply integral_congr_ae
+        filter_upwards [] with u
+        dsimp [f]
+        rw [completedContourTest_criticalLine,
+          archimedeanGammaBoundaryScore_eq_logDeriv]
+        simp [Complex.mul_re]
+  have him : (∫ u : ℝ, f u).im = 0 := by
+    let g : ℝ → ℝ := fun u => (f u).im
+    have hg : Integrable g := hf.im
+    have hodd : ∀ u : ℝ, g (-u) = -g u := by
+      intro u
+      have hu := congrArg Complex.im (hsym u)
+      simpa [g] using hu
+    have hleft : (∫ u in Set.Iic (0 : ℝ), g u) =
+        -(∫ u in Set.Ioi (0 : ℝ), g u) := by
+      calc
+        (∫ u in Set.Iic (0 : ℝ), g u) =
+            ∫ u in Set.Ioi (0 : ℝ), g (-u) := by
+          simpa using (integral_comp_neg_Ioi (0 : ℝ) g).symm
+        _ = ∫ u in Set.Ioi (0 : ℝ), -g u := by
+          apply setIntegral_congr_fun measurableSet_Ioi
+          intro u hu
+          exact hodd u
+        _ = -(∫ u in Set.Ioi (0 : ℝ), g u) := by
+          rw [integral_neg]
+    calc
+      (∫ u : ℝ, f u).im = ∫ u : ℝ, (f u).im :=
+        (integral_im hf).symm
+      _ = ∫ u : ℝ, g u := rfl
+      _ = 0 := by
+        rw [← intervalIntegral.integral_Iic_add_Ioi
+          hg.integrableOn hg.integrableOn, hleft]
+        ring
+  change (∫ u : ℝ, f u) = _
+  apply Complex.ext
+  · simpa using hre
+  · simpa using him
+
+/-- The Gamma right-edge channel now has its proved completed-place value;
+it is no longer a field of the right-edge identification contract. -/
+theorem completedXiRightGammaFullLine_eq_archimedeanPairing
+    (h : SmoothCompletedLogTest) :
+    completedXiRightGammaFullLine h =
+      Complex.I *
+        ((∫ u : ℝ, h.naturalCosineDensity u *
+          archimedeanGammaBoundaryScore u : ℝ) : ℂ) := by
+  unfold completedXiRightGammaFullLine completedXiRightGammaLogScore
+  rw [integral_completedGamma_right_eq_critical,
+    integral_completedGamma_critical_eq_pairing]
 
 /-- The elementary full-line contour is the decaying half of the completed
 pole pairing. The growing half belongs to the regularized-zeta pole
@@ -935,17 +1334,14 @@ structure CompletedXiSelectedRightEdgeLimit
   placeLimit : Tendsto (completedXiRightVerticalContour h Q.heights) atTop
     (𝓝 ((Complex.I / 2) * (completedPlaceFunctional h : ℂ)))
 
-/-- The two remaining place identifications on the selected right edge. The
+/-- The remaining arithmetic place identification on the selected right edge. The
 elementary `1/s` channel and the pole counterterm inside the regularized-zeta
 channel supply the two halves of the completed pole kernel, so they must be
-identified together rather than assigned separate place values. -/
+identified together rather than assigned separate place values. The Gamma
+channel is now proved above and is no longer contract data. -/
 structure CompletedXiRightEdgePlaceIdentification
     (h : SmoothCompletedLogTest)
     (Q : CompletedXiQuadraticSelectedHeightFamily) : Prop where
-  gammaValue : completedXiRightGammaFullLine h =
-    (Complex.I / 2) *
-      ((∫ u : ℝ, h.naturalCosineDensity u *
-        archimedeanGammaBoundaryScore u : ℝ) : ℂ)
   regularizedZetaAbelTransfer :
     Tendsto (completedXiRightRegularizedZetaContour h Q.heights) atTop
       (𝓝 ((Complex.I / 2) *
@@ -963,7 +1359,7 @@ theorem CompletedXiRightEdgePlaceIdentification.toRightEdgeLimit
   have he := tendsto_completedXiRightElementaryContour h Q.heightsTendsto
   rw [completedXiRightElementaryFullLine_eq_decayingPoleHalf] at he
   have hg := tendsto_completedXiRightGammaContour h Q.heightsTendsto
-  rw [P.gammaValue] at hg
+  rw [completedXiRightGammaFullLine_eq_archimedeanPairing] at hg
   have hsum := (he.add hg).add P.regularizedZetaAbelTransfer
   refine ⟨?_⟩
   rw [completedPlaceFunctional_eq_places]

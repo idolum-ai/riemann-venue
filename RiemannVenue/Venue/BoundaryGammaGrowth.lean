@@ -380,6 +380,80 @@ theorem norm_archimedeanGammaLogScore_one_add_mul_I_le (u : ℝ) :
     _ = gammaBoundaryLinearConstant * (1 + |u|) := by
       rw [gammaBoundaryLinearConstant]
 
+/-- The same linear estimate holds uniformly across the closed contour strip
+`1/2 <= Re(s) <= 2`. This covers both the Gamma shift to the critical
+boundary and the regularized arithmetic shift into the Dirichlet half-plane. -/
+theorem norm_archimedeanGammaLogScore_strip_le
+    {sigma u : ℝ} (hsigma : sigma ∈ Set.Icc (1 / 2 : ℝ) 2) :
+    ‖archimedeanGammaLogScore ((sigma : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+      gammaBoundaryLinearConstant * (1 + |u|) := by
+  let z : ℂ := ((sigma / 2 : ℝ) : ℂ) +
+    ((u / 2 : ℝ) : ℂ) * Complex.I
+  have hzre : z.re = sigma / 2 := by simp [z]
+  have hzquarter : 1 / 4 ≤ z.re := by rw [hzre]; linarith [hsigma.1]
+  have hznorm : ‖z‖ ≤ 1 + |u| := by
+    calc
+      ‖z‖ ≤ ‖((sigma / 2 : ℝ) : ℂ)‖ +
+          ‖((u / 2 : ℝ) : ℂ) * Complex.I‖ := norm_add_le _ _
+      _ = |sigma| / 2 + |u| / 2 := by
+        rw [norm_mul, Complex.norm_I, mul_one, Complex.norm_real,
+          Complex.norm_real, Real.norm_eq_abs, Real.norm_eq_abs,
+          abs_div, abs_div]
+        norm_num
+      _ ≤ 1 + |u| := by
+        have hsnonneg : 0 ≤ sigma := le_trans (by norm_num) hsigma.1
+        rw [abs_of_nonneg hsnonneg]
+        nlinarith [hsigma.2, abs_nonneg u]
+  have hdig := norm_digamma_le_linear (z := z) hzquarter
+  have hzarg :
+      (((sigma : ℂ) + (u : ℂ) * Complex.I) / 2) = z := by
+    apply Complex.ext <;> simp [z]
+  rw [archimedeanGammaLogScore, hzarg]
+  have hB := betaQuarterHalfBound_nonneg
+  have hlog : 0 ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 := by positivity
+  have hd1 : 0 ≤ ‖Complex.digamma 1‖ / 2 := by positivity
+  calc
+    ‖-(Complex.log (Real.pi : ℂ)) / 2 + Complex.digamma z / 2‖ ≤
+        ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+          ‖Complex.digamma z‖ / 2 := by
+      calc
+        _ ≤ ‖-(Complex.log (Real.pi : ℂ)) / 2‖ +
+            ‖Complex.digamma z / 2‖ := norm_add_le _ _
+        _ = _ := by norm_num [norm_div]
+    _ ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        (2 * betaQuarterHalfBound * ‖z‖ +
+          ‖Complex.digamma 1‖ + 4) / 2 := by gcongr
+    _ ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        (2 * betaQuarterHalfBound * (1 + |u|) +
+          ‖Complex.digamma 1‖ + 4) / 2 := by gcongr
+    _ ≤ (betaQuarterHalfBound + ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        ‖Complex.digamma 1‖ / 2 + 2) * (1 + |u|) := by
+      nlinarith [abs_nonneg u]
+    _ = gammaBoundaryLinearConstant * (1 + |u|) := by
+      rw [gammaBoundaryLinearConstant]
+
+theorem norm_logDeriv_GammaR_strip_le
+    {sigma u : ℝ} (hsigma : sigma ∈ Set.Icc (1 / 2 : ℝ) 2) :
+    ‖logDeriv Complex.Gammaℝ
+      ((sigma : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+        gammaBoundaryLinearConstant * (1 + |u|) := by
+  rw [logDeriv_GammaR_eq_archimedeanGammaLogScore (by
+    simp only [Complex.add_re, Complex.ofReal_re, Complex.mul_re,
+      Complex.ofReal_im, Complex.I_re, Complex.I_im]
+    linarith [hsigma.1])]
+  exact norm_archimedeanGammaLogScore_strip_le hsigma
+
+theorem norm_logDeriv_GammaR_critical_le (u : ℝ) :
+    ‖logDeriv Complex.Gammaℝ
+      ((1 / 2 : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+        gammaBoundaryLinearConstant * (1 + |u|) := by
+  have hb := norm_logDeriv_GammaR_strip_le
+    (sigma := (1 / 2 : ℝ)) (u := u) (by constructor <;> norm_num)
+  have heq : (((1 / 2 : ℝ) : ℂ) + (u : ℂ) * Complex.I) =
+      (1 / 2 : ℂ) + (u : ℂ) * Complex.I := by norm_num
+  rw [heq] at hb
+  exact hb
+
 /-- The critical Gamma score satisfies the exact control contract required
 by the positive smooth self-convolution lift. -/
 theorem gammaBoundaryLinearControl : GammaBoundaryLinearControl := by

@@ -122,13 +122,16 @@ proof uses a new complex right-edge linear-growth bound and one absolute
 height moment of the Schwartz test. Any cofinal selected-height family
 therefore exhausts both channels to named full-line values.
 
-The remaining place work is exact and separated by
-`CompletedXiRightEdgePlaceIdentification`:
+The Gamma place work is now closed. A pole-free Cauchy--Goursat shift from
+`Re(s)=1` to `Re(s)=1/2`, fourth-order horizontal decay, and conjugation
+symmetry prove that the Gamma full-line value is `i` times the canonical
+archimedean pairing. This exposed and corrected a previous factor-of-two
+error: the completed place functional is
+`pole + 2 * Gamma - finite places`, so its one-sided right edge still carries
+exactly half of the completed value.
 
-1. identify the Gamma full-line value with `(i/2)` times the canonical
-   archimedean pairing;
-2. transfer the displaced regularized-zeta value to the literal `epsilon = 0`
-   selected contour.
+The remaining place work in `CompletedXiRightEdgePlaceIdentification` is now
+only the Abel-to-literal arithmetic transfer.
 
 The pole normalization is no longer an input. Lean proves that the elementary
 `1/s` channel is `(i/2)` times the decaying pole half, while the displaced
@@ -138,10 +141,14 @@ gives exactly `pole - finite places`. The arithmetic transfer field therefore
 targets `(i/2) * (growingPoleHalf - compactPrimePowerPairing)`; the compiler
 adds the proved elementary half.
 
-For Gamma, Lean now also proves that the completed test transform on the
-critical axis is genuinely real and equals `naturalCosineDensity`. The
-remaining Gamma field is consequently a pure holomorphic contour shift from
-`Re(s)=1` to `Re(s)=1/2`, followed by the standard odd-imaginary cancellation.
+For Gamma, Lean proves that the completed test transform on the critical axis
+is genuinely real and equals `naturalCosineDensity`, performs the holomorphic
+contour shift, and discharges the odd-imaginary cancellation. The selected
+height contracts have also been widened to `0 <= sigma <= 2`, matching the
+classical Titchmarsh source range, and the test now has a proved fourth-order
+majorant on the corresponding wider spectral strip. These are the exact
+inputs for shifting the remaining arithmetic channel from the literal
+boundary to the absolutely convergent line `Re(s)=2`.
 
 These two fields compile automatically to the selected right-edge place
 limit. They do not include the separate existence theorem for quantitative

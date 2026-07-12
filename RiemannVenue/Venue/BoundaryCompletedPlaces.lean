@@ -220,7 +220,7 @@ noncomputable def completedPoleLinear : CompletedLogTest →ₗ[ℝ] ℝ where
 essay. No equality with the zero-side Weil distribution is claimed. -/
 noncomputable def CompletedGammaTest.finiteGammaPoleValue
     (T : CompletedGammaTest) : ℝ :=
-  completedPolePairing T.logTest + T.archimedeanPairing -
+  completedPolePairing T.logTest + 2 * T.archimedeanPairing -
     compactPrimePowerPairing T.logTest
 
 end

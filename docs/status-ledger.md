@@ -338,7 +338,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** both place functionals constructed in Lean;
     `GammaBoundaryLinearControl` is proved and every smooth compact test has
     an unconditional `CompletedGammaTest`. The completed place functional is
-    assembled with convention `pole + Gamma - prime powers`. Its matching
+    assembled with the contour-derived convention
+    `pole + 2 * Gamma - prime powers`. Its matching
     entire zero transform and multiplicity-expanded nontrivial-zero index are
     constructed. Fourth-order strip decay and the completed-Xi zero-count
     bound prove absolute convergence of the global zero sum. The completed
@@ -430,8 +431,10 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     displaced zeta pole counterterm is the growing half; those halves are
     proved to reassemble the completed pole pairing. The critical-axis test
     transform is also proved real and equal to the canonical cosine density.
-    The Gamma contour shift and Abel-to-literal regularized-zeta boundary
-    transfer remain open and are isolated by
+    The Gamma contour shift, wider-strip fourth-order decay, and conjugation
+    cancellation are proved; this calculation corrected the completed Gamma
+    multiplicity from one to two. The Abel-to-literal regularized-zeta
+    boundary transfer remains open as the sole field of
     `CompletedXiRightEdgePlaceIdentification`
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,

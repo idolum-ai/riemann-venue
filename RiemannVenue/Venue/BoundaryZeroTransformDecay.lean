@@ -427,6 +427,83 @@ theorem norm_completedZeroTestTransform_mul_norm_pow_four_le
       positivity
     _ = completedZeroTransformFourthMajorant h := rfl
 
+/-- Fourth-order majorant on the wider spectral strip needed to move the
+arithmetic contour between `Re(s)=1` and `Re(s)=2`. -/
+noncomputable def completedZeroTransformWideFourthMajorant
+    (h : SmoothCompletedLogTest) : ℝ :=
+  (1 / (2 * Real.pi)) *
+    ∫ t : ℝ, ‖iteratedDeriv 4 (complexLogTest h) t‖ *
+      Real.exp (3 * |t| / 2)
+
+theorem completedZeroTransformWideFourthMajorant_nonneg
+    (h : SmoothCompletedLogTest) :
+    0 ≤ completedZeroTransformWideFourthMajorant h := by
+  apply mul_nonneg
+  · positivity
+  · exact integral_nonneg fun _ =>
+      mul_nonneg (norm_nonneg _) (Real.exp_pos _).le
+
+private theorem integrable_completedZeroTransform_wide_fourth_envelope
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun t : ℝ => ‖iteratedDeriv 4 (complexLogTest h) t‖ *
+      Real.exp (3 * |t| / 2)) := by
+  apply Continuous.integrable_of_hasCompactSupport
+  · exact ((contDiff_complexLogTest h).continuous_iteratedDeriv 4
+      (show (4 : WithTop ℕ∞) ≤ ((⊤ : ℕ∞) : WithTop ℕ∞) from
+        WithTop.coe_le_coe.mpr le_top)).norm.mul
+      (Real.continuous_exp.comp
+        ((continuous_const.mul continuous_abs).div_const 2))
+  · apply (hasCompactSupport_iteratedDeriv_complexLogTest h 4).mono
+    intro t ht
+    exact fun hzero => ht (by simp [hzero])
+
+/-- Uniform rapid decay on `|Im(z)| <= 3/2`, exactly the image of the
+arithmetic contour strip `1 <= Re(s) <= 2`. -/
+theorem norm_completedZeroTestTransform_mul_norm_pow_four_le_wide
+    (h : SmoothCompletedLogTest) {z : ℂ} (hz : |z.im| ≤ 3 / 2) :
+    ‖z‖ ^ 4 * ‖completedZeroTestTransform h z‖ ≤
+      completedZeroTransformWideFourthMajorant h := by
+  have hidentity := completedZeroTransform_fourth_derivative_identity h z
+  have henv := integrable_completedZeroTransform_wide_fourth_envelope h
+  have hint_bound :
+      ‖∫ t : ℝ, iteratedDeriv 4 (complexLogTest h) t *
+          Complex.cos (z * t)‖ ≤
+        ∫ t : ℝ, ‖iteratedDeriv 4 (complexLogTest h) t‖ *
+          Real.exp (3 * |t| / 2) := by
+    apply norm_integral_le_of_norm_le henv
+    filter_upwards [] with t
+    rw [norm_mul]
+    apply mul_le_mul_of_nonneg_left _ (norm_nonneg _)
+    refine (norm_complex_cos_le_exp_abs_im (z * t)).trans ?_
+    apply Real.exp_le_exp.mpr
+    rw [Complex.mul_im]
+    simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, zero_add]
+    rw [abs_mul]
+    calc
+      |z.im| * |t| ≤ (3 / 2) * |t| :=
+        mul_le_mul_of_nonneg_right hz (abs_nonneg t)
+      _ = 3 * |t| / 2 := by ring
+  rw [completedZeroTestTransform, norm_mul]
+  have hconst : ‖(1 / (2 * Real.pi) : ℂ)‖ =
+      (1 / (2 * Real.pi) : ℝ) := by
+    norm_num [Complex.norm_real, Real.norm_eq_abs, abs_of_pos Real.pi_pos]
+  rw [hconst]
+  calc
+    ‖z‖ ^ 4 * ((1 / (2 * Real.pi)) *
+        ‖∫ t : ℝ, (h t : ℂ) * Complex.cos (z * t)‖) =
+        (1 / (2 * Real.pi)) *
+          ‖z ^ 4 * ∫ t : ℝ, (h t : ℂ) * Complex.cos (z * t)‖ := by
+      rw [norm_mul, norm_pow]
+      ring
+    _ = (1 / (2 * Real.pi)) *
+        ‖∫ t : ℝ, iteratedDeriv 4 (complexLogTest h) t *
+          Complex.cos (z * t)‖ := by rw [hidentity]
+    _ ≤ (1 / (2 * Real.pi)) *
+        (∫ t : ℝ, ‖iteratedDeriv 4 (complexLogTest h) t‖ *
+          Real.exp (3 * |t| / 2)) :=
+      mul_le_mul_of_nonneg_left hint_bound (by positivity)
+    _ = completedZeroTransformWideFourthMajorant h := rfl
+
 /-- Uniform zeroth-order control on the same strip, used only for the first
 two height buckets where division by the frequency is inappropriate. -/
 theorem norm_completedZeroTestTransform_le_baseMajorant

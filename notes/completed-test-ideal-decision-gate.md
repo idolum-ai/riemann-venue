@@ -66,7 +66,7 @@ The two remaining classical place shapes are analytically different:
   `exp(t/2) + exp(-t/2)`.
 
 Both pairings are now concrete. The canonical completed functional fixes the
-convention `pole + Gamma - prime powers`. Its equality with the zero-side
+convention `pole + 2 * Gamma - prime powers`. Its equality with the zero-side
 completed Weil distribution is stated precisely but not yet proved.
 
 ## The Domain Decision

@@ -24,7 +24,8 @@ open MeasureTheory
 noncomputable section
 
 /-- The normalized completed place functional on the smooth compact core.
-Its signs follow the convention `pole + Gamma - finite prime powers`. -/
+Its signs and multiplicities follow the contour-derived convention
+`pole + 2 * Gamma - finite prime powers`. -/
 noncomputable def completedPlaceFunctional
     (h : SmoothCompletedLogTest) : ℝ :=
   h.toCanonicalGeneralCompletedGammaTest.finiteGammaPoleValue
@@ -34,7 +35,7 @@ faces, with the canonical Fourier density supplying the Gamma face. -/
 theorem completedPlaceFunctional_eq_places (h : SmoothCompletedLogTest) :
     completedPlaceFunctional h =
       completedPolePairing h +
-        (∫ u : ℝ, h.naturalCosineDensity u *
+        2 * (∫ u : ℝ, h.naturalCosineDensity u *
           archimedeanGammaBoundaryScore u) -
         compactPrimePowerPairing h := rfl
 
@@ -155,6 +156,18 @@ theorem completedZeroTestTransform_ofReal
           simp
     change (1 / (2 * Real.pi)) * (∫ t : ℝ, fcos t).im = 0
     rw [him, mul_zero]
+
+/-- The canonical cosine density is even. This follows from the entire
+transform symmetry, so the real and complex test-side conventions cannot
+drift apart. -/
+theorem SmoothCompletedLogTest.naturalCosineDensity_neg
+    (h : SmoothCompletedLogTest) (u : ℝ) :
+    h.naturalCosineDensity (-u) = h.naturalCosineDensity u := by
+  have heven := completedZeroTestTransform_neg h (u : ℂ)
+  rw [show (-((u : ℂ))) = ((-u : ℝ) : ℂ) by norm_num,
+    completedZeroTestTransform_ofReal,
+    completedZeroTestTransform_ofReal] at heven
+  exact_mod_cast heven
 
 /-- The nontrivial zeta zeros. Trivial negative-even zeros are excluded
 because their contribution is already represented by the Gamma place. -/
