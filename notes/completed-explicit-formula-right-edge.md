@@ -1,5 +1,10 @@
 # Completed Explicit Formula: Right-Edge Regularization
 
+Status: historical construction checkpoint. The right-edge decomposition and
+selected-height existence input discussed here were subsequently compiled into
+the unconditional smooth-core formula in `BoundaryXiLocalExpansion.lean`.
+This note records the normalization and proof route, not the current frontier.
+
 ## Decision
 
 The completed contour can remain on `re s = 1`, but its arithmetic terms may
@@ -46,7 +51,7 @@ continuous interval integrals:
 The left edge remains already eliminated by completed functional-equation
 symmetry.
 
-## Next frontier
+## Frontier at this checkpoint
 
 The preferred evaluation route is hybrid. Keep the final contour on
 `re s = 1`, but evaluate the arithmetic channel first at `re s = 1 + epsilon`,
@@ -157,10 +162,13 @@ Only the positive selected-height bound is contract data. The completed-Xi
 functional equation derives the negative edge at `sigma` from the positive
 edge at `1 - sigma`; the widened source strip covers that reflected point.
 
-The three proved channel values now compile every quantitative selected-height
+The three proved channel values compile every quantitative selected-height
 family automatically to the selected right-edge place limit. No independent
-place-identification contract remains. The separate existence theorem for the
-logarithmic-squared selected heights is now the only external input.
+place-identification contract remains. At this checkpoint, the separate
+existence theorem for logarithmic-squared selected heights was the only
+external input. The later quadratic local-expansion theorem constructs the
+coarser family needed by fourth-order test decay internally, so the terminal
+completed formula has no selected-height existence input.
 
 ## Artifacts
 

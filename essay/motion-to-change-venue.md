@@ -24,4 +24,4 @@ Where the essay's claims are checkable, they are checked here:
 | Radial derivative isolates prime powers | `notebooks/radial-derivative.ipynb`, `RiemannVenue/Weil/ExplicitFormula.lean` |
 | Completion (gamma factor, functional equation, pole) | `RiemannVenue/Zeta/Completed.lean`, `RiemannVenue/Tate/` |
 | Weil positivity is the locked gate | `RiemannVenue/Weil/Positivity.lean` (statement only, deliberately no `iff RH` theorem) |
-| The missing "new type" is a completed log-scale boundary object, not a datatype of individual zeros | `notes/boundary-type-excavation.md`, `RiemannVenue/Venue/BoundaryType.lean` (statement shape only, deliberately no construction or implication to RH) |
+| The missing "new type" is a completed log-scale boundary object, not a datatype of individual zeros | `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean` constructs a typed smooth-core place-channel package; `RiemannVenue/Venue/BoundaryType.lean` records the stronger semantic and positivity laws still required. No implication to RH is claimed. |

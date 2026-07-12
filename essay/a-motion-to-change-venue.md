@@ -82,7 +82,9 @@ $$
 \text{Weil positivity}.
 $$
 
-Every arrow before the completed positivity can be stated precisely. The last arrow is RH.
+The completed distribution is now proved on the repository's smooth compact
+core. Critical-line spectrum implies positivity there; the converse
+positivity-to-real-spectrum direction is the remaining RH-strength gate.
 
 ---
 

@@ -1,4 +1,4 @@
-# Completed Boundary Cauchy Datum
+# Completed Boundary Cauchy-Value Package
 
 ## Why the completed object is not one scalar jet
 
@@ -31,11 +31,14 @@ the value entry and has zero normal-flux entry. The separate Hellinger
 multiplier remains the energy/value face of the broader boundary carrier; it
 is not added to the explicit-formula sum.
 
-The concrete `CompletedArithmeticBoundaryType` packages exactly those two
+The concrete `CompletedArithmeticBoundaryPackage` packages exactly those two
 surfaces: the bounded Hellinger energy multiplier and the smooth-test-indexed
 completed place datum. It stores data, not unproved proposition fields. The
-compatibility, channel, identification, and trap laws remain named theorems,
-so extending the evidence does not require expanding the carrier schema.
+channel calculations and trap laws remain named theorems, so extending the
+evidence does not require expanding the carrier schema. The package itself
+does not assert a common scale-family derivative law, compatibility between
+the energy and place fields, positivity, or no-leak semantics. Those remain
+requirements for a stronger semantic boundary type.
 
 The transformations are proved channel by channel:
 
@@ -57,7 +60,8 @@ local factors second, spectral identification last.
 `BoundaryCompletedJetIdentification.lean` imports the completed explicit
 formula only after the datum exists. It proves that every smooth compact test
 has an absolutely convergent multiplicity-expanded zero sum equal to the
-assembled Cauchy value. The arithmetic-sensitivity trap also survives the
+assembled Cauchy value. This identifies the scalar value, not every field of
+the first-jet carrier. The arithmetic-sensitivity trap also survives the
 completed outward sign: perturbing the finite local weights still changes the
 finite-place functional in the smallest nonempty window.
 

@@ -96,9 +96,11 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    canonical-disk decomposition now produce a quadratic selected-height
    logarithmic-derivative bound. Fourth-order test decay makes the weighted
    horizontal edges vanish, and the resulting expanding-contour witness
-   compiles to the completed formula. The remaining program is no longer an
-   explicit-formula project: it is the boundary-jet identification and the
-   separate, non-tautological positivity gate.
+   compiles to the completed formula. The independently assembled scalar
+   boundary Cauchy value is now also identified with that zero sum. The
+   remaining program is no longer an explicit-formula or boundary-value
+   identification project: it is the separate, non-tautological
+   positivity-to-real-spectrum gate.
 
 ## Design rule
 

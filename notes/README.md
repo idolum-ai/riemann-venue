@@ -67,14 +67,15 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   explicit-formula project: multiplicity-aware height counts, the proved
   completed-Xi/Jensen growth theorem yielding `N(T) = O(T log T)`, and the
   generic bucket interface from zero counts to zero-transform convergence.
-- `completed-explicit-formula-contour.md` — multiplicity-aware local residues,
-  weighted Xi residues, finite zero-window convergence, and the exact
-  expanding-contour witness still required by the completed formula.
+- `completed-explicit-formula-contour.md` — historical construction checkpoint
+  for multiplicity-aware local residues, weighted Xi residues, finite
+  zero-window convergence, and the expanding-contour contract later discharged
+  by the completed formula proof.
 - `completed-explicit-formula-height-engine.md` — the native post-excision
   height engine: translated local counts, finite canonical-disk
   decomposition, Borel--Caratheodory control, quantitative clearance, and the
   proved quadratic selected-height contract.
-- `completed-explicit-formula-right-edge.md` — the right-edge risk gate:
+- `completed-explicit-formula-right-edge.md` — historical right-edge risk gate:
   open-half-plane place decomposition, the continuous pole-regularized zeta
   channel, its Euler-constant removable value, the Abel boundary route, the
   exact finite Fourier/von-Mangoldt normalization, and the norm-summable

@@ -175,34 +175,40 @@ theorem completedBoundaryCauchyValue_eq_completedPlaceFunctional
     SmoothCompletedLogTest.toCompletedCosineTest]
   ring
 
-/-! ## The excavated data type -/
+/-! ## The excavated boundary package -/
 
-/-- The concrete boundary type reached by the excavation.
+/-- The concrete typed boundary package reached by the excavation.
 
 `energyValue` is the renormalized Hellinger boundary value. `placeDatum`
 contains the normal-flux and off-boundary-trace channels that assemble the
 completed explicit-formula functional. Keeping them as separate fields
 records the proved value/flux distinction without adding proposition-valued
-schema or folding the energy sector into the arithmetic pairing. -/
-structure CompletedArithmeticBoundaryType where
+schema or folding the energy sector into the arithmetic pairing.
+
+This package does not itself assert that `placeDatum.scaleDerivative` is the
+derivative of a common scale family, that the energy and place fields are
+compatible, or that the resulting value is positive. Those are semantic laws
+for a future completed boundary type, not fields silently implied by this
+carrier. -/
+structure CompletedArithmeticBoundaryPackage where
   energyValue : ℝ →ᵇ ℝ
   placeDatum : SmoothCompletedLogTest →
     BoundaryChannelFirstJet CompletedBoundaryChannel ℝ
 
-/-- The canonical completed arithmetic boundary type, built entirely before
-zero-side identification. -/
-noncomputable def completedArithmeticBoundaryType :
-    CompletedArithmeticBoundaryType where
+/-- The canonical completed arithmetic boundary package, built entirely
+before zero-side identification. -/
+noncomputable def completedArithmeticBoundaryPackage :
+    CompletedArithmeticBoundaryPackage where
   energyValue := cosineFinitePartMultiplier
   placeDatum := completedBoundaryCauchyDatum
 
-@[simp] theorem completedArithmeticBoundaryType_energyValue (u : ℝ) :
-    completedArithmeticBoundaryType.energyValue u =
+@[simp] theorem completedArithmeticBoundaryPackage_energyValue (u : ℝ) :
+    completedArithmeticBoundaryPackage.energyValue u =
       cosineFinitePartCandidate u := rfl
 
-@[simp] theorem completedArithmeticBoundaryType_placeDatum
+@[simp] theorem completedArithmeticBoundaryPackage_placeDatum
     (h : SmoothCompletedLogTest) :
-    completedArithmeticBoundaryType.placeDatum h =
+    completedArithmeticBoundaryPackage.placeDatum h =
       completedBoundaryCauchyDatum h := rfl
 
 end

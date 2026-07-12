@@ -6,7 +6,18 @@ source review. Statuses: **proved in Lean**
 (builds, no `sorry`), **anchored** (build-verified restatement of a pinned
 Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 **computed** (executed notebook with committed outputs), **notes only**,
-**explicitly not claimed**.
+**historical design** (an earlier checkpoint retained for provenance and
+superseded by a later row), **constructed** (a concrete data package exists,
+without implying every semantic law), and **explicitly not claimed**. Compound
+statuses name each component separately; they do not promote the weaker
+component to the stronger one.
+
+The ledger is chronological within broad phases. Historical rows remain part
+of the research record, but the latest row for a claim controls the current
+repository status. The compact proof/open-contract API map is
+`docs/boundary-proof-surface.md`.
+
+## Finite and spectral foundations
 
 - **Claim:** Finite initial segments, divisibility order, and zeta/incidence predicates
 
@@ -105,6 +116,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** stated (finite object defined)
   - **Artifact:** `RiemannVenue/Weil/ExplicitFormula.lean`
 
+## Boundary contracts and excavation
+
 - **Claim:** Weil positivity as a property of an explicit-formula pairing
 
   - **Status:** stated; `iff RH` deliberately absent
@@ -118,14 +131,16 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 - **Claim:** Boundary type candidate: the completed log-scale object as obligations around
   explicit-formula data, with the RH-strength positivity gate kept separate
 
-  - **Status:** stated / programmatic
+  - **Status:** historical design (stated / programmatic); superseded in part
+    by the constructed smooth-core boundary package below, while positivity
+    and no-leak semantics remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryType.lean`,
     `notes/boundary-type-excavation.md`
 
 - **Claim:** Boundary type fork probes: renormalization-first and state/trace-first routes, each
   typed as obligations without claiming a completed object
 
-  - **Status:** stated / programmatic
+  - **Status:** historical design (stated / programmatic)
   - **Artifact:** `RiemannVenue/Venue/BoundaryRenormalization.lean`,
     `RiemannVenue/Venue/BoundaryState.lean`, `notes/boundary-renormalization-spike.md`,
     `notes/boundary-state-spike.md`
@@ -134,7 +149,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   anti-fake, arithmetic-identification, positivity-domain, finite-ore, completion, and no-leak
   traps before supporting the boundary type contract
 
-  - **Status:** stated / programmatic
+  - **Status:** historical design (stated / programmatic)
   - **Artifact:** `RiemannVenue/Venue/BoundaryCarrier.lean`,
     `notes/boundary-carrier-traps.md`
 
@@ -142,7 +157,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   weight finiteness on the Weil test ideal, and finite-window contact with the proved vector
   response
 
-  - **Status:** stated / programmatic + proved contact package
+  - **Status:** historical design plus proved contact package
   - **Artifact:** `RiemannVenue/Venue/BoundaryCarrierDiscipline.lean`,
     `RiemannVenue/Kernels/Response.lean`, `notes/boundary-carrier-traps.md`
 
@@ -150,7 +165,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   the divergent critical criterion; weight-like carriers survive only as disciplined,
   non-ambient relaxations with remaining identification debt
 
-  - **Status:** stated / programmatic + proved critical obstruction
+  - **Status:** historical design plus proved critical obstruction
   - **Artifact:** `RiemannVenue/Venue/BoundaryCarrierModelProbes.lean`,
     `RiemannVenue/Venue/NonRadon.lean`, `notes/boundary-carrier-model-probes.md`
 
@@ -158,7 +173,7 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   system with known vector-response contact and an upstream renormalization bridge, while
   completion/no-leak identification remains explicit debt
 
-  - **Status:** stated / programmatic
+  - **Status:** historical design (stated / programmatic)
   - **Artifact:** `RiemannVenue/Venue/BoundaryWeight.lean`,
     `notes/boundary-weight-workbench.md`
 
@@ -166,9 +181,11 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   ladder, finite-part renormalization with response-derived counterterms, and named failure
   reasons
 
-  - **Status:** stated / programmatic
+  - **Status:** historical design (stated / programmatic)
   - **Artifact:** `RiemannVenue/Venue/BoundaryWeightSearch.lean`,
     `notes/boundary-weight-search.md`
+
+## Boundary observables and completed place value
 
 - **Claim:** The compensated cosine finite part is a bounded continuous multiplier on a named
   frequency-side `L1` test space; finite prime windows converge to its continuous linear
@@ -269,16 +286,20 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean, including its real critical-boundary specialization
   - **Artifact:** `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
 
-- **Claim:** The completed boundary is typed Cauchy data rather than one scalar
-  derivative: finite-place and Gamma contributions are normal-flux channels,
-  while the completed pole factor is an off-boundary trace
+- **Claim:** The completed smooth-core place value is assembled from a typed
+  channel package rather than one scalar derivative: finite-place and Gamma
+  contributions are normal-flux entries, while the completed pole factor is
+  an off-boundary trace entry
 
-  - **Status:** constructed and identified in Lean. The finite flux is the
+  - **Status:** constructed in Lean, with its assembled scalar value identified
+    downstream. The finite flux is the
     limit of the response-derived centered score plus its forced vacuum
     counterterm; the Gamma flux is the actual `Gamma_R` logarithmic
     derivative; the pole trace is the sum of its growing and decaying
     exponential moments. Its critical-line real score is proved to vanish,
-    so the trace geometry is necessary rather than cosmetic
+    so the trace geometry is necessary rather than cosmetic. The package does
+    not itself enforce a common derivative law, positivity, or no-leak
+    semantics
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`,
     `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
     `notes/completed-boundary-cauchy-datum.md`
@@ -315,6 +336,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean; continuity for an LF test-space topology is not claimed
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
     `notes/completed-test-ideal-decision-gate.md`
+
+## Completed test core and explicit formula
 
 - **Claim:** The RH-facing Weil-positivity domain is the smooth compact core
   `C_c^infinity(R)`, while continuous compact support remains the larger
@@ -491,6 +514,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-right-edge.md`
 
+## Counterterm search history
+
 - **Claim:** Growing finite prime windows of the compensated residual are negative near
   `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
 
@@ -581,6 +606,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryFinitePartStructure.lean`,
     `notes/boundary-finite-part-survival.md`
 
+## Computation and finite-kernel consequences
+
 - **Claim:** gcd-kernel spectra: min eigenvalue positive through `N = 2000`
 
   - **Status:** computed
@@ -646,6 +673,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Kernels/PrimorialBound.lean` (`primorial_rayleigh_upper_bound`,
     `primesLE_rayleigh_upper_bound`)
+
+## Infinite products, completion, and phase change
 
 - **Claim:** Kakutani Hellinger products collapse for `σ ≤ 1/2`
 
@@ -724,6 +753,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Kakutani/SpectralMeasure.lean` (`integral_finset_prod_infinitePi`,
     `integral_character_infinitePoisson_half_eq_kappa`)
+
+## Open endpoints, publication, and follow-on results
 
 - **Claim:** Weil positivity of the completed distribution; modular/trace realizations
 

@@ -73,7 +73,10 @@ structure FiniteResponseSchwartzPush where
   finiteResponseAnchor : FiniteResponseProbeAnchor
   /-- A concrete extractor for the critical coefficient has been specified. -/
   coefficientExtractorSpecified : Prop
-  /-- The extractor is known not to read the target completed Weil pairing. -/
+  /-- Workbench metadata claiming that the extractor does not read the target
+  completed Weil pairing. This bare proposition does not enforce provenance;
+  terminal evidence requires a restricted construction surface or dependency
+  audit. -/
   noTargetLeak : Prop
   /-- The extractor supplies the critical coefficient multiplying
   `criticalWindowDivergence`. -/

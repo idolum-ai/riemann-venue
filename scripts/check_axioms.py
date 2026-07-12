@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""Fail unless terminal Lean declarations use exactly the approved axioms."""
+
+from __future__ import annotations
+
+import re
+import subprocess
+import sys
+
+
+AUDIT_FILE = "RiemannVenue/AxiomAudit.lean"
+EXPECTED_DECLARATIONS = {
+    "RiemannVenue.Venue.completedZetaZeroSumConverges_proved",
+    "RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved",
+    "RiemannVenue.Venue.completedBoundaryCauchyValueIdentified",
+    "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_RH",
+    "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH",
+    "RiemannVenue.Venue.boundaryPositivityReconnaissance",
+}
+APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
+
+
+def main() -> int:
+    result = subprocess.run(
+        ["lake", "env", "lean", AUDIT_FILE],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    output = result.stdout + result.stderr
+    if result.returncode != 0:
+        sys.stderr.write(output)
+        return result.returncode
+
+    reports = {
+        declaration: {item.strip() for item in body.split(",") if item.strip()}
+        for declaration, body in re.findall(
+            r"'([^']+)' depends on axioms: \[(.*?)\]", output, re.DOTALL
+        )
+    }
+    missing = EXPECTED_DECLARATIONS - reports.keys()
+    unexpected = reports.keys() - EXPECTED_DECLARATIONS
+    wrong = {
+        declaration: axioms
+        for declaration, axioms in reports.items()
+        if declaration in EXPECTED_DECLARATIONS and axioms != APPROVED_AXIOMS
+    }
+    if missing or unexpected or wrong:
+        if missing:
+            print("missing axiom reports:", ", ".join(sorted(missing)), file=sys.stderr)
+        if unexpected:
+            print(
+                "unexpected axiom reports:",
+                ", ".join(sorted(unexpected)),
+                file=sys.stderr,
+            )
+        for declaration, axioms in sorted(wrong.items()):
+            print(
+                f"{declaration}: expected {sorted(APPROVED_AXIOMS)}, "
+                f"got {sorted(axioms)}",
+                file=sys.stderr,
+            )
+        return 1
+
+    for declaration in sorted(reports):
+        print(f"{declaration}: {', '.join(sorted(reports[declaration]))}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

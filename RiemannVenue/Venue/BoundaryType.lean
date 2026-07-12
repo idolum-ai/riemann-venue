@@ -8,9 +8,12 @@ The missing type is not a datatype of individual zeros; it is a completed
 log-scale boundary object whose zero side would read as spectral/no-leak
 modes.
 
-This file deliberately does not construct that object. It records the
-obligations a candidate must satisfy before the phrase "completed boundary
-type" is meaningful:
+This file deliberately does not construct an inhabitant of this stronger
+semantic contract. The repository separately constructs a smooth-core typed
+place-channel package and identifies its assembled scalar value with the
+completed zero sum. This module records the additional obligations that must
+hold before that package deserves the stronger phrase "completed boundary
+type":
 
 * it has an explicit-formula pairing;
 * its finite-place face is the prime-power side isolated by the finite
@@ -23,7 +26,9 @@ type" is meaningful:
 
 **Honesty line.** For the correct completed object, the final positivity
 condition is RH-strength by Weil's criterion. This module states no theorem
-from `BoundaryTypeExcavated` to `Weil.RH`, and it constructs no candidate.
+from `BoundaryTypeExcavated` to `Weil.RH`, and the constructed smooth-core
+package is not promoted to `BoundaryTypeCandidate` without the missing
+semantic and positivity laws.
 -/
 
 namespace RiemannVenue.Venue
@@ -35,8 +40,9 @@ than premature analytic structures. The purpose is to keep the contract
 visible while the repository is still choosing which path to dig next:
 distribution-first, state-first, renormalization-first, or trace-first. -/
 structure BoundaryTypeCandidate where
-  /-- The explicit-formula pairing on log-scale tests. The correct completed
-  pairing is not constructed in this repository. -/
+  /-- The explicit-formula pairing on unrestricted log-scale tests. The
+  repository constructs the completed value only on its canonical smooth
+  compact core, not as this broader carrier. -/
   data : Weil.ExplicitFormulaData
   /-- The finite-place component agrees with the prime-power side isolated by
   the finite log-radial derivative. -/

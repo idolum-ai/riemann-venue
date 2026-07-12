@@ -28,7 +28,7 @@ This is the short reader's map. It is deliberately coarser than the
 
 | Category | What the repository supports |
 |---|---|
-| **Proved in Lean** | The gcd kernel's finite positivity and infinite prime-torus spectral representation; both directions of Kakutani's dichotomy; the product-Poisson phase change exactly at `σ = 1/2`; the exact translated Hellinger boundary coefficient and absolutely convergent cosine finite part; the completed Weil explicit formula on the smooth compact core; its independent assembly as typed boundary Cauchy data; the primorial Rayleigh upper bound; and failure of the direct length-side limit. |
+| **Proved in Lean** | The gcd kernel's finite positivity and infinite prime-torus spectral representation; both directions of Kakutani's dichotomy; the product-Poisson phase change exactly at `σ = 1/2`; the exact translated Hellinger boundary coefficient and absolutely convergent cosine finite part; the completed Weil explicit formula on the smooth compact core; independent assembly of its scalar place value from typed boundary channels; the primorial Rayleigh upper bound; and failure of the direct length-side limit. |
 | **Computed** | Reproducible finite spectra and Euler-shadow experiments; Hellinger-threshold and radial-derivative experiments; and large-window numerical evidence for the bottom spectral edge and reciprocal-edges law. Computation is evidence, not proof. |
 | **Open** | Positivity and no-leak mode semantics for the constructed completed boundary datum; the sharp bottom-edge corridor; and the mechanism and constant behind the reciprocal-edges law. In particular, RH is not proved here. |
 
@@ -112,12 +112,16 @@ Gram positivity              normalizedGcdKernel_posSemidef, kappa_posSemidef
   → logarithmic derivative   hasDerivAt_sum_primePower_terms
                              (lands exactly on primePowerSideTruncated)
   → completed Weil dist.     completedWeilExplicitFormulaOnSmoothCore_proved
-  → boundary Cauchy datum    completedBoundaryFirstJetIdentified
+  → boundary Cauchy value    completedBoundaryCauchyValueIdentified
   → Weil positivity          LOCKED — stated as a Prop, fenced, not claimed
                              (CompletedBoundarySmoothCorePositivity)
 ```
 
-Every arrow before the last is machine-checked. The last arrow is RH.
+Every arrow through boundary-value identification is machine-checked. The
+critical-line-to-positivity direction is also proved; the converse
+positivity-to-real-spectrum implication is the remaining RH-strength gate.
+The [boundary proof surface](docs/boundary-proof-surface.md) separates stable
+endpoints, conditional compilers, exploratory workbenches, and open contracts.
 
 ## Open problems posed by this repository
 

@@ -110,7 +110,12 @@ theorem exactLocalCoefficientCharge_verdict :
 
 The old scalar interface is recovered by choosing
 `localTerm p h = p^{-1} * coefficient(h)`. The balanced residue needs the
-larger shape because its aperture depends on `p`. -/
+larger shape because its aperture depends on `p`.
+
+The three proposition fields are workbench annotations, not machine-enforced
+provenance: an inhabitant can supply `True`. Actual no-leak evidence for a
+terminal construction must come from restricted construction/import surfaces
+and dependency audits, not from these labels alone. -/
 structure BoundaryLocalCountertermKernel where
   /-- The p-local contribution. -/
   localTerm : Nat.Primes → (ℝ → ℝ) → ℝ
@@ -120,11 +125,13 @@ structure BoundaryLocalCountertermKernel where
   counterterm_eq_sum :
     ∀ S : PrimeWindow, ∀ h : ℝ → ℝ,
       counterterm S h = ∑ p ∈ S, localTerm p h
-  /-- The kernel is specified upstream of the target completed pairing. -/
+  /-- Unchecked workbench claim that the kernel is specified upstream of the
+  target completed pairing. -/
   upstreamOfTargetPairing : Prop
-  /-- The kernel is derived from finite response or response-defect data. -/
+  /-- Unchecked workbench claim that the kernel is derived from finite response
+  or response-defect data. -/
   fromResponseData : Prop
-  /-- Zeros are not primitive input. -/
+  /-- Unchecked workbench claim that zeros are not primitive input. -/
   zerosNotImported : Prop
 
 /-- The visible linearity charge for a local counterterm kernel. -/

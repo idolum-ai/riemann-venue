@@ -1,5 +1,10 @@
 # Scripts
 
+`check_axioms.py` compiles `RiemannVenue/AxiomAudit.lean` and fails unless the
+named terminal declarations depend on exactly the approved standard Mathlib
+axioms. CI runs it after the full Lean build so stale object files cannot hide
+a changed terminal declaration.
+
 Reproducibility helpers for notebooks, figures, and longer numerical notes.
 
 - `perron_certificates.py` regenerates

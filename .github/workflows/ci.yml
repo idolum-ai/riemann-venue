@@ -38,6 +38,9 @@ jobs:
       - name: Build
         run: lake build
 
+      - name: Terminal axiom audit
+        run: python3 scripts/check_axioms.py
+
   notebooks:
     name: Execute notebooks
     runs-on: ubuntu-latest

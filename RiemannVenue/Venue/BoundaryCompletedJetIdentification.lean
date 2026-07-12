@@ -3,7 +3,7 @@ import RiemannVenue.Venue.BoundaryXiLocalExpansion
 import RiemannVenue.Venue.BoundaryArithmeticSensitivity
 
 /-!
-# Identification and positivity gate for the completed boundary jet
+# Identification and positivity gate for the completed boundary value
 
 `BoundaryCompletedCauchyDatum` constructs the completed place datum without
 spectral input. This file crosses the downstream identification gate using
@@ -29,16 +29,17 @@ theorem completedZeroValue_eq_completedBoundaryCauchyValue
   exact ⟨hsum, hzero.trans
     (completedBoundaryCauchyValue_eq_completedPlaceFunctional h).symm⟩
 
-/-- The first-jet identification theorem on the repository's canonical test
-core. It freezes the direction of construction: first assemble Cauchy data
-from local responses, then identify its value with the zero sum. -/
-def CompletedBoundaryFirstJetIdentified : Prop :=
+/-- Scalar-value identification on the repository's canonical test core. It
+freezes the direction of construction: first assemble typed place-channel data
+from local responses, then identify its assembled value with the zero sum. It
+does not assert identification of every jet field or a common derivative law. -/
+def CompletedBoundaryCauchyValueIdentified : Prop :=
   ∀ h : SmoothCompletedLogTest,
     ∃ hsum : CompletedZetaZeroSumConverges h,
       completedZetaZeroValue h hsum = completedBoundaryCauchyValue h
 
-theorem completedBoundaryFirstJetIdentified :
-    CompletedBoundaryFirstJetIdentified :=
+theorem completedBoundaryCauchyValueIdentified :
+    CompletedBoundaryCauchyValueIdentified :=
   completedZeroValue_eq_completedBoundaryCauchyValue
 
 /-- Weil positivity restricted to the actual constructed smooth compact

@@ -1,5 +1,11 @@
 # Completed Explicit Formula: Contour Interface
 
+Status: historical construction checkpoint. The quantitative selected-height
+family, expanding-edge limit, and completed smooth-core formula described as
+open below were subsequently proved in `BoundaryXiLocalExpansion.lean`. This
+note preserves the route by which those contracts were isolated; it is not the
+current frontier.
+
 ## What the contour must connect
 
 The zero side is now absolutely convergent on every smooth compact completed
@@ -66,9 +72,10 @@ supported integral. Thus the weighted residue formula uses the same test
 function and multiplicity convention as the already convergent global zero
 sum.
 
-## Honest frontier
+## Historical frontier
 
-The remaining construction is an expanding edge limit: the horizontal edges
+At this checkpoint, the remaining construction was an expanding edge limit:
+the horizontal edges
 must vanish while the vertical edges become the von Mangoldt, Gamma, and pole
 terms.
 
