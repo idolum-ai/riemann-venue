@@ -95,3 +95,5 @@ import RiemannVenue.Venue.BoundaryCompletedCauchyDatum
 import RiemannVenue.Venue.BoundaryCompletedJetIdentification
 import RiemannVenue.Venue.BoundaryPositivityReconnaissance
 import RiemannVenue.Venue.BoundaryComplexAutocorrelation
+import RiemannVenue.Venue.BoundarySpectralOrbit
+import RiemannVenue.Venue.BoundarySpectralAmplification

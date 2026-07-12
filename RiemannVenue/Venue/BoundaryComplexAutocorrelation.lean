@@ -254,7 +254,6 @@ theorem completedFourierLaplaceTransform_eq_tiltedFourier
     apply Complex.ext
     · simp [hq]
     · simp [hq]
-      ring
   change (h t : ℂ) * Complex.exp (Complex.I * z * (t : ℂ)) =
     Complex.exp q *
       (((h t * Real.exp (-z.im * t) : ℝ)) : ℂ)
