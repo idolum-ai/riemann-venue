@@ -21,50 +21,37 @@ Fourth-order transform decay then proves that the full horizontal contour
 tends to zero. The quadratic target is intentionally weak; the classical
 expectation is logarithmic-square growth on suitably selected heights.
 
-## Engine choices
+## Implemented engine
 
-### Canonical product
+The native proof takes the finite canonical-disk route. Mathlib's
+`Complex.CanonicalDecomp` supplies a radius-four factorization of translated
+Xi into finitely many canonical factors and a zero-free remainder. This is not
+a global Hadamard product: only the zeros in one fixed disk are extracted.
 
-Prove an order-one genus-one Hadamard factorization for `completedXiCore`,
-differentiate it away from the zeros, and estimate the resulting regularized
-zero series using `N(T) = O(T log T)` plus quantitative height clearance.
+The proof then performs five quantitative steps:
 
-Benefits: structural, reusable, and directly connects the completed function
-to its divisor. Costs: pinned Mathlib has no canonical-product library, so the
-infinite product, factorization identity, and logarithmic derivative theorem
-would all be new infrastructure.
+1. translated Jensen and three overlapping radius-two windows bound the
+   radius-four divisor mass linearly in `|T| + 1`;
+2. a finite-set selector chooses a radius in `(7/2, 15/4)` separated from every
+   divisor radius;
+3. canonical factors are bounded on that circle, while fixed-strip Xi growth
+   controls the untranslated factor;
+4. maximum modulus, an analytic logarithm, Borel--Caratheodory, and Cauchy
+   control the zero-free remainder's logarithmic derivative on `norm z <= 3`;
+5. the selected-height ordinate clearance bounds each canonical-factor
+   logarithmic derivative. Linear zero mass times linear reciprocal clearance
+   gives the permitted quadratic score.
 
-### Minimum modulus
+The first three heights are absorbed by a compactness argument. The result is
+`completedXiQuadraticExpansionBound_proved`, which compiles to
+`completedWeilExplicitFormulaOnSmoothCore_proved` through the existing contour
+pipeline. No global canonical product, minimum-modulus theorem, or referenced
+selected-height axiom is used.
 
-Factor the finitely many nearby zeros in a disk, control the zero-free quotient
-with a logarithmic derivative or Borel--Caratheodory argument, and select a
-height outside small forbidden neighborhoods.
-
-Benefits: targets exactly the required bound and avoids a global product
-theory. Costs: pinned Mathlib also lacks the needed minimum-modulus and
-Borel--Caratheodory layer; proving a polynomial rather than exponential bound
-requires careful local zero-density bookkeeping.
-
-### Referenced selected-height theorem
-
-Formalize the classical theorem at the stronger
-`CompletedXiLogSquaredSelectedHeightFamily` boundary, prove its conversion to
-`CompletedXiQuadraticSelectedHeightFamily`, then keep every contour
-transformation below it proved in Lean.
-
-Benefits: smallest non-circular input and fastest route to the completed
-explicit formula. The contract is much weaker than the classical estimate and
-does not mention prime sums, Gamma terms, or the desired explicit formula.
-Cost: the height family remains a referenced theorem until a native analytic
-engine replaces it.
-
-## Recommendation
-
-Use the referenced selected-height theorem as the immediate bridge, with an
-explicit source and status-ledger label. Treat a native minimum-modulus proof
-as the preferred replacement project because it targets the exact contract.
-Do not begin by building global canonical products unless the research goal
-shifts toward a reusable entire-function divisor theory.
+The alternatives remain informative. A genus-one global product would expose
+more entire-function structure but adds machinery the contour does not need.
+The classical Titchmarsh route would sharpen quadratic growth to
+`O(log^2 T)`, but that sharpening no longer gates the completed formula.
 
 ## Source-facing estimate
 
@@ -98,25 +85,22 @@ window. The surviving point has clearance at least
 multiplicity-weighted zero count. The sequence is cofinal and avoids both
 horizontal zero sets.
 
-This global-count clearance is not yet the classical selected-height estimate.
-Since `N(T) = O(T log T)`, it is only of global scale. Titchmarsh 9.6(A) uses
-the sharper fact that only `O(log T)` zeros occur in the relevant bounded
-height neighborhood, then bounds the local reciprocal sum by `O(log^2 T)`.
-The remaining work is therefore no longer to find heights, but to formalize
-that local zero expansion and replace the global cardinality in the clearance
-estimate by its local `O(log T)` bound.
+That original global-count clearance was not enough by itself. The native
+engine adds translated local Jensen bounds, obtaining linear rather than
+global `O(T log T)` complexity in every fixed window. This is still much
+coarser than Titchmarsh's `O(log T)` local count, but fourth-order horizontal
+test decay only requires a quadratic score, so the coarse estimate is
+sufficient.
 
-## Remaining order
+## Result and frontier
 
-1. Formalize the Titchmarsh 9.6(A) local-zero expansion and local
-   `O(log T)` count, then apply the proved finite-set clearance selector to
-   construct `CompletedXiLogSquaredSelectedHeightFamily`; its conversion to
-   the downstream quadratic contract is already proved.
-2. Apply `completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights`.
-   It compiles that single source-facing certificate directly to the completed
-   Weil formula. The Abel-to-literal arithmetic strip shift, Gamma contour
-   shift, channel decomposition, selected-height exhaustion, both pole-ray
-   transforms, and pole recombination are all proved internally. The selected
-   family supplies one bound on `-1 <= sigma <= 2`; functional-equation
-   symmetry derives the negative horizontal edge rather than storing a second
-   certificate.
+The height engine is closed for the smooth compact core. The Abel-to-literal
+arithmetic strip shift, Gamma contour shift, channel decomposition,
+selected-height exhaustion, both pole-ray transforms, pole recombination, and
+the quantitative horizontal estimate are all proved internally.
+
+Formalizing the sharper Titchmarsh `O(log T)` local expansion remains useful
+for comparison and stronger asymptotics, but it is no longer on the critical
+path. The next structural problem is to connect the completed formula to the
+boundary-jet carrier and isolate a positivity condition that is not automatic
+for arbitrary impostor prime data.

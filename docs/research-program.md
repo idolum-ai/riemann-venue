@@ -72,12 +72,10 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    `pole + 2 * Gamma - prime powers`.
    Its entire cosine transform agrees with the real density, and its spectral
    index contains exactly the nontrivial zeta zeros with analytic
-   multiplicity. The completed Weil identity is now an exact proposition.
-   Global zero-sum convergence is proved; completing the identity requires an
-   expanding-contour explicit-formula theorem not currently present in
-   Mathlib. Positivity
-   remains separate as the locked gate. The next phase is now a dedicated
-   explicit-formula project. Its zero-counting spine constructs finite
+   multiplicity. The completed Weil identity is now proved on the smooth
+   compact core by an internal expanding-contour argument. Positivity remains
+   separate as the locked gate. The explicit-formula project's zero-counting
+   spine constructs finite
    multiplicity-aware height windows, identifies their multiplicities with
    the divisor of one entire pole-cleared completed-Xi function, and proves
    the full Jensen handoff from a large-circle bound to `N(T)`. A generic
@@ -93,12 +91,14 @@ Can selected pieces of the "change of venue" program be made finite, checkable, 
    rectangle excision identify every certified finite partition with the sum
    of its charges. Every completed-Xi zero supplies a local charged leaf whose
    charge is exactly its completed zero summand. The generic finite-set
-   partition compiler is now proved. Cofinal zero-avoiding heights, positive
-   per-height zero clearance, and finite per-edge logarithmic-derivative bounds
-   are also proved. The remaining analytic input is quantitative control of
-   those bounds sufficient to make the weighted horizontal edges vanish. An
-   explicit expanding-contour witness isolates this input from the place-side
-   edge limit and is proved sufficient for the completed formula.
+   partition compiler is now proved. Cofinal zero-avoiding heights,
+   quantitative clearance, translated local zero counts, and a finite
+   canonical-disk decomposition now produce a quadratic selected-height
+   logarithmic-derivative bound. Fourth-order test decay makes the weighted
+   horizontal edges vanish, and the resulting expanding-contour witness
+   compiles to the completed formula. The remaining program is no longer an
+   explicit-formula project: it is the boundary-jet identification and the
+   separate, non-tautological positivity gate.
 
 ## Design rule
 

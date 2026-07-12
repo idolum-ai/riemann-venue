@@ -1,4 +1,5 @@
 import RiemannVenue.Venue.BoundaryZeroAvoidingHeights
+import RiemannVenue.Venue.BoundaryBorelLogDerivative
 
 /-!
 # Quantitative local windows for selected contour heights
@@ -6,8 +7,8 @@ import RiemannVenue.Venue.BoundaryZeroAvoidingHeights
 The completed contour needs heights separated from the zeros in a bounded
 vertical neighborhood. This file isolates that local finite object with
 analytic multiplicity. Global zero counts are not used as a substitute for
-the sharper local `O(log T)` estimate still required by the selected-height
-argument.
+local window control. The downstream contour accepts either the classical
+`O(log^2 T)` route or the natively proved coarse quadratic route.
 -/
 
 namespace RiemannVenue.Venue
@@ -1152,7 +1153,7 @@ noncomputable def completedXiLocalReciprocalZeroSum (T sigma : ℝ) : ℂ :=
     1 / ((sigma : ℂ) + T * Complex.I -
       nontrivialZetaZeroValue rho.1)
 
-/-- The exact remaining analytic input from Titchmarsh 9.6(A): logarithmic
+/-- The sharper source-facing input from Titchmarsh 9.6(A): logarithmic
 local zero count and a logarithmic remainder after subtracting the nearby
 reciprocal-zero sum. It is stated on the already-constructed local heights.
 -/
@@ -1333,8 +1334,7 @@ noncomputable def CompletedXiTitchmarshLocalControl.toLogSquaredFamily
       _ = (4 * C.constant * (C.constant + (Real.log 2)⁻¹) +
           C.constant * (Real.log 2)⁻¹) * L ^ 2 := by ring
 
-/-- Terminal compiler after the sole remaining local analytic estimate has
-been supplied. -/
+/-- Terminal compiler for the sharper Titchmarsh local-control route. -/
 theorem completedWeilExplicitFormulaOnSmoothCore_of_titchmarshLocalControl
     (C : CompletedXiTitchmarshLocalControl) :
     CompletedWeilExplicitFormulaOnSmoothCore :=
@@ -1344,10 +1344,10 @@ theorem completedWeilExplicitFormulaOnSmoothCore_of_titchmarshLocalControl
 /-! ## Coarse polynomial route -/
 
 /-- A weaker local analytic contract sufficient for the contour actually
-used in this repository. Linear local count and linear expansion error compile
-to a quadratic selected-height score, which fourth-order test decay absorbs.
+used in this repository. Linear local count and quadratic expansion error
+compile to a quadratic selected-height score, which fourth-order test decay absorbs.
 -/
-structure CompletedXiLinearLocalControl where
+structure CompletedXiCoarseLocalControl where
   constant : ℝ
   constant_nonneg : 0 ≤ constant
   nearbyCard : ∀ n : ℕ,
@@ -1362,24 +1362,24 @@ structure CompletedXiLinearLocalControl where
         (sigma + completedZetaLocallySeparatedHeight n * Complex.I) -
       completedXiLocalReciprocalZeroSum
         (completedZetaLocallySeparatedHeight n) sigma‖ ≤
-      constant * (completedZetaLocallySeparatedHeight n + 1)
+      constant * (completedZetaLocallySeparatedHeight n + 1) ^ 2
 
-/-- The single analytic theorem left after translated Jensen has discharged
-both local cardinality fields. This is the coarse Titchmarsh expansion target
-for the selected heights already constructed above. -/
-def CompletedXiLinearExpansionBound : Prop :=
+/-- Coarse expansion contract after translated Jensen has discharged both
+local cardinality fields. `BoundaryXiLocalExpansion` proves this contract by a
+finite canonical-disk argument. -/
+def CompletedXiQuadraticExpansionBound : Prop :=
   ∃ C : ℝ, 0 ≤ C ∧ ∀ n : ℕ, ∀ sigma ∈ Set.Icc (-1 : ℝ) 2,
     ‖logDeriv completedXiCore
         (sigma + completedZetaLocallySeparatedHeight n * Complex.I) -
       completedXiLocalReciprocalZeroSum
         (completedZetaLocallySeparatedHeight n) sigma‖ ≤
-      C * (completedZetaLocallySeparatedHeight n + 1)
+      C * (completedZetaLocallySeparatedHeight n + 1) ^ 2
 
-/-- The proved translated-Jensen estimates compile any proof of the one
-remaining expansion bound into the full coarse local-control record. -/
-theorem exists_completedXiLinearLocalControl_of_expansionBound
-    (hexpansion : CompletedXiLinearExpansionBound) :
-    ∃ _C : CompletedXiLinearLocalControl, True := by
+/-- The proved translated-Jensen estimates compile the expansion bound into
+the full coarse local-control record. -/
+theorem exists_completedXiCoarseLocalControl_of_expansionBound
+    (hexpansion : CompletedXiQuadraticExpansionBound) :
+    ∃ _C : CompletedXiCoarseLocalControl, True := by
   obtain ⟨A, hA, hnearby⟩ :=
     exists_completedZetaNearbyAbsoluteOrdinates_le_linear
   obtain ⟨B, hB, hlocal⟩ :=
@@ -1403,10 +1403,10 @@ theorem exists_completedXiLinearLocalControl_of_expansionBound
         linarith [completedZetaLocallySeparatedHeight_gt n]))
   · intro n sigma hsigma
     exact (hexp n sigma hsigma).trans (mul_le_mul_of_nonneg_right
-      ((le_max_right B E).trans (le_max_right A _)) (by
-        linarith [completedZetaLocallySeparatedHeight_gt n]))
+      ((le_max_right B E).trans (le_max_right A _))
+      (sq_nonneg (completedZetaLocallySeparatedHeight n + 1)))
 private theorem norm_completedXiLocalReciprocalZeroSum_le_quadratic
-    (C : CompletedXiLinearLocalControl)
+    (C : CompletedXiCoarseLocalControl)
     (n : ℕ) (sigma : ℝ) :
     ‖completedXiLocalReciprocalZeroSum
       (completedZetaLocallySeparatedHeight n) sigma‖ ≤
@@ -1451,8 +1451,8 @@ private theorem norm_completedXiLocalReciprocalZeroSum_le_quadratic
 
 /-- The coarse local control produces the exact quadratic selected-height
 family consumed by the already-proved contour machinery. -/
-noncomputable def CompletedXiLinearLocalControl.toQuadraticFamily
-    (C : CompletedXiLinearLocalControl) :
+noncomputable def CompletedXiCoarseLocalControl.toQuadraticFamily
+    (C : CompletedXiCoarseLocalControl) :
     CompletedXiQuadraticSelectedHeightFamily where
   heights := completedZetaLocallySeparatedHeight
   lower := completedZetaLocallySeparatedHeight_gt
@@ -1474,9 +1474,6 @@ noncomputable def CompletedXiLinearLocalControl.toQuadraticFamily
       linarith [completedZetaLocallySeparatedHeight_gt n]
     have hsum := norm_completedXiLocalReciprocalZeroSum_le_quadratic C n sigma
     have hrem := C.expansion n sigma hsigma
-    have hlinear : C.constant * X ≤ C.constant * X ^ 2 := by
-      apply mul_le_mul_of_nonneg_left _ C.constant_nonneg
-      nlinarith
     calc
       ‖logDeriv completedXiCore (sigma + T * Complex.I)‖ ≤
           ‖logDeriv completedXiCore (sigma + T * Complex.I) -
@@ -1487,28 +1484,26 @@ noncomputable def CompletedXiLinearLocalControl.toQuadraticFamily
             completedXiLocalReciprocalZeroSum T sigma)
           (completedXiLocalReciprocalZeroSum T sigma)
         simpa using this
-      _ ≤ C.constant * X +
+      _ ≤ C.constant * X ^ 2 +
           4 * C.constant * (C.constant + 1) * X ^ 2 := by
         exact add_le_add (by simpa [T, X] using hrem)
           (by simpa [T, X] using hsum)
-      _ ≤ C.constant * X ^ 2 +
-          4 * C.constant * (C.constant + 1) * X ^ 2 := by gcongr
       _ = (4 * C.constant * (C.constant + 1) + C.constant) * X ^ 2 := by ring
 
-theorem completedWeilExplicitFormulaOnSmoothCore_of_linearLocalControl
-    (C : CompletedXiLinearLocalControl) :
+theorem completedWeilExplicitFormulaOnSmoothCore_of_coarseLocalControl
+    (C : CompletedXiCoarseLocalControl) :
     CompletedWeilExplicitFormulaOnSmoothCore :=
   completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits
     C.toQuadraticFamily fun h => C.toQuadraticFamily.toRightEdgeLimit h
 
 /-- Final one-theorem handoff: the coarse Titchmarsh expansion now implies
 the completed Weil explicit formula on the smooth core. -/
-theorem completedWeilExplicitFormulaOnSmoothCore_of_linearExpansionBound
-    (h : CompletedXiLinearExpansionBound) :
+theorem completedWeilExplicitFormulaOnSmoothCore_of_quadraticExpansionBound
+    (h : CompletedXiQuadraticExpansionBound) :
     CompletedWeilExplicitFormulaOnSmoothCore := by
   obtain ⟨C, _⟩ :=
-    exists_completedXiLinearLocalControl_of_expansionBound h
-  exact completedWeilExplicitFormulaOnSmoothCore_of_linearLocalControl C
+    exists_completedXiCoarseLocalControl_of_expansionBound h
+  exact completedWeilExplicitFormulaOnSmoothCore_of_coarseLocalControl C
 
 end
 

@@ -48,8 +48,8 @@ correcting the completed place convention to
 transferred to the literal regularized boundary contour through the fixed strip
 `1 <= Re(s) <= 2`. Symmetric selected-height bounds kill both horizontal edges,
 while wider-strip fourth-order test decay absorbs the quadratic score bound.
-What remains is sharply classical: construct the cited logarithmic-squared
-selected heights.
+The selected-height layer is now also closed natively; no cited
+logarithmic-squared height theorem is needed for this contour.
 
 The underlying cofinal heights have now been found in Lean, and their local
 clearance has been upgraded quantitatively. A translated Jensen argument at
@@ -57,11 +57,15 @@ clearance has been upgraded quantitatively. A translated Jensen argument at
 Gamma lower bounds. It proves a symmetric linear envelope for every radius-two
 zero window. That controls both the selected unit-window multiplicity and the
 absolute-ordinate cardinality in the clearance denominator. Consequently, the
-fourth-order contour no longer needs the sharper `O(log^2 T)` score: these
-linear local counts plus a linear expansion remainder compile to a sufficient
-quadratic selected-height family.
+fourth-order contour no longer needs the sharper `O(log^2 T)` score. A finite
+radius-four canonical decomposition now removes the local Xi zeros. Radial
+selection supplies a zero-free inner circle; Borel--Caratheodory and Cauchy
+control the logarithmic derivative of the zero-free remainder; and the
+canonical-factor terms are bounded by the already-proved height clearance.
+The resulting quadratic expansion estimate, together with compact control of
+the first three heights, constructs the required selected-height family.
 
-## Current decision gate
+## Current position
 
 The finite-pole rectangle charge is now closed at the generic level. Square
 winding, arbitrary-order local logarithmic residues, holomorphic test weights,
@@ -69,12 +73,14 @@ recursive subdivision, and the finite-set-to-partition compiler are proved.
 The compiler chooses internal lines avoiding every pole and handles poles
 with shared real or imaginary coordinates.
 
-The zero-avoiding-height layer has crossed both its qualitative and local-count
-sills. The elementary, Gamma, and regularized arithmetic channels are all
-identified internally. The only remaining bedrock obligation is now the named
-`CompletedXiLinearExpansionBound`: on the constructed heights, subtract the
-unit-window reciprocal-zero sum from `Xi'/Xi` and bound the analytic remainder
-linearly in height. Once supplied, the proved compiler immediately produces
-the quadratic selected-height family and the completed Weil explicit formula
-on the smooth core. The sharper Titchmarsh `O(log T)` theorem remains desirable,
-but is no longer required by this contour.
+The zero-avoiding-height, local-count, and logarithmic-derivative layers have
+all crossed their quantitative sills. `completedXiQuadraticExpansionBound_proved`
+closes the final local contract, and
+`completedWeilExplicitFormulaOnSmoothCore_proved` now identifies the completed
+zero functional with `pole + 2 * Gamma - finite places` on the smooth compact
+core. The sharper Titchmarsh `O(log T)` expansion remains mathematically
+desirable, but only as a sharpening: the completed formula proved here no
+longer depends on it. The research frontier therefore returns to the original
+carrier question: identify the completed pairing with a boundary-jet state and
+locate the non-tautological positivity condition rather than building more
+contour infrastructure.

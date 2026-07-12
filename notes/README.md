@@ -57,10 +57,10 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
 - `completed-explicit-formula-contour.md` — multiplicity-aware local residues,
   weighted Xi residues, finite zero-window convergence, and the exact
   expanding-contour witness still required by the completed formula.
-- `completed-explicit-formula-height-engine.md` — the post-excision decision
-  gate: the exact quantitative selected-height contract, horizontal-edge
-  closure, and comparison of canonical-product, minimum-modulus, and
-  referenced selected-height engines.
+- `completed-explicit-formula-height-engine.md` — the native post-excision
+  height engine: translated local counts, finite canonical-disk
+  decomposition, Borel--Caratheodory control, quantitative clearance, and the
+  proved quadratic selected-height contract.
 - `completed-explicit-formula-right-edge.md` — the right-edge risk gate:
   open-half-plane place decomposition, the continuous pole-regularized zeta
   channel, its Euler-constant removable value, the Abel boundary route, the

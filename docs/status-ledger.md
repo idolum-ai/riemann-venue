@@ -342,11 +342,15 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `pole + 2 * Gamma - prime powers`. Its matching
     entire zero transform and multiplicity-expanded nontrivial-zero index are
     constructed. Fourth-order strip decay and the completed-Xi zero-count
-    bound prove absolute convergence of the global zero sum. The completed
-    Weil identity remains open
+    bound prove absolute convergence of the global zero sum. Finite rectangle
+    excision, selected-height control, and the three right-edge channels now
+    prove the completed Weil identity on the smooth compact core. Positivity
+    and identification with the proposed boundary jet remain open
   - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
     `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
     `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
     `notes/completed-weil-identity-gate.md`,
     `notes/completed-test-ideal-decision-gate.md`
 
@@ -376,11 +380,9 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     a weighted charged leaf with exactly the global zero-sum normalization.
     Automatic finite-set partition construction is proved generically by
     `FiniteRectanglePoleData.exists_excisionTree`. Cofinal zero-avoiding
-    heights, positive qualitative clearance, and finite horizontal-edge
-    `Xi'/Xi` bounds are also proved. Quantitative control sufficient for the
-    selected expanding-edge limit remains open and is exposed by
-    `CompletedExpandingContourWitness`; such witnesses are proved sufficient
-    for the completed Weil formula
+    heights, quantitative local clearance, and a quadratic horizontal-edge
+    `Xi'/Xi` bound are also proved. These construct the selected expanding-edge
+    witness and compile to the completed Weil formula on the smooth core
   - **Artifact:** `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`,
     `RiemannVenue/Venue/BoundaryRectangleExcision.lean`,
     `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
@@ -392,17 +394,19 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   family with a quadratic upper-edge `Xi'/Xi` bound has vanishing weighted
   horizontal edges
 
-  - **Status:** proved in Lean. Existence of
-    `CompletedXiQuadraticSelectedHeightFamily` remains a referenced/open
-    analytic input; the weaker arbitrary zero-avoiding family and qualitative
-    per-edge bounds are proved but do not imply the quantitative contract.
-    The stronger classical `O(log^2 T)` source contract is stated as
-    `CompletedXiLogSquaredSelectedHeightFamily` and proved to imply the
-    quadratic contract. Test and Xi symmetries also prove that the two
-    vertical sides equal twice the right edge, reducing the remaining place
-    limit to `CompletedXiSelectedRightEdgeLimit`
+  - **Status:** proved in Lean, including existence. A translated radius-four
+    canonical decomposition, linear local zero counts, quantitative radial
+    clearance, and Borel--Caratheodory/Cauchy control prove
+    `completedXiQuadraticExpansionBound_proved`. The finite prefix is closed
+    by compactness. Test and Xi symmetries prove that the two vertical sides
+    equal twice the right edge, and the resulting family compiles to
+    `completedWeilExplicitFormulaOnSmoothCore_proved`. The stronger classical
+    `O(log^2 T)` source contract remains available as a sharper alternative,
+    not an input to the proved formula
   - **Artifact:** `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
     `notes/completed-explicit-formula-height-engine.md`
 
 - **Claim:** The completed-Xi logarithmic derivative has the expected
@@ -438,16 +442,18 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     symmetric selected-height bounds and fourth-order horizontal test decay.
     Consequently every quantitative selected-height family produces the full
     right-edge place limit without an additional place-identification contract.
-    The only remaining external input to the smooth-core completed formula is
-    the cited logarithmic-squared selected-height estimate. A canonical
-    cofinal sequence in `(n,n+1)` with explicit clearance
+    A canonical cofinal sequence in `(n,n+1)` with explicit clearance
     `1 / (4 * (N(n+2) + 1))` from every zero ordinate is now constructed in
     Lean by a finite-union measure argument. This pays the selection and
-    avoidance layer, but its global-count clearance is intentionally not
-    misreported as the stronger local `O(1/log T)` separation used in the
-    classical `O(log^2 T)` logarithmic-derivative proof
+    avoidance layer. Translated Jensen local counts and a finite canonical-disk
+    decomposition then prove the weaker quadratic logarithmic-derivative
+    envelope actually consumed by the fourth-order contour. The global-count
+    clearance is still not misreported as the stronger local `O(1/log T)`
+    separation used in the classical `O(log^2 T)` theorem
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
     `notes/completed-explicit-formula-right-edge.md`
 

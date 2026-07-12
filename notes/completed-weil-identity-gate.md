@@ -6,7 +6,7 @@ The completed place side is now one typed functional on the canonical smooth
 compact core:
 
 ```text
-W_places(h) = pole(h) + Gamma(h) - primePowers(h).
+W_places(h) = pole(h) + 2 * Gamma(h) - primePowers(h).
 ```
 
 The Gamma term is admitted for every smooth compact test, not only positive
@@ -27,16 +27,16 @@ With `u_rho = (rho - 1/2)/i`, the target identity is
 This is `CompletedWeilExplicitFormulaOnSmoothCore`. It is a proposition about
 constructed arithmetic objects, not an abstract-pairing placeholder.
 
-## What prevents the proof today
+## How the gate closed
 
-Mathlib proves that the zeta-zero set is discrete and that compact regions
-contain finitely many zeros. That does not imply summability: a discrete set
-can have arbitrarily fast counting growth. The first missing global input is
-a formal zero-count estimate strong enough to combine with rapid decay of the
-entire test transform. The classical `N(T) = O(T log T)` estimate is far more
-than sufficient, but it is not currently available in the imported library.
+Mathlib's discreteness of the zeta-zero set was not enough by itself: a
+discrete set can have arbitrarily fast counting growth. The branch therefore
+proved completed-Xi sphere growth, the classical-strength bound
+`N(T) = O(T log T)`, fourth-order strip decay of the entire test transform,
+and absolute convergence of the multiplicity-expanded zero sum.
 
-After convergence, the identity still needs the classical contour argument:
+It then formalized the classical contour argument rather than assuming its
+conclusion:
 
 1. prove rapid decay of the compact test transform on the closed critical
    strip;
@@ -50,33 +50,33 @@ After convergence, the identity still needs the classical contour argument:
 6. identify the Gamma and `s(s-1)` terms with the already-constructed place
    functionals.
 
-The repository has the local residue machinery, completed-zeta functional
-equation, finite Euler logarithmic derivative, and all three target place
-terms. The zero-counting project now supplies the canonical multiplicity-aware
-height count, identifies it with the divisor of an entire completed-Xi core,
-and proves the Jensen reduction to a large-circle estimate. The companion
-growth theorem now discharges that estimate and proves `N(T) = O(T log T)`.
-The generic bucket theorem and the fourth-order strip-decay theorem now turn
-this count into unconditional zero-sum convergence. Thus the first two
-analytic obligations are discharged; the finite-pole residue theorem,
-expanding-edge control, and place identification are still not a complete
-global theorem chain. Adding the desired equality as a field or assumption
-would only rename this gap.
+Finite rectangle excision supplies the multiplicity-aware residue theorem.
+Abel-to-literal transfer identifies the arithmetic channel, while separate
+elementary and Gamma contour calculations identify the other two place
+channels. Functional-equation symmetry reduces the two vertical sides to the
+right edge. Finally, translated Jensen, a finite canonical decomposition on
+radius-four disks, quantitative zero clearance, and
+Borel--Caratheodory/Cauchy estimates prove the quadratic selected-height
+`Xi'/Xi` bound needed to make the horizontal edges vanish.
+
+The resulting terminal theorem is
+`completedWeilExplicitFormulaOnSmoothCore_proved`. It depends on no imported
+explicit-formula hypothesis, Weil positivity hypothesis, or RH hypothesis.
 
 ## Assessment
 
-The assembled place functional is a meaningful new object: it fixes the
-domain, Fourier scaling, sign convention, and completion bookkeeping that
-were previously separate obligations. The entire transform and
-multiplicity-expanded nontrivial-zero index make the opposite side equally
-specific. The remaining gap is no longer semantic.
+The assembled place functional fixes the domain, Fourier scaling, sign
+convention, and completion bookkeeping that were previously separate
+obligations. The entire transform and multiplicity-expanded nontrivial-zero
+index make the opposite side equally specific, and the proved explicit
+formula now identifies them.
 
-The explicit formula is unconditional classical mathematics, not the
-RH-strength positivity gate. It is therefore tractable as a dedicated
-formalization project, but not a short local lemma: zero counting and the
-expanding-contour limit are substantial missing infrastructure. Positivity
-and the no-leak interpretation remain downstream after this identity is
-proved.
+This closes an unconditional classical identity, not the RH-strength
+positivity gate. The remaining research boundary is to identify this proved
+functional with the renormalized first boundary jet without reading the target
+back into its construction, and then to determine whether the resulting
+completed pairing has the required positivity. Those are downstream claims,
+not consequences smuggled into the explicit-formula theorem.
 
 ## Artifacts
 
@@ -88,5 +88,11 @@ proved.
 - `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`
 - `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`
 - `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`
+- `RiemannVenue/Venue/BoundaryRectangleExcision.lean`
+- `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`
+- `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`
+- `RiemannVenue/Venue/BoundarySelectedHeight.lean`
+- `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`
+- `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`
 - `notes/completed-explicit-formula-contour.md`
 - `notes/completed-explicit-formula-zero-counting.md`
