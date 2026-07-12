@@ -249,13 +249,15 @@ structure CompletedExpandingContourWitness (h : SmoothCompletedLogTest) where
   placeLimit : Tendsto contourIntegral atTop
     (𝓝 (Complex.I * (completedPlaceFunctional h : ℂ)))
 
-/-- An expanding-contour witness identifies the already-convergent zero side
-with the independently assembled completed place functional. -/
-theorem completedZetaZeroValue_eq_completedPlaceFunctional_of_contour
+/-- The complex spectral sum supplied by an expanding contour is exactly the
+real completed place functional. Besides retaining the full normalization,
+this identity proves directly that the scaled zero sum is real. -/
+theorem completedZetaZeroTsum_eq_completedPlaceFunctional_of_contour
     (h : SmoothCompletedLogTest)
     (W : CompletedExpandingContourWitness h) :
-    completedZetaZeroValue h (completedZetaZeroSumConverges_proved h) =
-      completedPlaceFunctional h := by
+    (2 * Real.pi : ℂ) *
+        ∑' rho : CompletedZetaZeroIndex, completedZetaZeroSummand h rho =
+      (completedPlaceFunctional h : ℂ) := by
   let Z : ℂ := ∑' rho : CompletedZetaZeroIndex,
     completedZetaZeroSummand h rho
   have hwindow : Tendsto
@@ -277,8 +279,21 @@ theorem completedZetaZeroValue_eq_completedPlaceFunctional_of_contour
       Complex.I * (completedPlaceFunctional h : ℂ) =
           (2 * Real.pi * Complex.I) * Z := heq.symm
       _ = Complex.I * ((2 * Real.pi : ℂ) * Z) := by ring
+  exact hplace.symm
+
+/-- Real-valued completed formula derived from the stronger complex contour
+identity. -/
+theorem completedZetaZeroValue_eq_completedPlaceFunctional_of_contour
+    (h : SmoothCompletedLogTest)
+    (W : CompletedExpandingContourWitness h) :
+    completedZetaZeroValue h (completedZetaZeroSumConverges_proved h) =
+      completedPlaceFunctional h := by
+  let Z : ℂ := ∑' rho : CompletedZetaZeroIndex,
+    completedZetaZeroSummand h rho
+  have hcomplex :=
+    completedZetaZeroTsum_eq_completedPlaceFunctional_of_contour h W
   change (2 * Real.pi * Z).re = completedPlaceFunctional h
-  rw [← hplace]
+  rw [hcomplex]
   simp
 
 /-- The completed Weil formula is reduced to the concrete expanding-contour

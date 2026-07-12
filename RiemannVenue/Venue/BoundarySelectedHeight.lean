@@ -1377,22 +1377,33 @@ def CompletedXiQuadraticExpansionBound : Prop :=
 
 /-- The proved translated-Jensen estimates compile the expansion bound into
 the full coarse local-control record. -/
-theorem exists_completedXiCoarseLocalControl_of_expansionBound
+noncomputable def completedXiCoarseLocalControlOfExpansionBound
     (hexpansion : CompletedXiQuadraticExpansionBound) :
-    ∃ _C : CompletedXiCoarseLocalControl, True := by
-  obtain ⟨A, hA, hnearby⟩ :=
+    CompletedXiCoarseLocalControl := by
+  let A := Classical.choose
     exists_completedZetaNearbyAbsoluteOrdinates_le_linear
-  obtain ⟨B, hB, hlocal⟩ :=
+  have hAdata := Classical.choose_spec
+    exists_completedZetaNearbyAbsoluteOrdinates_le_linear
+  have hA : 0 ≤ A := hAdata.1
+  have hnearby := hAdata.2
+  let B := Classical.choose
     exists_selected_nontrivialZetaLocalCount_le_linear
-  obtain ⟨E, hE, hexp⟩ := hexpansion
+  have hBdata := Classical.choose_spec
+    exists_selected_nontrivialZetaLocalCount_le_linear
+  have hB : 0 ≤ B := hBdata.1
+  have hlocal := hBdata.2
+  let E := Classical.choose hexpansion
+  have hEdata := Classical.choose_spec hexpansion
+  have hE : 0 ≤ E := hEdata.1
+  have hexp := hEdata.2
   let K := max A (max B E)
   have hK : 0 ≤ K := hA.trans (le_max_left _ _)
-  refine ⟨{
+  refine {
     constant := K
     constant_nonneg := hK
     nearbyCard := ?_
     localCount := ?_
-    expansion := ?_ }, trivial⟩
+    expansion := ?_ }
   · intro n
     exact (hnearby n).trans (mul_le_mul_of_nonneg_right
       (le_max_left _ _) (by
@@ -1501,9 +1512,8 @@ the completed Weil explicit formula on the smooth core. -/
 theorem completedWeilExplicitFormulaOnSmoothCore_of_quadraticExpansionBound
     (h : CompletedXiQuadraticExpansionBound) :
     CompletedWeilExplicitFormulaOnSmoothCore := by
-  obtain ⟨C, _⟩ :=
-    exists_completedXiCoarseLocalControl_of_expansionBound h
-  exact completedWeilExplicitFormulaOnSmoothCore_of_coarseLocalControl C
+  exact completedWeilExplicitFormulaOnSmoothCore_of_coarseLocalControl
+    (completedXiCoarseLocalControlOfExpansionBound h)
 
 end
 

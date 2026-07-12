@@ -2,10 +2,12 @@
 
 `check_axioms.py` compiles `RiemannVenue/AxiomAudit.lean` and fails unless the
 named terminal declarations depend on exactly the approved standard Mathlib
-axioms. The same Lean audit rejects forbidden zero-side declarations from the
-transitive dependency closure of the place-side Cauchy construction. CI runs
-it after the full Lean build so stale object files cannot hide a changed
-terminal declaration.
+axioms. The same Lean audit freezes the reviewed transitive dependency closure
+of the terminal place-side Cauchy construction by declaration count and hash,
+then rejects project or external dependencies outside its approved origin
+modules. Negative controls prove that completed-Xi, completed-zeta, and
+zero-index escape routes are rejected. CI runs the audit after the full Lean
+build so stale object files cannot hide a changed terminal declaration.
 
 Reproducibility helpers for notebooks, figures, and longer numerical notes.
 

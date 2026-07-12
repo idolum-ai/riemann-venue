@@ -53,10 +53,12 @@ The transformations are proved channel by channel:
 
 The construction bodies use no zero-side or contour endpoint. Broad shared
 Mathlib imports make those names available in the environment, so CI checks
-the stronger relevant fact: the transitive declaration dependencies of the
-Cauchy datum, assembled value, and place-identification theorem contain none
-of the forbidden zero-side declarations. The dependency order remains local
-response first, completed local factors second, spectral identification last.
+the stronger relevant fact: it freezes the reviewed transitive dependency
+closure of the terminal place-identification theorem, constrains project and
+completed-zeta dependency origins, and exercises explicit completed-Xi,
+completed-zeta, and zero-index escape routes as negative controls. The
+dependency order remains local response first, completed local factors
+second, spectral identification last.
 
 ## Identification and remaining gate
 

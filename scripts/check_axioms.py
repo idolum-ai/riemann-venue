@@ -13,6 +13,7 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.abs_translatedHellingerDefectRemainder_le",
     "RiemannVenue.Venue.summable_abs_exactCosineLocalRemainder",
     "RiemannVenue.Venue.cosineFinitePartSurvival_holds",
+    "RiemannVenue.Venue.completedZetaZeroTsum_eq_completedPlaceFunctional_of_contour",
     "RiemannVenue.Venue.completedZetaZeroSumConverges_proved",
     "RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved",
     "RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional",

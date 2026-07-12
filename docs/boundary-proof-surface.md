@@ -19,6 +19,9 @@ probe structure to stable semantic API.
   multiplicity-expanded completed zero sum.
 - `completedWeilExplicitFormulaOnSmoothCore_proved`: the completed place
   functional equals that zero sum on the smooth compact core.
+- `completedZetaZeroTsum_eq_completedPlaceFunctional_of_contour`: an
+  expanding-contour witness gives the stronger complex identity directly;
+  the public real-valued formula is its real-part corollary.
 - `completedBoundaryCauchyValue_eq_completedPlaceFunctional`: independently
   assembled finite, Gamma, and pole channel entries recover the completed
   place value. CI rejects transitive declaration dependencies from this
@@ -66,9 +69,12 @@ must not be cited as machine proof of provenance.
 
 For terminal results, the operative trust evidence is the direction of
 construction, concrete extensional theorems, the zero-`sorry` build, the
-terminal axiom audit, and the transitive declaration-dependency audit. Import
-presence alone is not evidence because `RiemannVenue.Basic` exposes broad
-Mathlib declarations throughout the environment.
+terminal axiom audit, and the fail-closed transitive declaration-dependency
+audit. That audit freezes the reviewed closure by count and hash, checks the
+origin modules of project and completed-zeta dependencies, and includes
+negative controls for completed-Xi, completed-zeta, and zero-index crossings.
+Import presence alone is not evidence because `RiemannVenue.Basic` exposes
+broad Mathlib declarations throughout the environment.
 
 ## Open contracts
 
