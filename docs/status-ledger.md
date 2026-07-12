@@ -418,12 +418,17 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     the existing truncated prime-power pairing and no dependence on the Abel
     displacement. The infinite von Mangoldt L-series interchange is also
     proved from a summable integral-norm majorant, as is its completed-score
-    arithmetic-channel form. Its critical value is absolutely summable and
+    finite-place-extraction form. Its critical value is absolutely summable and
     canonically reindexed as the full double sum over primes and positive
-    powers with the repository's critical prime-power weight. Collapsing that
-    double sum to the existing compact cutoff representation, the Abel
-    boundary passage for the combined channel, improper full-line limits, and
-    identification with the completed pole and Gamma pairings remain open
+    powers with the repository's critical prime-power weight. Compact support
+    proves that this is exactly one half of the existing compact cutoff
+    pairing, including its one-sided Abel limit. This is the finite-place
+    extraction, which enters the actual arithmetic score with a minus sign.
+    The elementary and Gamma channels are proved full-line integrable and
+    every cofinal selected-height family exhausts them to named full-line
+    values. Their pole/Gamma value identities and the Abel-to-literal
+    regularized-zeta boundary transfer remain open and are isolated by
+    `CompletedXiRightEdgePlaceIdentification`
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,

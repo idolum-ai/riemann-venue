@@ -331,6 +331,55 @@ theorem archimedeanGammaBoundaryScore_linear_bound (u : ℝ) :
     _ = gammaBoundaryLinearConstant * (1 + |u|) := by
       rw [gammaBoundaryLinearConstant]
 
+/-- The complex Gamma score on the completed right edge also has at-most
+linear growth. This is the full-line integrability gate for the one-sided
+vertical contour; no Stirling asymptotic is needed. -/
+theorem norm_archimedeanGammaLogScore_one_add_mul_I_le (u : ℝ) :
+    ‖archimedeanGammaLogScore ((1 : ℂ) + (u : ℂ) * Complex.I)‖ ≤
+      gammaBoundaryLinearConstant * (1 + |u|) := by
+  let z : ℂ := (1 / 2 : ℂ) + ((u / 2 : ℝ) : ℂ) * Complex.I
+  have hzre : z.re = 1 / 2 := by
+    simp [z, Complex.normSq]
+  have hznorm : ‖z‖ ≤ 1 + |u| := by
+    calc
+      ‖z‖ ≤ ‖(1 / 2 : ℂ)‖ +
+          ‖((u / 2 : ℝ) : ℂ) * Complex.I‖ := norm_add_le _ _
+      _ = 1 / 2 + |u| / 2 := by
+        rw [norm_mul, Complex.norm_I, mul_one, Complex.norm_real,
+          Real.norm_eq_abs]
+        norm_num
+        rw [abs_div]
+        norm_num
+      _ ≤ 1 + |u| := by nlinarith [abs_nonneg u]
+  have hdig := norm_digamma_le_linear (z := z) (by rw [hzre]; norm_num)
+  have hzarg :
+      ((1 : ℂ) + (u : ℂ) * Complex.I) / 2 = z := by
+    dsimp [z]
+    apply Complex.ext <;> simp [Complex.normSq]
+  rw [archimedeanGammaLogScore, hzarg]
+  have hB := betaQuarterHalfBound_nonneg
+  have hlog : 0 ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 := by positivity
+  have hd1 : 0 ≤ ‖Complex.digamma 1‖ / 2 := by positivity
+  calc
+    ‖-(Complex.log (Real.pi : ℂ)) / 2 + Complex.digamma z / 2‖ ≤
+        ‖-(Complex.log (Real.pi : ℂ)) / 2‖ +
+          ‖Complex.digamma z / 2‖ := norm_add_le _ _
+    _ = ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+          ‖Complex.digamma z‖ / 2 := by norm_num [norm_div]
+    _ ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        (2 * betaQuarterHalfBound * ‖z‖ +
+          ‖Complex.digamma 1‖ + 4) / 2 := by
+      gcongr
+    _ ≤ ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        (2 * betaQuarterHalfBound * (1 + |u|) +
+          ‖Complex.digamma 1‖ + 4) / 2 := by
+      gcongr
+    _ ≤ (betaQuarterHalfBound + ‖Complex.log (Real.pi : ℂ)‖ / 2 +
+        ‖Complex.digamma 1‖ / 2 + 2) * (1 + |u|) := by
+      nlinarith [abs_nonneg u]
+    _ = gammaBoundaryLinearConstant * (1 + |u|) := by
+      rw [gammaBoundaryLinearConstant]
+
 /-- The critical Gamma score satisfies the exact control contract required
 by the positive smooth self-convolution lift. -/
 theorem gammaBoundaryLinearControl : GammaBoundaryLinearControl := by

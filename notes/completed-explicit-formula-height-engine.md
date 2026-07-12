@@ -95,9 +95,11 @@ stronger source-facing certificate.
 1. Supply `CompletedXiLogSquaredSelectedHeightFamily` from the cited
    Titchmarsh selected-height theorem; its conversion to the downstream
    quadratic contract is already proved.
-2. Expand the right vertical edge into zeta, Gamma, and pole logarithmic
-   derivatives.
-3. identify its limit with `(i/2) * completedPlaceFunctional h`.
-4. construct `CompletedXiSelectedRightEdgeLimit`; completed-Xi and test
-   symmetry already convert it to the two-sided vertical limit.
-5. apply `completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits`.
+2. Discharge `CompletedXiRightEdgePlaceIdentification`: two full-line
+   contour-shift value identities and one Abel-to-literal arithmetic transfer.
+   Channel decomposition, elementary/Gamma integrability, and selected-height
+   exhaustion are already proved.
+3. Apply
+   `completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights_and_places`.
+   It compiles those two independent inputs directly to the completed Weil
+   formula.

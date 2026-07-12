@@ -1,4 +1,5 @@
 import RiemannVenue.Venue.BoundaryExplicitFormulaContour
+import RiemannVenue.Venue.BoundaryGammaGrowth
 import RiemannVenue.Venue.BoundaryRightEdgeDecomposition
 
 /-!
@@ -530,6 +531,129 @@ theorem integrable_completedContourTest_right
       completedContourTest h ((1 : ℂ) + ε + y * Complex.I)) := by
   simpa using integrable_completedContourTest_right_mul_phase h ε 0
 
+/-- One absolute height moment of the displaced right-edge test is
+integrable. This is the exact decay input needed by any at-most-linear place
+multiplier, including the complex Gamma score. -/
+theorem integrable_abs_mul_completedContourTest_right
+    (h : SmoothCompletedLogTest) (ε : ℝ) :
+    Integrable (fun y : ℝ => |y| *
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I)) := by
+  let c : ℝ := 2 * Real.pi
+  let a : ℝ := 1 / 2 + ε
+  have hc : 0 < c := mul_pos (by norm_num) Real.pi_pos
+  have hp0 : Integrable (fun xi : ℝ =>
+      |xi| * (h.expTilt a).fourierSchwartz xi) := by
+    have hweighted := (h.expTilt a).fourierSchwartz.integrable_pow_mul
+      (volume : Measure ℝ) 1
+    apply hweighted.mono
+    · fun_prop
+    · filter_upwards [] with xi
+      simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_abs,
+        pow_one, abs_of_nonneg (norm_nonneg _), le_refl]
+  have hm0 : Integrable (fun xi : ℝ =>
+      |xi| * (h.expTilt (-a)).fourierSchwartz xi) := by
+    have hweighted := (h.expTilt (-a)).fourierSchwartz.integrable_pow_mul
+      (volume : Measure ℝ) 1
+    apply hweighted.mono
+    · fun_prop
+    · filter_upwards [] with xi
+      simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_abs,
+        pow_one, abs_of_nonneg (norm_nonneg _), le_refl]
+  have hp : Integrable (fun y : ℝ =>
+      |y| * (h.expTilt a).fourierSchwartz (-y / c)) := by
+    have hcomp := hp0.comp_div (R := -c) (neg_ne_zero.mpr hc.ne')
+    apply (hcomp.const_mul c).congr
+    filter_upwards [] with y
+    rw [show |y| = c * |-y / c| by
+      rw [abs_div, abs_neg, abs_of_pos hc]
+      field_simp [hc.ne']]
+    push_cast
+    ring_nf
+  have hm : Integrable (fun y : ℝ =>
+      |y| * (h.expTilt (-a)).fourierSchwartz (y / c)) := by
+    have hcomp := hm0.comp_div (R := c) hc.ne'
+    apply (hcomp.const_mul c).congr
+    filter_upwards [] with y
+    rw [show |y| = c * |y / c| by
+      rw [abs_div, abs_of_pos hc]
+      field_simp [hc.ne']]
+    push_cast
+    ring
+  have hsum := hp.add hm
+  have hscaled := hsum.const_mul (1 / (4 * Real.pi) : ℂ)
+  apply hscaled.congr
+  filter_upwards [] with y
+  rw [completedContourTest_right_eq_expTilt_fourier]
+  simp only [Pi.add_apply]
+  dsimp [a, c]
+  ring
+
+/-- The nonsingular elementary score is integrable against the right-edge
+test on the full line. -/
+theorem integrable_completedContourTest_mul_rightElementaryLogScore
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        completedXiRightElementaryLogScore y) := by
+  have hbase : Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + y * Complex.I)) := by
+    simpa using integrable_completedContourTest_right h 0
+  apply hbase.mul_bdd (c := 1)
+  · exact continuous_completedXiRightElementaryLogScore.aestronglyMeasurable
+  · filter_upwards [] with y
+    unfold completedXiRightElementaryLogScore
+    have hs0 : (1 : ℂ) + y * Complex.I ≠ 0 := by
+      intro hs
+      have hre := congrArg Complex.re hs
+      simp at hre
+    rw [norm_div, norm_one, div_le_one (norm_pos_iff.mpr hs0)]
+    calc
+      (1 : ℝ) = |(((1 : ℂ) + y * Complex.I).re)| := by simp
+      _ ≤ ‖(1 : ℂ) + y * Complex.I‖ := Complex.abs_re_le_norm _
+
+/-- The complex Gamma score is integrable against the right-edge test on the
+full line. The proof uses only the coarse linear score bound and one Schwartz
+height moment. -/
+theorem integrable_completedContourTest_mul_rightGammaLogScore
+    (h : SmoothCompletedLogTest) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        completedXiRightGammaLogScore y) := by
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + y * Complex.I)
+  let C : ℝ := gammaBoundaryLinearConstant
+  have hK : Integrable K := by
+    simpa [K] using
+      (integrable_completedContourTest_right h 0)
+  have hKy : Integrable (fun y : ℝ => |y| * K y) := by
+    simpa [K] using
+      (integrable_abs_mul_completedContourTest_right h 0)
+  have henv : Integrable (fun y : ℝ =>
+      C * (‖K y‖ + |y| * ‖K y‖)) :=
+    (hK.norm.add (hKy.norm.congr (by
+      filter_upwards [] with y
+      simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs,
+        abs_abs]))).const_mul C
+  apply henv.mono
+  · exact ((continuous_completedContourTest h).comp (by fun_prop)).mul
+      continuous_completedXiRightGammaLogScore |>.aestronglyMeasurable
+  · filter_upwards [] with y
+    have hscore : ‖completedXiRightGammaLogScore y‖ ≤
+        C * (1 + |y|) := by
+      unfold completedXiRightGammaLogScore
+      rw [logDeriv_GammaR_eq_archimedeanGammaLogScore (by simp)]
+      exact norm_archimedeanGammaLogScore_one_add_mul_I_le y
+    have hC : 0 ≤ C := gammaBoundaryLinearConstant_nonneg
+    change ‖K y * completedXiRightGammaLogScore y‖ ≤
+      ‖(C * (‖K y‖ + |y| * ‖K y‖) : ℝ)‖
+    rw [norm_mul, Real.norm_eq_abs,
+      abs_of_nonneg (mul_nonneg hC (by positivity))]
+    calc
+      ‖K y‖ * ‖completedXiRightGammaLogScore y‖ ≤
+          ‖K y‖ * (C * (1 + |y|)) :=
+        mul_le_mul_of_nonneg_left hscore (norm_nonneg _)
+      _ = C * (‖K y‖ + |y| * ‖K y‖) := by ring
+
 /-- Every natural-indexed Abel--von Mangoldt summand is integrable against
 the displaced completed contour test. -/
 theorem integrable_completedContourTest_mul_abelVonMangoldtTerm
@@ -630,10 +754,10 @@ theorem integral_completedContourTest_mul_LSeries_vonMangoldt
   funext n
   exact integral_completedContourTest_mul_abelVonMangoldtTerm h ε n
 
-/-- The arithmetic component of the completed Abel score integrates to the
-critical von Mangoldt pairing. The pole term remains separate, exactly as in
-the completed right-edge channel decomposition. -/
-theorem integral_completedContourTest_mul_completedAbelArithmeticChannel
+/-- Subtracting the completed Abel score from its pole counterterm extracts
+the von Mangoldt L-series. Its integral is the positive finite-place pairing;
+the actual completed score contains this contribution with a minus sign. -/
+theorem integral_completedContourTest_mul_completedAbelFinitePlaceExtraction
     (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
     (∫ y : ℝ,
       completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
@@ -735,6 +859,117 @@ theorem criticalVonMangoldtPairing_eq_tsum_prime_powers
       simpa only [Nat.cast_add, Nat.cast_one] using
         (criticalVonMangoldtTerm_prime_pow h p.prop
           (Nat.add_one_ne_zero k))
+
+/-- Compact support collapses the canonical infinite prime-power presentation
+to the repository's existing finite cutoff implementation. -/
+theorem criticalVonMangoldtPairing_eq_half_compactPrimePowerPairing
+    (h : SmoothCompletedLogTest) :
+    criticalVonMangoldtPairing h =
+      (1 / 2 : ℂ) * (compactPrimePowerPairing (h : CompletedLogTest) : ℂ) := by
+  classical
+  let C := (h : CompletedLogTest).truncationCutoff
+  let primes := primeWindowUpTo C
+  let T : Nat.Primes → ℕ → ℂ := fun p k =>
+    (1 / 2 : ℂ) *
+      (RiemannVenue.Weil.primePowerWeight p (k + 1) : ℂ) *
+        ((h ((k + 1) * Real.log p) : ℂ) +
+          (h (-((k + 1) * Real.log p)) : ℂ))
+  have hprime : ∀ p : Nat.Primes, p ∉ primes → ∀ k, T p k = 0 := by
+    intro p hp k
+    have hpRange : (p : ℕ) ∉ Finset.range (C + 1) := by
+      intro hpRange
+      apply hp
+      exact Finset.mem_subtype.mpr hpRange
+    have hp' : ¬ (p : ℕ) < C + 1 := by
+      simpa only [Finset.mem_range] using hpRange
+    have hCp : C < (p : ℕ) := by
+      omega
+    have hcut : (h : CompletedLogTest).primeCutoff < (p : ℕ) :=
+      lt_of_le_of_lt (le_max_left _ _) hCp
+    obtain ⟨hz, hzneg⟩ :=
+      (h : CompletedLogTest).eq_zero_at_primePower_of_primeCutoff_lt
+        p.prop.pos hcut (Nat.succ_pos k)
+    have hz' : h ((k + 1) * Real.log p) = 0 := by
+      simpa only [Nat.cast_add, Nat.cast_one, Nat.cast_succ] using hz
+    have hzneg' : h (-((k + 1) * Real.log p)) = 0 := by
+      simpa only [Nat.cast_add, Nat.cast_one, Nat.cast_succ] using hzneg
+    simp [T, hz', hzneg']
+  have hpower : ∀ p : Nat.Primes, ∀ k ∉ Finset.range C, T p k = 0 := by
+    intro p k hk
+    have hCk : C ≤ k := by simpa using hk
+    have hpowle : (h : CompletedLogTest).powerCutoff ≤ C := by
+      exact le_max_right _ _
+    have hcut : (h : CompletedLogTest).powerCutoff < k + 1 :=
+      lt_of_le_of_lt hpowle (by omega)
+    obtain ⟨hz, hzneg⟩ :=
+      (h : CompletedLogTest).eq_zero_at_primePower_of_powerCutoff_lt
+        p.prop hcut
+    have hz' : h ((k + 1) * Real.log p) = 0 := by
+      simpa only [Nat.cast_add, Nat.cast_one] using hz
+    have hzneg' : h (-((k + 1) * Real.log p)) = 0 := by
+      simpa only [Nat.cast_add, Nat.cast_one] using hzneg
+    simp [T, hz', hzneg']
+  rw [criticalVonMangoldtPairing_eq_tsum_prime_powers]
+  change (∑' p : Nat.Primes, ∑' k : ℕ, T p k) = _
+  rw [tsum_eq_sum (s := primes) (fun p hp => by
+    calc
+      (∑' k : ℕ, T p k) = ∑' _k : ℕ, (0 : ℂ) := by
+        apply tsum_congr
+        exact hprime p hp
+      _ = 0 := tsum_zero)]
+  simp_rw [tsum_eq_sum (s := Finset.range C) (hpower _)]
+  rw [compactPrimePowerPairing,
+    ← primePowerSideWindow_primeWindowUpTo C C (h : CompletedLogTest)]
+  unfold primePowerSideWindow
+  push_cast
+  rw [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro p hp
+  rw [Finset.mul_sum]
+  apply Finset.sum_bij (fun k _ => k + 1)
+  · intro k hk
+    simp only [Finset.mem_range] at hk
+    simp only [Finset.mem_Icc]
+    omega
+  · intro k₁ hk₁ k₂ hk₂ heq
+    omega
+  · intro r hr
+    simp only [Finset.mem_Icc] at hr
+    refine ⟨r - 1, by simp only [Finset.mem_range]; omega, by omega⟩
+  · intro k hk
+    simp only [T, Nat.cast_add, Nat.cast_one]
+    ring
+
+/-- The Abel finite-place extraction is already constant throughout the open
+displacement half-line once expressed in finite-place coordinates. -/
+theorem integral_completedAbelFinitePlaceExtraction_eq_half_compactPrimePowerPairing
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        (1 / ((ε : ℂ) + y * Complex.I) -
+          completedAbelZetaLogScore ε y)) =
+      (1 / 2 : ℂ) *
+        (compactPrimePowerPairing (h : CompletedLogTest) : ℂ) := by
+  rw [integral_completedContourTest_mul_completedAbelFinitePlaceExtraction h hε,
+    criticalVonMangoldtPairing_eq_half_compactPrimePowerPairing]
+
+/-- Abel boundary passage for the finite-place extraction. This theorem does
+not identify the limit with a literal full-line integral at `ε = 0`; that
+stronger statement requires a uniform boundary-score majorant. -/
+theorem tendsto_integral_completedAbelFinitePlaceExtraction
+    (h : SmoothCompletedLogTest) :
+    Filter.Tendsto
+      (fun ε : ℝ => ∫ y : ℝ,
+        completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+          (1 / ((ε : ℂ) + y * Complex.I) -
+            completedAbelZetaLogScore ε y))
+      (nhdsWithin 0 (Set.Ioi 0))
+      (nhds ((1 / 2 : ℂ) *
+        (compactPrimePowerPairing (h : CompletedLogTest) : ℂ))) := by
+  apply tendsto_nhds_of_eventually_eq
+  filter_upwards [self_mem_nhdsWithin] with ε hε
+  exact integral_completedAbelFinitePlaceExtraction_eq_half_compactPrimePowerPairing
+    h hε
 
 
 end

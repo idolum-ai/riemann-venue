@@ -34,17 +34,18 @@ obligations: both sides of the intended completed Weil pairing now
 independently exist with fixed domains, multiplicities, scaling, and
 normalization.
 
-We are now hitting classical contour-analysis bedrock. Pinned Mathlib lacks a
-general residue theorem, so we must build finite-pole rectangle excision from
-its Cauchy rectangle and circle machinery. After that comes the genuinely
-zeta-specific obstruction: selecting zero-avoiding heights, controlling
-`Xi'/Xi` on horizontal edges, and identifying the vertical edges with the von
-Mangoldt, Gamma, and pole terms. If those gates close, we obtain the completed
-explicit formula and can finally ask whether the boundary-jet architecture
-contributes anything non-tautological to Weil positivity. If they do not, the
-failure should locate precisely whether the missing structure is contour
-infrastructure, arithmetic cancellation, or the proposed boundary type
-itself.
+We have now crossed most of the contour-analysis layer. Finite-pole rectangle
+excision is compiled, the horizontal contour vanishes under a precise weak
+selected-height contract, and functional-equation symmetry reduces the
+vertical contour to one right edge. On that edge the full von Mangoldt
+L-series may be exchanged with the Fourier integral; its canonical infinite
+prime-power sum collapses exactly to the compact finite-place pairing. The
+elementary and Gamma channels are full-line integrable and selected intervals
+exhaust them. What remains is sharply classical: construct the cited
+logarithmic-squared selected heights, evaluate two full-line place integrals
+by contour shift/Fourier inversion, and transfer the Abel finite-place result
+to the literal regularized boundary contour. Those inputs now compile
+directly to the completed explicit formula.
 
 ## Current decision gate
 
@@ -54,11 +55,9 @@ recursive subdivision, and the finite-set-to-partition compiler are proved.
 The compiler chooses internal lines avoiding every pole and handles poles
 with shared real or imaginary coordinates.
 
-The zero-avoiding-height layer has also crossed its qualitative sill. There is
-a cofinal selected height in every unit interval, every selected horizontal
-edge is zero-free, its global ordinate clearance is positive, and `Xi'/Xi` is
-bounded on that compact edge. The new decision gate is quantitative: neither
-the clearance nor the edge bound has a proved growth rate. Closing the
-horizontal-edge limit now requires a minimum-modulus, Hadamard-factorization,
-or direct logarithmic-derivative estimate strong enough to be dominated by
-the already-proved fourth-order transform decay.
+The zero-avoiding-height layer has crossed its qualitative sill, and every
+logarithmic-squared selected-height family is proved sufficient for horizontal
+decay. Its existence remains the Titchmarsh/minimum-modulus input. Independently,
+`CompletedXiRightEdgePlaceIdentification` is now the exact three-field place
+gate. Together these two inputs imply the completed Weil explicit formula;
+neither can hide obligations belonging to the other.

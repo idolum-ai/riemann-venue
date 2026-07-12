@@ -763,6 +763,48 @@ noncomputable def completedXiRightRegularizedZetaContour
     completedContourTest h (1 + y * Complex.I) *
       regularizedZetaBoundaryLogScore y
 
+/-- Full-line value of the nonsingular elementary right-edge channel. -/
+noncomputable def completedXiRightElementaryFullLine
+    (h : SmoothCompletedLogTest) : ℂ :=
+  Complex.I * ∫ y : ℝ,
+    completedContourTest h (1 + y * Complex.I) *
+      completedXiRightElementaryLogScore y
+
+/-- Full-line value of the Gamma right-edge channel. -/
+noncomputable def completedXiRightGammaFullLine
+    (h : SmoothCompletedLogTest) : ℂ :=
+  Complex.I * ∫ y : ℝ,
+    completedContourTest h (1 + y * Complex.I) *
+      completedXiRightGammaLogScore y
+
+/-- Any cofinal positive height family exhausts the integrable elementary
+right-edge channel. -/
+theorem tendsto_completedXiRightElementaryContour
+    (h : SmoothCompletedLogTest) {heights : ℕ → ℝ}
+    (hT : Tendsto heights atTop atTop) :
+    Tendsto (completedXiRightElementaryContour h heights) atTop
+      (𝓝 (completedXiRightElementaryFullLine h)) := by
+  have hneg : Tendsto (fun n => -heights n) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp hT
+  have hi := intervalIntegral_tendsto_integral
+    (integrable_completedContourTest_mul_rightElementaryLogScore h) hneg hT
+  exact (tendsto_const_nhds.mul hi).congr'
+    (Filter.Eventually.of_forall fun n => rfl)
+
+/-- Any cofinal positive height family exhausts the integrable Gamma
+right-edge channel. -/
+theorem tendsto_completedXiRightGammaContour
+    (h : SmoothCompletedLogTest) {heights : ℕ → ℝ}
+    (hT : Tendsto heights atTop atTop) :
+    Tendsto (completedXiRightGammaContour h heights) atTop
+      (𝓝 (completedXiRightGammaFullLine h)) := by
+  have hneg : Tendsto (fun n => -heights n) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp hT
+  have hi := intervalIntegral_tendsto_integral
+    (integrable_completedContourTest_mul_rightGammaLogScore h) hneg hT
+  exact (tendsto_const_nhds.mul hi).congr'
+    (Filter.Eventually.of_forall fun n => rfl)
+
 /-- Every finite right edge splits into three individually continuous
 channels. The zeta pole and `1/(s-1)` counterterm remain together in the
 regularized arithmetic channel. -/
@@ -880,6 +922,45 @@ structure CompletedXiSelectedRightEdgeLimit
   placeLimit : Tendsto (completedXiRightVerticalContour h Q.heights) atTop
     (𝓝 ((Complex.I / 2) * (completedPlaceFunctional h : ℂ)))
 
+/-- The three remaining place identifications on the selected right edge.
+Integrability and interval exhaustion of the elementary and Gamma channels
+are already proved; their value identities and the Abel-to-literal arithmetic
+transfer remain explicit fields. -/
+structure CompletedXiRightEdgePlaceIdentification
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) : Prop where
+  elementaryValue : completedXiRightElementaryFullLine h =
+    (Complex.I / 2) * (completedPolePairing (h : CompletedLogTest) : ℂ)
+  gammaValue : completedXiRightGammaFullLine h =
+    (Complex.I / 2) *
+      ((∫ u : ℝ, h.naturalCosineDensity u *
+        archimedeanGammaBoundaryScore u : ℝ) : ℂ)
+  regularizedZetaLimit :
+    Tendsto (completedXiRightRegularizedZetaContour h Q.heights) atTop
+      (𝓝 (-(Complex.I / 2) *
+        (compactPrimePowerPairing (h : CompletedLogTest) : ℂ)))
+
+/-- Once the three place identities are supplied, the proved channel
+decomposition and exhaustion theorems compile the one-sided right-edge limit.
+-/
+theorem CompletedXiRightEdgePlaceIdentification.toRightEdgeLimit
+    {h : SmoothCompletedLogTest}
+    {Q : CompletedXiQuadraticSelectedHeightFamily}
+    (P : CompletedXiRightEdgePlaceIdentification h Q) :
+    CompletedXiSelectedRightEdgeLimit h Q := by
+  have he := tendsto_completedXiRightElementaryContour h Q.heightsTendsto
+  rw [P.elementaryValue] at he
+  have hg := tendsto_completedXiRightGammaContour h Q.heightsTendsto
+  rw [P.gammaValue] at hg
+  have hsum := (he.add hg).add P.regularizedZetaLimit
+  refine ⟨?_⟩
+  rw [completedPlaceFunctional_eq_places]
+  convert hsum.congr' (Filter.Eventually.of_forall fun n =>
+    (completedXiRightVerticalContour_eq_channels h Q.heights n).symm) using 1
+  congr 1
+  push_cast
+  ring
+
 /-- A right-edge place theorem supplies the former two-sided vertical-limit
 contract by completed functional-equation symmetry. -/
 theorem CompletedXiSelectedRightEdgeLimit.toVerticalLimit
@@ -940,6 +1021,17 @@ theorem completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits
     CompletedWeilExplicitFormulaOnSmoothCore :=
   completedWeilExplicitFormulaOnSmoothCore_of_quantitativeContours Q fun h =>
     (hright h).toVerticalLimit
+
+/-- Source-facing terminal reduction: the cited logarithmic-squared selected
+height theorem and the three explicit right-edge place identifications imply
+the completed Weil formula on the smooth core. -/
+theorem completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights_and_places
+    (L : CompletedXiLogSquaredSelectedHeightFamily)
+    (hplaces : ∀ h : SmoothCompletedLogTest,
+      CompletedXiRightEdgePlaceIdentification h L.toQuadratic) :
+    CompletedWeilExplicitFormulaOnSmoothCore :=
+  completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits L.toQuadratic
+    fun h => (hplaces h).toRightEdgeLimit
 
 /-- On every selected zero-free horizontal edge, `Xi'/Xi` has a finite bound.
 The bound is intentionally indexed by `n`; no asymptotic rate is claimed. -/

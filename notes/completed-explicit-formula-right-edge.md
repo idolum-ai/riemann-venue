@@ -51,9 +51,7 @@ symmetry.
 The preferred evaluation route is hybrid. Keep the final contour on
 `re s = 1`, but evaluate the arithmetic channel first at `re s = 1 + epsilon`,
 where the von Mangoldt Dirichlet series converges absolutely, and then prove
-the Abel boundary limit as `epsilon -> 0+`. Compact support of the log test
-should make the resulting prime-power projection finite after Fourier
-inversion, but the interchange and boundary passage remain to be proved.
+the Abel boundary limit as `epsilon -> 0+`.
 
 The first part of this route is compiled. `completedAbelZetaLogScore` extends
 the completed regularized channel to `re s = 1 + epsilon`; at `epsilon = 0`
@@ -77,7 +75,8 @@ integral_y K_epsilon(y) * L(vonMangoldt)(1+epsilon+i*y)
   = criticalVonMangoldtPairing(h).
 ```
 
-Using the completed-score decomposition, Lean also proves directly
+Subtracting the completed score from its pole counterterm extracts that
+L-series, so Lean also proves directly
 
 ```text
 integral_y K_epsilon(y)
@@ -85,10 +84,15 @@ integral_y K_epsilon(y)
   = criticalVonMangoldtPairing(h).
 ```
 
-The right side is independent of `epsilon`. It is absolutely summable and,
+This is the finite-place extraction, not the whole arithmetic score: the
+actual score is the pole counterterm minus this extraction. The right side is
+independent of `epsilon`. It is absolutely summable and,
 through mathlib's canonical equivalence between prime powers and
 `Nat.Primes x Nat`, is proved equal to the full double prime-power sum with
-exactly half of the repository's critical prime-power weight.
+exactly half of the repository's critical prime-power weight. Compact support
+now also proves that this double sum is exactly
+`(1/2) * compactPrimePowerPairing h`, and the finite-place extraction has that
+value throughout `epsilon > 0` and in the Abel limit `epsilon -> 0+`.
 
 The finite normalization gate is also closed. Exponential tilting preserves
 the smooth compact test core, and Fourier inversion proves the one-monomial
@@ -111,16 +115,27 @@ integral_y K_epsilon(y) * AbelPrimePowerPolynomial(P,R,epsilon,y)
 The factor `1/2` is exactly the one-sided right-edge normalization; completed
 functional-equation symmetry doubles it in the full vertical contour. The
 finite and infinite calculations now meet term by term with the same
-normalization. The remaining bookkeeping theorem is to use compact support to
-collapse the canonical double `tsum` to the existing cutoff implementation
-`compactPrimePowerPairing h`. The remaining analytic boundary theorem is then
-to pass `epsilon -> 0+` in the combined completed channel; the arithmetic
-component itself has already become constant after integration.
+normalization.
 
-The elementary and Gamma channels can be developed independently: establish
-their full-line integrability from fourth-order test decay, identify their
-limits by contour shift/Fourier inversion, and then leave the Abel arithmetic
-identity as the sole right-edge theorem.
+The elementary and Gamma channels now have full-line integrability. The Gamma
+proof uses a new complex right-edge linear-growth bound and one absolute
+height moment of the Schwartz test. Any cofinal selected-height family
+therefore exhausts both channels to named full-line values.
+
+The remaining place work is exact and separated by
+`CompletedXiRightEdgePlaceIdentification`:
+
+1. identify the elementary full-line value with
+   `(i/2) * completedPolePairing h`;
+2. identify the Gamma full-line value with `(i/2)` times the canonical
+   archimedean pairing;
+3. transfer the Abel finite-place result to the literal `epsilon = 0`
+   regularized-zeta selected contour, with value
+   `-(i/2) * compactPrimePowerPairing h`.
+
+These three fields compile automatically to the selected right-edge place
+limit. They do not include the separate existence theorem for quantitative
+selected heights.
 
 ## Artifacts
 
