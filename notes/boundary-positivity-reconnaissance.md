@@ -2,7 +2,7 @@
 
 ## Question
 
-Does the constructed completed boundary type make positivity automatic,
+Does the constructed completed boundary package make positivity automatic,
 reduce it to a smaller independent inequality, or recover the expected
 critical-line spectral condition?
 

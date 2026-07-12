@@ -5,8 +5,8 @@ spectral-detection implication to a theorem.
 
 ## Starting point
 
-The preceding excavation has constructed the completed arithmetic boundary
-type, proved its explicit formula on the smooth compact core, and completed
+The preceding excavation has constructed a typed arithmetic boundary package,
+proved its scalar completed formula on the smooth compact core, and completed
 the easy positivity direction:
 
 ```text
@@ -152,9 +152,15 @@ arbitrary entire function:
 ```text
 structure OffRealFrequencySeparator where
   test : SmoothCompletedLogTest
-  targetOrbitContribution : Real
-  target_contribution_eq_orbit_sum : ...
-  target_negative : targetOrbitContribution < 0
+  targetMagnitude : Real
+  targetMagnitude_pos : 0 < targetMagnitude
+  targetOrbitContributionAt : Nat -> Real
+  target_contribution_eq_orbit_power_sum : ...
+  amplificationExponents : Nat -> Nat
+  amplificationExponents_strictMono : StrictMono amplificationExponents
+  target_phase_stable : exists c > 0, forall k,
+    targetOrbitContributionAt (amplificationExponents k) <=
+      -c * targetMagnitude ^ (amplificationExponents k)
   realTestSymmetry : ...
   finiteCompetitorControl : ...
   exponentialTypeBound : ...
@@ -176,13 +182,15 @@ A_(h convolutionPower n)(z) = A_h(z)^n.
 G_(h convolutionPower n)(z) = G_h(z)^n.
 ```
 
-If a separator makes the target orbit contribution strictly dominant in
-modulus and gives it the required phase, powers amplify that orbit relative to
-every finite competitor. In the simplest contract, arrange a negative real
-target and use odd powers. The full target contribution must include all orbit
-partners and multiplicities before comparison. Increasing convolution power
-preserves smooth compact support, although support radius and transform
-constants grow.
+Negativity of the base orbit sum does not imply negativity after odd powers:
+the powered contribution contains `Re(w^n)`, not `Re(w)^n`. The separator must
+therefore provide a phase-stable increasing subsequence of exponents and a
+quantitative negative lower bound at those exponents. A sufficient special
+case is termwise negative-real target data whose odd powers remain negative,
+but the generic contract must not assume that shape. The full target
+contribution includes all orbit partners and multiplicities before comparison.
+Increasing convolution power preserves smooth compact support, although
+support radius and transform constants grow.
 
 The tail theorem must account for that growth explicitly:
 
@@ -202,8 +210,9 @@ sum_rho_in_tail |G_h(z_rho)|^n
   <= q^(n-1) * sum_rho_in_tail |G_h(z_rho)|.
 ```
 
-After division by `M^n`, this tail decays geometrically. If such a global
-strict bound cannot be arranged, the proof may instead use the proved
+Combined with the phase-stable target bound of size `c * M^n`, division by
+that bound makes the tail decay geometrically. If such a global strict bound
+cannot be arranged, the proof may instead use the proved
 `N(T) = O(T log T)` count and strip decay, but it cannot reuse a fixed-test
 decay constant as though it were uniform in `n`.
 
@@ -227,10 +236,11 @@ strip. Do not silently identify the two predicates before that theorem exists.
 ### Route A: finite interpolation plus convolution powers
 
 Construct a Paley--Wiener transform with symmetry-compatible prescribed values
-on the target orbit and strict bounds on a finite zero window. Make the real
-multiplicity-weighted orbit contribution negative, raise it through
-phase-controlled convolution powers, then use the summable-base tail estimate
-or zero-counting and high-order decay to absorb the tail.
+on the target orbit and strict bounds on a finite zero window. Prove a
+phase-stable amplification subsequence on which the real,
+multiplicity-weighted target-orbit contribution has a quantitative negative
+lower bound, then use the summable-base tail estimate or zero-counting and
+high-order decay to absorb the tail.
 
 Benefits:
 
@@ -303,8 +313,8 @@ Paley--Wiener route has been tested.
    Fourier--Laplace image of `C_c^infinity`, not in an unrestricted entire
    class.
 5. **Formalize convolution powers.** Track support, smoothness, transform
-   multiplication, real-test symmetry, odd-power target phase, full-orbit
-   multiplicity, and finite-orbit amplification.
+   multiplication, real-test symmetry, a phase-stable exponent subsequence,
+   full-orbit multiplicity, and finite-orbit amplification.
 6. **Control the infinite tail.** Combine quantitative transform bounds with
    the summable-base geometric estimate when possible, otherwise with the
    proved zero-count estimate; constants must be uniform in the chosen
@@ -354,8 +364,9 @@ before adding broader analytic infrastructure.
   and analytic multiplicity.
 - **Real-test trap:** Fourier--Laplace values on a quartet are symmetry-linked
   and cannot be interpolated independently.
-- **Phase trap:** modulus dominance does not imply a negative real orbit sum;
-  amplification must preserve or deliberately select the target phase.
+- **Phase trap:** a negative base orbit sum and odd exponent do not imply a
+  negative powered orbit sum; amplification needs a proved phase-stable
+  subsequence and quantitative negative lower bound.
 - **Paley--Wiener trap:** not every entire interpolant is the transform of a
   smooth compact test.
 - **Fixed-constant trap:** decay constants depending on the amplified test

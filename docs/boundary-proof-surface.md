@@ -21,6 +21,9 @@ probe structure to stable semantic API.
 - `completedBoundarySmoothCorePositivity_of_openStripRH` and
   `completedBoundarySmoothCorePositivity_of_RH`: critical-line spectrum
   implies positivity on smooth compact autocorrelations.
+- `boundaryPositivityReconnaissance`: packages the proved easy direction,
+  conditional coefficient-sensitivity trap, and open converse without
+  asserting positivity.
 
 CI audits these declarations through `RiemannVenue/AxiomAudit.lean` and
 `scripts/check_axioms.py`. The approved dependency set is `propext`,

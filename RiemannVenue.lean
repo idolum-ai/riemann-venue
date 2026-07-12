@@ -80,6 +80,7 @@ import RiemannVenue.Venue.BoundarySmoothTestCore
 import RiemannVenue.Venue.BoundarySmoothCosineLift
 import RiemannVenue.Venue.BoundaryCompletedPlaces
 import RiemannVenue.Venue.BoundaryGammaGrowth
+import RiemannVenue.Venue.BoundaryCompletedPlaceFunctional
 import RiemannVenue.Venue.BoundaryCompletedFunctional
 import RiemannVenue.Venue.BoundaryZetaZeroCounting
 import RiemannVenue.Venue.BoundaryCompletedXiGrowth

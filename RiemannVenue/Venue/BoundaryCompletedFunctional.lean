@@ -1,19 +1,16 @@
 import Mathlib.Analysis.Analytic.Order
 import Mathlib.NumberTheory.LSeries.ZetaZeros
-import RiemannVenue.Venue.BoundaryGammaGrowth
+import RiemannVenue.Venue.BoundaryCompletedPlaceFunctional
 
 /-!
-# The assembled completed-place functional and the zero-side gate
+# The completed zero-side gate
 
-The finite prime-power, archimedean Gamma, and pole terms now act on one
-canonical smooth compact test core. This file assembles them into a single
-typed place functional with fixed normalization.
-
-It also states the exact zero-side object needed for the completed Weil
-explicit formula. This layer deliberately exposes convergence and equality
-as propositions rather than hiding them in an abstract pairing. Downstream
-modules now prove both clauses and identify this functional with independently
-assembled completed boundary Cauchy data.
+`BoundaryCompletedPlaceFunctional` assembles the place side without importing
+zeta-zero data. This file adds the exact zero-side object needed for the
+completed Weil explicit formula. It deliberately exposes convergence and
+equality as propositions rather than hiding them in an abstract pairing.
+Downstream modules prove both clauses and identify the place functional with
+independently assembled completed boundary Cauchy data.
 -/
 
 namespace RiemannVenue.Venue
@@ -21,22 +18,6 @@ namespace RiemannVenue.Venue
 open MeasureTheory
 
 noncomputable section
-
-/-- The normalized completed place functional on the smooth compact core.
-Its signs and multiplicities follow the contour-derived convention
-`pole + 2 * Gamma - finite prime powers`. -/
-noncomputable def completedPlaceFunctional
-    (h : SmoothCompletedLogTest) : ℝ :=
-  h.toCanonicalGeneralCompletedGammaTest.finiteGammaPoleValue
-
-/-- The assembled functional is definitionally the sum of the three place
-faces, with the canonical Fourier density supplying the Gamma face. -/
-theorem completedPlaceFunctional_eq_places (h : SmoothCompletedLogTest) :
-    completedPlaceFunctional h =
-      completedPolePairing h +
-        2 * (∫ u : ℝ, h.naturalCosineDensity u *
-          archimedeanGammaBoundaryScore u) -
-        compactPrimePowerPairing h := rfl
 
 /-- The canonical entire cosine transform of a compact log test. On the real
 axis this is the analytic continuation of its normalized cosine density. -/

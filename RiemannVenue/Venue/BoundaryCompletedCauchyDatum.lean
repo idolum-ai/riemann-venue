@@ -1,4 +1,4 @@
-import RiemannVenue.Venue.BoundaryCompletedFunctional
+import RiemannVenue.Venue.BoundaryCompletedPlaceFunctional
 import RiemannVenue.Venue.BoundaryFourierL1
 
 /-!

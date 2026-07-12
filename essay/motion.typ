@@ -303,7 +303,9 @@ $ upright("Gram positivity")
 
 The completed distribution is now proved on the repository's smooth compact
 core. Critical-line spectrum implies positivity there; the converse
-positivity-to-real-spectrum direction is the remaining RH-strength gate.
+positivity-to-real-spectrum direction is the remaining RH-strength gate on the
+indexed open-strip zeros. Identifying that predicate with full RH requires a
+separate zero-classification bridge.
 
 #part-title("The Failure of Cancellation", "WHAT WOULD MAKE IT STABLE AT THE CRITICAL SCALE")
 The

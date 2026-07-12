@@ -10,6 +10,7 @@ exactly the repository's approved standard Mathlib axioms.
 
 #print axioms RiemannVenue.Venue.completedZetaZeroSumConverges_proved
 #print axioms RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved
+#print axioms RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValueIdentified
 #print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_RH
 #print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH

@@ -12,6 +12,7 @@ AUDIT_FILE = "RiemannVenue/AxiomAudit.lean"
 EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.completedZetaZeroSumConverges_proved",
     "RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved",
+    "RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional",
     "RiemannVenue.Venue.completedBoundaryCauchyValueIdentified",
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_RH",
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH",
