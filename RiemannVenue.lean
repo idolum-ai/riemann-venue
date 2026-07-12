@@ -97,3 +97,4 @@ import RiemannVenue.Venue.BoundaryPositivityReconnaissance
 import RiemannVenue.Venue.BoundaryComplexAutocorrelation
 import RiemannVenue.Venue.BoundarySpectralOrbit
 import RiemannVenue.Venue.BoundarySpectralAmplification
+import RiemannVenue.Venue.BoundaryCompletedTypeLaws
