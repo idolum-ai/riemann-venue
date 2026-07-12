@@ -147,11 +147,15 @@ adds the proved elementary half.
 For Gamma, Lean proves that the completed test transform on the critical axis
 is genuinely real and equals `naturalCosineDensity`, performs the holomorphic
 contour shift, and discharges the odd-imaginary cancellation. The selected
-height contracts have also been widened to `0 <= sigma <= 2`, matching the
+height contracts have also been widened to `-1 <= sigma <= 2`, matching the
 classical Titchmarsh source range, and the test now has a proved fourth-order
 majorant on the corresponding wider spectral strip. These are the exact inputs
 used to shift the arithmetic channel from the literal boundary to the
 absolutely convergent line `Re(s)=2`.
+
+Only the positive selected-height bound is contract data. The completed-Xi
+functional equation derives the negative edge at `sigma` from the positive
+edge at `1 - sigma`; the widened source strip covers that reflected point.
 
 The three proved channel values now compile every quantitative selected-height
 family automatically to the selected right-edge place limit. No independent

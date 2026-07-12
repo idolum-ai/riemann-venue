@@ -100,5 +100,6 @@ stronger source-facing certificate.
    Weil formula. The Abel-to-literal arithmetic strip shift, Gamma contour
    shift, channel decomposition, selected-height exhaustion, both pole-ray
    transforms, and pole recombination are all proved internally. The selected
-   family is symmetric in the two horizontal edges and covers
-   `0 <= sigma <= 2`.
+   family supplies one bound on `-1 <= sigma <= 2`; functional-equation
+   symmetry derives the negative horizontal edge rather than storing a second
+   certificate.

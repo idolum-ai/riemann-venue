@@ -545,7 +545,10 @@ contract consumed by the contour proof.
 
 The source target is Titchmarsh, *The Theory of the Riemann Zeta-Function*,
 Chapter IX, Theorems 9.6(A) and 9.7. No existence theorem for this structure is
-claimed here until that analytic input has been formalized. -/
+claimed here until that analytic input has been formalized. The source range
+`-1 <= sigma <= 2` also makes the negative-height estimate derived data:
+functional-equation symmetry sends it to the positive-height estimate at
+`1 - sigma`. -/
 structure CompletedXiLogSquaredSelectedHeightFamily where
   heights : ℕ → ℝ
   lower : ∀ n : ℕ, (n : ℝ) < heights n
@@ -554,13 +557,9 @@ structure CompletedXiLogSquaredSelectedHeightFamily where
     |(nontrivialZetaZeroValue rho).im| ≠ heights n
   constant : ℝ
   constant_nonneg : 0 ≤ constant
-  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
+  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (-1 : ℝ) 2,
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤
-        constant * (Real.log (heights n + 2)) ^ 2
-  bound_neg : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
-    ‖logDeriv completedXiCore
-      (σ - heights n * Complex.I)‖ ≤
         constant * (Real.log (heights n + 2)) ^ 2
 
 /-- The deliberately weak selected-height estimate needed downstream.
@@ -573,12 +572,9 @@ structure CompletedXiQuadraticSelectedHeightFamily where
     |(nontrivialZetaZeroValue rho).im| ≠ heights n
   constant : ℝ
   constant_nonneg : 0 ≤ constant
-  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
+  bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (-1 : ℝ) 2,
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤ constant * (heights n + 1) ^ 2
-  bound_neg : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
-    ‖logDeriv completedXiCore
-      (σ - heights n * Complex.I)‖ ≤ constant * (heights n + 1) ^ 2
 
 /-- The classical logarithmic-squared estimate is stronger than the
 quadratic contract consumed by the horizontal contour. -/
@@ -601,19 +597,6 @@ def CompletedXiLogSquaredSelectedHeightFamily.toQuadratic
       exact (Real.log_le_sub_one_of_pos (by linarith :
         0 < L.heights n + 2)).trans_eq (by ring)
     exact (L.bound n σ hσ).trans
-      (mul_le_mul_of_nonneg_left
-        ((sq_le_sq₀ hlog_nonneg (by linarith : 0 ≤ L.heights n + 1)).2 hlog_le)
-        L.constant_nonneg)
-  bound_neg := by
-    intro n σ hσ
-    have hTpos : 0 < L.heights n :=
-      lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (L.lower n)
-    have hlog_nonneg : 0 ≤ Real.log (L.heights n + 2) :=
-      Real.log_nonneg (by linarith)
-    have hlog_le : Real.log (L.heights n + 2) ≤ L.heights n + 1 :=
-      (Real.log_le_sub_one_of_pos (by linarith :
-        0 < L.heights n + 2)).trans_eq (by ring)
-    exact (L.bound_neg n σ hσ).trans
       (mul_le_mul_of_nonneg_left
         ((sq_le_sq₀ hlog_nonneg (by linarith : 0 ≤ L.heights n + 1)).2 hlog_le)
         L.constant_nonneg)
@@ -705,11 +688,22 @@ theorem CompletedXiQuadraticSelectedHeightFamily.regularizedScoreBound_neg
   let T := Q.heights n
   have hTpos : 0 < T :=
     lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (Q.lower n)
+  have hsigmaRef : 1 - sigma ∈ Set.Icc (-1 : ℝ) 2 := by
+    constructor <;> linarith [hsigma.1, hsigma.2]
+  have hxi : ‖logDeriv completedXiCore
+      (sigma - T * Complex.I)‖ ≤ Q.constant * (T + 1) ^ 2 := by
+    have hsym := completedXiCore_logDeriv_one_sub
+      ((1 - sigma : ℝ) + T * Complex.I)
+    have heq : 1 - (((1 - sigma : ℝ) : ℂ) + T * Complex.I) =
+        (sigma : ℂ) - T * Complex.I := by
+      apply Complex.ext <;> simp
+    rw [heq] at hsym
+    rw [hsym, norm_neg]
+    exact Q.bound n (1 - sigma) hsigmaRef
   have hbase := norm_completedRegularizedZetaLogScore_le_of_xi
     (sigma := sigma) (tau := -T) (T := T) (C := Q.constant) hsigma
     (by simp [abs_of_pos hTpos]) (by
-      simpa [T, sub_eq_add_neg, neg_mul] using
-        Q.bound_neg n sigma ⟨(by linarith [hsigma.1]), hsigma.2⟩)
+      simpa [T, sub_eq_add_neg, neg_mul] using hxi)
   simpa [T, sub_eq_add_neg, neg_mul] using hbase
 
 /-- Horizontal discrepancy for shifting the regularized arithmetic channel
@@ -944,7 +938,8 @@ theorem norm_completedXiHorizontalContour_le
         simpa [mul_comm] using hdecay
       rw [norm_mul]
       exact (mul_le_mul htest (Q.bound n σ
-        ⟨hσ'.1, hσ'.2.trans (by norm_num)⟩) (norm_nonneg _) (by positivity)).trans_eq
+        ⟨(by linarith [hσ'.1]), hσ'.2.trans (by norm_num)⟩)
+          (norm_nonneg _) (by positivity)).trans_eq
         (by simp [E, A]; ring))
     simpa using hbound
   have hbottom : ‖∫ σ in (0 : ℝ)..1,
@@ -977,7 +972,7 @@ theorem norm_completedXiHorizontalContour_le
         rw [heq] at hsym
         rw [hsym, norm_neg]
         exact Q.bound n (1 - σ)
-          ⟨hσref.1, hσref.2.trans (by norm_num)⟩
+          ⟨(by linarith [hσref.1]), hσref.2.trans (by norm_num)⟩
       rw [norm_mul]
       exact (mul_le_mul htest hlog (norm_nonneg _) (by positivity)).trans_eq
         (by simp [E, A]; ring))
