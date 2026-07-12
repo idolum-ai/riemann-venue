@@ -23,7 +23,7 @@ every smooth compact self-convolution has an actual nonnegative
 namespace RiemannVenue.Venue
 
 open MeasureTheory
-open scoped FourierTransform SchwartzMap
+open scoped Convolution FourierTransform SchwartzMap
 
 noncomputable section
 
@@ -258,6 +258,80 @@ theorem selfConvolution_even (h : SmoothCompletedLogTest) (t : ℝ) :
   apply integral_congr_ae
   filter_upwards [] with xi
   rw [mul_neg, Real.cos_neg]
+
+/-- Fourier reflection symmetry for a real smooth compact test. -/
+theorem fourierSchwartz_neg_eq_conj
+    (h : SmoothCompletedLogTest) (xi : ℝ) :
+    h.fourierSchwartz (-xi) =
+      (starRingEnd ℂ) (h.fourierSchwartz xi) := by
+  rw [fourierSchwartz_apply, fourierSchwartz_apply,
+    Real.fourier_real_eq_integral_exp_smul,
+    Real.fourier_real_eq_integral_exp_smul, ← integral_conj]
+  apply integral_congr_ae
+  filter_upwards [] with x
+  simp only [smul_eq_mul, toComplexSchwartz_apply,
+    map_mul, Complex.conj_ofReal]
+  congr 1
+  rw [← Complex.exp_conj]
+  congr 1
+  apply Complex.ext <;> simp
+
+private theorem selfConvolution_complex_convolution
+    (h : SmoothCompletedLogTest) (t : ℝ) :
+    (h.selfConvolution t : ℂ) =
+      ((fun x : ℝ => (h x : ℂ)) ⋆[ContinuousLinearMap.mul ℂ ℂ]
+        (fun x : ℝ => (h (-x) : ℂ))) (-t) := by
+  rw [selfConvolution_apply, RiemannVenue.Weil.selfConvolution,
+    MeasureTheory.convolution_def]
+  have hofReal :
+      (((∫ x : ℝ, h x * h (x + t)) : ℝ) : ℂ) =
+        ∫ x : ℝ, ((h x * h (x + t) : ℝ) : ℂ) := by
+    exact integral_ofReal.symm
+  rw [hofReal]
+  apply integral_congr_ae
+  filter_upwards [] with x
+  simp [sub_eq_add_neg, add_comm]
+
+/-- Forward Wiener--Khinchin: the Fourier transform of the smooth
+autocorrelation is the squared Fourier modulus. -/
+theorem fourierSchwartz_selfConvolution
+    (h : SmoothCompletedLogTest) (xi : ℝ) :
+    h.selfConvolution.fourierSchwartz xi =
+      Complex.normSq (h.fourierSchwartz xi) := by
+  let f : ℝ → ℂ := fun x => h x
+  let g : ℝ → ℂ := fun x => h (-x)
+  have hf : Integrable f := h.toComplexSchwartz.integrable
+  have hg : Integrable g := h.toComplexSchwartz.integrable.comp_neg
+  rw [fourierSchwartz_apply]
+  change 𝓕 (fun t : ℝ => (h.selfConvolution t : ℂ)) xi = _
+  rw [show (fun t : ℝ => (h.selfConvolution t : ℂ)) =
+      (fun t => (f ⋆[ContinuousLinearMap.mul ℂ ℂ] g) (-t)) by
+    funext t
+    exact selfConvolution_complex_convolution h t]
+  rw [show (fun t => (f ⋆[ContinuousLinearMap.mul ℂ ℂ] g) (-t)) =
+      (f ⋆[ContinuousLinearMap.mul ℂ ℂ] g) ∘
+        LinearIsometryEquiv.neg ℝ by rfl]
+  rw [Real.fourier_comp_linearIsometry,
+    Real.fourier_mul_convolution_eq hf hg]
+  change 𝓕 f (-xi) * 𝓕 g (-xi) = _
+  have hgFourier : 𝓕 g (-xi) = 𝓕 f xi := by
+    change 𝓕 (f ∘ LinearIsometryEquiv.neg ℝ) (-xi) = _
+    rw [Real.fourier_comp_linearIsometry]
+    simp
+  rw [hgFourier]
+  change h.fourierSchwartz (-xi) * h.fourierSchwartz xi = _
+  rw [fourierSchwartz_neg_eq_conj, Complex.normSq_eq_conj_mul_self]
+
+/-- The canonical cosine density of an autocorrelation is the normalized
+squared Fourier modulus used by the positive cosine lift. -/
+theorem naturalCosineDensity_selfConvolution
+    (h : SmoothCompletedLogTest) (u : ℝ) :
+    h.selfConvolution.naturalCosineDensity u =
+      h.normalizedSelfConvolutionFrequencyDensity u := by
+  rw [naturalCosineDensity,
+    normalizedSelfConvolutionFrequencyDensity,
+    fourierSchwartz_selfConvolution]
+  norm_num
 
 /-- The positive self-convolution sector now satisfies the completed cosine
 contract with a canonical nonnegative frequency density. -/

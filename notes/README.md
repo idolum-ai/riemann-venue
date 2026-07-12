@@ -51,6 +51,10 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   type: renormalized energy value, finite and Gamma normal fluxes, the pole
   off-boundary trace, downstream zero-side identification, and the remaining
   smooth-core positivity gate.
+- `boundary-positivity-reconnaissance.md` — the bounded positivity probe:
+  forward Wiener--Khinchin, critical-line spectrum implying positivity,
+  coefficient-perturbation failure, and the remaining spectral-detection
+  direction of Weil's criterion.
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.

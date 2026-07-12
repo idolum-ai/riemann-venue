@@ -72,11 +72,13 @@ index make the opposite side equally specific, and the proved explicit
 formula now identifies them.
 
 This closes an unconditional classical identity, not the RH-strength
-positivity gate. The remaining research boundary is to identify this proved
-functional with the renormalized first boundary jet without reading the target
-back into its construction, and then to determine whether the resulting
-completed pairing has the required positivity. Those are downstream claims,
-not consequences smuggled into the explicit-formula theorem.
+positivity gate. The completed Cauchy datum is now constructed upstream and
+identified with this functional downstream. The bounded positivity
+reconnaissance also proves the easy direction from real zero frequencies, and
+therefore from RH, to smooth-core positivity. What remains is the converse:
+positivity must detect and exclude every off-real zero frequency. That is the
+Weil-criterion direction, not a consequence smuggled into the explicit-formula
+theorem.
 
 ## Artifacts
 
@@ -94,5 +96,8 @@ not consequences smuggled into the explicit-formula theorem.
 - `RiemannVenue/Venue/BoundarySelectedHeight.lean`
 - `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`
 - `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`
+- `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`
+- `RiemannVenue/Venue/BoundaryCompletedJetIdentification.lean`
+- `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`
 - `notes/completed-explicit-formula-contour.md`
 - `notes/completed-explicit-formula-zero-counting.md`

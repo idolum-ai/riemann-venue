@@ -283,6 +283,30 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
     `notes/completed-boundary-cauchy-datum.md`
 
+- **Claim:** On the smooth compact self-convolution core, real completed-zero
+  frequencies imply positivity of the constructed boundary value; in
+  particular, RH implies this smooth-core positivity
+
+  - **Status:** proved in Lean. Forward Wiener--Khinchin identifies every real
+    zero-frequency summand with the normalized squared Fourier modulus. The
+    converse, positivity forcing every indexed zero frequency to be real, is
+    isolated as `CompletedBoundaryPositivityDetectsRealSpectrum` and remains
+    open. Once supplied, it gives equivalence with `CompletedOpenStripRH`
+  - **Artifact:** `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`,
+    `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`,
+    `notes/boundary-positivity-reconnaissance.md`
+
+- **Claim:** Finite support, linearity, and the completed Cauchy-data shape do
+  not protect positivity against coefficient drift
+
+  - **Status:** proved conditionally for every positively detected
+    self-convolution probe. A nonnegative coefficient perturbation is
+    constructed that makes the perturbed completed value negative. At the
+    first window the support correction is exactly
+    `2 * selfConvolution(h)(log 2)`; existence of a specific smooth compact
+    positive probe is not formalized in this branch
+  - **Artifact:** `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`
+
 - **Claim:** On compactly supported continuous log-scale tests, the full
   symmetrized prime-power distribution is locally finite: diagonal finite
   truncations eventually stabilize to an algebraic linear functional

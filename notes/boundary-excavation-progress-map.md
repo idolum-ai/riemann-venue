@@ -93,3 +93,15 @@ in a downstream module is it identified with the zero sum. The remaining
 frontier is therefore precise: smooth-core positivity of this actual datum,
 plus the eventual semantic theorem connecting critical-line modes and no-leak
 behavior. More contour infrastructure is not on the critical path.
+
+The first bounded positivity reconnaissance has now classified that frontier.
+Forward Wiener--Khinchin proves that a self-convolution's real-frequency zero
+transform is a squared Fourier modulus. Hence real zero frequencies, and in
+particular RH, imply smooth-core positivity. Coefficient perturbations can
+destroy positivity on any self-convolution positively seen by the perturbed
+support, so positivity is not inherited from the generic carrier shape. The
+remaining implication is exactly spectral detection: prove that positivity
+for every smooth compact autocorrelation excludes every off-real zero
+frequency. That is the Weil-criterion direction, not a smaller local-channel
+inequality. The recommended stopping point is here unless the project opens a
+dedicated Paley--Wiener/Weil-criterion formalization phase.
