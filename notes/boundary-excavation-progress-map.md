@@ -51,6 +51,13 @@ while wider-strip fourth-order test decay absorbs the quadratic score bound.
 What remains is sharply classical: construct the cited logarithmic-squared
 selected heights.
 
+The underlying cofinal heights have now been found in Lean. A finite-union
+measure argument selects `T_n in (n,n+1)` with explicit clearance from every
+zero ordinate, bounded below using the proved multiplicity-weighted `N(n+2)`.
+The unresolved refinement is local rather than existential: Titchmarsh's
+bounded-window `O(log T)` zero count and local logarithmic-derivative expansion
+must sharpen that global clearance into the `O(log^2 T)` score bound.
+
 ## Current decision gate
 
 The finite-pole rectangle charge is now closed at the generic level. Square

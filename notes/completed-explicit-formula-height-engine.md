@@ -90,11 +90,28 @@ produces `CompletedXiQuadraticSelectedHeightFamily`. Thus formalizing the
 classical theorem cannot alter the contour API: it only has to construct the
 stronger source-facing certificate.
 
+The height itself is no longer hypothetical. Lean now constructs
+`completedZetaSeparatedHeight n` in every `(n,n+1)` by deleting equal-radius
+closed neighborhoods of the finitely many zero ordinates in the `(n+2)`
+window. The surviving point has clearance at least
+`1 / (4 * (N(n+2) + 1))`, after comparing distinct ordinates with the
+multiplicity-weighted zero count. The sequence is cofinal and avoids both
+horizontal zero sets.
+
+This global-count clearance is not yet the classical selected-height estimate.
+Since `N(T) = O(T log T)`, it is only of global scale. Titchmarsh 9.6(A) uses
+the sharper fact that only `O(log T)` zeros occur in the relevant bounded
+height neighborhood, then bounds the local reciprocal sum by `O(log^2 T)`.
+The remaining work is therefore no longer to find heights, but to formalize
+that local zero expansion and replace the global cardinality in the clearance
+estimate by its local `O(log T)` bound.
+
 ## Remaining order
 
-1. Supply `CompletedXiLogSquaredSelectedHeightFamily` from the cited
-   Titchmarsh selected-height theorem; its conversion to the downstream
-   quadratic contract is already proved.
+1. Formalize the Titchmarsh 9.6(A) local-zero expansion and local
+   `O(log T)` count, then apply the proved finite-set clearance selector to
+   construct `CompletedXiLogSquaredSelectedHeightFamily`; its conversion to
+   the downstream quadratic contract is already proved.
 2. Apply `completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights`.
    It compiles that single source-facing certificate directly to the completed
    Weil formula. The Abel-to-literal arithmetic strip shift, Gamma contour

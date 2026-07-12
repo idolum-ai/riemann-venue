@@ -1,4 +1,5 @@
 import Mathlib.Order.Interval.Set.Infinite
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 import RiemannVenue.Venue.BoundaryAbelFourier
 import RiemannVenue.Venue.BoundaryRectangleCompiler
 
@@ -27,10 +28,185 @@ private theorem abs_abs_sub_abs_le_abs_sub (x y : ℝ) :
   · rw [abs_of_nonpos (sub_nonpos.mpr (le_of_not_ge h)), neg_sub]
     simpa [abs_sub_comm] using abs_sub_abs_le_abs_sub y x
 
+/-- A unit interval contains a point quantitatively separated from every
+member of a finite set. The deliberately non-sharp factor `4` makes the union
+of the forbidden closed intervals have measure strictly below one. -/
+theorem exists_unitInterval_away_finset
+    (S : Finset ℝ) (A : ℝ) :
+    ∃ T : ℝ, A < T ∧ T < A + 1 ∧
+      ∀ x ∈ S, 1 / (4 * ((S.card : ℝ) + 1)) ≤ |x - T| := by
+  let δ : ℝ := 1 / (4 * ((S.card : ℝ) + 1))
+  let U : Set ℝ := ⋃ x ∈ S, Metric.closedBall x δ
+  have hδ : 0 < δ := by positivity
+  have hUvol : volume U ≤ ENNReal.ofReal (2 * δ * S.card) := by
+    calc
+      volume U ≤ ∑ x ∈ S, volume (Metric.closedBall x δ) := by
+        exact measure_biUnion_finset_le S fun x => Metric.closedBall x δ
+      _ = ∑ _x ∈ S, ENNReal.ofReal (2 * δ) := by
+        apply Finset.sum_congr rfl
+        intro x _hx
+        simp [Real.volume_closedBall]
+      _ = ENNReal.ofReal (2 * δ * S.card) := by
+        rw [Finset.sum_const]
+        simp only [nsmul_eq_mul]
+        rw [← ENNReal.ofReal_natCast, ← ENNReal.ofReal_mul (by positivity)]
+        congr 1
+        ring
+  have hsmall : ENNReal.ofReal (2 * δ * S.card) < volume (Ioo A (A + 1)) := by
+    rw [Real.volume_Ioo]
+    norm_num
+    dsimp [δ]
+    have hcard : (0 : ℝ) ≤ S.card := by positivity
+    field_simp
+    linarith
+  have hnsub : ¬ Ioo A (A + 1) ⊆ U := by
+    intro hsub
+    have hmono : volume (Ioo A (A + 1)) ≤ volume U := measure_mono hsub
+    exact (not_lt_of_ge (hmono.trans hUvol)) hsmall
+  rw [not_subset] at hnsub
+  obtain ⟨T, hT, hTU⟩ := hnsub
+  refine ⟨T, hT.1, hT.2, ?_⟩
+  intro x hx
+  have hnotball : T ∉ Metric.closedBall x δ := by
+    intro hball
+    apply hTU
+    exact mem_iUnion₂.mpr ⟨x, hx, hball⟩
+  rw [Metric.mem_closedBall, Real.dist_eq] at hnotball
+  simpa [δ, abs_sub_comm] using (lt_of_not_ge hnotball).le
+
 /-- Absolute ordinates of nontrivial zeros in a bounded window. -/
 noncomputable def completedZetaZeroOrdinates (T : ℝ) : Finset ℝ :=
   (nontrivialZetaZeroWindowFinset T).image
     (fun rho => |(nontrivialZetaZeroValue rho).im|)
+
+/-- The number of distinct absolute zero ordinates is bounded by the
+multiplicity-weighted zero count. -/
+theorem card_completedZetaZeroOrdinates_le_count (T : ℝ) :
+    (completedZetaZeroOrdinates T).card ≤ nontrivialZetaZeroCount T := by
+  unfold completedZetaZeroOrdinates nontrivialZetaZeroCount
+  refine (Finset.card_image_le.trans ?_)
+  calc
+    (nontrivialZetaZeroWindowFinset T).card =
+        ∑ _rho ∈ nontrivialZetaZeroWindowFinset T, 1 := by simp
+    _ ≤ ∑ rho ∈ nontrivialZetaZeroWindowFinset T,
+        completedZetaZeroMultiplicity rho := by
+      apply Finset.sum_le_sum
+      intro rho _hrho
+      exact completedZetaZeroMultiplicity_pos rho
+
+/-- A canonical height in `(n,n+1)` with explicit separation from every
+nontrivial zero ordinate. This pays the finite-set selection part of the
+classical selected-height argument without invoking minimum modulus. -/
+noncomputable def completedZetaSeparatedHeight (n : ℕ) : ℝ :=
+  Classical.choose
+    (exists_unitInterval_away_finset (completedZetaZeroOrdinates (n + 2)) n)
+
+theorem completedZetaSeparatedHeight_gt (n : ℕ) :
+    (n : ℝ) < completedZetaSeparatedHeight n :=
+  (Classical.choose_spec
+    (exists_unitInterval_away_finset
+      (completedZetaZeroOrdinates (n + 2)) n)).1
+
+theorem completedZetaSeparatedHeight_lt (n : ℕ) :
+    completedZetaSeparatedHeight n < n + 1 :=
+  (Classical.choose_spec
+    (exists_unitInterval_away_finset
+      (completedZetaZeroOrdinates (n + 2)) n)).2.1
+
+theorem tendsto_completedZetaSeparatedHeight :
+    Tendsto completedZetaSeparatedHeight atTop atTop := by
+  apply tendsto_atTop_mono' atTop
+    (Filter.Eventually.of_forall fun n =>
+      (completedZetaSeparatedHeight_gt n).le)
+  exact (tendsto_natCast_atTop_atTop :
+    Tendsto (fun n : ℕ => (n : ℝ)) atTop atTop)
+
+/-- Separation stated using the multiplicity-weighted count, the quantity
+controlled by the proved `O(T log T)` theorem. -/
+theorem completedZetaSeparatedHeight_clearance
+    (n : ℕ) (rho : nontrivialRiemannZetaZeros) :
+    1 / (4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1)) ≤
+      |(nontrivialZetaZeroValue rho).im - completedZetaSeparatedHeight n| := by
+  let T := completedZetaSeparatedHeight n
+  have hT0 : 0 ≤ T :=
+    (by positivity : (0 : ℝ) ≤ n).trans (completedZetaSeparatedHeight_gt n).le
+  by_cases hrho : |(nontrivialZetaZeroValue rho).im| ≤ (n : ℝ) + 2
+  · have hrhoMem : |(nontrivialZetaZeroValue rho).im| ∈
+        completedZetaZeroOrdinates (n + 2) := by
+      rw [completedZetaZeroOrdinates, Finset.mem_image]
+      refine ⟨rho, ?_, rfl⟩
+      rw [mem_nontrivialZetaZeroWindowFinset]
+      simpa using hrho
+    have hsep := (Classical.choose_spec
+      (exists_unitInterval_away_finset
+        (completedZetaZeroOrdinates (n + 2)) n)).2.2 _ hrhoMem
+    change 1 / (4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1)) ≤
+      abs (|(nontrivialZetaZeroValue rho).im| - completedZetaSeparatedHeight n) at hsep
+    have hcard := card_completedZetaZeroOrdinates_le_count (n + 2)
+    have hcardReal :
+        ((completedZetaZeroOrdinates (n + 2)).card : ℝ) ≤
+          (nontrivialZetaZeroCount (n + 2) : ℝ) := by
+      exact_mod_cast hcard
+    have hden : 4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1) ≤
+        4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1) := by
+      exact mul_le_mul_of_nonneg_left (by linarith) (by norm_num)
+    have hrecip :
+        1 / (4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1)) ≤
+          1 / (4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1)) := by
+      exact one_div_le_one_div_of_le (by positivity) hden
+    have habs :
+        abs (|(nontrivialZetaZeroValue rho).im| - T) ≤
+          |(nontrivialZetaZeroValue rho).im - T| := by
+      simpa [abs_of_nonneg hT0] using
+        abs_abs_sub_abs_le_abs_sub (nontrivialZetaZeroValue rho).im T
+    have hsep' :
+        1 / (4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1)) ≤
+          abs (|(nontrivialZetaZeroValue rho).im| - T) := by
+      exact hsep
+    exact hrecip.trans (hsep'.trans habs)
+  · have hfar : 1 < |(nontrivialZetaZeroValue rho).im| - T := by
+      push Not at hrho
+      linarith [completedZetaSeparatedHeight_lt n]
+    have hone : 1 / (4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1)) ≤ 1 := by
+      have hdenOne : (1 : ℝ) ≤
+          4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1) := by
+        have hcount : (0 : ℝ) ≤ nontrivialZetaZeroCount (n + 2) := by positivity
+        nlinarith
+      calc
+        1 / (4 * ((nontrivialZetaZeroCount (n + 2) : ℝ) + 1)) ≤ 1 / 1 :=
+          one_div_le_one_div_of_le (by norm_num : (0 : ℝ) < 1)
+            hdenOne
+        _ = 1 := by norm_num
+    calc
+      _ ≤ 1 := hone
+      _ ≤ |(nontrivialZetaZeroValue rho).im| - T := hfar.le
+      _ = abs (|(nontrivialZetaZeroValue rho).im| - T) :=
+        (abs_of_nonneg (le_trans zero_le_one hfar.le)).symm
+      _ = abs (|(nontrivialZetaZeroValue rho).im| - |T|) := by
+        rw [abs_of_nonneg hT0]
+      _ ≤ |(nontrivialZetaZeroValue rho).im - T| :=
+        abs_abs_sub_abs_le_abs_sub _ _
+
+theorem completedZetaSeparatedHeight_ne
+    (n : ℕ) (rho : nontrivialRiemannZetaZeros) :
+    |(nontrivialZetaZeroValue rho).im| ≠ completedZetaSeparatedHeight n := by
+  intro heq
+  have hrhoMem : |(nontrivialZetaZeroValue rho).im| ∈
+      completedZetaZeroOrdinates (n + 2) := by
+    rw [completedZetaZeroOrdinates, Finset.mem_image]
+    refine ⟨rho, ?_, rfl⟩
+    rw [mem_nontrivialZetaZeroWindowFinset, heq]
+    exact (completedZetaSeparatedHeight_lt n).le.trans (by norm_num)
+  have hsep := (Classical.choose_spec
+    (exists_unitInterval_away_finset
+      (completedZetaZeroOrdinates (n + 2)) n)).2.2 _ hrhoMem
+  change 1 / (4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1)) ≤
+    abs (|(nontrivialZetaZeroValue rho).im| - completedZetaSeparatedHeight n) at hsep
+  rw [heq, sub_self, abs_zero] at hsep
+  have : 0 < 1 /
+      (4 * (((completedZetaZeroOrdinates (n + 2)).card : ℝ) + 1)) := by
+    positivity
+  linarith
 
 /-- Distinct completed-Xi zero locations in a symmetric height window. -/
 noncomputable def completedXiZeroWindowFinset (T : ℝ) : Finset ℂ :=

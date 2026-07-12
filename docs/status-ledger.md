@@ -439,7 +439,13 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     Consequently every quantitative selected-height family produces the full
     right-edge place limit without an additional place-identification contract.
     The only remaining external input to the smooth-core completed formula is
-    existence of the cited logarithmic-squared selected-height family
+    the cited logarithmic-squared selected-height estimate. A canonical
+    cofinal sequence in `(n,n+1)` with explicit clearance
+    `1 / (4 * (N(n+2) + 1))` from every zero ordinate is now constructed in
+    Lean by a finite-union measure argument. This pays the selection and
+    avoidance layer, but its global-count clearance is intentionally not
+    misreported as the stronger local `O(1/log T)` separation used in the
+    classical `O(log^2 T)` logarithmic-derivative proof
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
