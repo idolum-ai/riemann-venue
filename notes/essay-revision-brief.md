@@ -1,5 +1,10 @@
 # Revision brief: the essay, second edition
 
+Status: historical revision checkpoint. Later boundary-explicit-formula and
+positivity-reconnaissance work supersedes the frontier language quoted below;
+current claims are indexed in `docs/status-ledger.md` and
+`docs/boundary-proof-surface.md`.
+
 Prepared for Daniel's revision of *A Motion to Change Venue for the Riemann
 Hypothesis*. Maps every load-bearing element of the current draft to its
 post-expedition status, with suggested edits. The essay is Daniel's voice;
@@ -121,11 +126,12 @@ push details to exhibits/appendix. Contents, in strength order:
 
 ## 6. What NOT to change
 
-The locked chamber. The draft's treatment of Weil positivity — fenced,
-named, not attacked — survived every expedition unchanged and is the reason
-everything else could be trusted. The revision should resist any temptation
-to soften "the last arrow is RH." Nothing in the record moved that wall;
-the record's honor is that it says so.
+At this checkpoint, the locked chamber was the whole positivity arrow. Later
+work proved the critical-line-to-positivity direction on the smooth compact
+core and isolated the converse as
+`CompletedBoundaryPositivityDetectsRealSpectrum`. The wall remains
+RH-strength, but its direction is now stated precisely rather than compressed
+as "the last arrow is RH."
 
 ## 7. Third-edition sync points (2026-07-08, sixth expedition eve)
 

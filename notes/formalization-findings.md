@@ -441,3 +441,97 @@ The sixth expedition opened the doors the fifth revealed. What it taught:
   already counted the Weil form's negative eigenvalues as off-line zeros —
   frustration counting RH failures before the word existed
   (`notes/unfrustrated-cancellation-survey.md`).
+
+## 16. The local counterterm survives without arithmetic cancellation
+
+The half-balanced translated-Hellinger counterterm now has its first genuine
+finite part. The decisive move was not a prime-sum cancellation theorem but a
+uniform local estimate. On the half-radius disc, Lean proves
+
+```text
+|sqrt(P_a(theta)) - (1 + a cos theta)| <= 26 a^2.
+```
+
+After taking translated differences, squaring, and subtracting the forced
+quadratic coefficient, the exact local residual is at most `780 a^3`.
+At the critical radius `a = p^(-1/2)`, this is `780 p^(-3/2)` outside the
+finite primes `2` and `3`; absolute convergence follows immediately.
+
+The methodological finding is useful: the exact second-order coefficient and
+a coarse uniform first-order remainder were enough. We did not need a closed
+form for the Hellinger overlap, a third derivative under the integral, or
+phase cancellation across primes. The next risk is no longer local
+divergence. It is whether a sufficiently rich test ideal preserves this
+uniform control when cosine atoms are assembled into actual test functions.
+
+## 17. Study-report alignment: the caveat moved into the record
+
+An external source-text study at commit `bb541cd` found the same structural
+story the ledger is meant to make inspectable: proved positive results,
+proved negative results, explicit non-claims around RH, and a status table
+that separates checked statements from programs and notes.
+
+Its important caveat was methodological: the study did not run `lake build`
+locally at the studied commit, so its zero-`sorry` and zero-axiom findings
+rested on source inspection plus the repository's recorded CI posture. The
+repo's trust boundary remains the one in the README: rerun `lake build`
+against the pinned toolchain, not just grep the sources.
+
+The same study also highlighted the documentation pressure point around the
+boundary excavation. The branch has since discharged the exact local
+coefficient:
+
+```text
+((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)
+```
+
+and the half-balanced cosine finite part now survives absolutely by the
+uniform residual estimate `780 p^(-3/2)` outside two finite primes. Future
+status rows should keep the remaining distinction visible: cosine-atom
+survival is proved; extension to a named test ideal and construction of the
+completed boundary distribution remain open; the RH-strength positivity gate
+is still locked.
+
+## 18. The finite part has a Banach carrier, and the carrier exposes its ceiling
+
+The cosine residual now defines a bounded continuous frequency multiplier and
+hence a continuous linear functional on `L1(R)`. Finite prime windows converge
+in the dual operator norm, so the phrase "finite part survives" now has an
+explicit test space and a uniform finite-window interface behind it. Reflection
+invariance also descends from the even multiplier to the functional itself.
+
+The same formalization immediately proves its own limitation. Any
+norm-summable family of bounded continuous local multipliers produces the same
+kind of functional and the same operator-norm convergence. The construction is
+therefore an honest weight-sector carrier, but its existence is not the
+arithmetic identification. That debt has narrowed to the unsquared logarithmic
+radial derivative, the full prime-power ladder, and the archimedean completion.
+
+A numerical rejection probe adds a second warning: finite prime windows are
+negative near `u = 14`, stabilizing around `-0.038530` through primes below
+`100000`. Since a conditionally negative definite function vanishing at zero
+must be nonnegative, the compensated residual does not appear to inherit CND
+for free. This remains a computed signal rather than a Lean theorem; a formal
+rejection needs a certified sign and tail estimate.
+
+## 19. Boundary value and flux meet first through the counterterm
+
+The first common scale-family implementation has now landed. A local Poisson
+scale point with radius `p^(-sigma)` and phase `u log p` produces both the
+translated Hellinger value and the Euler logarithmic response. At the critical
+exponent, the former recovers the proved finite residual and the normal
+derivative of the latter recovers the existing prime-power distribution.
+
+The first cross-channel identity is unexpectedly exact: the Hellinger
+counterterm is one quarter of the centered first-harmonic logarithmic response
+at doubled exponent `2 sigma`. Its outward normal flux is one half of the
+matching centered logarithmic flux. Thus value and flux are not one scalar
+jet, but neither are they unrelated; the renormalization term is already a
+precise bridge between them.
+
+The remaining difficulty has become analytic rather than architectural. Lean
+now proves radial derivatives of the Poisson kernel, its square root, and the
+translated squared Hellinger integrand at every interior radius. What remains
+is to pass that derivative through the finite interval integral and prove a
+uniform `O(a^2)` derivative remainder strong enough to exchange radial
+differentiation with the infinite prime-window limit.

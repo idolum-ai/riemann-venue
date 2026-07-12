@@ -28,9 +28,9 @@ This is the short reader's map. It is deliberately coarser than the
 
 | Category | What the repository supports |
 |---|---|
-| **Proved in Lean** | The gcd kernel's finite positivity and infinite prime-torus spectral representation; both directions of Kakutani's dichotomy; the product-Poisson phase change exactly at `σ = 1/2`; the primorial Rayleigh upper bound; and failure of the direct length-side limit. |
+| **Proved in Lean** | The gcd kernel's finite positivity and infinite prime-torus spectral representation; both directions of Kakutani's dichotomy; the product-Poisson phase change exactly at `σ = 1/2`; the exact translated Hellinger boundary coefficient and absolutely convergent cosine finite part; the completed Weil explicit formula on the smooth compact core; independent assembly of its scalar place value from typed boundary channels; the primorial Rayleigh upper bound; and failure of the direct length-side limit. |
 | **Computed** | Reproducible finite spectra and Euler-shadow experiments; Hellinger-threshold and radial-derivative experiments; and large-window numerical evidence for the bottom spectral edge and reciprocal-edges law. Computation is evidence, not proof. |
-| **Open** | Construction and positivity of the completed boundary distribution; the sharp bottom-edge corridor; and the mechanism and constant behind the reciprocal-edges law. In particular, RH is not proved here. |
+| **Open** | Positivity and no-leak mode semantics for the constructed completed boundary datum; the sharp bottom-edge corridor; and the mechanism and constant behind the reciprocal-edges law. In particular, RH is not proved here. |
 
 ## Main results (machine-checked)
 
@@ -92,9 +92,11 @@ our knowledge its first formalization in any proof assistant:
   rigor as its positive claims.
 
 Further instruments (moment identities, strict Hellinger deficit, the
-criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the Liouville
-conjugation identity, finite Möbius inversion, Zeta/Tate anchors onto
-Mathlib) are indexed row-by-row in the [status ledger](docs/status-ledger.md).
+criterion bridge `∑_p(1−H(p^{-σ})) < ∞ ⟺ σ > 1/2`, the exact translated
+Hellinger asymptotic at the boundary, the absolutely convergent half-balanced
+cosine finite part, the Liouville conjugation identity, finite Möbius
+inversion, Zeta/Tate anchors onto Mathlib) are indexed row-by-row in the
+[status ledger](docs/status-ledger.md).
 
 ## The chain
 
@@ -109,13 +111,19 @@ Gram positivity              normalizedGcdKernel_posSemidef, kappa_posSemidef
   → finite response          response_eq_poisson, hasSum_primeShadow
   → logarithmic derivative   hasDerivAt_sum_primePower_terms
                              (lands exactly on primePowerSideTruncated)
-  → completed Weil dist.     known bookkeeping — anchored onto Mathlib in
-                             RiemannVenue/Zeta/ and RiemannVenue/Tate/
+  → completed Weil dist.     completedWeilExplicitFormulaOnSmoothCore_proved
+  → boundary Cauchy value    completedBoundaryCauchyValueIdentified
   → Weil positivity          LOCKED — stated as a Prop, fenced, not claimed
-                             (RiemannVenue/Weil/Positivity.lean)
+                             (CompletedBoundarySmoothCorePositivity)
 ```
 
-Every arrow before the last is machine-checked. The last arrow is RH.
+Every arrow through boundary-value identification is machine-checked. The
+critical-line-to-positivity direction is also proved; the converse
+positivity-to-real-spectrum implication is the remaining RH-strength gate.
+It yields the indexed open-strip critical-line statement; a separate
+zero-classification bridge to Mathlib's full `RiemannHypothesis` remains.
+The [boundary proof surface](docs/boundary-proof-surface.md) separates stable
+endpoints, conditional compilers, exploratory workbenches, and open contracts.
 
 ## Open problems posed by this repository
 
@@ -138,7 +146,50 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
 3. **The Boundary Positivity Problem** — the completed, renormalized
    log-scale distribution and its positivity. RH-strength by Weil's
    criterion; stated as a `Prop` shape and deliberately not attacked here
-   (`Venue/SpectralRecenter.lean`).
+   (`Venue/SpectralRecenter.lean`). The current boundary-weight excavation
+   is more local: the coefficient `1/2` in the half-balanced p-local
+   counterterm is proved from the translated Hellinger response, and its
+   cosine-atom residual is absolutely summable by an `O(p^{-3/2})` bound.
+   Its finite windows converge uniformly to a continuous even function that
+   vanishes at zero. The resulting bounded multiplier now acts continuously
+   on a named frequency-side `L1` test space, with finite windows converging
+   in dual operator norm. The off-axis Fourier--Laplace/Paley--Wiener
+   separation problem and completion of the stronger semantic boundary type
+   remain open; the smooth-core completed Weil identity is proved below, but
+   none of these finite-part results is Weil positivity. A common
+   finite-window scale family now derives both this
+   Hellinger value and the logarithmic prime-power flux, with an exact
+   centered first-harmonic compatibility law for the counterterm. The
+   Hellinger channel itself is now differentiable through its circle
+   integral: after subtracting the differentiated quadratic counterterm,
+   its critical log-scale residual is absolutely summable with rate
+   `O((log p)p^{-3/2})`. Identifying this finite Hellinger flux with the
+   Euler prime-power flux as a regular scalar observable is now formally
+   obstructed: the former starts quadratically in amplitude while the latter
+   has a nonzero linear term. The centered log density of the same Poisson
+   response supplies the Euler score exactly, and the paired energy/score
+   coefficient matrix is generically nonsingular. This points to a typed
+   multi-observable boundary jet rather than a scalar identification. That
+   jet is now constructed at finite windows, with both channel derivatives
+   proved, and the complete critical Hellinger prime sum differentiates
+   without exceptional primes. The matching archimedean score is derived as
+   `-(log pi)/2 + digamma(s/2)/2`, the logarithmic derivative of `Gamma_R`.
+   Compactly supported log tests now carry an eventually stable full
+   prime-power functional. On tests equipped with an integrable cosine
+   synthesis, the finite score projects exactly; the centered jet exposes one
+   forced vacuum counterterm and then stabilizes to that functional. The
+   Gamma boundary pairing and the distinct pole exponential-moment pairing
+   are also constructed. Every smooth compact test now has an exact canonical
+   Fourier/cosine lift, including the `2*pi` normalization. For the positive
+   self-convolution sector, the normalized squared-modulus density is
+   integrable and nonnegative and reconstructs the self-convolution exactly
+   by a proved Wiener--Khinchin identity. Its first absolute frequency moment
+   is also integrable. A Beta-integral/Cauchy argument proves the required
+   at-most-linear critical digamma bound, so every smooth compact
+   self-convolution now has an unconditional Gamma pairing. The completed
+   Weil identity and its independent assembly as finite/Gamma flux plus pole
+   trace are proved on the smooth compact core. Smooth-core positivity is the
+   remaining locked gate.
 
 ## Where to start
 

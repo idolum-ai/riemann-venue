@@ -8,6 +8,61 @@ The coordinate/categorical/spectral setting in which an arithmetic question is r
 
 Essay language for the requirement that normalized error modes should not exhibit exponential instability after the right recentering.
 
+## Boundary type
+
+Workbench name for the hoped-for completed log-scale object whose
+explicit-formula pairing is Weil-positive and whose zero side reads as
+spectral/no-leak modes. Not constructed in this repository.
+
+## Boundary renormalization
+
+Workbench name for the route that tries to identify the boundary type from a
+critical recentering of finite response families and the logarithmic radial
+derivative bridge.
+
+## Boundary state
+
+Workbench name for the route that tries to identify the boundary type from a
+non-tautological positive carrier whose observables derive the completed
+explicit-formula pairing.
+
+## Boundary carrier
+
+Workbench name for the vector/state/trace/weight-like object from which the
+completed explicit-formula pairing would be derived. A proposed carrier must
+survive anti-tautology traps before it can support the boundary type.
+
+## Boundary test ideal
+
+Workbench name for the log-scale tests on which a boundary weight is allowed
+to be evaluated. It must contain the smooth compactly supported tests
+used by Weil positivity, and the weight must be finite on their squares.
+
+## Critical boundary criterion
+
+The divergent all-primes criterion `Summable (fun p : Nat.Primes => p^{-1})`.
+It marks the first obstruction for naive unrenormalized critical vector
+models in the boundary-carrier workbench.
+
+## Boundary weight
+
+Workbench name for a renormalized weight-like carrier whose finite-window
+restrictions retain the known vector-state response and whose boundary value
+is finite on a canonical test ideal.
+
+## Finite-part renormalization
+
+Workbench name for a boundary-weight procedure that subtracts or otherwise
+absorbs finite-window counterterms derived from response data before taking a
+boundary value.
+
+## Critical counterterm
+
+Workbench name for the first response-derived subtraction candidate:
+`coefficient(h) * sum_{p in S} 1/p` on finite prime windows. The coefficient
+is under search; the divergent finite-window factor is forced by the critical
+boundary obstruction.
+
 ## GCD kernel
 
 The finite kernel `K(m,n)=gcd(m,n)/sqrt(mn)`, interpreted as divisibility overlap represented as length.

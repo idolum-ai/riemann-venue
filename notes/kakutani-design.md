@@ -5,6 +5,13 @@ probability measures with `μ i ≪ ν i` and Hellinger affinities
 `H i = ∫ √(dμᵢ/dνᵢ) dνᵢ`, the products satisfy `⊗μᵢ ≪ ⊗νᵢ` when `∏ H i > 0`
 (equivalence when each pair is mutually a.c.) and `⊗μᵢ ⊥ ⊗νᵢ` when `∏ H i = 0`.
 
+**Status update (2026-07-09).** The implementation is now complete. This
+file is retained as the pinned-Mathlib inventory and route map behind the
+formalization; the final checked artifacts are
+`RiemannVenue/Kakutani/{Affinity,FiniteProduct,Cylinder,Singular,Equivalence,Dichotomy}.lean`
+and the Poisson applications in `PoissonSingular.lean`,
+`PoissonDichotomy.lean`, and `SpectralMeasure.lean`.
+
 Everything below was verified by grep against the **pinned mathlib**
 (`.lake/packages/mathlib`, rev `e2361c1bebbe457b1b699a67f685f675801a6da0`,
 toolchain `leanprover/lean4:v4.32.0-rc1`, module-era files: `module` /
@@ -20,8 +27,8 @@ every milestone lands as a complete no-sorry file.
 
 The pin contains a complete countable-and-arbitrary-index infinite product of
 probability measures. The status-ledger row "Kakutani/Bochner infinite-product
-layer … absent from Mathlib" is **stale for this pin** and should be updated
-when the first milestone lands.
+layer … absent from Mathlib" was **stale for this pin**; the status ledger now
+records the corrected inventory and the completed implementation rows.
 
 `Mathlib/Probability/ProductMeasure.lean` (namespace `MeasureTheory`, then
 `Measure`):

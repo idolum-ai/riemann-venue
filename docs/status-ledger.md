@@ -6,7 +6,18 @@ source review. Statuses: **proved in Lean**
 (builds, no `sorry`), **anchored** (build-verified restatement of a pinned
 Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 **computed** (executed notebook with committed outputs), **notes only**,
-**explicitly not claimed**.
+**historical design** (an earlier checkpoint retained for provenance and
+superseded by a later row), **constructed** (a concrete data package exists,
+without implying every semantic law), and **explicitly not claimed**. Compound
+statuses name each component separately; they do not promote the weaker
+component to the stronger one.
+
+The ledger is chronological within broad phases. Historical rows remain part
+of the research record, but the latest row for a claim controls the current
+repository status. The compact proof/open-contract API map is
+`docs/boundary-proof-surface.md`.
+
+## Finite and spectral foundations
 
 - **Claim:** Finite initial segments, divisibility order, and zeta/incidence predicates
 
@@ -105,6 +116,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** stated (finite object defined)
   - **Artifact:** `RiemannVenue/Weil/ExplicitFormula.lean`
 
+## Boundary contracts and excavation
+
 - **Claim:** Weil positivity as a property of an explicit-formula pairing
 
   - **Status:** stated; `iff RH` deliberately absent
@@ -114,6 +127,486 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
 
   - **Status:** stated
   - **Artifact:** `RiemannVenue/Venue/SpectralRecenter.lean`
+
+- **Claim:** Boundary type candidate: the completed log-scale object as obligations around
+  explicit-formula data, with the RH-strength positivity gate kept separate
+
+  - **Status:** historical design (stated / programmatic); superseded in part
+    by the constructed smooth-core boundary package below, while positivity
+    and no-leak semantics remain open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryType.lean`,
+    `notes/boundary-type-excavation.md`
+
+- **Claim:** Boundary type fork probes: renormalization-first and state/trace-first routes, each
+  typed as obligations without claiming a completed object
+
+  - **Status:** historical design (stated / programmatic)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryRenormalization.lean`,
+    `RiemannVenue/Venue/BoundaryState.lean`, `notes/boundary-renormalization-spike.md`,
+    `notes/boundary-state-spike.md`
+
+- **Claim:** Boundary carrier trap matrix: vector/state/trace/weight candidates must survive
+  anti-fake, arithmetic-identification, positivity-domain, finite-ore, completion, and no-leak
+  traps before supporting the boundary type contract
+
+  - **Status:** historical design (stated / programmatic)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCarrier.lean`,
+    `notes/boundary-carrier-traps.md`
+
+- **Claim:** Boundary carrier hardened traps: observable zero/add/scalar/translation laws,
+  weight finiteness on the Weil test ideal, and finite-window contact with the proved vector
+  response
+
+  - **Status:** historical design plus proved contact package
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCarrierDiscipline.lean`,
+    `RiemannVenue/Kernels/Response.lean`, `notes/boundary-carrier-traps.md`
+
+- **Claim:** Boundary carrier model probes: naive critical vector models break if they require
+  the divergent critical criterion; weight-like carriers survive only as disciplined,
+  non-ambient relaxations with remaining identification debt
+
+  - **Status:** historical design plus proved critical obstruction
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCarrierModelProbes.lean`,
+    `RiemannVenue/Venue/NonRadon.lean`, `notes/boundary-carrier-model-probes.md`
+
+- **Claim:** Boundary weight workbench: a non-fake weight must be a projective finite-window
+  system with known vector-response contact and an upstream renormalization bridge, while
+  completion/no-leak identification remains explicit debt
+
+  - **Status:** historical design (stated / programmatic)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryWeight.lean`,
+    `notes/boundary-weight-workbench.md`
+
+- **Claim:** Boundary weight tractable search: cylindrical restriction laws, finite test-ideal
+  ladder, finite-part renormalization with response-derived counterterms, and named failure
+  reasons
+
+  - **Status:** historical design (stated / programmatic)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryWeightSearch.lean`,
+    `notes/boundary-weight-search.md`
+
+## Boundary observables and completed place value
+
+- **Claim:** The compensated cosine finite part is a bounded continuous multiplier on a named
+  frequency-side `L1` test space; finite prime windows converge to its continuous linear
+  functional in dual operator norm, and the limit functional is reflection invariant
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFourierL1.lean`,
+    `notes/boundary-fourier-l1.md`
+
+- **Claim:** The same functional construction works for arbitrary norm-summable local
+  multiplier families, so Banach-carrier existence alone does not identify prime arithmetic
+
+  - **Status:** proved in Lean (arithmetic-sensitivity trap)
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFourierL1.lean`
+
+- **Claim:** One finite arithmetic scale family supplies both the critical Hellinger value
+  and logarithmic normal flux; the value recovers the existing finite residual, while the
+  flux recovers the existing truncated prime-power distribution
+
+  - **Status:** proved in Lean at finite prime and power windows
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`,
+    `notes/boundary-scale-jet.md`
+
+- **Claim:** Finite logarithmic radial jets form a graded derivative family, with grade zero
+  equal to the log response and grade one equal to minus the prime-power flux
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`
+
+- **Claim:** The Hellinger value counterterm is one quarter of the centered first-harmonic
+  logarithmic response at doubled exponent, and its outward flux is one half of the
+  corresponding centered logarithmic flux
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryScaleJet.lean`,
+    `notes/boundary-scale-jet.md`
+
+- **Claim:** The Poisson kernel, its square root, and the translated squared Hellinger
+  integrand have explicit radial derivatives at every local interior radius, and
+  differentiation passes through the circle integral for every `0 < a < 1`
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`,
+    `RiemannVenue/Venue/BoundaryHellingerGeneralRadius.lean`,
+    `notes/boundary-scale-jet.md`
+
+- **Claim:** The quadratic-counterterm-subtracted Hellinger radial derivative is
+  `O(a²)`; its logarithmic radial flux is `O(a³)`, and at critical prime radius the
+  scale-derivative residual is absolutely summable with majorant
+  `O((log p) p^(-3/2))`, so canonical finite prime windows converge to a flux
+  finite part
+
+  - **Status:** proved in Lean; this is a Hellinger-flux finite part, not an
+    identification with the Euler prime-power flux
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerFlux.lean`
+
+- **Claim:** The infinite compensated Hellinger prime tail is differentiable term by
+  term throughout `5/12 < sigma < 7/12`, and the complete critical prime sum has the
+  constructed flux as its unconditional normal derivative
+
+  - **Status:** proved in Lean; the general-radius theorem discharges primes `2` and `3`
+  - **Artifact:**
+    `RiemannVenue/Venue/BoundaryHellingerInfiniteDifferentiation.lean`,
+    `RiemannVenue/Venue/BoundaryHellingerGeneralRadius.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** The centered log-density observable of the Poisson response is exactly
+  the centered Euler logarithmic potential, and its outward score is the full
+  log-weighted prime-power ladder
+
+  - **Status:** proved in Lean, including finite-window critical specialization to
+    the existing centered Weil prime-power side
+  - **Artifact:** `RiemannVenue/Venue/BoundaryLogPoissonBridge.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** No scalar transformation differentiable at zero can identify the
+  quadratic Hellinger defect with the nondegenerate linear Euler first harmonic;
+  the paired Hellinger-energy/Euler-score coefficient matrix is nonsingular when
+  `cos t != 1`
+
+  - **Status:** proved in Lean; singular transforms, polarization, and typed
+    multi-observable carriers are not excluded
+  - **Artifact:** `RiemannVenue/Venue/BoundaryHellingerOrderTrap.lean`,
+    `RiemannVenue/Venue/BoundaryHarmonicMatrix.lean`,
+    `notes/boundary-observable-decision-gate.md`
+
+- **Claim:** The selected energy and score observables form one generic
+  channel-indexed Cauchy datum, and both finite-window normal entries are the actual
+  increasing-`sigma` derivatives of their value entries
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryEnergyScoreJet.lean`
+
+- **Claim:** The archimedean score is the logarithmic derivative of
+  `Gamma_R(s) = pi^(-s/2) Gamma(s/2)`, with closed form
+  `-(log pi)/2 + digamma(s/2)/2` on `Re(s) > 0`
+
+  - **Status:** proved in Lean, including its real critical-boundary specialization
+  - **Artifact:** `RiemannVenue/Venue/BoundaryArchimedeanScore.lean`
+
+- **Claim:** The completed smooth-core place value is assembled from a typed
+  channel package rather than one scalar derivative: finite-place and Gamma
+  contributions are normal-flux entries, while the completed pole factor is
+  an off-boundary trace entry
+
+  - **Status:** constructed in Lean, with its assembled scalar value identified
+    downstream. The finite flux is the
+    limit of the response-derived centered score plus its forced vacuum
+    counterterm; the Gamma flux is the actual `Gamma_R` logarithmic
+    derivative; the pole trace is the sum of its growing and decaying
+    exponential moments. Its critical-line real score is proved to vanish,
+    so the trace geometry is necessary rather than cosmetic. The package does
+    not itself enforce a common derivative law, positivity, or no-leak
+    semantics
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedProjection.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
+    `notes/completed-boundary-cauchy-datum.md`
+
+- **Claim:** On the smooth compact self-convolution core, real completed-zero
+  frequencies imply positivity of the constructed boundary value; in
+  particular, RH implies this smooth-core positivity
+
+  - **Status:** proved in Lean. Forward Wiener--Khinchin identifies every real
+    zero-frequency summand with the normalized squared Fourier modulus. The
+    converse, positivity forcing every indexed zero frequency to be real, is
+    isolated as `CompletedBoundaryPositivityDetectsRealSpectrum` and remains
+    open. Once supplied, it gives equivalence with `CompletedOpenStripRH`
+  - **Artifact:** `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`,
+    `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`,
+    `notes/boundary-positivity-reconnaissance.md`,
+    `notes/completed-weil-criterion-project.md`
+
+- **Claim:** Finite support, linearity, and the completed Cauchy-data shape do
+  not protect positivity against coefficient drift
+
+  - **Status:** proved conditionally for every positively detected
+    self-convolution probe. A nonnegative coefficient perturbation is
+    constructed that makes the perturbed completed value negative. At the
+    first window the support correction is exactly
+    `2 * selfConvolution(h)(log 2)`; existence of a specific smooth compact
+    positive probe is not formalized in this branch
+  - **Artifact:** `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`
+
+- **Claim:** On compactly supported continuous log-scale tests, the full
+  symmetrized prime-power distribution is locally finite: diagonal finite
+  truncations eventually stabilize to an algebraic linear functional
+
+  - **Status:** proved in Lean; continuity for an LF test-space topology is not claimed
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+## Completed test core and explicit formula
+
+- **Claim:** The RH-facing Weil-positivity domain is the smooth compact core
+  `C_c^infinity(R)`, while continuous compact support remains the larger
+  finite-place envelope
+
+  - **Status:** encoded in Lean, aligned with the essay; the canonical
+    normalized Fourier/cosine lift is constructed on this core
+  - **Artifact:** `RiemannVenue/Weil/Positivity.lean`,
+    `RiemannVenue/Venue/BoundaryCarrierDiscipline.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** Smooth compact log tests map canonically to complex Schwartz
+  functions, their Fourier transforms remain Schwartz with integrable squared
+  modulus, and self-convolution stays in the smooth compact core
+
+  - **Status:** proved in Lean; Fourier inversion and the exact `2*pi`
+    rescaling also construct an integrable cosine density for every test. The
+    normalized squared-modulus density for self-convolutions is integrable
+    and nonnegative, has an integrable first absolute frequency moment, and
+    reconstructs self-convolution exactly by Wiener--Khinchin
+  - **Artifact:** `RiemannVenue/Venue/BoundarySmoothTestCore.lean`,
+    `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** A compact log test with an integrable cosine-synthesis density
+  projects the uncentered finite Poisson score exactly to the finite
+  prime-power pairing. For the centered energy/score jet, one explicit vacuum
+  counterterm restores that pairing, and the renormalized diagonal projection
+  eventually stabilizes
+
+  - **Status:** proved in Lean; every smooth compact test now instantiates the
+    synthesis contract canonically, including a nonnegative instance for each
+    self-convolution. A Beta-integral/Cauchy argument proves the named
+    measurable at-most-linear Gamma-score bound, so the Gamma-weighted lift is
+    unconditional
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTestIdeal.lean`,
+    `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** Finite support and linearity do not identify arithmetic weights:
+  a unit-weight perturbation of the canonical finite prime-power data gives a
+  different linear functional already at `P = 2`, `R = 1`
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryArithmeticSensitivity.lean`
+
+- **Claim:** The Gamma contribution is a real-critical-boundary score pairing,
+  while the completed-zeta pole factor is an off-boundary exponential-moment
+  pairing with kernel `exp(t/2) + exp(-t/2)`
+
+  - **Status:** both place functionals constructed in Lean;
+    `GammaBoundaryLinearControl` is proved and every smooth compact test has
+    an unconditional `CompletedGammaTest`. The completed place functional is
+    assembled with the contour-derived convention
+    `pole + 2 * Gamma - prime powers`. Its matching
+    entire zero transform and multiplicity-expanded nontrivial-zero index are
+    constructed. Fourth-order strip decay and the completed-Xi zero-count
+    bound prove absolute convergence of the global zero sum. Finite rectangle
+    excision, selected-height control, and the three right-edge channels now
+    prove the completed Weil identity on the smooth compact core. The
+    independently assembled boundary Cauchy value is now proved equal to both
+    the completed place functional and the multiplicity-expanded zero sum.
+    Smooth-core positivity remains open
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedPlaces.lean`,
+    `RiemannVenue/Venue/BoundaryGammaGrowth.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedFunctional.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedCauchyDatum.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedJetIdentification.lean`,
+    `notes/completed-weil-identity-gate.md`,
+    `notes/completed-test-ideal-decision-gate.md`
+
+- **Claim:** Nontrivial zeta zeros admit canonical finite height windows,
+  analytic multiplicities equal to the divisor multiplicities of one entire
+  pole-cleared completed-Xi function, and a monotone multiplicity-weighted
+  count. Jensen reduces this count to an explicit completed-Xi sphere bound,
+  while a generic bucket theorem reduces completed zero-transform convergence
+  to summability of `N(n) * a(n)`
+
+  - **Status:** proved in Lean, including the completed-Xi sphere-growth
+    estimate, `N(T) = O(T log T)`, fourth-order strip decay of the smooth
+    compact transform, and global zero-sum convergence
+  - **Artifact:** `RiemannVenue/Venue/BoundaryZetaZeroCounting.lean`,
+    `RiemannVenue/Venue/BoundaryCompletedXiGrowth.lean`,
+    `RiemannVenue/Venue/BoundaryZeroTransformDecay.lean`,
+    `notes/completed-explicit-formula-zero-counting.md`
+
+- **Claim:** Finite-multiplicity logarithmic residues of the completed-Xi core
+  agree with the stored zeta multiplicities; weighting by the canonical
+  contour test gives the completed zero-transform summands, whose symmetric
+  finite windows converge to the unconditional zero sum
+
+  - **Status:** proved in Lean. Explicit square winding and recursive finite
+    rectangle excision are also proved: every certified partition has outer
+    integral `2*pi*i` times its total charge, and every completed-Xi zero has
+    a weighted charged leaf with exactly the global zero-sum normalization.
+    Automatic finite-set partition construction is proved generically by
+    `FiniteRectanglePoleData.exists_excisionTree`. Cofinal zero-avoiding
+    heights, quantitative local clearance, and a quadratic horizontal-edge
+    `Xi'/Xi` bound are also proved. These construct the selected expanding-edge
+    witness and compile to the completed Weil formula on the smooth core
+  - **Artifact:** `RiemannVenue/Venue/BoundaryExplicitFormulaContour.lean`,
+    `RiemannVenue/Venue/BoundaryRectangleExcision.lean`,
+    `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `notes/completed-explicit-formula-contour.md`
+
+- **Claim:** Finite completed-Xi rectangles have the exact canonical
+  multiplicity-expanded residue sum, and any quantitatively selected height
+  family with a quadratic upper-edge `Xi'/Xi` bound has vanishing weighted
+  horizontal edges
+
+  - **Status:** proved in Lean, including existence. A translated radius-four
+    canonical decomposition, linear local zero counts, quantitative radial
+    clearance, and Borel--Caratheodory/Cauchy control prove
+    `completedXiQuadraticExpansionBound_proved`. The finite prefix is closed
+    by compactness. Test and Xi symmetries prove that the two vertical sides
+    equal twice the right edge, and the resulting family compiles to
+    `completedWeilExplicitFormulaOnSmoothCore_proved`. The stronger classical
+    `O(log^2 T)` source contract remains available as a sharper alternative,
+    not an input to the proved formula
+  - **Artifact:** `RiemannVenue/Venue/BoundaryRectangleCompiler.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
+    `notes/completed-explicit-formula-height-engine.md`
+
+- **Claim:** The completed-Xi logarithmic derivative has the expected
+  elementary, Gamma, and zeta decomposition in `re s > 1`; on `re s = 1`,
+  the zeta pole and `1/(s-1)` combine into a continuous regularized arithmetic
+  score with value the Euler--Mascheroni constant at height zero
+
+  - **Status:** proved in Lean. Every finite right-edge integral is split into
+    three continuous channels without a principal-value convention. The
+    displaced Abel arithmetic score is also proved equal to its pole
+    counterterm minus the absolutely convergent von Mangoldt L-series for
+    every positive displacement. The one-monomial Fourier identity and every
+    finite prime-power interchange are proved, with value exactly one half of
+    the existing truncated prime-power pairing and no dependence on the Abel
+    displacement. The infinite von Mangoldt L-series interchange is also
+    proved from a summable integral-norm majorant, as is its completed-score
+    finite-place-extraction form. Its critical value is absolutely summable and
+    canonically reindexed as the full double sum over primes and positive
+    powers with the repository's critical prime-power weight. Compact support
+    proves that this is exactly one half of the existing compact cutoff
+    pairing, including its one-sided Abel limit. This is the finite-place
+    extraction, which enters the actual arithmetic score with a minus sign.
+    The elementary and Gamma channels are proved full-line integrable and
+    every cofinal selected-height family exhausts them to named full-line
+    values. The elementary value is proved to be the decaying pole half; the
+    displaced zeta pole counterterm is the growing half; those halves are
+    proved to reassemble the completed pole pairing. The critical-axis test
+    transform is also proved real and equal to the canonical cosine density.
+    The Gamma contour shift, wider-strip fourth-order decay, and conjugation
+    cancellation are proved; this calculation corrected the completed Gamma
+    multiplicity from one to two. The Abel-to-literal regularized-zeta transfer
+    is now proved by a finite rectangle shift across `1 <= Re(s) <= 2`, using
+    symmetric selected-height bounds and fourth-order horizontal test decay.
+    Consequently every quantitative selected-height family produces the full
+    right-edge place limit without an additional place-identification contract.
+    A canonical cofinal sequence in `(n,n+1)` with explicit clearance
+    `1 / (4 * (N(n+2) + 1))` from every zero ordinate is now constructed in
+    Lean by a finite-union measure argument. This pays the selection and
+    avoidance layer. Translated Jensen local counts and a finite canonical-disk
+    decomposition then prove the weaker quadratic logarithmic-derivative
+    envelope actually consumed by the fourth-order contour. The global-count
+    clearance is still not misreported as the stronger local `O(1/log T)`
+    separation used in the classical `O(log^2 T)` theorem
+  - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
+    `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
+    `RiemannVenue/Venue/BoundaryBorelLogDerivative.lean`,
+    `RiemannVenue/Venue/BoundaryXiLocalExpansion.lean`,
+    `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
+    `notes/completed-explicit-formula-right-edge.md`
+
+## Counterterm search history
+
+- **Claim:** Growing finite prime windows of the compensated residual are negative near
+  `u = 14`, numerically obstructing conditional negative definiteness at those cutoffs
+
+  - **Status:** computed probe; not a certified infinite-sum theorem
+  - **Artifact:** `scripts/probe_boundary_finite_part.py`,
+    `artifacts/boundary-finite-part-cnd.txt`,
+    `notes/boundary-fourier-l1.md`
+
+- **Claim:** Boundary counterterm search: first critical counterterm form
+  `coefficient(h) * sum_{p in S} 1/p`, five coefficient shapes, test-ideal pairing trials, and
+  named failure modes
+
+  - **Status:** stated / programmatic
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCountertermSearch.lean`,
+    `notes/boundary-counterterm-search.md`
+
+- **Claim:** Boundary counterterm matrix: initialized 25-cell coefficient/test-ideal matrix,
+  first-pass diagnostics, and live marker cells for the next excavation
+
+  - **Status:** stated / programmatic
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCountertermMatrix.lean`,
+    `notes/boundary-counterterm-matrix.md`
+
+- **Claim:** Boundary counterterm live cells: two focused probes for finite-response/Schwartz
+  and log-derivative/smooth-compact counterterm candidates, with distinct first-failure gates
+
+  - **Status:** stated / programmatic
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCountertermLiveCells.lean`,
+    `notes/boundary-counterterm-live-cells.md`
+
+- **Claim:** Boundary counterterm pushed probes: finite-response and log-derivative live cells
+  are attached to existing finite-place anchors; the remaining gap is the coefficient
+  functional
+
+  - **Status:** stated / programmatic + proved finite-place anchors reused
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCountertermProbePush.lean`,
+    `RiemannVenue/Kernels/Response.lean`, `RiemannVenue/Weil/LogDerivative.lean`,
+    `notes/boundary-counterterm-probe-push.md`
+
+- **Claim:** Boundary coefficient functional attempt: finite-response normalization gives the
+  safe residue `-h(0)`, which collapses to the zero-value rung; log derivative gives prime
+  powers rather than a scalar critical-window coefficient
+
+  - **Status:** stated / programmatic + elementary Lean identities
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCoefficientFunctional.lean`,
+    `notes/boundary-coefficient-functional.md`
+
+- **Claim:** Boundary balanced residue attempt: translated quadratic-defect aperture
+  `h(0) - (h(log p)+h(-log p))/2` gives a concrete p-local counterterm that cancels constants
+  but is not separable as `coefficient(h) * sum 1/p`
+
+  - **Status:** stated / programmatic + proved Hellinger-defect anchors reused
+  - **Artifact:** `RiemannVenue/Venue/BoundaryBalancedResidue.lean`,
+    `RiemannVenue/Kernels/CriterionBridge.lean`, `RiemannVenue/Kakutani/BlockPhase.lean`,
+    `notes/boundary-balanced-residue.md`
+
+- **Claim:** Boundary counterterm kernel interface: exact local coefficient target `1/2`
+  recorded as an asymptotic obligation; scalar counterterms embed as a special case of p-local
+  finite-window kernels; balanced residue fits the widened interface
+
+  - **Status:** stated / programmatic + elementary Lean identities
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCountertermKernel.lean`,
+    `notes/boundary-counterterm-kernel.md`
+
+- **Claim:** Boundary balanced narrowing: live branch narrowed to the half-normalized balanced
+  local kernel; finite-part probe surface fixed at the pre-discharge layer
+
+  - **Status:** stated / programmatic + elementary Lean identities
+  - **Artifact:** `RiemannVenue/Venue/BoundaryBalancedNarrowing.lean`,
+    `notes/boundary-balanced-narrowing.md`
+
+- **Claim:** Boundary exact local asymptotic: translated Hellinger defect satisfies
+  `((1 - H(a,t)) / a^2) -> (1/2) * (1 - cos t)` as `a -> 0+`, discharging the exact-local
+  coefficient charge
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryExactAsymptotic.lean`,
+    `notes/boundary-exact-asymptotic.md`
+
+- **Claim:** Boundary finite-part survival: after half-balanced subtraction, the exact cosine
+  residual is bounded by `780 p^(-3/2)` outside two finite primes, hence absolutely summable for
+  every frequency; finite windows converge uniformly on the frequency line to a continuous,
+  even function that vanishes at zero, without prime cancellation
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFinitePartSurvival.lean`,
+    `RiemannVenue/Venue/BoundaryResidualSummability.lean`,
+    `RiemannVenue/Venue/BoundaryFinitePartStructure.lean`,
+    `notes/boundary-finite-part-survival.md`
+
+## Computation and finite-kernel consequences
 
 - **Claim:** gcd-kernel spectra: min eigenvalue positive through `N = 2000`
 
@@ -181,6 +674,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Artifact:** `RiemannVenue/Kernels/PrimorialBound.lean` (`primorial_rayleigh_upper_bound`,
     `primesLE_rayleigh_upper_bound`)
 
+## Infinite products, completion, and phase change
+
 - **Claim:** Kakutani Hellinger products collapse for `σ ≤ 1/2`
 
   - **Status:** computed
@@ -209,10 +704,10 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     Phase 3 scout)
   - **Artifact:** `notes/kakutani-design.md`
 
-- **Claim:** Kakutani dichotomy: design + milestone ladder (M1–M6; singular direction via
-  Borel–Cantelli lands first)
+- **Claim:** Kakutani dichotomy design: M1–M6 milestone ladder, pinned-Mathlib inventory, and
+  route notes for the formalization
 
-  - **Status:** designed; implementation in progress
+  - **Status:** historical design; implementation complete in the proved rows below
   - **Artifact:** `notes/kakutani-design.md`
 
 - **Claim:** Kakutani M1–M3: Hellinger affinity (`H = 0 ↔ ⟂ₘ`, `H ≤ 1`, multiplicativity
@@ -258,6 +753,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
   - **Status:** proved in Lean
   - **Artifact:** `RiemannVenue/Kakutani/SpectralMeasure.lean` (`integral_finset_prod_infinitePi`,
     `integral_character_infinitePoisson_half_eq_kappa`)
+
+## Open endpoints, publication, and follow-on results
 
 - **Claim:** Weil positivity of the completed distribution; modular/trace realizations
 
