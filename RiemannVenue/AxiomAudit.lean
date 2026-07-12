@@ -18,6 +18,7 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.tsum_spectralPowerTail_le
 #print axioms RiemannVenue.Venue.completedArithmeticBoundaryPackage_lawful
 #print axioms RiemannVenue.Venue.completedBoundaryPositivityDetectsRealSpectrum_of_negativeTests
+#print axioms RiemannVenue.Venue.completedFourierLaplaceTransform_translate
 #print axioms RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValueIdentified

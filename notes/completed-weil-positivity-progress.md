@@ -24,8 +24,11 @@ The missing theorem is `SmoothFiniteTransformInterpolation`: finite
 symmetry-compatible Fourier--Laplace values must be realized by an actual
 smooth compact real test. Mathlib contains no packaged Paley--Wiener theorem
 of this form. The repository now provides `canonicalSmoothBump`, a proved
-nonzero seed, but not yet the translates, linear algebra, and quantitative
-support estimates needed for interpolation.
+nonzero seed, smooth-core addition and real scaling, the existing smooth
+translation operation, and the exact transform laws for all three. The next
+missing theorem is finite-dimensional: choose translations so the realified
+exponential evaluation matrix is invertible. Quantitative support and global
+modulus-gap estimates still follow after that.
 
 An arbitrary entire interpolant is not an acceptable substitute. Nor is a
 separator structure that stores the desired negative completed pairing as a
@@ -34,10 +37,10 @@ margin must be computed from the proved complex product.
 
 ## Routes From The Gate
 
-1. **Translated-bump interpolation.** Develop addition, real scaling, and
-   translation on the smooth core; prove the transform translation law; then
-   find translations for which the finite exponential evaluation matrix is
-   invertible. This is direct but requires quantitative determinant control.
+1. **Translated-bump interpolation.** Addition, real scaling, translation,
+   and their transform laws are now proved. Find translations for which the
+   realified finite exponential evaluation matrix is invertible. This is
+   direct but requires quantitative determinant control.
 2. **Differential-operator interpolation.** Apply real constant-coefficient
    differential operators to a bump, turning transform evaluations into
    polynomial multipliers. This may simplify finite interpolation but needs

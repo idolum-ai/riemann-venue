@@ -346,8 +346,11 @@ class has been changed.
 
 Current result: `BoundaryPaleyWienerGate.lean` constructs a concrete nonzero
 smooth compact bump and states `SmoothFiniteTransformInterpolation` on the
-exact test core. Mathlib has no packaged Paley--Wiener interpolation theorem,
-and the contract is not yet proved. This is the active decision gate.
+exact test core. Smooth addition, real scaling, translation, and their exact
+Fourier--Laplace laws are proved. Mathlib has no packaged Paley--Wiener
+interpolation theorem, and invertibility of the resulting realified
+exponential evaluation matrix is not yet proved. This is the active decision
+gate.
 
 ### Gate 3: uniform tail control
 

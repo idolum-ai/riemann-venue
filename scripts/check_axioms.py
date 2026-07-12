@@ -19,6 +19,7 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.tsum_spectralPowerTail_le",
     "RiemannVenue.Venue.completedArithmeticBoundaryPackage_lawful",
     "RiemannVenue.Venue.completedBoundaryPositivityDetectsRealSpectrum_of_negativeTests",
+    "RiemannVenue.Venue.completedFourierLaplaceTransform_translate",
     "RiemannVenue.Venue.completedZetaZeroSumConverges_proved",
     "RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved",
     "RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional",
