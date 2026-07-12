@@ -95,14 +95,10 @@ stronger source-facing certificate.
 1. Supply `CompletedXiLogSquaredSelectedHeightFamily` from the cited
    Titchmarsh selected-height theorem; its conversion to the downstream
    quadratic contract is already proved.
-2. Discharge the sole remaining field of
-   `CompletedXiRightEdgePlaceIdentification`: the Abel-to-literal arithmetic
-   transfer. The Gamma contour shift, channel decomposition,
-   elementary/Gamma integrability, selected-height exhaustion, both pole-ray
-   transforms, and pole recombination are proved. The selected-height
-   contract now covers `0 <= sigma <= 2`, the range needed for the arithmetic
-   strip shift.
-3. Apply
-   `completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights_and_places`.
-   It compiles those two independent inputs directly to the completed Weil
-   formula.
+2. Apply `completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights`.
+   It compiles that single source-facing certificate directly to the completed
+   Weil formula. The Abel-to-literal arithmetic strip shift, Gamma contour
+   shift, channel decomposition, selected-height exhaustion, both pole-ray
+   transforms, and pole recombination are all proved internally. The selected
+   family is symmetric in the two horizontal edges and covers
+   `0 <= sigma <= 2`.

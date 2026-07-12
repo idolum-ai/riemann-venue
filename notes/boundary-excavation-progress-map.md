@@ -44,12 +44,12 @@ elementary and Gamma channels are full-line integrable and selected intervals
 exhaust them. The Gamma contour shift is now complete: horizontal decay and
 conjugation identify the right Gamma edge with the full archimedean pairing,
 correcting the completed place convention to
-`pole + 2 * Gamma - finite places`. What remains is sharply classical:
-construct the cited logarithmic-squared selected heights and transfer the
-Abel finite-place result to the literal regularized boundary contour. The
-height contract now covers `0 <= sigma <= 2`, and wider-strip fourth-order
-test decay is proved, so the arithmetic transfer has a concrete fixed-strip
-route to the absolutely convergent line.
+`pole + 2 * Gamma - finite places`. The Abel finite-place result has now been
+transferred to the literal regularized boundary contour through the fixed strip
+`1 <= Re(s) <= 2`. Symmetric selected-height bounds kill both horizontal edges,
+while wider-strip fourth-order test decay absorbs the quadratic score bound.
+What remains is sharply classical: construct the cited logarithmic-squared
+selected heights.
 
 ## Current decision gate
 
@@ -61,7 +61,7 @@ with shared real or imaginary coordinates.
 
 The zero-avoiding-height layer has crossed its qualitative sill, and every
 logarithmic-squared selected-height family is proved sufficient for horizontal
-decay. Its existence remains the Titchmarsh/minimum-modulus input. Independently,
-`CompletedXiRightEdgePlaceIdentification` is now the exact one-field place
-gate. Together these two inputs imply the completed Weil explicit formula;
-neither can hide obligations belonging to the other.
+decay. The elementary, Gamma, and regularized arithmetic channels are all
+identified internally, so such a family now compiles directly to the completed
+Weil explicit formula on the smooth core. Its existence is the sole remaining
+bedrock obligation: the Titchmarsh/minimum-modulus selected-height input.

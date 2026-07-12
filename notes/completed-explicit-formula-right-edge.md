@@ -130,8 +130,11 @@ error: the completed place functional is
 `pole + 2 * Gamma - finite places`, so its one-sided right edge still carries
 exactly half of the completed value.
 
-The remaining place work in `CompletedXiRightEdgePlaceIdentification` is now
-only the Abel-to-literal arithmetic transfer.
+The remaining arithmetic place work is closed. A finite rectangle shift across
+`1 <= Re(s) <= 2` identifies the literal regularized boundary integral with
+the absolutely convergent displaced value. The two horizontal sides vanish
+along the symmetric selected-height family because the score has a quadratic
+bound while the test has fourth-order decay.
 
 The pole normalization is no longer an input. Lean proves that the elementary
 `1/s` channel is `(i/2)` times the decaying pole half, while the displaced
@@ -146,13 +149,14 @@ is genuinely real and equals `naturalCosineDensity`, performs the holomorphic
 contour shift, and discharges the odd-imaginary cancellation. The selected
 height contracts have also been widened to `0 <= sigma <= 2`, matching the
 classical Titchmarsh source range, and the test now has a proved fourth-order
-majorant on the corresponding wider spectral strip. These are the exact
-inputs for shifting the remaining arithmetic channel from the literal
-boundary to the absolutely convergent line `Re(s)=2`.
+majorant on the corresponding wider spectral strip. These are the exact inputs
+used to shift the arithmetic channel from the literal boundary to the
+absolutely convergent line `Re(s)=2`.
 
-These two fields compile automatically to the selected right-edge place
-limit. They do not include the separate existence theorem for quantitative
-selected heights.
+The three proved channel values now compile every quantitative selected-height
+family automatically to the selected right-edge place limit. No independent
+place-identification contract remains. The separate existence theorem for the
+logarithmic-squared selected heights is now the only external input.
 
 ## Artifacts
 

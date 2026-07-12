@@ -480,6 +480,31 @@ theorem height_pow_four_mul_norm_completedContourTest_le
       gcongr
     _ ≤ completedZeroTransformFourthMajorant h := hdecay
 
+/-- Fourth-order decay in the wider contour coordinates used by the
+arithmetic shift `1 <= Re(s) <= 2`. -/
+theorem height_pow_four_mul_norm_completedContourTest_le_wide
+    (h : SmoothCompletedLogTest) {σ τ T : ℝ}
+    (hσ : σ ∈ Set.Icc (1 : ℝ) 2) (hτ : |τ| = T) :
+    T ^ 4 * ‖completedContourTest h (σ + τ * Complex.I)‖ ≤
+      completedZeroTransformWideFourthMajorant h := by
+  let w : ℂ := (((σ : ℂ) + τ * Complex.I) - (1 / 2 : ℂ)) / Complex.I
+  have hwre : w.re = τ := by simp [w]
+  have hwim : w.im = 1 / 2 - σ := by simp [w]
+  have hwstrip : |w.im| ≤ 3 / 2 := by
+    rw [hwim, abs_le]
+    constructor <;> linarith [hσ.1, hσ.2]
+  have hTnorm : T ≤ ‖w‖ := by
+    rw [← hτ, ← hwre]
+    exact Complex.abs_re_le_norm w
+  have hTnonneg : 0 ≤ T := by rw [← hτ]; positivity
+  have hdecay :=
+    norm_completedZeroTestTransform_mul_norm_pow_four_le_wide h hwstrip
+  change T ^ 4 * ‖completedZeroTestTransform h w‖ ≤ _
+  calc
+    T ^ 4 * ‖completedZeroTestTransform h w‖ ≤
+        ‖w‖ ^ 4 * ‖completedZeroTestTransform h w‖ := by gcongr
+    _ ≤ completedZeroTransformWideFourthMajorant h := hdecay
+
 /-- The completed-Xi functional equation differentiates to odd symmetry of
 its logarithmic derivative about `s = 1/2`. -/
 theorem completedXiCore_logDeriv_one_sub (s : ℂ) :
@@ -533,6 +558,10 @@ structure CompletedXiLogSquaredSelectedHeightFamily where
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤
         constant * (Real.log (heights n + 2)) ^ 2
+  bound_neg : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
+    ‖logDeriv completedXiCore
+      (σ - heights n * Complex.I)‖ ≤
+        constant * (Real.log (heights n + 2)) ^ 2
 
 /-- The deliberately weak selected-height estimate needed downstream.
 Quadratic growth is enough because the contour test has fourth-order decay. -/
@@ -547,6 +576,9 @@ structure CompletedXiQuadraticSelectedHeightFamily where
   bound : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
     ‖logDeriv completedXiCore
       (σ + heights n * Complex.I)‖ ≤ constant * (heights n + 1) ^ 2
+  bound_neg : ∀ n : ℕ, ∀ σ ∈ Set.Icc (0 : ℝ) 2,
+    ‖logDeriv completedXiCore
+      (σ - heights n * Complex.I)‖ ≤ constant * (heights n + 1) ^ 2
 
 /-- The classical logarithmic-squared estimate is stronger than the
 quadratic contract consumed by the horizontal contour. -/
@@ -572,6 +604,19 @@ def CompletedXiLogSquaredSelectedHeightFamily.toQuadratic
       (mul_le_mul_of_nonneg_left
         ((sq_le_sq₀ hlog_nonneg (by linarith : 0 ≤ L.heights n + 1)).2 hlog_le)
         L.constant_nonneg)
+  bound_neg := by
+    intro n σ hσ
+    have hTpos : 0 < L.heights n :=
+      lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (L.lower n)
+    have hlog_nonneg : 0 ≤ Real.log (L.heights n + 2) :=
+      Real.log_nonneg (by linarith)
+    have hlog_le : Real.log (L.heights n + 2) ≤ L.heights n + 1 :=
+      (Real.log_le_sub_one_of_pos (by linarith :
+        0 < L.heights n + 2)).trans_eq (by ring)
+    exact (L.bound_neg n σ hσ).trans
+      (mul_le_mul_of_nonneg_left
+        ((sq_le_sq₀ hlog_nonneg (by linarith : 0 ≤ L.heights n + 1)).2 hlog_le)
+        L.constant_nonneg)
 
 theorem CompletedXiQuadraticSelectedHeightFamily.heightsTendsto
     (Q : CompletedXiQuadraticSelectedHeightFamily) :
@@ -580,6 +625,278 @@ theorem CompletedXiQuadraticSelectedHeightFamily.heightsTendsto
     (Filter.Eventually.of_forall fun n => (Q.lower n).le)
   exact (tendsto_natCast_atTop_atTop :
     Tendsto (fun n : ℕ => (n : ℝ)) atTop atTop)
+
+/-- Removing the elementary and Gamma channels from the selected completed-Xi
+bound gives a quadratic bound for the regularized arithmetic score throughout
+the shift strip. -/
+theorem norm_completedRegularizedZetaLogScore_le_of_xi
+    {sigma tau T C : ℝ}
+    (hsigma : sigma ∈ Set.Icc (1 : ℝ) 2)
+    (hT : |tau| = T)
+    (hxi : ‖logDeriv completedXiCore
+      (sigma + tau * Complex.I)‖ ≤ C * (T + 1) ^ 2) :
+    ‖completedRegularizedZetaLogScore
+      (sigma + tau * Complex.I)‖ ≤
+        (C + 1 + gammaBoundaryLinearConstant) * (T + 1) ^ 2 := by
+  have hT0 : 0 ≤ T := by rw [← hT]; positivity
+  have hs0 : (sigma : ℂ) + tau * Complex.I ≠ 0 := by
+    intro hz
+    have hre := congrArg Complex.re hz
+    simp at hre
+    linarith [hsigma.1]
+  have hinv : ‖1 / ((sigma : ℂ) + tau * Complex.I)‖ ≤ 1 := by
+    rw [norm_div, norm_one, div_le_one (norm_pos_iff.mpr hs0)]
+    calc
+      (1 : ℝ) ≤ |(((sigma : ℂ) + tau * Complex.I).re)| := by
+        simp only [Complex.add_re, Complex.ofReal_re, Complex.mul_re,
+          Complex.ofReal_im, Complex.I_re, Complex.I_im, mul_zero, mul_one,
+          sub_self, add_zero]
+        rw [abs_of_nonneg (le_trans (by norm_num) hsigma.1)]
+        exact hsigma.1
+      _ ≤ ‖(sigma : ℂ) + tau * Complex.I‖ :=
+        Complex.abs_re_le_norm _
+  have hgamma : ‖logDeriv Complex.Gammaℝ
+      (sigma + tau * Complex.I)‖ ≤
+      gammaBoundaryLinearConstant * (1 + T) := by
+    have hb := norm_logDeriv_GammaR_strip_le
+      (u := tau) ⟨(by linarith [hsigma.1]), hsigma.2⟩
+    rw [hT] at hb
+    exact hb
+  have hquad : 1 ≤ (T + 1) ^ 2 := by nlinarith
+  have hlinquad : T + 1 ≤ (T + 1) ^ 2 := by nlinarith
+  unfold completedRegularizedZetaLogScore
+  calc
+    ‖logDeriv completedXiCore (sigma + tau * Complex.I) -
+        1 / (sigma + tau * Complex.I) -
+        logDeriv Complex.Gammaℝ (sigma + tau * Complex.I)‖ ≤
+      ‖logDeriv completedXiCore (sigma + tau * Complex.I)‖ +
+        ‖1 / (sigma + tau * Complex.I)‖ +
+          ‖logDeriv Complex.Gammaℝ (sigma + tau * Complex.I)‖ := by
+      exact (norm_sub_le _ _).trans (add_le_add (norm_sub_le _ _) (le_refl _))
+    _ ≤ C * (T + 1) ^ 2 + 1 +
+        gammaBoundaryLinearConstant * (1 + T) := by gcongr
+    _ ≤ C * (T + 1) ^ 2 + (T + 1) ^ 2 +
+        gammaBoundaryLinearConstant * (T + 1) ^ 2 := by
+      apply add_le_add
+      · nlinarith [hquad]
+      · simpa [add_comm] using
+          mul_le_mul_of_nonneg_left hlinquad
+            gammaBoundaryLinearConstant_nonneg
+    _ = (C + 1 + gammaBoundaryLinearConstant) * (T + 1) ^ 2 := by ring
+
+theorem CompletedXiQuadraticSelectedHeightFamily.regularizedScoreBound
+    (Q : CompletedXiQuadraticSelectedHeightFamily)
+    (n : ℕ) {sigma : ℝ} (hsigma : sigma ∈ Set.Icc (1 : ℝ) 2) :
+    ‖completedRegularizedZetaLogScore
+      (sigma + Q.heights n * Complex.I)‖ ≤
+      (Q.constant + 1 + gammaBoundaryLinearConstant) *
+        (Q.heights n + 1) ^ 2 := by
+  apply norm_completedRegularizedZetaLogScore_le_of_xi hsigma
+    (abs_of_pos (lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (Q.lower n)))
+  exact Q.bound n sigma ⟨(by linarith [hsigma.1]), hsigma.2⟩
+
+theorem CompletedXiQuadraticSelectedHeightFamily.regularizedScoreBound_neg
+    (Q : CompletedXiQuadraticSelectedHeightFamily)
+    (n : ℕ) {sigma : ℝ} (hsigma : sigma ∈ Set.Icc (1 : ℝ) 2) :
+    ‖completedRegularizedZetaLogScore
+      (sigma - Q.heights n * Complex.I)‖ ≤
+      (Q.constant + 1 + gammaBoundaryLinearConstant) *
+        (Q.heights n + 1) ^ 2 := by
+  let T := Q.heights n
+  have hTpos : 0 < T :=
+    lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (Q.lower n)
+  have hbase := norm_completedRegularizedZetaLogScore_le_of_xi
+    (sigma := sigma) (tau := -T) (T := T) (C := Q.constant) hsigma
+    (by simp [abs_of_pos hTpos]) (by
+      simpa [T, sub_eq_add_neg, neg_mul] using
+        Q.bound_neg n sigma ⟨(by linarith [hsigma.1]), hsigma.2⟩)
+  simpa [T, sub_eq_add_neg, neg_mul] using hbase
+
+/-- Horizontal discrepancy for shifting the regularized arithmetic channel
+from the literal boundary `Re(s)=1` to the Dirichlet line `Re(s)=2`. -/
+noncomputable def completedRegularizedZetaShiftHorizontal
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) (n : ℕ) : ℂ :=
+  let T := Q.heights n
+  (∫ sigma in (1 : ℝ)..2,
+      completedContourTest h (sigma - T * Complex.I) *
+        completedRegularizedZetaLogScore (sigma - T * Complex.I)) -
+    ∫ sigma in (1 : ℝ)..2,
+      completedContourTest h (sigma + T * Complex.I) *
+        completedRegularizedZetaLogScore (sigma + T * Complex.I)
+
+theorem norm_completedRegularizedZetaShiftHorizontal_le
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) (n : ℕ) :
+    ‖completedRegularizedZetaShiftHorizontal h Q n‖ ≤
+      2 * (completedZeroTransformWideFourthMajorant h *
+        (Q.constant + 1 + gammaBoundaryLinearConstant)) *
+          (Q.heights n + 1) ^ 2 / Q.heights n ^ 4 := by
+  let T := Q.heights n
+  let D := Q.constant + 1 + gammaBoundaryLinearConstant
+  let E := completedZeroTransformWideFourthMajorant h * D *
+    (T + 1) ^ 2 / T ^ 4
+  have hTpos : 0 < T :=
+    lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (Q.lower n)
+  have hD : 0 ≤ D := by
+    dsimp [D]
+    exact add_nonneg (add_nonneg Q.constant_nonneg (by norm_num))
+      gammaBoundaryLinearConstant_nonneg
+  have hwide : 0 ≤ completedZeroTransformWideFourthMajorant h :=
+    completedZeroTransformWideFourthMajorant_nonneg h
+  have hE : 0 ≤ E := by
+    exact div_nonneg (mul_nonneg (mul_nonneg hwide hD) (sq_nonneg _))
+      (by positivity)
+  have hedge : ∀ sign : Bool, ‖∫ sigma in (1 : ℝ)..2,
+      let s : ℂ := if sign then sigma + T * Complex.I
+        else sigma - T * Complex.I
+      completedContourTest h s * completedRegularizedZetaLogScore s‖ ≤ E := by
+    intro sign
+    have hb := intervalIntegral.norm_integral_le_of_norm_le_const
+      (a := (1 : ℝ)) (b := 2) (C := E)
+      (f := fun sigma : ℝ =>
+        let s : ℂ := if sign then sigma + T * Complex.I
+          else sigma - T * Complex.I
+        completedContourTest h s * completedRegularizedZetaLogScore s) (by
+      intro sigma hsigma
+      have hsigma' : sigma ∈ Set.Icc (1 : ℝ) 2 := by
+        rw [uIoc_of_le (by norm_num : (1 : ℝ) ≤ 2)] at hsigma
+        exact ⟨hsigma.1.le, hsigma.2⟩
+      have htest : ‖completedContourTest h
+          (if sign then sigma + T * Complex.I else sigma - T * Complex.I)‖ ≤
+          completedZeroTransformWideFourthMajorant h / T ^ 4 := by
+        apply (le_div_iff₀ (pow_pos hTpos 4)).mpr
+        cases sign
+        · simpa [sub_eq_add_neg, neg_mul, mul_comm] using
+            height_pow_four_mul_norm_completedContourTest_le_wide h hsigma'
+              (show |-T| = T by rw [abs_neg, abs_of_pos hTpos])
+        · simpa [mul_comm] using
+            height_pow_four_mul_norm_completedContourTest_le_wide h hsigma'
+              (abs_of_pos hTpos)
+      have hscore : ‖completedRegularizedZetaLogScore
+          (if sign then sigma + T * Complex.I else sigma - T * Complex.I)‖ ≤
+          D * (T + 1) ^ 2 := by
+        cases sign
+        · simpa [D, T] using Q.regularizedScoreBound_neg n hsigma'
+        · simpa [D, T] using Q.regularizedScoreBound n hsigma'
+      rw [norm_mul]
+      exact (mul_le_mul htest hscore (norm_nonneg _)
+        (div_nonneg hwide (by positivity))).trans_eq (by simp [E]; ring))
+    convert hb using 1 <;> norm_num [E]
+  have hbottom := hedge false
+  have htop := hedge true
+  change ‖(∫ sigma in (1 : ℝ)..2,
+      completedContourTest h (sigma - T * Complex.I) *
+        completedRegularizedZetaLogScore (sigma - T * Complex.I)) -
+    ∫ sigma in (1 : ℝ)..2,
+      completedContourTest h (sigma + T * Complex.I) *
+        completedRegularizedZetaLogScore (sigma + T * Complex.I)‖ ≤ _
+  calc
+    _ ≤ E + E := (norm_sub_le _ _).trans (add_le_add (by
+      simpa using hbottom) (by simpa using htop))
+    _ = 2 * (completedZeroTransformWideFourthMajorant h *
+        (Q.constant + 1 + gammaBoundaryLinearConstant)) *
+          (Q.heights n + 1) ^ 2 / Q.heights n ^ 4 := by
+      simp [E, D, T]
+      ring
+
+theorem tendsto_completedRegularizedZetaShiftHorizontal_zero
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) :
+    Tendsto (completedRegularizedZetaShiftHorizontal h Q) atTop (nhds 0) := by
+  let T := Q.heights
+  let A := completedZeroTransformWideFourthMajorant h *
+    (Q.constant + 1 + gammaBoundaryLinearConstant)
+  let B : ℕ → ℝ := fun n => 2 * A * (T n + 1) ^ 2 / T n ^ 4
+  let G : ℕ → ℝ := fun n => 8 * A / T n ^ 2
+  have hA : 0 ≤ A := mul_nonneg
+    (completedZeroTransformWideFourthMajorant_nonneg h) (by
+      exact add_nonneg (add_nonneg Q.constant_nonneg (by norm_num))
+        gammaBoundaryLinearConstant_nonneg)
+  have hB0 : ∀ n, 0 ≤ B n := fun n =>
+    div_nonneg (mul_nonneg (mul_nonneg (by positivity) hA) (sq_nonneg _))
+      (by positivity)
+  have hBG : ∀ᶠ n in atTop, B n ≤ G n := by
+    filter_upwards [Filter.eventually_atTop.mpr ⟨1, fun n hn => hn⟩] with n hn
+    have hT : 1 ≤ T n := by
+      have hnreal : (1 : ℝ) ≤ n := by exact_mod_cast hn
+      exact hnreal.trans (Q.lower n).le
+    have hquad : (T n + 1) ^ 2 ≤ 4 * T n ^ 2 := by nlinarith
+    have hTpos : 0 < T n := lt_of_lt_of_le zero_lt_one hT
+    dsimp [B, G]
+    apply (div_le_div_iff₀ (pow_pos hTpos 4) (pow_pos hTpos 2)).mpr
+    calc
+      2 * A * (T n + 1) ^ 2 * T n ^ 2 ≤
+          2 * A * (4 * T n ^ 2) * T n ^ 2 := by gcongr
+      _ = 8 * A * T n ^ 4 := by ring
+  have hG : Tendsto G atTop (nhds 0) := by
+    have hpow : Tendsto (fun n => T n ^ 2) atTop atTop :=
+      by
+        simpa [T, pow_two] using
+          Q.heightsTendsto.atTop_mul_atTop₀ Q.heightsTendsto
+    simpa [G] using tendsto_const_nhds.div_atTop hpow
+  rw [tendsto_zero_iff_norm_tendsto_zero]
+  apply squeeze_zero' (Filter.Eventually.of_forall fun n => norm_nonneg _)
+    (Filter.Eventually.of_forall fun n =>
+      (norm_completedRegularizedZetaShiftHorizontal_le h Q n).trans_eq
+        (by rfl))
+    (squeeze_zero' (Filter.Eventually.of_forall hB0) hBG hG)
+
+/-- Finite Cauchy-Goursat shift of the regularized arithmetic score across
+the zero-free strip `1 <= Re(s) <= 2`. -/
+theorem completedRegularizedZetaShift_finite_rectangle
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) (n : ℕ) :
+    (∫ y in -Q.heights n..Q.heights n,
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        regularizedZetaBoundaryLogScore y) =
+    (∫ y in -Q.heights n..Q.heights n,
+      completedContourTest h ((2 : ℂ) + y * Complex.I) *
+        completedAbelZetaLogScore 1 y) -
+      Complex.I * completedRegularizedZetaShiftHorizontal h Q n := by
+  let F : ℂ → ℂ := fun s =>
+    completedContourTest h s * completedRegularizedZetaLogScore s
+  let T := Q.heights n
+  have hdiff : DifferentiableOn ℂ F
+      (Set.Icc (1 : ℝ) 2 ×ℂ Set.Icc (-T) T) := by
+    intro s hs
+    rw [Complex.mem_reProdIm] at hs
+    exact ((differentiable_completedContourTest h s).mul
+      (differentiableAt_completedRegularizedZetaLogScore hs.1.1)
+        ).differentiableWithinAt
+  have hzero := rectangleBoundaryIntegral_eq_zero_of_differentiableOn
+    F 1 2 (-T) T (by norm_num) (by
+      have hTpos : 0 < T :=
+        lt_of_le_of_lt (by positivity : (0 : ℝ) ≤ n) (Q.lower n)
+      linarith) hdiff
+  dsimp [rectangleBoundaryIntegral, F] at hzero
+  let B : ℂ := ∫ sigma in (1 : ℝ)..2,
+    completedContourTest h ((sigma : ℂ) + ((-T : ℝ) : ℂ) * Complex.I) *
+      completedRegularizedZetaLogScore
+        ((sigma : ℂ) + ((-T : ℝ) : ℂ) * Complex.I)
+  let U : ℂ := ∫ sigma in (1 : ℝ)..2,
+    completedContourTest h ((sigma : ℂ) + (T : ℂ) * Complex.I) *
+      completedRegularizedZetaLogScore
+        ((sigma : ℂ) + (T : ℂ) * Complex.I)
+  let R : ℂ := ∫ y in -T..T,
+    completedContourTest h ((2 : ℂ) + y * Complex.I) *
+      completedRegularizedZetaLogScore ((2 : ℂ) + y * Complex.I)
+  let L : ℂ := ∫ y in -T..T,
+    completedContourTest h ((1 : ℂ) + y * Complex.I) *
+      completedRegularizedZetaLogScore ((1 : ℂ) + y * Complex.I)
+  change B - U + Complex.I * R - Complex.I * L = 0 at hzero
+  have hLR : L = R - Complex.I * (B - U) := by
+    linear_combination Complex.I * hzero + (L - R) * Complex.I_mul_I
+  have hab : ∀ y : ℝ, completedAbelZetaLogScore 1 y =
+      completedRegularizedZetaLogScore ((2 : ℂ) + y * Complex.I) := by
+    intro y
+    unfold completedAbelZetaLogScore
+    congr 2
+    norm_num
+  simp_rw [hab]
+  simpa [L, R, B, U, T, regularizedZetaBoundaryLogScore,
+    completedRegularizedZetaShiftHorizontal,
+    Complex.ofReal_neg, sub_eq_add_neg, neg_mul] using hLR
 
 /-- The two horizontal terms in the selected rectangle boundary integral. -/
 noncomputable def completedXiHorizontalContour
@@ -1217,6 +1534,55 @@ theorem tendsto_completedXiRightGammaContour
   exact (tendsto_const_nhds.mul hi).congr'
     (Filter.Eventually.of_forall fun n => rfl)
 
+/-- The literal selected arithmetic contour converges to the displaced Abel
+value. No boundary interchange remains: the equality is a holomorphic strip
+shift with vanishing selected horizontal edges. -/
+theorem tendsto_completedXiRightRegularizedZetaContour
+    (h : SmoothCompletedLogTest)
+    (Q : CompletedXiQuadraticSelectedHeightFamily) :
+    Tendsto (completedXiRightRegularizedZetaContour h Q.heights) atTop
+      (nhds ((Complex.I / 2) *
+        ((completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) -
+          (compactPrimePowerPairing (h : CompletedLogTest) : ℂ)))) := by
+  have hT := Q.heightsTendsto
+  have hneg : Tendsto (fun n => -Q.heights n) atTop atBot :=
+    tendsto_neg_atTop_atBot.comp hT
+  have hright : Tendsto (fun n =>
+      ∫ y in -Q.heights n..Q.heights n,
+        completedContourTest h ((2 : ℂ) + y * Complex.I) *
+          completedAbelZetaLogScore 1 y) atTop
+      (nhds (completedAbelRegularizedZetaIntegratedValue h 1)) := by
+    have hi := intervalIntegral_tendsto_integral
+      (integrable_completedContourTest_mul_completedAbelZetaLogScore h
+        (by norm_num : (0 : ℝ) < 1)) hneg hT
+    rw [integral_completedContourTest_mul_completedAbelZetaLogScore_eq h
+      (by norm_num : (0 : ℝ) < 1)] at hi
+    convert hi using 1 <;> norm_num
+  have hh := tendsto_completedRegularizedZetaShiftHorizontal_zero h Q
+  have hshift : Tendsto (fun n =>
+      (∫ y in -Q.heights n..Q.heights n,
+        completedContourTest h ((2 : ℂ) + y * Complex.I) *
+          completedAbelZetaLogScore 1 y) -
+        Complex.I * completedRegularizedZetaShiftHorizontal h Q n) atTop
+      (nhds (completedAbelRegularizedZetaIntegratedValue h 1)) := by
+    simpa using hright.sub (tendsto_const_nhds.mul hh)
+  have hliteral := hshift.congr'
+    (Filter.Eventually.of_forall fun n =>
+      (completedRegularizedZetaShift_finite_rectangle h Q n).symm)
+  have hvalue := completedAbelRegularizedZetaIntegratedValue_eq h
+    (by norm_num : (0 : ℝ) < 1)
+  rw [hvalue] at hliteral
+  unfold completedXiRightRegularizedZetaContour
+  have hmul : Tendsto (fun n => Complex.I *
+      (∫ y in -Q.heights n..Q.heights n,
+        completedContourTest h ((1 : ℂ) + y * Complex.I) *
+          regularizedZetaBoundaryLogScore y)) atTop
+      (nhds (Complex.I * ((1 / 2 : ℂ) *
+        ((completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) -
+          (compactPrimePowerPairing (h : CompletedLogTest) : ℂ))))) :=
+    tendsto_const_nhds.mul hliteral
+  convert hmul using 1 <;> ring
+
 /-- Every finite right edge splits into three individually continuous
 channels. The zeta pole and `1/(s-1)` counterterm remain together in the
 regularized arithmetic channel. -/
@@ -1334,33 +1700,19 @@ structure CompletedXiSelectedRightEdgeLimit
   placeLimit : Tendsto (completedXiRightVerticalContour h Q.heights) atTop
     (𝓝 ((Complex.I / 2) * (completedPlaceFunctional h : ℂ)))
 
-/-- The remaining arithmetic place identification on the selected right edge. The
-elementary `1/s` channel and the pole counterterm inside the regularized-zeta
-channel supply the two halves of the completed pole kernel, so they must be
-identified together rather than assigned separate place values. The Gamma
-channel is now proved above and is no longer contract data. -/
-structure CompletedXiRightEdgePlaceIdentification
-    (h : SmoothCompletedLogTest)
-    (Q : CompletedXiQuadraticSelectedHeightFamily) : Prop where
-  regularizedZetaAbelTransfer :
-    Tendsto (completedXiRightRegularizedZetaContour h Q.heights) atTop
-      (𝓝 ((Complex.I / 2) *
-        ((completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) -
-          (compactPrimePowerPairing (h : CompletedLogTest) : ℂ))))
-
-/-- Once the three place identities are supplied, the proved channel
-decomposition and exhaustion theorems compile the one-sided right-edge limit.
--/
-theorem CompletedXiRightEdgePlaceIdentification.toRightEdgeLimit
-    {h : SmoothCompletedLogTest}
-    {Q : CompletedXiQuadraticSelectedHeightFamily}
-    (P : CompletedXiRightEdgePlaceIdentification h Q) :
+/-- The proved elementary, Gamma, and regularized arithmetic channel values
+compile every quantitative selected-height family to the one-sided right-edge
+limit. No place-identification contract remains. -/
+theorem CompletedXiQuadraticSelectedHeightFamily.toRightEdgeLimit
+    (Q : CompletedXiQuadraticSelectedHeightFamily)
+    (h : SmoothCompletedLogTest) :
     CompletedXiSelectedRightEdgeLimit h Q := by
   have he := tendsto_completedXiRightElementaryContour h Q.heightsTendsto
   rw [completedXiRightElementaryFullLine_eq_decayingPoleHalf] at he
   have hg := tendsto_completedXiRightGammaContour h Q.heightsTendsto
   rw [completedXiRightGammaFullLine_eq_archimedeanPairing] at hg
-  have hsum := (he.add hg).add P.regularizedZetaAbelTransfer
+  have hr := tendsto_completedXiRightRegularizedZetaContour h Q
+  have hsum := (he.add hg).add hr
   refine ⟨?_⟩
   rw [completedPlaceFunctional_eq_places]
   convert hsum.congr' (Filter.Eventually.of_forall fun n =>
@@ -1432,15 +1784,13 @@ theorem completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits
     (hright h).toVerticalLimit
 
 /-- Source-facing terminal reduction: the cited logarithmic-squared selected
-height theorem and the two explicit right-edge place identifications imply
-the completed Weil formula on the smooth core. -/
-theorem completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights_and_places
-    (L : CompletedXiLogSquaredSelectedHeightFamily)
-    (hplaces : ∀ h : SmoothCompletedLogTest,
-      CompletedXiRightEdgePlaceIdentification h L.toQuadratic) :
+height theorem implies the completed Weil formula on the smooth core. All
+right-edge place channels are proved internally. -/
+theorem completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights
+    (L : CompletedXiLogSquaredSelectedHeightFamily) :
     CompletedWeilExplicitFormulaOnSmoothCore :=
   completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits L.toQuadratic
-    fun h => (hplaces h).toRightEdgeLimit
+    fun h => L.toQuadratic.toRightEdgeLimit h
 
 /-- On every selected zero-free horizontal edge, `Xi'/Xi` has a finite bound.
 The bound is intentionally indexed by `n`; no asymptotic rate is claimed. -/

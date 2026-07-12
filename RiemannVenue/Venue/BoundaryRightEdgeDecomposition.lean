@@ -137,12 +137,66 @@ theorem logDeriv_completedXiCore_eq_places
     norm_num at hs
   · exact riemannZeta_ne_zero_of_one_le_re (by linarith)
 
+/-- The pole-cleared completed-Xi core has no zeros on the closed Dirichlet
+half-plane. The boundary case is the proved zeta one-line nonvanishing result;
+the open case follows from the explicit positive-half-plane factorization. -/
+theorem completedXiCore_ne_zero_of_one_le_re {s : ℂ} (hs : 1 ≤ s.re) :
+    completedXiCore s ≠ 0 := by
+  rcases hs.eq_or_lt with hsEq | hsLt
+  · exact completedXiCore_ne_zero_of_re_eq_one hsEq.symm
+  · have hspos : 0 < s.re := lt_trans (by norm_num) hsLt
+    have hs1 : s ≠ 1 := by
+      intro h
+      rw [h] at hsLt
+      norm_num at hsLt
+    rw [completedXiCore_eq_positive_factors hspos hs1]
+    exact mul_ne_zero
+      (mul_ne_zero (by
+        intro h
+        rw [h] at hspos
+        norm_num at hspos) (sub_ne_zero.mpr hs1))
+      (mul_ne_zero (Complex.Gammaℝ_ne_zero_of_re_pos hspos)
+        (riemannZeta_ne_zero_of_one_le_re hs))
+
+/-- The pole-regularized arithmetic score as a complex-plane object. On the
+zero-free half-plane `Re(s) >= 1` it is holomorphic, including at `s = 1`:
+the completed entire function has already absorbed the zeta pole. -/
+noncomputable def completedRegularizedZetaLogScore (s : ℂ) : ℂ :=
+  logDeriv completedXiCore s - 1 / s - logDeriv Complex.Gammaℝ s
+
+/-- The regularized arithmetic score is holomorphic at every point of the
+closed Dirichlet half-plane. -/
+theorem differentiableAt_completedRegularizedZetaLogScore
+    {s : ℂ} (hs : 1 ≤ s.re) :
+    DifferentiableAt ℂ completedRegularizedZetaLogScore s := by
+  have hxiAn : AnalyticAt ℂ completedXiCore s :=
+    analyticOnNhd_completedXiCore Set.univ s (Set.mem_univ _)
+  have hxi0 := completedXiCore_ne_zero_of_one_le_re hs
+  have hxiLog : DifferentiableAt ℂ (logDeriv completedXiCore) s := by
+    change DifferentiableAt ℂ
+      (fun z => deriv completedXiCore z / completedXiCore z) s
+    exact hxiAn.deriv.differentiableAt.div hxiAn.differentiableAt hxi0
+  have hspos : 0 < s.re := lt_of_lt_of_le (by norm_num) hs
+  have hs0 : s ≠ 0 := by
+    intro h
+    rw [h] at hspos
+    norm_num at hspos
+  have hgammaAn := analyticAt_GammaR_of_re_pos hspos
+  have hgamma0 := Complex.Gammaℝ_ne_zero_of_re_pos hspos
+  have hgammaLog : DifferentiableAt ℂ (logDeriv Complex.Gammaℝ) s := by
+    change DifferentiableAt ℂ
+      (fun z => deriv Complex.Gammaℝ z / Complex.Gammaℝ z) s
+    exact hgammaAn.deriv.differentiableAt.div
+      hgammaAn.differentiableAt hgamma0
+  unfold completedRegularizedZetaLogScore
+  exact (hxiLog.sub (differentiableAt_const (1 : ℂ) |>.div
+    differentiableAt_id hs0)).sub hgammaLog
+
 /-- The pole-regularized zeta score on the right boundary. It is defined from
 the completed entire function, so the cancellation at height zero is built
 into the object rather than delegated to a principal-value convention. -/
 noncomputable def regularizedZetaBoundaryLogScore (y : ℝ) : ℂ :=
-  let s : ℂ := 1 + y * Complex.I
-  logDeriv completedXiCore s - 1 / s - logDeriv Complex.Gammaℝ s
+  completedRegularizedZetaLogScore (1 + y * Complex.I)
 
 /-- The nonsingular elementary score on the right boundary. -/
 noncomputable def completedXiRightElementaryLogScore (y : ℝ) : ℂ :=
@@ -165,6 +219,7 @@ theorem completedXiRightLogScore_eq_channels (y : ℝ) :
           regularizedZetaBoundaryLogScore y := by
   unfold completedXiRightLogScore completedXiRightElementaryLogScore
     completedXiRightGammaLogScore regularizedZetaBoundaryLogScore
+    completedRegularizedZetaLogScore
   ring
 
 /-- Away from height zero, the regularized boundary score is the literal sum
@@ -183,8 +238,7 @@ theorem regularizedZetaBoundaryLogScore_eq
   have hzeta : riemannZeta s ≠ 0 :=
     riemannZeta_ne_zero_of_one_le_re (by simp [s])
   have hdecomp := logDeriv_completedXiCore_eq_places_of_ne hsre hs1 hzeta
-  unfold regularizedZetaBoundaryLogScore
-  dsimp only
+  unfold regularizedZetaBoundaryLogScore completedRegularizedZetaLogScore
   rw [logDeriv_GammaR_eq_archimedeanGammaLogScore hsre, hdecomp]
   have hsub : s - 1 = (y : ℂ) * Complex.I := by
     simp [s]
@@ -331,8 +385,7 @@ theorem regularizedZetaBoundaryLogScore_zero :
 /-- Completed regularization on the displaced right edge `re s = 1+epsilon`.
 At `epsilon = 0` this is the boundary channel above. -/
 noncomputable def completedAbelZetaLogScore (ε y : ℝ) : ℂ :=
-  let s : ℂ := 1 + ε + y * Complex.I
-  logDeriv completedXiCore s - 1 / s - logDeriv Complex.Gammaℝ s
+  completedRegularizedZetaLogScore (1 + ε + y * Complex.I)
 
 @[simp] theorem completedAbelZetaLogScore_zero (y : ℝ) :
     completedAbelZetaLogScore 0 y = regularizedZetaBoundaryLogScore y := by
@@ -349,8 +402,7 @@ theorem completedAbelZetaLogScore_eq_zeta
   let s : ℂ := 1 + ε + y * Complex.I
   have hs : 1 < s.re := by simp [s, hε]
   have hdecomp := logDeriv_completedXiCore_eq_places hs
-  unfold completedAbelZetaLogScore
-  dsimp only
+  unfold completedAbelZetaLogScore completedRegularizedZetaLogScore
   rw [logDeriv_GammaR_eq_archimedeanGammaLogScore (by linarith : 0 < s.re),
     show (1 : ℂ) + (ε : ℂ) + (y : ℂ) * Complex.I = s by rfl,
     hdecomp]

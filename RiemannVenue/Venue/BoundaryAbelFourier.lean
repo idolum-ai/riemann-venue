@@ -946,6 +946,72 @@ theorem summable_integral_norm_completedContourTest_mul_abelVonMangoldtTerm
   intro n
   exact hintegral n |>.symm
 
+/-- On every displaced line the completed regularized arithmetic score is
+bounded and hence integrable against the rapidly decaying contour test. -/
+theorem integrable_completedContourTest_mul_completedAbelZetaLogScore
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        completedAbelZetaLogScore ε y) := by
+  let f : ℕ → ℂ := fun n => (ArithmeticFunction.vonMangoldt n : ℂ)
+  let s : ℂ := (1 : ℂ) + ε
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I)
+  let C : ℝ := ∑' n, ‖LSeries.term f s n‖
+  have hs : 1 < s.re := by simp [s, hε]
+  have hL : LSeriesSummable f s := by
+    simpa only [f] using
+      (ArithmeticFunction.LSeriesSummable_vonMangoldt (s := s) hs)
+  have hC : 0 ≤ C := tsum_nonneg fun _ => norm_nonneg _
+  have hK : Integrable K := integrable_completedContourTest_right h ε
+  have hscoreCont : Continuous (fun y : ℝ => completedAbelZetaLogScore ε y) := by
+    rw [continuous_iff_continuousAt]
+    intro y
+    exact (differentiableAt_completedRegularizedZetaLogScore (by
+      simp
+      linarith)).continuousAt.comp_of_eq (by fun_prop) rfl
+  apply hK.mul_bdd (c := 1 / ε + C)
+  · exact hscoreCont.aestronglyMeasurable
+  · filter_upwards [] with y
+    rw [completedAbelZetaLogScore_eq_vonMangoldt hε]
+    have hpole : ‖1 / ((ε : ℂ) + y * Complex.I)‖ ≤ 1 / ε := by
+      have hz : (ε : ℂ) + y * Complex.I ≠ 0 := by
+        intro hz
+        have hre := congrArg Complex.re hz
+        simp [hε.ne'] at hre
+      rw [norm_div, norm_one]
+      apply one_div_le_one_div_of_le hε
+      calc
+        ε = |(((ε : ℂ) + y * Complex.I).re)| := by simp [abs_of_pos hε]
+        _ ≤ ‖(ε : ℂ) + y * Complex.I‖ := Complex.abs_re_le_norm _
+    have hseries : ‖LSeries f (s + y * Complex.I)‖ ≤ C := by
+      have htermNorm : ∀ n, ‖LSeries.term f (s + y * Complex.I) n‖ =
+          ‖LSeries.term f s n‖ := by
+        intro n
+        rw [show s + y * Complex.I =
+            (1 : ℂ) + ε + y * Complex.I by simp [s],
+          LSeries_term_vonMangoldt_eq_abelVonMangoldtTerm ε n y,
+          show s = (1 : ℂ) + ε + (0 : ℝ) * Complex.I by simp [s],
+          LSeries_term_vonMangoldt_eq_abelVonMangoldtTerm ε n 0]
+        simp only [abelVonMangoldtTerm, norm_mul, Complex.norm_real,
+          Real.norm_eq_abs, Complex.norm_exp_ofReal_mul_I, mul_one]
+      have hLyNorm : Summable (fun n =>
+          ‖LSeries.term f (s + y * Complex.I) n‖) :=
+        hL.norm.congr (fun n => (htermNorm n).symm)
+      unfold LSeries C
+      apply (norm_tsum_le_tsum_norm hLyNorm).trans_eq
+      apply tsum_congr
+      exact htermNorm
+    have hscore : ‖1 / ((ε : ℂ) + y * Complex.I) -
+        LSeries f (s + y * Complex.I)‖ ≤ 1 / ε + C := by
+      calc
+        ‖1 / ((ε : ℂ) + y * Complex.I) -
+            LSeries f (s + y * Complex.I)‖ ≤
+            ‖1 / ((ε : ℂ) + y * Complex.I)‖ +
+            ‖LSeries f (s + y * Complex.I)‖ := norm_sub_le _ _
+        _ ≤ 1 / ε + C := add_le_add hpole hseries
+    simpa [f, s] using hscore
+
 /-- The full Abel--von Mangoldt Dirichlet series integrated against the
 completed contour test equals the sum of its critical-line atoms. This is the
 infinite upgrade of `integral_completedContourTest_mul_abelPrimePowerPolynomial`.
@@ -1193,6 +1259,66 @@ noncomputable def completedAbelRegularizedZetaIntegratedValue
     completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
       (1 / ((ε : ℂ) + y * Complex.I) -
         completedAbelZetaLogScore ε y)
+
+theorem integrable_completedContourTest_mul_abelPoleCounterterm
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    Integrable (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        (1 / ((ε : ℂ) + y * Complex.I))) := by
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I)
+  have hK : Integrable K := integrable_completedContourTest_right h ε
+  apply hK.mul_bdd (c := 1 / ε)
+  · apply Continuous.aestronglyMeasurable
+    apply continuous_const.div
+    · fun_prop
+    · intro y
+      have hne : (ε : ℂ) + y * Complex.I ≠ 0 := by
+        intro hz
+        have hre := congrArg Complex.re hz
+        simp [hε.ne'] at hre
+      exact hne
+  · filter_upwards [] with y
+    have hz : (ε : ℂ) + y * Complex.I ≠ 0 := by
+      intro hz
+      have hre := congrArg Complex.re hz
+      simp [hε.ne'] at hre
+    rw [norm_div, norm_one]
+    apply one_div_le_one_div_of_le hε
+    calc
+      ε = |(((ε : ℂ) + y * Complex.I).re)| := by simp [abs_of_pos hε]
+      _ ≤ ‖(ε : ℂ) + y * Complex.I‖ := Complex.abs_re_le_norm _
+
+/-- The integrated definition is the literal full-line displaced score once
+integrability has been established. -/
+theorem integral_completedContourTest_mul_completedAbelZetaLogScore_eq
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        completedAbelZetaLogScore ε y) =
+      completedAbelRegularizedZetaIntegratedValue h ε := by
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I)
+  let P : ℝ → ℂ := fun y => K y * (1 / ((ε : ℂ) + y * Complex.I))
+  let R : ℝ → ℂ := fun y => K y * completedAbelZetaLogScore ε y
+  have hP : Integrable P := by
+    simpa [P, K] using
+      integrable_completedContourTest_mul_abelPoleCounterterm h hε
+  have hR : Integrable R := by
+    simpa [R, K] using
+      integrable_completedContourTest_mul_completedAbelZetaLogScore h hε
+  unfold completedAbelRegularizedZetaIntegratedValue
+  change (∫ y : ℝ, R y) = (∫ y : ℝ, P y) -
+    ∫ y : ℝ, K y *
+      (1 / ((ε : ℂ) + y * Complex.I) - completedAbelZetaLogScore ε y)
+  rw [show (fun y : ℝ => K y *
+      (1 / ((ε : ℂ) + y * Complex.I) - completedAbelZetaLogScore ε y)) =
+      fun y => P y - R y by
+    funext y
+    dsimp [P, R]
+    ring,
+    integral_sub hP hR]
+  ring
 
 /-- The displaced regularized-zeta value is half of the growing pole ray
 minus the compact finite-place pairing. -/

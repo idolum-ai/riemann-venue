@@ -433,9 +433,13 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     transform is also proved real and equal to the canonical cosine density.
     The Gamma contour shift, wider-strip fourth-order decay, and conjugation
     cancellation are proved; this calculation corrected the completed Gamma
-    multiplicity from one to two. The Abel-to-literal regularized-zeta
-    boundary transfer remains open as the sole field of
-    `CompletedXiRightEdgePlaceIdentification`
+    multiplicity from one to two. The Abel-to-literal regularized-zeta transfer
+    is now proved by a finite rectangle shift across `1 <= Re(s) <= 2`, using
+    symmetric selected-height bounds and fourth-order horizontal test decay.
+    Consequently every quantitative selected-height family produces the full
+    right-edge place limit without an additional place-identification contract.
+    The only remaining external input to the smooth-core completed formula is
+    existence of the cited logarithmic-squared selected-height family
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,
     `RiemannVenue/Venue/BoundaryZeroAvoidingHeights.lean`,
