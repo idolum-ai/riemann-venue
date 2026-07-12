@@ -1,6 +1,8 @@
 import RiemannVenue.Venue.BoundaryExplicitFormulaContour
 import RiemannVenue.Venue.BoundaryGammaGrowth
 import RiemannVenue.Venue.BoundaryRightEdgeDecomposition
+import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # Fourier kernel for the displaced right edge
@@ -18,6 +20,22 @@ open MeasureTheory
 open scoped FourierTransform SchwartzMap
 
 noncomputable section
+
+/-- Laplace representation of the displaced pole kernel. -/
+theorem integral_exp_neg_abelPoleKernel
+    {ε : ℝ} (hε : 0 < ε) (y : ℝ) :
+    (∫ x : ℝ in Set.Ioi 0,
+      Complex.exp (-((ε : ℂ) + y * Complex.I) * x)) =
+      1 / ((ε : ℂ) + y * Complex.I) := by
+  have hre : (-((ε : ℂ) + y * Complex.I)).re < 0 := by
+    simp [hε]
+  rw [integral_exp_mul_complex_Ioi hre]
+  have hz : (ε : ℂ) + y * Complex.I ≠ 0 := by
+    intro hz
+    have hre0 := congrArg Complex.re hz
+    simp [hε.ne'] at hre0
+  field_simp [hz]
+  simp
 
 /-- The displaced contour test is the average of the Fourier transforms of
 the positive and negative exponential tilts. -/
@@ -307,6 +325,216 @@ theorem integral_completedContourTest_right_mul_phase
   push_cast
   field_simp [Real.pi_ne_zero]
   ring
+
+set_option maxHeartbeats 800000 in
+/-- General positive-ray pole transform. The contour displacement `δ` and
+the pole parameter `α` are kept independent; their difference determines the
+surviving exponential kernel. -/
+theorem integral_completedContourTest_mul_positivePoleKernel
+    (h : SmoothCompletedLogTest) (δ : ℝ) {α : ℝ} (hα : 0 < α) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + δ + y * Complex.I) *
+        (1 / ((α : ℂ) + y * Complex.I))) =
+      ∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℂ) *
+          (Real.exp ((1 / 2 + δ - α) * x) : ℂ) *
+            ((h x : ℂ) + (h (-x) : ℂ)) := by
+  let K : ℝ → ℂ := fun y =>
+    completedContourTest h ((1 : ℂ) + δ + y * Complex.I)
+  let F : ℝ → ℝ → ℂ := fun y x =>
+    K y * Complex.exp (-((α : ℂ) + y * Complex.I) * x)
+  have hK : Integrable K := by
+    simpa [K] using integrable_completedContourTest_right_mul_phase h δ 0
+  have hx : Integrable (fun x : ℝ => Real.exp (-α * x))
+      (volume.restrict (Set.Ioi 0)) := by
+    exact integrableOn_exp_mul_Ioi (a := -α)
+      (by linarith) 0
+  have hmajor : Integrable (fun z : ℝ × ℝ =>
+      ‖K z.1‖ * Real.exp (-α * z.2))
+      (volume.prod (volume.restrict (Set.Ioi 0))) :=
+    hK.norm.mul_prod hx
+  have hKcont : Continuous K := by
+    dsimp [K]
+    exact (continuous_completedContourTest h).comp (by fun_prop)
+  have hphase : Continuous (fun z : ℝ × ℝ =>
+      -((α : ℂ) + z.1 * Complex.I) * (z.2 : ℂ)) := by
+    fun_prop
+  have hF : Integrable (Function.uncurry F)
+      (volume.prod (volume.restrict (Set.Ioi 0))) := by
+    apply hmajor.mono
+    · apply Continuous.aestronglyMeasurable
+      change Continuous (fun z : ℝ × ℝ =>
+        K z.1 * Complex.exp (-((α : ℂ) + z.1 * Complex.I) * z.2))
+      exact (hKcont.comp continuous_fst).mul
+        (Complex.continuous_exp.comp hphase)
+    · filter_upwards [] with z
+      change ‖K z.1 * Complex.exp
+          (-((α : ℂ) + z.1 * Complex.I) * z.2)‖ ≤
+        ‖(‖K z.1‖ * Real.exp (-α * z.2) : ℝ)‖
+      rw [norm_mul, Complex.norm_exp, Real.norm_eq_abs,
+        abs_of_nonneg (mul_nonneg (norm_nonneg _) (Real.exp_pos _).le)]
+      simp
+  calc
+    (∫ y : ℝ, K y * (1 / ((α : ℂ) + y * Complex.I))) =
+        ∫ y : ℝ, ∫ x : ℝ in Set.Ioi 0, F y x := by
+      apply integral_congr_ae
+      filter_upwards [] with y
+      change K y * (1 / ((α : ℂ) + y * Complex.I)) =
+        ∫ x : ℝ in Set.Ioi 0,
+          K y * Complex.exp (-((α : ℂ) + y * Complex.I) * x)
+      rw [integral_const_mul]
+      rw [integral_exp_neg_abelPoleKernel hα]
+    _ = ∫ x : ℝ in Set.Ioi 0, ∫ y : ℝ, F y x :=
+      integral_integral_swap hF
+    _ = ∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℂ) *
+          (Real.exp ((1 / 2 + δ - α) * x) : ℂ) *
+          ((h x : ℂ) + (h (-x) : ℂ)) := by
+      apply setIntegral_congr_fun measurableSet_Ioi
+      intro x hx0
+      have hsplit : (fun y : ℝ => F y x) = fun y =>
+          (Real.exp (-α * x) : ℂ) *
+            (K y * Complex.exp
+              (((-(y * x) : ℝ) : ℂ) * Complex.I)) := by
+        funext y
+        simp only [F]
+        rw [show -((α : ℂ) + y * Complex.I) * (x : ℂ) =
+            ((-α * x : ℝ) : ℂ) +
+              (((-(y * x) : ℝ) : ℂ) * Complex.I) by
+          push_cast
+          ring,
+          Complex.exp_add, ← Complex.ofReal_exp]
+        ring
+      change (∫ y : ℝ, F y x) = _
+      rw [hsplit, integral_const_mul,
+        integral_completedContourTest_right_mul_phase]
+      have hcancel :
+          Real.exp (-α * x) * Real.exp ((1 / 2 + δ) * x) =
+            Real.exp ((1 / 2 + δ - α) * x) := by
+        rw [← Real.exp_add]
+        congr 1
+        ring
+      have hcancelC :
+          (Real.exp (-α * x) : ℂ) *
+              (Real.exp ((1 / 2 + δ) * x) : ℂ) =
+            (Real.exp ((1 / 2 + δ - α) * x) : ℂ) := by
+        exact_mod_cast hcancel
+      calc
+        _ = (1 / 2 : ℂ) *
+            ((Real.exp (-α * x) : ℂ) *
+              (Real.exp ((1 / 2 + δ) * x) : ℂ)) *
+                ((h x : ℂ) + (h (-x) : ℂ)) := by ring
+        _ = _ := by rw [hcancelC]
+
+/-- The displaced `1/(s-1)` counterterm is the growing pole half. -/
+theorem integral_completedContourTest_mul_abelPoleCounterterm
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+        (1 / ((ε : ℂ) + y * Complex.I))) =
+      (1 / 2 : ℂ) *
+        (completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) := by
+  rw [integral_completedContourTest_mul_positivePoleKernel h ε hε]
+  unfold completedPoleGrowingHalf
+  calc
+    (∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℂ) *
+          (Real.exp ((1 / 2 + ε - ε) * x) : ℂ) *
+            ((h x : ℂ) + (h (-x) : ℂ))) =
+        ∫ x : ℝ in Set.Ioi 0,
+          (((1 / 2 : ℝ) *
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (x / 2) : ℝ) : ℂ) := by
+      apply setIntegral_congr_fun measurableSet_Ioi
+      intro x hx0
+      push_cast
+      ring_nf
+    _ = ((∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℝ) *
+          ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+            Real.exp (x / 2) : ℝ) : ℂ) := integral_ofReal
+    _ = (1 / 2 : ℂ) *
+        ((∫ x : ℝ in Set.Ioi 0,
+          ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+            Real.exp (x / 2) : ℝ) : ℂ) := by
+      have hscale : (∫ x : ℝ in Set.Ioi 0,
+          (1 / 2 : ℝ) *
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (x / 2)) =
+          (1 / 2 : ℝ) * ∫ x : ℝ in Set.Ioi 0,
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (x / 2) := by
+        calc
+          _ = ∫ x : ℝ in Set.Ioi 0,
+              (1 / 2 : ℝ) *
+                (((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+                  Real.exp (x / 2)) := by
+            apply setIntegral_congr_fun measurableSet_Ioi
+            intro x hx0
+            ring
+          _ = _ := integral_const_mul _ _
+      rw [hscale]
+      push_cast
+      ring
+
+/-- The elementary right-edge `1/s` channel is the decaying pole half. -/
+theorem integral_completedContourTest_mul_elementaryPole
+    (h : SmoothCompletedLogTest) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        (1 / ((1 : ℂ) + y * Complex.I))) =
+      (1 / 2 : ℂ) *
+        (completedPoleDecayingHalf (h : CompletedLogTest) : ℂ) := by
+  rw [show (fun y : ℝ =>
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        (1 / ((1 : ℂ) + y * Complex.I))) = fun (y : ℝ) =>
+      completedContourTest h ((1 : ℂ) + (0 : ℝ) + y * Complex.I) *
+        (1 / (((1 : ℝ) : ℂ) + y * Complex.I)) by
+    funext y
+    simp]
+  rw [integral_completedContourTest_mul_positivePoleKernel h 0
+    (by norm_num : (0 : ℝ) < 1)]
+  unfold completedPoleDecayingHalf
+  calc
+    (∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℂ) *
+          (Real.exp ((1 / 2 + 0 - 1) * x) : ℂ) *
+            ((h x : ℂ) + (h (-x) : ℂ))) =
+        ∫ x : ℝ in Set.Ioi 0,
+          (((1 / 2 : ℝ) *
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (-x / 2) : ℝ) : ℂ) := by
+      apply setIntegral_congr_fun measurableSet_Ioi
+      intro x hx0
+      push_cast
+      ring_nf
+    _ = ((∫ x : ℝ in Set.Ioi 0,
+        (1 / 2 : ℝ) *
+          ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+            Real.exp (-x / 2) : ℝ) : ℂ) := integral_ofReal
+    _ = (1 / 2 : ℂ) *
+        ((∫ x : ℝ in Set.Ioi 0,
+          ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+            Real.exp (-x / 2) : ℝ) : ℂ) := by
+      have hscale : (∫ x : ℝ in Set.Ioi 0,
+          (1 / 2 : ℝ) *
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (-x / 2)) =
+          (1 / 2 : ℝ) * ∫ x : ℝ in Set.Ioi 0,
+            ((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+              Real.exp (-x / 2) := by
+        calc
+          _ = ∫ x : ℝ in Set.Ioi 0,
+              (1 / 2 : ℝ) *
+                (((h : CompletedLogTest) x + (h : CompletedLogTest) (-x)) *
+                  Real.exp (-x / 2)) := by
+            apply setIntegral_congr_fun measurableSet_Ioi
+            intro x hx0
+            ring
+          _ = _ := integral_const_mul _ _
+      rw [hscale]
+      push_cast
+      ring
 
 /-- One prime-power monomial on the displaced Abel line. -/
 noncomputable def abelPrimePowerTerm
@@ -952,6 +1180,50 @@ theorem integral_completedAbelFinitePlaceExtraction_eq_half_compactPrimePowerPai
         (compactPrimePowerPairing (h : CompletedLogTest) : ℂ) := by
   rw [integral_completedContourTest_mul_completedAbelFinitePlaceExtraction h hε,
     criticalVonMangoldtPairing_eq_half_compactPrimePowerPairing]
+
+/-- Integrated open-half-plane regularized-zeta value. It is written as the
+pole counterterm minus the finite-place extraction so that no unproved
+linearity claim at the literal boundary is hidden in the definition. -/
+noncomputable def completedAbelRegularizedZetaIntegratedValue
+    (h : SmoothCompletedLogTest) (ε : ℝ) : ℂ :=
+  (∫ y : ℝ,
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+      (1 / ((ε : ℂ) + y * Complex.I))) -
+  ∫ y : ℝ,
+    completedContourTest h ((1 : ℂ) + ε + y * Complex.I) *
+      (1 / ((ε : ℂ) + y * Complex.I) -
+        completedAbelZetaLogScore ε y)
+
+/-- The displaced regularized-zeta value is half of the growing pole ray
+minus the compact finite-place pairing. -/
+theorem completedAbelRegularizedZetaIntegratedValue_eq
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    completedAbelRegularizedZetaIntegratedValue h ε =
+      (1 / 2 : ℂ) *
+        ((completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) -
+          (compactPrimePowerPairing (h : CompletedLogTest) : ℂ)) := by
+  unfold completedAbelRegularizedZetaIntegratedValue
+  rw [integral_completedContourTest_mul_abelPoleCounterterm h hε,
+    integral_completedAbelFinitePlaceExtraction_eq_half_compactPrimePowerPairing
+      h hε]
+  ring
+
+/-- Adding the elementary right-edge value supplies the missing decaying pole
+ray and recovers exactly half of `pole - finite places`. -/
+theorem integral_elementary_add_completedAbelRegularizedZetaIntegratedValue
+    (h : SmoothCompletedLogTest) {ε : ℝ} (hε : 0 < ε) :
+    (∫ y : ℝ,
+      completedContourTest h ((1 : ℂ) + y * Complex.I) *
+        (1 / ((1 : ℂ) + y * Complex.I))) +
+      completedAbelRegularizedZetaIntegratedValue h ε =
+        (1 / 2 : ℂ) *
+          ((completedPolePairing (h : CompletedLogTest) : ℂ) -
+            (compactPrimePowerPairing (h : CompletedLogTest) : ℂ)) := by
+  rw [integral_completedContourTest_mul_elementaryPole,
+    completedAbelRegularizedZetaIntegratedValue_eq h hε,
+    ← completedPoleGrowingHalf_add_decayingHalf (h : CompletedLogTest)]
+  push_cast
+  ring
 
 /-- Abel boundary passage for the finite-place extraction. This theorem does
 not identify the limit with a literal full-line integral at `ε = 0`; that

@@ -426,8 +426,12 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     extraction, which enters the actual arithmetic score with a minus sign.
     The elementary and Gamma channels are proved full-line integrable and
     every cofinal selected-height family exhausts them to named full-line
-    values. Their pole/Gamma value identities and the Abel-to-literal
-    regularized-zeta boundary transfer remain open and are isolated by
+    values. The elementary value is proved to be the decaying pole half; the
+    displaced zeta pole counterterm is the growing half; those halves are
+    proved to reassemble the completed pole pairing. The critical-axis test
+    transform is also proved real and equal to the canonical cosine density.
+    The Gamma contour shift and Abel-to-literal regularized-zeta boundary
+    transfer remain open and are isolated by
     `CompletedXiRightEdgePlaceIdentification`
   - **Artifact:** `RiemannVenue/Venue/BoundaryRightEdgeDecomposition.lean`,
     `RiemannVenue/Venue/BoundaryAbelFourier.lean`,

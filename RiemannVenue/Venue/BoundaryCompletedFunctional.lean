@@ -121,6 +121,41 @@ theorem completedZeroTestTransform_ofReal_re
       ring_nf
     _ = (∫ t : ℝ, fexp t).re := integral_re hexp
 
+/-- On the critical frequency axis the completed transform is genuinely real
+and equals the canonical cosine density, not merely in real part. -/
+theorem completedZeroTestTransform_ofReal
+    (h : SmoothCompletedLogTest) (u : ℝ) :
+    completedZeroTestTransform h u =
+      (h.naturalCosineDensity u : ℂ) := by
+  apply Complex.ext
+  · exact completedZeroTestTransform_ofReal_re h u
+  · rw [completedZeroTestTransform]
+    have hconst : (1 / (2 * Real.pi) : ℂ) =
+        ((1 / (2 * Real.pi) : ℝ) : ℂ) := by norm_num
+    rw [hconst, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im,
+      zero_mul, add_zero, Complex.ofReal_im]
+    let fcos : ℝ → ℂ := fun t =>
+      (h t : ℂ) * Complex.cos ((u : ℂ) * (t : ℂ))
+    have hcos : Integrable fcos :=
+      integrable_completedZeroTestTransform_real h u
+    have him : (∫ t : ℝ, fcos t).im = 0 := by
+      calc
+        (∫ t : ℝ, fcos t).im = ∫ t : ℝ, (fcos t).im :=
+          (integral_im hcos).symm
+        _ = 0 := by
+          apply integral_eq_zero_of_ae
+          filter_upwards [] with t
+          have hcosim :
+              (Complex.cos ((u : ℂ) * (t : ℂ))).im = 0 := by
+            rw [← Complex.ofReal_mul]
+            exact Complex.cos_ofReal_im (u * t)
+          change ((h t : ℂ) *
+            Complex.cos ((u : ℂ) * (t : ℂ))).im = 0
+          rw [Complex.mul_im, hcosim]
+          simp
+    change (1 / (2 * Real.pi)) * (∫ t : ℝ, fcos t).im = 0
+    rw [him, mul_zero]
+
 /-- The nontrivial zeta zeros. Trivial negative-even zeros are excluded
 because their contribution is already represented by the Gamma place. -/
 def nontrivialRiemannZetaZeros :=

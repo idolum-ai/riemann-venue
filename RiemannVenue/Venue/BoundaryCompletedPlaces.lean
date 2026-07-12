@@ -143,6 +143,58 @@ The final completed formula still has to choose its overall sign convention. -/
 noncomputable def completedPolePairing (h : CompletedLogTest) : ℝ :=
   ∫ t : ℝ, h t * completedPoleKernel t
 
+/-- Growing half of the completed pole kernel after symmetrizing the compact
+log test and restricting to the positive ray. This is the Abel
+`1/(s-1)` counterterm contribution. -/
+noncomputable def completedPoleGrowingHalf (h : CompletedLogTest) : ℝ :=
+  ∫ x : ℝ in Set.Ioi 0,
+    (h x + h (-x)) * Real.exp (x / 2)
+
+/-- Decaying half of the completed pole kernel on the positive ray. This is
+the elementary right-edge `1/s` contribution. -/
+noncomputable def completedPoleDecayingHalf (h : CompletedLogTest) : ℝ :=
+  ∫ x : ℝ in Set.Ioi 0,
+    (h x + h (-x)) * Real.exp (-x / 2)
+
+/-- The two one-sided Laplace kernels reassemble the symmetric completed pole
+pairing. -/
+theorem completedPoleGrowingHalf_add_decayingHalf
+    (h : CompletedLogTest) :
+    completedPoleGrowingHalf h + completedPoleDecayingHalf h =
+      completedPolePairing h := by
+  let f : ℝ → ℝ := fun x => h x * completedPoleKernel x
+  have hf : Integrable f := h.integrable_mul_completedPoleKernel
+  have hhneg : HasCompactSupport (fun x : ℝ => h (-x)) := by
+    simpa [Function.comp_def] using
+      h.hasCompactSupport.comp_homeomorph (Homeomorph.neg ℝ)
+  have hgrow : IntegrableOn (fun x : ℝ =>
+      (h x + h (-x)) * Real.exp (x / 2)) (Set.Ioi 0) := by
+    exact (Continuous.integrable_of_hasCompactSupport (by fun_prop)
+      ((h.hasCompactSupport.add hhneg).mul_right)).integrableOn
+  have hdecay : IntegrableOn (fun x : ℝ =>
+      (h x + h (-x)) * Real.exp (-x / 2)) (Set.Ioi 0) := by
+    exact (Continuous.integrable_of_hasCompactSupport (by fun_prop)
+      ((h.hasCompactSupport.add hhneg).mul_right)).integrableOn
+  have hfneg : IntegrableOn (fun x : ℝ => f (-x)) (Set.Ioi 0) := by
+    apply (Continuous.integrable_of_hasCompactSupport ?_ hhneg.mul_right).integrableOn
+    change Continuous (fun x : ℝ => h (-x) * completedPoleKernel (-x))
+    exact (h.continuous.comp continuous_neg).mul
+      (continuous_completedPoleKernel.comp continuous_neg)
+  unfold completedPoleGrowingHalf completedPoleDecayingHalf
+    completedPolePairing
+  rw [← integral_add hgrow hdecay]
+  rw [← integral_add_compl (s := Set.Ioi 0) (by simp) hf, Set.compl_Ioi]
+  have hneg : (∫ x : ℝ in Set.Iic 0, f x) =
+      ∫ x : ℝ in Set.Ioi 0, f (-x) := by
+    simpa only [neg_zero] using (integral_comp_neg_Ioi 0 f).symm
+  rw [hneg, ← integral_add hf.integrableOn hfneg]
+  apply setIntegral_congr_fun measurableSet_Ioi
+  intro x hx
+  dsimp [f]
+  unfold completedPoleKernel
+  rw [show Real.exp (-x / 2) = Real.exp ((-x) / 2) by ring]
+  ring_nf
+
 theorem completedPolePairing_add (h g : CompletedLogTest) :
     completedPolePairing (h + g) =
       completedPolePairing h + completedPolePairing g := by

@@ -125,15 +125,25 @@ therefore exhausts both channels to named full-line values.
 The remaining place work is exact and separated by
 `CompletedXiRightEdgePlaceIdentification`:
 
-1. identify the elementary full-line value with
-   `(i/2) * completedPolePairing h`;
-2. identify the Gamma full-line value with `(i/2)` times the canonical
+1. identify the Gamma full-line value with `(i/2)` times the canonical
    archimedean pairing;
-3. transfer the Abel finite-place result to the literal `epsilon = 0`
-   regularized-zeta selected contour, with value
-   `-(i/2) * compactPrimePowerPairing h`.
+2. transfer the displaced regularized-zeta value to the literal `epsilon = 0`
+   selected contour.
 
-These three fields compile automatically to the selected right-edge place
+The pole normalization is no longer an input. Lean proves that the elementary
+`1/s` channel is `(i/2)` times the decaying pole half, while the displaced
+`1/(s-1)` counterterm is `(1/2)` times the growing pole half. The two halves
+sum to `completedPolePairing`, and subtracting the finite-place extraction
+gives exactly `pole - finite places`. The arithmetic transfer field therefore
+targets `(i/2) * (growingPoleHalf - compactPrimePowerPairing)`; the compiler
+adds the proved elementary half.
+
+For Gamma, Lean now also proves that the completed test transform on the
+critical axis is genuinely real and equals `naturalCosineDensity`. The
+remaining Gamma field is consequently a pure holomorphic contour shift from
+`Re(s)=1` to `Re(s)=1/2`, followed by the standard odd-imaginary cancellation.
+
+These two fields compile automatically to the selected right-edge place
 limit. They do not include the separate existence theorem for quantitative
 selected heights.
 

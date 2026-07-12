@@ -58,6 +58,6 @@ with shared real or imaginary coordinates.
 The zero-avoiding-height layer has crossed its qualitative sill, and every
 logarithmic-squared selected-height family is proved sufficient for horizontal
 decay. Its existence remains the Titchmarsh/minimum-modulus input. Independently,
-`CompletedXiRightEdgePlaceIdentification` is now the exact three-field place
+`CompletedXiRightEdgePlaceIdentification` is now the exact two-field place
 gate. Together these two inputs imply the completed Weil explicit formula;
 neither can hide obligations belonging to the other.

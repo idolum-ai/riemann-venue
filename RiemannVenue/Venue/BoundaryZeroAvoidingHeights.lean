@@ -777,6 +777,19 @@ noncomputable def completedXiRightGammaFullLine
     completedContourTest h (1 + y * Complex.I) *
       completedXiRightGammaLogScore y
 
+/-- The elementary full-line contour is the decaying half of the completed
+pole pairing. The growing half belongs to the regularized-zeta pole
+counterterm. -/
+theorem completedXiRightElementaryFullLine_eq_decayingPoleHalf
+    (h : SmoothCompletedLogTest) :
+    completedXiRightElementaryFullLine h =
+      (Complex.I / 2) *
+        (completedPoleDecayingHalf (h : CompletedLogTest) : ℂ) := by
+  unfold completedXiRightElementaryFullLine
+    completedXiRightElementaryLogScore
+  rw [integral_completedContourTest_mul_elementaryPole]
+  ring
+
 /-- Any cofinal positive height family exhausts the integrable elementary
 right-edge channel. -/
 theorem tendsto_completedXiRightElementaryContour
@@ -922,23 +935,22 @@ structure CompletedXiSelectedRightEdgeLimit
   placeLimit : Tendsto (completedXiRightVerticalContour h Q.heights) atTop
     (𝓝 ((Complex.I / 2) * (completedPlaceFunctional h : ℂ)))
 
-/-- The three remaining place identifications on the selected right edge.
-Integrability and interval exhaustion of the elementary and Gamma channels
-are already proved; their value identities and the Abel-to-literal arithmetic
-transfer remain explicit fields. -/
+/-- The two remaining place identifications on the selected right edge. The
+elementary `1/s` channel and the pole counterterm inside the regularized-zeta
+channel supply the two halves of the completed pole kernel, so they must be
+identified together rather than assigned separate place values. -/
 structure CompletedXiRightEdgePlaceIdentification
     (h : SmoothCompletedLogTest)
     (Q : CompletedXiQuadraticSelectedHeightFamily) : Prop where
-  elementaryValue : completedXiRightElementaryFullLine h =
-    (Complex.I / 2) * (completedPolePairing (h : CompletedLogTest) : ℂ)
   gammaValue : completedXiRightGammaFullLine h =
     (Complex.I / 2) *
       ((∫ u : ℝ, h.naturalCosineDensity u *
         archimedeanGammaBoundaryScore u : ℝ) : ℂ)
-  regularizedZetaLimit :
+  regularizedZetaAbelTransfer :
     Tendsto (completedXiRightRegularizedZetaContour h Q.heights) atTop
-      (𝓝 (-(Complex.I / 2) *
-        (compactPrimePowerPairing (h : CompletedLogTest) : ℂ)))
+      (𝓝 ((Complex.I / 2) *
+        ((completedPoleGrowingHalf (h : CompletedLogTest) : ℂ) -
+          (compactPrimePowerPairing (h : CompletedLogTest) : ℂ))))
 
 /-- Once the three place identities are supplied, the proved channel
 decomposition and exhaustion theorems compile the one-sided right-edge limit.
@@ -949,15 +961,16 @@ theorem CompletedXiRightEdgePlaceIdentification.toRightEdgeLimit
     (P : CompletedXiRightEdgePlaceIdentification h Q) :
     CompletedXiSelectedRightEdgeLimit h Q := by
   have he := tendsto_completedXiRightElementaryContour h Q.heightsTendsto
-  rw [P.elementaryValue] at he
+  rw [completedXiRightElementaryFullLine_eq_decayingPoleHalf] at he
   have hg := tendsto_completedXiRightGammaContour h Q.heightsTendsto
   rw [P.gammaValue] at hg
-  have hsum := (he.add hg).add P.regularizedZetaLimit
+  have hsum := (he.add hg).add P.regularizedZetaAbelTransfer
   refine ⟨?_⟩
   rw [completedPlaceFunctional_eq_places]
   convert hsum.congr' (Filter.Eventually.of_forall fun n =>
     (completedXiRightVerticalContour_eq_channels h Q.heights n).symm) using 1
   congr 1
+  rw [← completedPoleGrowingHalf_add_decayingHalf (h : CompletedLogTest)]
   push_cast
   ring
 
@@ -1023,7 +1036,7 @@ theorem completedWeilExplicitFormulaOnSmoothCore_of_rightEdgeLimits
     (hright h).toVerticalLimit
 
 /-- Source-facing terminal reduction: the cited logarithmic-squared selected
-height theorem and the three explicit right-edge place identifications imply
+height theorem and the two explicit right-edge place identifications imply
 the completed Weil formula on the smooth core. -/
 theorem completedWeilExplicitFormulaOnSmoothCore_of_logSquaredHeights_and_places
     (L : CompletedXiLogSquaredSelectedHeightFamily)
