@@ -294,7 +294,8 @@ Mathlib theorem), **stated** (precise `Prop`, deliberately unproved),
     open. Once supplied, it gives equivalence with `CompletedOpenStripRH`
   - **Artifact:** `RiemannVenue/Venue/BoundarySmoothCosineLift.lean`,
     `RiemannVenue/Venue/BoundaryPositivityReconnaissance.lean`,
-    `notes/boundary-positivity-reconnaissance.md`
+    `notes/boundary-positivity-reconnaissance.md`,
+    `notes/completed-weil-criterion-project.md`
 
 - **Claim:** Finite support, linearity, and the completed Cauchy-data shape do
   not protect positivity against coefficient drift
