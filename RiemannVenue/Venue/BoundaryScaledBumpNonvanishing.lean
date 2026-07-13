@@ -103,7 +103,10 @@ theorem continuous_completedFourierLaplaceTransform
 theorem canonicalSmoothBump_transform_zero_pos :
     0 < (completedFourierLaplaceTransform canonicalSmoothBump 0).re := by
   have hint : 0 < ∫ t : ℝ, canonicalSmoothBump t := by
-    exact canonicalSmoothBumpData.integral_pos
+    exact explicitStandardBump_contDiff.continuous
+      |>.integral_pos_of_hasCompactSupport_nonneg_nonzero
+        explicitStandardBump_hasCompactSupport explicitStandardBump_nonneg
+        (x := 0) (by simp [canonicalSmoothBump])
   let b : ℝ → ℝ := fun t => canonicalSmoothBump t
   have hbint :
       (∫ t : ℝ, (b t : ℂ)) =

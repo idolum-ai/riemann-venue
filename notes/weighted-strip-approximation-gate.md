@@ -229,19 +229,30 @@ family is no longer numerically blocked.  The improvement comes almost
 entirely from cancellation after synthesis; the coefficientwise charge is
 four orders of magnitude too pessimistic.
 
-This is still computed reconnaissance.  The coefficient vector has large
-`L1` mass, so interval enclosure must be much tighter than the cancellation
-ratio.  More importantly, the script's explicit standard bump is not Lean's
-noncomputably selected `canonicalSmoothBump`.  The crossing cannot be cited as
-a theorem about the current canonical seed.
+The floating solve remains reconnaissance, but the former seed mismatch is
+gone: `canonicalSmoothBump` is now the same explicit normalized standard bump
+used by the script.  Its support, smoothness, evenness, and all interior jets
+are proved in Lean.  The coefficient vector is rationalized symmetrically,
+and two real Cramer corrections reconstruct one complex target value exactly;
+the completed transform symmetries supply the rest of the orbit.
 
 ## Certification and Compilation
 
 `BoundaryLocalizedIntervalCertificates.lean` supplies two backend-neutral
 contracts.  Entrywise complex discs propagate to rigorous matrix residuals,
 and an integrable pointwise envelope propagates to the exact cancellation-
-aware derivative cost.  A future interval implementation can discharge these
-contracts without changing the mathematical compiler.
+aware derivative cost.  The concrete backend now consists of rational
+center-radius intervals, complex rectangles, kernel-checked transcendental
+Taylor bounds, equal-cell quadrature, Taylor envelopes, explicit bump jets,
+and determinant/Cramer propagation.  `Float` and `native_decide` are excluded
+from proof authority.
+
+The deterministic generator commits 270 exact-rational Taylor cells. The
+generated module compiles, and the consequence compiler proves that a
+completed analytic certificate gives an invertible correction matrix, the
+exact benchmark target, and a full corrected order-two majorant below `354`.
+The record is intentionally not yet inhabited: its transform enclosures and
+cellwise analytic bounds remain the current proof frontier.
 
 `CompletedLocalizedPhasedWindowPayment` then requires:
 
@@ -281,9 +292,10 @@ next recommended move.
 ## Current Frontier
 
 The formal system no longer asks for target-relative zero separation or
-derivatives through order `4*N + 4`.  A concrete phased localized proxy now
-crosses the fixed-order tail gate.  The narrow frontier is to define the same
-explicit bump in Lean, reconstruct exact target coefficients, and produce
-entry and quadrature enclosures strong enough to certify the observed
-cancellation.  Only if that reconstruction fails should the project return
-to the proved weighted-jet annihilator alternative.
+derivatives through order `4*N + 4`.  The explicit seed and exact target solve
+are now formal objects.  The narrow frontier is the generated numerical
+packet: certify the correction matrix and rational-base target residual, then
+sum the 270 cancellation-preserving derivative envelopes and charge the tiny
+Cramer corrections separately.  Only if that packet misses the strict scalar
+margin should the project return to the proved weighted-jet annihilator
+alternative.

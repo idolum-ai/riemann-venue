@@ -56,6 +56,18 @@ jobs:
         run: |
           python scripts/probe_boundary_finite_part.py > /tmp/boundary-finite-part-cnd.txt
           diff -u artifacts/boundary-finite-part-cnd.txt /tmp/boundary-finite-part-cnd.txt
+      - name: Localized phased reconstruction smoke test
+        run: |
+          python scripts/export_localized_phased_certificate.py \
+            /tmp/localized-phased-candidate.json \
+            --evaluation-samples 4001
+      - name: Localized phased interval-packet drift gate
+        run: |
+          python scripts/generate_computed_phased_interval_certificate.py \
+            --output /tmp/BoundaryComputedPhasedIntervalCertificate.lean
+          diff -u \
+            RiemannVenue/Venue/BoundaryComputedPhasedIntervalCertificate.lean \
+            /tmp/BoundaryComputedPhasedIntervalCertificate.lean
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
       # Drift gate: executed notebooks are committed textual/numeric evidence,

@@ -186,11 +186,26 @@ Lean proves the exact synthesis derivative identity, translation phase and
 cost laws, interval-certificate propagation, and compilation of a certified
 phased payment through the completed positivity endpoint.
 
-This is not yet a certified separator.  The computation uses an explicit
-standard bump while `canonicalSmoothBump` is noncomputably selected, and its
-large coefficient mass makes interval reconstruction nontrivial.  The narrow
-next project is an explicit Lean seed plus exact matrix and quadrature
-certificates.  A finite LP dual certificate is available if a fixed
-dictionary fails.  For the full-family fallback, the weighted `C0+C2` jet is
-now constructed in `L1 +_1 L1`, with a proved Hahn--Banach
+The seed and exact reconstruction mismatch is now closed.  The canonical
+localized bump is the explicit normalized standard bump used by the probe,
+with all interior derivatives represented as exact rational jets.  The
+reflection-symmetric LP output is stored as 100 exact rational coefficients;
+one complex target equation is reconstructed by a real `2 x 2` Cramer solve,
+and sign/conjugation symmetry propagates it to the four-point orbit.
+
+The remaining numerical authority is isolated in kernel-checkable interval
+modules: rational real intervals and complex rectangles, range-reduced Taylor
+enclosures for `exp`, `sin`, and `cos`, equal-cell quadrature, Taylor cell
+envelopes, determinant propagation, and separate correction-cost charging.
+The selected cancellation-preserving layout uses 270 half-domain cells and
+quadratic Taylor models for `exp(t/2) h''(t)`. Its generated rational envelope
+normalizes to about `353.8`, below the compiler limit `372.2`. Lean now proves
+that any inhabitant of the analytic packet forces the correction determinant
+nonzero, hits the target exactly, and bounds the full corrected order-two
+majorant by `354`. The packet's transform and cell enclosure fields still need
+inhabitants; the floating probe and generated rationals alone are not proofs.
+
+A finite LP dual certificate remains available if this fixed dictionary
+fails certification.  For the full-family fallback, the weighted `C0+C2` jet
+is constructed in `L1 +_1 L1`, with a proved Hahn--Banach
 closure/annihilator characterization.

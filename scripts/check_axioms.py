@@ -75,6 +75,9 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_RH",
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH",
     "RiemannVenue.Venue.boundaryPositivityReconnaissance",
+    "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_eq_jet_mul_exp",
+    "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
+    "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 
