@@ -210,10 +210,18 @@ private theorem computedPhasedBase_half_integral_le
         (hf.intervalIntegrable 4 (9 / 2))]
   change (∫ t in (0 : ℝ)..(9 / 2), f t) ≤ _
   rw [hsplit]
+  have h0 := C.segment0_integral_le
+  have h1 := C.segment1_integral_le
+  have h2 := C.segment2_integral_le
+  have h3 := C.segment3_integral_le
+  have h4 := C.segment4_integral_le
+  dsimp only [computedPhasedSegmentQuadrature0] at h0
+  dsimp only [computedPhasedSegmentQuadrature1] at h1
+  dsimp only [computedPhasedSegmentQuadrature2] at h2
+  dsimp only [computedPhasedSegmentQuadrature3] at h3
+  dsimp only [computedPhasedSegmentQuadrature4] at h4
   dsimp only [computedPhasedGeneratedHalfQuadrature]
-  linarith [C.segment0_integral_le, C.segment1_integral_le,
-    C.segment2_integral_le, C.segment3_integral_le,
-    C.segment4_integral_le]
+  linarith
 
 private theorem computedPhasedBase_majorant_lt
     (C : ComputedPhasedAnalyticIntervalCertificate) :

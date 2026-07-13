@@ -42,15 +42,15 @@ def computedPhasedAnalyticIntervalCertificateOfQuadratures
     (segment3_upper : segment3.upper = computedPhasedUpper3)
     (segment4_upper : segment4.upper = computedPhasedUpper4)
     (segment0_integral_le : (∫ t in (0 : ℝ)..(5 / 2),
-      ‖computedPhasedBaseWeightedSecond t‖) ≤ (644207814599 : ℝ) / 1256000000)
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature0)
     (segment1_integral_le : (∫ t in (5 / 2 : ℝ)..3,
-      ‖computedPhasedBaseWeightedSecond t‖) ≤ (6318844710423 : ℝ) / 13400000000)
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature1)
     (segment2_integral_le : (∫ t in (3 : ℝ)..(7 / 2),
-      ‖computedPhasedBaseWeightedSecond t‖) ≤ (145462246193 : ℝ) / 1550000000)
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature2)
     (segment3_integral_le : (∫ t in (7 / 2 : ℝ)..4,
-      ‖computedPhasedBaseWeightedSecond t‖) ≤ (1503329467 : ℝ) / 80000000)
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature3)
     (segment4_integral_le : (∫ t in (4 : ℝ)..(9 / 2),
-      ‖computedPhasedBaseWeightedSecond t‖) ≤ (2863473099 : ℝ) / 200000000)
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature4)
     (bump0 : completedScaledDerivativeMajorant (7 / 2) 0
       canonicalSmoothBump ≤ 5 / 12)
     (bump1 : completedScaledDerivativeMajorant (7 / 2) 1
