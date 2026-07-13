@@ -120,6 +120,9 @@ Gram positivity              normalizedGcdKernel_posSemidef, kappa_posSemidef
 Every arrow through boundary-value identification is machine-checked. The
 critical-line-to-positivity direction is also proved; the converse
 positivity-to-real-spectrum implication is the remaining RH-strength gate.
+The current draft branch reduces that gate to explicit finite-window tail
+payments for translated and polynomial-corrected smooth tests; those payments
+remain open and are not consequences of zero counting alone.
 It yields the indexed open-strip critical-line statement; a separate
 zero-classification bridge to Mathlib's full `RiemannHypothesis` remains.
 The [boundary proof surface](docs/boundary-proof-surface.md) separates stable
