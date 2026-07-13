@@ -48,6 +48,13 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   Every recurrence step is rechecked by the Lean kernel, and CI byte-compares
   all generated shards.
 
+- `generate_computed_phased_bump_quadrature.py` emits the exact rational
+  `3 x 256` upper table, 48 source-sized proof shards, and the selector used by
+  the weighted standard-bump quadrature. The JSON table is computed evidence,
+  not proof authority: 765 generated Lean leaves independently check its
+  support-interior entries against the rational interval evaluator, while the
+  final three entries are discharged by the analytic flat-edge bound.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.
