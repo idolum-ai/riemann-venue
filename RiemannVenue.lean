@@ -110,6 +110,7 @@ import RiemannVenue.Venue.BoundaryPolynomialFiniteSeparator
 import RiemannVenue.Venue.BoundaryPolynomialTailCompiler
 import RiemannVenue.Venue.BoundaryPolynomialCost
 import RiemannVenue.Venue.BoundaryRegularizedPolynomialSeparator
+import RiemannVenue.Venue.BoundaryWeightedStripApproximation
 import RiemannVenue.Venue.BoundaryModulatedBumpSeparator
 import RiemannVenue.Venue.BoundaryLocalizedSeparatorBounds
 import RiemannVenue.Venue.BoundaryConvolutionPowers

@@ -65,6 +65,10 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   translated, polynomial, and bounded-leakage tail compilers, explicit
   regularization tradeoffs, and the remaining quantitative conditioning
   payment.
+- `weighted-strip-approximation-gate.md` — fixed-order continuation of the
+  positivity project: order-zero finite-value stability, order-two tail
+  control, the target-preserving approximation contract, and its concrete
+  construction choices.
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.

@@ -156,3 +156,18 @@ probe should use a correction basis whose weighted strip norm is controlled
 independently of exact zero separation, or formulate a weighted
 Paley--Wiener approximation theorem allowing small errors on the dangerous
 finite set. The bounded-leakage compiler is now ready to consume either.
+
+## Fixed-Order Approximation Gate
+
+The first controlled-norm route is now compiled.  An exact finite reference
+supplies only the target and competitor values; it carries no construction or
+tail data.  A distinct smooth approximant must preserve the target exactly,
+remain close to the reference in the order-zero weighted strip cost, and pay
+its own tail in the order-two cost.  The resulting sufficient inequalities
+use only `C0` and `C2`, independent of the window cardinality.
+
+The identity approximant recovers the old exact order-two payment and is an
+explicit negative control.  Progress therefore means constructing a genuinely
+different low-`C2` approximant, not renaming the exact interpolant.  See
+`weighted-strip-approximation-gate.md` for the contract, transformations, and
+next construction probes.
