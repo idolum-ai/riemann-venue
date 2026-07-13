@@ -14,21 +14,27 @@
   competitors forces a negative finite spectral window.
 - For an absolutely summable base tail bounded by `q`, the powered tail is at
   most `q^(n-1)` times the base tail.
+- If `0 <= q < M`, that powered tail is eventually smaller than any positive
+  fixed multiple of `M^n`; the asymptotic reconnection needed after a strict
+  global separator gap is now proved.
 - The completed arithmetic carrier now has a separate semantic law layer,
   preserving its schema while proving response, Gamma, pole, and assembly
   laws.
 
-## Active Gate
+## Passed Finite Interpolation Gate
 
-The missing theorem is `SmoothFiniteTransformInterpolation`: finite
-symmetry-compatible Fourier--Laplace values must be realized by an actual
-smooth compact real test. Mathlib contains no packaged Paley--Wiener theorem
-of this form. The repository now provides `canonicalSmoothBump`, a proved
-nonzero seed, smooth-core addition and real scaling, the existing smooth
-translation operation, and the exact transform laws for all three. The next
-missing theorem is finite-dimensional: choose translations so the realified
-exponential evaluation matrix is invertible. Quantitative support and global
-modulus-gap estimates still follow after that.
+`smoothFiniteTransformInterpolation_holds` proves the exact
+`SmoothFiniteTransformInterpolation` proposition. The construction positively
+dilates the canonical bump away from the prescribed finite transform zeros,
+chooses an explicit small translation step with distinct exponential nodes,
+solves the resulting Vandermonde system, descends the unique complex solution
+to real coefficients by reflection, and returns an actual
+`SmoothCompletedLogTest`.
+
+The active gate is now quantitative rather than existential: construct a
+separator whose target modulus is strictly larger than every non-target zero
+coefficient. Finite interpolation alone does not control how its constants
+grow as the interpolated window expands.
 
 An arbitrary entire interpolant is not an acceptable substitute. Nor is a
 separator structure that stores the desired negative completed pairing as a
@@ -37,14 +43,13 @@ margin must be computed from the proved complex product.
 
 ## Routes From The Gate
 
-1. **Translated-bump interpolation.** Addition, real scaling, translation,
-   and their transform laws are now proved. Find translations for which the
-   realified finite exponential evaluation matrix is invertible. This is
-   direct but requires quantitative determinant control.
-2. **Differential-operator interpolation.** Apply real constant-coefficient
-   differential operators to a bump, turning transform evaluations into
-   polynomial multipliers. This may simplify finite interpolation but needs
-   closure and integration-by-parts infrastructure.
+1. **Translated-bump interpolation (primary).** The conditional interpolation
+   theorem and Vandermonde factorization are proved. This route handles the
+   off-axis reflection pairs required by the hard Weil direction.
+2. **Differential-operator interpolation (auxiliary).** Smooth closure,
+   integration by parts, polynomial multipliers, and real interpolation on
+   the involution-fixed imaginary axis are proved. This route cannot yet
+   handle general off-axis pairs or repair seed-transform zeros.
 3. **Weighted approximation.** Build a target entire separator and prove
    density of compactly supported smooth transforms in a strip norm strong
    enough to preserve target sign and the global tail gap. No suitable

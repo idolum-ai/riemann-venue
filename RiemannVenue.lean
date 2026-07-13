@@ -99,4 +99,9 @@ import RiemannVenue.Venue.BoundarySpectralOrbit
 import RiemannVenue.Venue.BoundarySpectralAmplification
 import RiemannVenue.Venue.BoundaryCompletedTypeLaws
 import RiemannVenue.Venue.BoundaryPaleyWienerGate
+import RiemannVenue.Venue.BoundaryScaledBumpNonvanishing
+import RiemannVenue.Venue.BoundaryTranslatedBumpInterpolation
+import RiemannVenue.Venue.BoundaryTranslationStepAvoidance
+import RiemannVenue.Venue.BoundaryFiniteInterpolationCompiler
+import RiemannVenue.Venue.BoundaryDifferentialSeparator
 import RiemannVenue.Venue.BoundarySpectralDetectionCompiler
