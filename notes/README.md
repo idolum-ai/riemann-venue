@@ -62,8 +62,9 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   failure traps.
 - `completed-weil-positivity-progress.md` — current draft checkpoint: proved
   complex product, canonical zero orbits, exact finite-window separators,
-  translated and polynomial tail compilers, and the remaining quantitative
-  conditioning payment.
+  translated, polynomial, and bounded-leakage tail compilers, explicit
+  regularization tradeoffs, and the remaining quantitative conditioning
+  payment.
 - `boundary-scale-jet.md` — implementation record for the common finite scale
   family: critical Hellinger value, prime-power flux, graded logarithmic jets,
   centered compatibility, and the remaining raw-Hellinger derivative gate.

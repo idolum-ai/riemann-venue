@@ -108,6 +108,8 @@ import RiemannVenue.Venue.BoundaryPolynomialZeroKiller
 import RiemannVenue.Venue.BoundaryPolynomialMajorant
 import RiemannVenue.Venue.BoundaryPolynomialFiniteSeparator
 import RiemannVenue.Venue.BoundaryPolynomialTailCompiler
+import RiemannVenue.Venue.BoundaryPolynomialCost
+import RiemannVenue.Venue.BoundaryRegularizedPolynomialSeparator
 import RiemannVenue.Venue.BoundaryModulatedBumpSeparator
 import RiemannVenue.Venue.BoundaryLocalizedSeparatorBounds
 import RiemannVenue.Venue.BoundaryConvolutionPowers
@@ -118,6 +120,7 @@ import RiemannVenue.Venue.BoundaryVandermondeConditioning
 import RiemannVenue.Venue.BoundaryCanonicalFiniteSeparator
 import RiemannVenue.Venue.BoundaryNegativeTestCompiler
 import RiemannVenue.Venue.BoundaryFiniteWindowGlobalGap
+import RiemannVenue.Venue.BoundaryFiniteWindowLeakage
 import RiemannVenue.Venue.BoundaryCanonicalWindowCompiler
 import RiemannVenue.Venue.BoundaryCanonicalInterpolationTail
 import RiemannVenue.Venue.BoundarySpectralDetectionCompiler

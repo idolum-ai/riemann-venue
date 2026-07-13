@@ -116,3 +116,43 @@ approximation theorem that avoids exact annihilation. Absent such input, the
 compiled proposition `CanonicalPolynomialTailPayment` is the honest frontier;
 assuming it yields the full smooth-core positivity equivalence, but this
 branch does not claim the payment or RH.
+
+## Regularization Reconnaissance
+
+Exact annihilation is not required. The bounded-leakage compiler accepts a
+uniform finite-window competitor bound strictly below the target together
+with an independently proved fourth-power tail payment. For the polynomial
+killer, the regularized multiplier
+`p_lambda = (1 - lambda) + lambda * p_exact` preserves the target exactly and
+scales every declared competitor autocorrelation by `(1 - lambda)^2`.
+
+The resulting tradeoff is now explicit. If `B(T)` is the finite sum of base
+competitor norms, `C` is the base two-derivative majorant, and `E(T)` is the
+exact killer's weighted derivative cost, then the conservative payments are
+
+```text
+(1 - lambda)^2 * B(T) < M
+2*pi*((1 - lambda)*C + lambda*E(T))^2 < M*T^4.
+```
+
+For every fixed finite window the leakage inequality is always payable:
+`lambda = 1` makes it zero. Regularization therefore does not reveal a new
+finite-dimensional obstruction. It reveals that the entire remaining issue
+is the second inequality. Moving `lambda` away from one can lower the tail
+only when the base derivative cost is cheaper, but it simultaneously spends
+the finite leakage budget and does not reduce the polynomial degree whenever
+`lambda` is nonzero.
+
+The normalization denominator is no longer opaque. It is exactly the product,
+over competitors `w`, of the four distances from the target `z` to `w`,
+`-w`, `conj w`, and `-conj w`. A uniform separation `delta` contributes
+`delta^(4*N)`, while the polynomial has degree at most `4*N + 2` and invokes
+base derivative majorants through order `4*N + 4`. This confirms the next
+input must control target-relative separation and high derivatives together;
+zero counting controls only `N` and cannot supply either estimate.
+
+Recommendation: stop expanding exact polynomial machinery here. The next
+probe should use a correction basis whose weighted strip norm is controlled
+independently of exact zero separation, or formulate a weighted
+Paley--Wiener approximation theorem allowing small errors on the dangerous
+finite set. The bounded-leakage compiler is now ready to consume either.
