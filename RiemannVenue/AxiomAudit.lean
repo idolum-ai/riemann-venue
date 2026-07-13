@@ -38,6 +38,8 @@ import RiemannVenue.Venue.BoundaryComputedPhasedCellCertification
 import RiemannVenue.Venue.BoundaryComputedPhasedCertificateAssembly
 import RiemannVenue.Venue.BoundaryComputedPhasedJetFormula
 import RiemannVenue.Venue.BoundaryRationalTrigIntervals
+import RiemannVenue.Venue.BoundaryExplicitBumpIntervals
+import RiemannVenue.Venue.BoundaryComputedPhasedTransformPacket
 import RiemannVenue.Venue.BoundaryExplicitBumpJets
 
 /-!
@@ -123,6 +125,8 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment
 #print axioms RiemannVenue.Venue.computedPhasedBaseTest_iterDeriv_apply
 #print axioms RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval
+#print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_cellInterval
+#print axioms RiemannVenue.Venue.computedPhased_transform_fields_of_signed_quadrature
 
 open Lean Elab Command
 

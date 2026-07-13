@@ -229,15 +229,24 @@ It also has simultaneous rational sine/cosine enclosures with power-of-two
 range reduction and exact double-angle reconstruction; a kernel-checked
 example reaches phase `231` from a Taylor expansion at `231 / 256`.
 
-The remaining evaluator must enclose bump jets support-aware: ordinary
-rational intervals in the interior and the flat-boundary variable
-`y = u^2 / (1 - u^2)` near `|u| = 1`, then combine those intervals with the
-trigonometric ones without taking absolute values before the signed 100-column
-sum. The existing 20% third-jet cushions are numerically viable but too narrow
-for a global derivative bound or broadly inflated safety factors. Once that
-evaluator exists, the generated-row and final assembly constructors make the
-remaining 270-cell proof mechanical. The three transform values still require
-a separate complex quadrature packet over the same support.
+The support-aware bump evaluator now exists.  It represents jets zero through
+five as a rational polynomial in the flat-boundary coordinate
+`y = u^2 / (1 - u^2)` times `exp (-y)`, and proves sound rational point and
+cell enclosures without losing the endpoint decay.  Cells crossing `|u| = 1`
+must be subdivided, which is an explicit generator obligation rather than a
+hidden analytic assumption.
+
+The transform compiler now also preserves cancellation: it encloses signed
+real and imaginary cell integrals separately, compares their rational
+quadratures with `2 * pi * center`, and derives the requested complex ball
+using a proved rational lower bound for `pi`.  Exact rational enclosures for
+the benchmark exponential kernel and its product with a test-value interval
+feed that compiler.  What remains is concrete packet generation: combine bump
+and trigonometric intervals before the signed 100-column sum, instantiate all
+270 derivative cells, and instantiate the correction-zero, correction-one,
+and base-residual transform packets.  Until those inhabitants compile, the
+matrix entries and full synthesized derivative integral remain computed data,
+not certified theorems.
 
 A finite LP dual certificate remains available if this fixed dictionary
 fails certification.  For the full-family fallback, the weighted `C0+C2` jet
