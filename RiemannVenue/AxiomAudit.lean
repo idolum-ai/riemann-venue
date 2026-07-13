@@ -4,6 +4,10 @@ import RiemannVenue.Venue.BoundaryTranslatedBumpInterpolation
 import RiemannVenue.Venue.BoundaryTranslationStepAvoidance
 import RiemannVenue.Venue.BoundaryFiniteInterpolationCompiler
 import RiemannVenue.Venue.BoundaryDifferentialSeparator
+import RiemannVenue.Venue.BoundaryModulatedBumpSeparator
+import RiemannVenue.Venue.BoundaryConvolutionPowers
+import RiemannVenue.Venue.BoundarySpectralGlobalGap
+import RiemannVenue.Venue.BoundaryNegativeTestCompiler
 
 /-!
 # Terminal axiom audit
@@ -31,6 +35,11 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.exists_positive_translationStep_exponentialNodes_injective
 #print axioms RiemannVenue.Venue.smoothFiniteTransformInterpolation_holds
 #print axioms RiemannVenue.Venue.completedFourierLaplaceTransform_polynomialDifferentialOperator
+#print axioms RiemannVenue.Venue.cosineModulate_strictGap
+#print axioms RiemannVenue.Venue.completedAutocorrelationProduct_convolutionPower
+#print axioms RiemannVenue.Venue.completedZeroStrictGlobalGap_iff_finite_superlevel
+#print axioms RiemannVenue.Venue.CompletedZeroNegativeSeparatorWitness.exists_negative_boundary_power
+#print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_iff_openStripRH_of_negativeRealSeparators
 #print axioms RiemannVenue.Venue.completedWeilExplicitFormulaOnSmoothCore_proved
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValue_eq_completedPlaceFunctional
 #print axioms RiemannVenue.Venue.completedBoundaryCauchyValueIdentified

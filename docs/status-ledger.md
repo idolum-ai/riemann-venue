@@ -888,10 +888,23 @@ repository status. The compact proof/open-contract API map is
 - **Claim:** Every finite symmetry-compatible Fourier--Laplace prescription is
   realized by a smooth compact real test
 
-  - **Status:** stated, deliberately unproved; a concrete nonzero smooth bump
-    seed is constructed
-  - **Artifact:** `RiemannVenue/Venue/BoundaryPaleyWienerGate.lean`
-    (`SmoothFiniteTransformInterpolation`, `canonicalSmoothBump`)
+  - **Status:** proved in Lean by scaled-seed nonvanishing, explicit
+    exponential-node separation, and a translated-bump Vandermonde solve
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFiniteInterpolationCompiler.lean`
+    (`smoothFiniteTransformInterpolation_holds`), with construction lemmas in
+    `BoundaryScaledBumpNonvanishing.lean`,
+    `BoundaryTranslatedBumpInterpolation.lean`, and
+    `BoundaryTranslationStepAvoidance.lean`
+
+- **Claim:** Negative-real strict global separators compile through normalized
+  convolution powers and the completed explicit formula to spectral detection
+  and the open-strip positivity equivalence
+
+  - **Status:** proved conditionally on
+    `CompletedOffRealZeroHasNegativeRealStrictSeparator`; construction of that
+    separator for every off-real zero remains open
+  - **Artifact:** `RiemannVenue/Venue/BoundarySpectralGlobalGap.lean`,
+    `BoundaryConvolutionPowers.lean`, `BoundaryNegativeTestCompiler.lean`
 
 - **Claim:** This repository proves RH
 

@@ -153,9 +153,11 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    Its finite windows converge uniformly to a continuous even function that
    vanishes at zero. The resulting bounded multiplier now acts continuously
    on a named frequency-side `L1` test space, with finite windows converging
-   in dual operator norm. The off-axis Fourier--Laplace/Paley--Wiener
-   separation problem and completion of the stronger semantic boundary type
-   remain open; the smooth-core completed Weil identity is proved below, but
+   in dual operator norm. Finite symmetry-compatible off-axis
+   Fourier--Laplace interpolation is now proved inside the smooth compact real
+   core. The strict global gap against every non-target zeta zero and
+   completion of the stronger semantic boundary type remain open; the
+   smooth-core completed Weil identity is proved below, but
    none of these finite-part results is Weil positivity. A common
    finite-window scale family now derives both this
    Hellinger value and the logarithmic prime-power flux, with an exact

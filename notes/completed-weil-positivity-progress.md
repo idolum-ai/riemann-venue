@@ -36,6 +36,34 @@ separator whose target modulus is strictly larger than every non-target zero
 coefficient. Finite interpolation alone does not control how its constants
 grow as the interpolated window expands.
 
+For each fixed smooth test, the autocorrelation coefficients are absolutely
+summable, every positive superlevel is finite, and a largest nonzero
+non-target coefficient is attained. Thus pointwise strict separation is
+equivalent to a uniform global gap, and the check reduces to a canonical
+finite superlevel derived from that test. This does not by itself construct
+the separator: feeding the derived superlevel back into interpolation changes
+the test and therefore changes its decay constants and superlevel. The named
+remaining input is `SmoothCompletedZeroGlobalSeparator`.
+
+Cosine modulation now supplies exact two-lobe shift laws and a quantitative
+strict-gap condition, but real-test reflection forces equal norm on the target
+and its reflected partner. The target must therefore be the complete
+reflection orbit. Normalized convolution powers are also proved to remain in
+the smooth compact core and satisfy the exact amplification law
+`completedAutocorrelationProduct (h.convolutionPower n) z =
+completedAutocorrelationProduct h z ^ n`.
+
+All downstream steps now compile from one concrete construction target:
+`CompletedOffRealZeroHasNegativeRealStrictSeparator`. For each off-real zero,
+it asks for an actual smooth test, a finite nonempty target containing that
+zero, a strict global modulus gap, and one positive magnitude `M` such that
+every actual target coefficient equals `-M`. Odd convolution powers then give
+phase stability automatically. The complete `tsum` is split into the finite
+target and infinite complement, the powered tail is dominated, and the proved
+completed explicit formula converts the resulting negative zero sum into a
+negative boundary Cauchy value. This yields spectral detection and the
+open-strip positivity equivalence without assuming boundary negativity.
+
 An arbitrary entire interpolant is not an acceptable substitute. Nor is a
 separator structure that stores the desired negative completed pairing as a
 field. The construction must remain inside `SmoothCompletedLogTest` and its

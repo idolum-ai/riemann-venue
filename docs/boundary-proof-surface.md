@@ -86,8 +86,9 @@ broad Mathlib declarations throughout the environment.
 - `CompletedArithmeticBoundaryPackage` remains the compact carrier;
   `LawfulCompletedArithmeticBoundary` now supplies its proved place-side
   semantic laws without asserting positivity.
-- Realizable Paley-Wiener interpolation and the resulting completed-zero
-  spectral detection remain open in the active project described in
+- Finite realizable Paley-Wiener interpolation is proved. The strict global
+  non-target coefficient gap needed to turn it into completed-zero spectral
+  detection remains open in the active project described in
   `notes/completed-weil-criterion-project.md`.
 
 ## Positivity Project Draft
@@ -106,10 +107,14 @@ and the geometric infinite-tail majorant
 sum_tail |g(rho)|^n <= q^(n-1) * sum_tail |g(rho)|.
 ```
 
-The realizable Paley--Wiener interpolation theorem remains open. The draft
-contains a concrete nonzero smooth compact bump and the exact
-symmetry-compatible interpolation contract, but does not promote that
-contract to an assumption or claim spectral detection.
+The realizable Paley--Wiener interpolation theorem is now proved: positive
+dilation avoids a prescribed finite zero set, a small explicit translation
+step separates the exponential nodes, and a Vandermonde solve returns real
+coefficients by reflection uniqueness. Normalized convolution powers and the
+complete powered-tail compiler are also proved. Spectral detection is proved
+conditionally on one remaining construction target: every off-real zero must
+admit a smooth strict global separator whose complete target coefficients are
+the same negative real value. That separator existence is not claimed.
 
 ## Compatibility note
 

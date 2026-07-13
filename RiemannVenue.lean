@@ -104,4 +104,8 @@ import RiemannVenue.Venue.BoundaryTranslatedBumpInterpolation
 import RiemannVenue.Venue.BoundaryTranslationStepAvoidance
 import RiemannVenue.Venue.BoundaryFiniteInterpolationCompiler
 import RiemannVenue.Venue.BoundaryDifferentialSeparator
+import RiemannVenue.Venue.BoundaryModulatedBumpSeparator
+import RiemannVenue.Venue.BoundaryConvolutionPowers
+import RiemannVenue.Venue.BoundarySpectralGlobalGap
+import RiemannVenue.Venue.BoundaryNegativeTestCompiler
 import RiemannVenue.Venue.BoundarySpectralDetectionCompiler
