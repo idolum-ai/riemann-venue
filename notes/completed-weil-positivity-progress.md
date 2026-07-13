@@ -248,6 +248,30 @@ and base-residual transform packets.  Until those inhabitants compile, the
 matrix entries and full synthesized derivative integral remain computed data,
 not certified theorems.
 
+The next pass established that the selected numerical margins are real but
+also exposed the proof-engineering bedrock. The standard bump is now an exact
+Lean object throughout the candidate, its numerator recurrence is certified
+through derivative order 14 in four source-sized generated shards, and an
+all-order Leibniz bridge reduces every benchmark transform jet to finite
+rational complex arithmetic plus certified bump intervals. A signed complex
+Taylor quadrature compiler integrates the retained jets exactly and charges
+only outward jet radii and the omitted derivative. Numerical reconnaissance
+puts the three total transform errors near `1.34e-13`, `3.05e-13`, and
+`1.38e-12`, within radii `1e-10`, `1e-10`, and `1e-11`; those figures remain
+non-authoritative until the three concrete packets are inhabited.
+
+For the derivative integral, Lean now contains the exact rational
+100-column evaluator and proves its signed interval soundness. One concrete
+center and one cached sine leaf compile from source, but no complete cell does:
+the retained count is `0/810` center jets, `0/270` uniform third-jet bounds,
+and `0/5` segment certificates. Monolithic normalization took more than two
+minutes for one center; five-column and one-column atom shards still failed,
+while a single transcendental leaf compiles. The next certificate must cache
+both sine and cosine leaves, bump/exponential leaves, and exact rational
+column sums before assembling a cell. This is a compiler-scale obstruction,
+not evidence against the candidate, but the full derivative integral is not
+yet a theorem.
+
 A finite LP dual certificate remains available if this fixed dictionary
 fails certification.  For the full-family fallback, the weighted `C0+C2` jet
 is constructed in `L1 +_1 L1`, with a proved Hahn--Banach

@@ -40,6 +40,11 @@ import RiemannVenue.Venue.BoundaryComputedPhasedJetFormula
 import RiemannVenue.Venue.BoundaryRationalTrigIntervals
 import RiemannVenue.Venue.BoundaryExplicitBumpIntervals
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformPacket
+import RiemannVenue.Venue.BoundaryComplexTaylorQuadrature
+import RiemannVenue.Venue.BoundaryComputedPhasedBumpQuadrature
+import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpIntervals
+import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpGlobalBoundsCore
+import RiemannVenue.Venue.BoundaryComputedPhasedDerivativeInstantiation
 import RiemannVenue.Venue.BoundaryExplicitBumpJets
 
 /-!
@@ -127,6 +132,13 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval
 #print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_cellInterval
 #print axioms RiemannVenue.Venue.computedPhased_transform_fields_of_signed_quadrature
+#print axioms RiemannVenue.Venue.ComputedTransformTaylorCertificate.transform_mem
+#print axioms RiemannVenue.Venue.ExplicitBumpWeightedQuadratureCertificate.majorant_le
+#print axioms RiemannVenue.Venue.explicitStandardBumpJetNumerator_eq_14
+#print axioms RiemannVenue.Venue.computedPhasedRawJetInterval_contains
+#print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval
+#print axioms RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval
+#print axioms RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide
 
 open Lean Elab Command
 
