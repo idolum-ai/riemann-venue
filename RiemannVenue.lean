@@ -113,6 +113,7 @@ import RiemannVenue.Venue.BoundaryRegularizedPolynomialSeparator
 import RiemannVenue.Venue.BoundaryWeightedStripApproximation
 import RiemannVenue.Venue.BoundaryModulatedBumpSeparator
 import RiemannVenue.Venue.BoundaryLocalizedSeparatorBounds
+import RiemannVenue.Venue.BoundaryLocalizedWeightedCosts
 import RiemannVenue.Venue.BoundaryConvolutionPowers
 import RiemannVenue.Venue.BoundarySpectralGlobalGap
 import RiemannVenue.Venue.BoundaryCanonicalZeroOrbit

@@ -11,6 +11,10 @@ build so stale object files cannot hide a changed terminal declaration.
 
 Reproducibility helpers for notebooks, figures, and longer numerical notes.
 
+- `probe_localized_weighted_matrix.py` uses an explicit standard bump to scan
+  the localized finite evaluation matrix and its exact dilation/modulation
+  budget shape. It is computed reconnaissance, not a Lean certificate.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.
