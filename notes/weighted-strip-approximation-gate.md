@@ -254,6 +254,14 @@ exact benchmark target, and a full corrected order-two majorant below `354`.
 The record is intentionally not yet inhabited: its transform enclosures and
 cellwise analytic bounds remain the current proof frontier.
 
+The exact evaluator now has two additional compiled layers. Weighted-field
+jets zero through three are expanded into derivatives two through five of the
+signed 100-column synthesis, and each atom derivative is a finite convolution
+of explicit bump and cosine jets. Rational sine/cosine intervals use Taylor
+expansion after power-of-two range reduction and exact double-angle recovery.
+What remains is the support-aware bump-jet interval evaluator, bulk cell
+instantiation, and the separate complex transform quadrature packet.
+
 `CompletedLocalizedPhasedWindowPayment` then requires:
 
 1. exact negative target autocorrelation coefficients;

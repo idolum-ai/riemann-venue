@@ -222,17 +222,22 @@ majorant by `354`. The packet's transform and cell enclosure fields still need
 inhabitants, as do the three reduced weighted bump integrals; the floating
 probe and generated rationals alone are not proofs.
 
-The next interval layer is now sharply specified. It must export the exact
-finite Leibniz formulas for the synthesized jets through order five, add
-range-reduced rational sine/cosine enclosures (direct Taylor expansion at the
-largest phases is impractical), and evaluate bump jets support-aware: ordinary
+The next interval layer is now sharply specified. Lean exports the exact
+finite Leibniz formulas for all four weighted-field jets, reducing them to the
+100-column signed synthesis and explicit atom derivatives through order five.
+It also has simultaneous rational sine/cosine enclosures with power-of-two
+range reduction and exact double-angle reconstruction; a kernel-checked
+example reaches phase `231` from a Taylor expansion at `231 / 256`.
+
+The remaining evaluator must enclose bump jets support-aware: ordinary
 rational intervals in the interior and the flat-boundary variable
-`y = u^2 / (1 - u^2)` near `|u| = 1`. The existing 20% third-jet cushions are
-numerically viable but too narrow for a global derivative bound or broadly
-inflated safety factors; cancellation has to remain visible inside each cell.
-Once those three evaluator pieces exist, the generated-row and final assembly
-constructors make the remaining 270-cell proof mechanical. The three transform
-values require a separate complex quadrature packet over the same support.
+`y = u^2 / (1 - u^2)` near `|u| = 1`, then combine those intervals with the
+trigonometric ones without taking absolute values before the signed 100-column
+sum. The existing 20% third-jet cushions are numerically viable but too narrow
+for a global derivative bound or broadly inflated safety factors. Once that
+evaluator exists, the generated-row and final assembly constructors make the
+remaining 270-cell proof mechanical. The three transform values still require
+a separate complex quadrature packet over the same support.
 
 A finite LP dual certificate remains available if this fixed dictionary
 fails certification.  For the full-family fallback, the weighted `C0+C2` jet
