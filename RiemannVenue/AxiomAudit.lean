@@ -32,6 +32,10 @@ import RiemannVenue.Venue.BoundaryFiniteWindowLeakage
 import RiemannVenue.Venue.BoundaryCanonicalWindowCompiler
 import RiemannVenue.Venue.BoundaryCanonicalInterpolationTail
 import RiemannVenue.Venue.BoundaryComputedPhasedCertificateConsequences
+import RiemannVenue.Venue.BoundaryComputedPhasedGlobalBounds
+import RiemannVenue.Venue.BoundaryComputedPhasedTransformCertification
+import RiemannVenue.Venue.BoundaryComputedPhasedCellCertification
+import RiemannVenue.Venue.BoundaryComputedPhasedCertificateAssembly
 import RiemannVenue.Venue.BoundaryExplicitBumpJets
 
 /-!
@@ -108,6 +112,11 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH
 #print axioms RiemannVenue.Venue.boundaryPositivityReconnaissance
 #print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_eq_jet_mul_exp
+#print axioms RiemannVenue.Venue.computedPhasedBase_whole_majorant_eq_half
+#print axioms RiemannVenue.Venue.computedPhased_correction0_mem_of_quadrature
+#print axioms RiemannVenue.Venue.computedPhasedCorrection_majorants_of_scaled_bump_bounds
+#print axioms RiemannVenue.Venue.computedPhasedSegment0Cell0Certificate
+#print axioms RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures
 #print axioms RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero
 #print axioms RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment
 

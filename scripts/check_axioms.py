@@ -76,6 +76,11 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH",
     "RiemannVenue.Venue.boundaryPositivityReconnaissance",
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_eq_jet_mul_exp",
+    "RiemannVenue.Venue.computedPhasedBase_whole_majorant_eq_half",
+    "RiemannVenue.Venue.computedPhased_correction0_mem_of_quadrature",
+    "RiemannVenue.Venue.computedPhasedCorrection_majorants_of_scaled_bump_bounds",
+    "RiemannVenue.Venue.computedPhasedSegment0Cell0Certificate",
+    "RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures",
     "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
     "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
 }

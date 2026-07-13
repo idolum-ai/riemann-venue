@@ -199,11 +199,40 @@ enclosures for `exp`, `sin`, and `cos`, equal-cell quadrature, Taylor cell
 envelopes, determinant propagation, and separate correction-cost charging.
 The selected cancellation-preserving layout uses 270 half-domain cells and
 quadratic Taylor models for `exp(t/2) h''(t)`. Its generated rational envelope
-normalizes to about `353.8`, below the compiler limit `372.2`. Lean now proves
+normalizes to about `353.8`, below the strict compiler gate `354`. An
+independent high-precision reconstruction also caught and repaired an
+under-rounded uniform jet radius: the generated value, slope, and curvature
+radii are now `1e-7`, `1e-6`, and `1e-5` respectively. These checks remain
+candidate-data audits, not proof authority.
+
+Lean now proves the exact full-line-to-positive-half reduction from symmetry
+and support, rather than accepting it as a certificate field. It also reduces
+the two correction-atom charges to three explicit weighted bump integrals and
+reduces each transform enclosure to finite equal-cell quadrature on the exact
+support window. A single assembly constructor now accepts exactly those three
+transform quadratures, the five derivative segments, and the three weighted
+bump bounds; all support, symmetry, normalization, and correction bookkeeping
+is derived rather than resupplied. A generated-row compiler also closes the
+first cell's geometry, Taylor propagation, and rational upper arithmetic,
+leaving exactly its three center-jet enclosures and one uniform third-jet
+bound as analytic inputs. Lean proves
 that any inhabitant of the analytic packet forces the correction determinant
 nonzero, hits the target exactly, and bounds the full corrected order-two
 majorant by `354`. The packet's transform and cell enclosure fields still need
-inhabitants; the floating probe and generated rationals alone are not proofs.
+inhabitants, as do the three reduced weighted bump integrals; the floating
+probe and generated rationals alone are not proofs.
+
+The next interval layer is now sharply specified. It must export the exact
+finite Leibniz formulas for the synthesized jets through order five, add
+range-reduced rational sine/cosine enclosures (direct Taylor expansion at the
+largest phases is impractical), and evaluate bump jets support-aware: ordinary
+rational intervals in the interior and the flat-boundary variable
+`y = u^2 / (1 - u^2)` near `|u| = 1`. The existing 20% third-jet cushions are
+numerically viable but too narrow for a global derivative bound or broadly
+inflated safety factors; cancellation has to remain visible inside each cell.
+Once those three evaluator pieces exist, the generated-row and final assembly
+constructors make the remaining 270-cell proof mechanical. The three transform
+values require a separate complex quadrature packet over the same support.
 
 A finite LP dual certificate remains available if this fixed dictionary
 fails certification.  For the full-family fallback, the weighted `C0+C2` jet
