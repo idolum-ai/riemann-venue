@@ -356,3 +356,21 @@ last two regimes first.  They are both the numerical budget concentration and
 the strongest build-size test.  Stop and redesign the cache representation if
 one order-sharded generated leaf cannot remain comfortably below the current
 half-minute representative compile scale.
+
+## Narrow Outer Midpoint Shard
+
+The first production-shaped shard now certifies the seven radius-`1/28`
+midpoints covering `[4, 9/2]`.  For every midpoint and every order from zero
+through eleven, Lean checks the active 20-column base sum, the forward and
+reflected benchmark kernels, and the paired raw-transform jet enclosure.  The
+two points nearest the bump boundary use exact two- and four-fold exponential
+range reduction; this is forced by the Taylor precondition and is checked in
+the generated proofs rather than hidden in floating-point preprocessing.
+
+`computedPhasedBaseOuterMidpointIntervalPaymentQ` records the exact rational
+midpoint-interval contribution for each cell.  It deliberately excludes the
+omitted order-twelve Taylor remainder.  Thus this shard proves the expensive
+midpoint data and its interval-arithmetic aggregation, but it does not yet
+certify the transform over the whole seven cells.  The next gate is a uniform
+order-twelve paired-jet bound on each radius-`1/28` cell; only after that
+payment is added may this shard contribute to `residual_mem`.
