@@ -34,6 +34,13 @@ def upper (I : RationalInterval) : ℚ := I.center + I.radius
 def Contains (I : RationalInterval) (x : ℝ) : Prop :=
   |x - (I.center : ℝ)| ≤ (I.radius : ℝ)
 
+theorem abs_le_abs_center_add_radius {I : RationalInterval} {x : ℝ}
+    (hx : I.Contains x) :
+    |x| ≤ |(I.center : ℝ)| + (I.radius : ℝ) := by
+  rw [show x = (x - (I.center : ℝ)) + I.center by ring]
+  exact (abs_add_le _ _).trans (by
+    simpa [add_comm] using add_le_add_right hx |(I.center : ℝ)|)
+
 /-- Endpoint form of real interval membership. -/
 theorem contains_iff_bounds (I : RationalInterval) (x : ℝ) :
     I.Contains x ↔ (I.lower : ℝ) ≤ x ∧ x ≤ (I.upper : ℝ) := by

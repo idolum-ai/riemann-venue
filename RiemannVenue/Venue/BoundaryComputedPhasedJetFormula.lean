@@ -77,6 +77,16 @@ private theorem weightedIterDeriv_formula
     iteratedDeriv_iterDeriv_apply]
   ring_nf
 
+/-- All weighted-field jets in terms of the cancellation-preserving base
+jets.  Generated interval packets use this formula for local Taylor
+transport of the third weighted derivative. -/
+theorem iteratedDeriv_computedPhasedBaseWeightedSecond (n : ℕ) (t : ℝ) :
+    iteratedDeriv n computedPhasedBaseWeightedSecond t =
+      ∑ i ∈ Finset.range (n + 1),
+        n.choose i * ((1 / 2 : ℝ) ^ i * Real.exp (t / 2)) *
+          computedPhasedBaseTest.iterDeriv (2 + (n - i)) t := by
+  exact weightedIterDeriv_formula n computedPhasedBaseTest t
+
 /-- The weighted field itself, in the form consumed by interval arithmetic. -/
 theorem iteratedDeriv_zero_computedPhasedBaseWeightedSecond (t : ℝ) :
     iteratedDeriv 0 computedPhasedBaseWeightedSecond t =

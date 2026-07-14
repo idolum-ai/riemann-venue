@@ -97,6 +97,9 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhased_bump0_majorant_le",
     "RiemannVenue.Venue.computedPhased_bump1_majorant_le",
     "RiemannVenue.Venue.computedPhased_bump2_majorant_le",
+    "RiemannVenue.Venue.RationalInterval.contains_roundedListSum",
+    "RiemannVenue.Venue.computedPhasedCell0_thirdJet_le",
+    "RiemannVenue.Venue.computedTransformCorrection0WideBlock12_integral_mem",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 

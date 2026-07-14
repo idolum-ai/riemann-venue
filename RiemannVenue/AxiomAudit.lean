@@ -33,6 +33,8 @@ import RiemannVenue.Venue.BoundaryCanonicalWindowCompiler
 import RiemannVenue.Venue.BoundaryCanonicalInterpolationTail
 import RiemannVenue.Venue.BoundaryComputedPhasedCertificateConsequences
 import RiemannVenue.Venue.BoundaryComputedPhasedGlobalBounds
+import RiemannVenue.Venue.BoundaryComputedPhasedDerivativeCell0Weighted
+import RiemannVenue.Venue.BoundaryComputedPhasedTransformCorrection0WideBlock12
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformCertification
 import RiemannVenue.Venue.BoundaryComputedPhasedCellCertification
 import RiemannVenue.Venue.BoundaryComputedPhasedCertificateAssembly
@@ -143,6 +145,9 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.computedPhased_bump0_majorant_le
 #print axioms RiemannVenue.Venue.computedPhased_bump1_majorant_le
 #print axioms RiemannVenue.Venue.computedPhased_bump2_majorant_le
+#print axioms RiemannVenue.Venue.RationalInterval.contains_roundedListSum
+#print axioms RiemannVenue.Venue.computedPhasedCell0_thirdJet_le
+#print axioms RiemannVenue.Venue.computedTransformCorrection0WideBlock12_integral_mem
 
 open Lean Elab Command
 

@@ -85,6 +85,40 @@ jobs:
               "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpJets${shard}.lean" \
               "/tmp/computed-phased-bump-jets/BoundaryComputedPhasedTransformBumpJets${shard}.lean"
           done
+      - name: Standard-bump global-bound compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-bump-global-bounds
+          python scripts/generate_computed_phased_transform_bump_global_bounds.py \
+            --output-dir /tmp/computed-phased-bump-global-bounds
+          for order in $(seq 6 12); do
+            diff -u \
+              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean" \
+              "/tmp/computed-phased-bump-global-bounds/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean"
+          done
+      - name: First derivative-cell compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-derivative-cell0
+          mkdir -p /tmp/computed-phased-derivative-cell0
+          python scripts/generate_computed_phased_derivative_cell0_leaves.py \
+            --output /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Leaves.lean
+          python scripts/generate_computed_phased_derivative_cell0_groups.py \
+            --output-dir /tmp/computed-phased-derivative-cell0
+          python scripts/generate_computed_phased_derivative_cell0_weighted.py \
+            --output-dir /tmp/computed-phased-derivative-cell0
+          diff -u \
+            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Leaves.lean \
+            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Leaves.lean
+          for mode in Point Cell; do
+            if [ "$mode" = Point ]; then orders=$(seq 2 10); else orders=$(seq 2 11); fi
+            for order in $orders; do
+              name="BoundaryComputedPhasedDerivativeCell0${mode}Order${order}Groups.lean"
+              diff -u "RiemannVenue/Venue/$name" \
+                "/tmp/computed-phased-derivative-cell0/$name"
+            done
+          done
+          diff -u \
+            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Weighted.lean \
+            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Weighted.lean
       - name: Standard-bump quadrature compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-quadrature
