@@ -697,6 +697,126 @@ def render(artifact: dict) -> str:
     return json.dumps(artifact, indent=2, sort_keys=False) + "\n"
 
 
+def validate_committed_artifact(
+    candidate_path: Path,
+    candidate_payload: dict,
+    artifact: dict,
+) -> None:
+    """Fail closed on the platform-stable, exact-rational artifact contract."""
+    errors: list[str] = []
+
+    def expect(condition: bool, message: str) -> None:
+        if not condition:
+            errors.append(message)
+
+    def rational(mapping: dict, key: str) -> Fraction:
+        try:
+            return Fraction(mapping[key])
+        except (KeyError, TypeError, ValueError, ZeroDivisionError) as error:
+            errors.append(f"invalid rational field {key}: {error}")
+            return Fraction(0)
+
+    def reject_json_float(value: object, path: str = "artifact") -> None:
+        if isinstance(value, float):
+            errors.append(f"floating JSON number at {path}")
+        elif isinstance(value, dict):
+            for key, child in value.items():
+                reject_json_float(child, f"{path}.{key}")
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                reject_json_float(child, f"{path}[{index}]")
+
+    expect(
+        artifact.get("schema")
+        == "riemann-venue/computed-phased-base-transform-budget-probe/v1",
+        "unexpected artifact schema",
+    )
+    expect(artifact.get("proof_authority") is False, "artifact claims proof authority")
+    reject_json_float(artifact)
+
+    source = artifact.get("source", {})
+    candidate_bytes = candidate_path.read_bytes()
+    expect(source.get("candidate_schema") == candidate_payload.get("schema"),
+           "candidate schema drift")
+    expect(source.get("candidate_sha256") == hashlib.sha256(candidate_bytes).hexdigest(),
+           "candidate source hash drift")
+    expect(source.get("generator") == relative_path(Path(__file__)),
+           "generator path drift")
+
+    configuration = artifact.get("configuration", {})
+    cells = artifact.get("cells", [])
+    regimes = artifact.get("regimes", [])
+    expect(configuration.get("cell_count") == len(cells), "cell count mismatch")
+    expect(len(cells) == sum(regime.get("cell_count", 0) for regime in regimes),
+           "regime cell counts do not partition the packet")
+    expect([cell.get("global_index") for cell in cells] == list(range(len(cells))),
+           "cell global indices are not contiguous")
+
+    aggregate = artifact.get("aggregate", {})
+    raw_midpoint = sum(
+        (rational(cell, "raw_midpoint_interval_error_budget") for cell in cells),
+        Fraction(0),
+    )
+    raw_remainder = sum(
+        (rational(cell, "raw_sampled_remainder_error_budget") for cell in cells),
+        Fraction(0),
+    )
+    raw_packet = sum(
+        (rational(cell, "raw_error_budget") for cell in cells),
+        Fraction(0),
+    )
+    regime_packet = sum(
+        (rational(regime, "raw_error_budget") for regime in regimes),
+        Fraction(0),
+    )
+    expect(raw_packet == raw_midpoint + raw_remainder,
+           "cell packet budget does not split into midpoint and remainder")
+    expect(raw_packet == regime_packet, "regime budgets do not sum to packet budget")
+    expect(raw_packet == rational(aggregate, "raw_packet_error_budget"),
+           "aggregate raw packet budget mismatch")
+    expect(raw_midpoint == rational(aggregate, "raw_midpoint_interval_error_budget"),
+           "aggregate midpoint budget mismatch")
+    expect(raw_remainder == rational(aggregate, "raw_sampled_remainder_error_budget"),
+           "aggregate sampled remainder budget mismatch")
+
+    two_pi_lower = rational(configuration, "normalization_two_pi_lower")
+    raw_mismatch = rational(aggregate, "raw_center_mismatch_budget")
+    raw_total = rational(aggregate, "raw_total_budget")
+    normalized_packet = rational(aggregate, "normalized_packet_error_budget")
+    normalized_midpoint = rational(
+        aggregate, "normalized_midpoint_interval_error_budget"
+    )
+    normalized_remainder = rational(
+        aggregate, "normalized_sampled_remainder_error_budget"
+    )
+    normalized_mismatch = rational(aggregate, "normalized_center_mismatch_budget")
+    normalized_total = rational(aggregate, "normalized_total_budget")
+    target_radius = rational(aggregate, "normalized_target_radius")
+    expect(two_pi_lower > 0, "normalization lower bound is not positive")
+    if two_pi_lower > 0:
+        expect(normalized_packet == raw_packet / two_pi_lower,
+               "normalized packet budget mismatch")
+        expect(normalized_midpoint == raw_midpoint / two_pi_lower,
+               "normalized midpoint budget mismatch")
+        expect(normalized_remainder == raw_remainder / two_pi_lower,
+               "normalized remainder budget mismatch")
+        expect(normalized_mismatch == raw_mismatch / two_pi_lower,
+               "normalized center mismatch budget mismatch")
+    expect(raw_total == raw_packet + raw_mismatch, "raw total budget mismatch")
+    expect(normalized_total == normalized_packet + normalized_mismatch,
+           "normalized total budget mismatch")
+    expect(rational(aggregate, "normalized_headroom") == target_radius - normalized_total,
+           "normalized headroom mismatch")
+    if target_radius > 0:
+        expect(rational(aggregate, "budget_utilization") == normalized_total / target_radius,
+               "budget utilization mismatch")
+    expect(aggregate.get("within_current_target") == (normalized_total <= target_radius),
+           "target verdict mismatch")
+
+    if errors:
+        raise SystemExit("invalid reconnaissance artifact:\n- " + "\n- ".join(errors))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, default=DEFAULT_CANDIDATE)
@@ -704,18 +824,35 @@ def main() -> None:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="fail if the output is absent or differs from a fresh probe",
+        help="validate source binding and exact-rational artifact invariants",
+    )
+    parser.add_argument(
+        "--check-regeneration",
+        action="store_true",
+        help="fail if same-platform floating regeneration differs byte-for-byte",
     )
     args = parser.parse_args()
 
     candidate_path = args.candidate.resolve()
     output_path = args.output.resolve()
     payload = json.loads(candidate_path.read_text())
-    rendered = render(build_artifact(candidate_path, payload))
     if args.check:
-        if not output_path.exists() or output_path.read_text() != rendered:
-            raise SystemExit(f"stale or missing reconnaissance artifact: {output_path}")
+        if not output_path.exists():
+            raise SystemExit(f"missing reconnaissance artifact: {output_path}")
+        validate_committed_artifact(
+            candidate_path,
+            payload,
+            json.loads(output_path.read_text()),
+        )
         print(f"checked {output_path}")
+        return
+    rendered = render(build_artifact(candidate_path, payload))
+    if args.check_regeneration:
+        if not output_path.exists() or output_path.read_text() != rendered:
+            raise SystemExit(
+                f"same-platform regeneration drift: {output_path}"
+            )
+        print(f"regeneration checked {output_path}")
         return
     output_path.write_text(rendered)
     print(f"wrote {output_path}")
