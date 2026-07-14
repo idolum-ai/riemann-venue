@@ -194,8 +194,8 @@ def lean_trig(name, pair):
 def bump_norm(cache_name, interval_name, order):
     return BUMP_NORM.replace(
         "norm_num [",
-        f"norm_num [{cache_name}, {interval_name}, "
-        f"computedPhasedCell0BumpCoefficients{order}, ",
+        f"norm_num [{cache_name}, {interval_name},\n"
+        f"    computedPhasedCell0BumpCoefficients{order},",
         1,
     )
 
@@ -212,7 +212,7 @@ TRIG_NORM = """norm_num [
 
 
 def trig_norm(*names):
-    return TRIG_NORM.replace("norm_num [", f"norm_num [{', '.join(names)}, ", 1)
+    return TRIG_NORM.replace("norm_num [", f"norm_num [{', '.join(names)},", 1)
 
 BUMP_NORM = """norm_num [
     computedDerivativeBumpInteriorJetInterval,
