@@ -83,6 +83,8 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures",
     "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
     "RiemannVenue.Venue.computedPhasedCorrectionTransforms_exactTarget",
+    "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero_of_canonicalBumpPackets",
+    "RiemannVenue.Venue.completedZeroTestTransform_computedPhasedCandidate_eq_target_of_canonicalBumpPackets",
     "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
     "RiemannVenue.Venue.computedPhasedBaseTest_iterDeriv_apply",
     "RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval",

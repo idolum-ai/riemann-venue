@@ -131,6 +131,8 @@ jobs:
             diff -u "$generated" \
               "/tmp/computed-phased-bump-quadrature/$(basename "$generated")"
           done
+      - name: Canonical-bump transform packet drift gate
+        run: python scripts/generate_canonical_bump_transform_packets.py --check
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
       # Drift gate: executed notebooks are committed textual/numeric evidence,
