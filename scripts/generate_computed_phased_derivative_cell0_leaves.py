@@ -228,22 +228,32 @@ BUMP_NORM = """norm_num [
     RationalInterval.zero, RationalInterval.singleton]"""
 
 
-def render():
-    center = Q(5, 628)
-    half_width = Q(5, 628)
-    translations = [Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)]
-    delta_frequency = Q(34, 19)
-    lines = [
-        "import RiemannVenue.Venue.BoundaryComputedPhasedDerivativeCertificate",
-        "import RiemannVenue.Venue.BoundaryComputedPhasedDerivativeBumpIntervals",
-        "import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpJets9To11",
+ROOT = Path("RiemannVenue/Venue")
+MODULE_PREFIX = "BoundaryComputedPhasedDerivativeCell0"
+
+
+def module_header(imports, doc):
+    return [
+        *(f"import RiemannVenue.Venue.{module}" for module in imports),
         "",
-        "/-! Generated kernel-checked leaves for derivative packet cell zero. -/",
+        f"/-! {doc} -/",
         "namespace RiemannVenue.Venue",
         "open Finset Polynomial",
         "noncomputable section",
         "",
     ]
+
+
+def module_footer():
+    return ["end", "end RiemannVenue.Venue", ""]
+
+
+def render_polynomials():
+    lines = module_header([
+        "BoundaryComputedPhasedDerivativeCertificate",
+        "BoundaryComputedPhasedDerivativeBumpIntervals",
+        "BoundaryComputedPhasedTransformBumpJets9To11",
+    ], "Generated bump polynomials for derivative packet cell zero.")
     for order, coefficients in enumerate(JET_POLYS):
         coefficient_text = ", ".join(str(x) for x in coefficients)
         lines.extend([
@@ -258,17 +268,27 @@ def render():
             "  try ring",
             "",
         ])
+    lines.extend(module_footer())
+    return "\n".join(lines)
+
+
+def render_translation(translation_index, translation):
+    center = Q(5, 628)
+    half_width = Q(5, 628)
+    delta_frequency = Q(34, 19)
+    lines = module_header([
+        f"{MODULE_PREFIX}BumpPolynomials",
+    ], f"Generated kernel-checked leaves for derivative packet cell zero, translation {translation_index}.")
     trig_cache = {}
     bump_point_cache = {}
     bump_cell_cache = {}
-    for translation_index, translation in enumerate(translations):
-        phase = Q(8) * (center + translation)
-        step_phase = delta_frequency * (center + translation)
-        seed = tuple(outward(x) for x in trig_interval(32, phase, 1))
-        step = tuple(outward(x) for x in trig_interval(28, step_phase, 0))
-        lines.append(lean_trig(f"computedPhasedCell0Trig0_{translation_index}", seed))
-        lines.append(lean_trig(f"computedPhasedCell0TrigStep_{translation_index}", step))
-        lines.extend([
+    phase = Q(8) * (center + translation)
+    step_phase = delta_frequency * (center + translation)
+    seed = tuple(outward(x) for x in trig_interval(32, phase, 1))
+    step = tuple(outward(x) for x in trig_interval(28, step_phase, 0))
+    lines.append(lean_trig(f"computedPhasedCell0Trig0_{translation_index}", seed))
+    lines.append(lean_trig(f"computedPhasedCell0TrigStep_{translation_index}", step))
+    lines.extend([
             f"@[simp] theorem computedPhasedCell0Trig0_{translation_index}_contains :",
             f"    computedPhasedCell0Trig0_{translation_index}.Contains ({lean_q(phase)} : ℝ) := by",
             f"  have hraw := real_sin_cos_mem_rationalTrigInterval (n := 32) (k := 1)",
@@ -289,21 +309,21 @@ def render():
             f"    (by {trig_norm(f'computedPhasedCell0TrigStep_{translation_index}')})",
             f"  convert hw using 1 <;> norm_num",
             "",
-        ])
-        trig_cache[(0, translation_index)] = seed
-        previous = seed
-        for frequency_index in range(1, 20):
-            cached = tuple(outward(x) for x in trig_add(previous, step))
-            name = f"computedPhasedCell0Trig{frequency_index}_{translation_index}"
-            previous_name = (
-                f"computedPhasedCell0Trig{frequency_index - 1}_{translation_index}"
-            )
-            previous_theorem = f"{previous_name}_contains"
-            actual_phase = (Q(8) + delta_frequency * frequency_index) * (
-                center + translation
-            )
-            lines.append(lean_trig(name, cached))
-            lines.extend([
+    ])
+    trig_cache[(0, translation_index)] = seed
+    previous = seed
+    for frequency_index in range(1, 20):
+        cached = tuple(outward(x) for x in trig_add(previous, step))
+        name = f"computedPhasedCell0Trig{frequency_index}_{translation_index}"
+        previous_name = (
+            f"computedPhasedCell0Trig{frequency_index - 1}_{translation_index}"
+        )
+        previous_theorem = f"{previous_name}_contains"
+        actual_phase = (Q(8) + delta_frequency * frequency_index) * (
+            center + translation
+        )
+        lines.append(lean_trig(name, cached))
+        lines.extend([
                 f"@[simp] theorem {name}_contains : {name}.Contains",
                 f"    ({lean_q(actual_phase)} : ℝ) := by",
                 "  have h := RationalTrigInterval.contains_add",
@@ -321,42 +341,41 @@ def render():
                 "      RationalInterval.neg])",
                 "  convert hw using 1 <;> norm_num",
                 "",
-            ])
-            trig_cache[(frequency_index, translation_index)] = cached
-            previous = cached
+        ])
+        trig_cache[(frequency_index, translation_index)] = cached
+        previous = cached
 
-        point_coordinate = Interval(Q(2, 7) * (center + translation), 0)
-        cell_coordinate = Interval(
-            Q(2, 7) * (center + translation), Q(2, 7) * half_width
+    point_coordinate = Interval(Q(2, 7) * (center + translation), 0)
+    cell_coordinate = Interval(
+        Q(2, 7) * (center + translation), Q(2, 7) * half_width
+    )
+    for order in range(12):
+        point = outward(bump_interval(order, point_coordinate), 10**20)
+        cell = outward(bump_interval(order, cell_coordinate), 10**20)
+        point_name = f"computedPhasedCell0BumpPoint_{translation_index}_{order}"
+        cell_name = f"computedPhasedCell0BumpCell_{translation_index}_{order}"
+        point_interval_name = (
+            f"computedPhasedCell0BumpPointInput_{translation_index}"
         )
-        for order in range(12):
-            point = outward(bump_interval(order, point_coordinate), 10**20)
-            cell = outward(bump_interval(order, cell_coordinate), 10**20)
-            point_name = f"computedPhasedCell0BumpPoint_{translation_index}_{order}"
-            cell_name = f"computedPhasedCell0BumpCell_{translation_index}_{order}"
-            point_interval_name = (
-                f"computedPhasedCell0BumpPointInput_{translation_index}"
-            )
-            cell_interval_name = (
-                f"computedPhasedCell0BumpCellInput_{translation_index}"
-            )
-            if order == 0:
-                lines.append(
-                    lean_interval(point_interval_name, point_coordinate)
-                )
-                lines.append(
-                    lean_interval(cell_interval_name, cell_coordinate)
-                )
+        cell_interval_name = (
+            f"computedPhasedCell0BumpCellInput_{translation_index}"
+        )
+        if order == 0:
             lines.append(
-                lean_interval(point_name, point)
+                lean_interval(point_interval_name, point_coordinate)
             )
             lines.append(
-                lean_interval(cell_name, cell)
+                lean_interval(cell_interval_name, cell_coordinate)
             )
-            bump_point_cache[(translation_index, order)] = point
-            bump_cell_cache[(translation_index, order)] = cell
-            if True:
-                lines.extend([
+        lines.append(
+            lean_interval(point_name, point)
+        )
+        lines.append(
+            lean_interval(cell_name, cell)
+        )
+        bump_point_cache[(translation_index, order)] = point
+        bump_cell_cache[(translation_index, order)] = cell
+        lines.extend([
                     "set_option maxRecDepth 20000 in",
                     f"@[simp] theorem {point_name}_contains :",
                     f"    {point_name}.Contains",
@@ -416,23 +435,38 @@ def render():
                     f"      (by {bump_norm(cell_name, cell_interval_name, order)})",
                     "  convert hw using 1 <;> norm_num",
                     "",
-                ])
-    lines.extend(["end", "end RiemannVenue.Venue", ""])
+        ])
+    lines.extend(module_footer())
     return "\n".join(lines)
+
+
+def render_aggregate():
+    imports = [f"{MODULE_PREFIX}Translation{index}" for index in range(5)]
+    return "\n".join([
+        *(f"import RiemannVenue.Venue.{module}" for module in imports),
+        "",
+        "/-! Compatibility aggregate for generated derivative packet cell-zero leaves. -/",
+        "",
+    ])
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path(
-            "RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Leaves.lean"
-        ),
-    )
+    parser.add_argument("--output-dir", type=Path, default=ROOT)
     args = parser.parse_args()
-    args.output.write_text(render())
-    print(f"wrote {args.output}")
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    outputs = {
+        f"{MODULE_PREFIX}BumpPolynomials.lean": render_polynomials(),
+        **{
+            f"{MODULE_PREFIX}Translation{index}.lean": render_translation(index, translation)
+            for index, translation in enumerate([Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)])
+        },
+        f"{MODULE_PREFIX}Leaves.lean": render_aggregate(),
+    }
+    for name, content in outputs.items():
+        output = args.output_dir / name
+        output.write_text(content)
+        print(f"wrote {output}")
 
 
 if __name__ == "__main__":

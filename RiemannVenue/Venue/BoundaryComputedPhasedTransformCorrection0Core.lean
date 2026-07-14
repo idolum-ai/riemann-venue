@@ -517,6 +517,27 @@ theorem computedTransformCosineJetCellInterval_contains
 /-- A scaled bump jet on a whole cell.  Strict interior cells use sparse
 interval arithmetic, exterior cells are exactly zero, and only cells touching
 the flat support boundary pay the global derivative bound. -/
+inductive ComputedTransformBumpCellRegime where
+  | interior
+  | boundary
+  | exterior
+  deriving DecidableEq, Repr
+
+/-- Classify a translated bump cell before constructing its jet enclosure.
+The order is security-relevant for the numerical compiler: an interval is
+`interior` only when the rational gap is strictly positive, and `exterior`
+only when the full interval lies beyond one support boundary. -/
+def computedTransformBumpCellRegime
+    (j : ComputedPhasedColumn) (I : RationalInterval) :
+    ComputedTransformBumpCellRegime :=
+  let U := computedTransformBumpCoordinateInterval j I
+  if (0 : ℚ) < (explicitBumpGapInterval U).lower then
+    .interior
+  else if (1 : ℚ) ≤ U.lower ∨ U.upper ≤ (-1 : ℚ) then
+    .exterior
+  else
+    .boundary
+
 def computedTransformBumpJetCellIntervalUpTo12
     (expOrder split n : ℕ) (j : ComputedPhasedColumn)
     (I : RationalInterval) : RationalInterval :=
@@ -528,6 +549,47 @@ def computedTransformBumpJetCellIntervalUpTo12
     RationalInterval.zero
   else
     ⟨0, (2 / 7 : ℚ) ^ n * computedTransformBumpGlobalBoundUpTo12 n⟩
+
+theorem computedTransformBumpJetCellIntervalUpTo12_eq_interior
+    {expOrder split n : ℕ} {j : ComputedPhasedColumn}
+    {I : RationalInterval}
+    (h : computedTransformBumpCellRegime j I = .interior) :
+    computedTransformBumpJetCellIntervalUpTo12 expOrder split n j I =
+      RationalInterval.scale ((2 / 7 : ℚ) ^ n)
+        (computedTransformStableBumpInteriorJetInterval expOrder split n
+          (computedTransformBumpCoordinateInterval j I)) := by
+  simp only [computedTransformBumpCellRegime] at h
+  split at h
+  · simp_all [computedTransformBumpJetCellIntervalUpTo12]
+  · split at h <;> contradiction
+
+theorem computedTransformBumpJetCellIntervalUpTo12_eq_exterior
+    {expOrder split n : ℕ} {j : ComputedPhasedColumn}
+    {I : RationalInterval}
+    (h : computedTransformBumpCellRegime j I = .exterior) :
+    computedTransformBumpJetCellIntervalUpTo12 expOrder split n j I =
+      RationalInterval.zero := by
+  simp only [computedTransformBumpCellRegime] at h
+  split at h
+  · contradiction
+  · split at h
+    · simp_all [computedTransformBumpJetCellIntervalUpTo12]
+    · contradiction
+
+theorem computedTransformBumpJetCellIntervalUpTo12_eq_boundary
+    {expOrder split n : ℕ} {j : ComputedPhasedColumn}
+    {I : RationalInterval}
+    (h : computedTransformBumpCellRegime j I = .boundary) :
+    computedTransformBumpJetCellIntervalUpTo12 expOrder split n j I =
+      ⟨0, (2 / 7 : ℚ) ^ n * computedTransformBumpGlobalBoundUpTo12 n⟩ := by
+  simp only [computedTransformBumpCellRegime] at h
+  split at h
+  case isTrue => contradiction
+  case isFalse hgap =>
+    split at h
+    case isTrue => contradiction
+    case isFalse hout =>
+      simp [computedTransformBumpJetCellIntervalUpTo12, hgap, hout]
 
 theorem computedTransformBumpJetCellIntervalUpTo12_contains
     {expOrder split n : ℕ} {j : ComputedPhasedColumn}

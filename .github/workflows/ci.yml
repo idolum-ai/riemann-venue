@@ -100,14 +100,18 @@ jobs:
           rm -rf /tmp/computed-phased-derivative-cell0
           mkdir -p /tmp/computed-phased-derivative-cell0
           python scripts/generate_computed_phased_derivative_cell0_leaves.py \
-            --output /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Leaves.lean
+            --output-dir /tmp/computed-phased-derivative-cell0
           python scripts/generate_computed_phased_derivative_cell0_groups.py \
             --output-dir /tmp/computed-phased-derivative-cell0
           python scripts/generate_computed_phased_derivative_cell0_weighted.py \
             --output-dir /tmp/computed-phased-derivative-cell0
-          diff -u \
-            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Leaves.lean \
-            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Leaves.lean
+          for generated in \
+            BoundaryComputedPhasedDerivativeCell0BumpPolynomials.lean \
+            BoundaryComputedPhasedDerivativeCell0Translation{0..4}.lean \
+            BoundaryComputedPhasedDerivativeCell0Leaves.lean; do
+            diff -u "RiemannVenue/Venue/$generated" \
+              "/tmp/computed-phased-derivative-cell0/$generated"
+          done
           for mode in Point Cell; do
             if [ "$mode" = Point ]; then orders=$(seq 2 10); else orders=$(seq 2 11); fi
             for order in $orders; do
@@ -119,6 +123,11 @@ jobs:
           diff -u \
             RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Weighted.lean \
             /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Weighted.lean
+          python scripts/generate_computed_phased_derivative_regime_probes.py \
+            --output /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeRegimeProbes.lean
+          diff -u \
+            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeRegimeProbes.lean \
+            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeRegimeProbes.lean
       - name: Standard-bump quadrature compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-quadrature
