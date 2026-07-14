@@ -311,3 +311,44 @@ generated shards.  Until those exact rational caches inhabit
 compiler pass narrowed the choice to either paying that finite generation cost
 or first designing a more compact recurrence/cache representation; it did not
 quietly promote numerical reconnaissance into proof authority.
+
+## Base-Transform Packet Decision Gate
+
+The next pass proves the missing symmetry reduction for the base itself.  The
+full transform on `[-9/2, 9/2]` is exactly the integral on `[0, 9/2]` of the
+forward raw kernel plus its reflected kernel.  The same identity is available
+at every iterated derivative, and the shared Taylor-cell compiler now accepts
+an arbitrary positive order rather than being hard-coded to order twelve.
+
+Three order-one representative cells compile at centers where column zero is
+interior, boundary, and exterior to its translated bump.  Each cell passes
+through the complete signed 100-column point interval, exact forward and
+reflected benchmark kernels, their paired cache, and a proved global first-jet
+remainder.  This establishes the proof seam across all support regimes.  It is
+not a substitute for the production order-twelve packet.
+
+An attempted polymorphic order-twelve representative exceeded two million
+heartbeats after roughly one hundred seconds.  By contrast, the paired
+analytic module and the three order-one cells each compile from source in
+roughly half a minute on the development machine.  The decision is therefore
+to keep generic analytic transformations in hand-written modules and emit
+already-rounded rational center-jet caches in order- and cell-sharded generated
+leaves.  Lean should check containment and aggregation; it should not normalize
+the full 100-column transcendental expression repeatedly inside each leaf.
+
+The non-authoritative exact-rational budget probe covers the proposed 270-cell
+positive-half layout.  Its sampled order-twelve remainder and rounded midpoint
+budgets total about `2.91e-8` after normalization, using about `2.91%` of the
+current `1e-6` residual radius.  The intervals `[4, 9/2]` and `[7/2, 4]`
+contribute about `55.44%` and `44.05%` of the packet error respectively; the
+other three regimes contribute about `0.52%` together.  Cell 261,
+`[31/8, 63/16]`, is the largest single contributor at about `19.53%`.
+Finite sampling is proposal evidence only: the generated production packet
+must replace every sampled remainder with a proved uniform bound and every
+floating center with a kernel-checked rational enclosure.
+
+Recommendation: proceed with the existing 270-cell geometry, but generate the
+last two regimes first.  They are both the numerical budget concentration and
+the strongest build-size test.  Stop and redesign the cache representation if
+one order-sharded generated leaf cannot remain comfortably below the current
+half-minute representative compile scale.

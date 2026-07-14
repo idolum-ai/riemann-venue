@@ -95,6 +95,8 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.explicitStandardBumpJetNumerator_eq_14",
     "RiemannVenue.Venue.computedPhasedRawJetInterval_contains",
     "RiemannVenue.Venue.norm_computedTransformBaseRawJet_le_cellBound",
+    "RiemannVenue.Venue.computedTransformBaseTestJetPointInterval_contains",
+    "RiemannVenue.Venue.completedFourierLaplaceTransform_computedPhasedBase_eq_paired",
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval",
     "RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval",
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide",
