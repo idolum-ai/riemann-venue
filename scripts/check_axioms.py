@@ -82,6 +82,7 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Certificate",
     "RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures",
     "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
+    "RiemannVenue.Venue.computedPhasedCorrectionTransforms_exactTarget",
     "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
     "RiemannVenue.Venue.computedPhasedBaseTest_iterDeriv_apply",
     "RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval",

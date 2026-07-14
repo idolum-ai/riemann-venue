@@ -360,6 +360,18 @@ correction-entry radius this keeps both exact Cramer coefficients below
 `10^-5`, which is sufficient for the final payment budget. -/
 def computedPhasedResidualRadius : ℝ := (1 : ℝ) / 1000000
 
+/-- The minimal transform contract needed to certify the correction matrix.
+It deliberately excludes the base residual and derivative-payment packet:
+those are required for quantitative payment bounds, but not for determinant
+exclusion or the exact benchmark solve. -/
+structure ComputedPhasedCorrectionTransformCertificate where
+  correction0_mem :
+    ‖computedPhasedCorrectionValue0 - computedPhasedCorrectionCenter0‖ ≤
+      computedPhasedTransformRadius
+  correction1_mem :
+    ‖computedPhasedCorrectionValue1 - computedPhasedCorrectionCenter1‖ ≤
+      computedPhasedTransformRadius
+
 /-- The exact analytic obligations not manufactured by floating-point
 reconnaissance.  Five equal-cell certificates cover 270 cells on
 `[0,9/2]`; their upper vectors are the generated quadratic Taylor
@@ -405,6 +417,14 @@ structure ComputedPhasedAnalyticIntervalCertificate where
   correction1_majorant_le :
     completedZeroTransformDerivativeMajorant 2
       computedPhasedCorrectionAtom1 ≤ 1000
+
+/-- Forget the residual and payment fields when only correction-matrix
+invertibility is needed. -/
+theorem ComputedPhasedAnalyticIntervalCertificate.correctionTransforms
+    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    ComputedPhasedCorrectionTransformCertificate where
+  correction0_mem := C.correction0_mem
+  correction1_mem := C.correction1_mem
 
 /-- Exact sum of the five generated rational segment bounds. -/
 def computedPhasedGeneratedHalfQuadrature : ℝ := (2029554031000697713 : ℝ) / 1826098400000000
