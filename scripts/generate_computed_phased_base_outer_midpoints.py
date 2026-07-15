@@ -31,6 +31,8 @@ ROOT = Path(__file__).resolve().parents[1]
 VENUE = ROOT / "RiemannVenue" / "Venue"
 GRID = 10**15
 RADIUS = Q(1, 28)
+MIDPOINT_TRIG_ORDER = 36
+MIDPOINT_BUMP_EXP_ORDER = 48
 MIDPOINTS = tuple(Q(113 + 2 * i, 28) for i in range(7))
 BENCHMARK_REAL = Q(14134725141734695, 10**15)
 FREQUENCIES = tuple(Q(8) + Q(34, 19) * i for i in range(20))
@@ -43,7 +45,7 @@ def round_interval(value: Interval, grid: int = GRID) -> Interval:
 
 
 def bump_split(q: Q) -> int:
-    # Keep the order-24 exponential argument within the certified half-radius.
+    # Keep the exponential argument within the certified half-radius.
     if q <= Q(121, 28):
         return 1
     if q <= Q(123, 28):
@@ -57,7 +59,7 @@ def as_data(value: Interval) -> tuple[Q, Q]:
 
 def kernel_interval(re: Q, im: Q, q: Q) -> tuple[tuple[Q, Q], tuple[Q, Q]]:
     growth = range_exp(32, -im * q, 4)
-    sin, cos = trig_interval(32, re * q, 4)
+    sin, cos = trig_interval(MIDPOINT_TRIG_ORDER, re * q, 4)
     return as_data(growth.mul(cos)), as_data(growth.mul(sin))
 
 
@@ -68,11 +70,13 @@ def coefficients() -> list[Q]:
 
 def midpoint_data(q: Q):
     coeffs = coefficients()
-    trig = [tuple(round_interval(x) for x in trig_interval(32, f * (q - 1), 4))
+    trig = [tuple(round_interval(x) for x in trig_interval(
+                MIDPOINT_TRIG_ORDER, f * (q - 1), 4))
             for f in FREQUENCIES]
     coordinate = Interval(Q(2, 7) * (q - 1), 0)
     split = bump_split(q)
-    bump = [round_interval(bump_interval(n, coordinate, split), 10**20)
+    bump = [round_interval(bump_interval(
+                n, coordinate, split, MIDPOINT_BUMP_EXP_ORDER), 10**20)
             for n in range(12)]
     blocks: list[list[Interval]] = []
     bases: list[Interval] = []
@@ -124,7 +128,7 @@ def stable_bump_twelve_interval(q: Q) -> Interval:
     inverse = bounds(1 / gap.upper, 1 / gap.lower)
     boundary = coordinate.power(2).mul(inverse)
     polynomial = sparse_polynomial_interval(BOUNDARY_COEFFICIENTS_12, boundary)
-    exponential = monotone_exp(32, boundary.neg(), bump_split(q))
+    exponential = monotone_exp(MIDPOINT_BUMP_EXP_ORDER, boundary.neg(), bump_split(q))
     return polynomial.mul(exponential).scale(Q(2, 7) ** 12)
 
 
@@ -156,7 +160,7 @@ def remainder_midpoint_data(q: Q):
     polynomial = sum(Q(c) * boundary**k
                      for k, c in enumerate(BOUNDARY_COEFFICIENTS_12))
     exponential = outward(
-        range_exp(32, -boundary, bump_split(q)), 10**20)
+        range_exp(MIDPOINT_BUMP_EXP_ORDER, -boundary, bump_split(q)), 10**20)
     bump_twelve = round_interval(
         Interval(polynomial).mul(exponential).scale(Q(2, 7) ** 12), 10**20)
     coeffs = coefficients()
@@ -227,7 +231,7 @@ def render_cell(index: int, q: Q) -> str:
         lines += [lean_trig(name, value), f"theorem {name}_contains :",
             f"    {name}.Contains ({lean_q(phase)} : ℝ) := by",
             "  have hraw := real_sin_cos_mem_rationalTrigInterval",
-            f"    (n := 32) (k := 4) (x := {lean_q(phase)}) (by norm_num)",
+            f"    (n := {MIDPOINT_TRIG_ORDER}) (k := 4) (x := {lean_q(phase)}) (by norm_num)",
             f"  have hw := RationalTrigInterval.contains_of_wide (B := {name}) hraw",
             f"    (by {trig_norm(name)})", f"    (by {trig_norm(name)})",
             "  convert hw using 1 <;> norm_num", ""]
@@ -241,7 +245,7 @@ def render_cell(index: int, q: Q) -> str:
             f"      ({lean_q(Q(2, 7) * (q - 1))} : ℝ)) := by",
             "  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval",
             f"    (coefficients := computedPhasedCell0BumpCoefficients{n})",
-            f"    (expOrder := 24) (split := {split}) (n := {n}) (I := {input_name})",
+            f"    (expOrder := {MIDPOINT_BUMP_EXP_ORDER}) (split := {split}) (n := {n}) (I := {input_name})",
             f"    (t := ({lean_q(Q(2, 7) * (q - 1))} : ℝ))",
             f"    explicitStandardBumpJetNumerator_eq_cell0_{n}",
             f"    (by norm_num [{input_name}, RationalInterval.Contains])",
@@ -255,7 +259,7 @@ def render_cell(index: int, q: Q) -> str:
             f"    RationalInterval.contains_of_center_radius_le (I :=",
             f"      RationalInterval.scale ((2 / 7 : ℚ) ^ {n})",
             f"        (computedDerivativeBumpInteriorJetInterval",
-            f"          computedPhasedCell0BumpCoefficients{n} 24 {split} {n} {input_name})) hs",
+            f"          computedPhasedCell0BumpCoefficients{n} {MIDPOINT_BUMP_EXP_ORDER} {split} {n} {input_name})) hs",
             f"      (by {bump_norm(name, input_name, n)})",
             "  convert hw using 1 <;> norm_num", ""]
     lines += [f"def {p}Trig : Fin 20 → RationalTrigInterval := ![",
@@ -332,7 +336,7 @@ def render_cell(index: int, q: Q) -> str:
             f"theorem {name}_contains : {name}.Contains",
             f"    (Complex.exp (Complex.I * ({'' if label == 'Forward' else '-'}computedPhasedBenchmarkPoint) * (({p}Midpoint : ℝ) : ℂ))) := by",
             "  have hraw := rationalComplexKernelInterval_contains",
-            f"    (expOrder := 32) (expReduction := 4) (trigOrder := 32) (trigHalvings := 4)",
+            f"    (expOrder := 32) (expReduction := 4) (trigOrder := {MIDPOINT_TRIG_ORDER}) (trigHalvings := 4)",
             f"    (re := {lean_q(re)}) (im := {lean_q(im)}) (t := {p}Midpoint)",
             f"    (by norm_num) (by norm_num [{p}Midpoint]) (by norm_num [{p}Midpoint, computedPhasedBenchmarkRealQ])",
             f"  apply RationalRectangle.contains_of_wide (B := {name})",
@@ -404,8 +408,13 @@ def render_aggregate() -> str:
         "  fin_cases i", *[f"  simpa [computedPhasedBaseOuterPairedCache, computedPhasedBaseOuterMidpoint, computedPhasedBaseOuterCell{i}Midpoint] using computedPhasedBaseOuterCell{i}Paired_contains n" for i in range(7)],
         "", "/-- Exact midpoint-only Taylor payment; the omitted-jet remainder is deliberately excluded. -/",
         "def computedPhasedBaseOuterMidpointIntervalPaymentQ (i : Fin 7) : ℚ :=",
-        "  2 * (1 / 28) * ((∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).re.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial) +",
-        "    (∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).im.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial))",
+        "  2 * (1 / 28) *",
+        "    ((∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "        (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius else 0) *",
+        "        (1 / 28) ^ k / k.factorial) +",
+        "      (∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "        (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius else 0) *",
+        "        (1 / 28) ^ k / k.factorial))",
         "", "/-- Certified first-omitted-jet rectangle at each outer midpoint. -/",
         "def computedPhasedBaseOuterRemainderMidpointCache (i : Fin 7) : RationalRectangle := ![",
         ",\n".join(f"  computedPhasedBaseOuterCell{i}Paired12" for i in range(7)), "] i",
@@ -530,10 +539,9 @@ def render_aggregate() -> str:
         "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) :",
         "    ComplexIntegralCellCertificate",
         "      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)",
-        "      ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
-        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28) := by",
-        "  simpa using",
-        "    (computedPhasedBasePairedTaylorCellAtCached",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ)) :=",
+        "    computedPhasedBasePairedTaylorCellAtCached",
         "      (computedPhasedBaseOuterMidpoint i) (1 / 28)",
         "      (computedPhasedBaseOuterRemainderBoundQ i V)",
         "      (by norm_num)",
@@ -552,7 +560,71 @@ def render_aggregate() -> str:
         "        intro x hx",
         "        apply norm_computedPhasedBaseOuterRemainder_le i V x",
         "        norm_num at hx ⊢",
-        "        exact hx))",
+        "        exact hx)",
+        "",
+        "/-- Exact rational payment of the first omitted jet in one outer cell. -/",
+        "def computedPhasedBaseOuterRemainderPaymentQ (i : Fin 7)",
+        "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) : ℚ :=",
+        "  4 * (1 / 28) * computedPhasedBaseOuterRemainderBoundQ i V *",
+        "    (1 / 28) ^ 12 / Nat.factorial 12",
+        "",
+        "/-- The Taylor-cell error is exactly the retained-jet payment plus the",
+        "first-omitted-jet payment. -/",
+        "theorem computedPhasedBaseOuterTaylorCell_error (i : Fin 7)",
+        "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) :",
+        "    (computedPhasedBaseOuterTaylorCell i V).error =",
+        "      ((computedPhasedBaseOuterMidpointIntervalPaymentQ i +",
+        "        computedPhasedBaseOuterRemainderPaymentQ i V : ℚ) : ℝ) := by",
+        "  change",
+        "    symmetricTaylorError 12 (fun k => if hk : k < 12 then",
+        "      ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius : ℝ) else 0)",
+        "      (computedPhasedBaseOuterRemainderBoundQ i V)",
+        "      (taylorCellHalfWidth",
+        "        ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))",
+        "        ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ))) +",
+        "    symmetricTaylorError 12 (fun k => if hk : k < 12 then",
+        "      ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius : ℝ) else 0)",
+        "      (computedPhasedBaseOuterRemainderBoundQ i V)",
+        "      (taylorCellHalfWidth",
+        "        ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))",
+        "        ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ))) = _",
+        "  have hr : taylorCellHalfWidth",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ)) =",
+        "        (1 / 28 : ℚ) := by",
+        "    unfold taylorCellHalfWidth",
+        "    push_cast",
+        "    ring",
+        "  have hre :",
+        "      (∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "          ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius : ℝ)",
+        "        else 0) * ((1 / 28 : ℚ) : ℝ) ^ k / k.factorial) =",
+        "        (((∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "            (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius else 0) *",
+        "          (1 / 28 : ℚ) ^ k / k.factorial) : ℚ) : ℝ) := by",
+        "    push_cast",
+        "    apply Finset.sum_congr rfl",
+        "    intro k hk",
+        "    have hk' : k < 12 := Finset.mem_range.mp hk",
+        "    simp only [hk', ↓reduceDIte]",
+        "  have him :",
+        "      (∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "          ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius : ℝ)",
+        "        else 0) * ((1 / 28 : ℚ) : ℝ) ^ k / k.factorial) =",
+        "        (((∑ k ∈ Finset.range 12, (if hk : k < 12 then",
+        "            (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius else 0) *",
+        "          (1 / 28 : ℚ) ^ k / k.factorial) : ℚ) : ℝ) := by",
+        "    push_cast",
+        "    apply Finset.sum_congr rfl",
+        "    intro k hk",
+        "    have hk' : k < 12 := Finset.mem_range.mp hk",
+        "    simp only [hk', ↓reduceDIte]",
+        "  simp only [symmetricTaylorError, hr,",
+        "    computedPhasedBaseOuterMidpointIntervalPaymentQ,",
+        "    computedPhasedBaseOuterRemainderPaymentQ]",
+        "  rw [hre, him]",
+        "  push_cast",
+        "  ring",
         "", "end", "end RiemannVenue.Venue", ""]
     return "\n".join(lines)
 
@@ -595,11 +667,11 @@ def render_remainder_cell(index: int, q: Q) -> str:
         f"theorem {exponential_name}_contains : {exponential_name}.Contains",
         f"    (Real.exp (-({lean_q(boundary)} : ℝ))) := by",
         "  have hraw := real_exp_mem_rangeReducedExpInterval",
-        f"    (n := 32) (k := {bump_split(q)}) (x := -({lean_q(boundary)} : ℚ))",
+        f"    (n := {MIDPOINT_BUMP_EXP_ORDER}) (k := {bump_split(q)}) (x := -({lean_q(boundary)} : ℚ))",
         "    (by norm_num) (by norm_num)",
-        "  have hwide : (rangeReducedExpInterval 32",
+        f"  have hwide : (rangeReducedExpInterval {MIDPOINT_BUMP_EXP_ORDER}",
         f"      (-({lean_q(boundary)})) {bump_split(q)}).radius +",
-        f"      |(rangeReducedExpInterval 32 (-({lean_q(boundary)})) {bump_split(q)}).center -",
+        f"      |(rangeReducedExpInterval {MIDPOINT_BUMP_EXP_ORDER} (-({lean_q(boundary)})) {bump_split(q)}).center -",
         f"        {exponential_name}.center| ≤ {exponential_name}.radius := by",
         f"    norm_num [{exponential_name}, rangeReducedExpInterval,",
         "    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,",
@@ -775,7 +847,7 @@ def main() -> None:
         if args.check:
             if not path.exists() or path.read_text() != content:
                 stale.append(str(path.relative_to(ROOT)))
-        else:
+        elif not path.exists() or path.read_text() != content:
             path.write_text(content)
             print(f"wrote {path.relative_to(ROOT)}")
     if stale:

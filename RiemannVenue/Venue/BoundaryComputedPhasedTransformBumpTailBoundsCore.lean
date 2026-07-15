@@ -19,6 +19,21 @@ open Set Polynomial
 
 noncomputable section
 
+/-- A boundary polynomial with nonnegative integer coefficients evaluates
+nonnegatively on the nonnegative ray.  Generated shifted-polynomial packets
+use this as their only sign oracle. -/
+theorem aeval_computedTransformBoundaryPolynomial_nonneg {n : ℕ}
+    (c : Fin n → ℤ) (hc : ∀ k, 0 ≤ c k) {y : ℝ} (hy : 0 ≤ y) :
+    0 ≤ aeval y (computedTransformBoundaryPolynomial c) := by
+  rw [computedTransformBoundaryPolynomial]
+  simp only [map_sum, aeval_monomial]
+  apply Finset.sum_nonneg
+  intro k hk
+  have hcReal : (0 : ℝ) ≤ algebraMap ℤ ℝ (c k) := by
+    change (0 : ℝ) ≤ (c k : ℝ)
+    exact_mod_cast hc k
+  exact mul_nonneg hcReal (pow_nonneg hy _)
+
 /-- Every monomial times `exp (-y)` decreases after its natural turning
 point.  This is useful as a coarse negative control; concrete tail
 certificates should normally preserve the full boundary polynomial. -/
@@ -113,6 +128,58 @@ theorem abs_polynomial_mul_exp_neg_le_of_nonpositive_tail
       simp only [Polynomial.derivative_neg, Polynomial.eval_neg]
       exact neg_le_neg (hderiv z hz)) hy
   simpa using h
+
+/-- Integer-polynomial form of the positive-tail estimate.  Generated bump
+packets state their sign certificates using `aeval`; this wrapper performs the
+unique scalar extension to a real polynomial. -/
+theorem abs_aeval_intPolynomial_mul_exp_neg_le_of_nonnegative_tail
+    (P : ℤ[X]) (L : ℝ)
+    (hP : ∀ y, L ≤ y → 0 ≤ aeval y P)
+    (hdiff : ∀ y, L ≤ y → 0 ≤ aeval y (P - P.derivative))
+    {y : ℝ} (hy : L ≤ y) :
+    |aeval y P| * Real.exp (-y) ≤
+      |aeval L P| * Real.exp (-L) := by
+  let PR : ℝ[X] := P.map (algebraMap ℤ ℝ)
+  have hPR : ∀ z, L ≤ z → 0 ≤ PR.eval z := by
+    intro z hz
+    simpa [PR, Polynomial.aeval_def, Polynomial.eval₂_eq_eval_map] using
+      hP z hz
+  have hderiv : ∀ z, L ≤ z → PR.derivative.eval z ≤ PR.eval z := by
+    intro z hz
+    have h := hdiff z hz
+    have heq : aeval z (P - P.derivative) =
+        PR.eval z - PR.derivative.eval z := by
+      simp [PR, Polynomial.derivative_map, Polynomial.aeval_def,
+        Polynomial.eval₂_eq_eval_map]
+    rw [heq] at h
+    linarith
+  simpa [PR, Polynomial.aeval_def, Polynomial.eval₂_eq_eval_map] using
+    (abs_polynomial_mul_exp_neg_le_of_nonnegative_tail PR L hPR hderiv hy)
+
+/-- Integer-polynomial form of the negative-tail estimate. -/
+theorem abs_aeval_intPolynomial_mul_exp_neg_le_of_nonpositive_tail
+    (P : ℤ[X]) (L : ℝ)
+    (hP : ∀ y, L ≤ y → aeval y P ≤ 0)
+    (hdiff : ∀ y, L ≤ y → aeval y (P - P.derivative) ≤ 0)
+    {y : ℝ} (hy : L ≤ y) :
+    |aeval y P| * Real.exp (-y) ≤
+      |aeval L P| * Real.exp (-L) := by
+  let PR : ℝ[X] := P.map (algebraMap ℤ ℝ)
+  have hPR : ∀ z, L ≤ z → PR.eval z ≤ 0 := by
+    intro z hz
+    simpa [PR, Polynomial.aeval_def, Polynomial.eval₂_eq_eval_map] using
+      hP z hz
+  have hderiv : ∀ z, L ≤ z → PR.eval z ≤ PR.derivative.eval z := by
+    intro z hz
+    have h := hdiff z hz
+    have heq : aeval z (P - P.derivative) =
+        PR.eval z - PR.derivative.eval z := by
+      simp [PR, Polynomial.derivative_map, Polynomial.aeval_def,
+        Polynomial.eval₂_eq_eval_map]
+    rw [heq] at h
+    linarith
+  simpa [PR, Polynomial.aeval_def, Polynomial.eval₂_eq_eval_map] using
+    (abs_polynomial_mul_exp_neg_le_of_nonpositive_tail PR L hPR hderiv hy)
 
 end
 

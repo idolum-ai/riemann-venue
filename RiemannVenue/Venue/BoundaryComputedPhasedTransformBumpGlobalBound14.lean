@@ -37,6 +37,7 @@ theorem computedTransformBumpBoundaryPolynomial14_eq :
     computedTransformBumpBoundaryCoefficients14, Fin.sum_univ_succ]
   abel
 
+
 set_option maxRecDepth 20000 in
 theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial14
     {t : ℝ} (ht : |t| < 1) :
@@ -56,8 +57,10 @@ theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial14
   simp only [computedTransformBumpJetNumerator14,
     computedTransformBumpBoundaryPolynomial14, map_add, map_mul,
     map_pow, aeval_X, map_ofNat, map_neg, map_intCast, aeval_monomial]
+  norm_num
   field_simp
   ring
+
 
 private theorem computedTransformBumpJet14_interior_bound
     {t : ℝ} (ht : |t| < 1) :
