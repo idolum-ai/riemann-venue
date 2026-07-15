@@ -16,7 +16,7 @@ namespace RiemannVenue.Venue
 open Finset
 open scoped BigOperators
 
-noncomputable section
+section
 
 theorem computedPhasedBaseOuterInactiveBumpJet_eq_zero_real
     (n : ℕ) (x : ℝ) (hx : 4 ≤ x) (g : Fin 20) (k : Fin 5)
@@ -98,26 +98,36 @@ theorem iteratedDeriv_cos_mem_rationalCosineJetInterval_upTo14
   · exact RationalInterval.contains_neg hT.1
   · exact RationalInterval.contains_neg hT.2
 
-/-- Exact outer-cell leaves.  The generated layer supplies only primitive
-trigonometric, bump, and kernel enclosures; this core owns all aggregation. -/
-structure ComputedPhasedBaseOuterVariationLeaves (I : RationalInterval) where
+/-- Executable rational payload for one outer interval. Keeping it separate
+from analytic witnesses allows native evaluation of exact payment budgets. -/
+structure ComputedPhasedBaseOuterVariationData (_I : RationalInterval) where
   trig : Fin 20 → RationalTrigInterval
+  bump : Fin 15 → RationalInterval
+  forward : RationalRectangle
+  reflected : RationalRectangle
+
+/-- Analytic wrapper proving that an executable rational payload encloses the
+actual trigonometric, bump, and kernel values. -/
+structure ComputedPhasedBaseOuterVariationLeaves (I : RationalInterval)
+    extends ComputedPhasedBaseOuterVariationData I where
   trig_contains : ∀ g,
     (trig g).Contains
       ((computedPhasedFrequencyQ (computedPhasedBaseOuterColumn g) : ℝ) *
         ((I.center : ℝ) - 1))
-  bump : Fin 15 → RationalInterval
   bump_contains : ∀ k (x : ℝ), I.Contains x →
     (bump k).Contains
       (computedPhasedBumpJet k (computedPhasedBaseOuterColumn 0) x)
-  forward : RationalRectangle
-  reflected : RationalRectangle
   forward_contains : ∀ x : ℝ, I.Contains x →
     forward.Contains
       (Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ)))
   reflected_contains : ∀ x : ℝ, I.Contains x →
     reflected.Contains
       (Complex.exp (Complex.I * (-computedPhasedBenchmarkPoint) * (x : ℂ)))
+
+instance {I : RationalInterval} :
+    Coe (ComputedPhasedBaseOuterVariationLeaves I)
+      (ComputedPhasedBaseOuterVariationData I) :=
+  ⟨ComputedPhasedBaseOuterVariationLeaves.toComputedPhasedBaseOuterVariationData⟩
 
 /-- Coarse kernel enclosure used by ordinary outer-cell certificates.  The
 high-order cancellation occurs in the real test jet, so the kernel need not be
@@ -161,7 +171,7 @@ theorem computedPhasedBaseOuterGlobalKernelRectangle_contains_reflected
       (Complex.abs_im_le_norm _).trans hnorm
 
 def computedPhasedBaseOuterTrigCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I) (g : Fin 20) :
+    (L : ComputedPhasedBaseOuterVariationData I) (g : Fin 20) :
     RationalTrigInterval :=
   RationalTrigInterval.expand (L.trig g)
     (|computedPhasedFrequencyQ (computedPhasedBaseOuterColumn g)| * I.radius)
@@ -169,7 +179,8 @@ def computedPhasedBaseOuterTrigCell {I : RationalInterval}
 theorem computedPhasedBaseOuterTrigCell_contains {I : RationalInterval}
     (L : ComputedPhasedBaseOuterVariationLeaves I) (g : Fin 20)
     {x : ℝ} (hx : I.Contains x) :
-    (computedPhasedBaseOuterTrigCell L g).Contains
+    (computedPhasedBaseOuterTrigCell
+      L.toComputedPhasedBaseOuterVariationData g).Contains
       ((computedPhasedFrequencyQ (computedPhasedBaseOuterColumn g) : ℝ) *
         (x - 1)) := by
   apply RationalTrigInterval.contains_expand (L.trig_contains g)
@@ -188,7 +199,7 @@ theorem computedPhasedBaseOuterTrigCell_contains {I : RationalInterval}
         (computedPhasedBaseOuterColumn g) : ℝ))
 
 def computedPhasedBaseOuterCosineCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (L : ComputedPhasedBaseOuterVariationData I)
     (n : Fin 15) (g : Fin 20) : RationalInterval :=
   RationalInterval.scale
     (computedPhasedFrequencyQ (computedPhasedBaseOuterColumn g) ^ (n : ℕ))
@@ -197,7 +208,8 @@ def computedPhasedBaseOuterCosineCell {I : RationalInterval}
 theorem computedPhasedBaseOuterCosineCell_contains {I : RationalInterval}
     (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) (g : Fin 20) {x : ℝ} (hx : I.Contains x) :
-    (computedPhasedBaseOuterCosineCell L n g).Contains
+    (computedPhasedBaseOuterCosineCell
+      L.toComputedPhasedBaseOuterVariationData n g).Contains
       (computedPhasedCosineJet n (computedPhasedBaseOuterColumn g) x) := by
   have h := RationalInterval.contains_scale
     (q := computedPhasedFrequencyQ (computedPhasedBaseOuterColumn g) ^ (n : ℕ))
@@ -212,7 +224,7 @@ theorem computedPhasedBaseOuterCosineCell_contains {I : RationalInterval}
 /-- Signed frequency sum for one cosine derivative.  The shared bump has not
 yet been multiplied in, so cancellation survives this operation. -/
 def computedPhasedBaseOuterSignedCosineCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (L : ComputedPhasedBaseOuterVariationData I)
     (n : Fin 15) : RationalInterval :=
   RationalInterval.finSum fun g : Fin 20 =>
     RationalInterval.scale
@@ -222,7 +234,8 @@ def computedPhasedBaseOuterSignedCosineCell {I : RationalInterval}
 theorem computedPhasedBaseOuterSignedCosineCell_contains
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) :
-    (computedPhasedBaseOuterSignedCosineCell L n).Contains
+    (computedPhasedBaseOuterSignedCosineCell
+      L.toComputedPhasedBaseOuterVariationData n).Contains
       (∑ g : Fin 20,
         computedPhasedBaseCoefficient (computedPhasedBaseOuterColumn g) *
           computedPhasedCosineJet n (computedPhasedBaseOuterColumn g) x) := by
@@ -297,7 +310,7 @@ theorem computedPhasedBaseTest_iterDeriv_eq_outerConvolution
       ring
 
 def computedPhasedBaseOuterTestJetCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (L : ComputedPhasedBaseOuterVariationData I)
     (n : Fin 15) : RationalInterval :=
   RationalInterval.finSum fun i : Fin ((n : ℕ) + 1) =>
     RationalInterval.scale ((n : ℕ).choose i)
@@ -308,7 +321,8 @@ def computedPhasedBaseOuterTestJetCell {I : RationalInterval}
 theorem computedPhasedBaseOuterTestJetCell_contains
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
-    (computedPhasedBaseOuterTestJetCell L n).Contains
+    (computedPhasedBaseOuterTestJetCell
+      L.toComputedPhasedBaseOuterVariationData n).Contains
       (computedPhasedBaseTest.iterDeriv n x) := by
   rw [computedPhasedBaseTest_iterDeriv_eq_outerConvolution n x hx4]
   apply RationalInterval.contains_finSum
@@ -346,7 +360,7 @@ theorem rationalTransformRawJetInterval_contains_real
         (rationalTransformLambdaQ_contains re im) (n - i)) hkernel
 
 def computedPhasedBaseOuterRawJetCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (L : ComputedPhasedBaseOuterVariationData I)
     (n : Fin 15) (re im : ℚ) (kernel : RationalRectangle) :
     RationalRectangle :=
   rationalTransformRawJetInterval re im n kernel fun i =>
@@ -359,7 +373,8 @@ theorem computedPhasedBaseOuterRawJetCell_contains
     (hkernel : kernel.Contains
       (Complex.exp (Complex.I *
         ((re : ℝ) + (im : ℝ) * Complex.I) * (x : ℂ)))) :
-    (computedPhasedBaseOuterRawJetCell L n re im kernel).Contains
+    (computedPhasedBaseOuterRawJetCell
+      L.toComputedPhasedBaseOuterVariationData n re im kernel).Contains
       (iteratedDeriv n
         (computedTransformRawIntegrand computedPhasedBaseTest
           ((re : ℝ) + (im : ℝ) * Complex.I)) x) := by
@@ -368,7 +383,7 @@ theorem computedPhasedBaseOuterRawJetCell_contains
   exact computedPhasedBaseOuterTestJetCell_contains L ⟨i, by omega⟩ hx hx4
 
 def computedPhasedBaseOuterPairedRawJetCell {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (L : ComputedPhasedBaseOuterVariationData I)
     (n : Fin 15) : RationalRectangle :=
   RationalRectangle.add
     (computedPhasedBaseOuterRawJetCell L n computedPhasedBenchmarkRealQ
@@ -379,7 +394,8 @@ def computedPhasedBaseOuterPairedRawJetCell {I : RationalInterval}
 theorem computedPhasedBaseOuterForwardRawJetCell_contains
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
-    (computedPhasedBaseOuterRawJetCell L n computedPhasedBenchmarkRealQ
+    (computedPhasedBaseOuterRawJetCell
+      L.toComputedPhasedBaseOuterVariationData n computedPhasedBenchmarkRealQ
       (1 / 4) L.forward).Contains
       (iteratedDeriv n
         (computedTransformRawIntegrand computedPhasedBaseTest
@@ -392,7 +408,8 @@ theorem computedPhasedBaseOuterForwardRawJetCell_contains
 theorem computedPhasedBaseOuterReflectedRawJetCell_contains
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
-    (computedPhasedBaseOuterRawJetCell L n (-computedPhasedBenchmarkRealQ)
+    (computedPhasedBaseOuterRawJetCell
+      L.toComputedPhasedBaseOuterVariationData n (-computedPhasedBenchmarkRealQ)
       (-1 / 4) L.reflected).Contains
       (iteratedDeriv n
         (computedTransformRawIntegrand computedPhasedBaseTest
@@ -405,7 +422,8 @@ theorem computedPhasedBaseOuterReflectedRawJetCell_contains
 theorem computedPhasedBaseOuterPairedRawJetCell_contains
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
-    (computedPhasedBaseOuterPairedRawJetCell L n).Contains
+    (computedPhasedBaseOuterPairedRawJetCell
+      L.toComputedPhasedBaseOuterVariationData n).Contains
       (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n x) := by
   rw [computedPhasedBaseOuterPairedRawJetCell,
     computedPhasedBasePairedRawJet]
@@ -414,7 +432,7 @@ theorem computedPhasedBaseOuterPairedRawJetCell_contains
     (computedPhasedBaseOuterReflectedRawJetCell_contains L n hx hx4)
 
 def computedPhasedBaseOuterPairedRawJetCellBound {I : RationalInterval}
-    (L : ComputedPhasedBaseOuterVariationLeaves I) (n : Fin 15) : ℚ :=
+    (L : ComputedPhasedBaseOuterVariationData I) (n : Fin 15) : ℚ :=
   rationalRectangleL1AbsUpper
     (computedPhasedBaseOuterPairedRawJetCell L n)
 
@@ -422,7 +440,8 @@ theorem norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
     {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
     (n : Fin 15) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
     ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n x‖ ≤
-      (computedPhasedBaseOuterPairedRawJetCellBound L n : ℝ) :=
+      (computedPhasedBaseOuterPairedRawJetCellBound
+        L.toComputedPhasedBaseOuterVariationData n : ℝ) :=
   norm_le_rationalRectangleL1AbsUpper
     (computedPhasedBaseOuterPairedRawJetCell_contains L n hx hx4)
 

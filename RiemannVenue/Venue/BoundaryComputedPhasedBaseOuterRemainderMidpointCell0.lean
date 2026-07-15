@@ -11,10 +11,10 @@ def computedPhasedBaseOuterCell0BumpBoundary12 : RationalInterval :=
 def computedPhasedBaseOuterCell0BumpPolynomial12 : RationalInterval :=
   RationalInterval.singleton ((880889835023675766450148757582849542915163953616614029501132273131696919610083288328760362459463680 : ℚ) / 1080106572764401544787626995725541229503208399605027423961720988519179638512949281)
 def computedPhasedBaseOuterCell0BumpExponential12 : RationalInterval :=
-  ⟨(9595814698214724637 : ℚ) / 200000000000000000000, (1 : ℚ) / 40000000000000000000⟩
+  ⟨(9595814698214724639 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
 
 def computedPhasedBaseOuterCell0Bump12 : RationalInterval :=
-  ⟨(1157951353199472444596545820793 : ℚ) / 100000000000000000000, (150840677631 : ℚ) / 25000000000000000000⟩
+  ⟨(463180541279788977935156362001 : ℚ) / 40000000000000000000, (241345084211 : ℚ) / 200000000000000000000⟩
 
 theorem computedPhasedBaseOuterCell0BumpBoundary12_contains : computedPhasedBaseOuterCell0BumpBoundary12.Contains
     ((7225 : ℚ) / 2379 : ℝ) := by
@@ -37,11 +37,11 @@ theorem computedPhasedBaseOuterCell0BumpPolynomial12_contains : computedPhasedBa
 theorem computedPhasedBaseOuterCell0BumpExponential12_contains : computedPhasedBaseOuterCell0BumpExponential12.Contains
     (Real.exp (-((7225 : ℚ) / 2379 : ℝ))) := by
   have hraw := real_exp_mem_rangeReducedExpInterval
-    (n := 32) (k := 1) (x := -((7225 : ℚ) / 2379 : ℚ))
+    (n := 48) (k := 1) (x := -((7225 : ℚ) / 2379 : ℚ))
     (by norm_num) (by norm_num)
-  have hwide : (rangeReducedExpInterval 32
+  have hwide : (rangeReducedExpInterval 48
       (-((7225 : ℚ) / 2379)) 1).radius +
-      |(rangeReducedExpInterval 32 (-((7225 : ℚ) / 2379)) 1).center -
+      |(rangeReducedExpInterval 48 (-((7225 : ℚ) / 2379)) 1).center -
         computedPhasedBaseOuterCell0BumpExponential12.center| ≤ computedPhasedBaseOuterCell0BumpExponential12.radius := by
     norm_num [computedPhasedBaseOuterCell0BumpExponential12, rangeReducedExpInterval,
     rationalExpInterval, rationalExpTaylor, rationalExpRemainder,
@@ -83,7 +83,7 @@ theorem computedPhasedBaseOuterCell0Bump12_contains : computedPhasedBaseOuterCel
     (RationalInterval.contains_of_center_radius_le hs hwide)
 
 def computedPhasedBaseOuterCell0RemainderBlock0 : RationalInterval :=
-  ⟨(-2330148848999399451613873279953 : ℚ) / 1000000000000000, (181913889267267882081 : ℚ) / 1000000000000000⟩
+  ⟨(-2330148849025840460752589106323 : ℚ) / 1000000000000000, (5397589723150477 : ℚ) / 1000000000000000⟩
 
 set_option maxRecDepth 20000 in
 theorem computedPhasedBaseOuterCell0RemainderBlock0_contains : computedPhasedBaseOuterCell0RemainderBlock0.Contains
@@ -99,7 +99,7 @@ theorem computedPhasedBaseOuterCell0RemainderBlock0_contains : computedPhasedBas
     computedPhasedBaseOuterCell0Trig0, computedPhasedBaseOuterCell0Trig1, computedPhasedBaseOuterCell0Trig2, computedPhasedBaseOuterCell0Trig3, computedPhasedBaseOuterCell0Trig4, computedPhasedBaseOuterCell0Trig5, computedPhasedBaseOuterCell0Trig6, computedPhasedBaseOuterCell0Trig7, computedPhasedBaseOuterCell0Trig8, computedPhasedBaseOuterCell0Trig9, computedPhasedBaseOuterCell0Trig10, computedPhasedBaseOuterCell0Trig11, computedPhasedBaseOuterCell0Trig12, computedPhasedBaseOuterCell0Trig13, computedPhasedBaseOuterCell0Trig14, computedPhasedBaseOuterCell0Trig15, computedPhasedBaseOuterCell0Trig16, computedPhasedBaseOuterCell0Trig17, computedPhasedBaseOuterCell0Trig18, computedPhasedBaseOuterCell0Trig19, computedPhasedBaseOuterCell0Bump0, computedPhasedBaseOuterCell0Bump1, computedPhasedBaseOuterCell0Bump2, computedPhasedBaseOuterCell0Bump3, computedPhasedBaseOuterCell0Bump4, computedPhasedBaseOuterCell0Bump5, computedPhasedBaseOuterCell0Bump6, computedPhasedBaseOuterCell0Bump7, computedPhasedBaseOuterCell0Bump8, computedPhasedBaseOuterCell0Bump9, computedPhasedBaseOuterCell0Bump10, computedPhasedBaseOuterCell0Bump11]
 
 def computedPhasedBaseOuterCell0RemainderBlock1 : RationalInterval :=
-  ⟨(276232189829666561266231494759 : ℚ) / 31250000000000, (7598156563311558610181 : ℚ) / 1000000000000000⟩
+  ⟨(4419715037324637865448222517639 : ℚ) / 500000000000000, (243232383249790037 : ℚ) / 1000000000000000⟩
 
 set_option maxRecDepth 20000 in
 theorem computedPhasedBaseOuterCell0RemainderBlock1_contains : computedPhasedBaseOuterCell0RemainderBlock1.Contains
@@ -115,7 +115,7 @@ theorem computedPhasedBaseOuterCell0RemainderBlock1_contains : computedPhasedBas
     computedPhasedBaseOuterCell0Trig0, computedPhasedBaseOuterCell0Trig1, computedPhasedBaseOuterCell0Trig2, computedPhasedBaseOuterCell0Trig3, computedPhasedBaseOuterCell0Trig4, computedPhasedBaseOuterCell0Trig5, computedPhasedBaseOuterCell0Trig6, computedPhasedBaseOuterCell0Trig7, computedPhasedBaseOuterCell0Trig8, computedPhasedBaseOuterCell0Trig9, computedPhasedBaseOuterCell0Trig10, computedPhasedBaseOuterCell0Trig11, computedPhasedBaseOuterCell0Trig12, computedPhasedBaseOuterCell0Trig13, computedPhasedBaseOuterCell0Trig14, computedPhasedBaseOuterCell0Trig15, computedPhasedBaseOuterCell0Trig16, computedPhasedBaseOuterCell0Trig17, computedPhasedBaseOuterCell0Trig18, computedPhasedBaseOuterCell0Trig19, computedPhasedBaseOuterCell0Bump0, computedPhasedBaseOuterCell0Bump1, computedPhasedBaseOuterCell0Bump2, computedPhasedBaseOuterCell0Bump3, computedPhasedBaseOuterCell0Bump4, computedPhasedBaseOuterCell0Bump5, computedPhasedBaseOuterCell0Bump6, computedPhasedBaseOuterCell0Bump7, computedPhasedBaseOuterCell0Bump8, computedPhasedBaseOuterCell0Bump9, computedPhasedBaseOuterCell0Bump10, computedPhasedBaseOuterCell0Bump11]
 
 def computedPhasedBaseOuterCell0RemainderBlock2 : RationalInterval :=
-  ⟨(42589925473320132882466214284943 : ℚ) / 400000000000000, (7206663960779087108761047 : ℚ) / 2000000000000000⟩
+  ⟨(1330935172247877478448724700829 : ℚ) / 12500000000000, (1826116787433750671433 : ℚ) / 500000000000000⟩
 
 set_option maxRecDepth 20000 in
 theorem computedPhasedBaseOuterCell0RemainderBlock2_contains : computedPhasedBaseOuterCell0RemainderBlock2.Contains
@@ -131,7 +131,7 @@ theorem computedPhasedBaseOuterCell0RemainderBlock2_contains : computedPhasedBas
     computedPhasedBaseOuterCell0Trig0, computedPhasedBaseOuterCell0Trig1, computedPhasedBaseOuterCell0Trig2, computedPhasedBaseOuterCell0Trig3, computedPhasedBaseOuterCell0Trig4, computedPhasedBaseOuterCell0Trig5, computedPhasedBaseOuterCell0Trig6, computedPhasedBaseOuterCell0Trig7, computedPhasedBaseOuterCell0Trig8, computedPhasedBaseOuterCell0Trig9, computedPhasedBaseOuterCell0Trig10, computedPhasedBaseOuterCell0Trig11, computedPhasedBaseOuterCell0Trig12, computedPhasedBaseOuterCell0Trig13, computedPhasedBaseOuterCell0Trig14, computedPhasedBaseOuterCell0Trig15, computedPhasedBaseOuterCell0Trig16, computedPhasedBaseOuterCell0Trig17, computedPhasedBaseOuterCell0Trig18, computedPhasedBaseOuterCell0Trig19, computedPhasedBaseOuterCell0Bump0, computedPhasedBaseOuterCell0Bump1, computedPhasedBaseOuterCell0Bump2, computedPhasedBaseOuterCell0Bump3, computedPhasedBaseOuterCell0Bump4, computedPhasedBaseOuterCell0Bump5, computedPhasedBaseOuterCell0Bump6, computedPhasedBaseOuterCell0Bump7, computedPhasedBaseOuterCell0Bump8, computedPhasedBaseOuterCell0Bump9, computedPhasedBaseOuterCell0Bump10, computedPhasedBaseOuterCell0Bump11]
 
 def computedPhasedBaseOuterCell0RemainderBlock3 : RationalInterval :=
-  ⟨(287541090154626874663227127696893 : ℚ) / 1000000000000000, (66667464689618442959995126487 : ℚ) / 1000000000000000⟩
+  ⟨(143771341915783990212716404920879 : ℚ) / 500000000000000, (183177384610738752656937229 : ℚ) / 1000000000000000⟩
 
 set_option maxRecDepth 20000 in
 theorem computedPhasedBaseOuterCell0RemainderBlock3_contains : computedPhasedBaseOuterCell0RemainderBlock3.Contains
@@ -148,7 +148,7 @@ theorem computedPhasedBaseOuterCell0RemainderBlock3_contains : computedPhasedBas
 
 def computedPhasedBaseOuterCell0Base12Raw : RationalInterval := RationalInterval.add computedPhasedBaseOuterCell0RemainderBlock0 (RationalInterval.add computedPhasedBaseOuterCell0RemainderBlock1 (RationalInterval.add computedPhasedBaseOuterCell0RemainderBlock2 computedPhasedBaseOuterCell0RemainderBlock3))
 def computedPhasedBaseOuterCell0Base12 : RationalInterval :=
-  ⟨(801050370126954274756596395923171 : ℚ) / 2000000000000000, (26668430320667714032950399709 : ℚ) / 400000000000000⟩
+  ⟨(400526778837021613971474641837033 : ℚ) / 1000000000000000, (183181037092943593131220609 : ℚ) / 1000000000000000⟩
 
 theorem computedPhasedBaseOuterCell0Base12Raw_contains : computedPhasedBaseOuterCell0Base12Raw.Contains
     (computedPhasedBaseTest.iterDeriv 12 (computedPhasedBaseOuterCell0Midpoint : ℝ)) := by
@@ -161,7 +161,7 @@ theorem computedPhasedBaseOuterCell0Base12_contains : computedPhasedBaseOuterCel
   apply RationalInterval.contains_of_center_radius_le computedPhasedBaseOuterCell0Base12Raw_contains
   norm_num [computedPhasedBaseOuterCell0Base12, computedPhasedBaseOuterCell0Base12Raw, RationalInterval.add, computedPhasedBaseOuterCell0RemainderBlock0, computedPhasedBaseOuterCell0RemainderBlock1, computedPhasedBaseOuterCell0RemainderBlock2, computedPhasedBaseOuterCell0RemainderBlock3]
 
-def computedPhasedBaseOuterCell0Paired12 : RationalRectangle := ⟨⟨(4376118433245522158527232371570839 / 500000000000000 : ℚ), (3353105961828565862764632722993 / 1000000000000000 : ℚ)⟩, ⟨(-2145443102249160625180306487161171 / 500000000000000 : ℚ), (3352285446569406277673295144249 / 1000000000000000 : ℚ)⟩⟩
+def computedPhasedBaseOuterCell0Paired12 : RationalRectangle := ⟨⟨(8752325292405696160390417054467069 / 1000000000000000 : ℚ), (1145601278185986049193990527 / 125000000000000 : ℚ)⟩, ⟨(-4290760304138901055056512879474261 / 1000000000000000 : ℚ), (9162536466249719642570112263 / 1000000000000000 : ℚ)⟩⟩
 theorem computedPhasedBaseOuterCell0Paired12_contains : computedPhasedBaseOuterCell0Paired12.Contains
     (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12
       (computedPhasedBaseOuterCell0Midpoint : ℝ)) := by

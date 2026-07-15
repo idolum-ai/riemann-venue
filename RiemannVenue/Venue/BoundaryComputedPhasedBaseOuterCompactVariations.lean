@@ -1,0 +1,9 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCell6
+
+/-! Seven exact outer-cell variation certificates. -/

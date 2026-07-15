@@ -446,3 +446,33 @@ The next endpoint shard should generate and prove the shifted-polynomial sign
 identities at `46`, then evaluate the single threshold value with a rational
 exponential enclosure.  The compact interval below that threshold remains on
 the ordinary adaptive-cell route.
+
+## Compiled Outer Certificate
+
+The outer interval `[4, 9/2]` now has a joined, kernel-checked integral
+certificate.  The compact portion `[4, 2011/448]` is divided into 139 adaptive
+shards.  Generated recurrence leaves certify the signed trigonometric sums,
+standard-bump jets, and forward/reflected benchmark kernels; seven Taylor
+packets retain the signed center moments and pay only their proved local
+remainders.  A separate analytic flat-tail packet closes
+`[2011/448, 9/2]`.  Their exact endpoint joins produce the public theorem
+`computedPhasedBaseOuterIntegral_mem`.
+
+An independent exact-rational mirror computes a compact center near
+`0.0044961440896 - 0.00021613079134 i` and raw compact error about
+`1.08547e-7`, or about `1.73e-8` after the eventual `1 / (2 * pi)`
+normalization.  These figures are audit evidence, not separate proof
+authority.  An attempted native Lean theorem for the same numerical ceiling
+was abandoned after kernel reduction repeatedly expanded the 48-term rational
+exponential enclosures through noncomputable bump wrappers.  The public result
+therefore claims the exact certificate and its proved radius, not an additional
+kernel-normalized decimal comparison.
+
+This closes the larger of the two numerically difficult outer regimes and
+validates the adaptive representation: cancellation survives subdivision, the
+tail can be handed to a monotonicity argument, and the resulting modules remain
+independently auditable.  The next concentrated regime is `[7/2, 4]`, which the
+budget probe attributes roughly 44 percent of the proposed base-transform
+residual payment.  It should reuse the same packet architecture, with a fresh
+decision gate if its interior/support-boundary geometry forces a different
+local compiler.

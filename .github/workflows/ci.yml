@@ -90,7 +90,7 @@ jobs:
           rm -rf /tmp/computed-phased-bump-global-bounds
           python scripts/generate_computed_phased_transform_bump_global_bounds.py \
             --output-dir /tmp/computed-phased-bump-global-bounds
-          for order in $(seq 6 14); do
+          for order in $(seq 0 14); do
             diff -u \
               "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean" \
               "/tmp/computed-phased-bump-global-bounds/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean"
@@ -144,6 +144,14 @@ jobs:
         run: python scripts/generate_canonical_bump_transform_packets.py --check
       - name: Narrow outer midpoint shard drift gate
         run: python scripts/generate_computed_phased_base_outer_midpoints.py --check
+      - name: Adaptive outer compact compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-outer-compact
+          python scripts/generate_computed_phased_base_outer_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-outer-compact
+          for generated in /tmp/computed-phased-base-outer-compact/*.lean; do
+            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
+          done
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.

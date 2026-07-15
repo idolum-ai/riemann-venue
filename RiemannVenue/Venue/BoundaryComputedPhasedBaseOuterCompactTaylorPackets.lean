@@ -1,0 +1,9 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactTaylorCell6
+
+/-! Seven cancellation-preserving compact outer packets. -/
