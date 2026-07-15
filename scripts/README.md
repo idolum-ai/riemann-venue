@@ -53,6 +53,14 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   the correction-transform Taylor compiler. Python computes integer
   polynomials and rational ceilings only; Lean proves every emitted bound.
 
+- `generate_computed_phased_base_outer_midpoints.py` emits the seven narrow
+  outer-regime midpoint packets on `[4, 9/2]`.  The first family certifies
+  paired jets through order 11; the remainder family independently certifies
+  the first omitted order-12 jet and the aggregate mean-value bridge to a
+  complete Taylor cell.  Its `--check` mode is the CI drift gate.  Uniform
+  order-13 control remains a separate proof obligation, not generated
+  authority.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the
