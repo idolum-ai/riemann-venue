@@ -90,7 +90,7 @@ jobs:
           rm -rf /tmp/computed-phased-bump-global-bounds
           python scripts/generate_computed_phased_transform_bump_global_bounds.py \
             --output-dir /tmp/computed-phased-bump-global-bounds
-          for order in $(seq 6 12); do
+          for order in $(seq 6 14); do
             diff -u \
               "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean" \
               "/tmp/computed-phased-bump-global-bounds/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean"

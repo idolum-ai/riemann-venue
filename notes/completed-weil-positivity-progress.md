@@ -398,3 +398,33 @@ plain interval subdivision does not recover cancellation: even 128
 subdivisions per radius-`1/28` cell left natural interval extensions many
 orders of magnitude wider than sampled jet sizes.  The next proof must expose
 local cancellation analytically rather than purchase it with more boxes.
+
+## Outer Variation Compiler
+
+The ordinary-cell route now has a kernel-checked compiler rather than only a
+numerical sketch.  The base derivative is rearranged so that all twenty signed
+frequency jets are summed before multiplication by the shared translation
+`-1` bump jet.  That identity is lifted through the forward and reflected
+benchmark kernels to a rational rectangle and an exact L1 norm ceiling for
+every paired raw jet through order fourteen.  A radius-`1/896` shard around the
+first outer midpoint instantiates the full order-thirteen path; after cached
+dependencies it compiles in roughly six seconds.
+
+The standard-bump interface now reaches orders thirteen and fourteen without
+weakening the support regime.  Strict interior cells use Horner evaluation of
+the generated boundary polynomial and retain the exponentially small factor;
+exterior cells are exactly zero; cells touching `|u| = 1` fall back to proved
+global ceilings.  The latter is a sound negative control, not the intended
+endpoint payment: its constants deliberately forget flat-tail decay.
+
+Reconnaissance with the same signed-before-multiplication topology confirms
+that midpoint order-thirteen plus local order-fourteen control is the better
+ordinary-cell route.  Across the first six outer cells, a 1024-way diagnostic
+estimated normalized payment about `8.2e-7`; direct local extension was about
+`2.8e-6`.  These figures are not proof authority, but they show both the narrow
+remaining margin and the concentration in the sixth ordinary cell.  The next
+implementation gate is therefore adaptive certified subdivision for cells
+zero through five.  The seventh cell remains a separate flat-tail theorem:
+replace the global boundary fallback by a bound on the boundary polynomial
+times `exp (-y)` as `y -> +infinity`, then reconnect both branches to the seven
+typed variation certificates.

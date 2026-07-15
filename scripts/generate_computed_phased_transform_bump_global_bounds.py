@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate source-sized global bounds for explicit bump jets 6 through 12.
+"""Generate source-sized global bounds for explicit bump jets 6 through 14.
 
 Each output module proves one boundary-polynomial identity and pays its
 monomials through the generic `y^m * exp (-y)` bound.  The generator uses
@@ -208,7 +208,7 @@ def main() -> None:
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     values = numerators()
-    for order in range(6, 13):
+    for order in range(6, 15):
         coefficients = boundary_coefficients(order, values[order])
         bound = global_bound(coefficients)
         path = args.output_dir / f"BoundaryComputedPhasedTransformBumpGlobalBound{order}.lean"
