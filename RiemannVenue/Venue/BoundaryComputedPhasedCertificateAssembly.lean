@@ -1,5 +1,8 @@
 import RiemannVenue.Venue.BoundaryComputedPhasedGlobalBounds
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformCertification
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseCompleteCertificate
+import RiemannVenue.Venue.BoundaryComputedPhasedBumpQuadratureInstantiation
+import RiemannVenue.Venue.BoundaryComputedPhasedCorrectionTransformCertificates
 
 /-!
 # Assembly of the computed phased analytic certificate
@@ -64,6 +67,66 @@ def computedPhasedAnalyticIntervalCertificateOfQuadratures
     correction0_mem := computedPhased_correction0_mem_of_quadrature transform0
     correction1_mem := computedPhased_correction1_mem_of_quadrature transform1
     residual_mem := computedPhased_residual_mem_of_quadrature baseTransform
+    segment0 := segment0
+    segment1 := segment1
+    segment2 := segment2
+    segment3 := segment3
+    segment4 := segment4
+    segment0_upper := segment0_upper
+    segment1_upper := segment1_upper
+    segment2_upper := segment2_upper
+    segment3_upper := segment3_upper
+    segment4_upper := segment4_upper
+    segment0_integral_le := segment0_integral_le
+    segment1_integral_le := segment1_integral_le
+    segment2_integral_le := segment2_integral_le
+    segment3_integral_le := segment3_integral_le
+    segment4_integral_le := segment4_integral_le
+    correction0_majorant_le := hcorrection.1
+    correction1_majorant_le := hcorrection.2
+  }
+
+/-- Assemble the final analytic certificate from the canonical correction
+packets, the complete base-transform payment, and the five remaining
+derivative-payment segments. This is the narrow post-base-quadrature surface:
+callers cannot resupply already certified correction or bump bounds. -/
+def computedPhasedAnalyticIntervalCertificateOfCompleteBase
+    (basePayment : ComputedPhasedBaseCompletePayment)
+    (segment0 : EqualCellNormCertificate computedPhasedBaseWeightedSecond
+      0 (5 / 2) 157)
+    (segment1 : EqualCellNormCertificate computedPhasedBaseWeightedSecond
+      (5 / 2) 3 67)
+    (segment2 : EqualCellNormCertificate computedPhasedBaseWeightedSecond
+      3 (7 / 2) 31)
+    (segment3 : EqualCellNormCertificate computedPhasedBaseWeightedSecond
+      (7 / 2) 4 8)
+    (segment4 : EqualCellNormCertificate computedPhasedBaseWeightedSecond
+      4 (9 / 2) 7)
+    (segment0_upper : segment0.upper = computedPhasedUpper0)
+    (segment1_upper : segment1.upper = computedPhasedUpper1)
+    (segment2_upper : segment2.upper = computedPhasedUpper2)
+    (segment3_upper : segment3.upper = computedPhasedUpper3)
+    (segment4_upper : segment4.upper = computedPhasedUpper4)
+    (segment0_integral_le : (∫ t in (0 : ℝ)..(5 / 2),
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature0)
+    (segment1_integral_le : (∫ t in (5 / 2 : ℝ)..3,
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature1)
+    (segment2_integral_le : (∫ t in (3 : ℝ)..(7 / 2),
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature2)
+    (segment3_integral_le : (∫ t in (7 / 2 : ℝ)..4,
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature3)
+    (segment4_integral_le : (∫ t in (4 : ℝ)..(9 / 2),
+      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature4) :
+    ComputedPhasedAnalyticIntervalCertificate := by
+  have hcorrection := computedPhasedCorrection_majorants_of_scaled_bump_bounds
+    computedPhased_bump0_majorant_le computedPhased_bump1_majorant_le
+    computedPhased_bump2_majorant_le
+  exact {
+    correction0_mem :=
+      canonicalBumpComputedPhasedCorrectionTransformCertificate.correction0_mem
+    correction1_mem :=
+      canonicalBumpComputedPhasedCorrectionTransformCertificate.correction1_mem
+    residual_mem := computedPhased_residual_mem_of_completePayment basePayment
     segment0 := segment0
     segment1 := segment1
     segment2 := segment2
