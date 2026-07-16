@@ -1,4 +1,4 @@
-import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterVariationCore
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseActiveBlockCompiler
 
 /-!
 # Cancellation-preserving middle-regime variation compiler
@@ -452,6 +452,36 @@ theorem norm_computedPhasedBaseMiddlePairedRawJet_le_cellBound
         L.toComputedPhasedBaseMiddleVariationData n : ℝ) :=
   norm_le_rationalRectangleL1AbsUpper
     (computedPhasedBaseMiddlePairedRawJetCell_contains L n hx hxLower)
+
+/-- The middle regime presented through the generic active-block interface.
+The specialized compiler remains available; this model lets literal caches
+share one assembly contract with all deeper support regimes. -/
+def computedPhasedBaseMiddleModel :
+    ComputedPhasedBaseActiveBlockModel 2 where
+  column := computedPhasedBaseMiddleColumn
+  valid x := 7 / 2 ≤ x
+  bump_eq := computedPhasedBaseMiddleBumpJet_eq
+  convolution := computedPhasedBaseTest_iterDeriv_eq_middleConvolution
+
+def ComputedPhasedBaseMiddleVariationData.toActiveBlock
+    {I : RationalInterval} (L : ComputedPhasedBaseMiddleVariationData I) :
+    ComputedPhasedBaseActiveBlockVariationData
+      computedPhasedBaseMiddleModel I where
+  trig := L.trig
+  bump := L.bump
+  forward := L.forward
+  reflected := L.reflected
+
+def ComputedPhasedBaseMiddleVariationLeaves.toActiveBlock
+    {I : RationalInterval} (L : ComputedPhasedBaseMiddleVariationLeaves I) :
+    ComputedPhasedBaseActiveBlockVariationLeaves
+      computedPhasedBaseMiddleModel I where
+  toComputedPhasedBaseActiveBlockVariationData :=
+    L.toComputedPhasedBaseMiddleVariationData.toActiveBlock
+  trig_contains := L.trig_contains
+  bump_contains := L.bump_contains
+  forward_contains := L.forward_contains
+  reflected_contains := L.reflected_contains
 end
 
 end RiemannVenue.Venue
