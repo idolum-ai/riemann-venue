@@ -629,6 +629,18 @@ about `3.52e-6` before those charges.
 `BoundaryComputedPhasedBaseMergedCacheProbe.lean` certifies the representative
 union of fine shards 1 through 3.  It reuses fine shard 2's literal paired-jet
 cache, compiles the wider Taylor cell, and exposes exact rational center and
-error coordinates.  Thus the remaining scale-out needs selected midpoint
-caches and a small addition ledger, not fresh analytic leaves or all 139
-fine-shard arithmetic derivations per regime.
+error coordinates.
+
+The scale-out is now complete for the outer half-window.  The deterministic
+merged-cover generator emits only the 41 selected midpoint caches, widens each
+one to its exact odd-run radius, and joins the resulting integral cells over
+`[4, 2011 / 448]`.  Every selected literal cache and the final 41-cell
+`ComplexIntegralCellCertificate` compile in Lean.  This replaces 139 local
+Taylor payments with 41 while preserving the already checked midpoint
+arithmetic; no numerical artifact is imported as proof authority.  The direct
+tail on `[2011 / 448, 9 / 2]` remains separate and unchanged.
+
+The next scale gate is translation, not outer quadrature.  The other eight
+half-windows need the same selected-midpoint cover through their active-block
+coefficient families, followed by one exact addition ledger for the nine
+compact covers and their direct tails.
