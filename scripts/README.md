@@ -73,6 +73,14 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   deliberately separated from their analytic containment proofs; they are not
   an independent native evaluator for the final error budget.
 
+- `generate_computed_phased_base_middle_compact_shards.py` emits the 139-shard
+  compact packet on `[7/2, 1787/448]`. The translation `-1/2` block reuses the
+  outer packet under a kernel-proved half-shift, while the translation `-1`
+  block receives independent local bump enclosures. A hand-written direct
+  tail packet closes `[1787/448, 4]`; seven generated Taylor packets and
+  `BoundaryComputedPhasedBaseMiddleCertificate` expose the joined integral
+  enclosure. CI regenerates every emitted module and rejects source drift.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the

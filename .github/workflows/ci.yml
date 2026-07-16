@@ -152,6 +152,14 @@ jobs:
           for generated in /tmp/computed-phased-base-outer-compact/*.lean; do
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
+      - name: Adaptive middle compact compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-middle-compact
+          python scripts/generate_computed_phased_base_middle_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-middle-compact
+          for generated in /tmp/computed-phased-base-middle-compact/*.lean; do
+            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
+          done
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks its source hash and exact-rational budget identities.
       - name: Base-transform budget artifact integrity gate

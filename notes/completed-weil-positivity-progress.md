@@ -476,3 +476,39 @@ budget probe attributes roughly 44 percent of the proposed base-transform
 residual payment.  It should reuse the same packet architecture, with a fresh
 decision gate if its interior/support-boundary geometry forces a different
 local compiler.
+
+## Compiled Middle Certificate
+
+The concentrated interval `[7/2, 4]` now also has a joined, kernel-checked
+integral certificate. Its geometry is genuinely two-block: translations
+`-1/2` and `-1` can both contribute, while the other sixty dictionary columns
+vanish exactly. The compiler sums the twenty signed frequency jets inside each
+translation block before multiplying by that block's shared bump jet, then
+combines the two blocks before benchmark-kernel propagation. Thus the
+certificate preserves the cancellation topology discovered by the numerical
+budget rather than paying for forty independent absolute values.
+
+The first block admits an exact reuse theorem: its bump and cosine jets at `x`
+are the outer block's jets at `x + 1/2`. Consequently the 139 compact middle
+shards reuse the already-certified outer trigonometric and bump leaves, with
+fixed half-step certificates transporting the second phase and benchmark
+kernels. The second block receives independent local bump enclosures. This is
+more than a compilation shortcut: it records translation covariance in the
+formal API and prevents two numerically generated copies of the same analytic
+object from drifting apart.
+
+At `1787/448`, the first block enters the proved flat tail while the second
+remains interior. A mixed endpoint shard retains exact center trigs, kernels,
+and both point bumps, but uses the analytic tail envelope only for the first
+block's whole-cell omitted derivative. That avoids the sound but wasteful
+alternative of paying the endpoint directly in norm and forgetting
+cancellation in the second block. Seven compact Taylor packets and this mixed
+tail now join to the public theorem `computedPhasedBaseMiddleIntegral_mem` on
+`[7/2, 4]`.
+
+The remaining positive-half base integral lies below `7/2`. Its support
+topology has more active translations, so the next gate should first determine
+whether another translated reuse exists and where the active-block count
+changes. The middle result supports a generic lesson for that descent: split
+at support events, preserve signed cancellation within each shared-bump block,
+and reuse exact scale-flow covariance before generating new interval data.
