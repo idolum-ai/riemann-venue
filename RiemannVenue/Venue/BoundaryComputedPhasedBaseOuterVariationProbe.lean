@@ -91,18 +91,19 @@ def computedPhasedBaseOuterVariationProbeLeaves :
 
 def computedPhasedBaseOuterVariationProbeThirteenBound : ℚ :=
   computedPhasedBaseOuterPairedRawJetCellBound
-    computedPhasedBaseOuterVariationProbeLeaves 13
+    computedPhasedBaseOuterVariationProbeLeaves.toComputedPhasedBaseOuterVariationData 13
 
 theorem norm_computedPhasedBaseOuterVariationProbe_thirteen_le
     {x : ℝ} (hx : computedPhasedBaseOuterVariationProbeInterval.Contains x) :
     ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 13 x‖ ≤
       (computedPhasedBaseOuterVariationProbeThirteenBound : ℝ) := by
-  apply norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
-    computedPhasedBaseOuterVariationProbeLeaves 13 hx
-  have hbounds := (RationalInterval.contains_iff_bounds _ _).mp hx
-  norm_num [computedPhasedBaseOuterVariationProbeInterval,
-    RationalInterval.lower] at hbounds
-  linarith
+  simpa [computedPhasedBaseOuterVariationProbeThirteenBound] using
+    (norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
+      computedPhasedBaseOuterVariationProbeLeaves 13 hx (by
+        have hbounds := (RationalInterval.contains_iff_bounds _ _).mp hx
+        norm_num [computedPhasedBaseOuterVariationProbeInterval,
+          RationalInterval.lower] at hbounds
+        linarith))
 
 end
 
