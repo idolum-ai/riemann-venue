@@ -747,6 +747,24 @@ def nested_packet_cells(
     ])
 
 
+def packet_cell_cases(names: list[str], cell_suffix: str) -> str:
+    """Build packet cells by the concrete finite index used by later summaries."""
+    lines = [
+        "  cell i := by",
+        "    rcases i with ⟨i, hi⟩",
+        "    interval_cases i",
+    ]
+    for name in names:
+        lines.extend([
+            f"    · exact {name}{cell_suffix}.reindex",
+            "        (by norm_num [equalCellPoint, equalCellWidth,",
+            f"          {name}Interval])",
+            "        (by norm_num [equalCellPoint, equalCellWidth,",
+            f"          {name}Interval])",
+        ])
+    return "\n".join(lines)
+
+
 def nested_packet_error_cases(
     names: list[str], packet_name: str, error_name: str,
     index_var: str = "i", indent: str = "  ",
@@ -903,6 +921,7 @@ def render_taylor_packet(cell: int) -> str:
     packet_upper = cell_intervals[-1][3]
     packet_count = len(cell_intervals)
     packet_name = f"computedPhasedBaseOuterCompactCell{cell}TaylorPacket"
+    summary_name = f"{packet_name}Summary"
     imports = [
         "import RiemannVenue.Venue."
         f"BoundaryComputedPhasedBaseOuterCompactCell{cell}Shard{index}LiteralCache"
@@ -925,8 +944,66 @@ def render_taylor_packet(cell: int) -> str:
         "  integrable := by",
         "    intro _i",
         "    exact (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _",
-        "  cell :=",
-        nested_packet_cells(shard_names, "    ", "LiteralCacheTaylorCell"),
+        packet_cell_cases(shard_names, "LiteralCacheTaylorCell"),
+        "",
+        f"def {summary_name}CenterQ (i : Fin {packet_count}) : ℚ × ℚ := ![",
+        ",\n".join(
+            f"  {name}LiteralCacheTaylorCenterQ" for name in shard_names
+        ),
+        "] i",
+        "",
+        f"def {summary_name}ErrorQ (i : Fin {packet_count}) : ℚ := ![",
+        ",\n".join(
+            f"  {name}LiteralCacheTaylorErrorQ" for name in shard_names
+        ),
+        "] i",
+        "",
+        f"def {summary_name}TotalCenterQ : ℚ × ℚ :=",
+        f"  (∑ i, ({summary_name}CenterQ i).1,",
+        f"    ∑ i, ({summary_name}CenterQ i).2)",
+        "",
+        f"def {summary_name}TotalErrorQ : ℚ :=",
+        f"  ∑ i, {summary_name}ErrorQ i",
+        "",
+        f"theorem {packet_name}_cell_centerQ (i : Fin {packet_count}) :",
+        f"    ({packet_name}.cell i).center =",
+        f"      (({summary_name}CenterQ i).1 : ℝ) +",
+        f"        (({summary_name}CenterQ i).2 : ℝ) * Complex.I := by",
+        "  set_option linter.unusedSimpArgs false in",
+        "  fin_cases i <;>",
+        f"    simp [{packet_name}, {summary_name}CenterQ, Fin.cases,",
+        *[
+            f"      {name}LiteralCacheTaylorCell_centerQ, {name}Interval,"
+            for name in shard_names
+        ],
+        "      equalCellPoint, equalCellWidth]",
+        "",
+        f"theorem {packet_name}_cell_errorQ (i : Fin {packet_count}) :",
+        f"    ({packet_name}.cell i).error =",
+        f"      ({summary_name}ErrorQ i : ℝ) := by",
+        "  set_option linter.unusedSimpArgs false in",
+        "  fin_cases i <;>",
+        f"    simp [{packet_name}, {summary_name}ErrorQ, Fin.cases,",
+        *[
+            f"      {name}LiteralCacheTaylorCell_errorQ, {name}Interval,"
+            for name in shard_names
+        ],
+        "      equalCellPoint, equalCellWidth]",
+        "",
+        f"theorem {packet_name}_centerQ :",
+        f"    {packet_name}.center =",
+        f"      (({summary_name}TotalCenterQ.1 : ℚ) : ℝ) +",
+        f"        (({summary_name}TotalCenterQ.2 : ℚ) : ℝ) * Complex.I := by",
+        "  rw [EqualCellComplexTaylorCertificate.center]",
+        f"  simp_rw [{packet_name}_cell_centerQ]",
+        f"  simp [{summary_name}TotalCenterQ, Finset.sum_add_distrib,",
+        "    Finset.sum_mul]",
+        "",
+        f"theorem {packet_name}_errorQ :",
+        f"    {packet_name}.error = ({summary_name}TotalErrorQ : ℝ) := by",
+        "  rw [EqualCellComplexTaylorCertificate.error]",
+        f"  simp_rw [{packet_name}_cell_errorQ]",
+        f"  simp [{summary_name}TotalErrorQ]",
         "",
         "end",
         "end RiemannVenue.Venue",

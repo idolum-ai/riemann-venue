@@ -82,7 +82,6 @@ BLOCKS = [
 MIDPOINT = Q(1793, 448)
 GRID = 10**15
 
-
 def cache_data(
     midpoint: Q, blocks_data: list[tuple[int, int, int, int]]
 ) -> tuple[list[Interval], list[Interval]]:
@@ -141,6 +140,7 @@ def render(
     kernels=None,
     shard_stem: str = "computedPhasedBaseOuterCompactCell0Shard0",
     cache_prefix: str = "computedPhasedBaseOuterLiteralCacheProbe",
+    remainder_bound: bool | None = None,
 ) -> str:
     if kernels is None:
         kernels = midpoint_data(midpoint)[4]
@@ -505,20 +505,102 @@ def render(
     ])
     for name in paired_names:
         lines.append(f"  exact {name}_contains")
-    lines.extend([
-        "",
-        "noncomputable def computedPhasedBaseOuterLiteralCacheProbeTaylorCell :=",
-        "  computedPhasedBaseOuterCachedShardTaylorCell",
-        "    computedPhasedBaseOuterCompactCell0Shard0Interval",
-        "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval])",
-        "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval,",
-        "      RationalInterval.lower])",
-        "    computedPhasedBaseOuterLiteralCacheProbePaired",
-        "    computedPhasedBaseOuterLiteralCacheProbePaired_contains",
-        "    computedPhasedBaseOuterCompactCell0Shard0Leaves",
-        "",
-        "end", "end RiemannVenue.Venue", "",
-    ])
+    if remainder_bound is None:
+        lines.extend([
+            "",
+            "noncomputable def computedPhasedBaseOuterLiteralCacheProbeTaylorCell :=",
+            "  computedPhasedBaseOuterCachedShardTaylorCell",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval",
+            "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval])",
+            "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval,",
+            "      RationalInterval.lower])",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired_contains",
+            "    computedPhasedBaseOuterCompactCell0Shard0Leaves",
+        ])
+    else:
+        lines.extend([
+            "",
+            "def computedPhasedBaseOuterLiteralCacheProbeRemainderBound : ℚ :=",
+            "  computedPhasedBaseGlobalPairedTwelveRemainderBound",
+            "",
+            "theorem computedPhasedBaseOuterLiteralCacheProbe_remainder",
+            "    {x : ℝ}",
+            "    (hx : computedPhasedBaseOuterCompactCell0Shard0Interval.Contains x) :",
+            "    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤",
+            "      (computedPhasedBaseOuterLiteralCacheProbeRemainderBound : ℝ) := by",
+            "  apply norm_computedPhasedBasePairedRawJet_twelve_le_globalBound",
+            "  apply (RationalInterval.abs_le_abs_center_add_radius hx).trans",
+            "  norm_num [computedPhasedBaseOuterLiteralCacheProbeRemainderBound,",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval]",
+            "",
+            "noncomputable def computedPhasedBaseOuterLiteralCacheProbeTaylorCell :=",
+            "  computedPhasedBaseOuterCachedShardTaylorCellWithRemainder",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval",
+            "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval])",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired_contains",
+            "    computedPhasedBaseOuterLiteralCacheProbeRemainderBound",
+            "    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg",
+            "    (fun x hx => computedPhasedBaseOuterLiteralCacheProbe_remainder hx)",
+            "",
+            "theorem computedPhasedBaseOuterLiteralCacheProbeTaylorCell_center :",
+            "    computedPhasedBaseOuterLiteralCacheProbeTaylorCell.center =",
+            "      computedPhasedBaseOuterCachedShardTaylorCenter",
+            "        computedPhasedBaseOuterLiteralCacheProbePaired",
+            "        computedPhasedBaseOuterCompactCell0Shard0Interval.radius := by",
+            "  exact computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval",
+            "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval])",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired_contains",
+            "    computedPhasedBaseOuterLiteralCacheProbeRemainderBound",
+            "    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg",
+            "    (fun x hx => computedPhasedBaseOuterLiteralCacheProbe_remainder hx)",
+            "",
+            "theorem computedPhasedBaseOuterLiteralCacheProbeTaylorCell_error :",
+            "    computedPhasedBaseOuterLiteralCacheProbeTaylorCell.error =",
+            "      computedPhasedBaseOuterCachedShardTaylorError",
+            "        computedPhasedBaseOuterLiteralCacheProbePaired",
+            "        computedPhasedBaseOuterLiteralCacheProbeRemainderBound",
+            "        computedPhasedBaseOuterCompactCell0Shard0Interval.radius := by",
+            "  exact computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval",
+            "    (by norm_num [computedPhasedBaseOuterCompactCell0Shard0Interval])",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired_contains",
+            "    computedPhasedBaseOuterLiteralCacheProbeRemainderBound",
+            "    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg",
+            "    (fun x hx => computedPhasedBaseOuterLiteralCacheProbe_remainder hx)",
+            "",
+            "def computedPhasedBaseOuterLiteralCacheProbeTaylorCenterQ : ℚ × ℚ :=",
+            "  computedPhasedBaseOuterCachedShardTaylorCenterQ",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval.radius",
+            "",
+            "def computedPhasedBaseOuterLiteralCacheProbeTaylorErrorQ : ℚ :=",
+            "  computedPhasedBaseOuterCachedShardTaylorErrorQ",
+            "    computedPhasedBaseOuterLiteralCacheProbePaired",
+            "    computedPhasedBaseOuterLiteralCacheProbeRemainderBound",
+            "    computedPhasedBaseOuterCompactCell0Shard0Interval.radius",
+            "",
+            "theorem computedPhasedBaseOuterLiteralCacheProbeTaylorCell_centerQ :",
+            "    computedPhasedBaseOuterLiteralCacheProbeTaylorCell.center =",
+            "      (computedPhasedBaseOuterLiteralCacheProbeTaylorCenterQ.1 : ℝ) +",
+            "        (computedPhasedBaseOuterLiteralCacheProbeTaylorCenterQ.2 : ℝ) *",
+            "          Complex.I := by",
+            "  rw [computedPhasedBaseOuterLiteralCacheProbeTaylorCell_center,",
+            "    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]",
+            "  rfl",
+            "",
+            "theorem computedPhasedBaseOuterLiteralCacheProbeTaylorCell_errorQ :",
+            "    computedPhasedBaseOuterLiteralCacheProbeTaylorCell.error =",
+            "      (computedPhasedBaseOuterLiteralCacheProbeTaylorErrorQ : ℝ) := by",
+            "  rw [computedPhasedBaseOuterLiteralCacheProbeTaylorCell_error,",
+            "    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]",
+            "  rfl",
+        ])
+    lines.extend(["", "end", "end RiemannVenue.Venue", ""])
     source = "\n".join(lines)
     source = source.replace(
         "BoundaryComputedPhasedBaseOuterCompactCell0Shard0",

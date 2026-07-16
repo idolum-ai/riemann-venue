@@ -88,6 +88,206 @@ theorem rationalSymmetricTaylorError_cast (order : ℕ) (jetError : ℕ → ℚ)
   push_cast
   rfl
 
+/-- Rational-cache signed center, separated from all analytic leaf data. -/
+noncomputable def computedPhasedBaseOuterCachedShardTaylorCenter
+    (cache : Fin 12 → RationalRectangle) (radius : ℚ) : ℂ :=
+  symmetricTaylorMoment 12 (fun k =>
+      if hk : k < 12 then ((cache ⟨k, hk⟩).re.center : ℝ) else 0)
+      (radius : ℝ) +
+    symmetricTaylorMoment 12 (fun k =>
+      if hk : k < 12 then ((cache ⟨k, hk⟩).im.center : ℝ) else 0)
+      (radius : ℝ) * Complex.I
+
+/-- Rational-cache error, with the omitted derivative already summarized by
+a single rational ceiling. -/
+noncomputable def computedPhasedBaseOuterCachedShardTaylorError
+    (cache : Fin 12 → RationalRectangle) (remainderBound radius : ℚ) : ℝ :=
+  symmetricTaylorError 12 (fun k =>
+      if hk : k < 12 then ((cache ⟨k, hk⟩).re.radius : ℝ) else 0)
+      (remainderBound : ℝ) (radius : ℝ) +
+    symmetricTaylorError 12 (fun k =>
+      if hk : k < 12 then ((cache ⟨k, hk⟩).im.radius : ℝ) else 0)
+      (remainderBound : ℝ) (radius : ℝ)
+
+/-- Exact rational coordinates behind a cached shard's signed center. -/
+def computedPhasedBaseOuterCachedShardTaylorCenterQ
+    (cache : Fin 12 → RationalRectangle) (radius : ℚ) : ℚ × ℚ :=
+  (rationalSymmetricTaylorMoment 12 (fun k =>
+      if hk : k < 12 then (cache ⟨k, hk⟩).re.center else 0) radius,
+    rationalSymmetricTaylorMoment 12 (fun k =>
+      if hk : k < 12 then (cache ⟨k, hk⟩).im.center else 0) radius)
+
+/-- Exact rational error behind a cached shard. -/
+def computedPhasedBaseOuterCachedShardTaylorErrorQ
+    (cache : Fin 12 → RationalRectangle) (remainderBound radius : ℚ) : ℚ :=
+  rationalSymmetricTaylorError 12 (fun k =>
+      if hk : k < 12 then (cache ⟨k, hk⟩).re.radius else 0)
+      remainderBound radius +
+    rationalSymmetricTaylorError 12 (fun k =>
+      if hk : k < 12 then (cache ⟨k, hk⟩).im.radius else 0)
+      remainderBound radius
+
+theorem computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast
+    (cache : Fin 12 → RationalRectangle) (radius : ℚ) :
+    computedPhasedBaseOuterCachedShardTaylorCenter cache radius =
+      ((computedPhasedBaseOuterCachedShardTaylorCenterQ cache radius).1 : ℝ) +
+        ((computedPhasedBaseOuterCachedShardTaylorCenterQ cache radius).2 : ℝ) *
+          Complex.I := by
+  have hre :
+      (fun k => if hk : k < 12 then
+          ((cache ⟨k, hk⟩).re.center : ℝ) else 0) =
+        (fun k => ((if hk : k < 12 then
+          (cache ⟨k, hk⟩).re.center else 0 : ℚ) : ℝ)) := by
+    funext k
+    split <;> simp_all
+  have him :
+      (fun k => if hk : k < 12 then
+          ((cache ⟨k, hk⟩).im.center : ℝ) else 0) =
+        (fun k => ((if hk : k < 12 then
+          (cache ⟨k, hk⟩).im.center else 0 : ℚ) : ℝ)) := by
+    funext k
+    split <;> simp_all
+  rw [computedPhasedBaseOuterCachedShardTaylorCenter,
+    computedPhasedBaseOuterCachedShardTaylorCenterQ,
+    rationalSymmetricTaylorMoment_cast,
+    rationalSymmetricTaylorMoment_cast, hre, him]
+
+theorem computedPhasedBaseOuterCachedShardTaylorError_eq_cast
+    (cache : Fin 12 → RationalRectangle) (remainderBound radius : ℚ) :
+    computedPhasedBaseOuterCachedShardTaylorError cache remainderBound radius =
+      (computedPhasedBaseOuterCachedShardTaylorErrorQ
+        cache remainderBound radius : ℝ) := by
+  have hre :
+      (fun k => if hk : k < 12 then
+          ((cache ⟨k, hk⟩).re.radius : ℝ) else 0) =
+        (fun k => ((if hk : k < 12 then
+          (cache ⟨k, hk⟩).re.radius else 0 : ℚ) : ℝ)) := by
+    funext k
+    split <;> simp_all
+  have him :
+      (fun k => if hk : k < 12 then
+          ((cache ⟨k, hk⟩).im.radius : ℝ) else 0) =
+        (fun k => ((if hk : k < 12 then
+          (cache ⟨k, hk⟩).im.radius else 0 : ℚ) : ℝ)) := by
+    funext k
+    split <;> simp_all
+  rw [computedPhasedBaseOuterCachedShardTaylorError,
+    computedPhasedBaseOuterCachedShardTaylorErrorQ, Rat.cast_add,
+    rationalSymmetricTaylorError_cast,
+    rationalSymmetricTaylorError_cast, hre, him]
+
+/-- One support-wide omitted-jet ceiling shared by every adaptive base shard.
+Its coarseness is harmless after multiplication by the thirteenth power of a
+shard half-width, and sharing it prevents every local cache from replaying the
+same high-order absolute-value computation. -/
+noncomputable def computedPhasedBaseGlobalPairedTwelveRemainderBound : ℚ :=
+  2 * computedTransformBaseRawJetCellBound 12 computedPhasedBaseGlobalWindow
+
+theorem computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg :
+    0 ≤ computedPhasedBaseGlobalPairedTwelveRemainderBound := by
+  have h := norm_computedPhasedBasePairedRawJet_twelve_le_global
+    (t := 0) (by norm_num)
+  have hnonneg : (0 : ℝ) ≤
+      (computedPhasedBaseGlobalPairedTwelveRemainderBound : ℝ) := by
+    exact (norm_nonneg _).trans (by
+      simpa [computedPhasedBaseGlobalPairedTwelveRemainderBound] using h)
+  exact_mod_cast hnonneg
+
+theorem norm_computedPhasedBasePairedRawJet_twelve_le_globalBound
+    {x : ℝ} (hx : |x| ≤ 9 / 2) :
+    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+      (computedPhasedBaseGlobalPairedTwelveRemainderBound : ℝ) := by
+  rw [← iteratedDeriv_computedPhasedBasePairedRawIntegrand]
+  simpa [computedPhasedBaseGlobalPairedTwelveRemainderBound] using
+    norm_computedPhasedBasePairedRawJet_twelve_le_global hx
+
+/-- Compile an adaptive shard when both its point jets and its omitted-jet
+ceiling have already crossed a literal rational cache boundary. -/
+noncomputable def computedPhasedBaseOuterCachedShardTaylorCellWithRemainder
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (cache : Fin 12 → RationalRectangle)
+    (cache_contains : ∀ k, (cache k).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint k
+        (I.center : ℝ)))
+    (remainderBound : ℚ) (hremainderNonneg : 0 ≤ remainderBound)
+    (hremainder : ∀ x : ℝ, I.Contains x →
+      ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+        (remainderBound : ℝ)) :
+    ComplexIntegralCellCertificate
+      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) :=
+  ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder
+    (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+    I.center I.radius remainderBound
+    (computedPhasedBasePairedRawIntegrand_contDiff _)
+    hradius hremainderNonneg cache
+    (by
+      intro k
+      rw [iteratedDeriv_computedPhasedBasePairedRawIntegrand]
+      exact cache_contains k)
+    (by
+      intro x hx
+      rw [iteratedDeriv_computedPhasedBasePairedRawIntegrand]
+      apply hremainder x
+      apply (RationalInterval.contains_iff_bounds I x).mpr
+      constructor
+      · simpa only [RationalInterval.lower, Rat.cast_sub] using hx.1
+      · simpa only [RationalInterval.upper, Rat.cast_add] using hx.2)
+
+theorem computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (cache : Fin 12 → RationalRectangle)
+    (cache_contains : ∀ k, (cache k).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint k
+        (I.center : ℝ)))
+    (remainderBound : ℚ) (hremainderNonneg : 0 ≤ remainderBound)
+    (hremainder : ∀ x : ℝ, I.Contains x →
+      ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+        (remainderBound : ℝ)) :
+    (computedPhasedBaseOuterCachedShardTaylorCellWithRemainder I hradius
+      cache cache_contains remainderBound hremainderNonneg hremainder).center =
+      computedPhasedBaseOuterCachedShardTaylorCenter cache I.radius := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  simp only [computedPhasedBaseOuterCachedShardTaylorCellWithRemainder,
+    ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+    ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+    ComplexIntegralCellCertificate.ofTaylor,
+    ComplexTaylorCellCertificate.center,
+    RealTaylorCellCertificate.moment,
+    computedPhasedBaseOuterCachedShardTaylorCenter, hwidth]
+
+theorem computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (cache : Fin 12 → RationalRectangle)
+    (cache_contains : ∀ k, (cache k).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint k
+        (I.center : ℝ)))
+    (remainderBound : ℚ) (hremainderNonneg : 0 ≤ remainderBound)
+    (hremainder : ∀ x : ℝ, I.Contains x →
+      ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+        (remainderBound : ℝ)) :
+    (computedPhasedBaseOuterCachedShardTaylorCellWithRemainder I hradius
+      cache cache_contains remainderBound hremainderNonneg hremainder).error =
+      computedPhasedBaseOuterCachedShardTaylorError
+        cache remainderBound I.radius := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  simp only [computedPhasedBaseOuterCachedShardTaylorCellWithRemainder,
+    ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+    ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+    ComplexIntegralCellCertificate.ofTaylor,
+    ComplexTaylorCellCertificate.error,
+    RealTaylorCellCertificate.error,
+    computedPhasedBaseOuterCachedShardTaylorError, hwidth]
+
 /-- Compile one adaptive compact shard into a cancellation-preserving
 order-twelve integral certificate.  The point cache retains the signed Taylor
 moments; the whole-shard leaves pay only for the first omitted derivative. -/
