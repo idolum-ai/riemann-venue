@@ -185,6 +185,19 @@ jobs:
             --pattern 'BoundaryComputedPhasedBaseLowerThreeCompactTaylorCell*.lean' \
             --pattern BoundaryComputedPhasedBaseLowerThreeCompactShards.lean \
             --pattern BoundaryComputedPhasedBaseLowerThreeCompactTaylorPackets.lean
+      - name: Recursive four-block compact compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-lower-four-compact
+          python scripts/generate_computed_phased_base_lower_four_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-lower-four-compact
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-lower-four-compact \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseLowerFourCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseLowerFourCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseLowerFourTailTaylor.lean \
+            --pattern BoundaryComputedPhasedBaseLowerFourCompactShards.lean \
+            --pattern BoundaryComputedPhasedBaseLowerFourCompactTaylorPackets.lean
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.

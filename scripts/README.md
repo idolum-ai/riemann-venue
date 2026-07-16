@@ -97,6 +97,13 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   three-block integral enclosure. CI regenerates every emitted shard and
   packet and rejects source drift.
 
+- `generate_computed_phased_base_lower_four_compact_shards.py` shifts the
+  recursive mesh onto `[5/2, 1339/448]`. Three inherited blocks reuse the
+  three-block packet at a half-step translation, while the fourth block is
+  enclosed locally. The same renderer generates the endpoint Taylor cell on
+  `[1339/448, 3]`; `BoundaryComputedPhasedBaseLowerFourCertificate` joins the
+  resulting `[5/2, 3]` enclosure. CI rejects drift in every generated module.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the
