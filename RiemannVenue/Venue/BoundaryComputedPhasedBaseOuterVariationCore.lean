@@ -246,6 +246,87 @@ theorem computedPhasedBaseOuterSignedCosineCell_contains
     (computedPhasedBaseOuterCosineCell_contains L n g hx)
   simpa only [computedPhasedBaseCoefficientQ_cast] using hs
 
+/-- Five adjacent frequencies form the arithmetic leaf used by generated
+point caches.  Keeping this sum below the full twenty-frequency fold makes
+each literal widening theorem small enough for kernel reduction. -/
+def computedPhasedBaseOuterSignedCosinePointBlock
+    {I : RationalInterval}
+    (L : ComputedPhasedBaseOuterVariationData I)
+    (n : Fin 15) (b : Fin 4) : RationalInterval :=
+  RationalInterval.finSum fun k : Fin 5 =>
+    RationalInterval.scale
+      (computedPhasedBaseCoefficientQ
+        (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))))
+      (computedPhasedBaseOuterCosineCell L n (finProdFinEquiv (b, k)))
+
+theorem computedPhasedBaseOuterSignedCosinePointBlock_contains
+    {I : RationalInterval} (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (n : Fin 15) (b : Fin 4) {x : ℝ} (hx : I.Contains x) :
+    (computedPhasedBaseOuterSignedCosinePointBlock
+      L.toComputedPhasedBaseOuterVariationData n b).Contains
+      (∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) *
+          computedPhasedCosineJet n
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) x) := by
+  apply RationalInterval.contains_finSum
+  intro k
+  have hs := RationalInterval.contains_scale
+    (q := computedPhasedBaseCoefficientQ
+      (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))))
+    (computedPhasedBaseOuterCosineCell_contains L n
+      (finProdFinEquiv (b, k)) hx)
+  simpa only [computedPhasedBaseCoefficientQ_cast] using hs
+
+theorem computedPhasedBaseOuter_signedCosine_eq_blocks
+    (n : ℕ) (x : ℝ) :
+    (∑ g : Fin 20,
+        computedPhasedBaseCoefficient (computedPhasedBaseOuterColumn g) *
+          computedPhasedCosineJet n (computedPhasedBaseOuterColumn g) x) =
+      ∑ b : Fin 4, ∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) *
+          computedPhasedCosineJet n
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) x := by
+  let e : Fin 4 × Fin 5 ≃ Fin 20 := finProdFinEquiv
+  let f := fun g : Fin 20 =>
+    computedPhasedBaseCoefficient (computedPhasedBaseOuterColumn g) *
+      computedPhasedCosineJet n (computedPhasedBaseOuterColumn g) x
+  calc
+    ∑ g : Fin 20, f g = ∑ y : Fin 4 × Fin 5, f (e y) :=
+      (e.sum_comp f).symm
+    _ = ∑ b : Fin 4, ∑ k : Fin 5, f (finProdFinEquiv (b, k)) :=
+      Fintype.sum_prod_type _
+
+/-- Literal generated leaves for the twelve-by-four signed cosine blocks at
+one midpoint.  The block intervals are proof data; the full base jets are
+derived from them and the already-certified shared bump leaves. -/
+structure ComputedPhasedBaseOuterPointBlockCache
+    (I : RationalInterval) where
+  block : Fin 12 → Fin 4 → RationalInterval
+  block_contains : ∀ n b {x : ℝ}, I.Contains x →
+    (block n b).Contains
+      (∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) *
+          computedPhasedCosineJet n
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) x)
+
+/-- Derive one base-test jet from literal frequency blocks and the shared bump
+cache.  This expression has twelve small leaves instead of reopening the
+twenty-frequency transcendental convolution. -/
+def computedPhasedBaseOuterTestJetFromPointBlocks
+    {I : RationalInterval}
+    (B : ComputedPhasedBaseOuterPointBlockCache I)
+    (L : ComputedPhasedBaseOuterVariationData I)
+    (n : Fin 12) : RationalInterval :=
+  RationalInterval.finSum fun i : Fin ((n : ℕ) + 1) =>
+    RationalInterval.scale ((n : ℕ).choose i)
+      (RationalInterval.mul
+        (RationalInterval.finSum fun b : Fin 4 =>
+          B.block ⟨i, by omega⟩ b)
+        (L.bump ⟨(n : ℕ) - i, by omega⟩))
+
 theorem computedPhasedBaseOuterBumpJet_eq (n : ℕ) (g : Fin 20) (x : ℝ) :
     computedPhasedBumpJet n (computedPhasedBaseOuterColumn g) x =
       computedPhasedBumpJet n (computedPhasedBaseOuterColumn 0) x := by
@@ -329,6 +410,34 @@ theorem computedPhasedBaseOuterTestJetCell_contains
   intro i
   have hmul := RationalInterval.contains_mul
     (computedPhasedBaseOuterSignedCosineCell_contains L ⟨i, by omega⟩ hx)
+    (L.bump_contains ⟨(n : ℕ) - i, by omega⟩ x hx)
+  have hs := RationalInterval.contains_scale
+    (q := ((n : ℕ).choose i : ℚ)) hmul
+  convert hs using 1 <;> norm_num <;> ring
+
+theorem computedPhasedBaseOuterTestJetFromPointBlocks_contains
+    {I : RationalInterval}
+    (B : ComputedPhasedBaseOuterPointBlockCache I)
+    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (n : Fin 12) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
+    (computedPhasedBaseOuterTestJetFromPointBlocks B
+      L.toComputedPhasedBaseOuterVariationData n).Contains
+      (computedPhasedBaseTest.iterDeriv n x) := by
+  rw [computedPhasedBaseTest_iterDeriv_eq_outerConvolution n x hx4]
+  simp_rw [computedPhasedBaseOuter_signedCosine_eq_blocks]
+  apply RationalInterval.contains_finSum
+  intro i
+  have hblocks : (RationalInterval.finSum fun b : Fin 4 =>
+      B.block ⟨i, by omega⟩ b).Contains
+      (∑ b : Fin 4, ∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) *
+          computedPhasedCosineJet i
+            (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) x) := by
+    apply RationalInterval.contains_finSum
+    intro b
+    exact B.block_contains ⟨i, by omega⟩ b hx
+  have hmul := RationalInterval.contains_mul hblocks
     (L.bump_contains ⟨(n : ℕ) - i, by omega⟩ x hx)
   have hs := RationalInterval.contains_scale
     (q := ((n : ℕ).choose i : ℚ)) hmul
