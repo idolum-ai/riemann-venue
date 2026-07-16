@@ -541,3 +541,23 @@ compile independently and the final payment is only an addition tree.  After
 that finite payment, the remaining positivity road is the derivative packet:
 the first weighted cell is compiled, while the other 269 cells and their five
 segment integral bounds remain the last substantial certificate surface.
+
+## Compositional Payment Cache
+
+The finite-payment bottleneck has now been isolated and broken on a complete
+representative adaptive shard.  The new cache boundary stores twelve-by-four
+five-frequency signed cosine blocks and twelve shared bump jets as literal
+rational intervals.  Lean proves every literal against the analytic leaves,
+then reconstructs the twelve base-test jets through 78 explicit Leibniz
+convolution terms.  The resulting midpoint packet propagates through the two
+benchmark kernels into twelve paired complex Taylor rectangles.
+
+The representative packet compiles all the way to the same
+`ComplexIntegralCellCertificate` consumed by the existing quadrature ledger,
+using the original whole-shard omitted-derivative theorem for its remainder.
+This is the decisive computational gate: the final assembly no longer reopens
+the 100-column midpoint expression, and no native evaluator or floating-point
+artifact enters the proof boundary.  The next step is mechanical but large:
+generalize the generator over all adaptive outer shards, then mirror the same
+frequency-block/bump-jet cache interface in the active-block regimes before
+replacing the complete base certificate's recursive payment expression.

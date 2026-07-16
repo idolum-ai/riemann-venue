@@ -312,20 +312,30 @@ structure ComputedPhasedBaseOuterPointBlockCache
           computedPhasedCosineJet n
             (computedPhasedBaseOuterColumn (finProdFinEquiv (b, k))) x)
 
+/-- Literal shared-bump leaves for the twelve Taylor orders used at one
+midpoint.  Keeping this cache separate from the frequency blocks avoids
+reopening the high-degree bump evaluator during final certificate assembly. -/
+structure ComputedPhasedBaseOuterPointBumpCache
+    (I : RationalInterval) where
+  bump : Fin 12 → RationalInterval
+  bump_contains : ∀ n {x : ℝ}, I.Contains x →
+    (bump n).Contains
+      (computedPhasedBumpJet n (computedPhasedBaseOuterColumn 0) x)
+
 /-- Derive one base-test jet from literal frequency blocks and the shared bump
 cache.  This expression has twelve small leaves instead of reopening the
 twenty-frequency transcendental convolution. -/
 def computedPhasedBaseOuterTestJetFromPointBlocks
     {I : RationalInterval}
     (B : ComputedPhasedBaseOuterPointBlockCache I)
-    (L : ComputedPhasedBaseOuterVariationData I)
+    (U : ComputedPhasedBaseOuterPointBumpCache I)
     (n : Fin 12) : RationalInterval :=
   RationalInterval.finSum fun i : Fin ((n : ℕ) + 1) =>
     RationalInterval.scale ((n : ℕ).choose i)
       (RationalInterval.mul
         (RationalInterval.finSum fun b : Fin 4 =>
           B.block ⟨i, by omega⟩ b)
-        (L.bump ⟨(n : ℕ) - i, by omega⟩))
+        (U.bump ⟨(n : ℕ) - i, by omega⟩))
 
 theorem computedPhasedBaseOuterBumpJet_eq (n : ℕ) (g : Fin 20) (x : ℝ) :
     computedPhasedBumpJet n (computedPhasedBaseOuterColumn g) x =
@@ -418,10 +428,9 @@ theorem computedPhasedBaseOuterTestJetCell_contains
 theorem computedPhasedBaseOuterTestJetFromPointBlocks_contains
     {I : RationalInterval}
     (B : ComputedPhasedBaseOuterPointBlockCache I)
-    (L : ComputedPhasedBaseOuterVariationLeaves I)
+    (U : ComputedPhasedBaseOuterPointBumpCache I)
     (n : Fin 12) {x : ℝ} (hx : I.Contains x) (hx4 : 4 ≤ x) :
-    (computedPhasedBaseOuterTestJetFromPointBlocks B
-      L.toComputedPhasedBaseOuterVariationData n).Contains
+    (computedPhasedBaseOuterTestJetFromPointBlocks B U n).Contains
       (computedPhasedBaseTest.iterDeriv n x) := by
   rw [computedPhasedBaseTest_iterDeriv_eq_outerConvolution n x hx4]
   simp_rw [computedPhasedBaseOuter_signedCosine_eq_blocks]
@@ -438,7 +447,7 @@ theorem computedPhasedBaseOuterTestJetFromPointBlocks_contains
     intro b
     exact B.block_contains ⟨i, by omega⟩ b hx
   have hmul := RationalInterval.contains_mul hblocks
-    (L.bump_contains ⟨(n : ℕ) - i, by omega⟩ x hx)
+    (U.bump_contains ⟨(n : ℕ) - i, by omega⟩ hx)
   have hs := RationalInterval.contains_scale
     (q := ((n : ℕ).choose i : ℚ)) hmul
   convert hs using 1 <;> norm_num <;> ring

@@ -148,6 +148,64 @@ noncomputable def computedPhasedBaseOuterShardTaylorCell
       exact norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
         L (⟨12, by omega⟩ : Fin 15) hxI hx4)
 
+/-- Compile an adaptive shard from a literal paired-jet cache.  This is the
+final assembly boundary for generated midpoint certificates: all expensive
+frequency and bump arithmetic has already been discharged in `cache_contains`,
+while the whole-shard leaves pay only for the first omitted derivative. -/
+noncomputable def computedPhasedBaseOuterCachedShardTaylorCell
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (hlower : 4 ≤ I.lower)
+    (cache : Fin 12 → RationalRectangle)
+    (cache_contains : ∀ k, (cache k).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint k
+        (I.center : ℝ)))
+    (L : ComputedPhasedBaseOuterVariationLeaves I) :
+    ComplexIntegralCellCertificate
+      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) := by
+  have hcenter : I.Contains (I.center : ℝ) := by
+    simpa [RationalInterval.Contains] using hradius
+  have hcenterLower : I.lower ≤ I.center := by
+    simp only [RationalInterval.lower]
+    linarith
+  have hcenter4Q : 4 ≤ I.center := hlower.trans hcenterLower
+  have hcenter4 : (4 : ℝ) ≤ (I.center : ℝ) := by exact_mod_cast hcenter4Q
+  have hremainderNonneg :
+      0 ≤ computedPhasedBaseOuterShardRemainderBound
+        L.toComputedPhasedBaseOuterVariationData := by
+    have hbound := norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
+      L (⟨12, by omega⟩ : Fin 15) hcenter hcenter4
+    have hnonneg : (0 : ℝ) ≤
+        (computedPhasedBaseOuterShardRemainderBound
+          L.toComputedPhasedBaseOuterVariationData : ℝ) :=
+      (norm_nonneg _).trans hbound
+    exact_mod_cast hnonneg
+  exact ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder
+    (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+    I.center I.radius (computedPhasedBaseOuterShardRemainderBound
+      L.toComputedPhasedBaseOuterVariationData)
+    (computedPhasedBasePairedRawIntegrand_contDiff _)
+    hradius hremainderNonneg cache
+    (by
+      intro k
+      rw [iteratedDeriv_computedPhasedBasePairedRawIntegrand]
+      exact cache_contains k)
+    (by
+      intro x hx
+      rw [iteratedDeriv_computedPhasedBasePairedRawIntegrand]
+      have hxI : I.Contains x := by
+        apply (RationalInterval.contains_iff_bounds I x).mpr
+        constructor
+        · simpa only [RationalInterval.lower, Rat.cast_sub] using hx.1
+        · simpa only [RationalInterval.upper, Rat.cast_add] using hx.2
+      have hbounds := (RationalInterval.contains_iff_bounds I x).mp hxI
+      have hx4 : (4 : ℝ) ≤ x := by
+        have hlowerR : (4 : ℝ) ≤ (I.lower : ℝ) := by exact_mod_cast hlower
+        exact hlowerR.trans hbounds.1
+      exact norm_computedPhasedBaseOuterPairedRawJet_le_cellBound
+        L (⟨12, by omega⟩ : Fin 15) hxI hx4)
+
 /-- Signed center retained by one compact shard before normalization. -/
 noncomputable def computedPhasedBaseOuterShardTaylorCenter
     {I : RationalInterval}
