@@ -92,9 +92,10 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
 - `generate_computed_phased_base_middle_compact_cache_probe.py` emits the
   order-sharded literal-cache certificate for the representative middle
   odd-run `[785/224, 197/56]`. It separates signed-cosine groups, bump jets,
-  base convolutions, and paired transform jets into independently checked
-  modules before compiling one radius-`3/448` Taylor cell. Its `--check` mode
-  is the drift gate for the complete generated graph. This is the scale-out
+  and base convolutions into independently checked modules. The paired
+  transform interval is then derived from the certified base and kernel
+  caches before compiling one radius-`3/448` Taylor cell. Its `--check` mode is
+  the drift gate for the complete generated graph. This is the scale-out
   prototype for translated merged-cache covers; it is not yet the full
   41-cell middle cover.
 

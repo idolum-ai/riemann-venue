@@ -1,4 +1,4 @@
-import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbePairedCache
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseCache
 
 /-! # Compact middle odd-run cache probe
 
@@ -20,6 +20,19 @@ theorem computedPhasedBaseMiddleCompactCacheProbeInterval_bounds :
 theorem computedPhasedBaseMiddleCompactCacheProbe_center_eq_source :
     computedPhasedBaseMiddleCompactCacheProbeInterval.center = computedPhasedBaseMiddleCompactCell0Shard2Interval.center := by
   norm_num [computedPhasedBaseMiddleCompactCacheProbeInterval, computedPhasedBaseMiddleCompactCell0Shard2Interval]
+
+def computedPhasedBaseMiddleCompactCacheProbePaired (n : Fin 12) : RationalRectangle :=
+  computedPhasedBaseOuterPairedInterval computedPhasedBaseMiddleCompactCacheProbeJets
+    computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel n
+
+theorem computedPhasedBaseMiddleCompactCacheProbePaired_contains (n : Fin 12) :
+    (computedPhasedBaseMiddleCompactCacheProbePaired n).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n
+        (computedPhasedBaseMiddleCompactCacheProbeInterval.center : ℝ)) := by
+  rw [computedPhasedBaseMiddleCompactCacheProbe_center_eq_source]
+  exact computedPhasedBaseOuterPairedInterval_contains computedPhasedBaseMiddleCompactCacheProbeJets
+    computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel n
+    computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel_contains computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel_contains
 
 def computedPhasedBaseMiddleCompactCacheProbeRemainderBound : ℚ :=
   computedPhasedBaseGlobalPairedTwelveRemainderBound
