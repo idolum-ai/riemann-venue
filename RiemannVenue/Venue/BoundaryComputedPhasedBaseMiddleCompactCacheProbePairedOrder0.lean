@@ -1,0 +1,84 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseCache
+
+/-! Generated order-0 middle paired-transform cache. -/
+namespace RiemannVenue.Venue
+noncomputable section
+set_option maxHeartbeats 2000000
+set_option linter.unusedSimpArgs false
+set_option linter.unnecessarySeqFocus false
+
+def computedPhasedBaseMiddleCompactCacheProbePairedOrder0 : RationalRectangle := ⟨⟨(81328034099447 / 250000000000000 : ℚ), (91361 / 3906250000000 : ℚ)⟩, ⟨(4236949960457 / 25000000000000 : ℚ), (3455123 / 200000000000000 : ℚ)⟩⟩
+
+theorem computedPhasedBaseMiddleCompactCacheProbePairedOrder0_contains : computedPhasedBaseMiddleCompactCacheProbePairedOrder0.Contains
+    (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 0
+      (computedPhasedBaseMiddleCompactCell0Shard2Interval.center : ℝ)) := by
+  have hraw : (computedPhasedBaseOuterPairedInterval computedPhasedBaseMiddleCompactCacheProbeJets
+      computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel
+      (0 : Fin 12)).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 0
+        (computedPhasedBaseMiddleCompactCell0Shard2Interval.center : ℝ)) := by
+    rw [computedPhasedBaseOuterPairedInterval,
+      computedPhasedBasePairedRawJet]
+    apply RationalRectangle.contains_add
+    · have hf0 := computedPhasedBaseOuterRawInterval_contains
+        (J := computedPhasedBaseMiddleCompactCacheProbeJets)
+        (re := computedPhasedBenchmarkRealQ) (im := 1 / 4)
+        (kernel := computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel)
+        (0 : Fin 12) (by
+          rw [computedPhasedBenchmarkRationalCoordinates_eq_point]
+          exact computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel_contains)
+      convert hf0 using 1 <;>
+        simp only [computedPhasedBenchmarkRationalCoordinates_eq_point] <;>
+        norm_num
+    · have hr0 := computedPhasedBaseOuterRawInterval_contains
+        (J := computedPhasedBaseMiddleCompactCacheProbeJets)
+        (re := -computedPhasedBenchmarkRealQ) (im := -1 / 4)
+        (kernel := computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel)
+        (0 : Fin 12) (by
+          rw [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point]
+          exact computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel_contains)
+      convert hr0 using 1 <;>
+        simp only [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] <;>
+        norm_num
+  apply RationalRectangle.contains_of_wide hraw
+  · simp [computedPhasedBaseMiddleCompactCacheProbePairedOrder0, computedPhasedBaseOuterPairedInterval,
+      computedPhasedBaseOuterRawInterval, computedPhasedBaseMiddleCompactCacheProbeJets, computedPhasedBaseMiddleCompactCacheProbeBase,
+      computedPhasedBaseMiddleCompactCacheProbeBaseOrder0, computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel,
+      computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel,
+      computedPhasedBaseOuterCompactCell0Shard2ForwardKernel,
+      computedPhasedBaseOuterCompactCell0Shard2ReflectedKernel,
+      computedPhasedBaseMiddleForwardKernelHalfShift,
+      computedPhasedBaseMiddleReflectedKernelHalfShift,
+      RationalRectangle.mul, RationalRectangle.add,
+      computedPhasedBenchmarkRealQ, computedPhasedBaseOuterPairedInterval,
+    computedPhasedBaseOuterRawInterval, rationalTransformRawJetInterval,
+    rationalTransformLambdaQ, RationalRectangle.finSum,
+    RationalRectangle.ofRealInterval, RationalRectangle.pow,
+    RationalRectangle.mul, RationalRectangle.add, RationalRectangle.one,
+    RationalRectangle.zero, RationalRectangle.singleton, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Nat.choose]
+    norm_num (config := { maxSteps := 1000000 })
+  · simp [computedPhasedBaseMiddleCompactCacheProbePairedOrder0, computedPhasedBaseOuterPairedInterval,
+      computedPhasedBaseOuterRawInterval, computedPhasedBaseMiddleCompactCacheProbeJets, computedPhasedBaseMiddleCompactCacheProbeBase,
+      computedPhasedBaseMiddleCompactCacheProbeBaseOrder0, computedPhasedBaseMiddleCompactCell0Shard2ForwardKernel,
+      computedPhasedBaseMiddleCompactCell0Shard2ReflectedKernel,
+      computedPhasedBaseOuterCompactCell0Shard2ForwardKernel,
+      computedPhasedBaseOuterCompactCell0Shard2ReflectedKernel,
+      computedPhasedBaseMiddleForwardKernelHalfShift,
+      computedPhasedBaseMiddleReflectedKernelHalfShift,
+      RationalRectangle.mul, RationalRectangle.add,
+      computedPhasedBenchmarkRealQ, computedPhasedBaseOuterPairedInterval,
+    computedPhasedBaseOuterRawInterval, rationalTransformRawJetInterval,
+    rationalTransformLambdaQ, RationalRectangle.finSum,
+    RationalRectangle.ofRealInterval, RationalRectangle.pow,
+    RationalRectangle.mul, RationalRectangle.add, RationalRectangle.one,
+    RationalRectangle.zero, RationalRectangle.singleton, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Nat.choose]
+    norm_num (config := { maxSteps := 1000000 })
+
+end
+end RiemannVenue.Venue
