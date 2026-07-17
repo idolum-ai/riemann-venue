@@ -1,0 +1,440 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup21GroupCache
+
+/-! Direct three-block base-jet cache. -/
+namespace RiemannVenue.Venue
+noncomputable section
+set_option maxHeartbeats 3000000
+
+def computedPhasedBaseLowerThreeDirectGroup21Signed (n : Fin 12) (b : Fin 3) : RationalInterval :=
+  RationalInterval.finSum fun g : Fin 4 => computedPhasedBaseLowerThreeDirectGroup21Group n b g
+
+theorem computedPhasedBaseLowerThreeDirectGroup21Signed_contains (n : Fin 12) (b : Fin 3) :
+    (computedPhasedBaseLowerThreeDirectGroup21Signed n b).Contains
+      (∑ g : Fin 20, computedPhasedBaseCoefficient (computedPhasedBaseLowerThreeModel.column b g) *
+        computedPhasedCosineJet n (computedPhasedBaseLowerThreeModel.column b g)
+          (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  rw [computedPhasedBaseActiveBlock_signedCosine_eq_groups]
+  exact RationalInterval.contains_finSum fun g => computedPhasedBaseLowerThreeDirectGroup21Group_contains n b g
+
+def computedPhasedBaseLowerThreeDirectGroup21SignedCache : ComputedPhasedBaseActiveBlockPointSignedCache
+    computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval where
+  signed := computedPhasedBaseLowerThreeDirectGroup21Signed
+  signed_contains := by
+    intro n b x hx
+    have hx' : x = (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ) := by
+      have hz : x - (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ) = 0 := by
+        simpa [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+          RationalInterval.singleton, RationalInterval.Contains] using hx
+      linarith
+    subst x
+    exact computedPhasedBaseLowerThreeDirectGroup21Signed_contains n b
+
+def computedPhasedBaseLowerThreeDirectGroup21BumpCache : ComputedPhasedBaseActiveBlockPointBumpCache
+    computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval where
+  bump := computedPhasedBaseLowerThreeDirectGroup21Bump
+  bump_contains := by
+    intro b n x hx
+    have hx' : x = (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ) := by
+      have hz : x - (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ) = 0 := by
+        simpa [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+          RationalInterval.singleton, RationalInterval.Contains] using hx
+      linarith
+    subst x
+    exact computedPhasedBaseLowerThreeDirectGroup21Bump_contains b n
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder0Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (0 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder0 : RationalInterval :=
+  ⟨(263814265771580777 : ℚ) / 2000000000000000000, (3243243731 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder0Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder0Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 0
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (0 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder0_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder0.Contains
+    (computedPhasedBaseTest.iterDeriv 0
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder0Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder0Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder1Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (1 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder1 : RationalInterval :=
+  ⟨(17477879705238343 : ℚ) / 400000000000000000, (8530873387 : ℚ) / 80000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder1Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder1Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 1
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (1 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder1_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder1.Contains
+    (computedPhasedBaseTest.iterDeriv 1
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder1Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder1Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder2Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (2 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder2 : RationalInterval :=
+  ⟨(14025420833962042053 : ℚ) / 1000000000000000000, (6836671555171 : ℚ) / 1000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder2Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder2Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 2
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (2 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder2_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder2.Contains
+    (computedPhasedBaseTest.iterDeriv 2
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder2Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder2Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder3Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (3 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder3 : RationalInterval :=
+  ⟨(-899160104962697149313 : ℚ) / 1000000000000000000, (84846693265499 : ℚ) / 200000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder3Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder3Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 3
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (3 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder3_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder3.Contains
+    (computedPhasedBaseTest.iterDeriv 3
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder3Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder3Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder4Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (4 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder4 : RationalInterval :=
+  ⟨(56680182691910401872337 : ℚ) / 2000000000000000000, (50988956772121057 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder4Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder4Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 4
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (4 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder4_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder4.Contains
+    (computedPhasedBaseTest.iterDeriv 4
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder4Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder4Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder5Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (5 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder5 : RationalInterval :=
+  ⟨(1489065589978395780153023 : ℚ) / 2000000000000000000, (2979698644660060387 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder5Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder5Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 5
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (5 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder5_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder5.Contains
+    (computedPhasedBaseTest.iterDeriv 5
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder5Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder5Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder6Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (6 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder6 : RationalInterval :=
+  ⟨(-189993967725655934971335937 : ℚ) / 2000000000000000000, (170216546462815882181 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder6Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder6Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 6
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (6 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder6_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder6.Contains
+    (computedPhasedBaseTest.iterDeriv 6
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder6Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder6Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder7Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (7 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder7 : RationalInterval :=
+  ⟨(-302956315878208754665208327 : ℚ) / 2000000000000000000, (9555997181528275838017 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder7Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder7Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 7
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (7 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder7_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder7.Contains
+    (computedPhasedBaseTest.iterDeriv 7
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder7Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder7Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6, computedPhasedBaseLowerThreeDirectGroup21GroupOrder7,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder7, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder8Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (8 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder8 : RationalInterval :=
+  ⟨(603789981833844193637230793689 : ℚ) / 2000000000000000000, (529860581524163440703141 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder8Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder8Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 8
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (8 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder8_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder8.Contains
+    (computedPhasedBaseTest.iterDeriv 8
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder8Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder8Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6, computedPhasedBaseLowerThreeDirectGroup21GroupOrder7, computedPhasedBaseLowerThreeDirectGroup21GroupOrder8,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder8, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder9Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (9 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder9 : RationalInterval :=
+  ⟨(-1278848720290670469967837596867 : ℚ) / 500000000000000000, (14575851581490575051346269 : ℚ) / 1000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder9Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder9Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 9
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (9 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder9_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder9.Contains
+    (computedPhasedBaseTest.iterDeriv 9
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder9Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder9Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6, computedPhasedBaseLowerThreeDirectGroup21GroupOrder7, computedPhasedBaseLowerThreeDirectGroup21GroupOrder8, computedPhasedBaseLowerThreeDirectGroup21GroupOrder9,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder9, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder10Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (10 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder10 : RationalInterval :=
+  ⟨(-1963980359985566706626884032261643 : ℚ) / 2000000000000000000, (1598445701242232346955550557 : ℚ) / 2000000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder10Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder10Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 10
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (10 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder10_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder10.Contains
+    (computedPhasedBaseTest.iterDeriv 10
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder10Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder10Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6, computedPhasedBaseLowerThreeDirectGroup21GroupOrder7, computedPhasedBaseLowerThreeDirectGroup21GroupOrder8, computedPhasedBaseLowerThreeDirectGroup21GroupOrder9, computedPhasedBaseLowerThreeDirectGroup21GroupOrder10,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder10, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder11Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (11 : Fin 12)
+
+def computedPhasedBaseLowerThreeDirectGroup21BaseOrder11 : RationalInterval :=
+  ⟨(19152494750548897164248404298867371 : ℚ) / 2000000000000000000, (17547822577328988543695430219 : ℚ) / 400000000000000000⟩
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder11Raw_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder11Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 11
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache computedPhasedBaseLowerThreeDirectGroup21BumpCache (11 : Fin 12)
+    (by simp [computedPhasedBaseLowerThreeCompactCell3Shard8PointInterval, computedPhasedBaseLowerThreeCompactCell3Shard8Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseLowerThreeModel, computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeDirectGroup21BaseOrder11_contains : computedPhasedBaseLowerThreeDirectGroup21BaseOrder11.Contains
+    (computedPhasedBaseTest.iterDeriv 11
+      (computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseLowerThreeDirectGroup21BaseOrder11Raw_contains
+  simp [computedPhasedBaseLowerThreeDirectGroup21BaseOrder11Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseLowerThreeDirectGroup21SignedCache, computedPhasedBaseLowerThreeDirectGroup21Signed, computedPhasedBaseLowerThreeDirectGroup21Group, computedPhasedBaseLowerThreeDirectGroup21GroupOrder0, computedPhasedBaseLowerThreeDirectGroup21GroupOrder1, computedPhasedBaseLowerThreeDirectGroup21GroupOrder2, computedPhasedBaseLowerThreeDirectGroup21GroupOrder3, computedPhasedBaseLowerThreeDirectGroup21GroupOrder4, computedPhasedBaseLowerThreeDirectGroup21GroupOrder5, computedPhasedBaseLowerThreeDirectGroup21GroupOrder6, computedPhasedBaseLowerThreeDirectGroup21GroupOrder7, computedPhasedBaseLowerThreeDirectGroup21GroupOrder8, computedPhasedBaseLowerThreeDirectGroup21GroupOrder9, computedPhasedBaseLowerThreeDirectGroup21GroupOrder10, computedPhasedBaseLowerThreeDirectGroup21GroupOrder11,
+    computedPhasedBaseLowerThreeDirectGroup21BumpCache, computedPhasedBaseLowerThreeDirectGroup21Bump, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10, computedPhasedBaseLowerThreeDirectGroup21BumpOrder11,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseLowerThreeDirectGroup21BaseOrder11, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder0Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder1Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder2Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder3Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder4Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder5Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder6Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder7Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder8Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder9Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder10Value2, computedPhasedBaseLowerThreeDirectGroup21BumpOrder11Value0, computedPhasedBaseLowerThreeDirectGroup21BumpOrder11Value1, computedPhasedBaseLowerThreeDirectGroup21BumpOrder11Value2, RationalInterval.finSum,
+      RationalInterval.scale, RationalInterval.mul, RationalInterval.add,
+      RationalInterval.neg, RationalInterval.zero,
+      RationalInterval.singleton, Nat.choose]
+
+def computedPhasedBaseLowerThreeDirectGroup21Base : Fin 12 → RationalInterval := ![
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder0,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder1,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder2,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder3,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder4,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder5,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder6,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder7,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder8,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder9,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder10,
+  computedPhasedBaseLowerThreeDirectGroup21BaseOrder11
+]
+
+def computedPhasedBaseLowerThreeDirectGroup21Jets : ComputedPhasedBaseOuterMidpointJets
+    computedPhasedBaseLowerThreeCompactCell3Shard8Interval.center where
+  base := computedPhasedBaseLowerThreeDirectGroup21Base
+  base_contains := by
+    intro n
+    fin_cases n
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder0_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder1_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder2_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder3_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder4_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder5_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder6_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder7_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder8_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder9_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder10_contains
+    exact computedPhasedBaseLowerThreeDirectGroup21BaseOrder11_contains
+
+end
+end RiemannVenue.Venue
