@@ -38,6 +38,33 @@ def finSum : {n : ℕ} → (Fin n → RationalInterval) → RationalInterval
   | 0, _ => zero
   | n + 1, f => add (f 0) (finSum fun i => f i.succ)
 
+theorem finSum_eq_center_radius_sums {n : ℕ}
+    (f : Fin n → RationalInterval) :
+    finSum f = ⟨∑ i, (f i).center, ∑ i, (f i).radius⟩ := by
+  induction n with
+  | zero => simp [finSum, zero, singleton]
+  | succ n ih =>
+      rw [Fin.sum_univ_succ]
+      simp [finSum, add, ih]
+      exact (Fin.sum_univ_succ fun i ↦ (f i).radius).symm
+
+/-- Regroup a flat exact interval sum without changing its value.  Generated
+certificates use this to keep expensive arithmetic inside small independent
+shards while the kernel checks that their assembly is the original sum. -/
+theorem finSum_finProd {m n : ℕ} (f : Fin (m * n) → RationalInterval) :
+    finSum f =
+      finSum fun g : Fin m ↦
+        finSum fun k : Fin n ↦ f (finProdFinEquiv (g, k)) := by
+  rw [finSum_eq_center_radius_sums, finSum_eq_center_radius_sums]
+  simp_rw [finSum_eq_center_radius_sums]
+  congr 1
+  · simpa only [Fintype.sum_prod_type] using (Equiv.sum_comp
+      (finProdFinEquiv : Fin m × Fin n ≃ Fin (m * n))
+      (fun j ↦ (f j).center)).symm
+  · simpa only [Fintype.sum_prod_type] using (Equiv.sum_comp
+      (finProdFinEquiv : Fin m × Fin n ≃ Fin (m * n))
+      (fun j ↦ (f j).radius)).symm
+
 theorem contains_finSum {n : ℕ} {I : Fin n → RationalInterval}
     {x : Fin n → ℝ} (hx : ∀ i, (I i).Contains (x i)) :
     (finSum I).Contains (∑ i, x i) := by
