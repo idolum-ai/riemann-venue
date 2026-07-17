@@ -1,4 +1,5 @@
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleVariationCore
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCore
 
 /-!
 # Compact middle-regime Taylor compiler
@@ -94,6 +95,95 @@ noncomputable def computedPhasedBaseMiddleShardTaylorCell
         exact hlowerR.trans hbounds.1
       exact norm_computedPhasedBaseMiddlePairedRawJet_le_cellBound
         L (⟨12, by omega⟩ : Fin 15) hxI hxLower)
+
+/-- Exact rational coordinates of a middle shard's signed Taylor moment. -/
+def computedPhasedBaseMiddleShardTaylorCenterQ
+    {I : RationalInterval}
+    (P : ComputedPhasedBaseMiddleVariationData
+      (RationalInterval.singleton I.center)) : ℚ × ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorCenterQ
+    (computedPhasedBaseMiddleShardTaylorCache P) I.radius
+
+/-- Exact rational uncertainty payment of one middle shard. -/
+def computedPhasedBaseMiddleShardTaylorErrorQ
+    {I : RationalInterval}
+    (P : ComputedPhasedBaseMiddleVariationData
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseMiddleVariationData I) : ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorErrorQ
+    (computedPhasedBaseMiddleShardTaylorCache P)
+    (computedPhasedBaseMiddleShardRemainderBound L) I.radius
+
+theorem computedPhasedBaseMiddleShardTaylorCell_center_eq_cast
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (hlower : 7 / 2 ≤ I.lower)
+    (P : ComputedPhasedBaseMiddleVariationLeaves
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseMiddleVariationLeaves I) :
+    (computedPhasedBaseMiddleShardTaylorCell I hradius hlower P L).center =
+      ((computedPhasedBaseMiddleShardTaylorCenterQ
+        P.toComputedPhasedBaseMiddleVariationData).1 : ℝ) +
+      ((computedPhasedBaseMiddleShardTaylorCenterQ
+        P.toComputedPhasedBaseMiddleVariationData).2 : ℝ) * Complex.I := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  calc
+    _ = computedPhasedBaseOuterCachedShardTaylorCenter
+        (computedPhasedBaseMiddleShardTaylorCache
+          P.toComputedPhasedBaseMiddleVariationData) I.radius := by
+      simp only [computedPhasedBaseMiddleShardTaylorCell,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+        ComplexIntegralCellCertificate.ofTaylor,
+        ComplexTaylorCellCertificate.center,
+        RealTaylorCellCertificate.moment,
+        computedPhasedBaseOuterCachedShardTaylorCenter,
+        hwidth]
+    _ = _ := by
+      simpa only [computedPhasedBaseMiddleShardTaylorCenterQ] using
+        computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast
+          (computedPhasedBaseMiddleShardTaylorCache
+            P.toComputedPhasedBaseMiddleVariationData) I.radius
+
+theorem computedPhasedBaseMiddleShardTaylorCell_error_eq_cast
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (hlower : 7 / 2 ≤ I.lower)
+    (P : ComputedPhasedBaseMiddleVariationLeaves
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseMiddleVariationLeaves I) :
+    (computedPhasedBaseMiddleShardTaylorCell I hradius hlower P L).error =
+      (computedPhasedBaseMiddleShardTaylorErrorQ
+        P.toComputedPhasedBaseMiddleVariationData
+        L.toComputedPhasedBaseMiddleVariationData : ℝ) := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  calc
+    _ = computedPhasedBaseOuterCachedShardTaylorError
+        (computedPhasedBaseMiddleShardTaylorCache
+          P.toComputedPhasedBaseMiddleVariationData)
+        (computedPhasedBaseMiddleShardRemainderBound
+          L.toComputedPhasedBaseMiddleVariationData) I.radius := by
+      simp only [computedPhasedBaseMiddleShardTaylorCell,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+        ComplexIntegralCellCertificate.ofTaylor,
+        ComplexTaylorCellCertificate.error,
+        RealTaylorCellCertificate.error,
+        computedPhasedBaseOuterCachedShardTaylorError,
+        hwidth]
+    _ = _ := by
+      simpa only [computedPhasedBaseMiddleShardTaylorErrorQ] using
+        computedPhasedBaseOuterCachedShardTaylorError_eq_cast
+          (computedPhasedBaseMiddleShardTaylorCache
+            P.toComputedPhasedBaseMiddleVariationData)
+          (computedPhasedBaseMiddleShardRemainderBound
+            L.toComputedPhasedBaseMiddleVariationData) I.radius
 
 end
 
