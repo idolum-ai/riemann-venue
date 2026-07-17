@@ -679,3 +679,22 @@ midpoint, emit the 41 middle odd-run cells, and inspect the exact aggregate
 center/error ledger before repeating the pattern for lower active-block
 regimes.  The bump leaves are the translation-specific cost; group transport,
 convolution, paired kernels, and Taylor assembly now have a reusable shape.
+
+Two cheaper-looking alternatives have now been ruled out quantitatively.  A
+direct active-block cache over the whole fine shard pays about `2.36` in known
+Taylor error on the representative merged cell, versus about `8.02e-10` for
+the midpoint literal cache.  Retaining the local midpoint kernels while using
+whole-shard test-jet intervals still pays about `0.276`.  The losses are about
+`2.9e9` and `3.4e8` respectively.  Thus the midpoint cache is not accidental
+proof engineering: widening the trigonometric and bump leaves before the
+signed sums destroys the cancellation the quadrature is designed to retain.
+
+The production packet shape has also crossed a build gate.  One module holds
+all twelve five-frequency group orders, one holds all twenty-four bump jets,
+and one dependent module holds the typed point caches and twelve base
+convolutions.  On the development machine the representative packets rebuilt
+in roughly 112, 49, and 19 seconds respectively.  This replaces roughly 39
+modules per midpoint with three while retaining parallel group/bump branches
+and keeping the base convolution downstream of both.  The full middle cover
+should use this packet graph and continue deriving paired intervals only at
+the final cover layer.
