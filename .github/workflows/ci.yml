@@ -186,7 +186,12 @@ jobs:
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
       - name: Direct three-block payment probe drift gate
-        run: python scripts/generate_computed_phased_base_lower_three_direct_probe.py --check
+        run: |
+          python scripts/generate_computed_phased_base_lower_three_direct_probe.py --check
+          python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
+            --regime LowerFour --index 0 --check
+          python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
+            --regime FullFive --index 0 --check
       - name: Recursive four-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-four-compact
