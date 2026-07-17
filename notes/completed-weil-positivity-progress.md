@@ -723,6 +723,17 @@ equal share of the headroom left after the nine-window global remainder plan.
 The generated authority remains entirely in Lean: each anchor, half-shift,
 bump value, base convolution, paired jet, and integral cell carries its own
 containment proof. The decimal comparison only chose the compiler topology.
+All 41 direct-leaf packets, signed-group packets, bump packets, and base
+packets now rebuild, and the joined 41-cell certificate compiles over
+`[7 / 2, 1787 / 448]`.
+
+Flattening every paired jet into a second literal cache was tested and
+rejected as an aggregate strategy. It raised one representative base packet
+from roughly twenty seconds to roughly six minutes, repeating the same
+transform normalization at every midpoint. The production cover therefore
+keeps paired rectangles derived from their proof-carrying base and kernel
+caches; any flattening belongs in the one-time addition ledger.
+
 The exact aggregate budget still has to be exported through a small rational
 summary theorem before the middle certificate is consumed by the final
 nine-window ledger.
