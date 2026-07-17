@@ -109,7 +109,7 @@ def cache_data(
     return bumps, bases
 
 
-def paired_data(bases: list[Interval], kernels):
+def paired_data(bases: list[Interval], kernels, grid: int = GRID):
     def interval(value) -> Interval:
         return value if isinstance(value, Interval) else Interval(*value)
 
@@ -125,7 +125,7 @@ def paired_data(bases: list[Interval], kernels):
         -BENCHMARK_REAL, Q(-1, 4), kernel_data[1], base_data
     )
     return [
-        round_rectangle_outward(rectangle_add(a, b), GRID)
+        round_rectangle_outward(rectangle_add(a, b), grid)
         for a, b in zip(forward, reflected)
     ]
 

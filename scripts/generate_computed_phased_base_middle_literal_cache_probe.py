@@ -65,27 +65,43 @@ def interval_data(value: Interval) -> tuple[int, int, int, int]:
     )
 
 
-def middle_point_data(cell: int = 0, shard: int = 0):
+def middle_point_data(
+    cell: int = 0,
+    shard: int = 0,
+    *,
+    trig_data=None,
+    kernel_data=None,
+    middle_trig_data=None,
+    middle_kernel_data=None,
+    base_coefficients=None,
+    fixed_bump_split: int | None = None,
+    cache_grid: int = GRID,
+):
     entry = next(
         row for row in middle_entries() if row[0] == cell and row[1] == shard
     )
     _, _, lower, upper, _, _ = entry
     center = (lower + upper) / 2
-    outer = point_trig_data()[(cell, shard)]
-    half_shift = [
-        tuple(
-            outward(part, GRID)
-            for part in trig_interval(
-                MIDPOINT_TRIG_ORDER, -frequency / 2, 4
+    if middle_trig_data is not None:
+        trigs = middle_trig_data[(cell, shard)]
+    else:
+        if trig_data is None:
+            trig_data = point_trig_data()
+        outer = trig_data[(cell, shard)]
+        half_shift = [
+            tuple(
+                outward(part, cache_grid)
+                for part in trig_interval(
+                    MIDPOINT_TRIG_ORDER, -frequency / 2, 4
+                )
             )
-        )
-        for frequency in FREQUENCIES
-    ]
-    trigs = [
-        outer,
-        [trig_add(outer[g], half_shift[g]) for g in range(20)],
-    ]
-    coeffs = coefficients()
+            for frequency in FREQUENCIES
+        ]
+        trigs = [
+            outer,
+            [trig_add(outer[g], half_shift[g]) for g in range(20)],
+        ]
+    coeffs = coefficients() if base_coefficients is None else base_coefficients
     groups: list[list[list[Interval]]] = []
     for n in range(12):
         order = []
@@ -109,10 +125,11 @@ def middle_point_data(cell: int = 0, shard: int = 0):
     for translation in (Q(-1, 2), Q(-1)):
         coordinate = Interval(Q(2, 7) * (center + translation), 0)
         effective_q = center + translation + 1
+        split = bump_split(effective_q) if fixed_bump_split is None else fixed_bump_split
         bumps.append(
             [
                 outward(
-                    bump_interval(n, coordinate, bump_split(effective_q), 48),
+                    bump_interval(n, coordinate, split, 48),
                     10**20,
                 )
                 for n in range(12)
@@ -130,18 +147,23 @@ def middle_point_data(cell: int = 0, shard: int = 0):
             for b in range(2):
                 translated = translated.add(signed[i][b].mul(bumps[b][n - i]))
             total = total.add(translated.scale(math.comb(n, i)))
-        bases.append(outward(total, GRID))
+        bases.append(outward(total, cache_grid))
 
-    outer_kernels = point_kernel_data()[(cell, shard)]
-    half_shift_kernels = (
-        rounded_kernel(BENCHMARK_REAL, Q(1, 4), Q(-1, 2)),
-        rounded_kernel(-BENCHMARK_REAL, Q(-1, 4), Q(-1, 2)),
-    )
-    kernels = tuple(
-        rectangle_mul(outer, shift)
-        for outer, shift in zip(outer_kernels, half_shift_kernels)
-    )
-    paired = paired_data(bases, kernels)
+    if middle_kernel_data is not None:
+        kernels = middle_kernel_data[(cell, shard)]
+    else:
+        if kernel_data is None:
+            kernel_data = point_kernel_data()
+        outer_kernels = kernel_data[(cell, shard)]
+        half_shift_kernels = (
+            rounded_kernel(BENCHMARK_REAL, Q(1, 4), Q(-1, 2)),
+            rounded_kernel(-BENCHMARK_REAL, Q(-1, 4), Q(-1, 2)),
+        )
+        kernels = tuple(
+            rectangle_mul(outer, shift)
+            for outer, shift in zip(outer_kernels, half_shift_kernels)
+        )
+    paired = paired_data(bases, kernels, cache_grid)
     return center, groups, bumps, signed, bases, kernels, paired
 
 

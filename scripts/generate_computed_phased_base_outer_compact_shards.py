@@ -246,9 +246,9 @@ def render_point_trig_modules() -> dict[str, str]:
     return modules
 
 
-def rounded_kernel(re: Q, im: Q, t: Q):
+def rounded_kernel(re: Q, im: Q, t: Q, grid: int = 10**15):
     raw = kernel_interval(re, im, t)
-    return tuple(as_data(outward(Interval(*part), 10**15)) for part in raw)
+    return tuple(as_data(outward(Interval(*part), grid)) for part in raw)
 
 
 def point_kernel_data() -> dict[tuple[int, int], tuple[tuple, tuple]]:
@@ -292,11 +292,12 @@ def point_kernel_data() -> dict[tuple[int, int], tuple[tuple, tuple]]:
 
 
 def direct_kernel_certificate(
-    name: str, re: Q, im: Q, t: Q, semantic_point: str
+    name: str, re: Q, im: Q, t: Q, semantic_point: str,
+    grid: int = 10**15,
 ) -> list[str]:
     return [
         f"def {name} : RationalRectangle :=",
-        f"  {lean_rectangle(rounded_kernel(re, im, t))}",
+        f"  {lean_rectangle(rounded_kernel(re, im, t, grid))}",
         "",
         f"theorem {name}_contains :",
         f"    {name}.Contains",

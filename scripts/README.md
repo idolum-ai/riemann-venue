@@ -104,6 +104,20 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   dependent base orders into three modules per selected midpoint; paired
   rectangles remain derived at the cover layer.
 
+- `generate_computed_phased_base_middle_merged_cache_cover.py` emits the full
+  41-cell selected-midpoint middle cover on `[7/2, 1787/448]`. Each midpoint
+  has four generated packets: a direct 20-frequency trigonometric anchor and
+  two direct benchmark kernels, all twelve signed-cosine group orders, twenty-
+  four exact bump literals certified through one generic raw evaluator, and
+  the twelve dependent base convolutions. The second active translation reuses
+  the shared certified half-shift from the direct anchor. This avoids enclosure
+  width accumulated by transporting midpoint leaves across the full source
+  mesh. The cover derives paired rectangles, pays the shared twelfth-jet
+  remainder at each merged radius, and joins the exact integral cells.
+  `--check` rejects drift across the packet graph and final addition ledger;
+  `--index N` regenerates one packet quartet for local development without
+  changing the complete cover.
+
 - `generate_computed_phased_base_lower_three_compact_shards.py` recursively
   translates the same 139-shard mesh onto `[3, 1563/448]`. Its first two
   active translation blocks reuse the outer and middle certificates, while

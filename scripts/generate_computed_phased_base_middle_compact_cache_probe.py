@@ -24,6 +24,10 @@ CELL = 0
 SHARD = 2
 STEM = f"computedPhasedBaseMiddleCompactCell{CELL}Shard{SHARD}"
 PREFIX = "computedPhasedBaseMiddleCompactCacheProbe"
+DIRECT_LEAVES = None
+DIRECT_POINT_DATA = None
+DIRECT_TRIG = None
+DIRECT_TRIG_VALUES: list[str] = []
 GROUP_WRAPPER = (
     VENUE / "BoundaryComputedPhasedBaseMiddleCompactCacheProbeGroupCache.lean"
 )
@@ -48,7 +52,10 @@ def render_group_order(order: int, groups) -> str:
     for block in groups[order]:
         blocks.append("![" + ", ".join(inline_interval(v) for v in block) + "]")
     values = ", ".join(blocks)
-    trigs = ", ".join(
+    leaves = DIRECT_LEAVES or f"{STEM}PointLeaves"
+    point_data = DIRECT_POINT_DATA or f"{STEM}PointData"
+    trig = DIRECT_TRIG or f"{STEM}Trig"
+    trigs = ", ".join(DIRECT_TRIG_VALUES) if DIRECT_TRIG_VALUES else ", ".join(
         [f"computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}Trig{g}" for g in range(20)]
         + [f"computedPhasedBaseMiddleHalfShiftTrig{g}" for g in range(20)]
     )
@@ -73,7 +80,7 @@ theorem {name}_contains (b : Fin 2) (g : Fin 4) :
   fin_cases b <;> fin_cases g <;>
     apply RationalInterval.contains_of_center_radius_le
       (computedPhasedBaseActiveBlockSignedCosineGroupCell_contains
-        {STEM}PointLeaves.toActiveBlock
+        {leaves}.toActiveBlock
         ({order} : Fin 15) _ _
         (by simp [{STEM}PointInterval, {STEM}Interval,
           RationalInterval.singleton, RationalInterval.Contains])) <;>
@@ -82,10 +89,10 @@ theorem {name}_contains (b : Fin 2) (g : Fin 4) :
         computedPhasedBaseActiveBlockSignedCosineGroupCell,
         computedPhasedBaseActiveBlockCosineCell,
         computedPhasedBaseActiveBlockTrigCell,
-        {STEM}PointLeaves, {STEM}PointData,
+        {leaves}, {point_data},
         ComputedPhasedBaseMiddleVariationLeaves.toActiveBlock,
         ComputedPhasedBaseMiddleVariationData.toActiveBlock,
-        {STEM}PointInterval, {STEM}Interval, {STEM}Trig,
+        {STEM}PointInterval, {STEM}Interval, {trig},
         computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}Trig,
         computedPhasedBaseMiddleHalfShiftTrig, {trigs},
         computedPhasedBaseMiddleModel,
