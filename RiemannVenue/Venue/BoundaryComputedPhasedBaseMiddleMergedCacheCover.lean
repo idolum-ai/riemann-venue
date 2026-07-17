@@ -58,16 +58,6 @@ private theorem middleMergedIntegrand_intervalIntegrable (a b : ℝ) :
     IntervalIntegrable middleMergedIntegrand MeasureTheory.volume a b :=
   (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _
 
-def computedPhasedRationalPairToComplex (q : ℚ × ℚ) : ℂ :=
-  (q.1 : ℝ) + (q.2 : ℝ) * Complex.I
-
-theorem computedPhasedRationalPairToComplex_add (a b : ℚ × ℚ) :
-    computedPhasedRationalPairToComplex (a + b) =
-      computedPhasedRationalPairToComplex a + computedPhasedRationalPairToComplex b := by
-  simp only [computedPhasedRationalPairToComplex, Prod.fst_add, Prod.snd_add, Rat.cast_add]
-  push_cast
-  ring
-
 def computedPhasedBaseMiddleMergedGroup0Interval : RationalInterval :=
   ⟨(1569 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -124,10 +114,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup0IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup0IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup0IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup0TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup0TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup0IntegralCell, computedPhasedBaseMiddleMergedGroup0TaylorCell,
     computedPhasedBaseMiddleMergedGroup0TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -195,10 +185,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup1IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup1IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup1IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup1TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup1TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup1IntegralCell, computedPhasedBaseMiddleMergedGroup1TaylorCell,
     computedPhasedBaseMiddleMergedGroup1TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -266,10 +256,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup2IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup2IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup2IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup2TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup2TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup2IntegralCell, computedPhasedBaseMiddleMergedGroup2TaylorCell,
     computedPhasedBaseMiddleMergedGroup2TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -337,10 +327,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup3IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup3IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup3IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup3TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup3TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup3IntegralCell, computedPhasedBaseMiddleMergedGroup3TaylorCell,
     computedPhasedBaseMiddleMergedGroup3TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -408,10 +398,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup4IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup4IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup4IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup4TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup4TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup4IntegralCell, computedPhasedBaseMiddleMergedGroup4TaylorCell,
     computedPhasedBaseMiddleMergedGroup4TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -479,10 +469,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup5IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup5IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup5IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup5TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup5TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup5IntegralCell, computedPhasedBaseMiddleMergedGroup5TaylorCell,
     computedPhasedBaseMiddleMergedGroup5TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -550,10 +540,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup6IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup6IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup6IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup6TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup6TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup6IntegralCell, computedPhasedBaseMiddleMergedGroup6TaylorCell,
     computedPhasedBaseMiddleMergedGroup6TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -621,10 +611,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup7IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup7IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup7IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup7TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup7TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup7IntegralCell, computedPhasedBaseMiddleMergedGroup7TaylorCell,
     computedPhasedBaseMiddleMergedGroup7TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -692,10 +682,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup8IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup8IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup8IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup8TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup8TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup8IntegralCell, computedPhasedBaseMiddleMergedGroup8TaylorCell,
     computedPhasedBaseMiddleMergedGroup8TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -763,10 +753,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup9IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup9IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup9IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup9TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup9TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup9IntegralCell, computedPhasedBaseMiddleMergedGroup9TaylorCell,
     computedPhasedBaseMiddleMergedGroup9TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -834,10 +824,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup10IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup10IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup10IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup10TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup10TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup10IntegralCell, computedPhasedBaseMiddleMergedGroup10TaylorCell,
     computedPhasedBaseMiddleMergedGroup10TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -905,10 +895,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup11IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup11IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup11IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup11TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup11TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup11IntegralCell, computedPhasedBaseMiddleMergedGroup11TaylorCell,
     computedPhasedBaseMiddleMergedGroup11TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -976,10 +966,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup12IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup12IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup12IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup12TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup12TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup12IntegralCell, computedPhasedBaseMiddleMergedGroup12TaylorCell,
     computedPhasedBaseMiddleMergedGroup12TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1047,10 +1037,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup13IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup13IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup13IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup13TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup13TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup13IntegralCell, computedPhasedBaseMiddleMergedGroup13TaylorCell,
     computedPhasedBaseMiddleMergedGroup13TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1118,10 +1108,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup14IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup14IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup14IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup14TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup14TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup14IntegralCell, computedPhasedBaseMiddleMergedGroup14TaylorCell,
     computedPhasedBaseMiddleMergedGroup14TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1189,10 +1179,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup15IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup15IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup15IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup15TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup15TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup15IntegralCell, computedPhasedBaseMiddleMergedGroup15TaylorCell,
     computedPhasedBaseMiddleMergedGroup15TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1260,10 +1250,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup16IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup16IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup16IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup16TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup16TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup16IntegralCell, computedPhasedBaseMiddleMergedGroup16TaylorCell,
     computedPhasedBaseMiddleMergedGroup16TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1331,10 +1321,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup17IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup17IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup17IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup17TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup17TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup17IntegralCell, computedPhasedBaseMiddleMergedGroup17TaylorCell,
     computedPhasedBaseMiddleMergedGroup17TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1402,10 +1392,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup18IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup18IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup18IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup18TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup18TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup18IntegralCell, computedPhasedBaseMiddleMergedGroup18TaylorCell,
     computedPhasedBaseMiddleMergedGroup18TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1473,10 +1463,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup19IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup19IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup19IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup19TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup19TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup19IntegralCell, computedPhasedBaseMiddleMergedGroup19TaylorCell,
     computedPhasedBaseMiddleMergedGroup19TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1544,10 +1534,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup20IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup20IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup20IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup20TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup20TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup20IntegralCell, computedPhasedBaseMiddleMergedGroup20TaylorCell,
     computedPhasedBaseMiddleMergedGroup20TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1615,10 +1605,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup21IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup21IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup21IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup21TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup21TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup21IntegralCell, computedPhasedBaseMiddleMergedGroup21TaylorCell,
     computedPhasedBaseMiddleMergedGroup21TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1686,10 +1676,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup22IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup22IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup22IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup22TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup22TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup22IntegralCell, computedPhasedBaseMiddleMergedGroup22TaylorCell,
     computedPhasedBaseMiddleMergedGroup22TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1757,10 +1747,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup23IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup23IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup23IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup23TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup23TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup23IntegralCell, computedPhasedBaseMiddleMergedGroup23TaylorCell,
     computedPhasedBaseMiddleMergedGroup23TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1828,10 +1818,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup24IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup24IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup24IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup24TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup24TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup24IntegralCell, computedPhasedBaseMiddleMergedGroup24TaylorCell,
     computedPhasedBaseMiddleMergedGroup24TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1899,10 +1889,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup25IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup25IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup25IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup25TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup25TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup25IntegralCell, computedPhasedBaseMiddleMergedGroup25TaylorCell,
     computedPhasedBaseMiddleMergedGroup25TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -1970,10 +1960,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup26IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup26IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup26IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup26TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup26TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup26IntegralCell, computedPhasedBaseMiddleMergedGroup26TaylorCell,
     computedPhasedBaseMiddleMergedGroup26TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2041,10 +2031,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup27IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup27IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup27IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup27TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup27TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup27IntegralCell, computedPhasedBaseMiddleMergedGroup27TaylorCell,
     computedPhasedBaseMiddleMergedGroup27TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2112,10 +2102,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup28IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup28IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup28IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup28TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup28TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup28IntegralCell, computedPhasedBaseMiddleMergedGroup28TaylorCell,
     computedPhasedBaseMiddleMergedGroup28TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2183,10 +2173,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup29IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup29IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup29IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup29TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup29TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup29IntegralCell, computedPhasedBaseMiddleMergedGroup29TaylorCell,
     computedPhasedBaseMiddleMergedGroup29TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2254,10 +2244,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup30IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup30IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup30IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup30TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup30TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup30IntegralCell, computedPhasedBaseMiddleMergedGroup30TaylorCell,
     computedPhasedBaseMiddleMergedGroup30TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2325,10 +2315,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup31IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup31IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup31IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup31TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup31TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup31IntegralCell, computedPhasedBaseMiddleMergedGroup31TaylorCell,
     computedPhasedBaseMiddleMergedGroup31TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2396,10 +2386,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup32IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup32IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup32IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup32TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup32TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup32IntegralCell, computedPhasedBaseMiddleMergedGroup32TaylorCell,
     computedPhasedBaseMiddleMergedGroup32TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2467,10 +2457,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup33IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup33IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup33IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup33TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup33TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup33IntegralCell, computedPhasedBaseMiddleMergedGroup33TaylorCell,
     computedPhasedBaseMiddleMergedGroup33TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2538,10 +2528,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup34IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup34IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup34IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup34TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup34TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup34IntegralCell, computedPhasedBaseMiddleMergedGroup34TaylorCell,
     computedPhasedBaseMiddleMergedGroup34TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2609,10 +2599,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup35IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup35IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup35IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup35TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup35TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup35IntegralCell, computedPhasedBaseMiddleMergedGroup35TaylorCell,
     computedPhasedBaseMiddleMergedGroup35TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2680,10 +2670,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup36IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup36IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup36IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup36TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup36TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup36IntegralCell, computedPhasedBaseMiddleMergedGroup36TaylorCell,
     computedPhasedBaseMiddleMergedGroup36TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2751,10 +2741,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup37IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup37IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup37IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup37TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup37TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup37IntegralCell, computedPhasedBaseMiddleMergedGroup37TaylorCell,
     computedPhasedBaseMiddleMergedGroup37TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2822,10 +2812,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup38IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup38IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup38IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup38TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup38TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup38IntegralCell, computedPhasedBaseMiddleMergedGroup38TaylorCell,
     computedPhasedBaseMiddleMergedGroup38TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2893,10 +2883,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup39IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup39IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup39IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup39TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup39TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup39IntegralCell, computedPhasedBaseMiddleMergedGroup39TaylorCell,
     computedPhasedBaseMiddleMergedGroup39TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -2964,10 +2954,10 @@ noncomputable def computedPhasedBaseMiddleMergedGroup40IntegralCell :
 
 theorem computedPhasedBaseMiddleMergedGroup40IntegralCell_center_eq :
     computedPhasedBaseMiddleMergedGroup40IntegralCell.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup40TaylorCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedGroup40TaylorCenterQ := by
   simp [computedPhasedBaseMiddleMergedGroup40IntegralCell, computedPhasedBaseMiddleMergedGroup40TaylorCell,
     computedPhasedBaseMiddleMergedGroup40TaylorCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
     computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
 
@@ -3005,7 +2995,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk0Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk0Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk0Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk0CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk0CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk0Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup0IntegralCell_center_eq]
@@ -3013,7 +3003,7 @@ theorem computedPhasedBaseMiddleMergedChunk0Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup2IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup3IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup4IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk0CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk0CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk0Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk0Certificate.error = (computedPhasedBaseMiddleMergedChunk0ErrorQ : ℝ) := by
@@ -3052,7 +3042,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk1Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk1Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk1Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk1CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk1CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk1Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup5IntegralCell_center_eq]
@@ -3060,7 +3050,7 @@ theorem computedPhasedBaseMiddleMergedChunk1Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup7IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup8IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup9IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk1CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk1CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk1Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk1Certificate.error = (computedPhasedBaseMiddleMergedChunk1ErrorQ : ℝ) := by
@@ -3099,7 +3089,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk2Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk2Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk2Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk2CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk2CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk2Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup10IntegralCell_center_eq]
@@ -3107,7 +3097,7 @@ theorem computedPhasedBaseMiddleMergedChunk2Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup12IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup13IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup14IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk2CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk2CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk2Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk2Certificate.error = (computedPhasedBaseMiddleMergedChunk2ErrorQ : ℝ) := by
@@ -3146,7 +3136,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk3Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk3Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk3Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk3CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk3CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk3Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup15IntegralCell_center_eq]
@@ -3154,7 +3144,7 @@ theorem computedPhasedBaseMiddleMergedChunk3Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup17IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup18IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup19IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk3CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk3CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk3Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk3Certificate.error = (computedPhasedBaseMiddleMergedChunk3ErrorQ : ℝ) := by
@@ -3193,7 +3183,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk4Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk4Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk4Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk4CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk4CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk4Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup20IntegralCell_center_eq]
@@ -3201,7 +3191,7 @@ theorem computedPhasedBaseMiddleMergedChunk4Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup22IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup23IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup24IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk4CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk4CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk4Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk4Certificate.error = (computedPhasedBaseMiddleMergedChunk4ErrorQ : ℝ) := by
@@ -3240,7 +3230,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk5Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk5Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk5Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk5CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk5CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk5Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup25IntegralCell_center_eq]
@@ -3248,7 +3238,7 @@ theorem computedPhasedBaseMiddleMergedChunk5Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup27IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup28IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup29IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk5CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk5CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk5Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk5Certificate.error = (computedPhasedBaseMiddleMergedChunk5ErrorQ : ℝ) := by
@@ -3287,7 +3277,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk6Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk6Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk6Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk6CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk6CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk6Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup30IntegralCell_center_eq]
@@ -3295,7 +3285,7 @@ theorem computedPhasedBaseMiddleMergedChunk6Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup32IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup33IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup34IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk6CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk6CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk6Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk6Certificate.error = (computedPhasedBaseMiddleMergedChunk6ErrorQ : ℝ) := by
@@ -3334,7 +3324,7 @@ noncomputable def computedPhasedBaseMiddleMergedChunk7Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk7Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk7Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk7CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk7CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk7Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup35IntegralCell_center_eq]
@@ -3342,7 +3332,7 @@ theorem computedPhasedBaseMiddleMergedChunk7Certificate_center_eq :
   rw [computedPhasedBaseMiddleMergedGroup37IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup38IntegralCell_center_eq]
   rw [computedPhasedBaseMiddleMergedGroup39IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk7CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk7CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk7Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk7Certificate.error = (computedPhasedBaseMiddleMergedChunk7ErrorQ : ℝ) := by
@@ -3369,11 +3359,11 @@ noncomputable def computedPhasedBaseMiddleMergedChunk8Certificate :
 
 theorem computedPhasedBaseMiddleMergedChunk8Certificate_center_eq :
     computedPhasedBaseMiddleMergedChunk8Certificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk8CenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedChunk8CenterQ := by
   simp only [computedPhasedBaseMiddleMergedChunk8Certificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedGroup40IntegralCell_center_eq]
-  simp only [computedPhasedBaseMiddleMergedChunk8CenterQ, computedPhasedRationalPairToComplex_add]
+  simp only [computedPhasedBaseMiddleMergedChunk8CenterQ, rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedChunk8Certificate_error_eq :
     computedPhasedBaseMiddleMergedChunk8Certificate.error = (computedPhasedBaseMiddleMergedChunk8ErrorQ : ℝ) := by
@@ -3518,7 +3508,7 @@ theorem computedPhasedBaseMiddleMergedCompactIntegral_mem :
 
 theorem computedPhasedBaseMiddleMergedCompactCertificate_center_eq :
     computedPhasedBaseMiddleMergedCompactCertificate.center =
-      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedCompactCenterQ := by
+      rationalPairToComplex computedPhasedBaseMiddleMergedCompactCenterQ := by
   simp only [computedPhasedBaseMiddleMergedCompactCertificate,
     ComplexIntegralCellCertificate.append_center]
   rw [computedPhasedBaseMiddleMergedChunk0Certificate_center_eq]
@@ -3531,7 +3521,7 @@ theorem computedPhasedBaseMiddleMergedCompactCertificate_center_eq :
   rw [computedPhasedBaseMiddleMergedChunk7Certificate_center_eq]
   rw [computedPhasedBaseMiddleMergedChunk8Certificate_center_eq]
   simp only [computedPhasedBaseMiddleMergedCompactCenterQ,
-    computedPhasedRationalPairToComplex_add]
+    rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedCompactCertificate_error_eq :
     computedPhasedBaseMiddleMergedCompactCertificate.error =
