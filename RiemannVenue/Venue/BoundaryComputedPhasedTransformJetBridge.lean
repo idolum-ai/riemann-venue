@@ -51,45 +51,80 @@ private theorem smooth_iterDeriv_apply_eq_iteratedDeriv
       simpa only [SmoothCompletedLogTest.deriv_apply] using
         ((h.iterDeriv n).2.differentiable (by simp) t).hasDerivAt.ofReal_comp.deriv.symm
 
-private theorem benchmarkKernel_hasDerivAt (t : ℝ) :
+private theorem transformKernel_hasDerivAt (z : ℂ) (t : ℝ) :
     HasDerivAt
       (fun x : ℝ =>
-        Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ)))
-      ((Complex.I * computedPhasedBenchmarkPoint) *
-        Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (t : ℂ))) t := by
+        Complex.exp (Complex.I * z * (x : ℂ)))
+      ((Complex.I * z) *
+        Complex.exp (Complex.I * z * (t : ℂ))) t := by
   have hinner : HasDerivAt
-      (fun x : ℝ => Complex.I * computedPhasedBenchmarkPoint * (x : ℂ))
-      (Complex.I * computedPhasedBenchmarkPoint) t := by
+      (fun x : ℝ => Complex.I * z * (x : ℂ))
+      (Complex.I * z) t := by
     simpa using Complex.ofRealCLM.hasDerivAt.const_mul
-      (Complex.I * computedPhasedBenchmarkPoint)
+      (Complex.I * z)
   simpa only [mul_comm] using hinner.cexp
 
-private theorem iteratedDeriv_benchmarkKernel (n : ℕ) (t : ℝ) :
+/-- Every jet of the complex exponential kernel is an exact power of its
+logarithmic derivative. -/
+theorem iteratedDeriv_transformKernel (n : ℕ) (z : ℂ) (t : ℝ) :
     iteratedDeriv n
         (fun x : ℝ =>
-          Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ))) t =
-      (Complex.I * computedPhasedBenchmarkPoint) ^ n *
-        Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (t : ℂ)) := by
+          Complex.exp (Complex.I * z * (x : ℂ))) t =
+      (Complex.I * z) ^ n *
+        Complex.exp (Complex.I * z * (t : ℂ)) := by
   induction n generalizing t with
   | zero => simp
   | succ n ih =>
       rw [iteratedDeriv_succ]
       have hfun : iteratedDeriv n
           (fun x : ℝ =>
-            Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ))) =
+            Complex.exp (Complex.I * z * (x : ℂ))) =
           fun x : ℝ =>
-            (Complex.I * computedPhasedBenchmarkPoint) ^ n *
+            (Complex.I * z) ^ n *
               Complex.exp
-                (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ)) := by
+                (Complex.I * z * (x : ℂ)) := by
         funext x
         exact ih x
       rw [hfun,
-        ((benchmarkKernel_hasDerivAt t).const_mul
-          ((Complex.I * computedPhasedBenchmarkPoint) ^ n)).deriv]
+        ((transformKernel_hasDerivAt z t).const_mul
+          ((Complex.I * z) ^ n)).deriv]
       rw [pow_succ]
       ring
 
-/-- Exact all-order derivative formula used by every generated matrix cell. -/
+/-- Exact all-order derivative formula for a raw Fourier--Laplace integrand. -/
+theorem iteratedDeriv_computedTransformRawIntegrand
+    (n : ℕ) (h : SmoothCompletedLogTest) (z : ℂ) (t : ℝ) :
+    iteratedDeriv n
+        (computedTransformRawIntegrand h z) t =
+      ∑ i ∈ Finset.range (n + 1),
+        n.choose i * (h.iterDeriv i t : ℂ) *
+          ((Complex.I * z) ^ (n - i) *
+            Complex.exp
+              (Complex.I * z * (t : ℂ))) := by
+  have hh : ContDiffAt ℝ n (fun x : ℝ => ((h x : ℝ) : ℂ)) t := by
+    exact ((Complex.ofRealCLM.contDiff.comp h.2).of_le
+      (show (n : WithTop ℕ∞) ≤ ((⊤ : ℕ∞) : WithTop ℕ∞) from
+        WithTop.coe_le_coe.mpr le_top)).contDiffAt
+  have hk : ContDiffAt ℝ n
+      (fun x : ℝ =>
+        Complex.exp (Complex.I * z * (x : ℂ))) t := by
+    have hinner : ContDiff ℝ (⊤ : ℕ∞)
+        (fun x : ℝ => Complex.I * z * (x : ℂ)) :=
+      contDiff_const.mul Complex.ofRealCLM.contDiff
+    exact (hinner.cexp.of_le
+      (show (n : WithTop ℕ∞) ≤ ((⊤ : ℕ∞) : WithTop ℕ∞) from
+        WithTop.coe_le_coe.mpr le_top)).contDiffAt
+  change iteratedDeriv n
+    ((fun x : ℝ => ((h x : ℝ) : ℂ)) *
+      (fun x : ℝ =>
+        Complex.exp (Complex.I * z * (x : ℂ)))) t = _
+  rw [iteratedDeriv_mul hh hk]
+  apply Finset.sum_congr rfl
+  intro i hi
+  rw [← smooth_iterDeriv_apply_eq_iteratedDeriv,
+    iteratedDeriv_transformKernel]
+
+/-- Benchmark specialization retained for the generated matrix packets. -/
 theorem iteratedDeriv_computedTransformRawIntegrand_benchmark
     (n : ℕ) (h : SmoothCompletedLogTest) (t : ℝ) :
     iteratedDeriv n
@@ -98,29 +133,9 @@ theorem iteratedDeriv_computedTransformRawIntegrand_benchmark
         n.choose i * (h.iterDeriv i t : ℂ) *
           ((Complex.I * computedPhasedBenchmarkPoint) ^ (n - i) *
             Complex.exp
-              (Complex.I * computedPhasedBenchmarkPoint * (t : ℂ))) := by
-  have hh : ContDiffAt ℝ n (fun x : ℝ => ((h x : ℝ) : ℂ)) t := by
-    exact ((Complex.ofRealCLM.contDiff.comp h.2).of_le
-      (show (n : WithTop ℕ∞) ≤ ((⊤ : ℕ∞) : WithTop ℕ∞) from
-        WithTop.coe_le_coe.mpr le_top)).contDiffAt
-  have hk : ContDiffAt ℝ n
-      (fun x : ℝ =>
-        Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ))) t := by
-    have hinner : ContDiff ℝ (⊤ : ℕ∞)
-        (fun x : ℝ => Complex.I * computedPhasedBenchmarkPoint * (x : ℂ)) :=
-      contDiff_const.mul Complex.ofRealCLM.contDiff
-    exact (hinner.cexp.of_le
-      (show (n : WithTop ℕ∞) ≤ ((⊤ : ℕ∞) : WithTop ℕ∞) from
-        WithTop.coe_le_coe.mpr le_top)).contDiffAt
-  change iteratedDeriv n
-    ((fun x : ℝ => ((h x : ℝ) : ℂ)) *
-      (fun x : ℝ =>
-        Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ)))) t = _
-  rw [iteratedDeriv_mul hh hk]
-  apply Finset.sum_congr rfl
-  intro i hi
-  rw [← smooth_iterDeriv_apply_eq_iteratedDeriv,
-    iteratedDeriv_benchmarkKernel]
+              (Complex.I * computedPhasedBenchmarkPoint * (t : ℂ))) :=
+  iteratedDeriv_computedTransformRawIntegrand n h
+    computedPhasedBenchmarkPoint t
 
 namespace RationalRectangle
 
@@ -149,6 +164,57 @@ theorem contains_finSum {n : ℕ} {R : Fin n → RationalRectangle}
       exact contains_add (hz 0) (ih fun i => hz i.succ)
 
 end RationalRectangle
+
+/-- Exact rational logarithmic derivative `I * (re + im I)`. -/
+def rationalTransformLambdaQ (re im : ℚ) : RationalRectangle :=
+  RationalRectangle.singleton (-im) re
+
+theorem rationalTransformLambdaQ_contains (re im : ℚ) :
+    (rationalTransformLambdaQ re im).Contains
+      (Complex.I * ((re : ℝ) + (im : ℝ) * Complex.I)) := by
+  constructor <;>
+    norm_num [rationalTransformLambdaQ, RationalRectangle.Contains,
+      RationalRectangle.singleton, RationalInterval.singleton,
+      RationalInterval.Contains]
+
+/-- Rational rectangle for one raw transform jet at a rational center and an
+arbitrary rational complex frequency. -/
+def rationalTransformRawJetInterval
+    (re im : ℚ) (n : ℕ) (kernel : RationalRectangle)
+    (testJet : Fin (n + 1) → RationalInterval) : RationalRectangle :=
+  RationalRectangle.finSum fun i =>
+    RationalRectangle.mul
+      (RationalRectangle.ofRealInterval
+        (RationalInterval.mul (RationalInterval.singleton (n.choose i))
+          (testJet i)))
+      (RationalRectangle.mul
+        (RationalRectangle.pow (rationalTransformLambdaQ re im) (n - i))
+        kernel)
+
+theorem rationalTransformRawJetInterval_contains
+    {re im : ℚ} {n : ℕ} {h : SmoothCompletedLogTest} {t : ℚ}
+    {kernel : RationalRectangle}
+    {testJet : Fin (n + 1) → RationalInterval}
+    (hkernel : kernel.Contains
+      (Complex.exp (Complex.I *
+        ((re : ℝ) + (im : ℝ) * Complex.I) * ((t : ℝ) : ℂ))))
+    (htest : ∀ i, (testJet i).Contains (h.iterDeriv i (t : ℝ))) :
+    (rationalTransformRawJetInterval re im n kernel testJet).Contains
+      (iteratedDeriv n
+        (computedTransformRawIntegrand h
+          ((re : ℝ) + (im : ℝ) * Complex.I)) (t : ℝ)) := by
+  rw [iteratedDeriv_computedTransformRawIntegrand,
+    ← Fin.sum_univ_eq_sum_range]
+  apply RationalRectangle.contains_finSum
+  intro i
+  apply RationalRectangle.contains_mul
+  · have hr := RationalInterval.contains_mul
+      (RationalInterval.contains_singleton (n.choose i)) (htest i)
+    have hc := RationalRectangle.contains_ofRealInterval hr
+    convert hc using 1 <;> norm_num
+  · exact RationalRectangle.contains_mul
+      (RationalRectangle.contains_pow
+        (rationalTransformLambdaQ_contains re im) (n - i)) hkernel
 
 /-- Rational rectangle for one raw benchmark jet at one rational center. -/
 def computedPhasedRawJetInterval

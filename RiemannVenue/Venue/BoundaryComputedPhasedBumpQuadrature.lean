@@ -94,7 +94,7 @@ theorem explicitBumpPositiveWeightedJet_mem_cellInterval
   convert RationalInterval.contains_mul hbump hexp using 1
   ring
 
-private theorem explicitStandardBumpTest_iterDeriv_apply
+theorem explicitStandardBumpTest_iterDeriv_apply
     (n : ℕ) (t : ℝ) :
     explicitStandardBumpTest.iterDeriv n t =
       iteratedDeriv n explicitStandardBump t := by
