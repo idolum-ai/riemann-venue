@@ -44,6 +44,13 @@ JET_RADII = (
     Fraction(1, 10**6),
     Fraction(1, 10**5),
 )
+# NumPy/libm implementations may differ in the last few bits across runners.
+# Emit each sampled center on a grid comfortably finer than its proof radius,
+# and emit reconnaissance-only third-jet bounds on a coarse outward grid.
+# This keeps the generated source canonical without claiming that floating
+# point is proof authority.
+JET_CENTER_DENOMINATORS = (10**7, 10**6, 10**5)
+THIRD_BOUND_DENOMINATOR = 10**4
 
 
 def outward(value: float, denominator: int = DATA_DENOMINATOR) -> Fraction:
@@ -225,8 +232,13 @@ def cell_data(payload: dict) -> tuple[
             third = float(np.max(np.abs(weighted_base_jet(
                 sample, 3, coefficients, frequencies, centers
             ))))
-            third_bound = outward(1.20 * third + 1.0)
-            centers_q = [nearest(value, DATA_DENOMINATOR) for value in jets]
+            third_bound = outward(
+                1.20 * third + 1.0, THIRD_BOUND_DENOMINATOR
+            )
+            centers_q = [
+                nearest(value, denominator)
+                for value, denominator in zip(jets, JET_CENTER_DENOMINATORS)
+            ]
             radii_q = list(JET_RADII)
             r = Fraction(radius).limit_denominator()
             upper = (
@@ -307,6 +319,13 @@ def render(payload: dict) -> str:
             f"  (computedPhasedTaylorSegment{segment_index} i).upper",
             "",
         ])
+    lines.append("/-- Exact rational upper sums for the five generated segments. -/")
+    for segment_index, segment_total in enumerate(segment_totals):
+        lines.append(
+            f"def computedPhasedSegmentQuadrature{segment_index} : ℝ := "
+            f"{lean_real(segment_total)}"
+        )
+    lines.append("")
     lines.extend([
         "/-- The signed weighted order-two base field on the positive half-line. -/",
         "noncomputable def computedPhasedBaseWeightedSecond (t : ℝ) : ℝ :=",
@@ -351,15 +370,15 @@ def render(payload: dict) -> str:
         "  segment3_upper : segment3.upper = computedPhasedUpper3",
         "  segment4_upper : segment4.upper = computedPhasedUpper4",
         f"  segment0_integral_le : (∫ t in (0 : ℝ)..(5 / 2),",
-        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[0])}",
+        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature0",
         f"  segment1_integral_le : (∫ t in (5 / 2 : ℝ)..3,",
-        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[1])}",
+        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature1",
         f"  segment2_integral_le : (∫ t in (3 : ℝ)..(7 / 2),",
-        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[2])}",
+        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature2",
         f"  segment3_integral_le : (∫ t in (7 / 2 : ℝ)..4,",
-        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[3])}",
+        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature3",
         f"  segment4_integral_le : (∫ t in (4 : ℝ)..(9 / 2),",
-        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[4])}",
+        f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ computedPhasedSegmentQuadrature4",
         "  correction0_majorant_le :",
         "    completedZeroTransformDerivativeMajorant 2",
         "      computedPhasedCorrectionAtom0 ≤ 1000",
