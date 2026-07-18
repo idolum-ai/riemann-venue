@@ -65,6 +65,9 @@ Focused prose notes. These are not formal proofs unless explicitly connected to 
   translated, polynomial, and bounded-leakage tail compilers, explicit
   regularization tradeoffs, and the remaining quantitative conditioning
   payment.
+- `completed-weil-positivity-handoff.md` — machine-migration anchors, stacked
+  PR boundaries, validation caveats, resume procedure, and the old-host
+  cleanup gate for the large computed positivity branch.
 - `weighted-strip-approximation-gate.md` — fixed-order continuation of the
   positivity project: order-zero finite-value stability, order-two tail
   control, the target-preserving approximation contract, and its concrete
