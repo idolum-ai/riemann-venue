@@ -301,9 +301,11 @@ next recommended move.
 
 The formal system no longer asks for target-relative zero separation or
 derivatives through order `4*N + 4`.  The explicit seed and exact target solve
-are now formal objects.  The narrow frontier is the generated numerical
-packet: certify the correction matrix and rational-base target residual, then
-sum the 270 cancellation-preserving derivative envelopes and charge the tiny
+are now formal objects.  Rational boundary-coordinate bump intervals and
+signed real/imaginary transform quadratures are now formal as well.  The
+narrow frontier is their generated numerical instantiation: certify the
+correction matrix and rational-base target residual, then sum the 270
+cancellation-preserving derivative envelopes and charge the tiny
 Cramer corrections separately.  Only if that packet misses the strict scalar
 margin should the project return to the proved weighted-jet annihilator
 alternative.

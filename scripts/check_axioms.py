@@ -85,6 +85,8 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
     "RiemannVenue.Venue.computedPhasedBaseTest_iterDeriv_apply",
     "RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval",
+    "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_cellInterval",
+    "RiemannVenue.Venue.computedPhased_transform_fields_of_signed_quadrature",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 
