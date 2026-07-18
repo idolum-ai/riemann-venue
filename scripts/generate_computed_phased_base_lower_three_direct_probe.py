@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import math
 from dataclasses import dataclass
 from fractions import Fraction as Q
@@ -45,6 +46,7 @@ from probe_computed_phased_base_merged_cache_plan import merged_groups
 
 ROOT = Path(__file__).resolve().parents[1]
 VENUE = ROOT / "RiemannVenue" / "Venue"
+ARTIFACTS = ROOT / "artifacts"
 CACHE_GRID = 10**18
 PREFIX = "computedPhasedBaseLowerThreeDirectProbe"
 MODEL = "computedPhasedBaseLowerThreeModel"
@@ -58,6 +60,7 @@ COEFFICIENT_INDICES = (2, 3, 4)
 SOURCE_PREFIX = "computedPhasedBaseLowerThreeCompact"
 SHIFT = Q(1)
 GROUP_INDEX = 0
+SOURCE_OVERRIDE = None
 
 
 @dataclass(frozen=True)
@@ -110,12 +113,22 @@ REGIME_CONFIGS = {
         (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
 }
 
+REGIME_FINAL_UPPER = {
+    "LowerThree": Q(7, 2),
+    "LowerFour": Q(3),
+    "FullFive": Q(5, 2),
+    "FullFiveInnerOne": Q(2),
+    "FullFiveInnerTwo": Q(3, 2),
+    "FullFiveInnerThree": Q(1),
+    "FullFiveInnerFour": Q(1, 2),
+}
+
 
 def configure(config: RegimeConfig, group_index: int) -> None:
     global PREFIX, MODEL, COLUMN, BLOCK_COUNT
     global COLUMN_FREQUENCY_THEOREM, COLUMN_TRANSLATION_THEOREM
     global TRANSLATION_DEFINITION, TRANSLATIONS, COEFFICIENT_INDICES
-    global SOURCE_PREFIX, SHIFT, GROUP_INDEX
+    global SOURCE_PREFIX, SHIFT, GROUP_INDEX, SOURCE_OVERRIDE
     PREFIX = f"computedPhasedBase{config.label}DirectGroup{group_index}"
     MODEL = config.model
     COLUMN = config.column
@@ -128,6 +141,20 @@ def configure(config: RegimeConfig, group_index: int) -> None:
     SOURCE_PREFIX = config.source_prefix
     SHIFT = config.shift
     GROUP_INDEX = group_index
+    SOURCE_OVERRIDE = None
+
+
+def configure_tail(config: RegimeConfig) -> None:
+    global PREFIX, SOURCE_OVERRIDE
+    configure(config, 0)
+    PREFIX = f"computedPhasedBase{config.label}DirectTail"
+    compact_upper = Q(str(merged_groups()[-1]["upper"])) - config.shift
+    final_upper = REGIME_FINAL_UPPER[config.label]
+    center = (compact_upper + final_upper) / 2
+    radius = (final_upper - compact_upper) / 2
+    stem = f"computedPhasedBase{config.label}Tail"
+    module = f"RiemannVenue.Venue.Boundary{stem[0].upper() + stem[1:]}Taylor"
+    SOURCE_OVERRIDE = (-1, -1, stem, module, center, radius)
 
 
 def inline_interval(value: Interval) -> str:
@@ -136,6 +163,8 @@ def inline_interval(value: Interval) -> str:
 
 
 def source_info():
+    if SOURCE_OVERRIDE is not None:
+        return SOURCE_OVERRIDE
     group = merged_groups()[GROUP_INDEX]
     cell = int(group["source_cell"])
     shard = int(group["selected_midpoint_shard"])
@@ -221,7 +250,16 @@ def payment_data(bases, kernels, radius: Q):
         radius**order / math.factorial(order)
         for order, value in enumerate(paired)
     ]
-    return paired, terms, sum(terms), 4 * radius**13 / math.factorial(12)
+    center = tuple(
+        sum(
+            value[coordinate][0] *
+            (radius ** (order + 1) - (-radius) ** (order + 1)) /
+            math.factorial(order + 1)
+            for order, value in enumerate(paired)
+        )
+        for coordinate in range(2)
+    )
+    return paired, terms, sum(terms), 4 * radius**13 / math.factorial(12), center
 
 
 def render_leaf(stem: str, module: str, center: Q, trigs, kernels) -> str:
@@ -606,7 +644,8 @@ def render_base(stem: str, bases) -> str:
 
 
 def render_payment(stem: str, center: Q, radius: Q, paired, terms,
-                   cache_payment: Q, remainder_multiplier: Q) -> str:
+                   cache_payment: Q, remainder_multiplier: Q,
+                   exact_center: tuple[Q, Q]) -> str:
     paired_names = [f"{PREFIX}PaymentPaired{order}" for order in range(12)]
     term_names = [f"{PREFIX}PaymentTerm{order}Q" for order in range(12)]
     prefixes = [Q(0)]
@@ -673,6 +712,9 @@ def render_payment(stem: str, center: Q, radius: Q, paired, terms,
         "    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]",
         f"  rfl",
         "",
+        f"def {PREFIX}ExactCenterQ : ℚ × ℚ :=",
+        f"  ({lean_q(exact_center[0])}, {lean_q(exact_center[1])})",
+        "",
     ]
     reduction = [
         f"{PREFIX}Paired", "computedPhasedBaseOuterPairedInterval",
@@ -711,6 +753,17 @@ def render_payment(stem: str, center: Q, radius: Q, paired, terms,
         f"    {PREFIX}PaymentPaired n = {PREFIX}Paired n := by",
         "  fin_cases n",
         *(f"  exact {name}_eq" for name in paired_names),
+        "",
+        f"theorem {PREFIX}TaylorCenterQ_eq_exact :",
+        f"    {PREFIX}TaylorCenterQ = {PREFIX}ExactCenterQ := by",
+        f"  have hp : {PREFIX}PaymentPaired = {PREFIX}Paired := by",
+        "    funext n",
+        f"    exact {PREFIX}PaymentPaired_eq n",
+        f"  unfold {PREFIX}TaylorCenterQ",
+        "  rw [computedPhasedBaseOuterCachedShardTaylorCenterQ, ← hp]",
+        "  norm_num (config := { maxSteps := 2000000 })",
+        f"    [{PREFIX}PaymentPaired, {PREFIX}ExactCenterQ,",
+        f"      {', '.join(paired_names)}, rationalSymmetricTaylorMoment]",
         "",
     ])
     for order, value in enumerate(terms):
@@ -853,23 +906,43 @@ def render_payment(stem: str, center: Q, radius: Q, paired, terms,
     return "\n".join(lines)
 
 
-def outputs():
+def rational_json(value: Q) -> dict[str, int]:
+    return {"numerator": value.numerator, "denominator": value.denominator}
+
+
+def regime_ledger_path(label: str) -> Path:
+    slug = "".join(f"-{char.lower()}" if char.isupper() else char for char in label)
+    return ARTIFACTS / f"computed-phased-base-{slug.lstrip('-')}-direct-ledger.json"
+
+
+def probe_outputs():
     _cell, _shard, stem, module, center, radius = source_info()
     trigs, groups, bumps, bases, kernels = probe_data(center)
-    paired, terms, cache_payment, remainder_multiplier = payment_data(
+    paired, terms, cache_payment, remainder_multiplier, exact_center = payment_data(
         bases, kernels, radius
     )
     base_name = f"Boundary{PREFIX[0].upper() + PREFIX[1:]}"
-    return {
+    generated = {
         VENUE / f"{base_name}LeafCache.lean": render_leaf(stem, module, center, trigs, kernels),
         VENUE / f"{base_name}BumpCache.lean": render_bump(stem, module, center, bumps),
         VENUE / f"{base_name}GroupCache.lean": render_group(stem, groups),
         VENUE / f"{base_name}BaseCache.lean": render_base(stem, bases),
         VENUE / f"{base_name}PaymentProbe.lean": render_payment(
             stem, center, radius, paired, terms, cache_payment,
-            remainder_multiplier
+            remainder_multiplier, exact_center
         ),
     }
+    metadata = {
+        "index": GROUP_INDEX,
+        "center": [rational_json(exact_center[0]), rational_json(exact_center[1])],
+        "cache_payment": rational_json(cache_payment),
+        "remainder_multiplier": rational_json(remainder_multiplier),
+    }
+    return generated, metadata
+
+
+def outputs():
+    return probe_outputs()[0]
 
 
 def main():
@@ -878,15 +951,35 @@ def main():
     parser.add_argument("--regime", choices=sorted(REGIME_CONFIGS))
     parser.add_argument("--index", type=int, default=0)
     parser.add_argument("--all-groups", action="store_true")
+    parser.add_argument("--tail", action="store_true")
     args = parser.parse_args()
     if args.all_groups and args.regime is None:
         raise SystemExit("--all-groups requires --regime")
+    if args.tail and args.regime is None:
+        raise SystemExit("--tail requires --regime")
+    if args.tail and args.all_groups:
+        raise SystemExit("--tail and --all-groups are mutually exclusive")
     generated = None
-    if args.regime is not None and args.all_groups:
+    if args.regime is not None and args.tail:
+        configure_tail(REGIME_CONFIGS[args.regime])
+    elif args.regime is not None and args.all_groups:
         generated = {}
+        ledger_groups = []
         for group_index in range(len(merged_groups())):
             configure(REGIME_CONFIGS[args.regime], group_index)
-            generated.update(outputs())
+            group_outputs, metadata = probe_outputs()
+            generated.update(group_outputs)
+            ledger_groups.append(metadata)
+        ledger = {
+            "schema": "riemann-venue/computed-phased-direct-ledger/v1",
+            "proof_authority": False,
+            "regime": args.regime,
+            "global_remainder_ceiling": "16602716200000000000000000000",
+            "groups": ledger_groups,
+        }
+        generated[regime_ledger_path(args.regime)] = (
+            json.dumps(ledger, indent=2, sort_keys=True) + "\n"
+        )
     elif args.regime is not None:
         if not 0 <= args.index < len(merged_groups()):
             raise SystemExit("--index must select one of the 41 merged groups")

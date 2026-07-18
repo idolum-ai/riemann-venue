@@ -43,6 +43,12 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   compiler used by the phased derivative packet. It does not certify any of
   the 270 cells; concrete cell inhabitants remain separate Lean proofs.
 
+- `generate_computed_phased_derivative_inner_assembler.py` discharges the
+  finite geometry and exact quadrature sums for derivative segments zero
+  through two in eight-row arithmetic shards. Its generated constructor still
+  requires the 255 analytic row enclosures; it does not promote sampled rows
+  into proof authority.
+
 - `generate_computed_phased_transform_bump_jets.py` emits four source-sized
   Lean shards for the standard-bump numerator identities through order 14.
   Every recurrence step is rechecked by the Lean kernel, and CI byte-compares
@@ -131,11 +137,16 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   translated three-block merged window from direct phase, bump, signed-group,
   and base-jet anchors. Its staged scalar ledger identifies the exact cache
   payment and remainder multiplier, then bounds the actual Taylor error under
-  the shared twelfth-jet ceiling. `--regime NAME --index N` selects any merged
-  window in the three-, four-, or full-five support regimes, while
-  `--all-groups` emits all 41 windows for one regime. The checked group-zero
-  probes cross all three distinct support shapes; `--check` rejects drift in
-  each five-packet graph.
+  the shared twelfth-jet ceiling. Each packet also evaluates its exact signed
+  rational Taylor center. `--regime NAME --index N` selects any merged window
+  in the three-, four-, or full-five support regimes, `--all-groups` emits all
+  41 windows for one regime, and `--tail` certifies its final endpoint shard.
+  The checked group-zero probes cross all three distinct support shapes;
+  `--check` rejects drift in each five-packet graph. An all-groups run also
+  emits a structured exact-rational ledger under `artifacts/`; the compact
+  cover consumes this ledger so CI does not recompute the same interval probes.
+  The ledger is explicitly non-authoritative: generated Lean equalities check
+  its totals against every local packet before any certificate can use them.
 
 - `generate_computed_phased_base_translated_direct_cover.py` joins one
   regime's 41 direct payment packets into a compact integral certificate. It
@@ -143,6 +154,12 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   and error ledgers, and proves the aggregate error is bounded by the sum of
   the per-window certified ceiling payments. CI checks all seven translated
   covers together with every packet that supports them.
+
+- `generate_computed_phased_base_translated_complete.py` appends each direct
+  compact cover to its endpoint-tail packet and then joins the seven support
+  regimes into one exact certificate on `[0, 7/2]`. Its center is an evaluated
+  rational pair and its uncertainty is bounded by an evaluated rational
+  payment ledger. CI rejects drift in this final translated assembly.
 
 - `generate_computed_phased_base_lower_four_compact_shards.py` shifts the
   recursive mesh onto `[5/2, 1339/448]`. Three inherited blocks reuse the

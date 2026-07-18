@@ -4,12 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import json
 from fractions import Fraction as Q
 from pathlib import Path
 
 from generate_computed_phased_base_lower_three_direct_probe import (
     REGIME_CONFIGS,
     lean_q,
+    regime_ledger_path,
 )
 from probe_computed_phased_base_merged_cache_plan import merged_groups
 
@@ -39,8 +41,44 @@ def output_path(label: str) -> Path:
     return VENUE / f"BoundaryComputedPhasedBase{label}DirectCompactCover.lean"
 
 
+def evaluated_totals(label: str) -> tuple[tuple[Q, Q], Q]:
+    ledger_path = regime_ledger_path(label)
+    if not ledger_path.exists():
+        raise SystemExit(
+            f"missing direct ledger for {label}; generate --all-groups first"
+        )
+    ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    if ledger.get("schema") != "riemann-venue/computed-phased-direct-ledger/v1":
+        raise SystemExit(f"unsupported direct ledger schema for {label}")
+    if ledger.get("proof_authority") is not False:
+        raise SystemExit(f"direct ledger must remain non-authoritative for {label}")
+    if ledger.get("regime") != label:
+        raise SystemExit(f"direct ledger regime mismatch for {label}")
+    groups = ledger.get("groups")
+    if not isinstance(groups, list) or len(groups) != len(merged_groups()):
+        raise SystemExit(f"direct ledger group count mismatch for {label}")
+
+    def rational(payload) -> Q:
+        return Q(payload["numerator"], payload["denominator"])
+
+    center = [Q(0), Q(0)]
+    ceiling = Q(0)
+    remainder_ceiling = Q(ledger["global_remainder_ceiling"])
+    for index, group in enumerate(groups):
+        if group.get("index") != index:
+            raise SystemExit(f"direct ledger index mismatch for {label} group {index}")
+        local_center = group["center"]
+        center[0] += rational(local_center[0])
+        center[1] += rational(local_center[1])
+        ceiling += rational(group["cache_payment"]) + (
+            remainder_ceiling * rational(group["remainder_multiplier"])
+        )
+    return (center[0], center[1]), ceiling
+
+
 def render(label: str) -> str:
     config = REGIME_CONFIGS[label]
+    exact_center, exact_ceiling = evaluated_totals(label)
     groups = merged_groups()
     prefixes = [f"computedPhasedBase{label}DirectGroup{i}" for i in range(41)]
     imports = [
@@ -55,6 +93,8 @@ def render(label: str) -> str:
         f"/-! Exact direct compact cover for the translated {label} regime. -/",
         "namespace RiemannVenue.Venue",
         "noncomputable section",
+        "set_option maxRecDepth 100000",
+        "set_option maxHeartbeats 4000000",
         "",
         f"private theorem {integrable} (a b : ℝ) :",
         f"    IntervalIntegrable ({integrand}) MeasureTheory.volume a b :=",
@@ -129,6 +169,8 @@ def render(label: str) -> str:
     center = f"computedPhasedBase{label}DirectCompactCenterQ"
     error = f"computedPhasedBase{label}DirectCompactErrorQ"
     ceiling = f"computedPhasedBase{label}DirectCompactCeilingPaymentQ"
+    evaluated_center = f"computedPhasedBase{label}DirectCompactExactCenterQ"
+    evaluated_ceiling = f"computedPhasedBase{label}DirectCompactExactCeilingPaymentQ"
     first = groups[0]
     last = groups[-1]
     lower = lean_q(Q(first["lower"]) - config.shift)
@@ -139,6 +181,11 @@ def render(label: str) -> str:
         f"noncomputable def {error} : ℚ := {left_sum(chunk_errors)}",
         "",
         f"def {ceiling} : ℚ := {left_sum(chunk_ceilings)}",
+        "",
+        f"def {evaluated_center} : ℚ × ℚ :=",
+        f"  ({lean_q(exact_center[0])}, {lean_q(exact_center[1])})",
+        "",
+        f"def {evaluated_ceiling} : ℚ := {lean_q(exact_ceiling)}",
         "",
         f"noncomputable def {compact} :=",
         f"  {append_cells(chunk_certs, integrable)}",
@@ -160,10 +207,30 @@ def render(label: str) -> str:
         "  gcongr",
         *[f"  exact {lemma}" for lemma in chunk_payment_lemmas],
         "",
+        f"theorem {center}_eq_exact : {center} = {evaluated_center} := by",
+        f"  unfold {center}",
+        *[f"  unfold {name}" for name in chunk_centers],
+        *[f"  rw [{prefix}TaylorCenterQ_eq_exact]" for prefix in prefixes],
+        "  norm_num (config := { maxSteps := 2000000 })",
+        f"    [{evaluated_center},",
+        f"      {', '.join(f'{prefix}ExactCenterQ' for prefix in prefixes)}]",
+        "",
+        f"theorem {ceiling}_eq_exact : {ceiling} = {evaluated_ceiling} := by",
+        "  norm_num (config := { maxSteps := 2000000 })",
+        f"    [{ceiling}, {evaluated_ceiling},",
+        f"      {', '.join(chunk_ceilings)},",
+        f"      {', '.join(f'{prefix}ExactCachePaymentQ' for prefix in prefixes)},",
+        f"      {', '.join(f'{prefix}ExactRemainderMultiplierQ' for prefix in prefixes)}]",
+        "",
         f"theorem {compact}_error_le_ceiling :",
         f"    {compact}.error ≤ ({ceiling} : ℝ) := by",
         f"  rw [{compact}_errorQ]",
         f"  exact_mod_cast {error}_le_ceiling",
+        "",
+        f"theorem {compact}_error_le_exactCeiling :",
+        f"    {compact}.error ≤ ({evaluated_ceiling} : ℝ) := by",
+        f"  rw [← {ceiling}_eq_exact]",
+        f"  exact {compact}_error_le_ceiling",
         "",
         "end",
         "end RiemannVenue.Venue",
