@@ -50,6 +50,110 @@ structure CanonicalBumpPointCache (q : ℚ) where
   contains : ∀ k, (jet k).Contains
     (canonicalSmoothBump.iterDeriv k (q : ℝ))
 
+/-- Raw transform jets computed directly from certified point and kernel
+caches.  This avoids a second generated layer of rounded raw-jet literals. -/
+def canonicalBumpRawCacheFromCertifiedData
+    {q : ℚ} (re im : ℚ) (kernel : RationalRectangle)
+    (point : CanonicalBumpPointCache q) (k : Fin 12) : RationalRectangle :=
+  rationalTransformRawJetInterval re im k kernel fun i =>
+    point.jet ⟨i, by omega⟩
+
+theorem canonicalBumpRawCacheFromCertifiedData_contains
+    {q re im : ℚ} {kernel : RationalRectangle}
+    (point : CanonicalBumpPointCache q)
+    (hkernel : kernel.Contains
+      (Complex.exp (Complex.I *
+        ((re : ℝ) + (im : ℝ) * Complex.I) * ((q : ℝ) : ℂ))))
+    (k : Fin 12) :
+    (canonicalBumpRawCacheFromCertifiedData re im kernel point k).Contains
+      (iteratedDeriv k
+        (computedTransformRawIntegrand canonicalSmoothBump
+          ((re : ℝ) + (im : ℝ) * Complex.I)) (q : ℝ)) := by
+  exact rationalTransformRawJetInterval_contains hkernel fun i =>
+    point.contains ⟨i, by omega⟩
+
+/-- The one transcendental datum shared by every canonical-bump jet at a
+rational interior point.  Caching this value prevents each derivative order
+from reproving the same exponential enclosure. -/
+structure CanonicalBumpExpCache (q : ℚ) where
+  exponential : RationalInterval
+  contains : exponential.Contains
+    (Real.exp (-((q : ℝ) ^ 2 / (1 - (q : ℝ) ^ 2))))
+
+/-- Evaluate a canonical-bump jet using a previously certified enclosure of
+the common exponential factor.  Everything remaining is exact rational
+interval algebra. -/
+def canonicalBumpJetIntervalFromExpCache
+    (n : ℕ) (q : ℚ) (E : RationalInterval) : RationalInterval :=
+  let U := RationalInterval.singleton q
+  let Y := explicitBumpBoundaryYInterval U
+  if n ≤ 5 then
+    let polynomial := explicitBumpBoundaryJetPolynomialInterval n Y
+    let core := RationalInterval.mul polynomial E
+    if n % 2 = 0 then core else RationalInterval.mul U core
+  else
+    let polynomial := RationalInterval.sparseIntPolynomial
+      (computedTransformHighBumpBoundaryPolynomial n) Y
+    let core := RationalInterval.mul polynomial E
+    if n % 2 = 0 then core else RationalInterval.mul U core
+
+/-- Soundness of the factored point evaluator through order twelve.  The
+transcendental proof is supplied once by `CanonicalBumpExpCache`; each jet
+then follows from the already-proved boundary-polynomial formulas. -/
+theorem canonicalBumpJetIntervalFromExpCache_contains
+    {n : ℕ} {q : ℚ} {E : RationalInterval}
+    (hn : n ≤ 12) (hq : |q| < 1)
+    (hE : E.Contains
+      (Real.exp (-((q : ℝ) ^ 2 / (1 - (q : ℝ) ^ 2))))) :
+    (canonicalBumpJetIntervalFromExpCache n q E).Contains
+      (canonicalSmoothBump.iterDeriv n (q : ℝ)) := by
+  have hqR : |(q : ℝ)| < 1 := by exact_mod_cast hq
+  have hgap : (0 : ℝ) <
+      (explicitBumpGapInterval (RationalInterval.singleton q)).lower := by
+    norm_num [explicitBumpGapInterval, RationalInterval.singleton,
+      RationalInterval.pow, RationalInterval.sub, RationalInterval.add,
+      RationalInterval.mul, RationalInterval.neg, RationalInterval.one,
+      RationalInterval.lower]
+    simpa [pow_two] using ((sq_lt_one_iff_abs_lt_one (q : ℝ)).mpr hqR)
+  have hy := bumpBoundaryY_mem_explicitBumpBoundaryYInterval
+    (RationalInterval.contains_singleton q) hgap
+  rw [canonicalSmoothBump_iterDeriv_apply]
+  by_cases hn5 : n ≤ 5
+  · have hpoly := RationalInterval.contains_evalPolynomial hy
+      (explicitBumpBoundaryJetCoefficients n)
+    have hcore := RationalInterval.contains_mul hpoly hE
+    rw [canonicalBumpJetIntervalFromExpCache, if_pos hn5]
+    rw [iteratedDeriv_explicitStandardBump_eq_boundary_formula hn5 hqR]
+    simp only [explicitBumpBoundaryJetPolynomialInterval,
+      explicitBumpBoundaryJetPolynomial, explicitBumpBoundaryParityFactor,
+      if_pos]
+    split_ifs with heven
+    · simpa [heven] using hcore
+    · simpa [heven, mul_assoc] using
+        RationalInterval.contains_mul
+          (RationalInterval.contains_singleton q) hcore
+  · have hn6 : 6 ≤ n := by omega
+    have hpoly := RationalInterval.contains_sparseIntPolynomial
+      (p := computedTransformHighBumpBoundaryPolynomial n) hy
+    have hcore := RationalInterval.contains_mul hpoly hE
+    rw [canonicalBumpJetIntervalFromExpCache, if_neg hn5]
+    rw [iteratedDeriv_explicitStandardBump_eq_highBoundaryPolynomial
+      hn6 hn hqR]
+    split_ifs with heven
+    · simpa [heven] using hcore
+    · simpa [heven, mul_assoc] using
+        RationalInterval.contains_mul
+          (RationalInterval.contains_singleton q) hcore
+
+/-- Turn one certified exponential cache into the twelve-jet point cache used
+by the transform compiler. -/
+def CanonicalBumpExpCache.toPointCache {q : ℚ}
+    (C : CanonicalBumpExpCache q) (hq : |q| < 1) :
+    CanonicalBumpPointCache q where
+  jet k := canonicalBumpJetIntervalFromExpCache k q C.exponential
+  contains k := canonicalBumpJetIntervalFromExpCache_contains
+    (by omega) hq C.contains
+
 /-- Apply the exact derivative-parity sign to an interval. -/
 def canonicalBumpReflectInterval (n : ℕ) (I : RationalInterval) :
     RationalInterval :=
@@ -289,6 +393,30 @@ theorem norm_rationalTransformKernel_le_three
       _ ≤ 1 := by nlinarith [mul_le_mul himR ht (abs_nonneg t) (by norm_num : (0 : ℝ) ≤ 1)]
   simpa only [neg_mul] using
     (Real.exp_le_exp.mpr harg).trans Real.exp_one_lt_three.le
+
+/-- On the positive half-line, the correction kernel with imaginary part
+`7/8` is contractive. -/
+theorem norm_rationalTransformKernel_positiveHalf_le_one
+    {re : ℚ} {t : ℝ} (ht : 0 ≤ t) :
+    ‖Complex.exp
+        (Complex.I * ((re : ℝ) + (7 / 8 : ℝ) * Complex.I) * (t : ℂ))‖ ≤ 1 := by
+  rw [Complex.norm_exp, Complex.mul_re]
+  norm_num
+  exact ht
+
+/-- The reflected correction kernel grows by less than `11/4` on the
+positive half-line.  This remains rationally cheap while improving the
+coarse two-sided bound used by the generic compiler. -/
+theorem norm_rationalTransformKernel_negativeHalf_le_elevenFourths
+    {re : ℚ} {t : ℝ} (ht0 : 0 ≤ t) (ht1 : t ≤ 1) :
+    ‖Complex.exp
+        (Complex.I * (((-re : ℚ) : ℝ) +
+          ((-7 / 8 : ℚ) : ℝ) * Complex.I) * (t : ℂ))‖ ≤ 11 / 4 := by
+  rw [Complex.norm_exp, Complex.mul_re]
+  norm_num
+  have harg : (7 / 8 : ℝ) * t ≤ 1 := by nlinarith
+  exact (Real.exp_le_exp.mpr harg).trans
+    (Real.exp_one_lt_d9.le.trans (by norm_num))
 
 /-! ## Equal-grid Taylor cells -/
 
@@ -634,6 +762,94 @@ noncomputable def canonicalBumpTaylorCellAtCached
             (norm_rationalTransformLambda_le_104 hre him)
             (norm_rationalTransformKernel_le_three him (hwindow x hx))) } }
 
+/-- Cached Taylor cell with an explicitly certified order-twelve remainder
+bound.  This is the narrow interface used by positive-half packets, where the
+two signed kernels have different and substantially sharper norm bounds. -/
+noncomputable def canonicalBumpTaylorCellAtCachedWithRemainder
+    (re im q radius remainderBound : ℚ) (hradius : 0 ≤ radius)
+    (hremainderNonneg : 0 ≤ remainderBound)
+    (cache : Fin 12 → RationalRectangle)
+    (hcache : ∀ k : Fin 12,
+      (cache k).Contains
+        (iteratedDeriv k
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) (q : ℝ)))
+    (hremainder : ∀ x : ℝ,
+      x ∈ Set.Icc ((q : ℝ) - radius) ((q : ℝ) + radius) →
+        ‖iteratedDeriv 12
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) x‖ ≤
+          (remainderBound : ℝ)) :
+    ComplexIntegralCellCertificate
+      (computedTransformRawIntegrand canonicalSmoothBump
+        ((re : ℝ) + (im : ℝ) * Complex.I))
+      ((q : ℝ) - radius) ((q : ℝ) + radius) :=
+  ComplexIntegralCellCertificate.ofTaylor (order := 12) {
+    re := {
+      ordered := by
+        have hradiusR : (0 : ℝ) ≤ radius := by exact_mod_cast hradius
+        linarith
+      order_pos := by norm_num
+      smooth := by
+        change ContDiff ℝ 12
+          (Complex.reCLM ∘ computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I))
+        exact (Complex.reCLM.contDiff.comp
+          (canonicalBumpRawIntegrand_contDiff _)).of_le
+            (WithTop.coe_le_coe.mpr le_top)
+      jetCenter := fun k => (cache k).re.center
+      jetRadius := fun k => (cache k).re.radius
+      jetRadius_nonneg := fun k => by
+        exact_mod_cast (abs_nonneg _).trans (hcache k).1
+      jet_mem := fun k => by
+        rw [iteratedDeriv_complex_re_eq
+          (canonicalBumpRawIntegrand_contDiff _)]
+        change (cache k).re.Contains
+          (iteratedDeriv k
+            (computedTransformRawIntegrand canonicalSmoothBump
+              ((re : ℝ) + (im : ℝ) * Complex.I))
+            (taylorCellMidpoint ((q : ℝ) - radius)
+              ((q : ℝ) + radius))).re
+        convert (hcache k).1 using 1 <;> simp [taylorCellMidpoint]
+      remainderBound := remainderBound
+      remainderBound_nonneg := by exact_mod_cast hremainderNonneg
+      remainder := fun x hx => by
+        rw [iteratedDeriv_complex_re_eq
+          (canonicalBumpRawIntegrand_contDiff _)]
+        exact (Complex.abs_re_le_norm _).trans (hremainder x hx) }
+    im := {
+      ordered := by
+        have hradiusR : (0 : ℝ) ≤ radius := by exact_mod_cast hradius
+        linarith
+      order_pos := by norm_num
+      smooth := by
+        change ContDiff ℝ 12
+          (Complex.imCLM ∘ computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I))
+        exact (Complex.imCLM.contDiff.comp
+          (canonicalBumpRawIntegrand_contDiff _)).of_le
+            (WithTop.coe_le_coe.mpr le_top)
+      jetCenter := fun k => (cache k).im.center
+      jetRadius := fun k => (cache k).im.radius
+      jetRadius_nonneg := fun k => by
+        exact_mod_cast (abs_nonneg _).trans (hcache k).2
+      jet_mem := fun k => by
+        rw [iteratedDeriv_complex_im_eq
+          (canonicalBumpRawIntegrand_contDiff _)]
+        change (cache k).im.Contains
+          (iteratedDeriv k
+            (computedTransformRawIntegrand canonicalSmoothBump
+              ((re : ℝ) + (im : ℝ) * Complex.I))
+            (taylorCellMidpoint ((q : ℝ) - radius)
+              ((q : ℝ) + radius))).im
+        convert (hcache k).2 using 1 <;> simp [taylorCellMidpoint]
+      remainderBound := remainderBound
+      remainderBound_nonneg := by exact_mod_cast hremainderNonneg
+      remainder := fun x hx => by
+        rw [iteratedDeriv_complex_im_eq
+          (canonicalBumpRawIntegrand_contDiff _)]
+        exact (Complex.abs_im_le_norm _).trans (hremainder x hx) } }
+
 def canonicalBumpCachedCellCenterQ
     (cache : Fin 12 → RationalRectangle) (radius : ℚ) : RationalRectangle :=
   RationalRectangle.singleton
@@ -652,6 +868,85 @@ def canonicalBumpCachedCellErrorQ
       (if hk : k < 12 then (cache ⟨k, hk⟩).im.radius else 0) *
         radius ^ k / k.factorial) +
       canonicalBumpOrder12GlobalRawJetBound * radius ^ 12 / Nat.factorial 12)
+
+/-- Error expression for a rounded cache with an explicit order-twelve
+remainder bound. -/
+def canonicalBumpCachedCellErrorWithRemainderQ
+    (cache : Fin 12 → RationalRectangle) (radius remainderBound : ℚ) : ℚ :=
+  2 * radius *
+    ((∑ k ∈ Finset.range 12,
+      (if hk : k < 12 then (cache ⟨k, hk⟩).re.radius else 0) *
+        radius ^ k / k.factorial) +
+      remainderBound * radius ^ 12 / Nat.factorial 12) +
+  2 * radius *
+    ((∑ k ∈ Finset.range 12,
+      (if hk : k < 12 then (cache ⟨k, hk⟩).im.radius else 0) *
+        radius ^ k / k.factorial) +
+      remainderBound * radius ^ 12 / Nat.factorial 12)
+
+theorem canonicalBumpTaylorCellAtCachedWithRemainder_center
+    (re im q radius remainderBound : ℚ) (hradius : 0 ≤ radius)
+    (hremainderNonneg : 0 ≤ remainderBound)
+    (cache : Fin 12 → RationalRectangle)
+    (hcache : ∀ k : Fin 12,
+      (cache k).Contains
+        (iteratedDeriv k
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) (q : ℝ)))
+    (hremainder : ∀ x : ℝ,
+      x ∈ Set.Icc ((q : ℝ) - radius) ((q : ℝ) + radius) →
+        ‖iteratedDeriv 12
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) x‖ ≤
+          (remainderBound : ℝ)) :
+    (canonicalBumpTaylorCellAtCachedWithRemainder re im q radius
+      remainderBound hradius hremainderNonneg cache hcache hremainder).center =
+      ((canonicalBumpCachedCellCenterQ cache radius).re.center : ℝ) +
+        ((canonicalBumpCachedCellCenterQ cache radius).im.center : ℝ) * Complex.I := by
+  unfold canonicalBumpTaylorCellAtCachedWithRemainder
+  simp only [ComplexIntegralCellCertificate.ofTaylor,
+    ComplexTaylorCellCertificate.center, RealTaylorCellCertificate.moment,
+    symmetricTaylorMoment, canonicalBumpCachedCellCenterQ,
+    computedTransformCachedTaylorMomentAtRadiusQ,
+    RationalRectangle.singleton, RationalInterval.singleton]
+  have hr : taylorCellHalfWidth ((q : ℝ) - radius)
+      ((q : ℝ) + radius) = radius := by
+    unfold taylorCellHalfWidth
+    ring
+  rw [hr]
+  push_cast
+  congr 1
+
+theorem canonicalBumpTaylorCellAtCachedWithRemainder_error
+    (re im q radius remainderBound : ℚ) (hradius : 0 ≤ radius)
+    (hremainderNonneg : 0 ≤ remainderBound)
+    (cache : Fin 12 → RationalRectangle)
+    (hcache : ∀ k : Fin 12,
+      (cache k).Contains
+        (iteratedDeriv k
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) (q : ℝ)))
+    (hremainder : ∀ x : ℝ,
+      x ∈ Set.Icc ((q : ℝ) - radius) ((q : ℝ) + radius) →
+        ‖iteratedDeriv 12
+          (computedTransformRawIntegrand canonicalSmoothBump
+            ((re : ℝ) + (im : ℝ) * Complex.I)) x‖ ≤
+          (remainderBound : ℝ)) :
+    (canonicalBumpTaylorCellAtCachedWithRemainder re im q radius
+      remainderBound hradius hremainderNonneg cache hcache hremainder).error =
+      (canonicalBumpCachedCellErrorWithRemainderQ cache radius
+        remainderBound : ℝ) := by
+  unfold canonicalBumpTaylorCellAtCachedWithRemainder
+  simp only [ComplexIntegralCellCertificate.ofTaylor,
+    ComplexTaylorCellCertificate.error, RealTaylorCellCertificate.error,
+    symmetricTaylorError, canonicalBumpCachedCellErrorWithRemainderQ]
+  have hr : taylorCellHalfWidth ((q : ℝ) - radius)
+      ((q : ℝ) + radius) = radius := by
+    unfold taylorCellHalfWidth
+    ring
+  rw [hr]
+  push_cast
+  congr 1
 
 theorem canonicalBumpTaylorCellAtCached_center
     (re im q radius : ℚ) (hradius : 0 ≤ radius)

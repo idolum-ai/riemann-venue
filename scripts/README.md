@@ -68,6 +68,15 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   support-interior entries against the rational interval evaluator, while the
   final three entries are discharged by the analytic flat-edge bound.
 
+- `generate_canonical_bump_transform_packets.py` emits the 64-point shared
+  bump caches, eight forward/reflected kernel recurrences, and four paired
+  transform packets used by the correction matrix. Each packet is split into
+  sixteen independently kernel-checked four-cell blocks so CI can compile the
+  exact rational arithmetic in parallel. The resulting Lean theorem, rather
+  than Python's mirrored arithmetic, certifies the nonzero determinant and
+  exact benchmark transform equation. CI runs the generator in `--check`
+  mode to reject source drift.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.
