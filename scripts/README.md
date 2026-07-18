@@ -97,7 +97,12 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   caches before compiling one radius-`3/448` Taylor cell. Its `--check` mode is
   the drift gate for the complete generated graph. This is the scale-out
   prototype for translated merged-cache covers; it is not yet the full
-  41-cell middle cover.
+  41-cell middle cover. Direct whole-shard and local-kernel hybrid probes lose
+  eight to nine orders of magnitude of cancellation, so the midpoint literal
+  boundary is required. For scale-out, the checked production shape bundles
+  all twelve group orders, all twelve two-block bump orders, and all twelve
+  dependent base orders into three modules per selected midpoint; paired
+  rectangles remain derived at the cover layer.
 
 - `generate_computed_phased_base_lower_three_compact_shards.py` recursively
   translates the same 139-shard mesh onto `[3, 1563/448]`. Its first two
