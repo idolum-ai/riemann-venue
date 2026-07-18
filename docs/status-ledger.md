@@ -868,6 +868,44 @@ repository status. The compact proof/open-contract API map is
   - **Status:** notes (interpretive + survey, claim-labeled)
   - **Artifact:** `notes/frustration-and-gauge.md`, `notes/unfrustrated-cancellation-survey.md`
 
+- **Claim:** **Complex completed autocorrelation and finite spectral compiler**:
+  `Z(h star h,z) = 2π A_h(z)A_h(-z)` on the smooth compact core; a realizable
+  target margin beating finite competitors forces a negative finite spectral
+  window; absolutely summable powered tails satisfy the uniform
+  `q^(n-1)` majorant
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryComplexAutocorrelation.lean`,
+    `BoundarySpectralOrbit.lean`, `BoundarySpectralAmplification.lean`
+
+- **Claim:** **Law-bearing completed arithmetic boundary**: the compact carrier
+  satisfies the finite response-limit, Gamma-flux, pole-trace, and completed
+  place-assembly laws without zero-side input
+
+  - **Status:** proved in Lean
+  - **Artifact:** `RiemannVenue/Venue/BoundaryCompletedTypeLaws.lean`
+
+- **Claim:** Every finite symmetry-compatible Fourier--Laplace prescription is
+  realized by a smooth compact real test
+
+  - **Status:** proved in Lean by scaled-seed nonvanishing, explicit
+    exponential-node separation, and a translated-bump Vandermonde solve
+  - **Artifact:** `RiemannVenue/Venue/BoundaryFiniteInterpolationCompiler.lean`
+    (`smoothFiniteTransformInterpolation_holds`), with construction lemmas in
+    `BoundaryScaledBumpNonvanishing.lean`,
+    `BoundaryTranslatedBumpInterpolation.lean`, and
+    `BoundaryTranslationStepAvoidance.lean`
+
+- **Claim:** Negative-real strict global separators compile through normalized
+  convolution powers and the completed explicit formula to spectral detection
+  and the open-strip positivity equivalence
+
+  - **Status:** proved conditionally on
+    `CompletedOffRealZeroHasNegativeRealStrictSeparator`; construction of that
+    separator for every off-real zero remains open
+  - **Artifact:** `RiemannVenue/Venue/BoundarySpectralGlobalGap.lean`,
+    `BoundaryConvolutionPowers.lean`, `BoundaryNegativeTestCompiler.lean`
+
 - **Claim:** This repository proves RH
 
   - **Status:** explicitly not claimed

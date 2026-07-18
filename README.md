@@ -120,6 +120,9 @@ Gram positivity              normalizedGcdKernel_posSemidef, kappa_posSemidef
 Every arrow through boundary-value identification is machine-checked. The
 critical-line-to-positivity direction is also proved; the converse
 positivity-to-real-spectrum implication is the remaining RH-strength gate.
+The current draft branch reduces that gate to explicit finite-window tail
+payments for translated and polynomial-corrected smooth tests; those payments
+remain open and are not consequences of zero counting alone.
 It yields the indexed open-strip critical-line statement; a separate
 zero-classification bridge to Mathlib's full `RiemannHypothesis` remains.
 The [boundary proof surface](docs/boundary-proof-surface.md) separates stable
@@ -153,9 +156,11 @@ Precisely stated, numerically instrumented, and (to our knowledge) new:
    Its finite windows converge uniformly to a continuous even function that
    vanishes at zero. The resulting bounded multiplier now acts continuously
    on a named frequency-side `L1` test space, with finite windows converging
-   in dual operator norm. The off-axis Fourier--Laplace/Paley--Wiener
-   separation problem and completion of the stronger semantic boundary type
-   remain open; the smooth-core completed Weil identity is proved below, but
+   in dual operator norm. Finite symmetry-compatible off-axis
+   Fourier--Laplace interpolation is now proved inside the smooth compact real
+   core. The strict global gap against every non-target zeta zero and
+   completion of the stronger semantic boundary type remain open; the
+   smooth-core completed Weil identity is proved below, but
    none of these finite-part results is Weil positivity. A common
    finite-window scale family now derives both this
    Hellinger value and the logarithmic prime-power flux, with an exact

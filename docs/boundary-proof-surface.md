@@ -83,12 +83,38 @@ broad Mathlib declarations throughout the environment.
   direction and remains open.
 - `CompletedOpenStripRH` has not been proved equivalent here to Mathlib's full
   `RiemannHypothesis`; the zero-classification bridge is separate.
-- `CompletedArithmeticBoundaryPackage` is a typed data package, not a semantic
-  boundary type enforcing derivative compatibility, positivity, or no-leak
-  laws.
-- Complex autocorrelation factorization, completed-zero orbit separation,
-  Paley-Wiener realizability, and uniform amplification belong to the next
-  project described in `notes/completed-weil-criterion-project.md`.
+- `CompletedArithmeticBoundaryPackage` remains the compact carrier;
+  `LawfulCompletedArithmeticBoundary` now supplies its proved place-side
+  semantic laws without asserting positivity.
+- Finite realizable Paley-Wiener interpolation is proved. The strict global
+  non-target coefficient gap needed to turn it into completed-zero spectral
+  detection remains open in the active project described in
+  `notes/completed-weil-criterion-project.md`.
+
+## Positivity Project Draft
+
+The follow-on draft proves the complex autocorrelation normalization
+
+```text
+Z(h star h, z) = 2*pi*A_h(z)*A_h(-z),
+```
+
+including real-test reflection and recovery of the real Wiener--Khinchin
+square law. It also proves a quantitative finite-window separator compiler
+and the geometric infinite-tail majorant
+
+```text
+sum_tail |g(rho)|^n <= q^(n-1) * sum_tail |g(rho)|.
+```
+
+The realizable Paley--Wiener interpolation theorem is now proved: positive
+dilation avoids a prescribed finite zero set, a small explicit translation
+step separates the exponential nodes, and a Vandermonde solve returns real
+coefficients by reflection uniqueness. Normalized convolution powers and the
+complete powered-tail compiler are also proved. Spectral detection is proved
+conditionally on one remaining construction target: every off-real zero must
+admit a smooth strict global separator whose complete target coefficients are
+the same negative real value. That separator existence is not claimed.
 
 ## Compatibility note
 
