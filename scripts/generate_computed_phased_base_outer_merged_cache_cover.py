@@ -105,6 +105,8 @@ def render_cover() -> str:
     integral_names: list[str] = []
     center_names: list[str] = []
     error_names: list[str] = []
+    lower_bounds: list[str] = []
+    upper_bounds: list[str] = []
     for group in groups:
         index = int(group["global_index"])
         cell = int(group["source_cell"])
@@ -119,6 +121,8 @@ def render_cover() -> str:
         integral_names.append(f"{prefix}IntegralCell")
         center_names.append(f"{prefix}TaylorCenterQ")
         error_names.append(f"{prefix}TaylorErrorQ")
+        lower_bounds.append(lean_q(lower))
+        upper_bounds.append(lean_q(upper))
         lines.extend(
             [
                 f"def {prefix}Interval : RationalInterval :=",
@@ -167,11 +171,87 @@ def render_cover() -> str:
                 f"    (by norm_num [{prefix}Interval, outerMergedIntegrand])",
                 f"    (by norm_num [{prefix}Interval, outerMergedIntegrand])",
                 "",
+                f"theorem {prefix}IntegralCell_center_eq :",
+                f"    {prefix}IntegralCell.center =",
+                f"      rationalPairToComplex {prefix}TaylorCenterQ := by",
+                f"  simp [{prefix}IntegralCell, {prefix}TaylorCell,",
+                f"    {prefix}TaylorCenterQ, rationalPairToComplex,",
+                "    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,",
+                "    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]",
+                "",
+                f"theorem {prefix}IntegralCell_error_eq :",
+                f"    {prefix}IntegralCell.error =",
+                f"      ({prefix}TaylorErrorQ : ℝ) := by",
+                f"  simp [{prefix}IntegralCell, {prefix}TaylorCell,",
+                f"    {prefix}TaylorErrorQ,",
+                "    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,",
+                "    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]",
+                "",
             ]
         )
 
     center_vector = ",\n".join(f"  {name}" for name in center_names)
     error_vector = ",\n".join(f"  {name}" for name in error_names)
+
+    def left_sum(names: list[str]) -> str:
+        result = names[0]
+        for name in names[1:]:
+            result = f"({result} + {name})"
+        return result
+
+    chunks = [list(range(start, min(start + 5, len(groups))))
+              for start in range(0, len(groups), 5)]
+    chunk_certificate_names: list[str] = []
+    chunk_center_names: list[str] = []
+    chunk_error_names: list[str] = []
+    for chunk_index, indices in enumerate(chunks):
+        chunk_prefix = f"computedPhasedBaseOuterMergedChunk{chunk_index}"
+        chunk_certificate = f"{chunk_prefix}Certificate"
+        chunk_center = f"{chunk_prefix}CenterQ"
+        chunk_error = f"{chunk_prefix}ErrorQ"
+        chunk_certificate_names.append(chunk_certificate)
+        chunk_center_names.append(chunk_center)
+        chunk_error_names.append(chunk_error)
+
+        chunk_appended = integral_names[indices[0]]
+        for index in indices[1:]:
+            chunk_appended = (
+                f"({chunk_appended}.append\n      {integral_names[index]}\n"
+                "      (outerMergedIntegrand_intervalIntegrable _ _)\n"
+                "      (outerMergedIntegrand_intervalIntegrable _ _))"
+            )
+        lines.extend(
+            [
+                f"def {chunk_center} : ℚ × ℚ :=",
+                f"  {left_sum([center_names[index] for index in indices])}",
+                "",
+                f"def {chunk_error} : ℚ :=",
+                f"  {left_sum([error_names[index] for index in indices])}",
+                "",
+                f"noncomputable def {chunk_certificate} :",
+                "    ComplexIntegralCellCertificate outerMergedIntegrand",
+                f"      (({lower_bounds[indices[0]]} : ℚ) : ℝ)",
+                f"      (({upper_bounds[indices[-1]]} : ℚ) : ℝ) :=",
+                f"  {chunk_appended}",
+                "",
+                f"theorem {chunk_certificate}_center_eq :",
+                f"    {chunk_certificate}.center =",
+                f"      rationalPairToComplex {chunk_center} := by",
+                f"  simp only [{chunk_certificate},",
+                "    ComplexIntegralCellCertificate.append_center]",
+                *[f"  rw [{integral_names[index]}_center_eq]" for index in indices],
+                f"  simp only [{chunk_center}, rationalPairToComplex_add]",
+                "",
+                f"theorem {chunk_certificate}_error_eq :",
+                f"    {chunk_certificate}.error = ({chunk_error} : ℝ) := by",
+                f"  simp only [{chunk_certificate},",
+                "    ComplexIntegralCellCertificate.append_error]",
+                *[f"  rw [{integral_names[index]}_error_eq]" for index in indices],
+                f"  simp only [{chunk_error}, Rat.cast_add]",
+                "",
+            ]
+        )
+
     lines.extend(
         [
             "def computedPhasedBaseOuterMergedTaylorCenterQ",
@@ -185,17 +265,16 @@ def render_cover() -> str:
             "] i",
             "",
             "def computedPhasedBaseOuterMergedCompactCenterQ : ℚ × ℚ :=",
-            "  (∑ i, (computedPhasedBaseOuterMergedTaylorCenterQ i).1,",
-            "    ∑ i, (computedPhasedBaseOuterMergedTaylorCenterQ i).2)",
+            f"  {left_sum(chunk_center_names)}",
             "",
             "def computedPhasedBaseOuterMergedCompactErrorQ : ℚ :=",
-            "  ∑ i, computedPhasedBaseOuterMergedTaylorErrorQ i",
+            f"  {left_sum(chunk_error_names)}",
             "",
         ]
     )
 
-    appended = integral_names[0]
-    for name in integral_names[1:]:
+    appended = chunk_certificate_names[0]
+    for name in chunk_certificate_names[1:]:
         appended = (
             f"({appended}.append\n      {name}\n"
             "      (outerMergedIntegrand_intervalIntegrable _ _)\n"
@@ -208,6 +287,23 @@ def render_cover() -> str:
             "    ComplexIntegralCellCertificate outerMergedIntegrand",
             "      (4 : ℝ) (((2011 / 448 : ℚ) : ℝ)) :=",
             f"  {appended}",
+            "",
+            "theorem computedPhasedBaseOuterMergedCompactCertificate_center_eq :",
+            "    computedPhasedBaseOuterMergedCompactCertificate.center =",
+            "      rationalPairToComplex computedPhasedBaseOuterMergedCompactCenterQ := by",
+            "  simp only [computedPhasedBaseOuterMergedCompactCertificate,",
+            "    ComplexIntegralCellCertificate.append_center]",
+            *[f"  rw [{name}_center_eq]" for name in chunk_certificate_names],
+            "  simp only [computedPhasedBaseOuterMergedCompactCenterQ,",
+            "    rationalPairToComplex_add]",
+            "",
+            "theorem computedPhasedBaseOuterMergedCompactCertificate_error_eq :",
+            "    computedPhasedBaseOuterMergedCompactCertificate.error =",
+            "      (computedPhasedBaseOuterMergedCompactErrorQ : ℝ) := by",
+            "  simp only [computedPhasedBaseOuterMergedCompactCertificate,",
+            "    ComplexIntegralCellCertificate.append_error]",
+            *[f"  rw [{name}_error_eq]" for name in chunk_certificate_names],
+            "  simp only [computedPhasedBaseOuterMergedCompactErrorQ, Rat.cast_add]",
             "",
             "theorem computedPhasedBaseOuterMergedCompactIntegral_mem :",
             "    ‖(∫ x in (4 : ℝ)..(((2011 / 448 : ℚ) : ℝ)),",

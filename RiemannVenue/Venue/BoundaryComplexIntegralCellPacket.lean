@@ -12,6 +12,17 @@ namespace RiemannVenue.Venue
 
 noncomputable section
 
+/-- Interpret exact rational Cartesian coordinates as a complex number. -/
+def rationalPairToComplex (q : ℚ × ℚ) : ℂ :=
+  (q.1 : ℝ) + (q.2 : ℝ) * Complex.I
+
+theorem rationalPairToComplex_add (a b : ℚ × ℚ) :
+    rationalPairToComplex (a + b) =
+      rationalPairToComplex a + rationalPairToComplex b := by
+  simp only [rationalPairToComplex, Prod.fst_add, Prod.snd_add, Rat.cast_add]
+  push_cast
+  ring
+
 namespace ComplexIntegralCellCertificate
 
 variable {f : ℝ → ℂ} {a b c : ℝ}

@@ -1,4 +1,6 @@
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseActiveBlockCompiler
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactVariationCore
+import RiemannVenue.Venue.BoundaryComplexIntegralCellPacket
 
 /-!
 # Generic compact active-block Taylor compiler
@@ -75,6 +77,97 @@ noncomputable def computedPhasedBaseActiveBlockShardTaylorCell
         · simpa only [RationalInterval.upper, Rat.cast_add] using hx.2
       exact norm_computedPhasedBaseActiveBlockPairedRawJet_le_cellBound
         L (⟨12, by omega⟩ : Fin 15) hxI (hvalid x hxI))
+
+def computedPhasedBaseActiveBlockShardTaylorCenterQ
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (P : ComputedPhasedBaseActiveBlockVariationData C
+      (RationalInterval.singleton I.center)) : ℚ × ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorCenterQ
+    (computedPhasedBaseActiveBlockShardTaylorCache P) I.radius
+
+def computedPhasedBaseActiveBlockShardTaylorErrorQ
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (P : ComputedPhasedBaseActiveBlockVariationData C
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseActiveBlockVariationData C I) : ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorErrorQ
+    (computedPhasedBaseActiveBlockShardTaylorCache P)
+    (computedPhasedBaseActiveBlockShardRemainderBound L) I.radius
+
+theorem computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+    {m : ℕ} (C : ComputedPhasedBaseActiveBlockModel m)
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (hvalid : ∀ x : ℝ, I.Contains x → C.valid x)
+    (P : ComputedPhasedBaseActiveBlockVariationLeaves C
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseActiveBlockVariationLeaves C I) :
+    (computedPhasedBaseActiveBlockShardTaylorCell C I hradius hvalid P L).center =
+      rationalPairToComplex
+        (computedPhasedBaseActiveBlockShardTaylorCenterQ
+          P.toComputedPhasedBaseActiveBlockVariationData) := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  calc
+    _ = computedPhasedBaseOuterCachedShardTaylorCenter
+        (computedPhasedBaseActiveBlockShardTaylorCache
+          P.toComputedPhasedBaseActiveBlockVariationData) I.radius := by
+      simp only [computedPhasedBaseActiveBlockShardTaylorCell,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+        ComplexIntegralCellCertificate.ofTaylor,
+        ComplexTaylorCellCertificate.center,
+        RealTaylorCellCertificate.moment,
+        computedPhasedBaseOuterCachedShardTaylorCenter,
+        hwidth]
+    _ = _ := by
+      simpa only [computedPhasedBaseActiveBlockShardTaylorCenterQ,
+        rationalPairToComplex] using
+        computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast
+          (computedPhasedBaseActiveBlockShardTaylorCache
+            P.toComputedPhasedBaseActiveBlockVariationData) I.radius
+
+theorem computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+    {m : ℕ} (C : ComputedPhasedBaseActiveBlockModel m)
+    (I : RationalInterval) (hradius : 0 ≤ I.radius)
+    (hvalid : ∀ x : ℝ, I.Contains x → C.valid x)
+    (P : ComputedPhasedBaseActiveBlockVariationLeaves C
+      (RationalInterval.singleton I.center))
+    (L : ComputedPhasedBaseActiveBlockVariationLeaves C I) :
+    (computedPhasedBaseActiveBlockShardTaylorCell C I hradius hvalid P L).error =
+      (computedPhasedBaseActiveBlockShardTaylorErrorQ
+        P.toComputedPhasedBaseActiveBlockVariationData
+        L.toComputedPhasedBaseActiveBlockVariationData : ℝ) := by
+  have hwidth : taylorCellHalfWidth
+      ((I.center : ℝ) - (I.radius : ℝ))
+      ((I.center : ℝ) + (I.radius : ℝ)) = (I.radius : ℝ) := by
+    simp only [taylorCellHalfWidth]
+    ring
+  calc
+    _ = computedPhasedBaseOuterCachedShardTaylorError
+        (computedPhasedBaseActiveBlockShardTaylorCache
+          P.toComputedPhasedBaseActiveBlockVariationData)
+        (computedPhasedBaseActiveBlockShardRemainderBound
+          L.toComputedPhasedBaseActiveBlockVariationData) I.radius := by
+      simp only [computedPhasedBaseActiveBlockShardTaylorCell,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainder,
+        ComplexIntegralCellCertificate.ofCachedTaylorWithRemainderOfOrder,
+        ComplexIntegralCellCertificate.ofTaylor,
+        ComplexTaylorCellCertificate.error,
+        RealTaylorCellCertificate.error,
+        computedPhasedBaseOuterCachedShardTaylorError,
+        hwidth]
+    _ = _ := by
+      simpa only [computedPhasedBaseActiveBlockShardTaylorErrorQ] using
+        computedPhasedBaseOuterCachedShardTaylorError_eq_cast
+          (computedPhasedBaseActiveBlockShardTaylorCache
+            P.toComputedPhasedBaseActiveBlockVariationData)
+          (computedPhasedBaseActiveBlockShardRemainderBound
+            L.toComputedPhasedBaseActiveBlockVariationData) I.radius
 
 end
 

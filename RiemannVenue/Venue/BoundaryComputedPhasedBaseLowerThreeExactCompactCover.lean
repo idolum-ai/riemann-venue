@@ -1,0 +1,7450 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell0Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell1Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell2Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell3Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell4Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard16
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard17
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard18
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard19
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard20
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard21
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard22
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard23
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard24
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard25
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard26
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard27
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard28
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard29
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard30
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell5Shard31
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard11
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard12
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard13
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard14
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard15
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard16
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard17
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard18
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard19
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard20
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard21
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard22
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard23
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard24
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard25
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeCompactCell6Shard26
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeTailTaylor
+import RiemannVenue.Venue.BoundaryComplexIntegralCellPacket
+
+/-! # Exact arithmetic cover for LowerThree
+
+Generated from the existing analytic shard certificates. The cover
+adds no analytic assumptions: it only exposes exact rational centers
+and errors and composes them through bounded-size chunks.
+-/
+
+namespace RiemannVenue.Venue
+noncomputable section
+
+private theorem computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable (a b : ℝ) :
+    IntervalIntegrable (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint) MeasureTheory.volume a b :=
+  (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _
+
+noncomputable def computedPhasedBaseLowerThreeExactCell0CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell0ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell0CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell0CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell0ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell0ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell0Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((3 : ℚ) : ℝ) (((673 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell0Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell0Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell0CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell0Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell0Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell0Certificate.error = (computedPhasedBaseLowerThreeExactCell0ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell0Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell1CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell1ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell1CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell1CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell1ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell1ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell1Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((673 / 224 : ℚ) : ℚ) : ℝ) (((337 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell1Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell1Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell1CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell1Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell1Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell1Certificate.error = (computedPhasedBaseLowerThreeExactCell1ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell1Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell2CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell2ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell2CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell2CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell2ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell2ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell2Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((337 / 112 : ℚ) : ℚ) : ℝ) (((675 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell2Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell2Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell2CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell2Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell2Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell2Certificate.error = (computedPhasedBaseLowerThreeExactCell2ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell2Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell3CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell3ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell3CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell3CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell3ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell3ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell3Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((675 / 224 : ℚ) : ℚ) : ℝ) (((169 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell3Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell3Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell3CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell3Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell3Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell3Certificate.error = (computedPhasedBaseLowerThreeExactCell3ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell3Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell4CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell4ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell4CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell4CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell4ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell4ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell4Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((169 / 56 : ℚ) : ℚ) : ℝ) (((677 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell4Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell4Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell4CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell4Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell4Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell4Certificate.error = (computedPhasedBaseLowerThreeExactCell4ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell4Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell5CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell5ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell5CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell5CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell5ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell5ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell5Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((677 / 224 : ℚ) : ℚ) : ℝ) (((339 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell5Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell5Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell5CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell5Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell5Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell5Certificate.error = (computedPhasedBaseLowerThreeExactCell5ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell5Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell6CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell6ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell6CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell6CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell6ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell6ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell6Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((339 / 112 : ℚ) : ℚ) : ℝ) (((97 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell6Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell6Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell6CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell6Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell6Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell6Certificate.error = (computedPhasedBaseLowerThreeExactCell6ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell6Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell7CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell7ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell7CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell7CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell7ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell7ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell7Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((97 / 32 : ℚ) : ℚ) : ℝ) (((85 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell7Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell7Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell7CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell7Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell7Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell7Certificate.error = (computedPhasedBaseLowerThreeExactCell7ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell7Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell8CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell8ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell8CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell8CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell8ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell8ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell8Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((85 / 28 : ℚ) : ℚ) : ℝ) (((681 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell8Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell8Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell8CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell8Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell8Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell8Certificate.error = (computedPhasedBaseLowerThreeExactCell8ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell8Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell9CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell9ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell9CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell9CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell9ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell9ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell9Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((681 / 224 : ℚ) : ℚ) : ℝ) (((341 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell9Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell9Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell9CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell9Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell9Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell9Certificate.error = (computedPhasedBaseLowerThreeExactCell9ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell9Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell10CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell10ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell10CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell10CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell10ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell10ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell10Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((341 / 112 : ℚ) : ℚ) : ℝ) (((683 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell10Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell10Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell10CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell10Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell10Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell10Certificate.error = (computedPhasedBaseLowerThreeExactCell10ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell10Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell11CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell11ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell11CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell11CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell11ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell11ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell11Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((683 / 224 : ℚ) : ℚ) : ℝ) (((171 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell11Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell11Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell11CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell11Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell11Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell11Certificate.error = (computedPhasedBaseLowerThreeExactCell11ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell11Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell12CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell12ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell12CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell12CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell12ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell12ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell12Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((171 / 56 : ℚ) : ℚ) : ℝ) (((685 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell12Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell12Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell12CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell12Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell12Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell12Certificate.error = (computedPhasedBaseLowerThreeExactCell12ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell12Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell13CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell13ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell13CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell13CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell13ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell13ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell13Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((685 / 224 : ℚ) : ℚ) : ℝ) (((49 / 16 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell13Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell13Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell13CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell13Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell13Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell13Certificate.error = (computedPhasedBaseLowerThreeExactCell13ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell13Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell14CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell14ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell14CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell14CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell14ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell14ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell14Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((49 / 16 : ℚ) : ℚ) : ℝ) (((687 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell14Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell14Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell14CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell14Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell14Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell14Certificate.error = (computedPhasedBaseLowerThreeExactCell14ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell14Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell15CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell15ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell0Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell15CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell15CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell15ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell15ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell0Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell0Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell0Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell15Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((687 / 224 : ℚ) : ℚ) : ℝ) (((43 / 14 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell0Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell15Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell15Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell15CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell15Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell15Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell15Certificate.error = (computedPhasedBaseLowerThreeExactCell15ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell15Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell0Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell16CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell16ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell16CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell16CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell16ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell16ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell16Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((43 / 14 : ℚ) : ℚ) : ℝ) (((689 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell16Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell16Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell16CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell16Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell16Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell16Certificate.error = (computedPhasedBaseLowerThreeExactCell16ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell16Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell17CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell17ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell17CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell17CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell17ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell17ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell17Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((689 / 224 : ℚ) : ℚ) : ℝ) (((345 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell17Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell17Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell17CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell17Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell17Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell17Certificate.error = (computedPhasedBaseLowerThreeExactCell17ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell17Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell18CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell18ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell18CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell18CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell18ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell18ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell18Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((345 / 112 : ℚ) : ℚ) : ℝ) (((691 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell18Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell18Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell18CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell18Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell18Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell18Certificate.error = (computedPhasedBaseLowerThreeExactCell18ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell18Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell19CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell19ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell19CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell19CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell19ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell19ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell19Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((691 / 224 : ℚ) : ℚ) : ℝ) (((173 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell19Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell19Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell19CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell19Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell19Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell19Certificate.error = (computedPhasedBaseLowerThreeExactCell19ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell19Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell20CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell20ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell20CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell20CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell20ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell20ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell20Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((173 / 56 : ℚ) : ℚ) : ℝ) (((99 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell20Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell20Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell20CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell20Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell20Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell20Certificate.error = (computedPhasedBaseLowerThreeExactCell20ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell20Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell21CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell21ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell21CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell21CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell21ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell21ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell21Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((99 / 32 : ℚ) : ℚ) : ℝ) (((347 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell21Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell21Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell21CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell21Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell21Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell21Certificate.error = (computedPhasedBaseLowerThreeExactCell21ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell21Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell22CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell22ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell22CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell22CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell22ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell22ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell22Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((347 / 112 : ℚ) : ℚ) : ℝ) (((695 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell22Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell22Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell22CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell22Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell22Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell22Certificate.error = (computedPhasedBaseLowerThreeExactCell22ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell22Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell23CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell23ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell23CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell23CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell23ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell23ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell23Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((695 / 224 : ℚ) : ℚ) : ℝ) (((87 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell23Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell23Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell23CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell23Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell23Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell23Certificate.error = (computedPhasedBaseLowerThreeExactCell23ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell23Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell24CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell24ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell24CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell24CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell24ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell24ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell24Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((87 / 28 : ℚ) : ℚ) : ℝ) (((697 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell24Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell24Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell24CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell24Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell24Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell24Certificate.error = (computedPhasedBaseLowerThreeExactCell24ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell24Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell25CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell25ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell25CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell25CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell25ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell25ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell25Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((697 / 224 : ℚ) : ℚ) : ℝ) (((349 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell25Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell25Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell25CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell25Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell25Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell25Certificate.error = (computedPhasedBaseLowerThreeExactCell25ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell25Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell26CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell26ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell26CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell26CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell26ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell26ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell26Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((349 / 112 : ℚ) : ℚ) : ℝ) (((699 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell26Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell26Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell26CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell26Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell26Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell26Certificate.error = (computedPhasedBaseLowerThreeExactCell26ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell26Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell27CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell27ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell27CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell27CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell27ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell27ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell27Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((699 / 224 : ℚ) : ℚ) : ℝ) (((25 / 8 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell27Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell27Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell27CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell27Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell27Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell27Certificate.error = (computedPhasedBaseLowerThreeExactCell27ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell27Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell28CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell28ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell28CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell28CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell28ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell28ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell28Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((25 / 8 : ℚ) : ℚ) : ℝ) (((701 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell28Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell28Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell28CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell28Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell28Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell28Certificate.error = (computedPhasedBaseLowerThreeExactCell28ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell28Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell29CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell29ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell29CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell29CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell29ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell29ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell29Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((701 / 224 : ℚ) : ℚ) : ℝ) (((351 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell29Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell29Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell29CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell29Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell29Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell29Certificate.error = (computedPhasedBaseLowerThreeExactCell29ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell29Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell30CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell30ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell30CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell30CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell30ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell30ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell30Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((351 / 112 : ℚ) : ℚ) : ℝ) (((703 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell30Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell30Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell30CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell30Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell30Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell30Certificate.error = (computedPhasedBaseLowerThreeExactCell30ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell30Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell31CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell31ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell1Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell31CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell31CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell31ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell31ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell1Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell1Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell1Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell31Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((703 / 224 : ℚ) : ℚ) : ℝ) (((22 / 7 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell1Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell31Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell31Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell31CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell31Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell31Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell31Certificate.error = (computedPhasedBaseLowerThreeExactCell31ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell31Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell1Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell32CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell32ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell32CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell32CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell32ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell32ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell32Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((22 / 7 : ℚ) : ℚ) : ℝ) (((705 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell32Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell32Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell32CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell32Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell32Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell32Certificate.error = (computedPhasedBaseLowerThreeExactCell32ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell32Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell33CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell33ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell33CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell33CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell33ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell33ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell33Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((705 / 224 : ℚ) : ℚ) : ℝ) (((353 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell33Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell33Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell33CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell33Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell33Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell33Certificate.error = (computedPhasedBaseLowerThreeExactCell33ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell33Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell34CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell34ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell34CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell34CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell34ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell34ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell34Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((353 / 112 : ℚ) : ℚ) : ℝ) (((101 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell34Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell34Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell34CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell34Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell34Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell34Certificate.error = (computedPhasedBaseLowerThreeExactCell34ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell34Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell35CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell35ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell35CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell35CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell35ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell35ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell35Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((101 / 32 : ℚ) : ℚ) : ℝ) (((177 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell35Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell35Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell35CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell35Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell35Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell35Certificate.error = (computedPhasedBaseLowerThreeExactCell35ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell35Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell36CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell36ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell36CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell36CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell36ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell36ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell36Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((177 / 56 : ℚ) : ℚ) : ℝ) (((709 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell36Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell36Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell36CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell36Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell36Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell36Certificate.error = (computedPhasedBaseLowerThreeExactCell36ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell36Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell37CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell37ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell37CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell37CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell37ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell37ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell37Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((709 / 224 : ℚ) : ℚ) : ℝ) (((355 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell37Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell37Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell37CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell37Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell37Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell37Certificate.error = (computedPhasedBaseLowerThreeExactCell37ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell37Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell38CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell38ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell38CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell38CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell38ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell38ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell38Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((355 / 112 : ℚ) : ℚ) : ℝ) (((711 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell38Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell38Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell38CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell38Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell38Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell38Certificate.error = (computedPhasedBaseLowerThreeExactCell38ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell38Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell39CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell39ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell39CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell39CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell39ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell39ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell39Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((711 / 224 : ℚ) : ℚ) : ℝ) (((89 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell39Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell39Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell39CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell39Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell39Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell39Certificate.error = (computedPhasedBaseLowerThreeExactCell39ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell39Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell40CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell40ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell40CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell40CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell40ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell40ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell40Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((89 / 28 : ℚ) : ℚ) : ℝ) (((713 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell40Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell40Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell40CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell40Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell40Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell40Certificate.error = (computedPhasedBaseLowerThreeExactCell40ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell40Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell41CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell41ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell41CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell41CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell41ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell41ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell41Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((713 / 224 : ℚ) : ℚ) : ℝ) (((51 / 16 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell41Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell41Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell41CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell41Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell41Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell41Certificate.error = (computedPhasedBaseLowerThreeExactCell41ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell41Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell42CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell42ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell42CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell42CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell42ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell42ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell42Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((51 / 16 : ℚ) : ℚ) : ℝ) (((715 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell42Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell42Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell42CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell42Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell42Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell42Certificate.error = (computedPhasedBaseLowerThreeExactCell42ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell42Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell43CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell43ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell43CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell43CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell43ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell43ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell43Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((715 / 224 : ℚ) : ℚ) : ℝ) (((179 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell43Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell43Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell43CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell43Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell43Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell43Certificate.error = (computedPhasedBaseLowerThreeExactCell43ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell43Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell44CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell44ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell44CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell44CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell44ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell44ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell44Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((179 / 56 : ℚ) : ℚ) : ℝ) (((717 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell44Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell44Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell44CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell44Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell44Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell44Certificate.error = (computedPhasedBaseLowerThreeExactCell44ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell44Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell45CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell45ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell45CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell45CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell45ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell45ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell45Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((717 / 224 : ℚ) : ℚ) : ℝ) (((359 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell45Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell45Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell45CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell45Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell45Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell45Certificate.error = (computedPhasedBaseLowerThreeExactCell45ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell45Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell46CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell46ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell46CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell46CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell46ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell46ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell46Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((359 / 112 : ℚ) : ℚ) : ℝ) (((719 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell46Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell46Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell46CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell46Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell46Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell46Certificate.error = (computedPhasedBaseLowerThreeExactCell46ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell46Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell47CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell47ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell2Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell47CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell47CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell47ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell47ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell2Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell2Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell2Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell47Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((719 / 224 : ℚ) : ℚ) : ℝ) (((45 / 14 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell2Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell47Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell47Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell47CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell47Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell47Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell47Certificate.error = (computedPhasedBaseLowerThreeExactCell47ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell47Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell2Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell48CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell48ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell48CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell48CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell48ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell48ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell48Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((45 / 14 : ℚ) : ℚ) : ℝ) (((103 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell48Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell48Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell48CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell48Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell48Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell48Certificate.error = (computedPhasedBaseLowerThreeExactCell48ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell48Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell49CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell49ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell49CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell49CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell49ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell49ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell49Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((103 / 32 : ℚ) : ℚ) : ℝ) (((361 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell49Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell49Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell49CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell49Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell49Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell49Certificate.error = (computedPhasedBaseLowerThreeExactCell49ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell49Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell50CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell50ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell50CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell50CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell50ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell50ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell50Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((361 / 112 : ℚ) : ℚ) : ℝ) (((723 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell50Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell50Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell50CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell50Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell50Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell50Certificate.error = (computedPhasedBaseLowerThreeExactCell50ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell50Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell51CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell51ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell51CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell51CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell51ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell51ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell51Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((723 / 224 : ℚ) : ℚ) : ℝ) (((181 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell51Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell51Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell51CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell51Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell51Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell51Certificate.error = (computedPhasedBaseLowerThreeExactCell51ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell51Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell52CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell52ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell52CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell52CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell52ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell52ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell52Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((181 / 56 : ℚ) : ℚ) : ℝ) (((725 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell52Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell52Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell52CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell52Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell52Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell52Certificate.error = (computedPhasedBaseLowerThreeExactCell52ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell52Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell53CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell53ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell53CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell53CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell53ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell53ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell53Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((725 / 224 : ℚ) : ℚ) : ℝ) (((363 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell53Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell53Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell53CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell53Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell53Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell53Certificate.error = (computedPhasedBaseLowerThreeExactCell53ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell53Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell54CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell54ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell54CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell54CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell54ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell54ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell54Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((363 / 112 : ℚ) : ℚ) : ℝ) (((727 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell54Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell54Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell54CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell54Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell54Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell54Certificate.error = (computedPhasedBaseLowerThreeExactCell54ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell54Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell55CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell55ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell55CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell55CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell55ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell55ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell55Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((727 / 224 : ℚ) : ℚ) : ℝ) (((13 / 4 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell55Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell55Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell55CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell55Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell55Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell55Certificate.error = (computedPhasedBaseLowerThreeExactCell55ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell55Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell56CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell56ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell56CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell56CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell56ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell56ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell56Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((13 / 4 : ℚ) : ℚ) : ℝ) (((729 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell56Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell56Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell56CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell56Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell56Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell56Certificate.error = (computedPhasedBaseLowerThreeExactCell56ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell56Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell57CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell57ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell57CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell57CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell57ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell57ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell57Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((729 / 224 : ℚ) : ℚ) : ℝ) (((365 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell57Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell57Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell57CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell57Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell57Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell57Certificate.error = (computedPhasedBaseLowerThreeExactCell57ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell57Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell58CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell58ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell58CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell58CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell58ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell58ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell58Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((365 / 112 : ℚ) : ℚ) : ℝ) (((731 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell58Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell58Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell58CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell58Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell58Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell58Certificate.error = (computedPhasedBaseLowerThreeExactCell58ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell58Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell59CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell59ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell59CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell59CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell59ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell59ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell59Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((731 / 224 : ℚ) : ℚ) : ℝ) (((183 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell59Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell59Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell59CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell59Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell59Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell59Certificate.error = (computedPhasedBaseLowerThreeExactCell59ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell59Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell60CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell60ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell60CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell60CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell60ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell60ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell60Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((183 / 56 : ℚ) : ℚ) : ℝ) (((733 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell60Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell60Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell60CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell60Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell60Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell60Certificate.error = (computedPhasedBaseLowerThreeExactCell60ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell60Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell61CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell61ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell61CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell61CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell61ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell61ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell61Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((733 / 224 : ℚ) : ℚ) : ℝ) (((367 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell61Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell61Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell61CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell61Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell61Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell61Certificate.error = (computedPhasedBaseLowerThreeExactCell61ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell61Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell62CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell62ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell62CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell62CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell62ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell62ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell62Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((367 / 112 : ℚ) : ℚ) : ℝ) (((105 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell62Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell62Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell62CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell62Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell62Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell62Certificate.error = (computedPhasedBaseLowerThreeExactCell62ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell62Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell63CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell63ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell3Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell63CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell63CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell63ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell63ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell3Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell3Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell3Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell63Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((105 / 32 : ℚ) : ℚ) : ℝ) (((23 / 7 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell3Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell63Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell63Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell63CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell63Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell63Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell63Certificate.error = (computedPhasedBaseLowerThreeExactCell63ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell63Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell3Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell64CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell64ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell64CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell64CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell64ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell64ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell64Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((23 / 7 : ℚ) : ℚ) : ℝ) (((737 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell64Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell64Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell64CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell64Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell64Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell64Certificate.error = (computedPhasedBaseLowerThreeExactCell64ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell64Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell65CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell65ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell65CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell65CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell65ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell65ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell65Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((737 / 224 : ℚ) : ℚ) : ℝ) (((369 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell65Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell65Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell65CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell65Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell65Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell65Certificate.error = (computedPhasedBaseLowerThreeExactCell65ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell65Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell66CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell66ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell66CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell66CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell66ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell66ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell66Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((369 / 112 : ℚ) : ℚ) : ℝ) (((739 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell66Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell66Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell66CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell66Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell66Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell66Certificate.error = (computedPhasedBaseLowerThreeExactCell66ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell66Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell67CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell67ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell67CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell67CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell67ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell67ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell67Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((739 / 224 : ℚ) : ℚ) : ℝ) (((185 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell67Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell67Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell67CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell67Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell67Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell67Certificate.error = (computedPhasedBaseLowerThreeExactCell67ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell67Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell68CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell68ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell68CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell68CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell68ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell68ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell68Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((185 / 56 : ℚ) : ℚ) : ℝ) (((741 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell68Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell68Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell68CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell68Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell68Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell68Certificate.error = (computedPhasedBaseLowerThreeExactCell68ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell68Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell69CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell69ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell69CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell69CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell69ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell69ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell69Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((741 / 224 : ℚ) : ℚ) : ℝ) (((53 / 16 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell69Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell69Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell69CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell69Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell69Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell69Certificate.error = (computedPhasedBaseLowerThreeExactCell69ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell69Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell70CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell70ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell70CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell70CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell70ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell70ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell70Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((53 / 16 : ℚ) : ℚ) : ℝ) (((743 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell70Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell70Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell70CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell70Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell70Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell70Certificate.error = (computedPhasedBaseLowerThreeExactCell70ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell70Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell71CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell71ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell71CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell71CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell71ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell71ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell71Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((743 / 224 : ℚ) : ℚ) : ℝ) (((93 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell71Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell71Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell71CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell71Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell71Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell71Certificate.error = (computedPhasedBaseLowerThreeExactCell71ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell71Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell72CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell72ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell72CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell72CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell72ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell72ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell72Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((93 / 28 : ℚ) : ℚ) : ℝ) (((745 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell72Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell72Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell72CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell72Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell72Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell72Certificate.error = (computedPhasedBaseLowerThreeExactCell72ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell72Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell73CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell73ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell73CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell73CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell73ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell73ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell73Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((745 / 224 : ℚ) : ℚ) : ℝ) (((373 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell73Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell73Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell73CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell73Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell73Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell73Certificate.error = (computedPhasedBaseLowerThreeExactCell73ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell73Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell74CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell74ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell74CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell74CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell74ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell74ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell74Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((373 / 112 : ℚ) : ℚ) : ℝ) (((747 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell74Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell74Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell74CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell74Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell74Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell74Certificate.error = (computedPhasedBaseLowerThreeExactCell74ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell74Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell75CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell75ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell75CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell75CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell75ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell75ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell75Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((747 / 224 : ℚ) : ℚ) : ℝ) (((187 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell75Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell75Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell75CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell75Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell75Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell75Certificate.error = (computedPhasedBaseLowerThreeExactCell75ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell75Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell76CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell76ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell76CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell76CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell76ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell76ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell76Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((187 / 56 : ℚ) : ℚ) : ℝ) (((107 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell76Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell76Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell76CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell76Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell76Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell76Certificate.error = (computedPhasedBaseLowerThreeExactCell76ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell76Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell77CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell77ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell77CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell77CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell77ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell77ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell77Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((107 / 32 : ℚ) : ℚ) : ℝ) (((375 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell77Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell77Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell77CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell77Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell77Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell77Certificate.error = (computedPhasedBaseLowerThreeExactCell77ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell77Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell78CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell78ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell78CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell78CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell78ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell78ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell78Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((375 / 112 : ℚ) : ℚ) : ℝ) (((751 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell78Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell78Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell78CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell78Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell78Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell78Certificate.error = (computedPhasedBaseLowerThreeExactCell78ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell78Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell79CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell79ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell4Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell79CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell79CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell79ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell79ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell4Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell4Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell4Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell79Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((751 / 224 : ℚ) : ℚ) : ℝ) (((47 / 14 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell4Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell79Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell79Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell79CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell79Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell79Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell79Certificate.error = (computedPhasedBaseLowerThreeExactCell79ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell79Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell4Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell80CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell80ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell80CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell80CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell80ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell80ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell80Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((47 / 14 : ℚ) : ℚ) : ℝ) (((215 / 64 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell80Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell80Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell80CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell80Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell80Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell80Certificate.error = (computedPhasedBaseLowerThreeExactCell80ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell80Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell81CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell81ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell81CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell81CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell81ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell81ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell81Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((215 / 64 : ℚ) : ℚ) : ℝ) (((753 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell81Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell81Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell81CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell81Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell81Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell81Certificate.error = (computedPhasedBaseLowerThreeExactCell81ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell81Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell82CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell82ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell82CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell82CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell82ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell82ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell82Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((753 / 224 : ℚ) : ℚ) : ℝ) (((1507 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell82Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell82Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell82CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell82Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell82Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell82Certificate.error = (computedPhasedBaseLowerThreeExactCell82ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell82Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell83CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell83ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell83CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell83CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell83ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell83ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell83Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1507 / 448 : ℚ) : ℚ) : ℝ) (((377 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell83Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell83Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell83CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell83Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell83Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell83Certificate.error = (computedPhasedBaseLowerThreeExactCell83ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell83Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell84CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell84ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell84CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell84CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell84ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell84ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell84Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((377 / 112 : ℚ) : ℚ) : ℝ) (((1509 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell84Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell84Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell84CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell84Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell84Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell84Certificate.error = (computedPhasedBaseLowerThreeExactCell84ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell84Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell85CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell85ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell85CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell85CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell85ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell85ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell85Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1509 / 448 : ℚ) : ℚ) : ℝ) (((755 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell85Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell85Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell85CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell85Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell85Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell85Certificate.error = (computedPhasedBaseLowerThreeExactCell85ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell85Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell86CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell86ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell86CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell86CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell86ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell86ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell86Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((755 / 224 : ℚ) : ℚ) : ℝ) (((1511 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell86Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell86Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell86CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell86Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell86Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell86Certificate.error = (computedPhasedBaseLowerThreeExactCell86ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell86Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell87CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell87ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell87CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell87CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell87ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell87ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell87Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1511 / 448 : ℚ) : ℚ) : ℝ) (((27 / 8 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell87Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell87Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell87CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell87Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell87Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell87Certificate.error = (computedPhasedBaseLowerThreeExactCell87ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell87Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell88CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell88ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell88CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell88CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell88ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell88ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell88Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((27 / 8 : ℚ) : ℚ) : ℝ) (((1513 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell88Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell88Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell88CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell88Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell88Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell88Certificate.error = (computedPhasedBaseLowerThreeExactCell88ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell88Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell89CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell89ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell89CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell89CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell89ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell89ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell89Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1513 / 448 : ℚ) : ℚ) : ℝ) (((757 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell89Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell89Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell89CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell89Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell89Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell89Certificate.error = (computedPhasedBaseLowerThreeExactCell89ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell89Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell90CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell90ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell90CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell90CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell90ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell90ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell90Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((757 / 224 : ℚ) : ℚ) : ℝ) (((1515 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell90Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell90Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell90CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell90Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell90Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell90Certificate.error = (computedPhasedBaseLowerThreeExactCell90ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell90Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell91CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell91ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell91CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell91CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell91ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell91ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell91Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1515 / 448 : ℚ) : ℚ) : ℝ) (((379 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell91Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell91Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell91CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell91Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell91Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell91Certificate.error = (computedPhasedBaseLowerThreeExactCell91ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell91Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell92CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell92ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell92CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell92CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell92ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell92ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell92Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((379 / 112 : ℚ) : ℚ) : ℝ) (((1517 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell92Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell92Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell92CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell92Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell92Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell92Certificate.error = (computedPhasedBaseLowerThreeExactCell92ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell92Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell93CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell93ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell93CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell93CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell93ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell93ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell93Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1517 / 448 : ℚ) : ℚ) : ℝ) (((759 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell93Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell93Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell93CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell93Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell93Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell93Certificate.error = (computedPhasedBaseLowerThreeExactCell93ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell93Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell94CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell94ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell94CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell94CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell94ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell94ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell94Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((759 / 224 : ℚ) : ℚ) : ℝ) (((217 / 64 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell94Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell94Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell94CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell94Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell94Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell94Certificate.error = (computedPhasedBaseLowerThreeExactCell94ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell94Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell95CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell95ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell95CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell95CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell95ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell95ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell95Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((217 / 64 : ℚ) : ℚ) : ℝ) (((95 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell95Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell95Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell95CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell95Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell95Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell95Certificate.error = (computedPhasedBaseLowerThreeExactCell95ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell95Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell96CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell96ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard16Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell96CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell96CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard16Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard16TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard16Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell.error = (computedPhasedBaseLowerThreeExactCell96ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell96ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard16Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard16TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard16Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell96Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((95 / 28 : ℚ) : ℚ) : ℝ) (((1521 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard16Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard16Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell96Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell96Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell96CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell96Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell96Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell96Certificate.error = (computedPhasedBaseLowerThreeExactCell96ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell96Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard16TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell97CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell97ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard17Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell97CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell97CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard17Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard17TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard17Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell.error = (computedPhasedBaseLowerThreeExactCell97ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell97ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard17Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard17TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard17Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell97Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1521 / 448 : ℚ) : ℚ) : ℝ) (((761 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard17Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard17Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell97Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell97Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell97CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell97Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell97Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell97Certificate.error = (computedPhasedBaseLowerThreeExactCell97ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell97Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard17TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell98CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell98ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard18Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell98CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell98CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard18Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard18TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard18Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell.error = (computedPhasedBaseLowerThreeExactCell98ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell98ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard18Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard18TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard18Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell98Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((761 / 224 : ℚ) : ℚ) : ℝ) (((1523 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard18Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard18Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell98Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell98Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell98CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell98Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell98Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell98Certificate.error = (computedPhasedBaseLowerThreeExactCell98ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell98Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard18TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell99CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell99ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard19Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell99CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell99CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard19Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard19TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard19Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell.error = (computedPhasedBaseLowerThreeExactCell99ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell99ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard19Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard19TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard19Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell99Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1523 / 448 : ℚ) : ℚ) : ℝ) (((381 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard19Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard19Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell99Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell99Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell99CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell99Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell99Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell99Certificate.error = (computedPhasedBaseLowerThreeExactCell99ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell99Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard19TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell100CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell100ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard20Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell100CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell100CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard20Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard20TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard20Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell.error = (computedPhasedBaseLowerThreeExactCell100ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell100ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard20Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard20TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard20Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell100Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((381 / 112 : ℚ) : ℚ) : ℝ) (((1525 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard20Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard20Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell100Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell100Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell100CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell100Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell100Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell100Certificate.error = (computedPhasedBaseLowerThreeExactCell100ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell100Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard20TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell101CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell101ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard21Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell101CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell101CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard21Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard21TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard21Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell.error = (computedPhasedBaseLowerThreeExactCell101ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell101ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard21Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard21TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard21Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell101Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1525 / 448 : ℚ) : ℚ) : ℝ) (((109 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard21Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard21Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell101Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell101Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell101CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell101Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell101Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell101Certificate.error = (computedPhasedBaseLowerThreeExactCell101ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell101Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard21TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell102CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell102ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard22Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell102CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell102CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard22Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard22TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard22Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell.error = (computedPhasedBaseLowerThreeExactCell102ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell102ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard22Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard22TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard22Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell102Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((109 / 32 : ℚ) : ℚ) : ℝ) (((1527 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard22Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard22Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell102Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell102Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell102CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell102Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell102Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell102Certificate.error = (computedPhasedBaseLowerThreeExactCell102ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell102Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard22TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell103CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell103ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard23Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell103CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell103CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard23Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard23TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard23Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell.error = (computedPhasedBaseLowerThreeExactCell103ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell103ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard23Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard23TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard23Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell103Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1527 / 448 : ℚ) : ℚ) : ℝ) (((191 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard23Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard23Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell103Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell103Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell103CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell103Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell103Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell103Certificate.error = (computedPhasedBaseLowerThreeExactCell103ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell103Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard23TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell104CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell104ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard24Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell104CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell104CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard24Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard24TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard24Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell.error = (computedPhasedBaseLowerThreeExactCell104ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell104ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard24Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard24TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard24Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell104Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((191 / 56 : ℚ) : ℚ) : ℝ) (((1529 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard24Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard24Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell104Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell104Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell104CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell104Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell104Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell104Certificate.error = (computedPhasedBaseLowerThreeExactCell104ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell104Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard24TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell105CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell105ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard25Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell105CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell105CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard25Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard25TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard25Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell.error = (computedPhasedBaseLowerThreeExactCell105ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell105ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard25Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard25TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard25Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell105Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1529 / 448 : ℚ) : ℚ) : ℝ) (((765 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard25Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard25Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell105Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell105Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell105CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell105Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell105Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell105Certificate.error = (computedPhasedBaseLowerThreeExactCell105ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell105Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard25TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell106CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell106ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard26Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell106CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell106CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard26Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard26TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard26Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell.error = (computedPhasedBaseLowerThreeExactCell106ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell106ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard26Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard26TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard26Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell106Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((765 / 224 : ℚ) : ℚ) : ℝ) (((1531 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard26Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard26Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell106Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell106Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell106CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell106Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell106Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell106Certificate.error = (computedPhasedBaseLowerThreeExactCell106ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell106Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard26TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell107CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell107ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard27Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell107CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell107CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard27Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard27TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard27Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell.error = (computedPhasedBaseLowerThreeExactCell107ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell107ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard27Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard27TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard27Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell107Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1531 / 448 : ℚ) : ℚ) : ℝ) (((383 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard27Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard27Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell107Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell107Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell107CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell107Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell107Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell107Certificate.error = (computedPhasedBaseLowerThreeExactCell107ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell107Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard27TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell108CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell108ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard28Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell108CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell108CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard28Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard28TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard28Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell.error = (computedPhasedBaseLowerThreeExactCell108ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell108ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard28Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard28TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard28Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell108Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((383 / 112 : ℚ) : ℚ) : ℝ) (((219 / 64 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard28Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard28Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell108Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell108Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell108CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell108Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell108Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell108Certificate.error = (computedPhasedBaseLowerThreeExactCell108ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell108Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard28TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell109CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell109ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard29Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell109CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell109CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard29Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard29TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard29Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell.error = (computedPhasedBaseLowerThreeExactCell109ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell109ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard29Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard29TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard29Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell109Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((219 / 64 : ℚ) : ℚ) : ℝ) (((767 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard29Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard29Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell109Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell109Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell109CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell109Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell109Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell109Certificate.error = (computedPhasedBaseLowerThreeExactCell109ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell109Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard29TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell110CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell110ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard30Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell110CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell110CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard30Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard30TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard30Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell.error = (computedPhasedBaseLowerThreeExactCell110ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell110ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard30Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard30TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard30Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell110Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((767 / 224 : ℚ) : ℚ) : ℝ) (((1535 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard30Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard30Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell110Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell110Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell110CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell110Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell110Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell110Certificate.error = (computedPhasedBaseLowerThreeExactCell110ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell110Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard30TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell111CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell111ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell5Shard31Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell111CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell111CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard31Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard31TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard31Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell.error = (computedPhasedBaseLowerThreeExactCell111ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell111ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell5Shard31Interval _ _
+      computedPhasedBaseLowerThreeCompactCell5Shard31TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell5Shard31Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell111Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1535 / 448 : ℚ) : ℚ) : ℝ) (((24 / 7 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard31Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell5Shard31Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell111Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell111Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell111CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell111Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell111Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell111Certificate.error = (computedPhasedBaseLowerThreeExactCell111ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell111Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell5Shard31TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell112CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell112ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard0Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell112CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell112CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard0Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell.error = (computedPhasedBaseLowerThreeExactCell112ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell112ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard0Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard0TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard0Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell112Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((24 / 7 : ℚ) : ℚ) : ℝ) (((1537 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard0Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard0Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell112Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell112Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell112CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell112Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell112Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell112Certificate.error = (computedPhasedBaseLowerThreeExactCell112ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell112Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard0TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell113CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell113ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard1Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell113CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell113CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard1Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell.error = (computedPhasedBaseLowerThreeExactCell113ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell113ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard1Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard1TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard1Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell113Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1537 / 448 : ℚ) : ℚ) : ℝ) (((769 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard1Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard1Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell113Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell113Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell113CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell113Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell113Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell113Certificate.error = (computedPhasedBaseLowerThreeExactCell113ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell113Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard1TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell114CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell114ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard2Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell114CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell114CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard2Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell.error = (computedPhasedBaseLowerThreeExactCell114ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell114ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard2Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard2TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard2Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell114Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((769 / 224 : ℚ) : ℚ) : ℝ) (((1539 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard2Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard2Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell114Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell114Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell114CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell114Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell114Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell114Certificate.error = (computedPhasedBaseLowerThreeExactCell114ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell114Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard2TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell115CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell115ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard3Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell115CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell115CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard3Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell.error = (computedPhasedBaseLowerThreeExactCell115ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell115ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard3Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard3TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard3Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell115Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1539 / 448 : ℚ) : ℚ) : ℝ) (((55 / 16 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard3Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard3Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell115Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell115Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell115CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell115Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell115Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell115Certificate.error = (computedPhasedBaseLowerThreeExactCell115ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell115Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard3TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell116CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell116ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard4Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell116CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell116CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard4Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell.error = (computedPhasedBaseLowerThreeExactCell116ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell116ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard4Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard4TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard4Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell116Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((55 / 16 : ℚ) : ℚ) : ℝ) (((1541 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard4Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard4Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell116Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell116Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell116CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell116Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell116Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell116Certificate.error = (computedPhasedBaseLowerThreeExactCell116ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell116Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard4TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell117CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell117ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard5Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell117CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell117CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard5Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell.error = (computedPhasedBaseLowerThreeExactCell117ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell117ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard5Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard5TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard5Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell117Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1541 / 448 : ℚ) : ℚ) : ℝ) (((771 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard5Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard5Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell117Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell117Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell117CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell117Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell117Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell117Certificate.error = (computedPhasedBaseLowerThreeExactCell117ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell117Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard5TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell118CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell118ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard6Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell118CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell118CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard6Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell.error = (computedPhasedBaseLowerThreeExactCell118ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell118ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard6Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard6TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard6Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell118Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((771 / 224 : ℚ) : ℚ) : ℝ) (((1543 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard6Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard6Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell118Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell118Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell118CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell118Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell118Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell118Certificate.error = (computedPhasedBaseLowerThreeExactCell118ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell118Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard6TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell119CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell119ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard7Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell119CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell119CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard7Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell.error = (computedPhasedBaseLowerThreeExactCell119ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell119ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard7Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard7TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard7Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell119Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1543 / 448 : ℚ) : ℚ) : ℝ) (((193 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard7Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard7Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell119Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell119Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell119CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell119Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell119Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell119Certificate.error = (computedPhasedBaseLowerThreeExactCell119ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell119Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard7TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell120CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell120ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard8Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell120CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell120CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard8Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell.error = (computedPhasedBaseLowerThreeExactCell120ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell120ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard8Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard8TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard8Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell120Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((193 / 56 : ℚ) : ℚ) : ℝ) (((1545 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard8Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard8Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell120Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell120Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell120CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell120Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell120Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell120Certificate.error = (computedPhasedBaseLowerThreeExactCell120ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell120Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard8TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell121CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell121ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard9Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell121CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell121CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard9Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell.error = (computedPhasedBaseLowerThreeExactCell121ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell121ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard9Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard9TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard9Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell121Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1545 / 448 : ℚ) : ℚ) : ℝ) (((773 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard9Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard9Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell121Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell121Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell121CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell121Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell121Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell121Certificate.error = (computedPhasedBaseLowerThreeExactCell121ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell121Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard9TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell122CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell122ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard10Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell122CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell122CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard10Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell.error = (computedPhasedBaseLowerThreeExactCell122ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell122ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard10Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard10TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard10Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell122Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((773 / 224 : ℚ) : ℚ) : ℝ) (((221 / 64 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard10Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard10Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell122Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell122Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell122CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell122Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell122Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell122Certificate.error = (computedPhasedBaseLowerThreeExactCell122ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell122Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard10TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell123CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell123ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard11Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell123CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell123CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard11Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell.error = (computedPhasedBaseLowerThreeExactCell123ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell123ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard11Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard11TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard11Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell123Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((221 / 64 : ℚ) : ℚ) : ℝ) (((387 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard11Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard11Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell123Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell123Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell123CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell123Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell123Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell123Certificate.error = (computedPhasedBaseLowerThreeExactCell123ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell123Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard11TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell124CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell124ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard12Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell124CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell124CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard12Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell.error = (computedPhasedBaseLowerThreeExactCell124ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell124ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard12Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard12TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard12Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell124Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((387 / 112 : ℚ) : ℚ) : ℝ) (((1549 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard12Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard12Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell124Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell124Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell124CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell124Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell124Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell124Certificate.error = (computedPhasedBaseLowerThreeExactCell124ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell124Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard12TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell125CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell125ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard13Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell125CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell125CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard13Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell.error = (computedPhasedBaseLowerThreeExactCell125ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell125ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard13Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard13TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard13Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell125Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1549 / 448 : ℚ) : ℚ) : ℝ) (((775 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard13Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard13Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell125Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell125Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell125CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell125Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell125Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell125Certificate.error = (computedPhasedBaseLowerThreeExactCell125ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell125Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard13TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell126CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell126ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard14Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell126CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell126CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard14Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell.error = (computedPhasedBaseLowerThreeExactCell126ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell126ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard14Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard14TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard14Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell126Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((775 / 224 : ℚ) : ℚ) : ℝ) (((1551 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard14Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard14Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell126Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell126Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell126CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell126Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell126Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell126Certificate.error = (computedPhasedBaseLowerThreeExactCell126ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell126Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard14TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell127CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell127ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard15Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell127CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell127CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard15Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell.error = (computedPhasedBaseLowerThreeExactCell127ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell127ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard15Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard15TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard15Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell127Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1551 / 448 : ℚ) : ℚ) : ℝ) (((97 / 28 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard15Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard15Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell127Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell127Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell127CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell127Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell127Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell127Certificate.error = (computedPhasedBaseLowerThreeExactCell127ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell127Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard15TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell128CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell128ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard16Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell128CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell128CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard16Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard16TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard16Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell.error = (computedPhasedBaseLowerThreeExactCell128ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell128ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard16Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard16TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard16Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell128Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((97 / 28 : ℚ) : ℚ) : ℝ) (((1553 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard16Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard16Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell128Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell128Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell128CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell128Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell128Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell128Certificate.error = (computedPhasedBaseLowerThreeExactCell128ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell128Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard16TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell129CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell129ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard17Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell129CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell129CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard17Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard17TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard17Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell.error = (computedPhasedBaseLowerThreeExactCell129ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell129ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard17Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard17TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard17Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell129Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1553 / 448 : ℚ) : ℚ) : ℝ) (((111 / 32 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard17Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard17Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell129Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell129Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell129CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell129Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell129Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell129Certificate.error = (computedPhasedBaseLowerThreeExactCell129ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell129Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard17TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell130CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell130ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard18Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell130CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell130CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard18Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard18TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard18Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell.error = (computedPhasedBaseLowerThreeExactCell130ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell130ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard18Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard18TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard18Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell130Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((111 / 32 : ℚ) : ℚ) : ℝ) (((1555 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard18Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard18Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell130Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell130Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell130CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell130Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell130Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell130Certificate.error = (computedPhasedBaseLowerThreeExactCell130ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell130Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard18TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell131CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell131ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard19Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell131CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell131CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard19Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard19TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard19Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell.error = (computedPhasedBaseLowerThreeExactCell131ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell131ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard19Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard19TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard19Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell131Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1555 / 448 : ℚ) : ℚ) : ℝ) (((389 / 112 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard19Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard19Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell131Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell131Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell131CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell131Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell131Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell131Certificate.error = (computedPhasedBaseLowerThreeExactCell131ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell131Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard19TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell132CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell132ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard20Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell132CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell132CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard20Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard20TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard20Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell.error = (computedPhasedBaseLowerThreeExactCell132ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell132ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard20Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard20TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard20Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell132Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((389 / 112 : ℚ) : ℚ) : ℝ) (((1557 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard20Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard20Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell132Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell132Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell132CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell132Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell132Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell132Certificate.error = (computedPhasedBaseLowerThreeExactCell132ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell132Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard20TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell133CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell133ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard21Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell133CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell133CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard21Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard21TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard21Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell.error = (computedPhasedBaseLowerThreeExactCell133ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell133ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard21Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard21TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard21Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell133Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1557 / 448 : ℚ) : ℚ) : ℝ) (((779 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard21Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard21Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell133Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell133Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell133CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell133Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell133Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell133Certificate.error = (computedPhasedBaseLowerThreeExactCell133ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell133Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard21TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell134CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell134ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard22Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell134CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell134CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard22Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard22TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard22Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell.error = (computedPhasedBaseLowerThreeExactCell134ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell134ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard22Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard22TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard22Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell134Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((779 / 224 : ℚ) : ℚ) : ℝ) (((1559 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard22Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard22Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell134Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell134Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell134CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell134Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell134Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell134Certificate.error = (computedPhasedBaseLowerThreeExactCell134ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell134Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard22TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell135CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell135ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard23Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell135CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell135CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard23Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard23TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard23Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell.error = (computedPhasedBaseLowerThreeExactCell135ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell135ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard23Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard23TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard23Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell135Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1559 / 448 : ℚ) : ℚ) : ℝ) (((195 / 56 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard23Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard23Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell135Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell135Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell135CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell135Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell135Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell135Certificate.error = (computedPhasedBaseLowerThreeExactCell135ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell135Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard23TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell136CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell136ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard24Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell136CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell136CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard24Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard24TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard24Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell.error = (computedPhasedBaseLowerThreeExactCell136ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell136ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard24Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard24TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard24Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell136Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((195 / 56 : ℚ) : ℚ) : ℝ) (((223 / 64 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard24Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard24Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell136Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell136Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell136CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell136Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell136Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell136Certificate.error = (computedPhasedBaseLowerThreeExactCell136ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell136Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard24TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell137CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell137ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard25Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell137CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell137CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard25Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard25TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard25Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell.error = (computedPhasedBaseLowerThreeExactCell137ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell137ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard25Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard25TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard25Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell137Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((223 / 64 : ℚ) : ℚ) : ℝ) (((781 / 224 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard25Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard25Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell137Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell137Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell137CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell137Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell137Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell137Certificate.error = (computedPhasedBaseLowerThreeExactCell137ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell137Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard25TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCell138CenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactCell138ErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeCompactCell6Shard26Leaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell138CenterQ := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell138CenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard26Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard26TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard26Leaves
+
+theorem computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell.error = (computedPhasedBaseLowerThreeExactCell138ErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactCell138ErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeCompactCell6Shard26Interval _ _
+      computedPhasedBaseLowerThreeCompactCell6Shard26TaylorPointLeaves computedPhasedBaseLowerThreeCompactCell6Shard26Leaves
+
+noncomputable def computedPhasedBaseLowerThreeExactCell138Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((781 / 224 : ℚ) : ℚ) : ℝ) (((1563 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard26Interval])
+    (by norm_num [computedPhasedBaseLowerThreeCompactCell6Shard26Interval])
+
+theorem computedPhasedBaseLowerThreeExactCell138Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactCell138Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCell138CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCell138Certificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactCell138Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactCell138Certificate.error = (computedPhasedBaseLowerThreeExactCell138ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCell138Certificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeCompactCell6Shard26TaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk0CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell0CenterQ + computedPhasedBaseLowerThreeExactCell1CenterQ) + computedPhasedBaseLowerThreeExactCell2CenterQ) + computedPhasedBaseLowerThreeExactCell3CenterQ) + computedPhasedBaseLowerThreeExactCell4CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk0ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell0ErrorQ + computedPhasedBaseLowerThreeExactCell1ErrorQ) + computedPhasedBaseLowerThreeExactCell2ErrorQ) + computedPhasedBaseLowerThreeExactCell3ErrorQ) + computedPhasedBaseLowerThreeExactCell4ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk0Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((3 : ℚ) : ℝ)
+      (((677 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell0Certificate.append
+      computedPhasedBaseLowerThreeExactCell1Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell2Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell3Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell4Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk0Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk0Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk0CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk0Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell0Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell1Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell2Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell3Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell4Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk0CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk0Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk0Certificate.error = (computedPhasedBaseLowerThreeExactChunk0ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk0Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell0Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell1Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell2Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell3Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell4Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk0ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk1CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell5CenterQ + computedPhasedBaseLowerThreeExactCell6CenterQ) + computedPhasedBaseLowerThreeExactCell7CenterQ) + computedPhasedBaseLowerThreeExactCell8CenterQ) + computedPhasedBaseLowerThreeExactCell9CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk1ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell5ErrorQ + computedPhasedBaseLowerThreeExactCell6ErrorQ) + computedPhasedBaseLowerThreeExactCell7ErrorQ) + computedPhasedBaseLowerThreeExactCell8ErrorQ) + computedPhasedBaseLowerThreeExactCell9ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk1Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((677 / 224 : ℚ) : ℚ) : ℝ)
+      (((341 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell5Certificate.append
+      computedPhasedBaseLowerThreeExactCell6Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell7Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell8Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell9Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk1Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk1Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk1CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk1Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell5Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell6Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell7Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell8Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell9Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk1CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk1Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk1Certificate.error = (computedPhasedBaseLowerThreeExactChunk1ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk1Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell5Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell6Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell7Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell8Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell9Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk1ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk2CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell10CenterQ + computedPhasedBaseLowerThreeExactCell11CenterQ) + computedPhasedBaseLowerThreeExactCell12CenterQ) + computedPhasedBaseLowerThreeExactCell13CenterQ) + computedPhasedBaseLowerThreeExactCell14CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk2ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell10ErrorQ + computedPhasedBaseLowerThreeExactCell11ErrorQ) + computedPhasedBaseLowerThreeExactCell12ErrorQ) + computedPhasedBaseLowerThreeExactCell13ErrorQ) + computedPhasedBaseLowerThreeExactCell14ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk2Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((341 / 112 : ℚ) : ℚ) : ℝ)
+      (((687 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell10Certificate.append
+      computedPhasedBaseLowerThreeExactCell11Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell12Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell13Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell14Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk2Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk2Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk2CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk2Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell10Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell11Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell12Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell13Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell14Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk2CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk2Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk2Certificate.error = (computedPhasedBaseLowerThreeExactChunk2ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk2Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell10Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell11Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell12Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell13Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell14Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk2ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk3CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell15CenterQ + computedPhasedBaseLowerThreeExactCell16CenterQ) + computedPhasedBaseLowerThreeExactCell17CenterQ) + computedPhasedBaseLowerThreeExactCell18CenterQ) + computedPhasedBaseLowerThreeExactCell19CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk3ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell15ErrorQ + computedPhasedBaseLowerThreeExactCell16ErrorQ) + computedPhasedBaseLowerThreeExactCell17ErrorQ) + computedPhasedBaseLowerThreeExactCell18ErrorQ) + computedPhasedBaseLowerThreeExactCell19ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk3Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((687 / 224 : ℚ) : ℚ) : ℝ)
+      (((173 / 56 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell15Certificate.append
+      computedPhasedBaseLowerThreeExactCell16Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell17Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell18Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell19Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk3Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk3Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk3CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk3Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell15Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell16Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell17Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell18Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell19Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk3CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk3Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk3Certificate.error = (computedPhasedBaseLowerThreeExactChunk3ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk3Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell15Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell16Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell17Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell18Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell19Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk3ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk4CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell20CenterQ + computedPhasedBaseLowerThreeExactCell21CenterQ) + computedPhasedBaseLowerThreeExactCell22CenterQ) + computedPhasedBaseLowerThreeExactCell23CenterQ) + computedPhasedBaseLowerThreeExactCell24CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk4ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell20ErrorQ + computedPhasedBaseLowerThreeExactCell21ErrorQ) + computedPhasedBaseLowerThreeExactCell22ErrorQ) + computedPhasedBaseLowerThreeExactCell23ErrorQ) + computedPhasedBaseLowerThreeExactCell24ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk4Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((173 / 56 : ℚ) : ℚ) : ℝ)
+      (((697 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell20Certificate.append
+      computedPhasedBaseLowerThreeExactCell21Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell22Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell23Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell24Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk4Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk4Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk4CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk4Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell20Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell21Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell22Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell23Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell24Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk4CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk4Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk4Certificate.error = (computedPhasedBaseLowerThreeExactChunk4ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk4Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell20Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell21Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell22Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell23Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell24Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk4ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk5CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell25CenterQ + computedPhasedBaseLowerThreeExactCell26CenterQ) + computedPhasedBaseLowerThreeExactCell27CenterQ) + computedPhasedBaseLowerThreeExactCell28CenterQ) + computedPhasedBaseLowerThreeExactCell29CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk5ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell25ErrorQ + computedPhasedBaseLowerThreeExactCell26ErrorQ) + computedPhasedBaseLowerThreeExactCell27ErrorQ) + computedPhasedBaseLowerThreeExactCell28ErrorQ) + computedPhasedBaseLowerThreeExactCell29ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk5Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((697 / 224 : ℚ) : ℚ) : ℝ)
+      (((351 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell25Certificate.append
+      computedPhasedBaseLowerThreeExactCell26Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell27Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell28Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell29Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk5Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk5Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk5CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk5Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell25Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell26Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell27Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell28Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell29Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk5CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk5Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk5Certificate.error = (computedPhasedBaseLowerThreeExactChunk5ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk5Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell25Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell26Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell27Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell28Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell29Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk5ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk6CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell30CenterQ + computedPhasedBaseLowerThreeExactCell31CenterQ) + computedPhasedBaseLowerThreeExactCell32CenterQ) + computedPhasedBaseLowerThreeExactCell33CenterQ) + computedPhasedBaseLowerThreeExactCell34CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk6ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell30ErrorQ + computedPhasedBaseLowerThreeExactCell31ErrorQ) + computedPhasedBaseLowerThreeExactCell32ErrorQ) + computedPhasedBaseLowerThreeExactCell33ErrorQ) + computedPhasedBaseLowerThreeExactCell34ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk6Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((351 / 112 : ℚ) : ℚ) : ℝ)
+      (((101 / 32 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell30Certificate.append
+      computedPhasedBaseLowerThreeExactCell31Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell32Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell33Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell34Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk6Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk6Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk6CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk6Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell30Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell31Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell32Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell33Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell34Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk6CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk6Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk6Certificate.error = (computedPhasedBaseLowerThreeExactChunk6ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk6Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell30Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell31Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell32Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell33Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell34Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk6ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk7CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell35CenterQ + computedPhasedBaseLowerThreeExactCell36CenterQ) + computedPhasedBaseLowerThreeExactCell37CenterQ) + computedPhasedBaseLowerThreeExactCell38CenterQ) + computedPhasedBaseLowerThreeExactCell39CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk7ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell35ErrorQ + computedPhasedBaseLowerThreeExactCell36ErrorQ) + computedPhasedBaseLowerThreeExactCell37ErrorQ) + computedPhasedBaseLowerThreeExactCell38ErrorQ) + computedPhasedBaseLowerThreeExactCell39ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk7Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((101 / 32 : ℚ) : ℚ) : ℝ)
+      (((89 / 28 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell35Certificate.append
+      computedPhasedBaseLowerThreeExactCell36Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell37Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell38Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell39Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk7Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk7Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk7CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk7Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell35Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell36Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell37Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell38Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell39Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk7CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk7Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk7Certificate.error = (computedPhasedBaseLowerThreeExactChunk7ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk7Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell35Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell36Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell37Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell38Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell39Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk7ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk8CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell40CenterQ + computedPhasedBaseLowerThreeExactCell41CenterQ) + computedPhasedBaseLowerThreeExactCell42CenterQ) + computedPhasedBaseLowerThreeExactCell43CenterQ) + computedPhasedBaseLowerThreeExactCell44CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk8ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell40ErrorQ + computedPhasedBaseLowerThreeExactCell41ErrorQ) + computedPhasedBaseLowerThreeExactCell42ErrorQ) + computedPhasedBaseLowerThreeExactCell43ErrorQ) + computedPhasedBaseLowerThreeExactCell44ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk8Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((89 / 28 : ℚ) : ℚ) : ℝ)
+      (((717 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell40Certificate.append
+      computedPhasedBaseLowerThreeExactCell41Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell42Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell43Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell44Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk8Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk8Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk8CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk8Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell40Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell41Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell42Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell43Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell44Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk8CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk8Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk8Certificate.error = (computedPhasedBaseLowerThreeExactChunk8ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk8Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell40Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell41Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell42Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell43Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell44Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk8ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk9CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell45CenterQ + computedPhasedBaseLowerThreeExactCell46CenterQ) + computedPhasedBaseLowerThreeExactCell47CenterQ) + computedPhasedBaseLowerThreeExactCell48CenterQ) + computedPhasedBaseLowerThreeExactCell49CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk9ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell45ErrorQ + computedPhasedBaseLowerThreeExactCell46ErrorQ) + computedPhasedBaseLowerThreeExactCell47ErrorQ) + computedPhasedBaseLowerThreeExactCell48ErrorQ) + computedPhasedBaseLowerThreeExactCell49ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk9Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((717 / 224 : ℚ) : ℚ) : ℝ)
+      (((361 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell45Certificate.append
+      computedPhasedBaseLowerThreeExactCell46Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell47Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell48Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell49Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk9Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk9Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk9CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk9Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell45Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell46Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell47Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell48Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell49Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk9CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk9Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk9Certificate.error = (computedPhasedBaseLowerThreeExactChunk9ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk9Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell45Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell46Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell47Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell48Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell49Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk9ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk10CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell50CenterQ + computedPhasedBaseLowerThreeExactCell51CenterQ) + computedPhasedBaseLowerThreeExactCell52CenterQ) + computedPhasedBaseLowerThreeExactCell53CenterQ) + computedPhasedBaseLowerThreeExactCell54CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk10ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell50ErrorQ + computedPhasedBaseLowerThreeExactCell51ErrorQ) + computedPhasedBaseLowerThreeExactCell52ErrorQ) + computedPhasedBaseLowerThreeExactCell53ErrorQ) + computedPhasedBaseLowerThreeExactCell54ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk10Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((361 / 112 : ℚ) : ℚ) : ℝ)
+      (((727 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell50Certificate.append
+      computedPhasedBaseLowerThreeExactCell51Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell52Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell53Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell54Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk10Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk10Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk10CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk10Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell50Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell51Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell52Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell53Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell54Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk10CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk10Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk10Certificate.error = (computedPhasedBaseLowerThreeExactChunk10ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk10Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell50Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell51Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell52Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell53Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell54Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk10ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk11CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell55CenterQ + computedPhasedBaseLowerThreeExactCell56CenterQ) + computedPhasedBaseLowerThreeExactCell57CenterQ) + computedPhasedBaseLowerThreeExactCell58CenterQ) + computedPhasedBaseLowerThreeExactCell59CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk11ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell55ErrorQ + computedPhasedBaseLowerThreeExactCell56ErrorQ) + computedPhasedBaseLowerThreeExactCell57ErrorQ) + computedPhasedBaseLowerThreeExactCell58ErrorQ) + computedPhasedBaseLowerThreeExactCell59ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk11Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((727 / 224 : ℚ) : ℚ) : ℝ)
+      (((183 / 56 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell55Certificate.append
+      computedPhasedBaseLowerThreeExactCell56Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell57Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell58Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell59Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk11Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk11Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk11CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk11Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell55Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell56Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell57Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell58Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell59Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk11CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk11Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk11Certificate.error = (computedPhasedBaseLowerThreeExactChunk11ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk11Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell55Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell56Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell57Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell58Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell59Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk11ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk12CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell60CenterQ + computedPhasedBaseLowerThreeExactCell61CenterQ) + computedPhasedBaseLowerThreeExactCell62CenterQ) + computedPhasedBaseLowerThreeExactCell63CenterQ) + computedPhasedBaseLowerThreeExactCell64CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk12ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell60ErrorQ + computedPhasedBaseLowerThreeExactCell61ErrorQ) + computedPhasedBaseLowerThreeExactCell62ErrorQ) + computedPhasedBaseLowerThreeExactCell63ErrorQ) + computedPhasedBaseLowerThreeExactCell64ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk12Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((183 / 56 : ℚ) : ℚ) : ℝ)
+      (((737 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell60Certificate.append
+      computedPhasedBaseLowerThreeExactCell61Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell62Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell63Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell64Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk12Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk12Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk12CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk12Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell60Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell61Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell62Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell63Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell64Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk12CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk12Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk12Certificate.error = (computedPhasedBaseLowerThreeExactChunk12ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk12Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell60Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell61Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell62Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell63Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell64Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk12ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk13CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell65CenterQ + computedPhasedBaseLowerThreeExactCell66CenterQ) + computedPhasedBaseLowerThreeExactCell67CenterQ) + computedPhasedBaseLowerThreeExactCell68CenterQ) + computedPhasedBaseLowerThreeExactCell69CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk13ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell65ErrorQ + computedPhasedBaseLowerThreeExactCell66ErrorQ) + computedPhasedBaseLowerThreeExactCell67ErrorQ) + computedPhasedBaseLowerThreeExactCell68ErrorQ) + computedPhasedBaseLowerThreeExactCell69ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk13Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((737 / 224 : ℚ) : ℚ) : ℝ)
+      (((53 / 16 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell65Certificate.append
+      computedPhasedBaseLowerThreeExactCell66Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell67Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell68Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell69Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk13Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk13Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk13CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk13Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell65Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell66Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell67Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell68Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell69Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk13CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk13Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk13Certificate.error = (computedPhasedBaseLowerThreeExactChunk13ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk13Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell65Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell66Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell67Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell68Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell69Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk13ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk14CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell70CenterQ + computedPhasedBaseLowerThreeExactCell71CenterQ) + computedPhasedBaseLowerThreeExactCell72CenterQ) + computedPhasedBaseLowerThreeExactCell73CenterQ) + computedPhasedBaseLowerThreeExactCell74CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk14ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell70ErrorQ + computedPhasedBaseLowerThreeExactCell71ErrorQ) + computedPhasedBaseLowerThreeExactCell72ErrorQ) + computedPhasedBaseLowerThreeExactCell73ErrorQ) + computedPhasedBaseLowerThreeExactCell74ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk14Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((53 / 16 : ℚ) : ℚ) : ℝ)
+      (((747 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell70Certificate.append
+      computedPhasedBaseLowerThreeExactCell71Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell72Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell73Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell74Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk14Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk14Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk14CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk14Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell70Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell71Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell72Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell73Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell74Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk14CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk14Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk14Certificate.error = (computedPhasedBaseLowerThreeExactChunk14ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk14Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell70Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell71Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell72Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell73Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell74Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk14ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk15CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell75CenterQ + computedPhasedBaseLowerThreeExactCell76CenterQ) + computedPhasedBaseLowerThreeExactCell77CenterQ) + computedPhasedBaseLowerThreeExactCell78CenterQ) + computedPhasedBaseLowerThreeExactCell79CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk15ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell75ErrorQ + computedPhasedBaseLowerThreeExactCell76ErrorQ) + computedPhasedBaseLowerThreeExactCell77ErrorQ) + computedPhasedBaseLowerThreeExactCell78ErrorQ) + computedPhasedBaseLowerThreeExactCell79ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk15Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((747 / 224 : ℚ) : ℚ) : ℝ)
+      (((47 / 14 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell75Certificate.append
+      computedPhasedBaseLowerThreeExactCell76Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell77Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell78Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell79Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk15Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk15Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk15CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk15Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell75Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell76Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell77Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell78Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell79Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk15CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk15Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk15Certificate.error = (computedPhasedBaseLowerThreeExactChunk15ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk15Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell75Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell76Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell77Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell78Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell79Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk15ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk16CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell80CenterQ + computedPhasedBaseLowerThreeExactCell81CenterQ) + computedPhasedBaseLowerThreeExactCell82CenterQ) + computedPhasedBaseLowerThreeExactCell83CenterQ) + computedPhasedBaseLowerThreeExactCell84CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk16ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell80ErrorQ + computedPhasedBaseLowerThreeExactCell81ErrorQ) + computedPhasedBaseLowerThreeExactCell82ErrorQ) + computedPhasedBaseLowerThreeExactCell83ErrorQ) + computedPhasedBaseLowerThreeExactCell84ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk16Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((47 / 14 : ℚ) : ℚ) : ℝ)
+      (((1509 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell80Certificate.append
+      computedPhasedBaseLowerThreeExactCell81Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell82Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell83Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell84Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk16Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk16Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk16CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk16Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell80Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell81Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell82Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell83Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell84Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk16CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk16Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk16Certificate.error = (computedPhasedBaseLowerThreeExactChunk16ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk16Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell80Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell81Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell82Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell83Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell84Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk16ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk17CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell85CenterQ + computedPhasedBaseLowerThreeExactCell86CenterQ) + computedPhasedBaseLowerThreeExactCell87CenterQ) + computedPhasedBaseLowerThreeExactCell88CenterQ) + computedPhasedBaseLowerThreeExactCell89CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk17ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell85ErrorQ + computedPhasedBaseLowerThreeExactCell86ErrorQ) + computedPhasedBaseLowerThreeExactCell87ErrorQ) + computedPhasedBaseLowerThreeExactCell88ErrorQ) + computedPhasedBaseLowerThreeExactCell89ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk17Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1509 / 448 : ℚ) : ℚ) : ℝ)
+      (((757 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell85Certificate.append
+      computedPhasedBaseLowerThreeExactCell86Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell87Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell88Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell89Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk17Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk17Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk17CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk17Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell85Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell86Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell87Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell88Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell89Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk17CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk17Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk17Certificate.error = (computedPhasedBaseLowerThreeExactChunk17ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk17Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell85Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell86Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell87Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell88Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell89Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk17ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk18CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell90CenterQ + computedPhasedBaseLowerThreeExactCell91CenterQ) + computedPhasedBaseLowerThreeExactCell92CenterQ) + computedPhasedBaseLowerThreeExactCell93CenterQ) + computedPhasedBaseLowerThreeExactCell94CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk18ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell90ErrorQ + computedPhasedBaseLowerThreeExactCell91ErrorQ) + computedPhasedBaseLowerThreeExactCell92ErrorQ) + computedPhasedBaseLowerThreeExactCell93ErrorQ) + computedPhasedBaseLowerThreeExactCell94ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk18Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((757 / 224 : ℚ) : ℚ) : ℝ)
+      (((217 / 64 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell90Certificate.append
+      computedPhasedBaseLowerThreeExactCell91Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell92Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell93Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell94Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk18Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk18Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk18CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk18Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell90Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell91Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell92Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell93Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell94Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk18CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk18Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk18Certificate.error = (computedPhasedBaseLowerThreeExactChunk18ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk18Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell90Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell91Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell92Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell93Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell94Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk18ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk19CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell95CenterQ + computedPhasedBaseLowerThreeExactCell96CenterQ) + computedPhasedBaseLowerThreeExactCell97CenterQ) + computedPhasedBaseLowerThreeExactCell98CenterQ) + computedPhasedBaseLowerThreeExactCell99CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk19ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell95ErrorQ + computedPhasedBaseLowerThreeExactCell96ErrorQ) + computedPhasedBaseLowerThreeExactCell97ErrorQ) + computedPhasedBaseLowerThreeExactCell98ErrorQ) + computedPhasedBaseLowerThreeExactCell99ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk19Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((217 / 64 : ℚ) : ℚ) : ℝ)
+      (((381 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell95Certificate.append
+      computedPhasedBaseLowerThreeExactCell96Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell97Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell98Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell99Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk19Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk19Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk19CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk19Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell95Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell96Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell97Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell98Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell99Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk19CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk19Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk19Certificate.error = (computedPhasedBaseLowerThreeExactChunk19ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk19Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell95Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell96Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell97Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell98Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell99Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk19ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk20CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell100CenterQ + computedPhasedBaseLowerThreeExactCell101CenterQ) + computedPhasedBaseLowerThreeExactCell102CenterQ) + computedPhasedBaseLowerThreeExactCell103CenterQ) + computedPhasedBaseLowerThreeExactCell104CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk20ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell100ErrorQ + computedPhasedBaseLowerThreeExactCell101ErrorQ) + computedPhasedBaseLowerThreeExactCell102ErrorQ) + computedPhasedBaseLowerThreeExactCell103ErrorQ) + computedPhasedBaseLowerThreeExactCell104ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk20Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((381 / 112 : ℚ) : ℚ) : ℝ)
+      (((1529 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell100Certificate.append
+      computedPhasedBaseLowerThreeExactCell101Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell102Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell103Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell104Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk20Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk20Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk20CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk20Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell100Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell101Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell102Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell103Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell104Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk20CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk20Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk20Certificate.error = (computedPhasedBaseLowerThreeExactChunk20ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk20Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell100Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell101Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell102Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell103Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell104Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk20ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk21CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell105CenterQ + computedPhasedBaseLowerThreeExactCell106CenterQ) + computedPhasedBaseLowerThreeExactCell107CenterQ) + computedPhasedBaseLowerThreeExactCell108CenterQ) + computedPhasedBaseLowerThreeExactCell109CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk21ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell105ErrorQ + computedPhasedBaseLowerThreeExactCell106ErrorQ) + computedPhasedBaseLowerThreeExactCell107ErrorQ) + computedPhasedBaseLowerThreeExactCell108ErrorQ) + computedPhasedBaseLowerThreeExactCell109ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk21Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1529 / 448 : ℚ) : ℚ) : ℝ)
+      (((767 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell105Certificate.append
+      computedPhasedBaseLowerThreeExactCell106Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell107Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell108Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell109Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk21Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk21Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk21CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk21Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell105Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell106Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell107Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell108Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell109Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk21CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk21Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk21Certificate.error = (computedPhasedBaseLowerThreeExactChunk21ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk21Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell105Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell106Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell107Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell108Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell109Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk21ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk22CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell110CenterQ + computedPhasedBaseLowerThreeExactCell111CenterQ) + computedPhasedBaseLowerThreeExactCell112CenterQ) + computedPhasedBaseLowerThreeExactCell113CenterQ) + computedPhasedBaseLowerThreeExactCell114CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk22ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell110ErrorQ + computedPhasedBaseLowerThreeExactCell111ErrorQ) + computedPhasedBaseLowerThreeExactCell112ErrorQ) + computedPhasedBaseLowerThreeExactCell113ErrorQ) + computedPhasedBaseLowerThreeExactCell114ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk22Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((767 / 224 : ℚ) : ℚ) : ℝ)
+      (((1539 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell110Certificate.append
+      computedPhasedBaseLowerThreeExactCell111Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell112Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell113Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell114Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk22Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk22Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk22CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk22Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell110Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell111Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell112Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell113Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell114Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk22CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk22Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk22Certificate.error = (computedPhasedBaseLowerThreeExactChunk22ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk22Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell110Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell111Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell112Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell113Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell114Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk22ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk23CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell115CenterQ + computedPhasedBaseLowerThreeExactCell116CenterQ) + computedPhasedBaseLowerThreeExactCell117CenterQ) + computedPhasedBaseLowerThreeExactCell118CenterQ) + computedPhasedBaseLowerThreeExactCell119CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk23ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell115ErrorQ + computedPhasedBaseLowerThreeExactCell116ErrorQ) + computedPhasedBaseLowerThreeExactCell117ErrorQ) + computedPhasedBaseLowerThreeExactCell118ErrorQ) + computedPhasedBaseLowerThreeExactCell119ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk23Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1539 / 448 : ℚ) : ℚ) : ℝ)
+      (((193 / 56 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell115Certificate.append
+      computedPhasedBaseLowerThreeExactCell116Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell117Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell118Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell119Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk23Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk23Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk23CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk23Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell115Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell116Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell117Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell118Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell119Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk23CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk23Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk23Certificate.error = (computedPhasedBaseLowerThreeExactChunk23ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk23Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell115Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell116Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell117Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell118Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell119Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk23ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk24CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell120CenterQ + computedPhasedBaseLowerThreeExactCell121CenterQ) + computedPhasedBaseLowerThreeExactCell122CenterQ) + computedPhasedBaseLowerThreeExactCell123CenterQ) + computedPhasedBaseLowerThreeExactCell124CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk24ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell120ErrorQ + computedPhasedBaseLowerThreeExactCell121ErrorQ) + computedPhasedBaseLowerThreeExactCell122ErrorQ) + computedPhasedBaseLowerThreeExactCell123ErrorQ) + computedPhasedBaseLowerThreeExactCell124ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk24Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((193 / 56 : ℚ) : ℚ) : ℝ)
+      (((1549 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell120Certificate.append
+      computedPhasedBaseLowerThreeExactCell121Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell122Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell123Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell124Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk24Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk24Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk24CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk24Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell120Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell121Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell122Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell123Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell124Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk24CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk24Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk24Certificate.error = (computedPhasedBaseLowerThreeExactChunk24ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk24Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell120Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell121Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell122Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell123Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell124Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk24ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk25CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell125CenterQ + computedPhasedBaseLowerThreeExactCell126CenterQ) + computedPhasedBaseLowerThreeExactCell127CenterQ) + computedPhasedBaseLowerThreeExactCell128CenterQ) + computedPhasedBaseLowerThreeExactCell129CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk25ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell125ErrorQ + computedPhasedBaseLowerThreeExactCell126ErrorQ) + computedPhasedBaseLowerThreeExactCell127ErrorQ) + computedPhasedBaseLowerThreeExactCell128ErrorQ) + computedPhasedBaseLowerThreeExactCell129ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk25Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1549 / 448 : ℚ) : ℚ) : ℝ)
+      (((111 / 32 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell125Certificate.append
+      computedPhasedBaseLowerThreeExactCell126Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell127Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell128Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell129Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk25Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk25Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk25CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk25Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell125Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell126Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell127Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell128Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell129Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk25CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk25Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk25Certificate.error = (computedPhasedBaseLowerThreeExactChunk25ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk25Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell125Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell126Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell127Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell128Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell129Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk25ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk26CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell130CenterQ + computedPhasedBaseLowerThreeExactCell131CenterQ) + computedPhasedBaseLowerThreeExactCell132CenterQ) + computedPhasedBaseLowerThreeExactCell133CenterQ) + computedPhasedBaseLowerThreeExactCell134CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk26ErrorQ : ℚ :=
+  ((((computedPhasedBaseLowerThreeExactCell130ErrorQ + computedPhasedBaseLowerThreeExactCell131ErrorQ) + computedPhasedBaseLowerThreeExactCell132ErrorQ) + computedPhasedBaseLowerThreeExactCell133ErrorQ) + computedPhasedBaseLowerThreeExactCell134ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk26Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((111 / 32 : ℚ) : ℚ) : ℝ)
+      (((1559 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseLowerThreeExactCell130Certificate.append
+      computedPhasedBaseLowerThreeExactCell131Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell132Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell133Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell134Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk26Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk26Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk26CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk26Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell130Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell131Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell132Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell133Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell134Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk26CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk26Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk26Certificate.error = (computedPhasedBaseLowerThreeExactChunk26ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk26Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell130Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell131Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell132Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell133Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell134Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk26ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk27CenterQ : ℚ × ℚ :=
+  (((computedPhasedBaseLowerThreeExactCell135CenterQ + computedPhasedBaseLowerThreeExactCell136CenterQ) + computedPhasedBaseLowerThreeExactCell137CenterQ) + computedPhasedBaseLowerThreeExactCell138CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk27ErrorQ : ℚ :=
+  (((computedPhasedBaseLowerThreeExactCell135ErrorQ + computedPhasedBaseLowerThreeExactCell136ErrorQ) + computedPhasedBaseLowerThreeExactCell137ErrorQ) + computedPhasedBaseLowerThreeExactCell138ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactChunk27Certificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1559 / 448 : ℚ) : ℚ) : ℝ)
+      (((1563 / 448 : ℚ) : ℚ) : ℝ) :=
+  (((computedPhasedBaseLowerThreeExactCell135Certificate.append
+      computedPhasedBaseLowerThreeExactCell136Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell137Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactCell138Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactChunk27Certificate_center_eq :
+    computedPhasedBaseLowerThreeExactChunk27Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactChunk27CenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactChunk27Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCell135Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell136Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell137Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactCell138Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk27CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactChunk27Certificate_error_eq :
+    computedPhasedBaseLowerThreeExactChunk27Certificate.error = (computedPhasedBaseLowerThreeExactChunk27ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactChunk27Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCell135Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell136Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell137Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactCell138Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactChunk27ErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactCompactCenterQ : ℚ × ℚ :=
+  (((((((((((((((((((((((((((computedPhasedBaseLowerThreeExactChunk0CenterQ + computedPhasedBaseLowerThreeExactChunk1CenterQ) + computedPhasedBaseLowerThreeExactChunk2CenterQ) + computedPhasedBaseLowerThreeExactChunk3CenterQ) + computedPhasedBaseLowerThreeExactChunk4CenterQ) + computedPhasedBaseLowerThreeExactChunk5CenterQ) + computedPhasedBaseLowerThreeExactChunk6CenterQ) + computedPhasedBaseLowerThreeExactChunk7CenterQ) + computedPhasedBaseLowerThreeExactChunk8CenterQ) + computedPhasedBaseLowerThreeExactChunk9CenterQ) + computedPhasedBaseLowerThreeExactChunk10CenterQ) + computedPhasedBaseLowerThreeExactChunk11CenterQ) + computedPhasedBaseLowerThreeExactChunk12CenterQ) + computedPhasedBaseLowerThreeExactChunk13CenterQ) + computedPhasedBaseLowerThreeExactChunk14CenterQ) + computedPhasedBaseLowerThreeExactChunk15CenterQ) + computedPhasedBaseLowerThreeExactChunk16CenterQ) + computedPhasedBaseLowerThreeExactChunk17CenterQ) + computedPhasedBaseLowerThreeExactChunk18CenterQ) + computedPhasedBaseLowerThreeExactChunk19CenterQ) + computedPhasedBaseLowerThreeExactChunk20CenterQ) + computedPhasedBaseLowerThreeExactChunk21CenterQ) + computedPhasedBaseLowerThreeExactChunk22CenterQ) + computedPhasedBaseLowerThreeExactChunk23CenterQ) + computedPhasedBaseLowerThreeExactChunk24CenterQ) + computedPhasedBaseLowerThreeExactChunk25CenterQ) + computedPhasedBaseLowerThreeExactChunk26CenterQ) + computedPhasedBaseLowerThreeExactChunk27CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactCompactErrorQ : ℚ :=
+  (((((((((((((((((((((((((((computedPhasedBaseLowerThreeExactChunk0ErrorQ + computedPhasedBaseLowerThreeExactChunk1ErrorQ) + computedPhasedBaseLowerThreeExactChunk2ErrorQ) + computedPhasedBaseLowerThreeExactChunk3ErrorQ) + computedPhasedBaseLowerThreeExactChunk4ErrorQ) + computedPhasedBaseLowerThreeExactChunk5ErrorQ) + computedPhasedBaseLowerThreeExactChunk6ErrorQ) + computedPhasedBaseLowerThreeExactChunk7ErrorQ) + computedPhasedBaseLowerThreeExactChunk8ErrorQ) + computedPhasedBaseLowerThreeExactChunk9ErrorQ) + computedPhasedBaseLowerThreeExactChunk10ErrorQ) + computedPhasedBaseLowerThreeExactChunk11ErrorQ) + computedPhasedBaseLowerThreeExactChunk12ErrorQ) + computedPhasedBaseLowerThreeExactChunk13ErrorQ) + computedPhasedBaseLowerThreeExactChunk14ErrorQ) + computedPhasedBaseLowerThreeExactChunk15ErrorQ) + computedPhasedBaseLowerThreeExactChunk16ErrorQ) + computedPhasedBaseLowerThreeExactChunk17ErrorQ) + computedPhasedBaseLowerThreeExactChunk18ErrorQ) + computedPhasedBaseLowerThreeExactChunk19ErrorQ) + computedPhasedBaseLowerThreeExactChunk20ErrorQ) + computedPhasedBaseLowerThreeExactChunk21ErrorQ) + computedPhasedBaseLowerThreeExactChunk22ErrorQ) + computedPhasedBaseLowerThreeExactChunk23ErrorQ) + computedPhasedBaseLowerThreeExactChunk24ErrorQ) + computedPhasedBaseLowerThreeExactChunk25ErrorQ) + computedPhasedBaseLowerThreeExactChunk26ErrorQ) + computedPhasedBaseLowerThreeExactChunk27ErrorQ)
+
+noncomputable def computedPhasedBaseLowerThreeExactCompactCertificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((3 : ℚ) : ℝ)
+      (((1563 / 448 : ℚ) : ℚ) : ℝ) :=
+  (((((((((((((((((((((((((((computedPhasedBaseLowerThreeExactChunk0Certificate.append
+      computedPhasedBaseLowerThreeExactChunk1Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk2Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk3Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk4Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk5Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk6Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk7Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk8Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk9Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk10Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk11Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk12Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk13Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk14Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk15Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk16Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk17Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk18Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk19Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk20Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk21Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk22Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk23Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk24Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk25Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk26Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeExactChunk27Certificate
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeExactCompactCertificate_center_eq :
+    computedPhasedBaseLowerThreeExactCompactCertificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCompactCenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCompactCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactChunk0Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk1Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk2Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk3Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk4Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk5Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk6Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk7Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk8Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk9Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk10Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk11Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk12Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk13Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk14Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk15Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk16Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk17Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk18Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk19Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk20Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk21Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk22Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk23Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk24Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk25Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk26Certificate_center_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk27Certificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactCompactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactCompactCertificate_error_eq :
+    computedPhasedBaseLowerThreeExactCompactCertificate.error = (computedPhasedBaseLowerThreeExactCompactErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCompactCertificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactChunk0Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk1Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk2Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk3Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk4Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk5Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk6Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk7Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk8Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk9Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk10Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk11Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk12Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk13Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk14Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk15Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk16Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk17Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk18Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk19Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk20Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk21Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk22Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk23Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk24Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk25Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk26Certificate_error_eq]
+  rw [computedPhasedBaseLowerThreeExactChunk27Certificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactCompactErrorQ, Rat.cast_add]
+
+noncomputable def computedPhasedBaseLowerThreeExactTailCenterQ : ℚ × ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorCenterQ
+    computedPhasedBaseLowerThreeTailTaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+noncomputable def computedPhasedBaseLowerThreeExactTailErrorQ : ℚ :=
+  computedPhasedBaseActiveBlockShardTaylorErrorQ
+    computedPhasedBaseLowerThreeTailTaylorPointLeaves.toComputedPhasedBaseActiveBlockVariationData
+    computedPhasedBaseLowerThreeTailLeaves.toComputedPhasedBaseActiveBlockVariationData
+
+theorem computedPhasedBaseLowerThreeTailTaylorCell_center_eq_exact :
+    computedPhasedBaseLowerThreeTailTaylorCell.center = rationalPairToComplex computedPhasedBaseLowerThreeExactTailCenterQ := by
+  unfold computedPhasedBaseLowerThreeTailTaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactTailCenterQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_center_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeTailInterval _ _
+      computedPhasedBaseLowerThreeTailTaylorPointLeaves computedPhasedBaseLowerThreeTailLeaves
+
+theorem computedPhasedBaseLowerThreeTailTaylorCell_error_eq_exact :
+    computedPhasedBaseLowerThreeTailTaylorCell.error = (computedPhasedBaseLowerThreeExactTailErrorQ : ℝ) := by
+  unfold computedPhasedBaseLowerThreeTailTaylorCell
+  simpa only [computedPhasedBaseLowerThreeExactTailErrorQ] using
+    computedPhasedBaseActiveBlockShardTaylorCell_error_eq_cast
+      computedPhasedBaseLowerThreeModel computedPhasedBaseLowerThreeTailInterval _ _
+      computedPhasedBaseLowerThreeTailTaylorPointLeaves computedPhasedBaseLowerThreeTailLeaves
+
+noncomputable def computedPhasedBaseLowerThreeExactTailCertificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      (((1563 / 448 : ℚ) : ℚ) : ℝ)
+      (((7 / 2 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeTailTaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeTailInterval])
+    (by norm_num [computedPhasedBaseLowerThreeTailInterval])
+
+theorem computedPhasedBaseLowerThreeExactTailCertificate_center_eq :
+    computedPhasedBaseLowerThreeExactTailCertificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactTailCenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactTailCertificate, ComplexIntegralCellCertificate.reindex_center,
+    computedPhasedBaseLowerThreeTailTaylorCell_center_eq_exact]
+
+theorem computedPhasedBaseLowerThreeExactTailCertificate_error_eq :
+    computedPhasedBaseLowerThreeExactTailCertificate.error = (computedPhasedBaseLowerThreeExactTailErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactTailCertificate, ComplexIntegralCellCertificate.reindex_error,
+    computedPhasedBaseLowerThreeTailTaylorCell_error_eq_exact]
+
+noncomputable def computedPhasedBaseLowerThreeExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseLowerThreeExactCompactCenterQ + computedPhasedBaseLowerThreeExactTailCenterQ
+
+noncomputable def computedPhasedBaseLowerThreeExactErrorQ : ℚ :=
+  computedPhasedBaseLowerThreeExactCompactErrorQ + computedPhasedBaseLowerThreeExactTailErrorQ
+
+noncomputable def computedPhasedBaseLowerThreeExactCertificate :
+    ComplexIntegralCellCertificate (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((3 : ℚ) : ℝ)
+      (((7 / 2 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeExactCompactCertificate.append computedPhasedBaseLowerThreeExactTailCertificate
+    (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _) (computedPhasedBaseLowerThreeExactIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseLowerThreeExactCertificate_center_eq :
+    computedPhasedBaseLowerThreeExactCertificate.center = rationalPairToComplex computedPhasedBaseLowerThreeExactCenterQ := by
+  simp only [computedPhasedBaseLowerThreeExactCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeExactCompactCertificate_center_eq, computedPhasedBaseLowerThreeExactTailCertificate_center_eq]
+  simp only [computedPhasedBaseLowerThreeExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeExactCertificate_error_eq :
+    computedPhasedBaseLowerThreeExactCertificate.error = (computedPhasedBaseLowerThreeExactErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeExactCertificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeExactCompactCertificate_error_eq, computedPhasedBaseLowerThreeExactTailCertificate_error_eq]
+  simp only [computedPhasedBaseLowerThreeExactErrorQ, Rat.cast_add]
+
+end
+end RiemannVenue.Venue

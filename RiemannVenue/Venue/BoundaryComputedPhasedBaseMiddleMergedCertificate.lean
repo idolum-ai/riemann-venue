@@ -38,13 +38,13 @@ def computedPhasedBaseMiddleMergedTailErrorQ : ℚ :=
 
 theorem computedPhasedBaseMiddleMergedTailCell_center_eq :
     computedPhasedBaseMiddleMergedTailCell.center =
-      computedPhasedRationalPairToComplex
+      rationalPairToComplex
         computedPhasedBaseMiddleMergedTailCenterQ := by
   simp only [computedPhasedBaseMiddleMergedTailCell,
     ComplexIntegralCellCertificate.reindex_center,
     computedPhasedBaseMiddleTailTaylorCell]
   simpa only [computedPhasedBaseMiddleMergedTailCenterQ,
-    computedPhasedRationalPairToComplex,
+    rationalPairToComplex,
     computedPhasedBaseMiddleTailTaylorTaylorPointLeaves] using
     computedPhasedBaseMiddleShardTaylorCell_center_eq_cast
       computedPhasedBaseMiddleTailInterval
@@ -89,7 +89,7 @@ noncomputable def computedPhasedBaseMiddleMergedCertificate :
 
 theorem computedPhasedBaseMiddleMergedCertificate_center_eq :
     computedPhasedBaseMiddleMergedCertificate.center =
-      computedPhasedRationalPairToComplex
+      rationalPairToComplex
         computedPhasedBaseMiddleMergedCenterQ := by
   simp only [computedPhasedBaseMiddleMergedCertificate,
     ComplexIntegralCellCertificate.reindex_center,
@@ -97,7 +97,7 @@ theorem computedPhasedBaseMiddleMergedCertificate_center_eq :
   rw [computedPhasedBaseMiddleMergedCompactCertificate_center_eq,
     computedPhasedBaseMiddleMergedTailCell_center_eq]
   simp only [computedPhasedBaseMiddleMergedCenterQ,
-    computedPhasedRationalPairToComplex_add]
+    rationalPairToComplex_add]
 
 theorem computedPhasedBaseMiddleMergedCertificate_error_eq :
     computedPhasedBaseMiddleMergedCertificate.error =
