@@ -34,7 +34,9 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   CI diffs the generated module against the committed copy. The packet makes
   every transform and cell enclosure an explicit proof field; it is not
   proof authority until `ComputedPhasedAnalyticIntervalCertificate` has a
-  constructed inhabitant.
+  constructed inhabitant. The value, slope, and curvature radii are distinct:
+  an independent high-precision reconstruction found that a uniform `1e-8`
+  radius was too narrow after cancellation in the derived jets.
 
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and

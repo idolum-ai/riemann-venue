@@ -35,6 +35,15 @@ DATA_DENOMINATOR = 10**8
 TRANSFORM_DENOMINATOR = 10**12
 TRANSFORM_RADIUS = Fraction(1, 10**10)
 RESIDUAL_RADIUS = Fraction(1, 10**11)
+# Independent high-precision reconstruction found cancellation-amplified
+# errors beyond one DATA_DENOMINATOR unit in the first two derived jets.  Keep
+# order-dependent radii comfortably outside those errors; Lean still has to
+# prove every enclosure before the packet becomes proof authority.
+JET_RADII = (
+    Fraction(1, 10**7),
+    Fraction(1, 10**6),
+    Fraction(1, 10**5),
+)
 
 
 def outward(value: float, denominator: int = DATA_DENOMINATOR) -> Fraction:
@@ -218,7 +227,7 @@ def cell_data(payload: dict) -> tuple[
             ))))
             third_bound = outward(1.20 * third + 1.0)
             centers_q = [nearest(value, DATA_DENOMINATOR) for value in jets]
-            radii_q = [Fraction(1, DATA_DENOMINATOR) for _ in jets]
+            radii_q = list(JET_RADII)
             r = Fraction(radius).limit_denominator()
             upper = (
                 abs(centers_q[0]) + radii_q[0]
@@ -351,10 +360,6 @@ def render(payload: dict) -> str:
         f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[3])}",
         f"  segment4_integral_le : (∫ t in (4 : ℝ)..(9 / 2),",
         f"      ‖computedPhasedBaseWeightedSecond t‖) ≤ {lean_real(segment_totals[4])}",
-        "  whole_majorant_eq_half :",
-        "    completedZeroTransformDerivativeMajorant 2 computedPhasedBaseTest =",
-        "      (1 / (2 * Real.pi)) * (2 *",
-        "        ∫ t in (0 : ℝ)..(9 / 2), ‖computedPhasedBaseWeightedSecond t‖)",
         "  correction0_majorant_le :",
         "    completedZeroTransformDerivativeMajorant 2",
         "      computedPhasedCorrectionAtom0 ≤ 1000",

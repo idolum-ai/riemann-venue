@@ -1,5 +1,5 @@
 import Mathlib.Analysis.Real.Pi.Bounds
-import RiemannVenue.Venue.BoundaryComputedPhasedIntervalCertificate
+import RiemannVenue.Venue.BoundaryComputedPhasedGlobalBounds
 
 /-!
 # Consequences of the computed phased interval certificate
@@ -219,7 +219,7 @@ private theorem computedPhasedBase_majorant_lt
     (C : ComputedPhasedAnalyticIntervalCertificate) :
     completedZeroTransformDerivativeMajorant 2 computedPhasedBaseTest <
       (1769 : ℝ) / 5 := by
-  rw [C.whole_majorant_eq_half]
+  rw [computedPhasedBase_whole_majorant_eq_half]
   have hI := computedPhasedBase_half_integral_le C
   have hfactor : (1 / (2 * Real.pi) : ℝ) * 2 = 1 / Real.pi := by
     field_simp [Real.pi_ne_zero]
