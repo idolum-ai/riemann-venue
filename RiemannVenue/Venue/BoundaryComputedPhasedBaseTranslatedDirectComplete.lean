@@ -1,0 +1,316 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerFourDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerFourDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerThreeDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerThreeDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerTwoDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerTwoDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerOneDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerOneDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerFourDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerFourDirectTailPaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectCompactCover
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectTailPaymentProbe
+
+/-! # Exact translated complete base certificate
+
+The seven translated support regimes and their endpoint tails are
+composed into one certificate on `[0, 7/2]`. Every signed center is
+an evaluated rational literal and every error is bounded by an
+evaluated rational ceiling exported by the direct packet generators.
+-/
+
+namespace RiemannVenue.Venue
+noncomputable section
+set_option maxRecDepth 100000
+set_option maxHeartbeats 4000000
+
+private theorem computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable (a b : ℝ) :
+    IntervalIntegrable (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint) MeasureTheory.volume a b :=
+  (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _
+
+def computedPhasedBaseFullFiveInnerFourDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerFourDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseFullFiveInnerFourDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseFullFiveInnerFourDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseFullFiveInnerFourDirectCompactExactCenterQ + computedPhasedBaseFullFiveInnerFourDirectTailExactCenterQ
+
+def computedPhasedBaseFullFiveInnerFourDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerFourDirectCompactExactCeilingPaymentQ + computedPhasedBaseFullFiveInnerFourDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate :=
+  computedPhasedBaseFullFiveInnerFourDirectCompactCertificate.append
+    computedPhasedBaseFullFiveInnerFourDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate_center_eq :
+    computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseFullFiveInnerFourDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveInnerFourDirectCompactCertificate_centerQ,
+    computedPhasedBaseFullFiveInnerFourDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseFullFiveInnerFourDirectTailIntegralCell_centerQ,
+    computedPhasedBaseFullFiveInnerFourDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseFullFiveInnerFourDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate_error_le :
+    computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate.error ≤ (computedPhasedBaseFullFiveInnerFourDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseFullFiveInnerFourDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseFullFiveInnerFourDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseFullFiveInnerFourDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseFullFiveInnerFourDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseFullFiveInnerThreeDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerThreeDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseFullFiveInnerThreeDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseFullFiveInnerThreeDirectCompactExactCenterQ + computedPhasedBaseFullFiveInnerThreeDirectTailExactCenterQ
+
+def computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerThreeDirectCompactExactCeilingPaymentQ + computedPhasedBaseFullFiveInnerThreeDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate :=
+  computedPhasedBaseFullFiveInnerThreeDirectCompactCertificate.append
+    computedPhasedBaseFullFiveInnerThreeDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate_center_eq :
+    computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveInnerThreeDirectCompactCertificate_centerQ,
+    computedPhasedBaseFullFiveInnerThreeDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseFullFiveInnerThreeDirectTailIntegralCell_centerQ,
+    computedPhasedBaseFullFiveInnerThreeDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate_error_le :
+    computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate.error ≤ (computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseFullFiveInnerThreeDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseFullFiveInnerThreeDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseFullFiveInnerThreeDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseFullFiveInnerTwoDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerTwoDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseFullFiveInnerTwoDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseFullFiveInnerTwoDirectCompactExactCenterQ + computedPhasedBaseFullFiveInnerTwoDirectTailExactCenterQ
+
+def computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerTwoDirectCompactExactCeilingPaymentQ + computedPhasedBaseFullFiveInnerTwoDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate :=
+  computedPhasedBaseFullFiveInnerTwoDirectCompactCertificate.append
+    computedPhasedBaseFullFiveInnerTwoDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate_center_eq :
+    computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveInnerTwoDirectCompactCertificate_centerQ,
+    computedPhasedBaseFullFiveInnerTwoDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseFullFiveInnerTwoDirectTailIntegralCell_centerQ,
+    computedPhasedBaseFullFiveInnerTwoDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate_error_le :
+    computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate.error ≤ (computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseFullFiveInnerTwoDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseFullFiveInnerTwoDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseFullFiveInnerTwoDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseFullFiveInnerOneDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerOneDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseFullFiveInnerOneDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseFullFiveInnerOneDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseFullFiveInnerOneDirectCompactExactCenterQ + computedPhasedBaseFullFiveInnerOneDirectTailExactCenterQ
+
+def computedPhasedBaseFullFiveInnerOneDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveInnerOneDirectCompactExactCeilingPaymentQ + computedPhasedBaseFullFiveInnerOneDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate :=
+  computedPhasedBaseFullFiveInnerOneDirectCompactCertificate.append
+    computedPhasedBaseFullFiveInnerOneDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate_center_eq :
+    computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseFullFiveInnerOneDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveInnerOneDirectCompactCertificate_centerQ,
+    computedPhasedBaseFullFiveInnerOneDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseFullFiveInnerOneDirectTailIntegralCell_centerQ,
+    computedPhasedBaseFullFiveInnerOneDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseFullFiveInnerOneDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate_error_le :
+    computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate.error ≤ (computedPhasedBaseFullFiveInnerOneDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseFullFiveInnerOneDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseFullFiveInnerOneDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseFullFiveInnerOneDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseFullFiveInnerOneDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseFullFiveDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseFullFiveDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseFullFiveDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseFullFiveDirectCompactExactCenterQ + computedPhasedBaseFullFiveDirectTailExactCenterQ
+
+def computedPhasedBaseFullFiveDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseFullFiveDirectCompactExactCeilingPaymentQ + computedPhasedBaseFullFiveDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseFullFiveDirectCompleteCertificate :=
+  computedPhasedBaseFullFiveDirectCompactCertificate.append
+    computedPhasedBaseFullFiveDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseFullFiveDirectCompleteCertificate_center_eq :
+    computedPhasedBaseFullFiveDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseFullFiveDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseFullFiveDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveDirectCompactCertificate_centerQ,
+    computedPhasedBaseFullFiveDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseFullFiveDirectTailIntegralCell_centerQ,
+    computedPhasedBaseFullFiveDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseFullFiveDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseFullFiveDirectCompleteCertificate_error_le :
+    computedPhasedBaseFullFiveDirectCompleteCertificate.error ≤ (computedPhasedBaseFullFiveDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseFullFiveDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseFullFiveDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseFullFiveDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseFullFiveDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseFullFiveDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerFourDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseLowerFourDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseLowerFourDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseLowerFourDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseLowerFourDirectCompactExactCenterQ + computedPhasedBaseLowerFourDirectTailExactCenterQ
+
+def computedPhasedBaseLowerFourDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseLowerFourDirectCompactExactCeilingPaymentQ + computedPhasedBaseLowerFourDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseLowerFourDirectCompleteCertificate :=
+  computedPhasedBaseLowerFourDirectCompactCertificate.append
+    computedPhasedBaseLowerFourDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseLowerFourDirectCompleteCertificate_center_eq :
+    computedPhasedBaseLowerFourDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseLowerFourDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseLowerFourDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerFourDirectCompactCertificate_centerQ,
+    computedPhasedBaseLowerFourDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseLowerFourDirectTailIntegralCell_centerQ,
+    computedPhasedBaseLowerFourDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseLowerFourDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerFourDirectCompleteCertificate_error_le :
+    computedPhasedBaseLowerFourDirectCompleteCertificate.error ≤ (computedPhasedBaseLowerFourDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseLowerFourDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseLowerFourDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseLowerFourDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseLowerFourDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseLowerFourDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectTailExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseLowerThreeDirectTailExactCachePaymentQ +
+    16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectTailExactRemainderMultiplierQ
+
+def computedPhasedBaseLowerThreeDirectCompleteExactCenterQ : ℚ × ℚ :=
+  computedPhasedBaseLowerThreeDirectCompactExactCenterQ + computedPhasedBaseLowerThreeDirectTailExactCenterQ
+
+def computedPhasedBaseLowerThreeDirectCompleteExactCeilingPaymentQ : ℚ :=
+  computedPhasedBaseLowerThreeDirectCompactExactCeilingPaymentQ + computedPhasedBaseLowerThreeDirectTailExactCeilingPaymentQ
+
+noncomputable def computedPhasedBaseLowerThreeDirectCompleteCertificate :=
+  computedPhasedBaseLowerThreeDirectCompactCertificate.append
+    computedPhasedBaseLowerThreeDirectTailIntegralCell
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+    (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseLowerThreeDirectCompleteCertificate_center_eq :
+    computedPhasedBaseLowerThreeDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectCompactCertificate_centerQ,
+    computedPhasedBaseLowerThreeDirectCompactCenterQ_eq_exact,
+    computedPhasedBaseLowerThreeDirectTailIntegralCell_centerQ,
+    computedPhasedBaseLowerThreeDirectTailTaylorCenterQ_eq_exact]
+  simp only [computedPhasedBaseLowerThreeDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectCompleteCertificate_error_le :
+    computedPhasedBaseLowerThreeDirectCompleteCertificate.error ≤ (computedPhasedBaseLowerThreeDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseLowerThreeDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  · exact computedPhasedBaseLowerThreeDirectCompactCertificate_error_le_exactCeiling
+  · rw [computedPhasedBaseLowerThreeDirectTailIntegralCell_errorQ]
+    exact_mod_cast computedPhasedBaseLowerThreeDirectTailTaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseTranslatedDirectCompleteExactCenterQ : ℚ × ℚ :=
+  ((((((computedPhasedBaseFullFiveInnerFourDirectCompleteExactCenterQ + computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCenterQ) + computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCenterQ) + computedPhasedBaseFullFiveInnerOneDirectCompleteExactCenterQ) + computedPhasedBaseFullFiveDirectCompleteExactCenterQ) + computedPhasedBaseLowerFourDirectCompleteExactCenterQ) + computedPhasedBaseLowerThreeDirectCompleteExactCenterQ)
+
+def computedPhasedBaseTranslatedDirectCompleteExactCeilingPaymentQ : ℚ :=
+  ((((((computedPhasedBaseFullFiveInnerFourDirectCompleteExactCeilingPaymentQ + computedPhasedBaseFullFiveInnerThreeDirectCompleteExactCeilingPaymentQ) + computedPhasedBaseFullFiveInnerTwoDirectCompleteExactCeilingPaymentQ) + computedPhasedBaseFullFiveInnerOneDirectCompleteExactCeilingPaymentQ) + computedPhasedBaseFullFiveDirectCompleteExactCeilingPaymentQ) + computedPhasedBaseLowerFourDirectCompleteExactCeilingPaymentQ) + computedPhasedBaseLowerThreeDirectCompleteExactCeilingPaymentQ)
+
+noncomputable def computedPhasedBaseTranslatedDirectCompleteCertificate :=
+  ((((((computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate.append
+      computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseFullFiveDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerFourDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectCompleteCertificate
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseTranslatedDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseTranslatedDirectCompleteCertificate_center_eq :
+    computedPhasedBaseTranslatedDirectCompleteCertificate.center = rationalPairToComplex computedPhasedBaseTranslatedDirectCompleteExactCenterQ := by
+  simp only [computedPhasedBaseTranslatedDirectCompleteCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseFullFiveDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseLowerFourDirectCompleteCertificate_center_eq]
+  rw [computedPhasedBaseLowerThreeDirectCompleteCertificate_center_eq]
+  simp only [computedPhasedBaseTranslatedDirectCompleteExactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseTranslatedDirectCompleteCertificate_error_le :
+    computedPhasedBaseTranslatedDirectCompleteCertificate.error ≤ (computedPhasedBaseTranslatedDirectCompleteExactCeilingPaymentQ : ℝ) := by
+  simp only [computedPhasedBaseTranslatedDirectCompleteCertificate, ComplexIntegralCellCertificate.append_error, computedPhasedBaseTranslatedDirectCompleteExactCeilingPaymentQ]
+  gcongr
+  exact computedPhasedBaseFullFiveInnerFourDirectCompleteCertificate_error_le
+  exact computedPhasedBaseFullFiveInnerThreeDirectCompleteCertificate_error_le
+  exact computedPhasedBaseFullFiveInnerTwoDirectCompleteCertificate_error_le
+  exact computedPhasedBaseFullFiveInnerOneDirectCompleteCertificate_error_le
+  exact computedPhasedBaseFullFiveDirectCompleteCertificate_error_le
+  exact computedPhasedBaseLowerFourDirectCompleteCertificate_error_le
+  exact computedPhasedBaseLowerThreeDirectCompleteCertificate_error_le
+
+end
+end RiemannVenue.Venue

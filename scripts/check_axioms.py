@@ -81,6 +81,7 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedCorrection_majorants_of_scaled_bump_bounds",
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Certificate",
     "RiemannVenue.Venue.computedPhasedDerivativeOuterSegmentPacketOfEnclosures",
+    "RiemannVenue.Venue.computedPhasedSegment4CertificateOfPayments",
     "RiemannVenue.Venue.completedBoundarySmoothCorePositivity_iff_openStripRH_of_orderTwoPayments",
     "RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures",
     "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
