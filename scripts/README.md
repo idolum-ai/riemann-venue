@@ -141,8 +141,8 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   regime's 41 direct payment packets into a compact integral certificate. It
   preserves the canonical paired integrand, exposes the exact rational center
   and error ledgers, and proves the aggregate error is bounded by the sum of
-  the per-window certified ceiling payments. The LowerThree cover is checked
-  in CI together with every packet that supports it.
+  the per-window certified ceiling payments. CI checks all seven translated
+  covers together with every packet that supports them.
 
 - `generate_computed_phased_base_lower_four_compact_shards.py` shifts the
   recursive mesh onto `[5/2, 1339/448]`. Three inherited blocks reuse the
