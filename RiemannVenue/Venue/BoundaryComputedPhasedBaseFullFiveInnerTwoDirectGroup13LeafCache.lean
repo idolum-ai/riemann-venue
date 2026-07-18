@@ -1,0 +1,3223 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerTwoCompactCell2Shard2
+
+/-! Direct phase and benchmark-kernel anchors for a three-block cell. -/
+namespace RiemannVenue.Venue
+noncomputable section
+set_option linter.unusedTactic false
+set_option linter.unreachableTactic false
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0 : RationalTrigInterval :=
+  ⟨⟨(-1997827273284559137 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-93199710945814949 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0.Contains
+    ((965 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (965 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1 : RationalTrigInterval :=
+  ⟨⟨(1572167462174341259 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1236240053905507159 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1.Contains
+    ((89745 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (89745 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2 : RationalTrigInterval :=
+  ⟨⟨(-380627701295357503 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1963446600497862307 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2.Contains
+    ((53075 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (53075 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3 : RationalTrigInterval :=
+  ⟨⟨(-199266899639873721 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1734161920841826223 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3.Contains
+    ((122555 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (122555 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4 : RationalTrigInterval :=
+  ⟨⟨(1887933252772982289 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(660081838164046567 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4.Contains
+    ((8685 : ℚ) / 266 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (8685 : ℚ) / 266) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5 : RationalTrigInterval :=
+  ⟨⟨(-1859827039784933049 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(735556511822723967 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5.Contains
+    ((22195 : ℚ) / 608 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (22195 : ℚ) / 608) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6 : RationalTrigInterval :=
+  ⟨⟨(925707775337915497 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-354573835169992619 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6.Contains
+    ((85885 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (85885 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7 : RationalTrigInterval :=
+  ⟨⟨(459369190202739237 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1946530232771245601 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7.Contains
+    ((188175 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (188175 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8 : RationalTrigInterval :=
+  ⟨⟨(-1620664872398923971 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-234388171320327467 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8.Contains
+    ((51145 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (51145 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9 : RationalTrigInterval :=
+  ⟨⟨(1992455135529739519 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-173558442321793513 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9.Contains
+    ((220985 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (220985 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10 : RationalTrigInterval :=
+  ⟨⟨(-1393622690946218127 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(286901780773826623 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10.Contains
+    ((118695 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (118695 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11 : RationalTrigInterval :=
+  ⟨⟨(28972054890780843 : ℚ) / 500000000000000000, (1 : ℚ) / 1000000000000000000⟩,
+    ⟨(-499159914291407801 : ℚ) / 500000000000000000, (1 : ℚ) / 1000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11.Contains
+    ((253795 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (253795 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12 : RationalTrigInterval :=
+  ⟨⟨(243660218522697237 : ℚ) / 400000000000000000, (3 : ℚ) / 2000000000000000000⟩,
+    ⟨(793054608418737101 : ℚ) / 1000000000000000000, (1 : ℚ) / 1000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12.Contains
+    ((4825 : ℚ) / 76 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (4825 : ℚ) / 76) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13 : RationalTrigInterval :=
+  ⟨⟨(-1958996135214264229 : ℚ) / 2000000000000000000, (19 : ℚ) / 2000000000000000000⟩,
+    ⟨(-80581422726476153 : ℚ) / 400000000000000000, (19 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13.Contains
+    ((286605 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (286605 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14 : RationalTrigInterval :=
+  ⟨⟨(349073598336630181 : ℚ) / 400000000000000000, (119 : ℚ) / 2000000000000000000⟩,
+    ⟨(-244142705912946089 : ℚ) / 500000000000000000, (59 : ℚ) / 1000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14.Contains
+    ((151505 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (151505 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15 : RationalTrigInterval :=
+  ⟨⟨(-170371354477151987 : ℚ) / 500000000000000000, (21 : ℚ) / 125000000000000000⟩,
+    ⟨(1880313172101373663 : ℚ) / 2000000000000000000, (337 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15.Contains
+    ((319415 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (319415 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16 : RationalTrigInterval :=
+  ⟨⟨(-71438215758715211 : ℚ) / 200000000000000000, (397 : ℚ) / 200000000000000000⟩,
+    ⟨(-1868062668360225303 : ℚ) / 2000000000000000000, (3971 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16.Contains
+    ((83955 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (83955 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17 : RationalTrigInterval :=
+  ⟨⟨(352447822907463041 : ℚ) / 400000000000000000, (5379 : ℚ) / 400000000000000000⟩,
+    ⟨(945787134187568631 : ℚ) / 2000000000000000000, (5379 : ℚ) / 400000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17.Contains
+    ((352225 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (352225 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18 : RationalTrigInterval :=
+  ⟨⟨(-1951622889085023013 : ℚ) / 2000000000000000000, (127331 : ℚ) / 2000000000000000000⟩,
+    ⟨(437227742485975293 : ℚ) / 2000000000000000000, (127331 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18.Contains
+    ((184315 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (184315 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19 : RationalTrigInterval :=
+  ⟨⟨(47611013905955879 : ℚ) / 80000000000000000, (650083 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1607247521938983413 : ℚ) / 2000000000000000000, (650083 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19.Contains
+    ((2895 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2895 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0 : RationalTrigInterval :=
+  ⟨⟨(1235333278964025573 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1572880062142053147 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0.Contains
+    ((741 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (741 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1 : RationalTrigInterval :=
+  ⟨⟨(-930648704816262809 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1770280482924616251 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1.Contains
+    ((3627 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (3627 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2 : RationalTrigInterval :=
+  ⟨⟨(595299345222273137 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1909350331808684309 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2.Contains
+    ((2145 : ℚ) / 112 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2145 : ℚ) / 112) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3 : RationalTrigInterval :=
+  ⟨⟨(-240334929374458471 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1985507270629491817 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3.Contains
+    ((4953 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (4953 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4 : RationalTrigInterval :=
+  ⟨⟨(-122548499315002909 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(399248387113367847 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4.Contains
+    ((351 : ℚ) / 14 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (351 : ℚ) / 14) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5 : RationalTrigInterval :=
+  ⟨⟨(96278793344265031 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1941200620441974743 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5.Contains
+    ((897 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (897 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6 : RationalTrigInterval :=
+  ⟨⟨(-824377549156204873 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(364439386260442987 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6.Contains
+    ((3471 : ℚ) / 112 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (3471 : ℚ) / 112) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7 : RationalTrigInterval :=
+  ⟨⟨(228039594103561383 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-328630405655172103 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7.Contains
+    ((7605 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (7605 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8 : RationalTrigInterval :=
+  ⟨⟨(-1418448978252969967 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1409965423722548429 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8.Contains
+    ((2067 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2067 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9 : RationalTrigInterval :=
+  ⟨⟨(329992445675887891 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1130320593867578119 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9.Contains
+    ((8931 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (8931 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10 : RationalTrigInterval :=
+  ⟨⟨(-365421876307915019 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(813431808998192179 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10.Contains
+    ((4797 : ℚ) / 112 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (4797 : ℚ) / 112) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11 : RationalTrigInterval :=
+  ⟨⟨(388810691209915219 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-469740524142530103 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11.Contains
+    ((10257 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (10257 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12 : RationalTrigInterval :=
+  ⟨⟨(-1996941155885391417 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(110571334129225623 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12.Contains
+    ((195 : ℚ) / 4 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (195 : ℚ) / 4) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13 : RationalTrigInterval :=
+  ⟨⟨(15872238691333201 : ℚ) / 16000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(252241170724607413 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13.Contains
+    ((11583 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (11583 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14 : RationalTrigInterval :=
+  ⟨⟨(-1905744924379872323 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-606742353227755743 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14.Contains
+    ((6123 : ℚ) / 112 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (6123 : ℚ) / 112) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15 : RationalTrigInterval :=
+  ⟨⟨(110291618756772367 : ℚ) / 125000000000000000, (1 : ℚ) / 1000000000000000000⟩,
+    ⟨(941251433462259921 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15.Contains
+    ((12909 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (12909 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16 : RationalTrigInterval :=
+  ⟨⟨(-195680162987866477 : ℚ) / 250000000000000000, (1 : ℚ) / 1000000000000000000⟩,
+    ⟨(-1244746369359914491 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16.Contains
+    ((3393 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (3393 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17 : RationalTrigInterval :=
+  ⟨⟨(657317783537733929 : ℚ) / 1000000000000000000, (1 : ℚ) / 1000000000000000000⟩,
+    ⟨(188403378991235313 : ℚ) / 250000000000000000, (1 : ℚ) / 1000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17.Contains
+    ((14235 : ℚ) / 224 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (14235 : ℚ) / 224) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18 : RationalTrigInterval :=
+  ⟨⟨(-12756408932094947 : ℚ) / 25000000000000000, (3 : ℚ) / 500000000000000000⟩,
+    ⟨(-1720044708548553057 : ℚ) / 2000000000000000000, (11 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18.Contains
+    ((7449 : ℚ) / 112 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (7449 : ℚ) / 112) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19 : RationalTrigInterval :=
+  ⟨⟨(692764066122533553 : ℚ) / 2000000000000000000, (37 : ℚ) / 2000000000000000000⟩,
+    ⟨(938093538604942899 : ℚ) / 1000000000000000000, (9 : ℚ) / 500000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19.Contains
+    ((2223 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2223 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0 : RationalTrigInterval :=
+  ⟨⟨(382891838413831009 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1963006327059614121 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0.Contains
+    ((517 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (517 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1 : RationalTrigInterval :=
+  ⟨⟨(-1909693285801994609 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(594198244833137599 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1.Contains
+    ((48081 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (48081 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2 : RationalTrigInterval :=
+  ⟨⟨(1429045095172942103 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1399224826810243833 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2.Contains
+    ((28435 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (28435 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3 : RationalTrigInterval :=
+  ⟨⟨(553800375167677619 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-384359474682965999 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3.Contains
+    ((65659 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (65659 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4 : RationalTrigInterval :=
+  ⟨⟨(-1954496674785694933 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(424196591513488543 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4.Contains
+    ((4653 : ℚ) / 266 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (4653 : ℚ) / 266) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5 : RationalTrigInterval :=
+  ⟨⟨(260129296358842831 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1519315217259516869 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5.Contains
+    ((11891 : ℚ) / 608 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (11891 : ℚ) / 608) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6 : RationalTrigInterval :=
+  ⟨⟨(720429709465178521 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1865738736725996817 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6.Contains
+    ((46013 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (46013 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7 : RationalTrigInterval :=
+  ⟨⟨(-1984197713993756093 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(250917181121485773 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7.Contains
+    ((100815 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (100815 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8 : RationalTrigInterval :=
+  ⟨⟨(1162197803682239989 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1627665894806479491 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8.Contains
+    ((27401 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (27401 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9 : RationalTrigInterval :=
+  ⟨⟨(881492300364511093 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1795263580758569991 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9.Contains
+    ((118393 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (118393 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10 : RationalTrigInterval :=
+  ⟨⟨(-79942676167828311 : ℚ) / 80000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(75698939580317919 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10.Contains
+    ((63591 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (63591 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11 : RationalTrigInterval :=
+  ⟨⟨(1014768850512180437 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(344687927263499497 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11.Contains
+    ((135971 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (135971 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12 : RationalTrigInterval :=
+  ⟨⟨(1035743621018987753 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1710916465382946587 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12.Contains
+    ((2585 : ℚ) / 76 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2585 : ℚ) / 76) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13 : RationalTrigInterval :=
+  ⟨⟨(-1997493214997268873 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-100104225884198277 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13.Contains
+    ((153549 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (153549 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14 : RationalTrigInterval :=
+  ⟨⟨(859498802333075331 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1805896400347486461 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14.Contains
+    ((81169 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (81169 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15 : RationalTrigInterval :=
+  ⟨⟨(1181991775106690429 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1613349138773171737 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15.Contains
+    ((171127 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (171127 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16 : RationalTrigInterval :=
+  ⟨⟨(-1980984942769589227 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-275133888352865927 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16.Contains
+    ((44979 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (44979 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17 : RationalTrigInterval :=
+  ⟨⟨(697587427150433463 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(374879809084545853 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17.Contains
+    ((188705 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (188705 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18 : RationalTrigInterval :=
+  ⟨⟨(263821341317055921 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1503315501364147133 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18.Contains
+    ((98747 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (98747 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19 : RationalTrigInterval :=
+  ⟨⟨(-389833929308677027 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-448037597745920267 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19.Contains
+    ((1551 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (1551 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0 : RationalTrigInterval :=
+  ⟨⟨(-1735882894283908599 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(993333064652798419 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0.Contains
+    ((293 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (293 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1 : RationalTrigInterval :=
+  ⟨⟨(238044937325096627 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1985783122048802897 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1.Contains
+    ((27249 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (27249 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2 : RationalTrigInterval :=
+  ⟨⟨(1921477712302204533 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(110981692386787201 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2.Contains
+    ((16115 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (16115 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3 : RationalTrigInterval :=
+  ⟨⟨(1260060043810924619 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1553141553752010953 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3.Contains
+    ((37211 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (37211 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4 : RationalTrigInterval :=
+  ⟨⟨(-939055581627640191 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1765835387179103507 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4.Contains
+    ((2637 : ℚ) / 266 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (2637 : ℚ) / 266) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5 : RationalTrigInterval :=
+  ⟨⟨(-398441377720558069 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(176385126934187111 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5.Contains
+    ((6739 : ℚ) / 608 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (6739 : ℚ) / 608) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6 : RationalTrigInterval :=
+  ⟨⟨(-24567772709574439 : ℚ) / 80000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1903356335544314437 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6.Contains
+    ((26077 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (26077 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7 : RationalTrigInterval :=
+  ⟨⟨(1513342335087708109 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1307591288144457999 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7.Contains
+    ((57135 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (57135 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8 : RationalTrigInterval :=
+  ⟨⟨(1794091266761241221 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-35355034188212457 : ℚ) / 80000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8.Contains
+    ((15529 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (15529 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9 : RationalTrigInterval :=
+  ⟨⟨(-114555845845864579 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1996716544275260547 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9.Contains
+    ((67097 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (67097 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10 : RationalTrigInterval :=
+  ⟨⟨(-1883406215449518553 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-672890056105840891 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10.Contains
+    ((36039 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (36039 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11 : RationalTrigInterval :=
+  ⟨⟨(-1353866199750937201 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1472089098245060509 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11.Contains
+    ((77059 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (77059 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12 : RationalTrigInterval :=
+  ⟨⟨(165569380105194811 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1820623384802452223 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12.Contains
+    ((1465 : ℚ) / 76 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (1465 : ℚ) / 76) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13 : RationalTrigInterval :=
+  ⟨⟨(1999307756192432191 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-52616499586936817 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13.Contains
+    ((87021 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (87021 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14 : RationalTrigInterval :=
+  ⟨⟨(730939282212060399 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1861646520078212357 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14.Contains
+    ((46001 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (46001 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15 : RationalTrigInterval :=
+  ⟨⟨(-1429421479303026649 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1398840317730064199 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15.Contains
+    ((96983 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (96983 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16 : RationalTrigInterval :=
+  ⟨⟨(-1845406249263660189 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(771022551666700393 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16.Contains
+    ((25491 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (25491 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17 : RationalTrigInterval :=
+  ⟨⟨(-9373400565255183 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(399995606943968487 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17.Contains
+    ((106945 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (106945 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18 : RationalTrigInterval :=
+  ⟨⟨(367619631225871437 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(788286222405197983 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18.Contains
+    ((55963 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (55963 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19 : RationalTrigInterval :=
+  ⟨⟨(1442470430983080637 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1385380473277823271 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19.Contains
+    ((879 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (879 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0 : RationalTrigInterval :=
+  ⟨⟨(1886405722416049939 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(664434684853207179 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0.Contains
+    ((69 : ℚ) / 56 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (69 : ℚ) / 56) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1 : RationalTrigInterval :=
+  ⟨⟨(1996026950819998439 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(126001633323618207 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1.Contains
+    ((6417 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (6417 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2 : RationalTrigInterval :=
+  ⟨⟨(1954984589545695813 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-421942240880013423 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2.Contains
+    ((3795 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (3795 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3 : RationalTrigInterval :=
+  ⟨⟨(1766376587484021397 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-938037180067135347 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3.Contains
+    ((8763 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (8763 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4 : RationalTrigInterval :=
+  ⟨⟨(1444439405029951813 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1383327439616780977 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4.Contains
+    ((621 : ℚ) / 266 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (621 : ℚ) / 266) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5 : RationalTrigInterval :=
+  ⟨⟨(1013473421263792531 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-344840347082058443 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5.Contains
+    ((1587 : ℚ) / 608 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (1587 : ℚ) / 608) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6 : RationalTrigInterval :=
+  ⟨⟨(506008699027006617 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1934930282079691943 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6.Contains
+    ((6141 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (6141 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7 : RationalTrigInterval :=
+  ⟨⟨(-39650440861560617 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1999606922007293883 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7.Contains
+    ((13455 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (13455 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8 : RationalTrigInterval :=
+  ⟨⟨(-116463339287115601 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1913349749798074657 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8.Contains
+    ((3657 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (3657 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9 : RationalTrigInterval :=
+  ⟨⟨(-1081028673847909147 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1682669606999137211 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9.Contains
+    ((15801 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (15801 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10 : RationalTrigInterval :=
+  ⟨⟨(-299628544939822171 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-1324978632443227043 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10.Contains
+    ((8487 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (8487 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11 : RationalTrigInterval :=
+  ⟨⟨(-360434870832553477 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-173455192738414409 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11.Contains
+    ((18147 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (18147 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12 : RationalTrigInterval :=
+  ⟨⟨(-1970174725474974113 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(-344109795123025213 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12.Contains
+    ((345 : ℚ) / 76 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (345 : ℚ) / 76) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13 : RationalTrigInterval :=
+  ⟨⟨(-1989462878091196419 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(205030379936957969 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13.Contains
+    ((20493 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (20493 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14 : RationalTrigInterval :=
+  ⟨⟨(-1858582908667930763 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(147738900985143941 : ℚ) / 400000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14.Contains
+    ((10833 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (10833 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15 : RationalTrigInterval :=
+  ⟨⟨(-1587413865182053487 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1216600682486974983 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15.Contains
+    ((22839 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (22839 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16 : RationalTrigInterval :=
+  ⟨⟨(-1196424059188384059 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1602675722220558901 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16.Contains
+    ((6003 : ℚ) / 1064 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (6003 : ℚ) / 1064) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17 : RationalTrigInterval :=
+  ⟨⟨(-715126082024634101 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1867778007903534637 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17.Contains
+    ((25185 : ℚ) / 4256 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (25185 : ℚ) / 4256) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18 : RationalTrigInterval :=
+  ⟨⟨(-179849143030678309 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1991897157423327067 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18.Contains
+    ((13179 : ℚ) / 2128 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (13179 : ℚ) / 2128) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19 : RationalTrigInterval :=
+  ⟨⟨(369003122427896343 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩,
+    ⟨(1965664441261138279 : ℚ) / 2000000000000000000, (1 : ℚ) / 2000000000000000000⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19_contains : computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19.Contains
+    ((207 : ℚ) / 32 : ℝ) := by
+  have hraw := real_sin_cos_mem_rationalTrigInterval
+    (n := 36) (k := 4)
+    (x := (207 : ℚ) / 32) (by norm_num)
+  have hw := RationalTrigInterval.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19) hraw
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
+    RationalComplex.add, RationalComplex.scale, RationalComplex.zero,
+    RationalComplex.one, rationalExpRemainder,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  convert hw using 1 <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0 (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19] g
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1 (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19] g
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2 (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19] g
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3 (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19] g
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4 (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18, computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19] g
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig (b : Fin 5) (g : Fin 20) : RationalTrigInterval :=
+  ![computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0 g, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1 g, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2 g, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3 g, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4 g] b
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig_contains (b : Fin 5) (g : Fin 20) :
+    (computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig b g).Contains
+      ((computedPhasedFrequencyQ (computedPhasedBaseFullFiveModel.column b g) : ℝ) *
+        ((computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval.center : ℝ) +
+          computedPhasedTranslation (computedPhasedBaseFullFiveModel.column b g))) := by
+  change (computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig b g).Contains
+    ((computedPhasedFrequencyQ (computedPhasedBaseFullFiveColumn b g) : ℝ) *
+      ((computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval.center : ℝ) +
+        computedPhasedTranslation (computedPhasedBaseFullFiveColumn b g)))
+  simp only [computedPhasedBaseFullFiveColumn_frequencyQ,
+    computedPhasedBaseFullFiveColumn_translation]
+  fin_cases b <;> fin_cases g
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_0_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_1_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_2_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_3_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_4_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_5_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_6_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_7_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_8_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_9_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_10_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_11_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_12_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_13_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_14_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_15_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_16_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_17_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_18_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig0_19_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow0, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_0_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_1_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_2_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_3_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_4_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_5_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_6_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_7_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_8_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_9_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_10_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_11_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_12_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_13_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_14_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_15_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_16_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_17_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_18_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig1_19_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow1, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_0_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_1_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_2_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_3_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_4_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_5_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_6_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_7_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_8_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_9_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_10_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_11_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_12_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_13_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_14_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_15_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_16_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_17_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_18_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig2_19_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow2, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_0_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_1_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_2_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_3_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_4_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_5_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_6_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_7_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_8_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_9_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_10_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_11_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_12_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_13_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_14_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_15_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_16_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_17_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_18_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig3_19_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow3, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_0_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_1_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_2_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_3_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_4_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_5_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_6_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_7_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_8_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_9_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_10_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_11_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_12_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_13_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_14_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_15_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_16_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_17_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_18_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+  · convert computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig4_19_contains using 1 <;> simp [computedPhasedBaseFullFiveInnerTwoDirectGroup13Trig, computedPhasedBaseFullFiveInnerTwoDirectGroup13TrigRow4, computedPhasedBaseFullFiveInnerTwoCompactCell2Shard2Interval, computedPhasedCell0FrequencyQ] <;> norm_num
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel : RationalRectangle :=
+  ⟨⟨(-1233793354356183207 / 2000000000000000000 : ℚ), (1 / 2000000000000000000 : ℚ)⟩, ⟨(-850914941285767519 / 2000000000000000000 : ℚ), (1 / 2000000000000000000 : ℚ)⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel_contains :
+    computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel.Contains
+      (Complex.exp (Complex.I * computedPhasedBenchmarkPoint *
+        (((517 / 448 : ℚ) : ℚ) : ℂ))) := by
+  have hraw := rationalComplexKernelInterval_contains
+    (expOrder := 32) (expReduction := 4)
+    (trigOrder := 36) (trigHalvings := 4)
+    (re := (2826945028346939 / 200000000000000 : ℚ)) (im := (1 / 4 : ℚ))
+    (t := (517 / 448 : ℚ))
+    (by norm_num) (by norm_num) (by norm_num [computedPhasedBenchmarkRealQ])
+  apply RationalRectangle.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel)
+    (by
+      convert hraw using 1
+      rw [computedPhasedBenchmarkPoint_eq_rat]
+      push_cast
+      norm_num [computedPhasedBenchmarkRealQ]
+      all_goals ring_nf)
+  · norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel, rationalComplexKernelInterval, rangeReducedExpInterval,
+    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.add,
+    RationalComplex.scale, RationalComplex.mulArgI, RationalComplex.zero,
+    RationalComplex.one, RationalRectangle.mul, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Finset.sum_range_succ]
+  · norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13ForwardKernel, rationalComplexKernelInterval, rangeReducedExpInterval,
+    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.add,
+    RationalComplex.scale, RationalComplex.mulArgI, RationalComplex.zero,
+    RationalComplex.one, RationalRectangle.mul, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Finset.sum_range_succ]
+
+def computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel : RationalRectangle :=
+  ⟨⟨(-2197021061918424517 / 2000000000000000000 : ℚ), (1 / 2000000000000000000 : ℚ)⟩, ⟨(1515227846952895881 / 2000000000000000000 : ℚ), (1 / 2000000000000000000 : ℚ)⟩⟩
+
+theorem computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel_contains :
+    computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel.Contains
+      (Complex.exp (Complex.I * (-computedPhasedBenchmarkPoint) *
+        (((517 / 448 : ℚ) : ℚ) : ℂ))) := by
+  have hraw := rationalComplexKernelInterval_contains
+    (expOrder := 32) (expReduction := 4)
+    (trigOrder := 36) (trigHalvings := 4)
+    (re := (-2826945028346939 / 200000000000000 : ℚ)) (im := (-1 / 4 : ℚ))
+    (t := (517 / 448 : ℚ))
+    (by norm_num) (by norm_num) (by norm_num [computedPhasedBenchmarkRealQ])
+  apply RationalRectangle.contains_of_wide (B := computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel)
+    (by
+      convert hraw using 1
+      rw [computedPhasedBenchmarkPoint_eq_rat]
+      push_cast
+      norm_num [computedPhasedBenchmarkRealQ]
+      all_goals ring_nf)
+  · norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel, rationalComplexKernelInterval, rangeReducedExpInterval,
+    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.add,
+    RationalComplex.scale, RationalComplex.mulArgI, RationalComplex.zero,
+    RationalComplex.one, RationalRectangle.mul, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Finset.sum_range_succ]
+  · norm_num [computedPhasedBaseFullFiveInnerTwoDirectGroup13ReflectedKernel, rationalComplexKernelInterval, rangeReducedExpInterval,
+    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,
+    rationalTrigInterval, RationalTrigInterval.reconstruct,
+    RationalTrigInterval.taylor, RationalTrigInterval.double,
+    rationalCisTaylor, rationalCisMonomial, RationalComplex.add,
+    RationalComplex.scale, RationalComplex.mulArgI, RationalComplex.zero,
+    RationalComplex.one, RationalRectangle.mul, RationalInterval.pow,
+    RationalInterval.mul, RationalInterval.sub, RationalInterval.add,
+    RationalInterval.neg, RationalInterval.one, RationalInterval.zero,
+    RationalInterval.singleton, Finset.sum_range_succ]
+
+end
+end RiemannVenue.Venue
