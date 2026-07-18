@@ -299,6 +299,28 @@ theorem computedPhasedBenchmarkReflectedRationalCoordinates_eq_point :
   push_cast
   ring
 
+theorem computedPhasedBaseOuterPairedInterval_contains
+    {q : ℚ} (J : ComputedPhasedBaseOuterMidpointJets q)
+    (forward reflected : RationalRectangle) (n : Fin 12)
+    (hforward : forward.Contains
+      (Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (q : ℂ))))
+    (hreflected : reflected.Contains
+      (Complex.exp (Complex.I * (-computedPhasedBenchmarkPoint) * (q : ℂ)))) :
+    (computedPhasedBaseOuterPairedInterval J forward reflected n).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n (q : ℝ)) := by
+  rw [computedPhasedBaseOuterPairedInterval, computedPhasedBasePairedRawJet]
+  apply RationalRectangle.contains_add
+  · have hf := computedPhasedBaseOuterRawInterval_contains
+      J n (by
+        rw [computedPhasedBenchmarkRationalCoordinates_eq_point]
+        exact hforward)
+    simpa only [computedPhasedBenchmarkRationalCoordinates_eq_point] using hf
+  · have hr := computedPhasedBaseOuterRawInterval_contains
+      J n (by
+        rw [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point]
+        exact hreflected)
+    simpa only [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] using hr
+
 /-! ## First omitted jet at a certified midpoint -/
 
 /-- Dense interval evaluation of the generated boundary polynomial.  This is

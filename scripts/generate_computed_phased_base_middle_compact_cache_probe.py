@@ -7,7 +7,6 @@ import argparse
 from fractions import Fraction as Q
 from pathlib import Path
 
-from generate_canonical_bump_transform_packets import lean_rectangle
 from generate_computed_phased_base_middle_literal_cache_probe import (
     bump_norm,
     bump_split,
@@ -17,7 +16,6 @@ from generate_computed_phased_base_middle_literal_cache_probe import (
     middle_point_data,
     q,
 )
-from generate_computed_phased_base_outer_midpoints import RAW_UNFOLD
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,9 +32,6 @@ POINT_WRAPPER = (
 )
 BASE_WRAPPER = (
     VENUE / "BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseCache.lean"
-)
-PAIRED_WRAPPER = (
-    VENUE / "BoundaryComputedPhasedBaseMiddleCompactCacheProbePairedCache.lean"
 )
 FINAL_OUTPUT = (
     VENUE / "BoundaryComputedPhasedBaseMiddleCompactCacheProbe.lean"
@@ -399,116 +394,8 @@ end RiemannVenue.Venue
 """
 
 
-def render_paired_order(order: int, value) -> str:
-    name = f"{PREFIX}PairedOrder{order}"
-    base_orders = ", ".join(
-        f"{PREFIX}BaseOrder{i}" for i in range(order + 1)
-    )
-    return f"""import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseCache
-
-/-! Generated order-{order} middle paired-transform cache. -/
-namespace RiemannVenue.Venue
-noncomputable section
-set_option maxHeartbeats 2000000
-set_option linter.unusedSimpArgs false
-set_option linter.unnecessarySeqFocus false
-
-def {name} : RationalRectangle := {lean_rectangle(value)}
-
-theorem {name}_contains : {name}.Contains
-    (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint {order}
-      ({STEM}Interval.center : ℝ)) := by
-  have hraw : (computedPhasedBaseOuterPairedInterval {PREFIX}Jets
-      {STEM}ForwardKernel {STEM}ReflectedKernel
-      ({order} : Fin 12)).Contains
-      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint {order}
-        ({STEM}Interval.center : ℝ)) := by
-    rw [computedPhasedBaseOuterPairedInterval,
-      computedPhasedBasePairedRawJet]
-    apply RationalRectangle.contains_add
-    · have hf0 := computedPhasedBaseOuterRawInterval_contains
-        (J := {PREFIX}Jets)
-        (re := computedPhasedBenchmarkRealQ) (im := 1 / 4)
-        (kernel := {STEM}ForwardKernel)
-        ({order} : Fin 12) (by
-          rw [computedPhasedBenchmarkRationalCoordinates_eq_point]
-          exact {STEM}ForwardKernel_contains)
-      convert hf0 using 1 <;>
-        simp only [computedPhasedBenchmarkRationalCoordinates_eq_point] <;>
-        norm_num
-    · have hr0 := computedPhasedBaseOuterRawInterval_contains
-        (J := {PREFIX}Jets)
-        (re := -computedPhasedBenchmarkRealQ) (im := -1 / 4)
-        (kernel := {STEM}ReflectedKernel)
-        ({order} : Fin 12) (by
-          rw [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point]
-          exact {STEM}ReflectedKernel_contains)
-      convert hr0 using 1 <;>
-        simp only [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] <;>
-        norm_num
-  apply RationalRectangle.contains_of_wide hraw
-  · simp [{name}, computedPhasedBaseOuterPairedInterval,
-      computedPhasedBaseOuterRawInterval, {PREFIX}Jets, {PREFIX}Base,
-      {base_orders}, {STEM}ForwardKernel,
-      {STEM}ReflectedKernel,
-      computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}ForwardKernel,
-      computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}ReflectedKernel,
-      computedPhasedBaseMiddleForwardKernelHalfShift,
-      computedPhasedBaseMiddleReflectedKernelHalfShift,
-      RationalRectangle.mul, RationalRectangle.add,
-      computedPhasedBenchmarkRealQ, {RAW_UNFOLD}]
-    norm_num (config := {{ maxSteps := 1000000 }})
-  · simp [{name}, computedPhasedBaseOuterPairedInterval,
-      computedPhasedBaseOuterRawInterval, {PREFIX}Jets, {PREFIX}Base,
-      {base_orders}, {STEM}ForwardKernel,
-      {STEM}ReflectedKernel,
-      computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}ForwardKernel,
-      computedPhasedBaseOuterCompactCell{CELL}Shard{SHARD}ReflectedKernel,
-      computedPhasedBaseMiddleForwardKernelHalfShift,
-      computedPhasedBaseMiddleReflectedKernelHalfShift,
-      RationalRectangle.mul, RationalRectangle.add,
-      computedPhasedBenchmarkRealQ, {RAW_UNFOLD}]
-    norm_num (config := {{ maxSteps := 1000000 }})
-
-end
-end RiemannVenue.Venue
-"""
-
-
-def render_paired_wrapper() -> str:
-    imports = "\n".join(
-        "import RiemannVenue.Venue."
-        f"BoundaryComputedPhasedBaseMiddleCompactCacheProbePairedOrder{order}"
-        for order in range(12)
-    )
-    values = ",\n".join(f"  {PREFIX}PairedOrder{order}" for order in range(12))
-    proofs = "\n".join(
-        f"  exact {PREFIX}PairedOrder{order}_contains" for order in range(12)
-    )
-    return f"""{imports}
-
-/-! # Order-sharded middle paired-transform cache -/
-namespace RiemannVenue.Venue
-noncomputable section
-
-def {PREFIX}Paired : Fin 12 → RationalRectangle := ![
-{values}
-]
-
-theorem {PREFIX}Paired_contains (n : Fin 12) :
-    ({PREFIX}Paired n).Contains
-      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n
-        ({STEM}Interval.center : ℝ)) := by
-  fin_cases n
-{proofs}
-
-end
-end RiemannVenue.Venue
-"""
-
-
 def render_final() -> str:
-    return f"""import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbePairedCache
+    return f"""import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseCache
 
 /-! # Compact middle odd-run cache probe
 
@@ -530,6 +417,19 @@ theorem {PREFIX}Interval_bounds :
 theorem {PREFIX}_center_eq_source :
     {PREFIX}Interval.center = {STEM}Interval.center := by
   norm_num [{PREFIX}Interval, {STEM}Interval]
+
+def {PREFIX}Paired (n : Fin 12) : RationalRectangle :=
+  computedPhasedBaseOuterPairedInterval {PREFIX}Jets
+    {STEM}ForwardKernel {STEM}ReflectedKernel n
+
+theorem {PREFIX}Paired_contains (n : Fin 12) :
+    ({PREFIX}Paired n).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n
+        ({PREFIX}Interval.center : ℝ)) := by
+  rw [{PREFIX}_center_eq_source]
+  exact computedPhasedBaseOuterPairedInterval_contains {PREFIX}Jets
+    {STEM}ForwardKernel {STEM}ReflectedKernel n
+    {STEM}ForwardKernel_contains {STEM}ReflectedKernel_contains
 
 def {PREFIX}RemainderBound : ℚ :=
   computedPhasedBaseGlobalPairedTwelveRemainderBound
@@ -588,7 +488,6 @@ def outputs() -> dict[Path, str]:
     groups = data[1]
     bumps = data[2]
     bases = data[4]
-    paired = data[6]
     result = {
         VENUE / f"BoundaryComputedPhasedBaseMiddleCompactCacheProbeGroupOrder{order}.lean":
             render_group_order(order, groups)
@@ -607,12 +506,6 @@ def outputs() -> dict[Path, str]:
             / f"BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder{order}.lean"
         ] = render_base_order(order, bases[order])
     result[BASE_WRAPPER] = render_base_wrapper()
-    for order in range(12):
-        result[
-            VENUE
-            / f"BoundaryComputedPhasedBaseMiddleCompactCacheProbePairedOrder{order}.lean"
-        ] = render_paired_order(order, paired[order])
-    result[PAIRED_WRAPPER] = render_paired_wrapper()
     result[FINAL_OUTPUT] = render_final()
     return result
 

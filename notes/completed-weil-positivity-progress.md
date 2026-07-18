@@ -657,13 +657,21 @@ twelfth-jet remainder.
 
 The representation is deliberately order-sharded.  Twelve group modules and
 twelve bump modules feed typed point-cache records; twelve base modules widen
-the exact interval convolution; twelve paired modules widen the complex
-kernel calculation; small wrappers expose the resulting `Fin 12` caches.  The
-complete representative graph is about 5,400 generated Lean lines and 428 KB.
-Every module and the final merged cell compile, and deterministic regeneration
-is checked in CI.  The earlier monolithic experiment could not elaborate its
-96 simultaneous group goals within a practical heartbeat budget; the staged
-graph makes the same authority local and parallelizable.
+the exact interval convolution.  The complex paired intervals remain exact
+derived expressions from those base literals and the certified kernels; they
+are not flattened and re-proved at every derivative order.  Small wrappers
+expose the resulting `Fin 12` caches.  The complete representative graph is
+about 3,800 generated Lean lines and 336 KB.  Every module and the final merged
+cell compile, and deterministic regeneration is checked in CI.  The earlier
+monolithic experiment could not elaborate its 96 simultaneous group goals
+within a practical heartbeat budget; the staged graph makes the same authority
+local and parallelizable.
+
+Deferring paired-interval flattening is load-bearing for scale.  The flattened
+order-11 widening took roughly 327 seconds to rebuild on the development
+machine, while the exact derived paired cache and final Taylor cell elaborate
+in about 6.2 seconds.  Flattening now belongs at the aggregate addition ledger,
+where it is paid once, rather than twelve times at every midpoint.
 
 This settles the architecture gate but not the translated scale-out.  The
 next step is to parameterize the generator over every selected middle
