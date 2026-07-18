@@ -171,3 +171,108 @@ explicit negative control.  Progress therefore means constructing a genuinely
 different low-`C2` approximant, not renaming the exact interpolant.  See
 `weighted-strip-approximation-gate.md` for the contract, transformations, and
 next construction probes.
+
+## Localized Matrix Decision
+
+The localized construction probe now has formal dilation and modulation cost
+laws, an explicit rectangular evaluation matrix, and a residual-certificate
+compiler.  The original atomwise triangle charge missed a representative
+tail payment by a factor of `4.38`.
+
+The refined probe retains cancellation in the full synthesized derivative
+and adds independent spatial phases.  The same explicit-bump proxy now
+crosses the tail gate at about `0.638`; nearby bounded scans remain below one.
+Lean proves the exact synthesis derivative identity, translation phase and
+cost laws, interval-certificate propagation, and compilation of a certified
+phased payment through the completed positivity endpoint.
+
+The seed and exact reconstruction mismatch is now closed.  The canonical
+localized bump is the explicit normalized standard bump used by the probe,
+with all interior derivatives represented as exact rational jets.  The
+reflection-symmetric LP output is stored as 100 exact rational coefficients;
+one complex target equation is reconstructed by a real `2 x 2` Cramer solve,
+and sign/conjugation symmetry propagates it to the four-point orbit.
+
+The remaining numerical authority is isolated in kernel-checkable interval
+modules: rational real intervals and complex rectangles, range-reduced Taylor
+enclosures for `exp`, `sin`, and `cos`, equal-cell quadrature, Taylor cell
+envelopes, determinant propagation, and separate correction-cost charging.
+The selected cancellation-preserving layout uses 270 half-domain cells and
+quadratic Taylor models for `exp(t/2) h''(t)`. Its generated rational envelope
+normalizes to about `353.8`, below the strict compiler gate `354`. An
+independent high-precision reconstruction also caught and repaired an
+under-rounded uniform jet radius: the generated value, slope, and curvature
+radii are now `1e-7`, `1e-6`, and `1e-5` respectively. These checks remain
+candidate-data audits, not proof authority.
+
+Lean now proves the exact full-line-to-positive-half reduction from symmetry
+and support, rather than accepting it as a certificate field. It also reduces
+the two correction-atom charges to three explicit weighted bump integrals and
+reduces each transform enclosure to finite equal-cell quadrature on the exact
+support window. A single assembly constructor now accepts exactly those three
+transform quadratures, the five derivative segments, and the three weighted
+bump bounds; all support, symmetry, normalization, and correction bookkeeping
+is derived rather than resupplied. A generated-row compiler also closes the
+first cell's geometry, Taylor propagation, and rational upper arithmetic,
+leaving exactly its three center-jet enclosures and one uniform third-jet
+bound as analytic inputs. Lean proves
+that any inhabitant of the analytic packet forces the correction determinant
+nonzero, hits the target exactly, and bounds the full corrected order-two
+majorant by `354`. The packet's transform and cell enclosure fields still need
+inhabitants, as do the three reduced weighted bump integrals; the floating
+probe and generated rationals alone are not proofs.
+
+The next interval layer is now sharply specified. Lean exports the exact
+finite Leibniz formulas for all four weighted-field jets, reducing them to the
+100-column signed synthesis and explicit atom derivatives through order five.
+It also has simultaneous rational sine/cosine enclosures with power-of-two
+range reduction and exact double-angle reconstruction; a kernel-checked
+example reaches phase `231` from a Taylor expansion at `231 / 256`.
+
+The support-aware bump evaluator now exists.  It represents jets zero through
+five as a rational polynomial in the flat-boundary coordinate
+`y = u^2 / (1 - u^2)` times `exp (-y)`, and proves sound rational point and
+cell enclosures without losing the endpoint decay.  Cells crossing `|u| = 1`
+must be subdivided, which is an explicit generator obligation rather than a
+hidden analytic assumption.
+
+The transform compiler now also preserves cancellation: it encloses signed
+real and imaginary cell integrals separately, compares their rational
+quadratures with `2 * pi * center`, and derives the requested complex ball
+using a proved rational lower bound for `pi`.  Exact rational enclosures for
+the benchmark exponential kernel and its product with a test-value interval
+feed that compiler.  What remains is concrete packet generation: combine bump
+and trigonometric intervals before the signed 100-column sum, instantiate all
+270 derivative cells, and instantiate the correction-zero, correction-one,
+and base-residual transform packets.  Until those inhabitants compile, the
+matrix entries and full synthesized derivative integral remain computed data,
+not certified theorems.
+
+The next pass established that the selected numerical margins are real but
+also exposed the proof-engineering bedrock. The standard bump is now an exact
+Lean object throughout the candidate, its numerator recurrence is certified
+through derivative order 14 in four source-sized generated shards, and an
+all-order Leibniz bridge reduces every benchmark transform jet to finite
+rational complex arithmetic plus certified bump intervals. A signed complex
+Taylor quadrature compiler integrates the retained jets exactly and charges
+only outward jet radii and the omitted derivative. Numerical reconnaissance
+puts the three total transform errors near `1.34e-13`, `3.05e-13`, and
+`1.38e-12`, within radii `1e-10`, `1e-10`, and `1e-11`; those figures remain
+non-authoritative until the three concrete packets are inhabited.
+
+For the derivative integral, Lean now contains the exact rational
+100-column evaluator and proves its signed interval soundness. One concrete
+center and one cached sine leaf compile from source, but no complete cell does:
+the retained count is `0/810` center jets, `0/270` uniform third-jet bounds,
+and `0/5` segment certificates. Monolithic normalization took more than two
+minutes for one center; five-column and one-column atom shards still failed,
+while a single transcendental leaf compiles. The next certificate must cache
+both sine and cosine leaves, bump/exponential leaves, and exact rational
+column sums before assembling a cell. This is a compiler-scale obstruction,
+not evidence against the candidate, but the full derivative integral is not
+yet a theorem.
+
+A finite LP dual certificate remains available if this fixed dictionary
+fails certification.  For the full-family fallback, the weighted `C0+C2` jet
+is constructed in `L1 +_1 L1`, with a proved Hahn--Banach
+closure/annihilator characterization.
