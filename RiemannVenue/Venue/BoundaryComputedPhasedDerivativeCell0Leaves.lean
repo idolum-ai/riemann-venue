@@ -141,7 +141,7 @@ def computedPhasedCell0TrigStep_0 : RationalTrigInterval :=
     (x := (1266 : ℚ) / 157) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0Trig0_0) hraw
-    (by norm_num [computedPhasedCell0Trig0_0, 
+    (by norm_num [computedPhasedCell0Trig0_0,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -150,7 +150,7 @@ def computedPhasedCell0TrigStep_0 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0Trig0_0, 
+    (by norm_num [computedPhasedCell0Trig0_0,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -167,7 +167,7 @@ def computedPhasedCell0TrigStep_0 : RationalTrigInterval :=
     (x := (10761 : ℚ) / 5966) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0TrigStep_0) hraw
-    (by norm_num [computedPhasedCell0TrigStep_0, 
+    (by norm_num [computedPhasedCell0TrigStep_0,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -176,7 +176,7 @@ def computedPhasedCell0TrigStep_0 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0TrigStep_0, 
+    (by norm_num [computedPhasedCell0TrigStep_0,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -611,7 +611,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_0
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -624,7 +625,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -636,7 +638,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -659,7 +662,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_0, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -684,7 +688,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 0)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_0 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -697,7 +702,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -709,7 +715,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -731,7 +738,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_0_0, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -764,7 +772,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_1
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -777,7 +786,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -789,7 +799,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -812,7 +823,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_1, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -837,7 +849,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 1)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_1 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -850,7 +863,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -862,7 +876,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -884,7 +899,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_0_1, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -917,7 +933,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_2
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -930,7 +947,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -942,7 +960,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -965,7 +984,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_2, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -990,7 +1010,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 2)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_2 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1003,7 +1024,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1015,7 +1037,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1037,7 +1060,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_0_2, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1070,7 +1094,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_3
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1083,7 +1108,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1095,7 +1121,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1118,7 +1145,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_3, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1143,7 +1171,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 3)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_3 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1156,7 +1185,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1168,7 +1198,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1190,7 +1221,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_0_3, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1223,7 +1255,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_4
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1236,7 +1269,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1248,7 +1282,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1271,7 +1306,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_4, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1296,7 +1332,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 4)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_4 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1309,7 +1346,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1321,7 +1359,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1343,7 +1382,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_0_4, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1376,7 +1416,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_5
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1389,7 +1430,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1401,7 +1443,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1424,7 +1467,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_5, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1449,7 +1493,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 5)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_5 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1462,7 +1507,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1474,7 +1520,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1496,7 +1543,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_0_5, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1529,7 +1577,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_6
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1542,7 +1591,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1554,7 +1604,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1577,7 +1628,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_6, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1602,7 +1654,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 6)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_6 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1615,7 +1668,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1627,7 +1681,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1649,7 +1704,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_0_6, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1682,7 +1738,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_7
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1695,7 +1752,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1707,7 +1765,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1730,7 +1789,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_7, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1755,7 +1815,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 7)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_7 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1768,7 +1829,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1780,7 +1842,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1802,7 +1865,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_0_7, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1835,7 +1899,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_8
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1848,7 +1913,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1860,7 +1926,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1883,7 +1950,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_8, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1908,7 +1976,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 8)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_8 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1921,7 +1990,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1933,7 +2003,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1955,7 +2026,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_0_8, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -1988,7 +2060,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_9
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2001,7 +2074,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2013,7 +2087,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2036,7 +2111,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_9, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2061,7 +2137,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 9)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_9 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2074,7 +2151,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2086,7 +2164,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2108,7 +2187,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_0_9, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2141,7 +2221,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_10
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2154,7 +2235,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2166,7 +2248,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2189,7 +2272,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_10, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2214,7 +2298,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 10)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_10 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2227,7 +2312,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2239,7 +2325,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2261,7 +2348,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_0_10, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2294,7 +2382,8 @@ set_option maxRecDepth 20000 in
       (t := ((633 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_11
       (by norm_num [computedPhasedCell0BumpPointInput_0, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2307,7 +2396,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2319,7 +2409,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2342,7 +2433,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpPointInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_0_11, computedPhasedCell0BumpPointInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2367,7 +2459,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 11)
       (I := computedPhasedCell0BumpCellInput_0) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_11 hu
-      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2380,7 +2473,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2392,7 +2486,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2414,7 +2509,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpCellInput_0)) hs
-      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_0_11, computedPhasedCell0BumpCellInput_0,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2442,7 +2538,7 @@ def computedPhasedCell0TrigStep_1 : RationalTrigInterval :=
     (x := (638 : ℚ) / 157) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0Trig0_1) hraw
-    (by norm_num [computedPhasedCell0Trig0_1, 
+    (by norm_num [computedPhasedCell0Trig0_1,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -2451,7 +2547,7 @@ def computedPhasedCell0TrigStep_1 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0Trig0_1, 
+    (by norm_num [computedPhasedCell0Trig0_1,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -2468,7 +2564,7 @@ def computedPhasedCell0TrigStep_1 : RationalTrigInterval :=
     (x := (5423 : ℚ) / 5966) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0TrigStep_1) hraw
-    (by norm_num [computedPhasedCell0TrigStep_1, 
+    (by norm_num [computedPhasedCell0TrigStep_1,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -2477,7 +2573,7 @@ def computedPhasedCell0TrigStep_1 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0TrigStep_1, 
+    (by norm_num [computedPhasedCell0TrigStep_1,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -2912,7 +3008,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_0
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2925,7 +3022,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2937,7 +3035,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2960,7 +3059,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_0, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2985,7 +3085,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 0)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_0 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -2998,7 +3099,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3010,7 +3112,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3032,7 +3135,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_1_0, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3065,7 +3169,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_1
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3078,7 +3183,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3090,7 +3196,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3113,7 +3220,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_1, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3138,7 +3246,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 1)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_1 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3151,7 +3260,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3163,7 +3273,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3185,7 +3296,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_1_1, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3218,7 +3330,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_2
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3231,7 +3344,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3243,7 +3357,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3266,7 +3381,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_2, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3291,7 +3407,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 2)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_2 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3304,7 +3421,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3316,7 +3434,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3338,7 +3457,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_1_2, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3371,7 +3491,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_3
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3384,7 +3505,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3396,7 +3518,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3419,7 +3542,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_3, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3444,7 +3568,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 3)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_3 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3457,7 +3582,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3469,7 +3595,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3491,7 +3618,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_1_3, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3524,7 +3652,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_4
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3537,7 +3666,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3549,7 +3679,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3572,7 +3703,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_4, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3597,7 +3729,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 4)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_4 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3610,7 +3743,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3622,7 +3756,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3644,7 +3779,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_1_4, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3677,7 +3813,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_5
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3690,7 +3827,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3702,7 +3840,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3725,7 +3864,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_5, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3750,7 +3890,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 5)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_5 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3763,7 +3904,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3775,7 +3917,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3797,7 +3940,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_1_5, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3830,7 +3974,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_6
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3843,7 +3988,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3855,7 +4001,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3878,7 +4025,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_6, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3903,7 +4051,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 6)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_6 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3916,7 +4065,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3928,7 +4078,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3950,7 +4101,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_1_6, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3983,7 +4135,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_7
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -3996,7 +4149,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4008,7 +4162,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4031,7 +4186,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_7, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4056,7 +4212,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 7)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_7 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4069,7 +4226,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4081,7 +4239,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4103,7 +4262,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_1_7, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4136,7 +4296,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_8
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4149,7 +4310,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4161,7 +4323,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4184,7 +4347,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_8, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4209,7 +4373,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 8)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_8 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4222,7 +4387,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4234,7 +4400,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4256,7 +4423,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_1_8, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4289,7 +4457,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_9
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4302,7 +4471,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4314,7 +4484,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4337,7 +4508,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_9, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4362,7 +4534,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 9)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_9 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4375,7 +4548,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4387,7 +4561,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4409,7 +4584,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_1_9, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4442,7 +4618,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_10
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4455,7 +4632,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4467,7 +4645,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4490,7 +4669,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_10, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4515,7 +4695,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 10)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_10 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4528,7 +4709,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4540,7 +4722,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4562,7 +4745,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_1_10, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4595,7 +4779,8 @@ set_option maxRecDepth 20000 in
       (t := ((319 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_11
       (by norm_num [computedPhasedCell0BumpPointInput_1, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4608,7 +4793,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4620,7 +4806,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4643,7 +4830,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpPointInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_1_11, computedPhasedCell0BumpPointInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4668,7 +4856,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 11)
       (I := computedPhasedCell0BumpCellInput_1) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_11 hu
-      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4681,7 +4870,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4693,7 +4883,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4715,7 +4906,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpCellInput_1)) hs
-      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_1_11, computedPhasedCell0BumpCellInput_1,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -4743,7 +4935,7 @@ def computedPhasedCell0TrigStep_2 : RationalTrigInterval :=
     (x := (10 : ℚ) / 157) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0Trig0_2) hraw
-    (by norm_num [computedPhasedCell0Trig0_2, 
+    (by norm_num [computedPhasedCell0Trig0_2,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -4752,7 +4944,7 @@ def computedPhasedCell0TrigStep_2 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0Trig0_2, 
+    (by norm_num [computedPhasedCell0Trig0_2,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -4769,7 +4961,7 @@ def computedPhasedCell0TrigStep_2 : RationalTrigInterval :=
     (x := (85 : ℚ) / 5966) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0TrigStep_2) hraw
-    (by norm_num [computedPhasedCell0TrigStep_2, 
+    (by norm_num [computedPhasedCell0TrigStep_2,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -4778,7 +4970,7 @@ def computedPhasedCell0TrigStep_2 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0TrigStep_2, 
+    (by norm_num [computedPhasedCell0TrigStep_2,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -5213,7 +5405,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_0
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5226,7 +5419,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5238,7 +5432,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5261,7 +5456,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_0, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5286,7 +5482,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 0)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_0 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5299,7 +5496,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5311,7 +5509,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5333,7 +5532,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_2_0, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5366,7 +5566,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_1
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5379,7 +5580,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5391,7 +5593,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5414,7 +5617,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_1, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5439,7 +5643,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 1)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_1 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5452,7 +5657,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5464,7 +5670,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5486,7 +5693,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_2_1, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5519,7 +5727,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_2
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5532,7 +5741,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5544,7 +5754,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5567,7 +5778,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_2, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5592,7 +5804,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 2)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_2 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5605,7 +5818,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5617,7 +5831,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5639,7 +5854,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_2_2, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5672,7 +5888,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_3
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5685,7 +5902,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5697,7 +5915,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5720,7 +5939,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_3, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5745,7 +5965,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 3)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_3 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5758,7 +5979,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5770,7 +5992,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5792,7 +6015,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_2_3, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5825,7 +6049,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_4
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5838,7 +6063,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5850,7 +6076,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5873,7 +6100,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_4, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5898,7 +6126,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 4)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_4 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5911,7 +6140,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5923,7 +6153,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5945,7 +6176,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_2_4, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5978,7 +6210,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_5
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -5991,7 +6224,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6003,7 +6237,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6026,7 +6261,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_5, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6051,7 +6287,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 5)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_5 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6064,7 +6301,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6076,7 +6314,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6098,7 +6337,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_2_5, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6131,7 +6371,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_6
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6144,7 +6385,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6156,7 +6398,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6179,7 +6422,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_6, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6204,7 +6448,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 6)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_6 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6217,7 +6462,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6229,7 +6475,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6251,7 +6498,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_2_6, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6284,7 +6532,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_7
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6297,7 +6546,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6309,7 +6559,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6332,7 +6583,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_7, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6357,7 +6609,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 7)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_7 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6370,7 +6623,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6382,7 +6636,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6404,7 +6659,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_2_7, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6437,7 +6693,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_8
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6450,7 +6707,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6462,7 +6720,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6485,7 +6744,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_8, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6510,7 +6770,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 8)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_8 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6523,7 +6784,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6535,7 +6797,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6557,7 +6820,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_2_8, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6590,7 +6854,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_9
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6603,7 +6868,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6615,7 +6881,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6638,7 +6905,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_9, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6663,7 +6931,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 9)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_9 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6676,7 +6945,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6688,7 +6958,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6710,7 +6981,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_2_9, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6743,7 +7015,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_10
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6756,7 +7029,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6768,7 +7042,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6791,7 +7066,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_10, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6816,7 +7092,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 10)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_10 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6829,7 +7106,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6841,7 +7119,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6863,7 +7142,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_2_10, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6896,7 +7176,8 @@ set_option maxRecDepth 20000 in
       (t := ((5 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_11
       (by norm_num [computedPhasedCell0BumpPointInput_2, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6909,7 +7190,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6921,7 +7203,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6944,7 +7227,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpPointInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_2_11, computedPhasedCell0BumpPointInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6969,7 +7253,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 11)
       (I := computedPhasedCell0BumpCellInput_2) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_11 hu
-      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6982,7 +7267,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -6994,7 +7280,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7016,7 +7303,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpCellInput_2)) hs
-      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_2_11, computedPhasedCell0BumpCellInput_2,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7044,7 +7332,7 @@ def computedPhasedCell0TrigStep_3 : RationalTrigInterval :=
     (x := (-618 : ℚ) / 157) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0Trig0_3) hraw
-    (by norm_num [computedPhasedCell0Trig0_3, 
+    (by norm_num [computedPhasedCell0Trig0_3,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -7053,7 +7341,7 @@ def computedPhasedCell0TrigStep_3 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0Trig0_3, 
+    (by norm_num [computedPhasedCell0Trig0_3,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -7070,7 +7358,7 @@ def computedPhasedCell0TrigStep_3 : RationalTrigInterval :=
     (x := (-5253 : ℚ) / 5966) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0TrigStep_3) hraw
-    (by norm_num [computedPhasedCell0TrigStep_3, 
+    (by norm_num [computedPhasedCell0TrigStep_3,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -7079,7 +7367,7 @@ def computedPhasedCell0TrigStep_3 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0TrigStep_3, 
+    (by norm_num [computedPhasedCell0TrigStep_3,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -7514,7 +7802,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_0
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7527,7 +7816,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7539,7 +7829,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7562,7 +7853,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_0, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7587,7 +7879,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 0)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_0 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7600,7 +7893,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7612,7 +7906,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7634,7 +7929,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_3_0, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7667,7 +7963,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_1
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7680,7 +7977,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7692,7 +7990,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7715,7 +8014,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_1, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7740,7 +8040,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 1)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_1 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7753,7 +8054,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7765,7 +8067,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7787,7 +8090,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_3_1, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7820,7 +8124,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_2
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7833,7 +8138,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7845,7 +8151,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7868,7 +8175,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_2, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7893,7 +8201,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 2)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_2 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7906,7 +8215,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7918,7 +8228,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7940,7 +8251,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_3_2, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7973,7 +8285,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_3
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7986,7 +8299,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -7998,7 +8312,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8021,7 +8336,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_3, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8046,7 +8362,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 3)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_3 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8059,7 +8376,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8071,7 +8389,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8093,7 +8412,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_3_3, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8126,7 +8446,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_4
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8139,7 +8460,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8151,7 +8473,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8174,7 +8497,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_4, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8199,7 +8523,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 4)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_4 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8212,7 +8537,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8224,7 +8550,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8246,7 +8573,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_3_4, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8279,7 +8607,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_5
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8292,7 +8621,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8304,7 +8634,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8327,7 +8658,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_5, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8352,7 +8684,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 5)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_5 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8365,7 +8698,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8377,7 +8711,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8399,7 +8734,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_3_5, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8432,7 +8768,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_6
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8445,7 +8782,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8457,7 +8795,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8480,7 +8819,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_6, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8505,7 +8845,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 6)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_6 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8518,7 +8859,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8530,7 +8872,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8552,7 +8895,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_3_6, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8585,7 +8929,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_7
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8598,7 +8943,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8610,7 +8956,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8633,7 +8980,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_7, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8658,7 +9006,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 7)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_7 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8671,7 +9020,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8683,7 +9033,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8705,7 +9056,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_3_7, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8738,7 +9090,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_8
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8751,7 +9104,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8763,7 +9117,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8786,7 +9141,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_8, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8811,7 +9167,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 8)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_8 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8824,7 +9181,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8836,7 +9194,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8858,7 +9217,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_3_8, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8891,7 +9251,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_9
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8904,7 +9265,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8916,7 +9278,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8939,7 +9302,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_9, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8964,7 +9328,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 9)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_9 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8977,7 +9342,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -8989,7 +9355,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9011,7 +9378,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_3_9, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9044,7 +9412,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_10
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9057,7 +9426,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9069,7 +9439,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9092,7 +9463,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_10, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9117,7 +9489,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 10)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_10 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9130,7 +9503,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9142,7 +9516,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9164,7 +9539,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_3_10, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9197,7 +9573,8 @@ set_option maxRecDepth 20000 in
       (t := ((-309 : ℚ) / 2198 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_11
       (by norm_num [computedPhasedCell0BumpPointInput_3, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9210,7 +9587,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9222,7 +9600,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9245,7 +9624,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpPointInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_3_11, computedPhasedCell0BumpPointInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9270,7 +9650,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 11)
       (I := computedPhasedCell0BumpCellInput_3) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_11 hu
-      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9283,7 +9664,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9295,7 +9677,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9317,7 +9700,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpCellInput_3)) hs
-      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_3_11, computedPhasedCell0BumpCellInput_3,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9345,7 +9729,7 @@ def computedPhasedCell0TrigStep_4 : RationalTrigInterval :=
     (x := (-1246 : ℚ) / 157) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0Trig0_4) hraw
-    (by norm_num [computedPhasedCell0Trig0_4, 
+    (by norm_num [computedPhasedCell0Trig0_4,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -9354,7 +9738,7 @@ def computedPhasedCell0TrigStep_4 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0Trig0_4, 
+    (by norm_num [computedPhasedCell0Trig0_4,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -9371,7 +9755,7 @@ def computedPhasedCell0TrigStep_4 : RationalTrigInterval :=
     (x := (-10591 : ℚ) / 5966) (by norm_num)
   have hw := RationalTrigInterval.contains_of_wide
     (B := computedPhasedCell0TrigStep_4) hraw
-    (by norm_num [computedPhasedCell0TrigStep_4, 
+    (by norm_num [computedPhasedCell0TrigStep_4,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -9380,7 +9764,7 @@ def computedPhasedCell0TrigStep_4 : RationalTrigInterval :=
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-    (by norm_num [computedPhasedCell0TrigStep_4, 
+    (by norm_num [computedPhasedCell0TrigStep_4,
     rationalTrigInterval, RationalTrigInterval.reconstruct,
     RationalTrigInterval.taylor, RationalTrigInterval.double,
     rationalCisTaylor, rationalCisMonomial, RationalComplex.mulArgI,
@@ -9815,7 +10199,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_0
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9828,7 +10213,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9840,7 +10226,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9863,7 +10250,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_0, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9888,7 +10276,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 0)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_0 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9901,7 +10290,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9913,7 +10303,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9935,7 +10326,8 @@ set_option maxRecDepth 20000 in
         0) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients0 24 1 0
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients0, 
+      (by norm_num [computedPhasedCell0BumpCell_4_0, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients0,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9968,7 +10360,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_1
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9981,7 +10374,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -9993,7 +10387,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10016,7 +10411,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_1, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10041,7 +10437,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 1)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_1 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10054,7 +10451,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10066,7 +10464,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10088,7 +10487,8 @@ set_option maxRecDepth 20000 in
         1) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients1 24 1 1
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients1, 
+      (by norm_num [computedPhasedCell0BumpCell_4_1, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients1,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10121,7 +10521,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_2
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10134,7 +10535,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10146,7 +10548,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10169,7 +10572,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_2, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10194,7 +10598,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 2)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_2 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10207,7 +10612,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10219,7 +10625,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10241,7 +10648,8 @@ set_option maxRecDepth 20000 in
         2) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients2 24 1 2
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients2, 
+      (by norm_num [computedPhasedCell0BumpCell_4_2, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients2,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10274,7 +10682,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_3
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10287,7 +10696,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10299,7 +10709,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10322,7 +10733,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_3, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10347,7 +10759,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 3)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_3 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10360,7 +10773,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10372,7 +10786,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10394,7 +10809,8 @@ set_option maxRecDepth 20000 in
         3) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients3 24 1 3
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients3, 
+      (by norm_num [computedPhasedCell0BumpCell_4_3, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients3,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10427,7 +10843,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_4
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10440,7 +10857,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10452,7 +10870,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10475,7 +10894,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_4, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10500,7 +10920,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 4)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_4 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10513,7 +10934,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10525,7 +10947,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10547,7 +10970,8 @@ set_option maxRecDepth 20000 in
         4) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients4 24 1 4
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients4, 
+      (by norm_num [computedPhasedCell0BumpCell_4_4, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients4,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10580,7 +11004,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_5
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10593,7 +11018,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10605,7 +11031,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10628,7 +11055,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_5, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10653,7 +11081,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 5)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_5 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10666,7 +11095,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10678,7 +11108,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10700,7 +11131,8 @@ set_option maxRecDepth 20000 in
         5) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients5 24 1 5
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients5, 
+      (by norm_num [computedPhasedCell0BumpCell_4_5, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients5,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10733,7 +11165,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_6
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10746,7 +11179,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10758,7 +11192,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10781,7 +11216,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_6, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10806,7 +11242,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 6)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_6 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10819,7 +11256,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10831,7 +11269,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10853,7 +11292,8 @@ set_option maxRecDepth 20000 in
         6) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients6 24 1 6
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients6, 
+      (by norm_num [computedPhasedCell0BumpCell_4_6, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients6,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10886,7 +11326,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_7
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10899,7 +11340,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10911,7 +11353,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10934,7 +11377,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_7, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10959,7 +11403,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 7)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_7 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10972,7 +11417,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -10984,7 +11430,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11006,7 +11453,8 @@ set_option maxRecDepth 20000 in
         7) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients7 24 1 7
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients7, 
+      (by norm_num [computedPhasedCell0BumpCell_4_7, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients7,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11039,7 +11487,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_8
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11052,7 +11501,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11064,7 +11514,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11087,7 +11538,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_8, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11112,7 +11564,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 8)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_8 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11125,7 +11578,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11137,7 +11591,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11159,7 +11614,8 @@ set_option maxRecDepth 20000 in
         8) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients8 24 1 8
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients8, 
+      (by norm_num [computedPhasedCell0BumpCell_4_8, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients8,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11192,7 +11648,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_9
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11205,7 +11662,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11217,7 +11675,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11240,7 +11699,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_9, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11265,7 +11725,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 9)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_9 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11278,7 +11739,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11290,7 +11752,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11312,7 +11775,8 @@ set_option maxRecDepth 20000 in
         9) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients9 24 1 9
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients9, 
+      (by norm_num [computedPhasedCell0BumpCell_4_9, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients9,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11345,7 +11809,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_10
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11358,7 +11823,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11370,7 +11836,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11393,7 +11860,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_10, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11418,7 +11886,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 10)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_10 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11431,7 +11900,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11443,7 +11913,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11465,7 +11936,8 @@ set_option maxRecDepth 20000 in
         10) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients10 24 1 10
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients10, 
+      (by norm_num [computedPhasedCell0BumpCell_4_10, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients10,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11498,7 +11970,8 @@ set_option maxRecDepth 20000 in
       (t := ((-89 : ℚ) / 314 : ℝ))
       explicitStandardBumpJetNumerator_eq_cell0_11
       (by norm_num [computedPhasedCell0BumpPointInput_4, RationalInterval.Contains])
-      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11511,7 +11984,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11523,7 +11997,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11546,7 +12021,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpPointInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpPoint_4_11, computedPhasedCell0BumpPointInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11571,7 +12047,8 @@ set_option maxRecDepth 20000 in
       (expOrder := 24) (split := 1) (n := 11)
       (I := computedPhasedCell0BumpCellInput_4) (t := u)
       explicitStandardBumpJetNumerator_eq_cell0_11 hu
-      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11584,7 +12061,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
       (by norm_num)
-      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11596,7 +12074,8 @@ set_option maxRecDepth 20000 in
     RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
     RationalInterval.add, RationalInterval.neg, RationalInterval.one,
     RationalInterval.zero, RationalInterval.singleton])
-      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
@@ -11618,7 +12097,8 @@ set_option maxRecDepth 20000 in
         11) (computedDerivativeBumpInteriorJetInterval
           computedPhasedCell0BumpCoefficients11 24 1 11
           computedPhasedCell0BumpCellInput_4)) hs
-      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4, computedPhasedCell0BumpCoefficients11, 
+      (by norm_num [computedPhasedCell0BumpCell_4_11, computedPhasedCell0BumpCellInput_4,
+    computedPhasedCell0BumpCoefficients11,
     computedDerivativeBumpInteriorJetInterval,
     computedTransformBumpExponentInterval,
     RationalInterval.intPolynomialHorner,
