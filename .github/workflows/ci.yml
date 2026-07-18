@@ -75,6 +75,8 @@ jobs:
           diff -u \
             RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCertificate.lean \
             /tmp/BoundaryComputedPhasedDerivativeCertificate.lean
+      - name: Phased derivative finite-assembly drift gate
+        run: python scripts/generate_computed_phased_derivative_inner_assembler.py --check
       - name: Standard-bump high-jet compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-jets
@@ -196,9 +198,12 @@ jobs:
             FullFiveInnerTwo FullFiveInnerThree FullFiveInnerFour; do
             python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
               --regime "$regime" --all-groups --check
+            python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
+              --regime "$regime" --tail --check
             python scripts/generate_computed_phased_base_translated_direct_cover.py \
               --regime "$regime" --check
           done
+          python scripts/generate_computed_phased_base_translated_complete.py --check
       - name: Recursive four-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-four-compact
