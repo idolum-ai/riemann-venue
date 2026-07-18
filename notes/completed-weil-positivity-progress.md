@@ -572,3 +572,14 @@ therefore a compact payment-summary interface: retain the checked local cache
 modules already compiled, but let downstream packets consume small rational
 center/error summaries and reuse translated block certificates instead of
 replaying the full derivation in every regime.
+
+That summary interface is now compiled for the first sixteen-shard packet.
+Every shard exposes exact rational coordinates for its signed Taylor center
+and exact rational error, and the packet proves that its center and error are
+the finite sums of those coordinates.  The first omitted derivative no longer
+needs a shard-local enclosure: a single support-wide twelfth-jet bound is
+multiplied by each shard's thirteenth-power Taylor factor.  Across the full
+adaptive outer cover this coarse analytic payment is still far below the
+residual budget, while removing a repeated high-order proof from every cache.
+Downstream code can therefore consume a small rational addition tree without
+unfolding any of the midpoint interval computations that established it.

@@ -6401,15 +6401,84 @@ theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired_contains
   exact computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired10_contains
   exact computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired11_contains
 
+def computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound : ℚ :=
+  computedPhasedBaseGlobalPairedTwelveRemainderBound
+
+theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCache_remainder
+    {x : ℝ}
+    (hx : computedPhasedBaseOuterCompactCell0Shard12Interval.Contains x) :
+    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+      (computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound : ℝ) := by
+  apply norm_computedPhasedBasePairedRawJet_twelve_le_globalBound
+  apply (RationalInterval.abs_le_abs_center_add_radius hx).trans
+  norm_num [computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound,
+    computedPhasedBaseOuterCompactCell0Shard12Interval]
+
 noncomputable def computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell :=
-  computedPhasedBaseOuterCachedShardTaylorCell
+  computedPhasedBaseOuterCachedShardTaylorCellWithRemainder
     computedPhasedBaseOuterCompactCell0Shard12Interval
     (by norm_num [computedPhasedBaseOuterCompactCell0Shard12Interval])
-    (by norm_num [computedPhasedBaseOuterCompactCell0Shard12Interval,
-      RationalInterval.lower])
     computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
     computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired_contains
-    computedPhasedBaseOuterCompactCell0Shard12Leaves
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound
+    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg
+    (fun x hx => computedPhasedBaseOuterCompactCell0Shard12LiteralCache_remainder hx)
+
+theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_center :
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell.center =
+      computedPhasedBaseOuterCachedShardTaylorCenter
+        computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+        computedPhasedBaseOuterCompactCell0Shard12Interval.radius := by
+  exact computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center
+    computedPhasedBaseOuterCompactCell0Shard12Interval
+    (by norm_num [computedPhasedBaseOuterCompactCell0Shard12Interval])
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired_contains
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound
+    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg
+    (fun x hx => computedPhasedBaseOuterCompactCell0Shard12LiteralCache_remainder hx)
+
+theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_error :
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell.error =
+      computedPhasedBaseOuterCachedShardTaylorError
+        computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+        computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound
+        computedPhasedBaseOuterCompactCell0Shard12Interval.radius := by
+  exact computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error
+    computedPhasedBaseOuterCompactCell0Shard12Interval
+    (by norm_num [computedPhasedBaseOuterCompactCell0Shard12Interval])
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired_contains
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound
+    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg
+    (fun x hx => computedPhasedBaseOuterCompactCell0Shard12LiteralCache_remainder hx)
+
+def computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCenterQ : ℚ × ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorCenterQ
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+    computedPhasedBaseOuterCompactCell0Shard12Interval.radius
+
+def computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorErrorQ : ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorErrorQ
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCachePaired
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheRemainderBound
+    computedPhasedBaseOuterCompactCell0Shard12Interval.radius
+
+theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_centerQ :
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell.center =
+      (computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCenterQ.1 : ℝ) +
+        (computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCenterQ.2 : ℝ) *
+          Complex.I := by
+  rw [computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+  rfl
+
+theorem computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_errorQ :
+    computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell.error =
+      (computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorErrorQ : ℝ) := by
+  rw [computedPhasedBaseOuterCompactCell0Shard12LiteralCacheTaylorCell_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+  rfl
 
 end
 end RiemannVenue.Venue

@@ -82,6 +82,7 @@ def main() -> None:
             kernels=kernel_data[(cell, index)],
             shard_stem=stem,
             cache_prefix=cache_prefix,
+            remainder_bound=True,
         )
         write_if_changed(VENUE / module, source)
 
