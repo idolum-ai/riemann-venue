@@ -698,3 +698,31 @@ modules per midpoint with three while retaining parallel group/bump branches
 and keeping the base convolution downstream of both.  The full middle cover
 should use this packet graph and continue deriving paired intervals only at
 the final cover layer.
+
+## Direct Middle Midpoint Anchors
+
+The first 41-cell middle scale-out exposed a separate enclosure trap. Every
+generated packet compiled, but reusing trigonometric and benchmark-kernel
+leaves transported recursively across all 139 source midpoints accumulated
+enough interval width to charge about `7.12e-3` in the compact middle
+certificate. Refining the same leaves all the way back to the 139 fine shards
+still charged about `5.10e-3`; roughly `4.41e-3` came from the final source
+family. The failed refinement is decisive: Taylor geometry was not the
+dominant loss.
+
+Re-anchoring the trigonometric phase and both benchmark kernels directly at
+each of the 41 selected midpoints removes that transport width. Only the first
+active translation needs a direct 20-frequency anchor; the second is obtained
+from the already certified common half-shift with no measurable loss at the
+target scale. Exact rational reconnaissance charges about `3.55e-9` for all
+midpoint interval radii in this half-window. Applying the display upper
+proposal for the shared order-twelve bound charges about `3.07e-7` more, for a
+projected total near `3.11e-7`. This is below the approximately `3.91e-7`
+equal share of the headroom left after the nine-window global remainder plan.
+
+The generated authority remains entirely in Lean: each anchor, half-shift,
+bump value, base convolution, paired jet, and integral cell carries its own
+containment proof. The decimal comparison only chose the compiler topology.
+The exact aggregate budget still has to be exported through a small rational
+summary theorem before the middle certificate is consumed by the final
+nine-window ledger.
