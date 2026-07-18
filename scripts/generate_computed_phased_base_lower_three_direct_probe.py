@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import math
+from dataclasses import dataclass
 from fractions import Fraction as Q
 from pathlib import Path
 
@@ -48,8 +49,85 @@ CACHE_GRID = 10**18
 PREFIX = "computedPhasedBaseLowerThreeDirectProbe"
 MODEL = "computedPhasedBaseLowerThreeModel"
 COLUMN = "computedPhasedBaseLowerThreeColumn"
+BLOCK_COUNT = 3
+COLUMN_FREQUENCY_THEOREM = "computedPhasedBaseLowerThreeColumn_frequencyQ"
+COLUMN_TRANSLATION_THEOREM = "computedPhasedBaseLowerThreeColumn_translation"
+TRANSLATION_DEFINITION = "computedPhasedBaseLowerThreeTranslation"
 TRANSLATIONS = (Q(0), Q(-1, 2), Q(-1))
 COEFFICIENT_INDICES = (2, 3, 4)
+SOURCE_PREFIX = "computedPhasedBaseLowerThreeCompact"
+SHIFT = Q(1)
+GROUP_INDEX = 0
+
+
+@dataclass(frozen=True)
+class RegimeConfig:
+    label: str
+    source_prefix: str
+    shift: Q
+    model: str
+    column: str
+    translation_definition: str
+    translations: tuple[Q, ...]
+    coefficient_indices: tuple[int, ...]
+
+
+REGIME_CONFIGS = {
+    "LowerThree": RegimeConfig(
+        "LowerThree", "computedPhasedBaseLowerThreeCompact", Q(1),
+        "computedPhasedBaseLowerThreeModel", "computedPhasedBaseLowerThreeColumn",
+        "computedPhasedBaseLowerThreeTranslation", (Q(0), Q(-1, 2), Q(-1)),
+        (2, 3, 4)),
+    "LowerFour": RegimeConfig(
+        "LowerFour", "computedPhasedBaseLowerFourCompact", Q(3, 2),
+        "computedPhasedBaseLowerFourModel", "computedPhasedBaseLowerFourColumn",
+        "computedPhasedBaseLowerFourTranslation",
+        (Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (1, 2, 3, 4)),
+    "FullFive": RegimeConfig(
+        "FullFive", "computedPhasedBaseFullFiveCompact", Q(2),
+        "computedPhasedBaseFullFiveModel", "computedPhasedBaseFullFiveColumn",
+        "computedPhasedBaseFullFiveColumn",
+        (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
+    "FullFiveInnerOne": RegimeConfig(
+        "FullFiveInnerOne", "computedPhasedBaseFullFiveInnerOneCompact", Q(5, 2),
+        "computedPhasedBaseFullFiveModel", "computedPhasedBaseFullFiveColumn",
+        "computedPhasedBaseFullFiveColumn",
+        (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
+    "FullFiveInnerTwo": RegimeConfig(
+        "FullFiveInnerTwo", "computedPhasedBaseFullFiveInnerTwoCompact", Q(3),
+        "computedPhasedBaseFullFiveModel", "computedPhasedBaseFullFiveColumn",
+        "computedPhasedBaseFullFiveColumn",
+        (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
+    "FullFiveInnerThree": RegimeConfig(
+        "FullFiveInnerThree", "computedPhasedBaseFullFiveInnerThreeCompact", Q(7, 2),
+        "computedPhasedBaseFullFiveModel", "computedPhasedBaseFullFiveColumn",
+        "computedPhasedBaseFullFiveColumn",
+        (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
+    "FullFiveInnerFour": RegimeConfig(
+        "FullFiveInnerFour", "computedPhasedBaseFullFiveInnerFourCompact", Q(4),
+        "computedPhasedBaseFullFiveModel", "computedPhasedBaseFullFiveColumn",
+        "computedPhasedBaseFullFiveColumn",
+        (Q(1), Q(1, 2), Q(0), Q(-1, 2), Q(-1)), (0, 1, 2, 3, 4)),
+}
+
+
+def configure(config: RegimeConfig, group_index: int) -> None:
+    global PREFIX, MODEL, COLUMN, BLOCK_COUNT
+    global COLUMN_FREQUENCY_THEOREM, COLUMN_TRANSLATION_THEOREM
+    global TRANSLATION_DEFINITION, TRANSLATIONS, COEFFICIENT_INDICES
+    global SOURCE_PREFIX, SHIFT, GROUP_INDEX
+    PREFIX = f"computedPhasedBase{config.label}DirectGroup{group_index}"
+    MODEL = config.model
+    COLUMN = config.column
+    BLOCK_COUNT = len(config.translations)
+    COLUMN_FREQUENCY_THEOREM = f"{config.column}_frequencyQ"
+    COLUMN_TRANSLATION_THEOREM = f"{config.column}_translation"
+    TRANSLATION_DEFINITION = config.translation_definition
+    TRANSLATIONS = config.translations
+    COEFFICIENT_INDICES = config.coefficient_indices
+    SOURCE_PREFIX = config.source_prefix
+    SHIFT = config.shift
+    GROUP_INDEX = group_index
 
 
 def inline_interval(value: Interval) -> str:
@@ -58,12 +136,12 @@ def inline_interval(value: Interval) -> str:
 
 
 def source_info():
-    group = merged_groups()[0]
+    group = merged_groups()[GROUP_INDEX]
     cell = int(group["source_cell"])
     shard = int(group["selected_midpoint_shard"])
-    stem = f"computedPhasedBaseLowerThreeCompactCell{cell}Shard{shard}"
+    stem = f"{SOURCE_PREFIX}Cell{cell}Shard{shard}"
     module = f"RiemannVenue.Venue.Boundary{stem[0].upper() + stem[1:]}"
-    center = Q(str(group["center"])) - 1
+    center = Q(str(group["center"])) - SHIFT
     radius = Q(str(group["radius"]))
     return cell, shard, stem, module, center, radius
 
@@ -107,7 +185,7 @@ def probe_data(center: Q):
         ])
 
     signed = [
-        [sum_intervals(groups[order][block]) for block in range(3)]
+        [sum_intervals(groups[order][block]) for block in range(BLOCK_COUNT)]
         for order in range(12)
     ]
     bases = []
@@ -115,7 +193,7 @@ def probe_data(center: Q):
         total = Interval()
         for i in range(order + 1):
             translated = Interval()
-            for block in range(3):
+            for block in range(BLOCK_COUNT):
                 translated = translated.add(
                     signed[i][block].mul(bumps[block][order - i])
                 )
@@ -186,7 +264,7 @@ def render_leaf(stem: str, module: str, center: Q, trigs, kernels) -> str:
             "",
         ])
     proofs = []
-    for block in range(3):
+    for block in range(BLOCK_COUNT):
         for g in range(20):
             phase = FREQUENCIES[g] * (center + TRANSLATIONS[block])
             proofs.append(
@@ -196,20 +274,20 @@ def render_leaf(stem: str, module: str, center: Q, trigs, kernels) -> str:
             )
     lines.extend([
         *row_defs,
-        f"def {PREFIX}Trig (b : Fin 3) (g : Fin 20) : RationalTrigInterval :=",
-        f"  ![{PREFIX}TrigRow0 g, {PREFIX}TrigRow1 g, {PREFIX}TrigRow2 g] b",
+        f"def {PREFIX}Trig (b : Fin {BLOCK_COUNT}) (g : Fin 20) : RationalTrigInterval :=",
+        f"  ![{', '.join(f'{PREFIX}TrigRow{block} g' for block in range(BLOCK_COUNT))}] b",
         "",
-        f"theorem {PREFIX}Trig_contains (b : Fin 3) (g : Fin 20) :",
+        f"theorem {PREFIX}Trig_contains (b : Fin {BLOCK_COUNT}) (g : Fin 20) :",
         f"    ({PREFIX}Trig b g).Contains",
         f"      ((computedPhasedFrequencyQ ({MODEL}.column b g) : ℝ) *",
         f"        (({stem}Interval.center : ℝ) +",
         f"          computedPhasedTranslation ({MODEL}.column b g))) := by",
         f"  change ({PREFIX}Trig b g).Contains",
-        "    ((computedPhasedFrequencyQ (computedPhasedBaseLowerThreeColumn b g) : ℝ) *",
+        f"    ((computedPhasedFrequencyQ ({COLUMN} b g) : ℝ) *",
         f"      (({stem}Interval.center : ℝ) +",
-        "        computedPhasedTranslation (computedPhasedBaseLowerThreeColumn b g)))",
-        "  simp only [computedPhasedBaseLowerThreeColumn_frequencyQ,",
-        "    computedPhasedBaseLowerThreeColumn_translation]",
+        f"        computedPhasedTranslation ({COLUMN} b g)))",
+        f"  simp only [{COLUMN_FREQUENCY_THEOREM},",
+        f"    {COLUMN_TRANSLATION_THEOREM}]",
         "  fin_cases b <;> fin_cases g",
         *proofs,
         "",
@@ -249,11 +327,11 @@ def render_bump(stem: str, module: str, center: Q, bumps) -> str:
                 f"theorem {value_name}_contains :",
                 f"    {value_name}.Contains",
                 f"      (computedPhasedBumpJet {order}",
-                f"        ({MODEL}.column ({block} : Fin 3) 0)",
+                f"        ({MODEL}.column ({block} : Fin {BLOCK_COUNT}) 0)",
                 f"        ({stem}Interval.center : ℝ)) := by",
                 f"  change {value_name}.Contains",
                 f"    (computedPhasedBumpJet {order}",
-                f"      ({COLUMN} ({block} : Fin 3) 0)",
+                f"      ({COLUMN} ({block} : Fin {BLOCK_COUNT}) 0)",
                 f"      ({stem}Interval.center : ℝ))",
                 "  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval",
                 f"    (coefficients := computedPhasedCell0BumpCoefficients{order})",
@@ -275,7 +353,7 @@ def render_bump(stem: str, module: str, center: Q, bumps) -> str:
                 f"        {input_name}))",
                 "  · convert hs using 1 <;>",
                 f"      simp [computedPhasedBumpJet, computedPhasedScale,",
-                "        computedPhasedBaseLowerThreeColumn_translation,",
+                f"        {COLUMN_TRANSLATION_THEOREM},",
                 f"        {stem}Interval] <;> norm_num",
                 f"  · {bump_norm(value_name, input_name, order)}",
                 "",
@@ -283,10 +361,10 @@ def render_bump(stem: str, module: str, center: Q, bumps) -> str:
         order_name = f"{PREFIX}BumpOrder{order}"
         order_names.append(order_name)
         lines.extend([
-            f"def {order_name} (b : Fin 3) : RationalInterval :=",
+            f"def {order_name} (b : Fin {BLOCK_COUNT}) : RationalInterval :=",
             f"  ![{', '.join(values)}] b",
             "",
-            f"theorem {order_name}_contains (b : Fin 3) :",
+            f"theorem {order_name}_contains (b : Fin {BLOCK_COUNT}) :",
             f"    ({order_name} b).Contains",
             f"      (computedPhasedBumpJet {order} ({MODEL}.column b 0)",
             f"        ({stem}Interval.center : ℝ)) := by",
@@ -295,11 +373,11 @@ def render_bump(stem: str, module: str, center: Q, bumps) -> str:
             "",
         ])
     lines.extend([
-        f"def {PREFIX}Bump (b : Fin 3) (n : Fin 12) : RationalInterval := ![",
+        f"def {PREFIX}Bump (b : Fin {BLOCK_COUNT}) (n : Fin 12) : RationalInterval := ![",
         ",\n".join(f"  {name}" for name in order_names),
         "] n b",
         "",
-        f"theorem {PREFIX}Bump_contains (b : Fin 3) (n : Fin 12) :",
+        f"theorem {PREFIX}Bump_contains (b : Fin {BLOCK_COUNT}) (n : Fin 12) :",
         f"    ({PREFIX}Bump b n).Contains",
         f"      (computedPhasedBumpJet n ({MODEL}.column b 0)",
         f"        ({stem}Interval.center : ℝ)) := by",
@@ -362,17 +440,17 @@ def render_group(stem: str, groups) -> str:
     ]
     group_names = []
     trig_names = ", ".join(
-        f"{PREFIX}Trig{b}_{g}" for b in range(3) for g in range(20))
+        f"{PREFIX}Trig{b}_{g}" for b in range(BLOCK_COUNT) for g in range(20))
     for order in range(12):
         name = f"{PREFIX}GroupOrder{order}"
         group_names.append(name)
         blocks = ["![" + ", ".join(inline_interval(v) for v in block) + "]"
                   for block in groups[order]]
         lines.extend([
-            f"def {name} (b : Fin 3) (g : Fin 4) : RationalInterval :=",
+            f"def {name} (b : Fin {BLOCK_COUNT}) (g : Fin 4) : RationalInterval :=",
             f"  ![{', '.join(blocks)}] b g",
             "",
-            f"theorem {name}_contains (b : Fin 3) (g : Fin 4) :",
+            f"theorem {name}_contains (b : Fin {BLOCK_COUNT}) (g : Fin 4) :",
             f"    ({name} b g).Contains",
             f"      (∑ k : Fin 5, computedPhasedBaseCoefficient",
             f"        ({MODEL}.column b (finProdFinEquiv (g, k))) *",
@@ -390,10 +468,10 @@ def render_group(stem: str, groups) -> str:
             "        computedPhasedBaseActiveBlockCosineCell,",
             "        computedPhasedBaseActiveBlockTrigCell,",
             f"        {PREFIX}PointLeaves, {PREFIX}PointData, {PREFIX}Trig,",
-            f"        {PREFIX}TrigRow0, {PREFIX}TrigRow1, {PREFIX}TrigRow2,",
+            f"        {', '.join(f'{PREFIX}TrigRow{block}' for block in range(BLOCK_COUNT))},",
             f"        {stem}PointInterval, {stem}Interval,",
             f"        {trig_names}, {MODEL}, {COLUMN},",
-            "        computedPhasedBaseLowerThreeTranslation,",
+            f"        {TRANSLATION_DEFINITION},",
             "        computedPhasedBaseCoefficientQ, computedPhasedFrequencyQ,",
             "        computedPhasedTranslationQ, computedPhasedCell0FrequencyQ,",
             "        computedPhasedCell0TranslationQ, rationalCosineJetInterval,",
@@ -405,12 +483,12 @@ def render_group(stem: str, groups) -> str:
             "",
         ])
     lines.extend([
-        f"def {PREFIX}Group (n : Fin 12) (b : Fin 3) (g : Fin 4) :",
+        f"def {PREFIX}Group (n : Fin 12) (b : Fin {BLOCK_COUNT}) (g : Fin 4) :",
         "    RationalInterval := ![",
         ",\n".join(f"  {name}" for name in group_names),
         "] n b g",
         "",
-        f"theorem {PREFIX}Group_contains (n : Fin 12) (b : Fin 3) (g : Fin 4) :",
+        f"theorem {PREFIX}Group_contains (n : Fin 12) (b : Fin {BLOCK_COUNT}) (g : Fin 4) :",
         f"    ({PREFIX}Group n b g).Contains",
         f"      (∑ k : Fin 5, computedPhasedBaseCoefficient",
         f"        ({MODEL}.column b (finProdFinEquiv (g, k))) *",
@@ -431,10 +509,10 @@ def render_base(stem: str, bases) -> str:
         "", "/-! Direct three-block base-jet cache. -/",
         "namespace RiemannVenue.Venue", "noncomputable section",
         "set_option maxHeartbeats 3000000", "",
-        f"def {PREFIX}Signed (n : Fin 12) (b : Fin 3) : RationalInterval :=",
+        f"def {PREFIX}Signed (n : Fin 12) (b : Fin {BLOCK_COUNT}) : RationalInterval :=",
         f"  RationalInterval.finSum fun g : Fin 4 => {PREFIX}Group n b g",
         "",
-        f"theorem {PREFIX}Signed_contains (n : Fin 12) (b : Fin 3) :",
+        f"theorem {PREFIX}Signed_contains (n : Fin 12) (b : Fin {BLOCK_COUNT}) :",
         f"    ({PREFIX}Signed n b).Contains",
         f"      (∑ g : Fin 20, computedPhasedBaseCoefficient ({MODEL}.column b g) *",
         f"        computedPhasedCosineJet n ({MODEL}.column b g)",
@@ -478,7 +556,7 @@ def render_base(stem: str, bases) -> str:
         bump_orders = ", ".join(f"{PREFIX}BumpOrder{i}" for i in range(order + 1))
         bump_values = ", ".join(
             f"{PREFIX}BumpOrder{i}Value{b}"
-            for i in range(order + 1) for b in range(3))
+            for i in range(order + 1) for b in range(BLOCK_COUNT))
         lines.extend([
             f"def {raw} : RationalInterval :=",
             "  computedPhasedBaseActiveBlockTestJetFromPointCaches",
@@ -742,8 +820,25 @@ def outputs():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--regime", choices=sorted(REGIME_CONFIGS))
+    parser.add_argument("--index", type=int, default=0)
+    parser.add_argument("--all-groups", action="store_true")
     args = parser.parse_args()
-    for path, source in outputs().items():
+    if args.all_groups and args.regime is None:
+        raise SystemExit("--all-groups requires --regime")
+    generated = None
+    if args.regime is not None and args.all_groups:
+        generated = {}
+        for group_index in range(len(merged_groups())):
+            configure(REGIME_CONFIGS[args.regime], group_index)
+            generated.update(outputs())
+    elif args.regime is not None:
+        if not 0 <= args.index < len(merged_groups()):
+            raise SystemExit("--index must select one of the 41 merged groups")
+        configure(REGIME_CONFIGS[args.regime], args.index)
+    if generated is None:
+        generated = outputs()
+    for path, source in generated.items():
         if args.check:
             if not path.exists() or path.read_text(encoding="utf-8") != source:
                 raise SystemExit(f"stale generated file: {path.relative_to(ROOT)}")

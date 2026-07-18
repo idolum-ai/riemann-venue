@@ -132,7 +132,11 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   and base-jet anchors. Its staged scalar ledger proves that the actual Taylor
   error is below `10^-8` under the shared twelfth-jet ceiling. This is the
   production template for replacing transport-width payments across the
-  remaining translated windows; `--check` rejects drift in all five packets.
+  remaining translated windows. `--regime NAME --index N` selects any merged
+  window in the three-, four-, or full-five support regimes, while
+  `--all-groups` emits all 41 windows for one regime. The checked group-zero
+  probes cross all three distinct support shapes; `--check` rejects drift in
+  each five-packet graph.
 
 - `generate_computed_phased_base_lower_four_compact_shards.py` shifts the
   recursive mesh onto `[5/2, 1339/448]`. Three inherited blocks reuse the
