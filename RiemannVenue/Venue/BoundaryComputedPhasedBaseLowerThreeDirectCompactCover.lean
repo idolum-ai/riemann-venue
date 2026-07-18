@@ -1,0 +1,556 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup0PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup1PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup2PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup3PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup4PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup5PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup6PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup7PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup8PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup9PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup10PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup11PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup12PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup13PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup14PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup15PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup16PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup17PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup18PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup19PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup20PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup21PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup22PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup23PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup24PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup25PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup26PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup27PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup28PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup29PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup30PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup31PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup32PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup33PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup34PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup35PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup36PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup37PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup38PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup39PaymentProbe
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectGroup40PaymentProbe
+
+/-! Exact direct compact cover for the translated LowerThree regime. -/
+namespace RiemannVenue.Venue
+noncomputable section
+
+private theorem computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable (a b : ℝ) :
+    IntervalIntegrable (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint) MeasureTheory.volume a b :=
+  (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _
+
+def computedPhasedBaseLowerThreeDirectChunk0CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup0TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup1TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup2TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup3TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup4TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk0ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup0TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup1TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup2TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup3TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup4TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk0CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup0ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup0ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup1ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup1ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup2ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup2ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup3ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup3ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup4ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup4ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk0Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup0IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup1IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup2IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup3IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup4IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk0Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk0Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk0CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk0Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup0IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup1IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup2IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup3IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup4IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk0CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk0Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk0Certificate.error = (computedPhasedBaseLowerThreeDirectChunk0ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk0Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup0IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup1IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup2IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup3IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup4IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk0ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk0ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk0ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk0CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk0ErrorQ computedPhasedBaseLowerThreeDirectChunk0CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup0TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup1TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup2TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup3TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup4TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk1CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup5TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup6TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup7TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup8TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup9TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk1ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup5TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup6TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup7TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup8TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup9TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk1CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup5ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup5ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup6ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup6ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup7ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup7ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup8ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup8ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup9ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup9ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk1Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup5IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup6IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup7IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup8IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup9IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk1Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk1Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk1CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk1Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup5IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup6IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup7IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup8IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup9IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk1CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk1Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk1Certificate.error = (computedPhasedBaseLowerThreeDirectChunk1ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk1Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup5IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup6IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup7IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup8IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup9IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk1ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk1ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk1ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk1CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk1ErrorQ computedPhasedBaseLowerThreeDirectChunk1CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup5TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup6TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup7TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup8TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup9TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk2CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup10TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup11TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup12TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup13TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup14TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk2ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup10TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup11TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup12TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup13TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup14TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk2CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup10ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup10ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup11ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup11ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup12ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup12ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup13ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup13ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup14ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup14ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk2Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup10IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup11IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup12IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup13IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup14IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk2Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk2Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk2CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk2Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup10IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup11IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup12IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup13IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup14IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk2CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk2Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk2Certificate.error = (computedPhasedBaseLowerThreeDirectChunk2ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk2Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup10IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup11IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup12IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup13IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup14IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk2ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk2ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk2ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk2CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk2ErrorQ computedPhasedBaseLowerThreeDirectChunk2CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup10TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup11TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup12TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup13TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup14TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk3CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup15TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup16TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup17TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup18TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup19TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk3ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup15TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup16TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup17TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup18TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup19TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk3CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup15ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup15ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup16ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup16ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup17ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup17ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup18ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup18ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup19ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup19ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk3Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup15IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup16IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup17IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup18IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup19IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk3Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk3Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk3CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk3Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup15IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup16IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup17IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup18IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup19IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk3CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk3Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk3Certificate.error = (computedPhasedBaseLowerThreeDirectChunk3ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk3Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup15IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup16IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup17IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup18IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup19IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk3ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk3ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk3ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk3CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk3ErrorQ computedPhasedBaseLowerThreeDirectChunk3CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup15TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup16TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup17TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup18TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup19TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk4CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup20TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup21TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup22TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup23TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup24TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk4ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup20TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup21TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup22TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup23TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup24TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk4CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup20ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup20ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup21ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup21ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup22ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup22ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup23ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup23ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup24ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup24ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk4Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup20IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup21IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup22IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup23IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup24IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk4Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk4Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk4CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk4Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup20IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup21IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup22IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup23IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup24IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk4CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk4Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk4Certificate.error = (computedPhasedBaseLowerThreeDirectChunk4ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk4Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup20IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup21IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup22IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup23IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup24IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk4ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk4ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk4ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk4CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk4ErrorQ computedPhasedBaseLowerThreeDirectChunk4CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup20TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup21TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup22TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup23TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup24TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk5CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup25TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup26TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup27TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup28TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup29TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk5ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup25TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup26TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup27TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup28TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup29TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk5CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup25ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup25ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup26ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup26ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup27ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup27ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup28ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup28ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup29ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup29ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk5Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup25IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup26IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup27IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup28IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup29IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk5Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk5Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk5CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk5Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup25IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup26IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup27IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup28IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup29IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk5CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk5Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk5Certificate.error = (computedPhasedBaseLowerThreeDirectChunk5ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk5Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup25IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup26IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup27IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup28IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup29IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk5ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk5ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk5ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk5CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk5ErrorQ computedPhasedBaseLowerThreeDirectChunk5CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup25TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup26TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup27TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup28TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup29TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk6CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup30TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup31TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup32TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup33TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup34TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk6ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup30TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup31TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup32TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup33TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup34TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk6CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup30ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup30ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup31ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup31ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup32ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup32ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup33ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup33ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup34ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup34ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk6Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup30IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup31IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup32IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup33IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup34IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk6Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk6Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk6CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk6Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup30IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup31IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup32IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup33IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup34IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk6CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk6Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk6Certificate.error = (computedPhasedBaseLowerThreeDirectChunk6ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk6Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup30IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup31IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup32IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup33IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup34IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk6ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk6ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk6ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk6CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk6ErrorQ computedPhasedBaseLowerThreeDirectChunk6CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup30TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup31TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup32TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup33TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup34TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk7CenterQ : ℚ × ℚ := ((((computedPhasedBaseLowerThreeDirectGroup35TaylorCenterQ + computedPhasedBaseLowerThreeDirectGroup36TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup37TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup38TaylorCenterQ) + computedPhasedBaseLowerThreeDirectGroup39TaylorCenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk7ErrorQ : ℚ := ((((computedPhasedBaseLowerThreeDirectGroup35TaylorErrorQ + computedPhasedBaseLowerThreeDirectGroup36TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup37TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup38TaylorErrorQ) + computedPhasedBaseLowerThreeDirectGroup39TaylorErrorQ)
+
+def computedPhasedBaseLowerThreeDirectChunk7CeilingPaymentQ : ℚ := (((((computedPhasedBaseLowerThreeDirectGroup35ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup35ExactRemainderMultiplierQ) + (computedPhasedBaseLowerThreeDirectGroup36ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup36ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup37ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup37ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup38ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup38ExactRemainderMultiplierQ)) + (computedPhasedBaseLowerThreeDirectGroup39ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup39ExactRemainderMultiplierQ))
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk7Certificate :=
+  ((((computedPhasedBaseLowerThreeDirectGroup35IntegralCell.append
+      computedPhasedBaseLowerThreeDirectGroup36IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup37IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup38IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectGroup39IntegralCell
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectChunk7Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk7Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk7CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk7Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup35IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup36IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup37IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup38IntegralCell_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup39IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk7CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk7Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk7Certificate.error = (computedPhasedBaseLowerThreeDirectChunk7ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk7Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup35IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup36IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup37IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup38IntegralCell_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectGroup39IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk7ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk7ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk7ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk7CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk7ErrorQ computedPhasedBaseLowerThreeDirectChunk7CeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectGroup35TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup36TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup37TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup38TaylorErrorQ_le_ceilingPayment
+  exact computedPhasedBaseLowerThreeDirectGroup39TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectChunk8CenterQ : ℚ × ℚ := computedPhasedBaseLowerThreeDirectGroup40TaylorCenterQ
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk8ErrorQ : ℚ := computedPhasedBaseLowerThreeDirectGroup40TaylorErrorQ
+
+def computedPhasedBaseLowerThreeDirectChunk8CeilingPaymentQ : ℚ := (computedPhasedBaseLowerThreeDirectGroup40ExactCachePaymentQ + 16602716200000000000000000000 * computedPhasedBaseLowerThreeDirectGroup40ExactRemainderMultiplierQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectChunk8Certificate :=
+  computedPhasedBaseLowerThreeDirectGroup40IntegralCell
+
+theorem computedPhasedBaseLowerThreeDirectChunk8Certificate_centerQ :
+    computedPhasedBaseLowerThreeDirectChunk8Certificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectChunk8CenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk8Certificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectGroup40IntegralCell_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk8CenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk8Certificate_errorQ :
+    computedPhasedBaseLowerThreeDirectChunk8Certificate.error = (computedPhasedBaseLowerThreeDirectChunk8ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectChunk8Certificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectGroup40IntegralCell_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectChunk8ErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectChunk8ErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectChunk8ErrorQ ≤ computedPhasedBaseLowerThreeDirectChunk8CeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectChunk8ErrorQ computedPhasedBaseLowerThreeDirectChunk8CeilingPaymentQ
+  exact computedPhasedBaseLowerThreeDirectGroup40TaylorErrorQ_le_ceilingPayment
+
+def computedPhasedBaseLowerThreeDirectCompactCenterQ : ℚ × ℚ := ((((((((computedPhasedBaseLowerThreeDirectChunk0CenterQ + computedPhasedBaseLowerThreeDirectChunk1CenterQ) + computedPhasedBaseLowerThreeDirectChunk2CenterQ) + computedPhasedBaseLowerThreeDirectChunk3CenterQ) + computedPhasedBaseLowerThreeDirectChunk4CenterQ) + computedPhasedBaseLowerThreeDirectChunk5CenterQ) + computedPhasedBaseLowerThreeDirectChunk6CenterQ) + computedPhasedBaseLowerThreeDirectChunk7CenterQ) + computedPhasedBaseLowerThreeDirectChunk8CenterQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectCompactErrorQ : ℚ := ((((((((computedPhasedBaseLowerThreeDirectChunk0ErrorQ + computedPhasedBaseLowerThreeDirectChunk1ErrorQ) + computedPhasedBaseLowerThreeDirectChunk2ErrorQ) + computedPhasedBaseLowerThreeDirectChunk3ErrorQ) + computedPhasedBaseLowerThreeDirectChunk4ErrorQ) + computedPhasedBaseLowerThreeDirectChunk5ErrorQ) + computedPhasedBaseLowerThreeDirectChunk6ErrorQ) + computedPhasedBaseLowerThreeDirectChunk7ErrorQ) + computedPhasedBaseLowerThreeDirectChunk8ErrorQ)
+
+def computedPhasedBaseLowerThreeDirectCompactCeilingPaymentQ : ℚ := ((((((((computedPhasedBaseLowerThreeDirectChunk0CeilingPaymentQ + computedPhasedBaseLowerThreeDirectChunk1CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk2CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk3CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk4CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk5CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk6CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk7CeilingPaymentQ) + computedPhasedBaseLowerThreeDirectChunk8CeilingPaymentQ)
+
+noncomputable def computedPhasedBaseLowerThreeDirectCompactCertificate :=
+  ((((((((computedPhasedBaseLowerThreeDirectChunk0Certificate.append
+      computedPhasedBaseLowerThreeDirectChunk1Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk2Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk3Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk4Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk5Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk6Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk7Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseLowerThreeDirectChunk8Certificate
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _)
+      (computedPhasedBaseLowerThreeDirectIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseLowerThreeDirectCompactCertificate_centerQ :
+    computedPhasedBaseLowerThreeDirectCompactCertificate.center = rationalPairToComplex computedPhasedBaseLowerThreeDirectCompactCenterQ := by
+  simp only [computedPhasedBaseLowerThreeDirectCompactCertificate, ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseLowerThreeDirectChunk0Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk1Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk2Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk3Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk4Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk5Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk6Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk7Certificate_centerQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk8Certificate_centerQ]
+  simp only [computedPhasedBaseLowerThreeDirectCompactCenterQ, rationalPairToComplex_add]
+
+theorem computedPhasedBaseLowerThreeDirectCompactCertificate_errorQ :
+    computedPhasedBaseLowerThreeDirectCompactCertificate.error = (computedPhasedBaseLowerThreeDirectCompactErrorQ : ℝ) := by
+  simp only [computedPhasedBaseLowerThreeDirectCompactCertificate, ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseLowerThreeDirectChunk0Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk1Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk2Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk3Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk4Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk5Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk6Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk7Certificate_errorQ]
+  rw [computedPhasedBaseLowerThreeDirectChunk8Certificate_errorQ]
+  simp only [computedPhasedBaseLowerThreeDirectCompactErrorQ, Rat.cast_add]
+
+theorem computedPhasedBaseLowerThreeDirectCompactErrorQ_le_ceiling : computedPhasedBaseLowerThreeDirectCompactErrorQ ≤ computedPhasedBaseLowerThreeDirectCompactCeilingPaymentQ := by
+  unfold computedPhasedBaseLowerThreeDirectCompactErrorQ computedPhasedBaseLowerThreeDirectCompactCeilingPaymentQ
+  gcongr
+  exact computedPhasedBaseLowerThreeDirectChunk0ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk1ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk2ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk3ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk4ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk5ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk6ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk7ErrorQ_le_ceiling
+  exact computedPhasedBaseLowerThreeDirectChunk8ErrorQ_le_ceiling
+
+theorem computedPhasedBaseLowerThreeDirectCompactCertificate_error_le_ceiling :
+    computedPhasedBaseLowerThreeDirectCompactCertificate.error ≤ (computedPhasedBaseLowerThreeDirectCompactCeilingPaymentQ : ℝ) := by
+  rw [computedPhasedBaseLowerThreeDirectCompactCertificate_errorQ]
+  exact_mod_cast computedPhasedBaseLowerThreeDirectCompactErrorQ_le_ceiling
+
+end
+end RiemannVenue.Venue

@@ -1,12 +1,20 @@
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseLowerThreeDirectProbeBaseCache
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseGlobalRemainderCover
 import RiemannVenue.Venue.BoundaryComputedPhasedBasePaymentIdentity
+import RiemannVenue.Venue.BoundaryComplexIntegralCellPacket
 
 /-! Staged direct Taylor payment for one translated three-block window. -/
 namespace RiemannVenue.Venue
 noncomputable section
 set_option maxRecDepth 100000
 set_option maxHeartbeats 3000000
+
+def computedPhasedBaseLowerThreeDirectProbeInterval : RationalInterval :=
+  ⟨(1345 : ℚ) / 448, (1 : ℚ) / 448⟩
+
+theorem computedPhasedBaseLowerThreeDirectProbeInterval_center_eq_source :
+    computedPhasedBaseLowerThreeDirectProbeInterval.center = computedPhasedBaseLowerThreeCompactCell0Shard0Interval.center := by
+  norm_num [computedPhasedBaseLowerThreeDirectProbeInterval, computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
 
 def computedPhasedBaseLowerThreeDirectProbePaired (n : Fin 12) : RationalRectangle :=
   computedPhasedBaseOuterPairedInterval computedPhasedBaseLowerThreeDirectProbeJets
@@ -15,10 +23,39 @@ def computedPhasedBaseLowerThreeDirectProbePaired (n : Fin 12) : RationalRectang
 theorem computedPhasedBaseLowerThreeDirectProbePaired_contains (n : Fin 12) :
     (computedPhasedBaseLowerThreeDirectProbePaired n).Contains
       (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n
-        (computedPhasedBaseLowerThreeCompactCell0Shard0Interval.center : ℝ)) := by
+        (computedPhasedBaseLowerThreeDirectProbeInterval.center : ℝ)) := by
+  rw [computedPhasedBaseLowerThreeDirectProbeInterval_center_eq_source]
   exact computedPhasedBaseOuterPairedInterval_contains computedPhasedBaseLowerThreeDirectProbeJets
     computedPhasedBaseLowerThreeDirectProbeForwardKernel computedPhasedBaseLowerThreeDirectProbeReflectedKernel n
     computedPhasedBaseLowerThreeDirectProbeForwardKernel_contains computedPhasedBaseLowerThreeDirectProbeReflectedKernel_contains
+
+theorem computedPhasedBaseLowerThreeDirectProbe_remainder {x : ℝ}
+    (hx : computedPhasedBaseLowerThreeDirectProbeInterval.Contains x) :
+    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+      (computedPhasedBaseGlobalPairedTwelveRemainderBound : ℝ) := by
+  apply norm_computedPhasedBasePairedRawJet_twelve_le_globalBound
+  apply (RationalInterval.abs_le_abs_center_add_radius hx).trans
+  norm_num [computedPhasedBaseLowerThreeDirectProbeInterval]
+
+noncomputable def computedPhasedBaseLowerThreeDirectProbeTaylorCell :=
+  computedPhasedBaseOuterCachedShardTaylorCellWithRemainder
+    computedPhasedBaseLowerThreeDirectProbeInterval (by norm_num [computedPhasedBaseLowerThreeDirectProbeInterval])
+    computedPhasedBaseLowerThreeDirectProbePaired computedPhasedBaseLowerThreeDirectProbePaired_contains
+    computedPhasedBaseGlobalPairedTwelveRemainderBound
+    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg
+    (fun x hx => computedPhasedBaseLowerThreeDirectProbe_remainder hx)
+
+def computedPhasedBaseLowerThreeDirectProbeTaylorCenterQ : ℚ × ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorCenterQ
+    computedPhasedBaseLowerThreeDirectProbePaired computedPhasedBaseLowerThreeDirectProbeInterval.radius
+
+theorem computedPhasedBaseLowerThreeDirectProbeTaylorCell_centerQ :
+    computedPhasedBaseLowerThreeDirectProbeTaylorCell.center =
+      rationalPairToComplex computedPhasedBaseLowerThreeDirectProbeTaylorCenterQ := by
+  rw [computedPhasedBaseLowerThreeDirectProbeTaylorCell,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+  rfl
 
 def computedPhasedBaseLowerThreeDirectProbePaymentPaired0 : RationalRectangle :=
   ⟨⟨(17950680774714366501885319689247083 / 400000000000000000000000000000000000 : ℚ), (238635581773117875430218921 / 2000000000000000000000000000000000000 : ℚ)⟩, ⟨(29424520748995463455905484051210539 / 25000000000000000000000000000000000 : ℚ), (9848737693888032321443221231 / 2000000000000000000000000000000000000 : ℚ)⟩⟩
@@ -150,146 +187,146 @@ theorem computedPhasedBaseLowerThreeDirectProbePaymentPaired_eq (n : Fin 12) :
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q : ℚ := (1260921659457643774609180019 : ℚ) / 56000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (0 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (0 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 0 / Nat.factorial 0) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 0 / Nat.factorial 0) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired0_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired0,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q : ℚ := (15489830167796091071435959816238129838611841 : ℚ) / 5017600000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (1 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (1 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 1 / Nat.factorial 1) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 1 / Nat.factorial 1) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired1_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired1,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm2Q : ℚ := (1513430933427837608455448662958632738687928694501596055448527 : ℚ) / 7193231360000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm2Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm2Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm2Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (2 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (2 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 2 / Nat.factorial 2) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 2 / Nat.factorial 2) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired2_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm2Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired2,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm3Q : ℚ := (18398963756041069135528032819518270174056198070573649132802230496455012508853 : ℚ) / 1933540589568000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm3Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm3Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm3Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (3 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (3 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 3 / Nat.factorial 3) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 3 / Nat.factorial 3) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired3_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm3Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired3,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm4Q : ℚ := (74284853599422633720281232961223662815095494457693968551532590625484158487768949972564316989 : ℚ) / 230993649100390400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm4Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm4Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm4Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (4 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (4 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 4 / Nat.factorial 4) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 4 / Nat.factorial 4) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired4_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm4Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired4,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm5Q : ℚ := (897056680440990015173528887777239720623363376543221116338403258438862561589729925966745238918650972263846671 : ℚ) / 103485154796974899200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm5Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm5Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm5Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (5 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (5 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 5 / Nat.factorial 5) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 5 / Nat.factorial 5) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired5_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm5Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired5,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm6Q : ℚ := (10805818721889554400035529372797675940696317274358143062290028250479181068383448228953143117766890299752880477554048488190069 : ℚ) / 55633619218853705809920000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm6Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm6Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm6Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (6 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (6 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 6 / Nat.factorial 6) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 6 / Nat.factorial 6) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired6_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm6Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired6,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm7Q : ℚ := (129895586142515924564282747332407889875500865042791002783023555572317520986854211722843686785087593109276106164991851419875000156971106348791 : ℚ) / 34893405974065044283981824000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm7Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm7Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm7Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (7 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (7 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 7 / Nat.factorial 7) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 7 / Nat.factorial 7) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired7_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm7Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired7,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm8Q : ℚ := (519586931010527757957263112748246938831491271136644404220641504044679076867115520528071751615827937740195005267630069847359168234120821877369499975563733583 : ℚ) / 8337197800736607914252723814400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm8Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm8Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm8Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (8 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (8 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 8 / Nat.factorial 8) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 8 / Nat.factorial 8) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired8_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm8Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired8,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm9Q : ℚ := (6226155785671265379457364776549120974299247947804490594097981248003202413219597354097049610463591943316984402347604377563606201281764668252215712504067428523550581489552437 : ℚ) / 6723116306514000622053396483932160000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm9Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm9Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm9Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (9 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (9 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 9 / Nat.factorial 9) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 9 / Nat.factorial 9) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired9_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm9Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired9,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm10Q : ℚ := (223559957074122037036648597185331652915213555763532823307443572999212869314164730238085349797118928987287096967984905388276519890134664200329419047706072162487448584930287365891511206821029 : ℚ) / 18071736631909633672079529748809646080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm10Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm10Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm10Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (10 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (10 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 10 / Nat.factorial 10) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 10 / Nat.factorial 10) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired10_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm10Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired10,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTerm11Q : ℚ := (2673272286175320853365239686084952769419698747401779412707519158673667880827070731848260137263916568070560617638303676073415475109923052432155526074673138293322920971589065251861922644449350473977092980231 : ℚ) / 17811503624410134947201584520426787176448000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTerm11Q_eq :
-    computedPhasedBaseLowerThreeDirectProbePaymentTerm11Q = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTerm11Q = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired (11 : Fin 12)).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired (11 : Fin 12)).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 11 / Nat.factorial 11) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 11 / Nat.factorial 11) := by
   rw [← computedPhasedBaseLowerThreeDirectProbePaymentPaired11_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseLowerThreeDirectProbePaymentTerm11Q, computedPhasedBaseLowerThreeDirectProbePaymentPaired11,
-      computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+      computedPhasedBaseLowerThreeDirectProbeInterval]
 
 def computedPhasedBaseLowerThreeDirectProbePaymentTermQ (n : Fin 12) : ℚ := ![
   computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q,
@@ -307,10 +344,10 @@ def computedPhasedBaseLowerThreeDirectProbePaymentTermQ (n : Fin 12) : ℚ := ![
 ] n
 
 theorem computedPhasedBaseLowerThreeDirectProbePaymentTermQ_eq (n : Fin 12) :
-    computedPhasedBaseLowerThreeDirectProbePaymentTermQ n = 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    computedPhasedBaseLowerThreeDirectProbePaymentTermQ n = 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
       (((computedPhasedBaseLowerThreeDirectProbePaired n).re.radius +
         (computedPhasedBaseLowerThreeDirectProbePaired n).im.radius) *
-        computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ)) := by
+        computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ)) := by
   fin_cases n
   exact computedPhasedBaseLowerThreeDirectProbePaymentTerm0Q_eq
   exact computedPhasedBaseLowerThreeDirectProbePaymentTerm1Q_eq
@@ -428,7 +465,7 @@ theorem computedPhasedBaseLowerThreeDirectProbePaymentPrefix12Q_eq :
 
 def computedPhasedBaseLowerThreeDirectProbeCachePaymentQ : ℚ :=
   computedPhasedBaseOuterCachePaymentQ computedPhasedBaseLowerThreeDirectProbePaired
-    computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius
+    computedPhasedBaseLowerThreeDirectProbeInterval.radius
 
 def computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ : ℚ := computedPhasedBaseLowerThreeDirectProbePaymentPrefix12Q
 
@@ -437,10 +474,10 @@ theorem computedPhasedBaseLowerThreeDirectProbeCachePaymentQ_eq_exact :
   rw [computedPhasedBaseLowerThreeDirectProbeCachePaymentQ,
     computedPhasedBaseOuterCachePaymentQ_eq_finSum]
   calc
-    (∑ n : Fin 12, 2 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius *
+    (∑ n : Fin 12, 2 * computedPhasedBaseLowerThreeDirectProbeInterval.radius *
         (((computedPhasedBaseLowerThreeDirectProbePaired n).re.radius +
           (computedPhasedBaseLowerThreeDirectProbePaired n).im.radius) *
-          computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ))) =
+          computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ))) =
         computedPhasedBaseLowerThreeDirectProbeEvaluatedCachePaymentQ := by
       rw [computedPhasedBaseLowerThreeDirectProbeEvaluatedCachePaymentQ]
       apply Finset.sum_congr rfl
@@ -466,18 +503,43 @@ theorem computedPhasedBaseLowerThreeDirectProbeCachePaymentQ_eq_exact :
       ring
 
 def computedPhasedBaseLowerThreeDirectProbeRemainderMultiplierQ : ℚ :=
-  4 * computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius ^ 13 / Nat.factorial 12
+  4 * computedPhasedBaseLowerThreeDirectProbeInterval.radius ^ 13 / Nat.factorial 12
 
 def computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ : ℚ := (1 : ℚ) / 3506639776055745317730311952459023725363200
 
 theorem computedPhasedBaseLowerThreeDirectProbeRemainderMultiplierQ_eq_exact :
     computedPhasedBaseLowerThreeDirectProbeRemainderMultiplierQ = computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ := by
   norm_num [computedPhasedBaseLowerThreeDirectProbeRemainderMultiplierQ,
-    computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ, computedPhasedBaseLowerThreeCompactCell0Shard0Interval]
+    computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ, computedPhasedBaseLowerThreeDirectProbeInterval]
 
 noncomputable def computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ : ℚ :=
   computedPhasedBaseOuterCachedShardTaylorErrorQ computedPhasedBaseLowerThreeDirectProbePaired
-    computedPhasedBaseGlobalPairedTwelveRemainderBound computedPhasedBaseLowerThreeCompactCell0Shard0Interval.radius
+    computedPhasedBaseGlobalPairedTwelveRemainderBound computedPhasedBaseLowerThreeDirectProbeInterval.radius
+
+theorem computedPhasedBaseLowerThreeDirectProbeTaylorCell_errorQ :
+    computedPhasedBaseLowerThreeDirectProbeTaylorCell.error = (computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ : ℝ) := by
+  rw [computedPhasedBaseLowerThreeDirectProbeTaylorCell,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+  rfl
+
+noncomputable def computedPhasedBaseLowerThreeDirectProbeIntegralCell :
+    ComplexIntegralCellCertificate
+      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((3 : ℚ) : ℝ)
+      (((673 : ℚ) / 224 : ℚ) : ℝ) :=
+  computedPhasedBaseLowerThreeDirectProbeTaylorCell.reindex
+    (by norm_num [computedPhasedBaseLowerThreeDirectProbeInterval])
+    (by norm_num [computedPhasedBaseLowerThreeDirectProbeInterval])
+
+theorem computedPhasedBaseLowerThreeDirectProbeIntegralCell_centerQ :
+    computedPhasedBaseLowerThreeDirectProbeIntegralCell.center =
+      rationalPairToComplex computedPhasedBaseLowerThreeDirectProbeTaylorCenterQ := by
+  simp [computedPhasedBaseLowerThreeDirectProbeIntegralCell, computedPhasedBaseLowerThreeDirectProbeTaylorCell_centerQ]
+
+theorem computedPhasedBaseLowerThreeDirectProbeIntegralCell_errorQ :
+    computedPhasedBaseLowerThreeDirectProbeIntegralCell.error = (computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseLowerThreeDirectProbeIntegralCell, computedPhasedBaseLowerThreeDirectProbeTaylorCell_errorQ]
 
 theorem computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ_eq_payment :
     computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ = computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ +
@@ -492,22 +554,14 @@ theorem computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ_eq_payment :
     computedPhasedBaseLowerThreeDirectProbeCachePaymentQ_eq_exact,
     computedPhasedBaseLowerThreeDirectProbeRemainderMultiplierQ_eq_exact]
 
-theorem computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ_lt_target :
-    computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ < (1 / 100000000 : ℚ) := by
+theorem computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ_le_ceilingPayment :
+    computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ ≤ computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ +
+      (16602716200000000000000000000 : ℚ) *
+        computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ := by
   rw [computedPhasedBaseLowerThreeDirectProbeTaylorErrorQ_eq_payment]
-  calc
-    computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ +
-          computedPhasedBaseGlobalPairedTwelveRemainderBound *
-            computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ ≤
-        computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ +
-          (16602716200000000000000000000 : ℚ) *
-            computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ := by
-      gcongr
-      · norm_num [computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ]
-      · exact computedPhasedBaseGlobalPairedTwelveRemainderBound_le_ceiling
-    _ < 1 / 100000000 := by
-      norm_num [computedPhasedBaseLowerThreeDirectProbeExactCachePaymentQ,
-        computedPhasedBaseLowerThreeDirectProbePaymentPrefix12Q, computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ]
+  gcongr
+  · norm_num [computedPhasedBaseLowerThreeDirectProbeExactRemainderMultiplierQ]
+  · exact computedPhasedBaseGlobalPairedTwelveRemainderBound_le_ceiling
 
 end
 end RiemannVenue.Venue

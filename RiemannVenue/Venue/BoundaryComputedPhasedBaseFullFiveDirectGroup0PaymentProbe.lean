@@ -1,12 +1,20 @@
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveDirectGroup0BaseCache
 import RiemannVenue.Venue.BoundaryComputedPhasedBaseGlobalRemainderCover
 import RiemannVenue.Venue.BoundaryComputedPhasedBasePaymentIdentity
+import RiemannVenue.Venue.BoundaryComplexIntegralCellPacket
 
 /-! Staged direct Taylor payment for one translated three-block window. -/
 namespace RiemannVenue.Venue
 noncomputable section
 set_option maxRecDepth 100000
 set_option maxHeartbeats 3000000
+
+def computedPhasedBaseFullFiveDirectGroup0Interval : RationalInterval :=
+  ⟨(897 : ℚ) / 448, (1 : ℚ) / 448⟩
+
+theorem computedPhasedBaseFullFiveDirectGroup0Interval_center_eq_source :
+    computedPhasedBaseFullFiveDirectGroup0Interval.center = computedPhasedBaseFullFiveCompactCell0Shard0Interval.center := by
+  norm_num [computedPhasedBaseFullFiveDirectGroup0Interval, computedPhasedBaseFullFiveCompactCell0Shard0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0Paired (n : Fin 12) : RationalRectangle :=
   computedPhasedBaseOuterPairedInterval computedPhasedBaseFullFiveDirectGroup0Jets
@@ -15,10 +23,39 @@ def computedPhasedBaseFullFiveDirectGroup0Paired (n : Fin 12) : RationalRectangl
 theorem computedPhasedBaseFullFiveDirectGroup0Paired_contains (n : Fin 12) :
     (computedPhasedBaseFullFiveDirectGroup0Paired n).Contains
       (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n
-        (computedPhasedBaseFullFiveCompactCell0Shard0Interval.center : ℝ)) := by
+        (computedPhasedBaseFullFiveDirectGroup0Interval.center : ℝ)) := by
+  rw [computedPhasedBaseFullFiveDirectGroup0Interval_center_eq_source]
   exact computedPhasedBaseOuterPairedInterval_contains computedPhasedBaseFullFiveDirectGroup0Jets
     computedPhasedBaseFullFiveDirectGroup0ForwardKernel computedPhasedBaseFullFiveDirectGroup0ReflectedKernel n
     computedPhasedBaseFullFiveDirectGroup0ForwardKernel_contains computedPhasedBaseFullFiveDirectGroup0ReflectedKernel_contains
+
+theorem computedPhasedBaseFullFiveDirectGroup0_remainder {x : ℝ}
+    (hx : computedPhasedBaseFullFiveDirectGroup0Interval.Contains x) :
+    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤
+      (computedPhasedBaseGlobalPairedTwelveRemainderBound : ℝ) := by
+  apply norm_computedPhasedBasePairedRawJet_twelve_le_globalBound
+  apply (RationalInterval.abs_le_abs_center_add_radius hx).trans
+  norm_num [computedPhasedBaseFullFiveDirectGroup0Interval]
+
+noncomputable def computedPhasedBaseFullFiveDirectGroup0TaylorCell :=
+  computedPhasedBaseOuterCachedShardTaylorCellWithRemainder
+    computedPhasedBaseFullFiveDirectGroup0Interval (by norm_num [computedPhasedBaseFullFiveDirectGroup0Interval])
+    computedPhasedBaseFullFiveDirectGroup0Paired computedPhasedBaseFullFiveDirectGroup0Paired_contains
+    computedPhasedBaseGlobalPairedTwelveRemainderBound
+    computedPhasedBaseGlobalPairedTwelveRemainderBound_nonneg
+    (fun x hx => computedPhasedBaseFullFiveDirectGroup0_remainder hx)
+
+def computedPhasedBaseFullFiveDirectGroup0TaylorCenterQ : ℚ × ℚ :=
+  computedPhasedBaseOuterCachedShardTaylorCenterQ
+    computedPhasedBaseFullFiveDirectGroup0Paired computedPhasedBaseFullFiveDirectGroup0Interval.radius
+
+theorem computedPhasedBaseFullFiveDirectGroup0TaylorCell_centerQ :
+    computedPhasedBaseFullFiveDirectGroup0TaylorCell.center =
+      rationalPairToComplex computedPhasedBaseFullFiveDirectGroup0TaylorCenterQ := by
+  rw [computedPhasedBaseFullFiveDirectGroup0TaylorCell,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+  rfl
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentPaired0 : RationalRectangle :=
   ⟨⟨(-95784839652103573344081708861463733 / 250000000000000000000000000000000000 : ℚ), (1986614119424646881648373433 / 1000000000000000000000000000000000000 : ℚ)⟩, ⟨(590894853737013144451729999255333 / 125000000000000000000000000000000000 : ℚ), (13247463155983080472720137 / 250000000000000000000000000000000000 : ℚ)⟩⟩
@@ -150,146 +187,146 @@ theorem computedPhasedBaseFullFiveDirectGroup0PaymentPaired_eq (n : Fin 12) :
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q : ℚ := (2039603972048579203539253981 : ℚ) / 224000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (0 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (0 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 0 / Nat.factorial 0) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 0 / Nat.factorial 0) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired0_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired0,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q : ℚ := (25305441744269715577167415760163861704914159 : ℚ) / 20070400000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (1 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (1 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 1 / Nat.factorial 1) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 1 / Nat.factorial 1) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired1_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired1,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm2Q : ℚ := (78011023159598027271223018151808600608472194435721459778999 : ℚ) / 899153920000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm2Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm2Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm2Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (2 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (2 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 2 / Nat.factorial 2) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 2 / Nat.factorial 2) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired2_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm2Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired2,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm3Q : ℚ := (957263416837553162317324209315614013966893241316206473094220819401238134061 : ℚ) / 241692573696000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm3Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm3Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm3Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (3 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (3 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 3 / Nat.factorial 3) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 3 / Nat.factorial 3) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired3_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm3Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired3,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm4Q : ℚ := (3899935639673463685384481194017168539798768517343480470286061161566346148260529185233663093 : ℚ) / 28874206137548800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm4Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm4Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm4Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (4 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (4 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 4 / Nat.factorial 4) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 4 / Nat.factorial 4) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired4_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm4Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired4,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm5Q : ℚ := (142527071821408831288595686659960713914283222399709403296736406925714380746690033339982393814337700331466981 : ℚ) / 38806933048865587200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm5Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm5Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm5Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (5 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (5 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 5 / Nat.factorial 5) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 5 / Nat.factorial 5) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired5_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm5Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired5,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm6Q : ℚ := (1731484198537675345715267045723008852719520970293854933732519774862483695423861739837917457852247300002825184899419290921159 : ℚ) / 20862607207070139678720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm6Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm6Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm6Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (6 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (6 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 6 / Nat.factorial 6) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 6 / Nat.factorial 6) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired6_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm6Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired6,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm7Q : ℚ := (2997973013420038818361583442979522611255254622181196083250904978178536740738745704932481802234229661499358252262675274434730857774335426043 : ℚ) / 1869289605753484515213312000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm7Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm7Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm7Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (7 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (7 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 7 / Nat.factorial 7) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 7 / Nat.factorial 7) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired7_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm7Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired7,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm8Q : ℚ := (84615265976625457907495898738985469577526989788349546992422011006945720338145634254726783888958457390534987486025131576663313733615671661329611686019842213 : ℚ) / 3126449175276227967844771430400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm8Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm8Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm8Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (8 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (8 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 8 / Nat.factorial 8) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 8 / Nat.factorial 8) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired8_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm8Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired8,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm9Q : ℚ := (110331849586773177750471580733675623506407383170496591625314412709347446150468691699945854724796535511885490968313911102036645846521740874729381237297729537298445632387 : ℚ) / 272235030228134135975599144960000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm9Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm9Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm9Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (9 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (9 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 9 / Nat.factorial 9) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 9 / Nat.factorial 9) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired9_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm9Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired9,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm10Q : ℚ := (36963251532894309666367650741922919801664407177375152023048188936801292448126822799758660033590127398763705257782886620235639425475475773243811202239648607567530889752696451235853290197719 : ℚ) / 6776901236966112627029823655803617280000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm10Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm10Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm10Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (10 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (10 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 10 / Nat.factorial 10) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 10 / Nat.factorial 10) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired10_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm10Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired10,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTerm11Q : ℚ := (445189920491357740711288033863707374669677431085457528544783597525462055355982336232080089120620036734355967037380861777232227965751674079224669038925535973638483804394423952457417454236374968639038432141 : ℚ) / 6679313859153800605200594195160045191168000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTerm11Q_eq :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTerm11Q = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTerm11Q = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired (11 : Fin 12)).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired (11 : Fin 12)).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 11 / Nat.factorial 11) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 11 / Nat.factorial 11) := by
   rw [← computedPhasedBaseFullFiveDirectGroup0PaymentPaired11_eq]
   norm_num (config := { maxSteps := 1000000 })
     [computedPhasedBaseFullFiveDirectGroup0PaymentTerm11Q, computedPhasedBaseFullFiveDirectGroup0PaymentPaired11,
-      computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+      computedPhasedBaseFullFiveDirectGroup0Interval]
 
 def computedPhasedBaseFullFiveDirectGroup0PaymentTermQ (n : Fin 12) : ℚ := ![
   computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q,
@@ -307,10 +344,10 @@ def computedPhasedBaseFullFiveDirectGroup0PaymentTermQ (n : Fin 12) : ℚ := ![
 ] n
 
 theorem computedPhasedBaseFullFiveDirectGroup0PaymentTermQ_eq (n : Fin 12) :
-    computedPhasedBaseFullFiveDirectGroup0PaymentTermQ n = 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    computedPhasedBaseFullFiveDirectGroup0PaymentTermQ n = 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
       (((computedPhasedBaseFullFiveDirectGroup0Paired n).re.radius +
         (computedPhasedBaseFullFiveDirectGroup0Paired n).im.radius) *
-        computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ)) := by
+        computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ)) := by
   fin_cases n
   exact computedPhasedBaseFullFiveDirectGroup0PaymentTerm0Q_eq
   exact computedPhasedBaseFullFiveDirectGroup0PaymentTerm1Q_eq
@@ -428,7 +465,7 @@ theorem computedPhasedBaseFullFiveDirectGroup0PaymentPrefix12Q_eq :
 
 def computedPhasedBaseFullFiveDirectGroup0CachePaymentQ : ℚ :=
   computedPhasedBaseOuterCachePaymentQ computedPhasedBaseFullFiveDirectGroup0Paired
-    computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius
+    computedPhasedBaseFullFiveDirectGroup0Interval.radius
 
 def computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ : ℚ := computedPhasedBaseFullFiveDirectGroup0PaymentPrefix12Q
 
@@ -437,10 +474,10 @@ theorem computedPhasedBaseFullFiveDirectGroup0CachePaymentQ_eq_exact :
   rw [computedPhasedBaseFullFiveDirectGroup0CachePaymentQ,
     computedPhasedBaseOuterCachePaymentQ_eq_finSum]
   calc
-    (∑ n : Fin 12, 2 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius *
+    (∑ n : Fin 12, 2 * computedPhasedBaseFullFiveDirectGroup0Interval.radius *
         (((computedPhasedBaseFullFiveDirectGroup0Paired n).re.radius +
           (computedPhasedBaseFullFiveDirectGroup0Paired n).im.radius) *
-          computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ))) =
+          computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ (n : ℕ) / Nat.factorial (n : ℕ))) =
         computedPhasedBaseFullFiveDirectGroup0EvaluatedCachePaymentQ := by
       rw [computedPhasedBaseFullFiveDirectGroup0EvaluatedCachePaymentQ]
       apply Finset.sum_congr rfl
@@ -466,18 +503,43 @@ theorem computedPhasedBaseFullFiveDirectGroup0CachePaymentQ_eq_exact :
       ring
 
 def computedPhasedBaseFullFiveDirectGroup0RemainderMultiplierQ : ℚ :=
-  4 * computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius ^ 13 / Nat.factorial 12
+  4 * computedPhasedBaseFullFiveDirectGroup0Interval.radius ^ 13 / Nat.factorial 12
 
 def computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ : ℚ := (1 : ℚ) / 3506639776055745317730311952459023725363200
 
 theorem computedPhasedBaseFullFiveDirectGroup0RemainderMultiplierQ_eq_exact :
     computedPhasedBaseFullFiveDirectGroup0RemainderMultiplierQ = computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ := by
   norm_num [computedPhasedBaseFullFiveDirectGroup0RemainderMultiplierQ,
-    computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ, computedPhasedBaseFullFiveCompactCell0Shard0Interval]
+    computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ, computedPhasedBaseFullFiveDirectGroup0Interval]
 
 noncomputable def computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ : ℚ :=
   computedPhasedBaseOuterCachedShardTaylorErrorQ computedPhasedBaseFullFiveDirectGroup0Paired
-    computedPhasedBaseGlobalPairedTwelveRemainderBound computedPhasedBaseFullFiveCompactCell0Shard0Interval.radius
+    computedPhasedBaseGlobalPairedTwelveRemainderBound computedPhasedBaseFullFiveDirectGroup0Interval.radius
+
+theorem computedPhasedBaseFullFiveDirectGroup0TaylorCell_errorQ :
+    computedPhasedBaseFullFiveDirectGroup0TaylorCell.error = (computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ : ℝ) := by
+  rw [computedPhasedBaseFullFiveDirectGroup0TaylorCell,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+  rfl
+
+noncomputable def computedPhasedBaseFullFiveDirectGroup0IntegralCell :
+    ComplexIntegralCellCertificate
+      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
+      ((2 : ℚ) : ℝ)
+      (((449 : ℚ) / 224 : ℚ) : ℝ) :=
+  computedPhasedBaseFullFiveDirectGroup0TaylorCell.reindex
+    (by norm_num [computedPhasedBaseFullFiveDirectGroup0Interval])
+    (by norm_num [computedPhasedBaseFullFiveDirectGroup0Interval])
+
+theorem computedPhasedBaseFullFiveDirectGroup0IntegralCell_centerQ :
+    computedPhasedBaseFullFiveDirectGroup0IntegralCell.center =
+      rationalPairToComplex computedPhasedBaseFullFiveDirectGroup0TaylorCenterQ := by
+  simp [computedPhasedBaseFullFiveDirectGroup0IntegralCell, computedPhasedBaseFullFiveDirectGroup0TaylorCell_centerQ]
+
+theorem computedPhasedBaseFullFiveDirectGroup0IntegralCell_errorQ :
+    computedPhasedBaseFullFiveDirectGroup0IntegralCell.error = (computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseFullFiveDirectGroup0IntegralCell, computedPhasedBaseFullFiveDirectGroup0TaylorCell_errorQ]
 
 theorem computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ_eq_payment :
     computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ = computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ +
@@ -492,22 +554,14 @@ theorem computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ_eq_payment :
     computedPhasedBaseFullFiveDirectGroup0CachePaymentQ_eq_exact,
     computedPhasedBaseFullFiveDirectGroup0RemainderMultiplierQ_eq_exact]
 
-theorem computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ_lt_target :
-    computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ < (1 / 100000000 : ℚ) := by
+theorem computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ_le_ceilingPayment :
+    computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ ≤ computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ +
+      (16602716200000000000000000000 : ℚ) *
+        computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ := by
   rw [computedPhasedBaseFullFiveDirectGroup0TaylorErrorQ_eq_payment]
-  calc
-    computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ +
-          computedPhasedBaseGlobalPairedTwelveRemainderBound *
-            computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ ≤
-        computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ +
-          (16602716200000000000000000000 : ℚ) *
-            computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ := by
-      gcongr
-      · norm_num [computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ]
-      · exact computedPhasedBaseGlobalPairedTwelveRemainderBound_le_ceiling
-    _ < 1 / 100000000 := by
-      norm_num [computedPhasedBaseFullFiveDirectGroup0ExactCachePaymentQ,
-        computedPhasedBaseFullFiveDirectGroup0PaymentPrefix12Q, computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ]
+  gcongr
+  · norm_num [computedPhasedBaseFullFiveDirectGroup0ExactRemainderMultiplierQ]
+  · exact computedPhasedBaseGlobalPairedTwelveRemainderBound_le_ceiling
 
 end
 end RiemannVenue.Venue

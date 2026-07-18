@@ -192,6 +192,10 @@ jobs:
             --regime LowerFour --index 0 --check
           python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
             --regime FullFive --index 0 --check
+          python scripts/generate_computed_phased_base_lower_three_direct_probe.py \
+            --regime LowerThree --all-groups --check
+          python scripts/generate_computed_phased_base_translated_direct_cover.py \
+            --regime LowerThree --check
       - name: Recursive four-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-four-compact

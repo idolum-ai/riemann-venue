@@ -129,14 +129,20 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
 
 - `generate_computed_phased_base_lower_three_direct_probe.py` recompiles one
   translated three-block merged window from direct phase, bump, signed-group,
-  and base-jet anchors. Its staged scalar ledger proves that the actual Taylor
-  error is below `10^-8` under the shared twelfth-jet ceiling. This is the
-  production template for replacing transport-width payments across the
-  remaining translated windows. `--regime NAME --index N` selects any merged
+  and base-jet anchors. Its staged scalar ledger identifies the exact cache
+  payment and remainder multiplier, then bounds the actual Taylor error under
+  the shared twelfth-jet ceiling. `--regime NAME --index N` selects any merged
   window in the three-, four-, or full-five support regimes, while
   `--all-groups` emits all 41 windows for one regime. The checked group-zero
   probes cross all three distinct support shapes; `--check` rejects drift in
   each five-packet graph.
+
+- `generate_computed_phased_base_translated_direct_cover.py` joins one
+  regime's 41 direct payment packets into a compact integral certificate. It
+  preserves the canonical paired integrand, exposes the exact rational center
+  and error ledgers, and proves the aggregate error is bounded by the sum of
+  the per-window certified ceiling payments. The LowerThree cover is checked
+  in CI together with every packet that supports it.
 
 - `generate_computed_phased_base_lower_four_compact_shards.py` shifts the
   recursive mesh onto `[5/2, 1339/448]`. Three inherited blocks reuse the
