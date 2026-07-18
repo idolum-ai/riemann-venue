@@ -87,6 +87,13 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval",
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_cellInterval",
     "RiemannVenue.Venue.computedPhased_transform_fields_of_signed_quadrature",
+    "RiemannVenue.Venue.ComputedTransformTaylorCertificate.transform_mem",
+    "RiemannVenue.Venue.ExplicitBumpWeightedQuadratureCertificate.majorant_le",
+    "RiemannVenue.Venue.explicitStandardBumpJetNumerator_eq_14",
+    "RiemannVenue.Venue.computedPhasedRawJetInterval_contains",
+    "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval",
+    "RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval",
+    "RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 

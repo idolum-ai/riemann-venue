@@ -38,6 +38,16 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   an independent high-precision reconstruction found that a uniform `1e-8`
   radius was too narrow after cancellation in the derived jets.
 
+- `generate_computed_phased_derivative_certificate.py` emits the exact
+  rational 100-column coefficient table and the generic signed point-interval
+  compiler used by the phased derivative packet. It does not certify any of
+  the 270 cells; concrete cell inhabitants remain separate Lean proofs.
+
+- `generate_computed_phased_transform_bump_jets.py` emits four source-sized
+  Lean shards for the standard-bump numerator identities through order 14.
+  Every recurrence step is rechecked by the Lean kernel, and CI byte-compares
+  all generated shards.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.

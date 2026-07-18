@@ -68,6 +68,23 @@ jobs:
           diff -u \
             RiemannVenue/Venue/BoundaryComputedPhasedIntervalCertificate.lean \
             /tmp/BoundaryComputedPhasedIntervalCertificate.lean
+      - name: Localized phased derivative compiler drift gate
+        run: |
+          python scripts/generate_computed_phased_derivative_certificate.py \
+            --output /tmp/BoundaryComputedPhasedDerivativeCertificate.lean
+          diff -u \
+            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCertificate.lean \
+            /tmp/BoundaryComputedPhasedDerivativeCertificate.lean
+      - name: Standard-bump high-jet compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-bump-jets
+          python scripts/generate_computed_phased_transform_bump_jets.py \
+            --output-dir /tmp/computed-phased-bump-jets
+          for shard in 0To5 6To8 9To11 12To14; do
+            diff -u \
+              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpJets${shard}.lean" \
+              "/tmp/computed-phased-bump-jets/BoundaryComputedPhasedTransformBumpJets${shard}.lean"
+          done
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
       # Drift gate: executed notebooks are committed textual/numeric evidence,
