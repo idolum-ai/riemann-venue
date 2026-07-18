@@ -83,12 +83,17 @@ MIDPOINT = Q(1793, 448)
 GRID = 10**15
 
 
-def representative_cache_data() -> tuple[list[Interval], list[Interval]]:
+def cache_data(
+    midpoint: Q, blocks_data: list[tuple[int, int, int, int]]
+) -> tuple[list[Interval], list[Interval]]:
     """Recompute compact bump and base widenings with exact rationals."""
-    bumps = midpoint_data(MIDPOINT)[1]
+    bumps = midpoint_data(midpoint)[1]
     blocks = [
         [
-            Interval(Q(*BLOCKS[4 * n + b][:2]), Q(*BLOCKS[4 * n + b][2:]))
+            Interval(
+                Q(*blocks_data[4 * n + b][:2]),
+                Q(*blocks_data[4 * n + b][2:]),
+            )
             for b in range(4)
         ]
         for n in range(12)
@@ -105,10 +110,12 @@ def representative_cache_data() -> tuple[list[Interval], list[Interval]]:
     return bumps, bases
 
 
-def representative_paired_data(bases: list[Interval]):
-    kernels = midpoint_data(MIDPOINT)[4]
+def paired_data(bases: list[Interval], kernels):
+    def interval(value) -> Interval:
+        return value if isinstance(value, Interval) else Interval(*value)
+
     kernel_data = [
-        tuple((part.center, part.radius) for part in rectangle)
+        tuple((interval(part).center, interval(part).radius) for part in rectangle)
         for rectangle in kernels
     ]
     base_data = [(value.center, value.radius) for value in bases]
@@ -128,9 +135,17 @@ def q(num: int, den: int) -> str:
     return str(num) if den == 1 else f"({num} / {den} : ℚ)"
 
 
-def render() -> str:
-    bumps, bases = representative_cache_data()
-    paired = representative_paired_data(bases)
+def render(
+    blocks_data=BLOCKS,
+    midpoint: Q = MIDPOINT,
+    kernels=None,
+    shard_stem: str = "computedPhasedBaseOuterCompactCell0Shard0",
+    cache_prefix: str = "computedPhasedBaseOuterLiteralCacheProbe",
+) -> str:
+    if kernels is None:
+        kernels = midpoint_data(midpoint)[4]
+    bumps, bases = cache_data(midpoint, blocks_data)
+    paired = paired_data(bases, kernels)
     lines = [
         "import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterCompactCell0Shard0",
         "", "/-! # Literal midpoint cache probe", "",
@@ -143,7 +158,7 @@ def render() -> str:
     for n in range(12):
         row = []
         for b in range(4):
-            cn, cd, rn, rd = BLOCKS[4 * n + b]
+            cn, cd, rn, rd = blocks_data[4 * n + b]
             name = f"computedPhasedBaseOuterLiteralCacheProbeBlock{n}_{b}"
             row.append(name)
             trigs = ", ".join(
@@ -231,7 +246,7 @@ def render() -> str:
         "",
     ])
     input_name = "computedPhasedBaseOuterLiteralCacheProbeBumpInput"
-    lines.append(lean_interval(input_name, Interval(Q(2, 7) * (MIDPOINT - 1), 0)))
+    lines.append(lean_interval(input_name, Interval(Q(2, 7) * (midpoint - 1), 0)))
     bump_names = []
     for n, value in enumerate(bumps):
         name = f"computedPhasedBaseOuterLiteralCacheProbeBump{n}"
@@ -241,12 +256,12 @@ def render() -> str:
             "set_option maxRecDepth 20000 in",
             f"theorem {name}_contains : {name}.Contains",
             f"    ((2 / 7 : ℝ) ^ {n} * iteratedDeriv {n} explicitStandardBump",
-            f"      ({lean_q(Q(2, 7) * (MIDPOINT - 1))} : ℝ)) := by",
+            f"      ({lean_q(Q(2, 7) * (midpoint - 1))} : ℝ)) := by",
             "  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval",
             f"    (coefficients := computedPhasedCell0BumpCoefficients{n})",
-            f"    (expOrder := 48) (split := {bump_split(MIDPOINT)}) (n := {n})",
+            f"    (expOrder := 48) (split := {bump_split(midpoint)}) (n := {n})",
             f"    (I := {input_name})",
-            f"    (t := ({lean_q(Q(2, 7) * (MIDPOINT - 1))} : ℝ))",
+            f"    (t := ({lean_q(Q(2, 7) * (midpoint - 1))} : ℝ))",
             f"    explicitStandardBumpJetNumerator_eq_cell0_{n}",
             f"    (by norm_num [{input_name}, RationalInterval.Contains])",
             f"    (by {bump_norm(name, input_name, n)})",
@@ -256,11 +271,11 @@ def render() -> str:
             f"  have hs := RationalInterval.contains_scale (q := (2 / 7 : ℚ) ^ {n}) hraw",
             f"  have hw : {name}.Contains ((((2 / 7 : ℚ) ^ {n} : ℚ) : ℝ) *",
             f"      iteratedDeriv {n} explicitStandardBump",
-            f"        ({lean_q(Q(2, 7) * (MIDPOINT - 1))} : ℝ)) :=",
+            f"        ({lean_q(Q(2, 7) * (midpoint - 1))} : ℝ)) :=",
             "    RationalInterval.contains_of_center_radius_le (I :=",
             f"      RationalInterval.scale ((2 / 7 : ℚ) ^ {n})",
             "        (computedDerivativeBumpInteriorJetInterval",
-            f"          computedPhasedCell0BumpCoefficients{n} 48 {bump_split(MIDPOINT)} {n}",
+            f"          computedPhasedCell0BumpCoefficients{n} 48 {bump_split(midpoint)} {n}",
             f"          {input_name})) hs",
             f"      (by {bump_norm(name, input_name, n)})",
             "  convert hw using 1 <;> norm_num",
@@ -504,7 +519,18 @@ def render() -> str:
         "",
         "end", "end RiemannVenue.Venue", "",
     ])
-    return "\n".join(lines)
+    source = "\n".join(lines)
+    source = source.replace(
+        "BoundaryComputedPhasedBaseOuterCompactCell0Shard0",
+        "Boundary" + shard_stem[0].upper() + shard_stem[1:],
+    )
+    source = source.replace(
+        "computedPhasedBaseOuterCompactCell0Shard0", shard_stem
+    )
+    source = source.replace(
+        "computedPhasedBaseOuterLiteralCacheProbe", cache_prefix
+    )
+    return source
 
 
 def main() -> None:

@@ -67,6 +67,46 @@ def intervals() -> list[tuple[int, int, Q, Q]]:
     return result
 
 
+def point_trig_data() -> dict[tuple[int, int], list[tuple[Interval, Interval]]]:
+    """Exact recurrence-expanded trig intervals emitted for each shard."""
+    shards = intervals()
+    centers = [(lower + upper) / 2 for _cell, _index, lower, upper in shards]
+    deltas = sorted({centers[i] - centers[i - 1]
+                     for i in range(1, len(centers))})
+    step_values = {
+        delta: [
+            tuple(outward(value, 10**15)
+                  for value in trig_interval(
+                      MIDPOINT_TRIG_ORDER, frequency * delta, 4))
+            for frequency in FREQUENCIES
+        ]
+        for delta in deltas
+    }
+    result = {}
+    previous_values = None
+    previous_center = None
+    for (cell, index, _lower, _upper), center in zip(shards, centers):
+        if previous_values is None:
+            values = [
+                tuple(outward(value, 10**15)
+                      for value in trig_interval(
+                          MIDPOINT_TRIG_ORDER, frequency * (center - 1), 4))
+                for frequency in FREQUENCIES
+            ]
+        else:
+            assert previous_center is not None
+            delta = center - previous_center
+            values = [
+                tuple(outward(part, 10**15)
+                      for part in trig_add(previous, step_values[delta][g]))
+                for g, previous in enumerate(previous_values)
+            ]
+        result[(cell, index)] = values
+        previous_values = values
+        previous_center = center
+    return result
+
+
 def render_point_trig_modules() -> dict[str, str]:
     shards = intervals()
     centers = [(lower + upper) / 2 for _cell, _index, lower, upper in shards]
@@ -209,6 +249,46 @@ def render_point_trig_modules() -> dict[str, str]:
 def rounded_kernel(re: Q, im: Q, t: Q):
     raw = kernel_interval(re, im, t)
     return tuple(as_data(outward(Interval(*part), 10**15)) for part in raw)
+
+
+def point_kernel_data() -> dict[tuple[int, int], tuple[tuple, tuple]]:
+    """Exact recurrence-expanded benchmark kernels emitted for each shard."""
+    shards = intervals()
+    centers = [(lower + upper) / 2 for _cell, _index, lower, upper in shards]
+    deltas = sorted({centers[i] - centers[i - 1]
+                     for i in range(1, len(centers))})
+    directions = (
+        ("Forward", BENCHMARK_REAL, Q(1, 4)),
+        ("Reflected", -BENCHMARK_REAL, Q(-1, 4)),
+    )
+    step_data = {
+        (direction, delta): rounded_kernel(re, im, delta)
+        for direction, re, im in directions
+        for delta in deltas
+    }
+    result = {}
+    for cell in range(7):
+        previous = {}
+        for (entry_cell, index, _lower, _upper), center in zip(shards, centers):
+            if entry_cell != cell:
+                continue
+            current = {}
+            for direction, re, im in directions:
+                if direction not in previous:
+                    data = rounded_kernel(re, im, center)
+                else:
+                    previous_data, previous_center = previous[direction]
+                    delta = center - previous_center
+                    data = round_rectangle_outward(
+                        rectangle_mul(
+                            previous_data, step_data[(direction, delta)]),
+                        10**15,
+                    )
+                current[direction] = data
+                previous[direction] = (data, center)
+            result[(cell, index)] = (
+                current["Forward"], current["Reflected"])
+    return result
 
 
 def direct_kernel_certificate(
