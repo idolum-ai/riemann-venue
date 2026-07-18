@@ -607,3 +607,28 @@ but it is not definitionally the same interval as the certified outer kernel
 multiplied by the fixed half-shift kernel.  Literal payment caches must mirror
 the exact rational enclosure algebra used by Lean, not merely compute a
 numerically tighter enclosure of the same complex value.
+
+## Odd-Run Merged Cache Cover
+
+The support-wide twelfth-jet theorem permits a substantially smaller payment
+mesh than the inherited variation descent.  The 139 fine compact shards fall
+into seven equal-width families.  Inside each family, a contiguous odd run has
+the same midpoint as its central fine shard, so its checked trigonometric,
+bump, kernel, and literal paired-jet cache can be reused without alteration.
+Only the Taylor radius and the global omitted-jet factor change.
+
+The exact convex-cost partition selected by reconnaissance has 41 merged
+groups per half-window and 369 Taylor cells over all nine translated regimes,
+down from 1,251 fine midpoint cells.  Its exact rational remainder multiplier
+is recorded in `computed-phased-base-merged-cache-plan.json`; applying the
+display approximation of the Lean global bound projects roughly `2.764e-6`
+of raw remainder against a `6.283e-6` allowance.  Midpoint and tail payments
+still have to cross exact Lean summaries, but the projected remainder leaves
+about `3.52e-6` before those charges.
+
+`BoundaryComputedPhasedBaseMergedCacheProbe.lean` certifies the representative
+union of fine shards 1 through 3.  It reuses fine shard 2's literal paired-jet
+cache, compiles the wider Taylor cell, and exposes exact rational center and
+error coordinates.  Thus the remaining scale-out needs selected midpoint
+caches and a small addition ledger, not fresh analytic leaves or all 139
+fine-shard arithmetic derivations per regime.
