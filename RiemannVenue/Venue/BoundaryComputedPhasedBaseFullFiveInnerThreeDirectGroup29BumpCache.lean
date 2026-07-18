@@ -1,0 +1,5431 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveInnerThreeCompactCell4Shard14
+
+/-! Direct point-bump anchors for a three-block cell. -/
+namespace RiemannVenue.Venue
+noncomputable section
+set_option maxRecDepth 20000
+set_option linter.unnecessarySeqFocus false
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0 : RationalInterval :=
+  ⟨(27137345562878186851 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0.Contains
+      (computedPhasedBumpJet 0
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0.Contains
+    (computedPhasedBumpJet 0
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients0)
+    (expOrder := 48) (split := 16) (n := 0)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_0
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 0) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 0)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients0 48 16 0
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input0,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1 : RationalInterval :=
+  ⟨(167905832321400569381 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1.Contains
+      (computedPhasedBumpJet 0
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1.Contains
+    (computedPhasedBumpJet 0
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients0)
+    (expOrder := 48) (split := 16) (n := 0)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_0
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 0) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 0)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients0 48 16 0
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input1,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2 : RationalInterval :=
+  ⟨(187836362538883364201 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2.Contains
+      (computedPhasedBumpJet 0
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2.Contains
+    (computedPhasedBumpJet 0
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients0)
+    (expOrder := 48) (split := 16) (n := 0)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_0
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 0) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 0)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients0 48 16 0
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input2,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3 : RationalInterval :=
+  ⟨(197984810085411922451 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3.Contains
+      (computedPhasedBumpJet 0
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3.Contains
+    (computedPhasedBumpJet 0
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients0)
+    (expOrder := 48) (split := 16) (n := 0)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_0
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 0) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 0)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients0 48 16 0
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input3,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4 : RationalInterval :=
+  ⟨(39926900566471437739 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4.Contains
+      (computedPhasedBumpJet 0
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4.Contains
+    (computedPhasedBumpJet 0
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients0)
+    (expOrder := 48) (split := 16) (n := 0)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_0
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 0) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 0)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients0 48 16 0
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Input4,
+    computedPhasedCell0BumpCoefficients0,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0 b).Contains
+      (computedPhasedBumpJet 0 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0 : RationalInterval :=
+  ⟨(-78970898870612546091 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0.Contains
+      (computedPhasedBumpJet 1
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0.Contains
+    (computedPhasedBumpJet 1
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients1)
+    (expOrder := 48) (split := 16) (n := 1)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_1
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 1) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 1)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients1 48 16 1
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input0,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1 : RationalInterval :=
+  ⟨(-51103336523143355183 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1.Contains
+      (computedPhasedBumpJet 1
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1.Contains
+    (computedPhasedBumpJet 1
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients1)
+    (expOrder := 48) (split := 16) (n := 1)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_1
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 1) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 1)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients1 48 16 1
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input1,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2 : RationalInterval :=
+  ⟨(-29456399101204842409 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2.Contains
+      (computedPhasedBumpJet 1
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2.Contains
+    (computedPhasedBumpJet 1
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients1)
+    (expOrder := 48) (split := 16) (n := 1)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_1
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 1) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 1)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients1 48 16 1
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input2,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3 : RationalInterval :=
+  ⟨(-11558445345521710521 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3.Contains
+      (computedPhasedBumpJet 1
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3.Contains
+    (computedPhasedBumpJet 1
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients1)
+    (expOrder := 48) (split := 16) (n := 1)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_1
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 1) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 1)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients1 48 16 1
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input3,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4 : RationalInterval :=
+  ⟨(4892306225558824233 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4.Contains
+      (computedPhasedBumpJet 1
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4.Contains
+    (computedPhasedBumpJet 1
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients1)
+    (expOrder := 48) (split := 16) (n := 1)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_1
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 1) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 1)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients1 48 16 1
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Input4,
+    computedPhasedCell0BumpCoefficients1,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1 b).Contains
+      (computedPhasedBumpJet 1 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0 : RationalInterval :=
+  ⟨(-62943738272910783973 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0.Contains
+      (computedPhasedBumpJet 2
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0.Contains
+    (computedPhasedBumpJet 2
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients2)
+    (expOrder := 48) (split := 16) (n := 2)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_2
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 2) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 2)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients2 48 16 2
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input0,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1 : RationalInterval :=
+  ⟨(-48764404007885934439 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1.Contains
+      (computedPhasedBumpJet 2
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1.Contains
+    (computedPhasedBumpJet 2
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients2)
+    (expOrder := 48) (split := 16) (n := 2)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_2
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 2) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 2)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients2 48 16 2
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input1,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2 : RationalInterval :=
+  ⟨(-38710267001194181079 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2.Contains
+      (computedPhasedBumpJet 2
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2.Contains
+    (computedPhasedBumpJet 2
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients2)
+    (expOrder := 48) (split := 16) (n := 2)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_2
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 2) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 2)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients2 48 16 2
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input2,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3 : RationalInterval :=
+  ⟨(-33643317823558669261 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3.Contains
+      (computedPhasedBumpJet 2
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3.Contains
+    (computedPhasedBumpJet 2
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients2)
+    (expOrder := 48) (split := 16) (n := 2)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_2
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 2) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 2)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients2 48 16 2
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input3,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4 : RationalInterval :=
+  ⟨(-32832188764203643487 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4.Contains
+      (computedPhasedBumpJet 2
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4.Contains
+    (computedPhasedBumpJet 2
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients2)
+    (expOrder := 48) (split := 16) (n := 2)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_2
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 2) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 2)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients2 48 16 2
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Input4,
+    computedPhasedCell0BumpCoefficients2,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2 b).Contains
+      (computedPhasedBumpJet 2 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0 : RationalInterval :=
+  ⟨(-27284495675932207279 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0.Contains
+      (computedPhasedBumpJet 3
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0.Contains
+    (computedPhasedBumpJet 3
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients3)
+    (expOrder := 48) (split := 16) (n := 3)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_3
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 3) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 3)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients3 48 16 3
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input0,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1 : RationalInterval :=
+  ⟨(-5079858467047980863 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1.Contains
+      (computedPhasedBumpJet 3
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1.Contains
+    (computedPhasedBumpJet 3
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients3)
+    (expOrder := 48) (split := 16) (n := 3)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_3
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 3) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 3)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients3 48 16 3
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input1,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2 : RationalInterval :=
+  ⟨(-14853755485278010871 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2.Contains
+      (computedPhasedBumpJet 3
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2.Contains
+    (computedPhasedBumpJet 3
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients3)
+    (expOrder := 48) (split := 16) (n := 3)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_3
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 3) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 3)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients3 48 16 3
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input2,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3 : RationalInterval :=
+  ⟨(-5697747210781460453 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3.Contains
+      (computedPhasedBumpJet 3
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3.Contains
+    (computedPhasedBumpJet 3
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients3)
+    (expOrder := 48) (split := 16) (n := 3)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_3
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 3) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 3)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients3 48 16 3
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input3,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4 : RationalInterval :=
+  ⟨(2399129596362637411 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4.Contains
+      (computedPhasedBumpJet 3
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4.Contains
+    (computedPhasedBumpJet 3
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients3)
+    (expOrder := 48) (split := 16) (n := 3)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_3
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 3) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 3)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients3 48 16 3
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Input4,
+    computedPhasedCell0BumpCoefficients3,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3 b).Contains
+      (computedPhasedBumpJet 3 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0 : RationalInterval :=
+  ⟨(32473635874355565259 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0.Contains
+      (computedPhasedBumpJet 4
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0.Contains
+    (computedPhasedBumpJet 4
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients4)
+    (expOrder := 48) (split := 16) (n := 4)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_4
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 4) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 4)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients4 48 16 4
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input0,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1 : RationalInterval :=
+  ⟨(-20030708121705880239 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1.Contains
+      (computedPhasedBumpJet 4
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1.Contains
+    (computedPhasedBumpJet 4
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients4)
+    (expOrder := 48) (split := 16) (n := 4)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_4
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 4) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 4)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients4 48 16 4
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input1,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2 : RationalInterval :=
+  ⟨(-20124740349891052421 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2.Contains
+      (computedPhasedBumpJet 4
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2.Contains
+    (computedPhasedBumpJet 4
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients4)
+    (expOrder := 48) (split := 16) (n := 4)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_4
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 4) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 4)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients4 48 16 4
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input2,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3 : RationalInterval :=
+  ⟨(-16784561063883645089 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3.Contains
+      (computedPhasedBumpJet 4
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3.Contains
+    (computedPhasedBumpJet 4
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients4)
+    (expOrder := 48) (split := 16) (n := 4)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_4
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 4) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 4)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients4 48 16 4
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input3,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4 : RationalInterval :=
+  ⟨(-16139023198249459001 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4.Contains
+      (computedPhasedBumpJet 4
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4.Contains
+    (computedPhasedBumpJet 4
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients4)
+    (expOrder := 48) (split := 16) (n := 4)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_4
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 4) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 4)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients4 48 16 4
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Input4,
+    computedPhasedCell0BumpCoefficients4,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4 b).Contains
+      (computedPhasedBumpJet 4 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0 : RationalInterval :=
+  ⟨(275614300269872058591 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0.Contains
+      (computedPhasedBumpJet 5
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0.Contains
+    (computedPhasedBumpJet 5
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients5)
+    (expOrder := 48) (split := 16) (n := 5)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_5
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 5) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 5)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients5 48 16 5
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input0,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1 : RationalInterval :=
+  ⟨(3781599499731202683 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1.Contains
+      (computedPhasedBumpJet 5
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1.Contains
+    (computedPhasedBumpJet 5
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients5)
+    (expOrder := 48) (split := 16) (n := 5)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_5
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 5) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 5)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients5 48 16 5
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input1,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2 : RationalInterval :=
+  ⟨(-7583811647272157177 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2.Contains
+      (computedPhasedBumpJet 5
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2.Contains
+    (computedPhasedBumpJet 5
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients5)
+    (expOrder := 48) (split := 16) (n := 5)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_5
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 5) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 5)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients5 48 16 5
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input2,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3 : RationalInterval :=
+  ⟨(-4449187113105311037 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3.Contains
+      (computedPhasedBumpJet 5
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3.Contains
+    (computedPhasedBumpJet 5
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients5)
+    (expOrder := 48) (split := 16) (n := 5)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_5
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 5) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 5)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients5 48 16 5
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input3,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4 : RationalInterval :=
+  ⟨(1943959229239412559 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4.Contains
+      (computedPhasedBumpJet 5
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4.Contains
+    (computedPhasedBumpJet 5
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients5)
+    (expOrder := 48) (split := 16) (n := 5)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_5
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 5) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 5)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients5 48 16 5
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Input4,
+    computedPhasedCell0BumpCoefficients5,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5 b).Contains
+      (computedPhasedBumpJet 5 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0 : RationalInterval :=
+  ⟨(1229739437886820442831 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0.Contains
+      (computedPhasedBumpJet 6
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0.Contains
+    (computedPhasedBumpJet 6
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients6)
+    (expOrder := 48) (split := 16) (n := 6)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_6
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 6) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 6)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients6 48 16 6
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input0,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1 : RationalInterval :=
+  ⟨(145391007135347465947 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1.Contains
+      (computedPhasedBumpJet 6
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1.Contains
+    (computedPhasedBumpJet 6
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients6)
+    (expOrder := 48) (split := 16) (n := 6)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_6
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 6) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 6)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients6 48 16 6
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input1,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2 : RationalInterval :=
+  ⟨(1052112176564088517 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2.Contains
+      (computedPhasedBumpJet 6
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2.Contains
+    (computedPhasedBumpJet 6
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients6)
+    (expOrder := 48) (split := 16) (n := 6)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_6
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 6) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 6)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients6 48 16 6
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input2,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3 : RationalInterval :=
+  ⟨(-11861928911215019973 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3.Contains
+      (computedPhasedBumpJet 6
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3.Contains
+    (computedPhasedBumpJet 6
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients6)
+    (expOrder := 48) (split := 16) (n := 6)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_6
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 6) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 6)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients6 48 16 6
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input3,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4 : RationalInterval :=
+  ⟨(-12880146389096037913 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4.Contains
+      (computedPhasedBumpJet 6
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4.Contains
+    (computedPhasedBumpJet 6
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients6)
+    (expOrder := 48) (split := 16) (n := 6)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_6
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 6) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 6)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients6 48 16 6
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Input4,
+    computedPhasedCell0BumpCoefficients6,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6 b).Contains
+      (computedPhasedBumpJet 6 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0 : RationalInterval :=
+  ⟨(5127709037715304289037 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0.Contains
+      (computedPhasedBumpJet 7
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0.Contains
+    (computedPhasedBumpJet 7
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients7)
+    (expOrder := 48) (split := 16) (n := 7)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_7
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 7) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 7)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients7 48 16 7
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input0,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1 : RationalInterval :=
+  ⟨(656436339266572722709 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1.Contains
+      (computedPhasedBumpJet 7
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1.Contains
+    (computedPhasedBumpJet 7
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients7)
+    (expOrder := 48) (split := 16) (n := 7)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_7
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 7) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 7)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients7 48 16 7
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input1,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2 : RationalInterval :=
+  ⟨(84435801075326494491 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2.Contains
+      (computedPhasedBumpJet 7
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2.Contains
+    (computedPhasedBumpJet 7
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients7)
+    (expOrder := 48) (split := 16) (n := 7)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_7
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 7) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 7)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients7 48 16 7
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input2,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3 : RationalInterval :=
+  ⟨(8491094795425375669 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3.Contains
+      (computedPhasedBumpJet 7
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3.Contains
+    (computedPhasedBumpJet 7
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients7)
+    (expOrder := 48) (split := 16) (n := 7)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_7
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 7) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 7)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients7 48 16 7
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input3,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4 : RationalInterval :=
+  ⟨(-2467443674379048409 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4.Contains
+      (computedPhasedBumpJet 7
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4.Contains
+    (computedPhasedBumpJet 7
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients7)
+    (expOrder := 48) (split := 16) (n := 7)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_7
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 7) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 7)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients7 48 16 7
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Input4,
+    computedPhasedCell0BumpCoefficients7,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7 b).Contains
+      (computedPhasedBumpJet 7 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0 : RationalInterval :=
+  ⟨(21183061578661692852751 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0.Contains
+      (computedPhasedBumpJet 8
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0.Contains
+    (computedPhasedBumpJet 8
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients8)
+    (expOrder := 48) (split := 16) (n := 8)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_8
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 8) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 8)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients8 48 16 8
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input0,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1 : RationalInterval :=
+  ⟨(2670552289646572233133 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1.Contains
+      (computedPhasedBumpJet 8
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1.Contains
+    (computedPhasedBumpJet 8
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients8)
+    (expOrder := 48) (split := 16) (n := 8)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_8
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 8) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 8)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients8 48 16 8
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input1,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2 : RationalInterval :=
+  ⟨(355932834932530142237 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2.Contains
+      (computedPhasedBumpJet 8
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2.Contains
+    (computedPhasedBumpJet 8
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients8)
+    (expOrder := 48) (split := 16) (n := 8)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_8
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 8) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 8)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients8 48 16 8
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input2,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3 : RationalInterval :=
+  ⟨(44481184200782351687 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3.Contains
+      (computedPhasedBumpJet 8
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3.Contains
+    (computedPhasedBumpJet 8
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients8)
+    (expOrder := 48) (split := 16) (n := 8)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_8
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 8) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 8)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients8 48 16 8
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input3,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4 : RationalInterval :=
+  ⟨(19704777899997290051 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4.Contains
+      (computedPhasedBumpJet 8
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4.Contains
+    (computedPhasedBumpJet 8
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients8)
+    (expOrder := 48) (split := 16) (n := 8)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_8
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 8) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 8)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients8 48 16 8
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Input4,
+    computedPhasedCell0BumpCoefficients8,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8 b).Contains
+      (computedPhasedBumpJet 8 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0 : RationalInterval :=
+  ⟨(86263472085449543215991 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0.Contains
+      (computedPhasedBumpJet 9
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0.Contains
+    (computedPhasedBumpJet 9
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients9)
+    (expOrder := 48) (split := 16) (n := 9)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_9
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 9) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 9)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients9 48 16 9
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input0,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1 : RationalInterval :=
+  ⟨(10937385260023909288889 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1.Contains
+      (computedPhasedBumpJet 9
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1.Contains
+    (computedPhasedBumpJet 9
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients9)
+    (expOrder := 48) (split := 16) (n := 9)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_9
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 9) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 9)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients9 48 16 9
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input1,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2 : RationalInterval :=
+  ⟨(1428076090602826426591 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2.Contains
+      (computedPhasedBumpJet 9
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2.Contains
+    (computedPhasedBumpJet 9
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients9)
+    (expOrder := 48) (split := 16) (n := 9)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_9
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 9) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 9)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients9 48 16 9
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input2,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3 : RationalInterval :=
+  ⟨(192863458969450015731 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3.Contains
+      (computedPhasedBumpJet 9
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3.Contains
+    (computedPhasedBumpJet 9
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients9)
+    (expOrder := 48) (split := 16) (n := 9)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_9
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 9) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 9)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients9 48 16 9
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input3,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4 : RationalInterval :=
+  ⟨(-13134219085862516183 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4.Contains
+      (computedPhasedBumpJet 9
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4.Contains
+    (computedPhasedBumpJet 9
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients9)
+    (expOrder := 48) (split := 16) (n := 9)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_9
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 9) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 9)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients9 48 16 9
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Input4,
+    computedPhasedCell0BumpCoefficients9,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9 b).Contains
+      (computedPhasedBumpJet 9 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0 : RationalInterval :=
+  ⟨(325062088590268331471429 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0.Contains
+      (computedPhasedBumpJet 10
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0.Contains
+    (computedPhasedBumpJet 10
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients10)
+    (expOrder := 48) (split := 16) (n := 10)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_10
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 10) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 10)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients10 48 16 10
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input0,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1 : RationalInterval :=
+  ⟨(45749739895246959048497 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1.Contains
+      (computedPhasedBumpJet 10
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1.Contains
+    (computedPhasedBumpJet 10
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients10)
+    (expOrder := 48) (split := 16) (n := 10)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_10
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 10) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 10)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients10 48 16 10
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input1,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2 : RationalInterval :=
+  ⟨(1131542899706649440751 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2.Contains
+      (computedPhasedBumpJet 10
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2.Contains
+    (computedPhasedBumpJet 10
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients10)
+    (expOrder := 48) (split := 16) (n := 10)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_10
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 10) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 10)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients10 48 16 10
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input2,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3 : RationalInterval :=
+  ⟨(843279358882540965417 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3.Contains
+      (computedPhasedBumpJet 10
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3.Contains
+    (computedPhasedBumpJet 10
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients10)
+    (expOrder := 48) (split := 16) (n := 10)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_10
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 10) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 10)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients10 48 16 10
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input3,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4 : RationalInterval :=
+  ⟨(96996597098768440917 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4.Contains
+      (computedPhasedBumpJet 10
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4.Contains
+    (computedPhasedBumpJet 10
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients10)
+    (expOrder := 48) (split := 16) (n := 10)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_10
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 10) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 10)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients10 48 16 10
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Input4,
+    computedPhasedCell0BumpCoefficients10,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10 b).Contains
+      (computedPhasedBumpJet 10 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0 : RationalInterval :=
+  ⟨(829 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0 : RationalInterval :=
+  ⟨(878789218135566325437523 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0.Contains
+      (computedPhasedBumpJet 11
+        (computedPhasedBaseFullFiveModel.column (0 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0.Contains
+    (computedPhasedBumpJet 11
+      (computedPhasedBaseFullFiveColumn (0 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients11)
+    (expOrder := 48) (split := 16) (n := 11)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0)
+    (t := ((829 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_11
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 11) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 11)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients11 48 16 11
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input0,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1 : RationalInterval :=
+  ⟨(605 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1 : RationalInterval :=
+  ⟨(195239365599682375940453 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1.Contains
+      (computedPhasedBumpJet 11
+        (computedPhasedBaseFullFiveModel.column (1 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1.Contains
+    (computedPhasedBumpJet 11
+      (computedPhasedBaseFullFiveColumn (1 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients11)
+    (expOrder := 48) (split := 16) (n := 11)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1)
+    (t := ((605 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_11
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 11) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 11)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients11 48 16 11
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input1,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2 : RationalInterval :=
+  ⟨(381 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2 : RationalInterval :=
+  ⟨(4582871282509063591741 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2.Contains
+      (computedPhasedBumpJet 11
+        (computedPhasedBaseFullFiveModel.column (2 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2.Contains
+    (computedPhasedBumpJet 11
+      (computedPhasedBaseFullFiveColumn (2 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients11)
+    (expOrder := 48) (split := 16) (n := 11)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2)
+    (t := ((381 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_11
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 11) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 11)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients11 48 16 11
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input2,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3 : RationalInterval :=
+  ⟨(157 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3 : RationalInterval :=
+  ⟨(2812613434153973810609 : ℚ) / 200000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3.Contains
+      (computedPhasedBumpJet 11
+        (computedPhasedBaseFullFiveModel.column (3 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3.Contains
+    (computedPhasedBumpJet 11
+      (computedPhasedBaseFullFiveColumn (3 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients11)
+    (expOrder := 48) (split := 16) (n := 11)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3)
+    (t := ((157 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_11
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 11) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 11)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients11 48 16 11
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input3,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4 : RationalInterval :=
+  ⟨(-67 : ℚ) / 1568, 0⟩
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4 : RationalInterval :=
+  ⟨(-188205031815004120797 : ℚ) / 40000000000000000000, (1 : ℚ) / 200000000000000000000⟩
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4_contains :
+    computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4.Contains
+      (computedPhasedBumpJet 11
+        (computedPhasedBaseFullFiveModel.column (4 : Fin 5) 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  change computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4.Contains
+    (computedPhasedBumpJet 11
+      (computedPhasedBaseFullFiveColumn (4 : Fin 5) 0)
+      (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ))
+  have hraw := iteratedDeriv_explicitStandardBump_mem_computedDerivativeInterval
+    (coefficients := computedPhasedCell0BumpCoefficients11)
+    (expOrder := 48) (split := 16) (n := 11)
+    (I := computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4)
+    (t := ((-67 : ℚ) / 1568 : ℝ))
+    explicitStandardBumpJetNumerator_eq_cell0_11
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num)
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+    (by norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton])
+  have hs := RationalInterval.contains_scale
+    (q := (2 / 7 : ℚ) ^ 11) hraw
+  apply RationalInterval.contains_of_center_radius_le (I :=
+    RationalInterval.scale ((2 / 7 : ℚ) ^ 11)
+      (computedDerivativeBumpInteriorJetInterval
+        computedPhasedCell0BumpCoefficients11 48 16 11
+        computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4))
+  · convert hs using 1 <;>
+      simp [computedPhasedBumpJet, computedPhasedScale,
+        computedPhasedBaseFullFiveColumn_translation,
+        computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval] <;> norm_num
+  · norm_num [computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Input4,
+    computedPhasedCell0BumpCoefficients11,
+    computedDerivativeBumpInteriorJetInterval,
+    computedTransformBumpExponentInterval,
+    RationalInterval.intPolynomialHorner,
+    explicitBumpGapInterval, RationalInterval.reciprocalPositive,
+    monotoneExpInterval, rangeReducedExpInterval, rationalExpInterval,
+    rationalExpTaylor, rationalExpRemainder,
+    RationalInterval.ofBounds, RationalInterval.lower, RationalInterval.upper,
+    RationalInterval.scale,
+    RationalInterval.pow, RationalInterval.mul, RationalInterval.sub,
+    RationalInterval.add, RationalInterval.neg, RationalInterval.one,
+    RationalInterval.zero, RationalInterval.singleton]
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11 (b : Fin 5) : RationalInterval :=
+  ![computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3, computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4] b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11_contains (b : Fin 5) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11 b).Contains
+      (computedPhasedBumpJet 11 (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value0_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value1_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value2_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value3_contains
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11Value4_contains
+
+def computedPhasedBaseFullFiveInnerThreeDirectGroup29Bump (b : Fin 5) (n : Fin 12) : RationalInterval := ![
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10,
+  computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11
+] n b
+
+theorem computedPhasedBaseFullFiveInnerThreeDirectGroup29Bump_contains (b : Fin 5) (n : Fin 12) :
+    (computedPhasedBaseFullFiveInnerThreeDirectGroup29Bump b n).Contains
+      (computedPhasedBumpJet n (computedPhasedBaseFullFiveModel.column b 0)
+        (computedPhasedBaseFullFiveInnerThreeCompactCell4Shard14Interval.center : ℝ)) := by
+  fin_cases n
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder0_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder1_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder2_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder3_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder4_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder5_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder6_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder7_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder8_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder9_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder10_contains b
+  exact computedPhasedBaseFullFiveInnerThreeDirectGroup29BumpOrder11_contains b
+
+end
+end RiemannVenue.Venue
