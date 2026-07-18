@@ -18,47 +18,66 @@ The clean head contains 3,601 changed files and about 3.95 million inserted
 lines relative to the base. The checkpoint adds 302 changed files and about
 73,000 lines. Do not inspect either delta by printing it in full.
 
-## Proposed Stack
+## Final Stack
 
-Each row is intended to be a stacked draft PR based on the preceding row. The
-first row is based on `main`.
+Each row is a stacked draft PR based on the preceding row. The first row is
+based on `main`. The largest reviewable delta contains 238 files; Part 20 is
+an explicitly unverified 304-file recovery checkpoint.
 
-| Part | Topic | Source range |
+| Part | Branch | Topic |
 | --- | --- | --- |
-| 01 | Foundations and separator gates | `1c26447..cec0401` |
-| 02 | Localized candidate and interval machinery | `5f33be4..39a7a1c` |
-| 03 | Bump, first derivative, and correction certificates | `7bd625c..1a84850` |
-| 04 | Base prototype, midpoint, variation, and tail | `119e70d..f8f7f23` |
-| 05 | Outer certificate | `aaeb574` |
-| 06 | Middle certificate | `f574901` |
-| 07 | Recursive support descent | `5610c24..aa7dd6f` |
-| 08 | Literal cache architecture | `450ebdd..c86d735` |
-| 09 | Merged outer cover | `5f122ed..34aacef` |
-| 10 | Middle cache and payment | `ea89e94..ee0764b` |
-| 11 | Direct compiler and exact ledgers | `3eb2b23..ce623f6` |
-| 12 | LowerThree payment cover | `29c8bdd` |
-| 13 | LowerFour translated payment cover | extracted from `701bb5e` |
-| 14 | FullFive translated payment cover | extracted from `701bb5e` |
-| 15 | FullFive InnerOne payment cover | extracted from `701bb5e` |
-| 16 | FullFive InnerTwo payment cover | extracted from `701bb5e` |
-| 17 | FullFive InnerThree payment cover | extracted from `701bb5e` |
-| 18 | FullFive InnerFour payment cover | extracted from `701bb5e` |
-| 19 | Derivative/scalar compilers and Segment 4 | `70598f5..726a2b7` |
-| 20 | Interrupted tail and derivative work | checkpoint after Part 19 |
+| 01 | `split/weil-01-foundations` | Foundations and separator gates |
+| 02 | `split/weil-02-localized-intervals` | Localized candidate and interval machinery |
+| 03 | `split/weil-03-bump-certificates` | Bump, first derivative, and correction certificates |
+| 04 | `split/weil-04-base-prototype` | Base prototype, midpoint, variation, and tail |
+| 05 | `split/weil-05-outer-certificate` | Outer certificate |
+| 06 | `split/weil-06-middle-certificate` | Middle certificate |
+| 07a | `split/weil-07a-three-block` | Recursive three-block regime |
+| 07b | `split/weil-07b-four-block` | Recursive four-block regime |
+| 07c | `split/weil-07c-five-block` | Five-block support transition |
+| 07d | `split/weil-07d-inner-one` | FullFive InnerOne descent |
+| 07e | `split/weil-07e-inner-two` | FullFive InnerTwo descent |
+| 07f | `split/weil-07f-inner-three` | FullFive InnerThree descent |
+| 07g | `split/weil-07g-inner-four-assembly` | FullFive InnerFour descent and assembly |
+| 08 | `split/weil-08-literal-cache` | Literal cache architecture |
+| 09 | `split/weil-09-merged-outer-cover` | Merged outer cover |
+| 10a | `split/weil-10a-middle-cache-graph` | Middle cache graph |
+| 10b | `split/weil-10b-middle-cover` | Direct middle cover |
+| 10c | `split/weil-10c-middle-payment` | Middle payment ledger |
+| 11 | `split/weil-11-direct-ledgers` | Direct compiler and exact ledgers |
+| 12 | `split/weil-12-lower-three` | LowerThree payment cover |
+| 13 | `split/weil-13-lower-four` | LowerFour translated payment cover |
+| 14 | `split/weil-14-full-five` | FullFive translated payment cover |
+| 15 | `split/weil-15-full-five-inner-one` | FullFive InnerOne payment cover |
+| 16 | `split/weil-16-full-five-inner-two` | FullFive InnerTwo payment cover |
+| 17 | `split/weil-17-full-five-inner-three` | FullFive InnerThree payment cover |
+| 18 | `split/weil-18-full-five-inner-four` | FullFive InnerFour payment cover |
+| 19 | `split/weil-19-derivative-segment4` | Derivative/scalar compilers and Segment 4 |
+| 20 | `split/weil-20-interrupted-wip` | Interrupted tail and derivative work |
 
-Commit `701bb5e` is the exceptional monolith: 1,228 files and about 2.41
-million inserted lines. Reconstruct it as six path-scoped commits, one for
-each regime above, followed by its `ci.yml` and `scripts/README.md` changes.
-Use a temporary Git index and `git commit-tree`; do not materialize giant
-patches or duplicate worktrees. The reconstructed final tree must satisfy:
+Commit `701bb5e` was the exceptional monolith: 1,228 files and about 2.41
+million inserted lines. It was reconstructed as six path-scoped commits, one
+for each regime above, with its `ci.yml` and `scripts/README.md` changes in
+Part 18. A temporary Git index and `git commit-tree` avoided materializing
+giant patches or duplicate worktrees.
+
+The earlier 614-file transform-descent commit `aa7dd6f` was likewise split
+into Parts 07d through 07g. Parts 07a through 07c retain its prerequisite
+regime commits. Middle cache/payment work was divided into Parts 10a through
+10c at its existing semantic commit boundaries.
+
+The following tree gates passed locally:
 
 ```text
-git diff --quiet <reconstructed-701-tip> 701bb5e
+b6a739872a9c^{tree} == aa7dd6f^{tree}
+4ee699cc7b6f^{tree} == 701bb5e^{tree}
+7fb71309fa4a^{tree} == 726a2b7^{tree}
+93b29c2b9c54^{tree} == cbd63f4^{tree}
 ```
 
-Reparent `70598f5`, `01ef0b3`, and `726a2b7` onto that equivalent tree and
-verify the resulting clean tip is tree-identical to `726a2b7`. Reparent the
-checkpoint tree onto that tip and verify it is tree-identical to `f47e38e`.
+The final equality is intentionally anchored before this note's metadata-only
+commit. Re-run all four tree comparisons after fetching rather than trusting
+the abbreviated object names recorded here.
 
 ## Validation State
 
