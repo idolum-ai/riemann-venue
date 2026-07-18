@@ -734,6 +734,18 @@ transform normalization at every midpoint. The production cover therefore
 keeps paired rectangles derived from their proof-carrying base and kernel
 caches; any flattening belongs in the one-time addition ledger.
 
-The exact aggregate budget still has to be exported through a small rational
-summary theorem before the middle certificate is consumed by the final
-nine-window ledger.
+The exact aggregate budget is now exported through a small rational summary
+theorem. Each of the 41 heavy signed-payment caches proves its local scalar
+payment equal to one entry in a lightweight contract ledger. The exact cache
+payment is approximately `4.02366927621e-7`, while the combined multiplier of
+the common omitted-jet bound is approximately `1.84945509678e-35`.
+
+The common bound itself is no longer a decimal planning assumption. Its 100
+frequency columns are certified in four independent shards at every derivative
+order from zero through twelve, then reassembled definitionally into the
+original global evaluator. The resulting Lean theorem proves the paired
+order-twelve remainder is at most `1.660271620e28`. Combining both ledgers
+proves the complete 41-cell merged-middle payment is strictly below `7.1e-7`.
+The remaining scale gate is no longer the first translated middle window; it
+is the exact addition ledger joining this certified window with the other
+translated support regimes and their direct tails.

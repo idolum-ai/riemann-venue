@@ -168,6 +168,15 @@ jobs:
         run: python scripts/generate_computed_phased_base_middle_compact_cache_probe.py --check
       - name: Merged middle cache cover drift gate
         run: python scripts/generate_computed_phased_base_middle_merged_cache_cover.py --check
+      - name: Merged middle payment and global remainder drift gate
+        run: |
+          python scripts/generate_computed_phased_base_middle_payment_cache.py --all --check
+          python scripts/generate_computed_phased_base_middle_payment_cover.py --check
+          for order in $(seq 0 12); do
+            python scripts/generate_computed_phased_base_global_remainder_cache.py \
+              --order "$order" --check
+          done
+          python scripts/generate_computed_phased_base_global_remainder_cover.py --check
       - name: Recursive three-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-three-compact
