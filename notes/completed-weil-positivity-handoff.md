@@ -20,13 +20,29 @@ lines relative to the base. The checkpoint adds 302 changed files and about
 
 ## Final Stack
 
-Each row is a published, PR-ready stacked branch based on the preceding row.
-The first row is based on `main`. Draft PR #12 opens Part 01; draft PR #11 is
-the final Part 20 checkpoint based on Part 19. Open Parts 02 through 19 in
-order as their predecessors become merge-ready. Opening every draft at once
-would trigger dozens of full Lean and notebook CI jobs. The largest reviewable
-delta contains 238 files; Part 20 is an explicitly unverified 304-file
-recovery checkpoint.
+Each row is a published source-stack branch based on the preceding row. The
+first row is based on `main`. PR #12 merged Part 01. Draft PR #13 reviews Part
+02 through `review/weil-02-localized-intervals`; draft PR #11 is the final Part
+20 checkpoint based on Part 19. Open later parts in order as their predecessors
+become merge-ready. Opening every draft at once would trigger dozens of full
+Lean and notebook CI jobs. The largest reviewable delta contains 238 files;
+Part 20 is an explicitly unverified 304-file recovery checkpoint.
+
+## Sequential Review Branches
+
+The repository currently squash-merges PRs. Preserve the `split/weil-*` refs
+as immutable source and recovery anchors. After each part merges:
+
+1. Fetch `main` and verify its tree equals the merged source part's tree.
+2. Replay only the next source part's commits onto that `main` with
+   `git commit-tree`, preserving every source commit tree.
+3. Verify the resulting `review/weil-*` tip is tree-identical to the queued
+   source tip and that its diff against `main` has the recorded file count.
+4. Push that review branch and open only its draft PR.
+
+This avoids showing already-merged commits in later PRs without rewriting the
+published source stack. If the merge policy changes to ancestry-preserving
+merge commits, the intermediate review branch is unnecessary.
 
 | Part | Branch | Topic |
 | --- | --- | --- |
