@@ -171,3 +171,18 @@ explicit negative control.  Progress therefore means constructing a genuinely
 different low-`C2` approximant, not renaming the exact interpolant.  See
 `weighted-strip-approximation-gate.md` for the contract, transformations, and
 next construction probes.
+
+## Localized Matrix Decision
+
+The localized construction probe now has formal dilation and modulation cost
+laws, an explicit rectangular evaluation matrix, and a residual-certificate
+compiler.  A computed explicit-bump proxy fits a representative finite
+problem with a small residual and moderate effective conditioning, but its
+best scanned analytic tail payment is about `4.38` times the required bound.
+
+This moves the obstruction again.  Finite interpolation is no longer the
+visible problem; simultaneous weighted `C0` and `C2` control is.  The result
+does not rule out localized atoms, but it is enough to stop tuning the same
+uncertified least-squares family.  The next broad surface is the generic
+weighted Paley--Wiener approximation contract, while sharper localized bases
+remain admissible evidence toward it.
