@@ -176,6 +176,21 @@ jobs:
           for generated in /tmp/computed-phased-base-lower-four-compact/*.lean; do
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
+      - name: Full five-block translation ladder drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-full-five
+          mkdir -p /tmp/computed-phased-base-full-five
+          python scripts/generate_computed_phased_base_full_five_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-full-five
+          for layer in one two three four; do
+            python "scripts/generate_computed_phased_base_full_five_inner_${layer}_compact_shards.py" \
+              --output-dir /tmp/computed-phased-base-full-five
+          done
+          python scripts/generate_computed_phased_base_full_five_inner_certificates.py \
+            --output-dir /tmp/computed-phased-base-full-five
+          for generated in /tmp/computed-phased-base-full-five/*.lean; do
+            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
+          done
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks its source hash and exact-rational budget identities.
       - name: Base-transform budget artifact integrity gate

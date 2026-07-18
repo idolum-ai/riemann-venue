@@ -97,6 +97,20 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   `[1339/448, 3]`; `BoundaryComputedPhasedBaseLowerFourCertificate` joins the
   resulting `[5/2, 3]` enclosure. CI rejects drift in every generated module.
 
+- `generate_computed_phased_base_full_five_compact_shards.py` shifts the mesh
+  onto `[2, 1115/448]`, reusing all four preceding blocks and enclosing the
+  fifth locally. Its generated endpoint closes `[1115/448, 5/2]`, and
+  `BoundaryComputedPhasedBaseFullFiveCertificate` joins the five-block
+  transition certificate.
+
+- `generate_computed_phased_base_full_five_inner_{one,two,three,four}_compact_shards.py`
+  form the full-support translation ladder from `2` down to `0`. At every
+  half-step, four columns recurse to the preceding packet and one column gets
+  a fresh rational bump enclosure. The companion
+  `generate_computed_phased_base_full_five_inner_certificates.py` emits the
+  four joined half-window certificates. CI regenerates the complete ladder
+  and rejects source drift.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the

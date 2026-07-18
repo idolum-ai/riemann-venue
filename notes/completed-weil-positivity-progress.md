@@ -512,3 +512,32 @@ whether another translated reuse exists and where the active-block count
 changes. The middle result supports a generic lesson for that descent: split
 at support events, preserve signed cancellation within each shared-bump block,
 and reuse exact scale-flow covariance before generating new interval data.
+
+## Complete Base-Transform Descent
+
+The descent below `7/2` is now compiled.  The active-block compiler was made
+translation-covariant, then instantiated successively on `[3,7/2]`,
+`[5/2,3]`, `[2,5/2]`, `[3/2,2]`, `[1,3/2]`, `[1/2,1]`, and `[0,1/2]`.
+Each half-step reuses four previously certified blocks and encloses only the
+newly active block.  The resulting nine half-window certificates join to one
+`ComplexIntegralCellCertificate` on `[0,9/2]`; by even pairing, it encloses the
+complete raw Fourier--Laplace transform of the synthesized base test.
+
+This closes the analytic integration problem without replacing cancellation
+by pointwise absolute values.  It also exposes a separate computational
+frontier.  The packet's center and error are exact rational expressions, but
+normalizing the entire expression in one `norm_num` call expands thousands of
+high-order interval operations.  Even a single-shard decimal-payment probe is
+too expensive in its current un-cached form.  `ComputedPhasedBaseCompletePayment`
+therefore records the remaining finite statement explicitly, and
+`computedPhased_residual_mem_of_completePayment` proves that this statement is
+exactly sufficient for the residual field of the final analytic certificate.
+
+The next implementation should not weaken this boundary with `native_decide`
+or import the floating reconnaissance artifact as proof authority.  It should
+add kernel-checked rational payment caches at a compositional boundary, most
+likely the compact packet or raw-jet group level, so small arithmetic theorems
+compile independently and the final payment is only an addition tree.  After
+that finite payment, the remaining positivity road is the derivative packet:
+the first weighted cell is compiled, while the other 269 cells and their five
+segment integral bounds remain the last substantial certificate surface.
