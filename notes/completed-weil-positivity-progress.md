@@ -644,3 +644,30 @@ The next scale gate is translation, not outer quadrature.  The other eight
 half-windows need the same selected-midpoint cover through their active-block
 coefficient families, followed by one exact addition ledger for the nine
 compact covers and their direct tails.
+
+## Compact Middle Cache Graph
+
+The first translated odd-run now crosses the full proof compiler without a
+monolithic literal-cache file.  Fine middle shards 1 through 3 form the exact
+interval `[785 / 224, 197 / 56]`, whose midpoint is fine shard 2 and whose
+radius is `3 / 448`.  The generated graph certifies, in order, signed-cosine
+groups, the two active bump jets, their Leibniz base convolution, the forward
+and reflected transform jets, and the final Taylor cell with the global
+twelfth-jet remainder.
+
+The representation is deliberately order-sharded.  Twelve group modules and
+twelve bump modules feed typed point-cache records; twelve base modules widen
+the exact interval convolution; twelve paired modules widen the complex
+kernel calculation; small wrappers expose the resulting `Fin 12` caches.  The
+complete representative graph is about 5,400 generated Lean lines and 428 KB.
+Every module and the final merged cell compile, and deterministic regeneration
+is checked in CI.  The earlier monolithic experiment could not elaborate its
+96 simultaneous group goals within a practical heartbeat budget; the staged
+graph makes the same authority local and parallelizable.
+
+This settles the architecture gate but not the translated scale-out.  The
+next step is to parameterize the generator over every selected middle
+midpoint, emit the 41 middle odd-run cells, and inspect the exact aggregate
+center/error ledger before repeating the pattern for lower active-block
+regimes.  The bump leaves are the translation-specific cost; group transport,
+convolution, paired kernels, and Taylor assembly now have a reusable shape.

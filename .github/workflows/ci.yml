@@ -164,6 +164,8 @@ jobs:
           for generated in /tmp/computed-phased-base-middle-compact/*.lean; do
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
+      - name: Compact middle literal-cache probe drift gate
+        run: python scripts/generate_computed_phased_base_middle_compact_cache_probe.py --check
       - name: Recursive three-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-three-compact

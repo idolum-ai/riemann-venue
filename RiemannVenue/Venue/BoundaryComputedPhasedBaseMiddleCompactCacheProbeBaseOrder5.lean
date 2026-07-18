@@ -1,0 +1,43 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbePointCache
+
+/-! Generated order-5 middle base-convolution cache. -/
+namespace RiemannVenue.Venue
+noncomputable section
+set_option maxHeartbeats 2000000
+set_option linter.unusedSimpArgs false
+set_option linter.unnecessarySeqFocus false
+
+def computedPhasedBaseMiddleCompactCacheProbeBaseOrder5Raw : RationalInterval :=
+  computedPhasedBaseActiveBlockTestJetFromPointCaches
+    computedPhasedBaseMiddleCompactCacheProbeSignedCache computedPhasedBaseMiddleCompactCacheProbeBumpCache (5 : Fin 12)
+
+def computedPhasedBaseMiddleCompactCacheProbeBaseOrder5 : RationalInterval :=
+  ⟨(223531676113597179447 : ℚ) / 1000000000000000, (160589967008881 : ℚ) / 100000000000000⟩
+
+
+theorem computedPhasedBaseMiddleCompactCacheProbeBaseOrder5Raw_contains : computedPhasedBaseMiddleCompactCacheProbeBaseOrder5Raw.Contains
+    (computedPhasedBaseTest.iterDeriv 5
+      (computedPhasedBaseMiddleCompactCell0Shard2Interval.center : ℝ)) := by
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    computedPhasedBaseMiddleCompactCacheProbeSignedCache computedPhasedBaseMiddleCompactCacheProbeBumpCache (5 : Fin 12)
+    (by simp [computedPhasedBaseMiddleCompactCell0Shard2PointInterval, computedPhasedBaseMiddleCompactCell0Shard2Interval,
+      RationalInterval.singleton, RationalInterval.Contains])
+    (by norm_num [computedPhasedBaseMiddleModel, computedPhasedBaseMiddleCompactCell0Shard2Interval])
+
+theorem computedPhasedBaseMiddleCompactCacheProbeBaseOrder5_contains : computedPhasedBaseMiddleCompactCacheProbeBaseOrder5.Contains
+    (computedPhasedBaseTest.iterDeriv 5
+      (computedPhasedBaseMiddleCompactCell0Shard2Interval.center : ℝ)) := by
+  apply RationalInterval.contains_of_center_radius_le computedPhasedBaseMiddleCompactCacheProbeBaseOrder5Raw_contains
+  simp [computedPhasedBaseMiddleCompactCacheProbeBaseOrder5Raw, computedPhasedBaseActiveBlockTestJetFromPointCaches,
+    computedPhasedBaseMiddleCompactCacheProbeSignedCache, computedPhasedBaseMiddleCompactCacheProbeSigned, computedPhasedBaseMiddleCompactCacheProbeGroup,
+    computedPhasedBaseMiddleCompactCacheProbeGroupOrder0, computedPhasedBaseMiddleCompactCacheProbeGroupOrder1, computedPhasedBaseMiddleCompactCacheProbeGroupOrder2, computedPhasedBaseMiddleCompactCacheProbeGroupOrder3, computedPhasedBaseMiddleCompactCacheProbeGroupOrder4, computedPhasedBaseMiddleCompactCacheProbeGroupOrder5,
+    computedPhasedBaseMiddleCompactCacheProbeBumpCache, computedPhasedBaseMiddleCompactCacheProbeBump, computedPhasedBaseMiddleCompactCacheProbeBumpOrder0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder2, computedPhasedBaseMiddleCompactCacheProbeBumpOrder3, computedPhasedBaseMiddleCompactCacheProbeBumpOrder4, computedPhasedBaseMiddleCompactCacheProbeBumpOrder5,
+    RationalInterval.finSum]
+  norm_num (config := { maxSteps := 1000000 })
+    [computedPhasedBaseMiddleCompactCacheProbeBaseOrder5, computedPhasedBaseMiddleCompactCacheProbeBumpOrder0Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder0Value1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder1Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder1Value1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder2Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder2Value1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder3Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder3Value1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder4Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder4Value1, computedPhasedBaseMiddleCompactCacheProbeBumpOrder5Value0, computedPhasedBaseMiddleCompactCacheProbeBumpOrder5Value1,
+      RationalInterval.finSum, RationalInterval.scale,
+      RationalInterval.mul, RationalInterval.add, RationalInterval.neg,
+      RationalInterval.zero, RationalInterval.singleton, Nat.choose]
+
+end
+end RiemannVenue.Venue

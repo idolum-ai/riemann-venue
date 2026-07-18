@@ -1,0 +1,53 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder6
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder7
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder8
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder9
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder10
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactCacheProbeBaseOrder11
+
+/-! # Order-sharded middle base-jet cache -/
+namespace RiemannVenue.Venue
+noncomputable section
+
+def computedPhasedBaseMiddleCompactCacheProbeBase : Fin 12 → RationalInterval := ![
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder0,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder1,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder2,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder3,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder4,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder5,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder6,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder7,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder8,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder9,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder10,
+  computedPhasedBaseMiddleCompactCacheProbeBaseOrder11
+]
+
+def computedPhasedBaseMiddleCompactCacheProbeJets :
+    ComputedPhasedBaseOuterMidpointJets computedPhasedBaseMiddleCompactCell0Shard2Interval.center where
+  base := computedPhasedBaseMiddleCompactCacheProbeBase
+  base_contains := by
+    intro n
+    fin_cases n
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder0_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder1_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder2_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder3_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder4_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder5_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder6_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder7_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder8_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder9_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder10_contains
+    exact computedPhasedBaseMiddleCompactCacheProbeBaseOrder11_contains
+
+end
+end RiemannVenue.Venue

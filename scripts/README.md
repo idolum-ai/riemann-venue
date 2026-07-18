@@ -89,6 +89,15 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   `BoundaryComputedPhasedBaseMiddleCertificate` expose the joined integral
   enclosure. CI regenerates every emitted module and rejects source drift.
 
+- `generate_computed_phased_base_middle_compact_cache_probe.py` emits the
+  order-sharded literal-cache certificate for the representative middle
+  odd-run `[785/224, 197/56]`. It separates signed-cosine groups, bump jets,
+  base convolutions, and paired transform jets into independently checked
+  modules before compiling one radius-`3/448` Taylor cell. Its `--check` mode
+  is the drift gate for the complete generated graph. This is the scale-out
+  prototype for translated merged-cache covers; it is not yet the full
+  41-cell middle cover.
+
 - `generate_computed_phased_base_lower_three_compact_shards.py` recursively
   translates the same 139-shard mesh onto `[3, 1563/448]`. Its first two
   active translation blocks reuse the outer and middle certificates, while

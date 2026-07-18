@@ -65,11 +65,13 @@ def interval_data(value: Interval) -> tuple[int, int, int, int]:
     )
 
 
-def middle_point_data():
-    entry = next(row for row in middle_entries() if row[0] == 0 and row[1] == 0)
+def middle_point_data(cell: int = 0, shard: int = 0):
+    entry = next(
+        row for row in middle_entries() if row[0] == cell and row[1] == shard
+    )
     _, _, lower, upper, _, _ = entry
     center = (lower + upper) / 2
-    outer = point_trig_data()[(0, 0)]
+    outer = point_trig_data()[(cell, shard)]
     half_shift = [
         tuple(
             outward(part, GRID)
@@ -130,7 +132,7 @@ def middle_point_data():
             total = total.add(translated.scale(math.comb(n, i)))
         bases.append(outward(total, GRID))
 
-    outer_kernels = point_kernel_data()[(0, 0)]
+    outer_kernels = point_kernel_data()[(cell, shard)]
     half_shift_kernels = (
         rounded_kernel(BENCHMARK_REAL, Q(1, 4), Q(-1, 2)),
         rounded_kernel(-BENCHMARK_REAL, Q(-1, 4), Q(-1, 2)),
