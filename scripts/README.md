@@ -73,6 +73,14 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   deliberately separated from their analytic containment proofs; they are not
   an independent native evaluator for the final error budget.
 
+- `generate_computed_phased_base_outer_merged_cache_cover.py` emits the 41
+  selected literal midpoint caches and the exact odd-run cover on
+  `[4, 2011/448]`. Each merged cell retains the central fine-shard cache and
+  pays the support-wide twelfth-jet bound at the wider rational radius. Its
+  `--check` mode covers both the selected cache sources and the final addition
+  ledger; Lean remains the authority for every literal containment and the
+  assembled integral certificate.
+
 - `generate_computed_phased_base_middle_compact_shards.py` emits the 139-shard
   compact packet on `[7/2, 1787/448]`. The translation `-1/2` block reuses the
   outer packet under a kernel-proved half-shift, while the translation `-1`

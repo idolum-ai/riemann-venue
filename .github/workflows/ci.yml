@@ -152,6 +152,10 @@ jobs:
           for generated in /tmp/computed-phased-base-outer-compact/*.lean; do
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
+      - name: Merged outer cache cover drift gate
+        run: |
+          python scripts/probe_computed_phased_base_merged_cache_plan.py --check
+          python scripts/generate_computed_phased_base_outer_merged_cache_cover.py --check
       - name: Adaptive middle compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-middle-compact
