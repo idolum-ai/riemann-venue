@@ -176,13 +176,21 @@ next construction probes.
 
 The localized construction probe now has formal dilation and modulation cost
 laws, an explicit rectangular evaluation matrix, and a residual-certificate
-compiler.  A computed explicit-bump proxy fits a representative finite
-problem with a small residual and moderate effective conditioning, but its
-best scanned analytic tail payment is about `4.38` times the required bound.
+compiler.  The original atomwise triangle charge missed a representative
+tail payment by a factor of `4.38`.
 
-This moves the obstruction again.  Finite interpolation is no longer the
-visible problem; simultaneous weighted `C0` and `C2` control is.  The result
-does not rule out localized atoms, but it is enough to stop tuning the same
-uncertified least-squares family.  The next broad surface is the generic
-weighted Paley--Wiener approximation contract, while sharper localized bases
-remain admissible evidence toward it.
+The refined probe retains cancellation in the full synthesized derivative
+and adds independent spatial phases.  The same explicit-bump proxy now
+crosses the tail gate at about `0.638`; nearby bounded scans remain below one.
+Lean proves the exact synthesis derivative identity, translation phase and
+cost laws, interval-certificate propagation, and compilation of a certified
+phased payment through the completed positivity endpoint.
+
+This is not yet a certified separator.  The computation uses an explicit
+standard bump while `canonicalSmoothBump` is noncomputably selected, and its
+large coefficient mass makes interval reconstruction nontrivial.  The narrow
+next project is an explicit Lean seed plus exact matrix and quadrature
+certificates.  A finite LP dual certificate is available if a fixed
+dictionary fails.  For the full-family fallback, the weighted `C0+C2` jet is
+now constructed in `L1 +_1 L1`, with a proved Hahn--Banach
+closure/annihilator characterization.

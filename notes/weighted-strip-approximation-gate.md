@@ -169,25 +169,121 @@ tail ratio        4.38
 required ratio    < 1
 ```
 
-This is a near miss, not a no-go theorem.  Finite fitting and conditioning are
-tractable in this model, while the available triangle-based `C2` payment stays
-about `4.38` times too large.  Varying atom count and frequency interval did
-not cross the gate.  A different bump, spatial phase atoms,
-interval-certified cancellation, or sharper combination costs could improve
-it.
+This first result was a near miss, not a no-go theorem.  It charged each atom
+before synthesis, erasing cancellation between overlapping derivatives.  It
+also gave the atoms no independent spatial phase.  Both losses are now
+removed in the second probe below.
 
-The decision gate therefore points outward to the generic weighted
-Paley--Wiener contract already compiled by the Lean companion: construct
-target-preserving approximants with simultaneous `C0` error and `C2` tail
-control.  The localized family remains its first quantitative bench, not an
-assumed universal basis.
+## Cancellation and Spatial Phase
+
+`BoundaryLocalizedCancellationCosts.lean` proves the exact derivative law
+
+```text
+(sum_j c_j h_j)^(n)(t) = sum_j c_j h_j^(n)(t)
+```
+
+and identifies the synthesized majorant with
+
+```text
+(1/(2*pi)) * integral
+  |sum_j c_j h_j^(n)(t)| * exp(|t|/2) dt.
+```
+
+The coefficientwise sum of atom costs is retained only as an upper bound.
+Cancellation therefore remains visible to a certified integration backend.
+
+`BoundaryLocalizedPhasedCosts.lean` adds independent translations.  In the
+repository's convention, `h.translate a` is `h(t+a)`, and
+
+```text
+A_(h.translate a)(z) = exp(-i*z*a) A_h(z),
+C_n(h.translate a) <= exp(|a|/2) C_n(h).
+```
+
+The finite evaluation matrix now carries scale, carrier frequency, and
+translation phase independently for every column.
+
+## Second Computed Decision Gate
+
+`scripts/probe_localized_phased_matrix.py` minimizes a sampled weighted `L1`
+norm of the full synthesized second derivative.  It imposes the four target
+orbit values as numerical equalities and uses tolerance only for the five
+paired competitors.  With 20 frequencies in `[8,42]`, five translations in
+`[-1,1]`, scale `3.5`, 801 optimization samples, and 4001 independent
+evaluation samples, it reports:
+
+```text
+maximum target residual          2.85e-14
+target coefficient error         4.47e-14
+largest competitor coefficient   3.14e-16
+full synthesized C0              2.04
+full synthesized C2              297.40
+coefficientwise C2 bound          1.41e6
+tail payment ratio                0.638
+required ratio                   < 1
+```
+
+Nearby scale and translation-radius scans also crossed, with observed ratios
+between about `0.64` and `0.80`.  This changes the decision: the localized
+family is no longer numerically blocked.  The improvement comes almost
+entirely from cancellation after synthesis; the coefficientwise charge is
+four orders of magnitude too pessimistic.
+
+This is still computed reconnaissance.  The coefficient vector has large
+`L1` mass, so interval enclosure must be much tighter than the cancellation
+ratio.  More importantly, the script's explicit standard bump is not Lean's
+noncomputably selected `canonicalSmoothBump`.  The crossing cannot be cited as
+a theorem about the current canonical seed.
+
+## Certification and Compilation
+
+`BoundaryLocalizedIntervalCertificates.lean` supplies two backend-neutral
+contracts.  Entrywise complex discs propagate to rigorous matrix residuals,
+and an integrable pointwise envelope propagates to the exact cancellation-
+aware derivative cost.  A future interval implementation can discharge these
+contracts without changing the mathematical compiler.
+
+`CompletedLocalizedPhasedWindowPayment` then requires:
+
+1. exact negative target autocorrelation coefficients;
+2. certified finite competitor leakage;
+3. an interval-certified full-synthesis order-two envelope; and
+4. the strict scalar tail payment.
+
+`BoundaryLocalizedPhasedCompiler.lean` converts that object into
+`CompletedFiniteWindowLeakageSeparator`, the strict global gap, the negative
+spectral test, and finally the completed smooth-core positivity equivalence.
+Thus the remaining work is certificate production, not another downstream
+compiler.
+
+## No-Go and Generic Fallback
+
+If a fixed finite dictionary misses, `FiniteWeightedDualCertificate` gives a
+real LP dual witness proving that every approximate solve exceeds a stated
+weighted coefficient budget.  This is deliberately family-specific: it
+cannot rule out other scales, phases, seeds, or the full Paley--Wiener class.
+
+The full fallback is now a theorem rather than a slogan.
+`BoundaryWeightedC02JetDuality.lean` embeds each test as the weighted jet
+
+```text
+J(h) = (exp(|t|/2) h(t)/(2*pi),
+        exp(|t|/2) h''(t)/(2*pi)) in L1 +_1 L1,
+```
+
+proves `||J(h)|| = C0(h) + C2(h)`, and proves by Hahn--Banach that the closed
+jet span of a candidate family equals the full smooth-core jet closure exactly
+when every continuous functional annihilating the candidate jets also
+annihilates every full-core jet.  This is the correct density-versus-
+annihilator fork.  The numerical crossing means it is a fallback, not the
+next recommended move.
 
 ## Current Frontier
 
 The formal system no longer asks for target-relative zero separation or
-derivatives through order `4*N + 4`.  It asks for a fixed-order approximation
-theorem.  The localized probe has now paid for its dilation, modulation,
-matrix, and scale accounting and misses one representative tail payment by a
-factor of about `4.38`.  The next gate is a weighted Paley--Wiener
-approximation result, with the localized matrix retained as a quantitative
-bench.
+derivatives through order `4*N + 4`.  A concrete phased localized proxy now
+crosses the fixed-order tail gate.  The narrow frontier is to define the same
+explicit bump in Lean, reconstruct exact target coefficients, and produce
+entry and quadrature enclosures strong enough to certify the observed
+cancellation.  Only if that reconstruction fails should the project return
+to the proved weighted-jet annihilator alternative.
