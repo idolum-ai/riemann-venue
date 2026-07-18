@@ -20,9 +20,13 @@ lines relative to the base. The checkpoint adds 302 changed files and about
 
 ## Final Stack
 
-Each row is a stacked draft PR based on the preceding row. The first row is
-based on `main`. The largest reviewable delta contains 238 files; Part 20 is
-an explicitly unverified 304-file recovery checkpoint.
+Each row is a published, PR-ready stacked branch based on the preceding row.
+The first row is based on `main`. Draft PR #12 opens Part 01; draft PR #11 is
+the final Part 20 checkpoint based on Part 19. Open Parts 02 through 19 in
+order as their predecessors become merge-ready. Opening every draft at once
+would trigger dozens of full Lean and notebook CI jobs. The largest reviewable
+delta contains 238 files; Part 20 is an explicitly unverified 304-file
+recovery checkpoint.
 
 | Part | Branch | Topic |
 | --- | --- | --- |
