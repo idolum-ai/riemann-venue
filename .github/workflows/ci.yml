@@ -85,6 +85,18 @@ jobs:
               "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpJets${shard}.lean" \
               "/tmp/computed-phased-bump-jets/BoundaryComputedPhasedTransformBumpJets${shard}.lean"
           done
+      - name: Standard-bump quadrature compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-bump-quadrature
+          python scripts/generate_computed_phased_bump_quadrature.py \
+            --output-dir /tmp/computed-phased-bump-quadrature
+          for generated in \
+            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureTable.lean \
+            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureSelectors.lean \
+            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureLeavesN*Block*.lean; do
+            diff -u "$generated" \
+              "/tmp/computed-phased-bump-quadrature/$(basename "$generated")"
+          done
       - name: Validate and execute notebooks
         run: python scripts/check_notebooks.py --execute
       # Drift gate: executed notebooks are committed textual/numeric evidence,

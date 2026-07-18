@@ -42,6 +42,7 @@ import RiemannVenue.Venue.BoundaryExplicitBumpIntervals
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformPacket
 import RiemannVenue.Venue.BoundaryComplexTaylorQuadrature
 import RiemannVenue.Venue.BoundaryComputedPhasedBumpQuadrature
+import RiemannVenue.Venue.BoundaryComputedPhasedBumpQuadratureInstantiation
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpIntervals
 import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpGlobalBoundsCore
 import RiemannVenue.Venue.BoundaryComputedPhasedDerivativeInstantiation
@@ -139,6 +140,9 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval
 #print axioms RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval
 #print axioms RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide
+#print axioms RiemannVenue.Venue.computedPhased_bump0_majorant_le
+#print axioms RiemannVenue.Venue.computedPhased_bump1_majorant_le
+#print axioms RiemannVenue.Venue.computedPhased_bump2_majorant_le
 
 open Lean Elab Command
 

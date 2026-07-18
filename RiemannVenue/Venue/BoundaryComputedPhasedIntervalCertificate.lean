@@ -351,8 +351,14 @@ def computedPhasedCorrectionCenter1 : ℂ :=
   (140913003529 : ℝ) / 500000000000 + (5481997317 : ℝ) / 62500000000 * Complex.I
 def computedPhasedResidualCenter : ℂ :=
   (229 : ℝ) / 200000000000 + (-51 : ℝ) / 1000000000000 * Complex.I
-def computedPhasedTransformRadius : ℝ := (1 : ℝ) / 10000000000
-def computedPhasedResidualRadius : ℝ := (1 : ℝ) / 100000000000
+/-- Precision needed for the two correction-matrix entries. The determinant
+margin, rather than the reconnaissance precision, governs this radius. -/
+def computedPhasedTransformRadius : ℝ := (1 : ℝ) / 10000
+
+/-- Precision needed for the rounded base residual. Together with the
+correction-entry radius this keeps both exact Cramer coefficients below
+`10^-5`, which is sufficient for the final payment budget. -/
+def computedPhasedResidualRadius : ℝ := (1 : ℝ) / 1000000
 
 /-- The exact analytic obligations not manufactured by floating-point
 reconnaissance.  Five equal-cell certificates cover 270 cells on

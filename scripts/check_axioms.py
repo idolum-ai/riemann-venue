@@ -94,6 +94,9 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval",
     "RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval",
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide",
+    "RiemannVenue.Venue.computedPhased_bump0_majorant_le",
+    "RiemannVenue.Venue.computedPhased_bump1_majorant_le",
+    "RiemannVenue.Venue.computedPhased_bump2_majorant_le",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 
