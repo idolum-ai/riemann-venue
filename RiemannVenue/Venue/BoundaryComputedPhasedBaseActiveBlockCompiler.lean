@@ -214,6 +214,190 @@ theorem computedPhasedBaseActiveBlockSignedCosineCell_contains
     (computedPhasedBaseActiveBlockCosineCell_contains L n b g hx)
   simpa only [computedPhasedBaseCoefficientQ_cast] using hs
 
+/-- Five-frequency arithmetic shard inside one active translation block. -/
+def computedPhasedBaseActiveBlockSignedCosineGroupCell
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (L : ComputedPhasedBaseActiveBlockVariationData C I)
+    (n : Fin 15) (b : Fin m) (q : Fin 4) : RationalInterval :=
+  RationalInterval.finSum fun k : Fin 5 =>
+    RationalInterval.scale
+      (computedPhasedBaseCoefficientQ
+        (C.column b (finProdFinEquiv (q, k))))
+      (computedPhasedBaseActiveBlockCosineCell L n b
+        (finProdFinEquiv (q, k)))
+
+theorem computedPhasedBaseActiveBlockSignedCosineGroupCell_contains
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (L : ComputedPhasedBaseActiveBlockVariationLeaves C I)
+    (n : Fin 15) (b : Fin m) (q : Fin 4) {x : ℝ}
+    (hx : I.Contains x) :
+    (computedPhasedBaseActiveBlockSignedCosineGroupCell
+      L.toComputedPhasedBaseActiveBlockVariationData n b q).Contains
+      (∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (C.column b (finProdFinEquiv (q, k))) *
+          computedPhasedCosineJet n
+            (C.column b (finProdFinEquiv (q, k))) x) := by
+  apply RationalInterval.contains_finSum
+  intro k
+  have hs := RationalInterval.contains_scale
+    (q := computedPhasedBaseCoefficientQ
+      (C.column b (finProdFinEquiv (q, k))))
+    (computedPhasedBaseActiveBlockCosineCell_contains
+      L n b (finProdFinEquiv (q, k)) hx)
+  simpa only [computedPhasedBaseCoefficientQ_cast] using hs
+
+/-- Split one twenty-frequency translation block into four five-frequency
+groups. Generated literal caches use this equality to keep each arithmetic
+proof small while preserving the exact signed sum. -/
+theorem computedPhasedBaseActiveBlock_signedCosine_eq_groups
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    (n : ℕ) (b : Fin m) (x : ℝ) :
+    (∑ g : Fin 20,
+        computedPhasedBaseCoefficient (C.column b g) *
+          computedPhasedCosineJet n (C.column b g) x) =
+      ∑ q : Fin 4, ∑ k : Fin 5,
+        computedPhasedBaseCoefficient
+            (C.column b (finProdFinEquiv (q, k))) *
+          computedPhasedCosineJet n
+            (C.column b (finProdFinEquiv (q, k))) x := by
+  let e : Fin 4 × Fin 5 ≃ Fin 20 := finProdFinEquiv
+  let f := fun g : Fin 20 =>
+    computedPhasedBaseCoefficient (C.column b g) *
+      computedPhasedCosineJet n (C.column b g) x
+  calc
+    ∑ g : Fin 20, f g = ∑ y : Fin 4 × Fin 5, f (e y) :=
+      (e.sum_comp f).symm
+    _ = ∑ q : Fin 4, ∑ k : Fin 5, f (finProdFinEquiv (q, k)) :=
+      Fintype.sum_prod_type _
+
+/-- Literal signed-cosine leaves for every active translation at one point.
+This is the stable cache boundary shared by all support regimes. -/
+structure ComputedPhasedBaseActiveBlockPointSignedCache
+    {m : ℕ} (C : ComputedPhasedBaseActiveBlockModel m)
+    (I : RationalInterval) where
+  signed : Fin 12 → Fin m → RationalInterval
+  signed_contains : ∀ n b {x : ℝ}, I.Contains x →
+    (signed n b).Contains
+      (∑ g : Fin 20,
+        computedPhasedBaseCoefficient (C.column b g) *
+          computedPhasedCosineJet n (C.column b g) x)
+
+/-- Literal bump leaves for every active translation at one point. -/
+structure ComputedPhasedBaseActiveBlockPointBumpCache
+    {m : ℕ} (C : ComputedPhasedBaseActiveBlockModel m)
+    (I : RationalInterval) where
+  bump : Fin m → Fin 12 → RationalInterval
+  bump_contains : ∀ b n {x : ℝ}, I.Contains x →
+    (bump b n).Contains
+      (computedPhasedBumpJet n (C.column b 0) x)
+
+/-- Reconstruct one base-test jet from translation-local signed and bump
+caches. No transcendental leaf is unfolded at this assembly boundary. -/
+def computedPhasedBaseActiveBlockTestJetFromPointCaches
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (n : Fin 12) : RationalInterval :=
+  RationalInterval.finSum fun i : Fin ((n : ℕ) + 1) =>
+    RationalInterval.scale ((n : ℕ).choose i)
+      (RationalInterval.finSum fun b : Fin m =>
+        RationalInterval.mul
+          (S.signed ⟨i, by omega⟩ b)
+          (U.bump b ⟨(n : ℕ) - i, by omega⟩))
+
+theorem computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (n : Fin 12) {x : ℝ} (hx : I.Contains x) (hvalid : C.valid x) :
+    (computedPhasedBaseActiveBlockTestJetFromPointCaches S U n).Contains
+      (computedPhasedBaseTest.iterDeriv n x) := by
+  rw [C.convolution n x hvalid]
+  apply RationalInterval.contains_finSum
+  intro i
+  apply RationalInterval.contains_scale
+  apply RationalInterval.contains_finSum
+  intro b
+  exact RationalInterval.contains_mul
+    (S.signed_contains ⟨i, by omega⟩ b hx)
+    (U.bump_contains b ⟨(n : ℕ) - i, by omega⟩ hx)
+
+def computedPhasedBaseActiveBlockRawJetFromPointCaches
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (n : Fin 12) (re im : ℚ) (kernel : RationalRectangle) :
+    RationalRectangle :=
+  rationalTransformRawJetInterval re im n kernel fun i =>
+    computedPhasedBaseActiveBlockTestJetFromPointCaches S U ⟨i, by omega⟩
+
+theorem computedPhasedBaseActiveBlockRawJetFromPointCaches_contains
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (n : Fin 12) {re im : ℚ} {kernel : RationalRectangle}
+    {x : ℝ} (hx : I.Contains x) (hvalid : C.valid x)
+    (hkernel : kernel.Contains
+      (Complex.exp (Complex.I *
+        ((re : ℝ) + (im : ℝ) * Complex.I) * (x : ℂ)))) :
+    (computedPhasedBaseActiveBlockRawJetFromPointCaches
+      S U n re im kernel).Contains
+      (iteratedDeriv n
+        (computedTransformRawIntegrand computedPhasedBaseTest
+          ((re : ℝ) + (im : ℝ) * Complex.I)) x) := by
+  apply rationalTransformRawJetInterval_contains_real hkernel
+  intro i
+  exact computedPhasedBaseActiveBlockTestJetFromPointCaches_contains
+    S U ⟨i, by omega⟩ hx hvalid
+
+def computedPhasedBaseActiveBlockPairedRawJetFromPointCaches
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (forward reflected : RationalRectangle) (n : Fin 12) :
+    RationalRectangle :=
+  RationalRectangle.add
+    (computedPhasedBaseActiveBlockRawJetFromPointCaches S U n
+      computedPhasedBenchmarkRealQ (1 / 4) forward)
+    (computedPhasedBaseActiveBlockRawJetFromPointCaches S U n
+      (-computedPhasedBenchmarkRealQ) (-1 / 4) reflected)
+
+theorem computedPhasedBaseActiveBlockPairedRawJetFromPointCaches_contains
+    {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
+    {I : RationalInterval}
+    (S : ComputedPhasedBaseActiveBlockPointSignedCache C I)
+    (U : ComputedPhasedBaseActiveBlockPointBumpCache C I)
+    (forward reflected : RationalRectangle) (n : Fin 12)
+    {x : ℝ} (hx : I.Contains x) (hvalid : C.valid x)
+    (hforward : forward.Contains
+      (Complex.exp (Complex.I * computedPhasedBenchmarkPoint * (x : ℂ))))
+    (hreflected : reflected.Contains
+      (Complex.exp (Complex.I * (-computedPhasedBenchmarkPoint) * (x : ℂ)))) :
+    (computedPhasedBaseActiveBlockPairedRawJetFromPointCaches
+      S U forward reflected n).Contains
+      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint n x) := by
+  rw [computedPhasedBaseActiveBlockPairedRawJetFromPointCaches,
+    computedPhasedBasePairedRawJet]
+  apply RationalRectangle.contains_add
+  · rw [← computedPhasedBenchmarkRationalCoordinates_eq_point]
+    exact computedPhasedBaseActiveBlockRawJetFromPointCaches_contains
+      S U n hx hvalid (by
+        simpa only [computedPhasedBenchmarkRationalCoordinates_eq_point] using
+          hforward)
+  · rw [← computedPhasedBenchmarkReflectedRationalCoordinates_eq_point]
+    exact computedPhasedBaseActiveBlockRawJetFromPointCaches_contains
+      S U n hx hvalid (by
+        simpa only [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] using
+          hreflected)
+
 def computedPhasedBaseActiveBlockTestJetCell
     {m : ℕ} {C : ComputedPhasedBaseActiveBlockModel m}
     {I : RationalInterval}

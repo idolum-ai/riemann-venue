@@ -583,3 +583,27 @@ adaptive outer cover this coarse analytic payment is still far below the
 residual budget, while removing a repeated high-order proof from every cache.
 Downstream code can therefore consume a small rational addition tree without
 unfolding any of the midpoint interval computations that established it.
+
+## Translation-Local Active-Block Cache
+
+The cache boundary now crosses its first support transition.  The generic
+active-block compiler accepts translation-local signed cosine jets and bump
+jets, reconstructs the exact Leibniz convolution, and propagates the result
+through the paired benchmark kernels.  The middle regime is exposed through
+that interface without replacing its existing specialized proof surface.
+
+A representative two-translation middle shard compiles from 96 independent
+five-frequency arithmetic enclosures and 24 bump enclosures to twelve base
+jets, twelve paired raw jets, and a complete Taylor cell with the shared
+support-wide omitted-derivative bound.  This validates the proposed stable
+unit: coefficient family at a certified phase, followed by translation-local
+bump multiplication.  Whole prior-regime jets are not transported, because
+their coefficient families differ; only the analytic trig, bump, and kernel
+leaves are reused across the half-step.
+
+The experiment also caught a proof-identity constraint worth retaining in the
+generator.  A tighter directly evaluated middle kernel is analytically valid,
+but it is not definitionally the same interval as the certified outer kernel
+multiplied by the fixed half-shift kernel.  Literal payment caches must mirror
+the exact rational enclosure algebra used by Lean, not merely compute a
+numerically tighter enclosure of the same complex value.
