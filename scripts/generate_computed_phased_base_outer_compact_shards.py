@@ -727,16 +727,18 @@ def nested_max(names: list[str]) -> str:
     return result
 
 
-def nested_packet_cells(names: list[str], indent: str = "") -> str:
+def nested_packet_cells(
+    names: list[str], indent: str = "", cell_suffix: str = "TaylorCell"
+) -> str:
     """Construct dependent `Fin n` data without proposition-only case tactics."""
     if not names:
         return f"{indent}(fun i => Fin.elim0 i)"
     name = names[0]
-    rest = nested_packet_cells(names[1:], indent + "    ")
+    rest = nested_packet_cells(names[1:], indent + "    ", cell_suffix)
     return "\n".join([
         f"{indent}Fin.cases",
         f"{indent}  (by",
-        f"{indent}    exact {name}TaylorCell.reindex",
+        f"{indent}    exact {name}{cell_suffix}.reindex",
         f"{indent}      (by norm_num [equalCellPoint, equalCellWidth, {name}Interval])",
         f"{indent}      (by norm_num [equalCellPoint, equalCellWidth, {name}Interval]))",
         f"{indent}  (",
@@ -903,7 +905,7 @@ def render_taylor_packet(cell: int) -> str:
     packet_name = f"computedPhasedBaseOuterCompactCell{cell}TaylorPacket"
     imports = [
         "import RiemannVenue.Venue."
-        f"BoundaryComputedPhasedBaseOuterCompactCell{cell}Shard{index}"
+        f"BoundaryComputedPhasedBaseOuterCompactCell{cell}Shard{index}LiteralCache"
         for _cell, index, _lower, _upper in cell_intervals
     ]
     lines = [
@@ -924,7 +926,7 @@ def render_taylor_packet(cell: int) -> str:
         "    intro _i",
         "    exact (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _",
         "  cell :=",
-        nested_packet_cells(shard_names, "    "),
+        nested_packet_cells(shard_names, "    ", "LiteralCacheTaylorCell"),
         "",
         "end",
         "end RiemannVenue.Venue",

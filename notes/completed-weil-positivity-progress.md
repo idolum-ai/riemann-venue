@@ -555,9 +555,20 @@ benchmark kernels into twelve paired complex Taylor rectangles.
 The representative packet compiles all the way to the same
 `ComplexIntegralCellCertificate` consumed by the existing quadrature ledger,
 using the original whole-shard omitted-derivative theorem for its remainder.
-This is the decisive computational gate: the final assembly no longer reopens
-the 100-column midpoint expression, and no native evaluator or floating-point
-artifact enters the proof boundary.  The next step is mechanical but large:
-generalize the generator over all adaptive outer shards, then mirror the same
-frequency-block/bump-jet cache interface in the active-block regimes before
-replacing the complete base certificate's recursive payment expression.
+The generalized renderer now reproduces that cache from the recurrence-owned
+trigonometric and kernel data.  A neighboring shard compiles independently,
+and the complete first compact cell compiles as a packet of sixteen literal
+caches.  Thus the final assembly no longer reopens the 100-column midpoint
+expression, and no native evaluator or floating-point artifact enters the
+proof boundary.
+
+This scale test also exposes a new engineering constraint.  On the available
+single-core-equivalent build quota, the sixteen-shard cell costs roughly
+twenty-eight minutes even though its proofs are independent.  Blindly copying
+the full 6,400-line derivation over all 139 outer shards, then over eight
+translated active-block regimes, would be mathematically routine but would
+make the proof surface and CI latency disproportionate.  The next gate is
+therefore a compact payment-summary interface: retain the checked local cache
+modules already compiled, but let downstream packets consume small rational
+center/error summaries and reuse translated block certificates instead of
+replaying the full derivation in every regime.
