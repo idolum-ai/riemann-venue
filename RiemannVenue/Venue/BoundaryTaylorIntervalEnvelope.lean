@@ -16,6 +16,43 @@ namespace RiemannVenue.Venue
 open Set
 open scoped BigOperators
 
+theorem iteratedDeriv_iteratedDeriv_add
+    {f : ℝ → ℝ} (m n : ℕ) :
+    iteratedDeriv m (iteratedDeriv n f) = iteratedDeriv (n + m) f := by
+  induction m with
+  | zero => simp
+  | succ m ih =>
+      rw [iteratedDeriv_succ, ih, ← iteratedDeriv_succ]
+      simp [Nat.add_assoc]
+
+theorem ContDiff.iteratedDeriv_of_top
+    {f : ℝ → ℝ} (hf : ContDiff ℝ ⊤ f) (m n : ℕ) :
+    ContDiff ℝ n (iteratedDeriv m f) := by
+  rw [contDiff_nat_iff_iteratedDeriv]
+  constructor
+  · intro k hk
+    rw [iteratedDeriv_iteratedDeriv_add]
+    exact hf.continuous_iteratedDeriv (m + k) (by simp)
+  · intro k hk
+    rw [iteratedDeriv_iteratedDeriv_add]
+    exact hf.differentiable_iteratedDeriv (m + k) (by simp)
+
+/-- Finite-order form of `ContDiff.iteratedDeriv_of_top`: differentiating
+`m` times spends exactly `m` derivatives from the available budget. -/
+theorem ContDiff.iteratedDeriv_of_add
+    {f : ℝ → ℝ} {m n : ℕ} (hf : ContDiff ℝ (m + n) f) :
+    ContDiff ℝ n (iteratedDeriv m f) := by
+  rw [contDiff_nat_iff_iteratedDeriv]
+  constructor
+  · intro k hk
+    rw [iteratedDeriv_iteratedDeriv_add]
+    exact hf.continuous_iteratedDeriv (m + k) (by
+      exact_mod_cast Nat.add_le_add_left hk m)
+  · intro k hk
+    rw [iteratedDeriv_iteratedDeriv_add]
+    exact hf.differentiable_iteratedDeriv (m + k) (by
+      exact_mod_cast Nat.add_lt_add_left hk m)
+
 /-- The exact finite Taylor center built from supplied derivative centers. -/
 noncomputable def taylorIntervalCenter (n : ℕ) (a : ℕ → ℝ) (c x : ℝ) : ℝ :=
   ∑ k ∈ Finset.range n, a k * (x - c) ^ k / k.factorial
@@ -173,6 +210,69 @@ theorem abs_le_taylorInterval
       exact taylorInterval_error hn hf hjet hM hx
     _ = |taylorIntervalCenter n a c x| +
         taylorIntervalRadius n e M c x := add_comm _ _
+
+/-- A cell-uniform form of `abs_le_taylorInterval`.  It is useful when the
+center jets are tightly cancellation-certified but the first omitted jet is
+available only as a whole-cell enclosure. -/
+theorem abs_le_taylorInterval_uniform
+    {f : ℝ → ℝ} {n : ℕ} {a e : ℕ → ℝ} {c r M x : ℝ}
+    (hn : 0 < n) (hf : ContDiff ℝ n f)
+    (hjet : ∀ k ∈ Finset.range n,
+      |iteratedDeriv k f c - a k| ≤ e k)
+    (hM : ∀ y, |y - c| ≤ r → |iteratedDeriv n f y| ≤ M)
+    (hx : |x - c| ≤ r) (he : ∀ k ∈ Finset.range n, 0 ≤ e k)
+    (hM0 : 0 ≤ M) :
+    |f x| ≤
+      (∑ k ∈ Finset.range n,
+        (|a k| + e k) * r ^ k / k.factorial) +
+        M * r ^ n / n.factorial := by
+  have hbase := abs_le_taylorInterval hn hf hjet hM hx
+  have hcenter :
+      |taylorIntervalCenter n a c x| ≤
+        ∑ k ∈ Finset.range n, |a k| * r ^ k / k.factorial := by
+    unfold taylorIntervalCenter
+    calc
+      |∑ k ∈ Finset.range n, a k * (x - c) ^ k / k.factorial| ≤
+          ∑ k ∈ Finset.range n,
+            |a k * (x - c) ^ k / k.factorial| :=
+        Finset.abs_sum_le_sum_abs _ _
+      _ = ∑ k ∈ Finset.range n,
+          |a k| * |x - c| ^ k / k.factorial := by
+        apply Finset.sum_congr rfl
+        intro k hk
+        rw [abs_div, abs_mul, abs_pow]
+        rw [abs_of_nonneg (show (0 : ℝ) ≤ k.factorial by positivity)]
+      _ ≤ ∑ k ∈ Finset.range n,
+          |a k| * r ^ k / k.factorial := by
+        apply Finset.sum_le_sum
+        intro k hk
+        gcongr
+  have hradius :
+      taylorIntervalRadius n e M c x ≤
+        (∑ k ∈ Finset.range n, e k * r ^ k / k.factorial) +
+          M * r ^ n / n.factorial := by
+    unfold taylorIntervalRadius
+    apply add_le_add
+    · apply Finset.sum_le_sum
+      intro k hk
+      gcongr
+      exact he k hk
+    · gcongr
+  calc
+    |f x| ≤ |taylorIntervalCenter n a c x| +
+        taylorIntervalRadius n e M c x := hbase
+    _ ≤ (∑ k ∈ Finset.range n, |a k| * r ^ k / k.factorial) +
+        ((∑ k ∈ Finset.range n, e k * r ^ k / k.factorial) +
+          M * r ^ n / n.factorial) := add_le_add hcenter hradius
+    _ = (∑ k ∈ Finset.range n,
+          (|a k| + e k) * r ^ k / k.factorial) +
+        M * r ^ n / n.factorial := by
+      rw [← add_assoc]
+      rw [← Finset.sum_add_distrib]
+      apply congrArg₂ (fun u v : ℝ => u + v) _ rfl
+      apply Finset.sum_congr rfl
+      intro k hk
+      ring
 
 /-- A rational polynomial certificate: `x^2` is at most `1/9` in absolute
 value on the rational cell `|x| ≤ 1/3`. -/
