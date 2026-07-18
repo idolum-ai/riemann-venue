@@ -58,6 +58,16 @@ private theorem middleMergedIntegrand_intervalIntegrable (a b : ℝ) :
     IntervalIntegrable middleMergedIntegrand MeasureTheory.volume a b :=
   (computedPhasedBasePairedRawIntegrand_contDiff _).continuous.intervalIntegrable _ _
 
+def computedPhasedRationalPairToComplex (q : ℚ × ℚ) : ℂ :=
+  (q.1 : ℝ) + (q.2 : ℝ) * Complex.I
+
+theorem computedPhasedRationalPairToComplex_add (a b : ℚ × ℚ) :
+    computedPhasedRationalPairToComplex (a + b) =
+      computedPhasedRationalPairToComplex a + computedPhasedRationalPairToComplex b := by
+  simp only [computedPhasedRationalPairToComplex, Prod.fst_add, Prod.snd_add, Rat.cast_add]
+  push_cast
+  ring
+
 def computedPhasedBaseMiddleMergedGroup0Interval : RationalInterval :=
   ⟨(1569 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -111,6 +121,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup0IntegralCell :
   computedPhasedBaseMiddleMergedGroup0TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup0Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup0Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup0IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup0IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup0TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup0IntegralCell, computedPhasedBaseMiddleMergedGroup0TaylorCell,
+    computedPhasedBaseMiddleMergedGroup0TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup0IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup0IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup0TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup0IntegralCell, computedPhasedBaseMiddleMergedGroup0TaylorCell,
+    computedPhasedBaseMiddleMergedGroup0TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup1Interval : RationalInterval :=
   ⟨(1573 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -166,6 +193,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup1IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup1Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup1Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup1IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup1IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup1TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup1IntegralCell, computedPhasedBaseMiddleMergedGroup1TaylorCell,
+    computedPhasedBaseMiddleMergedGroup1TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup1IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup1IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup1TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup1IntegralCell, computedPhasedBaseMiddleMergedGroup1TaylorCell,
+    computedPhasedBaseMiddleMergedGroup1TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup2Interval : RationalInterval :=
   ⟨(1579 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -219,6 +263,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup2IntegralCell :
   computedPhasedBaseMiddleMergedGroup2TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup2Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup2Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup2IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup2IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup2TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup2IntegralCell, computedPhasedBaseMiddleMergedGroup2TaylorCell,
+    computedPhasedBaseMiddleMergedGroup2TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup2IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup2IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup2TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup2IntegralCell, computedPhasedBaseMiddleMergedGroup2TaylorCell,
+    computedPhasedBaseMiddleMergedGroup2TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup3Interval : RationalInterval :=
   ⟨(1585 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -274,6 +335,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup3IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup3Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup3Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup3IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup3IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup3TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup3IntegralCell, computedPhasedBaseMiddleMergedGroup3TaylorCell,
+    computedPhasedBaseMiddleMergedGroup3TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup3IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup3IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup3TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup3IntegralCell, computedPhasedBaseMiddleMergedGroup3TaylorCell,
+    computedPhasedBaseMiddleMergedGroup3TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup4Interval : RationalInterval :=
   ⟨(1591 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -327,6 +405,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup4IntegralCell :
   computedPhasedBaseMiddleMergedGroup4TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup4Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup4Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup4IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup4IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup4TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup4IntegralCell, computedPhasedBaseMiddleMergedGroup4TaylorCell,
+    computedPhasedBaseMiddleMergedGroup4TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup4IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup4IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup4TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup4IntegralCell, computedPhasedBaseMiddleMergedGroup4TaylorCell,
+    computedPhasedBaseMiddleMergedGroup4TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup5Interval : RationalInterval :=
   ⟨(1597 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -382,6 +477,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup5IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup5Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup5Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup5IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup5IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup5TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup5IntegralCell, computedPhasedBaseMiddleMergedGroup5TaylorCell,
+    computedPhasedBaseMiddleMergedGroup5TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup5IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup5IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup5TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup5IntegralCell, computedPhasedBaseMiddleMergedGroup5TaylorCell,
+    computedPhasedBaseMiddleMergedGroup5TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup6Interval : RationalInterval :=
   ⟨(1601 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -435,6 +547,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup6IntegralCell :
   computedPhasedBaseMiddleMergedGroup6TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup6Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup6Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup6IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup6IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup6TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup6IntegralCell, computedPhasedBaseMiddleMergedGroup6TaylorCell,
+    computedPhasedBaseMiddleMergedGroup6TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup6IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup6IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup6TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup6IntegralCell, computedPhasedBaseMiddleMergedGroup6TaylorCell,
+    computedPhasedBaseMiddleMergedGroup6TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup7Interval : RationalInterval :=
   ⟨(1605 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -490,6 +619,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup7IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup7Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup7Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup7IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup7IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup7TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup7IntegralCell, computedPhasedBaseMiddleMergedGroup7TaylorCell,
+    computedPhasedBaseMiddleMergedGroup7TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup7IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup7IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup7TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup7IntegralCell, computedPhasedBaseMiddleMergedGroup7TaylorCell,
+    computedPhasedBaseMiddleMergedGroup7TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup8Interval : RationalInterval :=
   ⟨(1611 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -543,6 +689,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup8IntegralCell :
   computedPhasedBaseMiddleMergedGroup8TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup8Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup8Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup8IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup8IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup8TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup8IntegralCell, computedPhasedBaseMiddleMergedGroup8TaylorCell,
+    computedPhasedBaseMiddleMergedGroup8TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup8IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup8IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup8TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup8IntegralCell, computedPhasedBaseMiddleMergedGroup8TaylorCell,
+    computedPhasedBaseMiddleMergedGroup8TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup9Interval : RationalInterval :=
   ⟨(231 / 64 : ℚ), (3 / 448 : ℚ)⟩
@@ -598,6 +761,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup9IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup9Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup9Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup9IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup9IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup9TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup9IntegralCell, computedPhasedBaseMiddleMergedGroup9TaylorCell,
+    computedPhasedBaseMiddleMergedGroup9TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup9IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup9IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup9TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup9IntegralCell, computedPhasedBaseMiddleMergedGroup9TaylorCell,
+    computedPhasedBaseMiddleMergedGroup9TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup10Interval : RationalInterval :=
   ⟨(1623 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -651,6 +831,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup10IntegralCell :
   computedPhasedBaseMiddleMergedGroup10TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup10Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup10Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup10IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup10IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup10TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup10IntegralCell, computedPhasedBaseMiddleMergedGroup10TaylorCell,
+    computedPhasedBaseMiddleMergedGroup10TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup10IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup10IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup10TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup10IntegralCell, computedPhasedBaseMiddleMergedGroup10TaylorCell,
+    computedPhasedBaseMiddleMergedGroup10TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup11Interval : RationalInterval :=
   ⟨(1629 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -706,6 +903,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup11IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup11Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup11Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup11IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup11IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup11TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup11IntegralCell, computedPhasedBaseMiddleMergedGroup11TaylorCell,
+    computedPhasedBaseMiddleMergedGroup11TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup11IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup11IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup11TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup11IntegralCell, computedPhasedBaseMiddleMergedGroup11TaylorCell,
+    computedPhasedBaseMiddleMergedGroup11TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup12Interval : RationalInterval :=
   ⟨(1633 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -759,6 +973,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup12IntegralCell :
   computedPhasedBaseMiddleMergedGroup12TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup12Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup12Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup12IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup12IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup12TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup12IntegralCell, computedPhasedBaseMiddleMergedGroup12TaylorCell,
+    computedPhasedBaseMiddleMergedGroup12TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup12IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup12IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup12TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup12IntegralCell, computedPhasedBaseMiddleMergedGroup12TaylorCell,
+    computedPhasedBaseMiddleMergedGroup12TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup13Interval : RationalInterval :=
   ⟨(1637 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -814,6 +1045,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup13IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup13Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup13Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup13IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup13IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup13TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup13IntegralCell, computedPhasedBaseMiddleMergedGroup13TaylorCell,
+    computedPhasedBaseMiddleMergedGroup13TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup13IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup13IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup13TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup13IntegralCell, computedPhasedBaseMiddleMergedGroup13TaylorCell,
+    computedPhasedBaseMiddleMergedGroup13TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup14Interval : RationalInterval :=
   ⟨(1643 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -867,6 +1115,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup14IntegralCell :
   computedPhasedBaseMiddleMergedGroup14TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup14Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup14Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup14IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup14IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup14TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup14IntegralCell, computedPhasedBaseMiddleMergedGroup14TaylorCell,
+    computedPhasedBaseMiddleMergedGroup14TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup14IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup14IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup14TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup14IntegralCell, computedPhasedBaseMiddleMergedGroup14TaylorCell,
+    computedPhasedBaseMiddleMergedGroup14TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup15Interval : RationalInterval :=
   ⟨(1649 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -922,6 +1187,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup15IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup15Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup15Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup15IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup15IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup15TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup15IntegralCell, computedPhasedBaseMiddleMergedGroup15TaylorCell,
+    computedPhasedBaseMiddleMergedGroup15TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup15IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup15IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup15TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup15IntegralCell, computedPhasedBaseMiddleMergedGroup15TaylorCell,
+    computedPhasedBaseMiddleMergedGroup15TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup16Interval : RationalInterval :=
   ⟨(1655 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -975,6 +1257,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup16IntegralCell :
   computedPhasedBaseMiddleMergedGroup16TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup16Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup16Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup16IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup16IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup16TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup16IntegralCell, computedPhasedBaseMiddleMergedGroup16TaylorCell,
+    computedPhasedBaseMiddleMergedGroup16TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup16IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup16IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup16TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup16IntegralCell, computedPhasedBaseMiddleMergedGroup16TaylorCell,
+    computedPhasedBaseMiddleMergedGroup16TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup17Interval : RationalInterval :=
   ⟨(1661 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1030,6 +1329,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup17IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup17Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup17Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup17IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup17IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup17TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup17IntegralCell, computedPhasedBaseMiddleMergedGroup17TaylorCell,
+    computedPhasedBaseMiddleMergedGroup17TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup17IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup17IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup17TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup17IntegralCell, computedPhasedBaseMiddleMergedGroup17TaylorCell,
+    computedPhasedBaseMiddleMergedGroup17TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup18Interval : RationalInterval :=
   ⟨(1665 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -1083,6 +1399,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup18IntegralCell :
   computedPhasedBaseMiddleMergedGroup18TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup18Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup18Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup18IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup18IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup18TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup18IntegralCell, computedPhasedBaseMiddleMergedGroup18TaylorCell,
+    computedPhasedBaseMiddleMergedGroup18TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup18IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup18IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup18TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup18IntegralCell, computedPhasedBaseMiddleMergedGroup18TaylorCell,
+    computedPhasedBaseMiddleMergedGroup18TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup19Interval : RationalInterval :=
   ⟨(1669 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1138,6 +1471,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup19IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup19Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup19Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup19IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup19IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup19TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup19IntegralCell, computedPhasedBaseMiddleMergedGroup19TaylorCell,
+    computedPhasedBaseMiddleMergedGroup19TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup19IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup19IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup19TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup19IntegralCell, computedPhasedBaseMiddleMergedGroup19TaylorCell,
+    computedPhasedBaseMiddleMergedGroup19TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup20Interval : RationalInterval :=
   ⟨(1675 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -1191,6 +1541,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup20IntegralCell :
   computedPhasedBaseMiddleMergedGroup20TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup20Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup20Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup20IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup20IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup20TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup20IntegralCell, computedPhasedBaseMiddleMergedGroup20TaylorCell,
+    computedPhasedBaseMiddleMergedGroup20TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup20IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup20IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup20TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup20IntegralCell, computedPhasedBaseMiddleMergedGroup20TaylorCell,
+    computedPhasedBaseMiddleMergedGroup20TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup21Interval : RationalInterval :=
   ⟨(1681 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1246,6 +1613,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup21IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup21Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup21Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup21IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup21IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup21TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup21IntegralCell, computedPhasedBaseMiddleMergedGroup21TaylorCell,
+    computedPhasedBaseMiddleMergedGroup21TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup21IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup21IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup21TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup21IntegralCell, computedPhasedBaseMiddleMergedGroup21TaylorCell,
+    computedPhasedBaseMiddleMergedGroup21TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup22Interval : RationalInterval :=
   ⟨(241 / 64 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -1299,6 +1683,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup22IntegralCell :
   computedPhasedBaseMiddleMergedGroup22TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup22Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup22Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup22IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup22IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup22TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup22IntegralCell, computedPhasedBaseMiddleMergedGroup22TaylorCell,
+    computedPhasedBaseMiddleMergedGroup22TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup22IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup22IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup22TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup22IntegralCell, computedPhasedBaseMiddleMergedGroup22TaylorCell,
+    computedPhasedBaseMiddleMergedGroup22TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup23Interval : RationalInterval :=
   ⟨(1693 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1354,6 +1755,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup23IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup23Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup23Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup23IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup23IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup23TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup23IntegralCell, computedPhasedBaseMiddleMergedGroup23TaylorCell,
+    computedPhasedBaseMiddleMergedGroup23TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup23IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup23IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup23TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup23IntegralCell, computedPhasedBaseMiddleMergedGroup23TaylorCell,
+    computedPhasedBaseMiddleMergedGroup23TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup24Interval : RationalInterval :=
   ⟨(1697 / 448 : ℚ), (1 / 448 : ℚ)⟩
 
@@ -1407,6 +1825,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup24IntegralCell :
   computedPhasedBaseMiddleMergedGroup24TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup24Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup24Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup24IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup24IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup24TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup24IntegralCell, computedPhasedBaseMiddleMergedGroup24TaylorCell,
+    computedPhasedBaseMiddleMergedGroup24TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup24IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup24IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup24TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup24IntegralCell, computedPhasedBaseMiddleMergedGroup24TaylorCell,
+    computedPhasedBaseMiddleMergedGroup24TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup25Interval : RationalInterval :=
   ⟨(243 / 64 : ℚ), (3 / 448 : ℚ)⟩
@@ -1462,6 +1897,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup25IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup25Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup25Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup25IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup25IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup25TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup25IntegralCell, computedPhasedBaseMiddleMergedGroup25TaylorCell,
+    computedPhasedBaseMiddleMergedGroup25TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup25IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup25IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup25TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup25IntegralCell, computedPhasedBaseMiddleMergedGroup25TaylorCell,
+    computedPhasedBaseMiddleMergedGroup25TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup26Interval : RationalInterval :=
   ⟨(1707 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -1515,6 +1967,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup26IntegralCell :
   computedPhasedBaseMiddleMergedGroup26TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup26Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup26Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup26IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup26IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup26TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup26IntegralCell, computedPhasedBaseMiddleMergedGroup26TaylorCell,
+    computedPhasedBaseMiddleMergedGroup26TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup26IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup26IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup26TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup26IntegralCell, computedPhasedBaseMiddleMergedGroup26TaylorCell,
+    computedPhasedBaseMiddleMergedGroup26TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup27Interval : RationalInterval :=
   ⟨(1713 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1570,6 +2039,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup27IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup27Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup27Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup27IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup27IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup27TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup27IntegralCell, computedPhasedBaseMiddleMergedGroup27TaylorCell,
+    computedPhasedBaseMiddleMergedGroup27TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup27IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup27IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup27TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup27IntegralCell, computedPhasedBaseMiddleMergedGroup27TaylorCell,
+    computedPhasedBaseMiddleMergedGroup27TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup28Interval : RationalInterval :=
   ⟨(1719 / 448 : ℚ), (3 / 448 : ℚ)⟩
 
@@ -1623,6 +2109,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup28IntegralCell :
   computedPhasedBaseMiddleMergedGroup28TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup28Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup28Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup28IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup28IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup28TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup28IntegralCell, computedPhasedBaseMiddleMergedGroup28TaylorCell,
+    computedPhasedBaseMiddleMergedGroup28TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup28IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup28IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup28TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup28IntegralCell, computedPhasedBaseMiddleMergedGroup28TaylorCell,
+    computedPhasedBaseMiddleMergedGroup28TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup29Interval : RationalInterval :=
   ⟨(1725 / 448 : ℚ), (3 / 448 : ℚ)⟩
@@ -1678,6 +2181,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup29IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup29Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup29Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup29IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup29IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup29TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup29IntegralCell, computedPhasedBaseMiddleMergedGroup29TaylorCell,
+    computedPhasedBaseMiddleMergedGroup29TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup29IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup29IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup29TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup29IntegralCell, computedPhasedBaseMiddleMergedGroup29TaylorCell,
+    computedPhasedBaseMiddleMergedGroup29TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup30Interval : RationalInterval :=
   ⟨(3461 / 896 : ℚ), (5 / 896 : ℚ)⟩
 
@@ -1731,6 +2251,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup30IntegralCell :
   computedPhasedBaseMiddleMergedGroup30TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup30Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup30Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup30IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup30IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup30TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup30IntegralCell, computedPhasedBaseMiddleMergedGroup30TaylorCell,
+    computedPhasedBaseMiddleMergedGroup30TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup30IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup30IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup30TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup30IntegralCell, computedPhasedBaseMiddleMergedGroup30TaylorCell,
+    computedPhasedBaseMiddleMergedGroup30TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup31Interval : RationalInterval :=
   ⟨(3471 / 896 : ℚ), (5 / 896 : ℚ)⟩
@@ -1786,6 +2323,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup31IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup31Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup31Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup31IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup31IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup31TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup31IntegralCell, computedPhasedBaseMiddleMergedGroup31TaylorCell,
+    computedPhasedBaseMiddleMergedGroup31TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup31IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup31IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup31TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup31IntegralCell, computedPhasedBaseMiddleMergedGroup31TaylorCell,
+    computedPhasedBaseMiddleMergedGroup31TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup32Interval : RationalInterval :=
   ⟨(3481 / 896 : ℚ), (5 / 896 : ℚ)⟩
 
@@ -1839,6 +2393,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup32IntegralCell :
   computedPhasedBaseMiddleMergedGroup32TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup32Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup32Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup32IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup32IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup32TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup32IntegralCell, computedPhasedBaseMiddleMergedGroup32TaylorCell,
+    computedPhasedBaseMiddleMergedGroup32TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup32IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup32IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup32TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup32IntegralCell, computedPhasedBaseMiddleMergedGroup32TaylorCell,
+    computedPhasedBaseMiddleMergedGroup32TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup33Interval : RationalInterval :=
   ⟨(3491 / 896 : ℚ), (5 / 896 : ℚ)⟩
@@ -1894,6 +2465,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup33IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup33Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup33Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup33IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup33IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup33TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup33IntegralCell, computedPhasedBaseMiddleMergedGroup33TaylorCell,
+    computedPhasedBaseMiddleMergedGroup33TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup33IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup33IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup33TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup33IntegralCell, computedPhasedBaseMiddleMergedGroup33TaylorCell,
+    computedPhasedBaseMiddleMergedGroup33TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup34Interval : RationalInterval :=
   ⟨(3501 / 896 : ℚ), (5 / 896 : ℚ)⟩
 
@@ -1947,6 +2535,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup34IntegralCell :
   computedPhasedBaseMiddleMergedGroup34TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup34Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup34Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup34IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup34IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup34TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup34IntegralCell, computedPhasedBaseMiddleMergedGroup34TaylorCell,
+    computedPhasedBaseMiddleMergedGroup34TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup34IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup34IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup34TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup34IntegralCell, computedPhasedBaseMiddleMergedGroup34TaylorCell,
+    computedPhasedBaseMiddleMergedGroup34TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup35Interval : RationalInterval :=
   ⟨(3513 / 896 : ℚ), (1 / 128 : ℚ)⟩
@@ -2002,6 +2607,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup35IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup35Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup35Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup35IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup35IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup35TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup35IntegralCell, computedPhasedBaseMiddleMergedGroup35TaylorCell,
+    computedPhasedBaseMiddleMergedGroup35TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup35IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup35IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup35TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup35IntegralCell, computedPhasedBaseMiddleMergedGroup35TaylorCell,
+    computedPhasedBaseMiddleMergedGroup35TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup36Interval : RationalInterval :=
   ⟨(3525 / 896 : ℚ), (5 / 896 : ℚ)⟩
 
@@ -2055,6 +2677,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup36IntegralCell :
   computedPhasedBaseMiddleMergedGroup36TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup36Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup36Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup36IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup36IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup36TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup36IntegralCell, computedPhasedBaseMiddleMergedGroup36TaylorCell,
+    computedPhasedBaseMiddleMergedGroup36TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup36IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup36IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup36TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup36IntegralCell, computedPhasedBaseMiddleMergedGroup36TaylorCell,
+    computedPhasedBaseMiddleMergedGroup36TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup37Interval : RationalInterval :=
   ⟨(505 / 128 : ℚ), (5 / 896 : ℚ)⟩
@@ -2110,6 +2749,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup37IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup37Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup37Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup37IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup37IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup37TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup37IntegralCell, computedPhasedBaseMiddleMergedGroup37TaylorCell,
+    computedPhasedBaseMiddleMergedGroup37TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup37IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup37IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup37TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup37IntegralCell, computedPhasedBaseMiddleMergedGroup37TaylorCell,
+    computedPhasedBaseMiddleMergedGroup37TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup38Interval : RationalInterval :=
   ⟨(3545 / 896 : ℚ), (5 / 896 : ℚ)⟩
 
@@ -2163,6 +2819,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup38IntegralCell :
   computedPhasedBaseMiddleMergedGroup38TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup38Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup38Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup38IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup38IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup38TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup38IntegralCell, computedPhasedBaseMiddleMergedGroup38TaylorCell,
+    computedPhasedBaseMiddleMergedGroup38TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup38IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup38IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup38TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup38IntegralCell, computedPhasedBaseMiddleMergedGroup38TaylorCell,
+    computedPhasedBaseMiddleMergedGroup38TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
 
 def computedPhasedBaseMiddleMergedGroup39Interval : RationalInterval :=
   ⟨(3555 / 896 : ℚ), (5 / 896 : ℚ)⟩
@@ -2218,6 +2891,23 @@ noncomputable def computedPhasedBaseMiddleMergedGroup39IntegralCell :
     (by norm_num [computedPhasedBaseMiddleMergedGroup39Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup39Interval, middleMergedIntegrand])
 
+theorem computedPhasedBaseMiddleMergedGroup39IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup39IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup39TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup39IntegralCell, computedPhasedBaseMiddleMergedGroup39TaylorCell,
+    computedPhasedBaseMiddleMergedGroup39TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup39IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup39IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup39TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup39IntegralCell, computedPhasedBaseMiddleMergedGroup39TaylorCell,
+    computedPhasedBaseMiddleMergedGroup39TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
 def computedPhasedBaseMiddleMergedGroup40Interval : RationalInterval :=
   ⟨(3567 / 896 : ℚ), (1 / 128 : ℚ)⟩
 
@@ -2271,6 +2961,426 @@ noncomputable def computedPhasedBaseMiddleMergedGroup40IntegralCell :
   computedPhasedBaseMiddleMergedGroup40TaylorCell.reindex
     (by norm_num [computedPhasedBaseMiddleMergedGroup40Interval, middleMergedIntegrand])
     (by norm_num [computedPhasedBaseMiddleMergedGroup40Interval, middleMergedIntegrand])
+
+theorem computedPhasedBaseMiddleMergedGroup40IntegralCell_center_eq :
+    computedPhasedBaseMiddleMergedGroup40IntegralCell.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedGroup40TaylorCenterQ := by
+  simp [computedPhasedBaseMiddleMergedGroup40IntegralCell, computedPhasedBaseMiddleMergedGroup40TaylorCell,
+    computedPhasedBaseMiddleMergedGroup40TaylorCenterQ,
+    computedPhasedRationalPairToComplex,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_center,
+    computedPhasedBaseOuterCachedShardTaylorCenter_eq_cast]
+
+theorem computedPhasedBaseMiddleMergedGroup40IntegralCell_error_eq :
+    computedPhasedBaseMiddleMergedGroup40IntegralCell.error =
+      (computedPhasedBaseMiddleMergedGroup40TaylorErrorQ : ℝ) := by
+  simp [computedPhasedBaseMiddleMergedGroup40IntegralCell, computedPhasedBaseMiddleMergedGroup40TaylorCell,
+    computedPhasedBaseMiddleMergedGroup40TaylorErrorQ,
+    computedPhasedBaseOuterCachedShardTaylorCellWithRemainder_error,
+    computedPhasedBaseOuterCachedShardTaylorError_eq_cast]
+
+def computedPhasedBaseMiddleMergedChunk0CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup0TaylorCenterQ + computedPhasedBaseMiddleMergedGroup1TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup2TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup3TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup4TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk0ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup0TaylorErrorQ + computedPhasedBaseMiddleMergedGroup1TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup2TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup3TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup4TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk0Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((7 / 2 : ℚ) : ℚ) : ℝ)
+      (((797 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup0IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup1IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup2IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup3IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup4IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk0Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk0Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk0CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk0Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup0IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup1IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup2IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup3IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup4IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk0CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk0Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk0Certificate.error = (computedPhasedBaseMiddleMergedChunk0ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk0Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup0IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup1IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup2IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup3IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup4IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk0ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk1CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup5TaylorCenterQ + computedPhasedBaseMiddleMergedGroup6TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup7TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup8TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup9TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk1ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup5TaylorErrorQ + computedPhasedBaseMiddleMergedGroup6TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup7TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup8TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup9TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk1Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((797 / 224 : ℚ) : ℚ) : ℝ)
+      (((405 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup5IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup6IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup7IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup8IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup9IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk1Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk1Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk1CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk1Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup5IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup6IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup7IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup8IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup9IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk1CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk1Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk1Certificate.error = (computedPhasedBaseMiddleMergedChunk1ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk1Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup5IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup6IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup7IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup8IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup9IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk1ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk2CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup10TaylorCenterQ + computedPhasedBaseMiddleMergedGroup11TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup12TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup13TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup14TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk2ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup10TaylorErrorQ + computedPhasedBaseMiddleMergedGroup11TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup12TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup13TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup14TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk2Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((405 / 112 : ℚ) : ℚ) : ℝ)
+      (((823 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup10IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup11IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup12IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup13IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup14IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk2Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk2Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk2CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk2Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup10IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup11IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup12IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup13IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup14IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk2CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk2Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk2Certificate.error = (computedPhasedBaseMiddleMergedChunk2ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk2Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup10IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup11IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup12IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup13IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup14IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk2ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk3CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup15TaylorCenterQ + computedPhasedBaseMiddleMergedGroup16TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup17TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup18TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup19TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk3ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup15TaylorErrorQ + computedPhasedBaseMiddleMergedGroup16TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup17TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup18TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup19TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk3Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((823 / 224 : ℚ) : ℚ) : ℝ)
+      (((209 / 56 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup15IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup16IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup17IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup18IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup19IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk3Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk3Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk3CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk3Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup15IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup16IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup17IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup18IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup19IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk3CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk3Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk3Certificate.error = (computedPhasedBaseMiddleMergedChunk3ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk3Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup15IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup16IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup17IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup18IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup19IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk3ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk4CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup20TaylorCenterQ + computedPhasedBaseMiddleMergedGroup21TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup22TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup23TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup24TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk4ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup20TaylorErrorQ + computedPhasedBaseMiddleMergedGroup21TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup22TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup23TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup24TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk4Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((209 / 56 : ℚ) : ℚ) : ℝ)
+      (((849 / 224 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup20IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup21IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup22IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup23IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup24IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk4Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk4Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk4CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk4Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup20IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup21IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup22IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup23IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup24IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk4CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk4Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk4Certificate.error = (computedPhasedBaseMiddleMergedChunk4ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk4Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup20IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup21IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup22IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup23IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup24IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk4ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk5CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup25TaylorCenterQ + computedPhasedBaseMiddleMergedGroup26TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup27TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup28TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup29TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk5ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup25TaylorErrorQ + computedPhasedBaseMiddleMergedGroup26TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup27TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup28TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup29TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk5Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((849 / 224 : ℚ) : ℚ) : ℝ)
+      (((27 / 7 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup25IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup26IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup27IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup28IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup29IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk5Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk5Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk5CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk5Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup25IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup26IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup27IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup28IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup29IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk5CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk5Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk5Certificate.error = (computedPhasedBaseMiddleMergedChunk5ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk5Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup25IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup26IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup27IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup28IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup29IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk5ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk6CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup30TaylorCenterQ + computedPhasedBaseMiddleMergedGroup31TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup32TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup33TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup34TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk6ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup30TaylorErrorQ + computedPhasedBaseMiddleMergedGroup31TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup32TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup33TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup34TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk6Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((27 / 7 : ℚ) : ℚ) : ℝ)
+      (((1753 / 448 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup30IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup31IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup32IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup33IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup34IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk6Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk6Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk6CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk6Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup30IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup31IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup32IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup33IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup34IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk6CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk6Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk6Certificate.error = (computedPhasedBaseMiddleMergedChunk6ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk6Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup30IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup31IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup32IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup33IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup34IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk6ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk7CenterQ : ℚ × ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup35TaylorCenterQ + computedPhasedBaseMiddleMergedGroup36TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup37TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup38TaylorCenterQ) + computedPhasedBaseMiddleMergedGroup39TaylorCenterQ)
+
+def computedPhasedBaseMiddleMergedChunk7ErrorQ : ℚ :=
+  ((((computedPhasedBaseMiddleMergedGroup35TaylorErrorQ + computedPhasedBaseMiddleMergedGroup36TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup37TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup38TaylorErrorQ) + computedPhasedBaseMiddleMergedGroup39TaylorErrorQ)
+
+noncomputable def computedPhasedBaseMiddleMergedChunk7Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((1753 / 448 : ℚ) : ℚ) : ℝ)
+      (((445 / 112 : ℚ) : ℚ) : ℝ) :=
+  ((((computedPhasedBaseMiddleMergedGroup35IntegralCell.append
+      computedPhasedBaseMiddleMergedGroup36IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup37IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup38IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _)).append
+      computedPhasedBaseMiddleMergedGroup39IntegralCell
+      (middleMergedIntegrand_intervalIntegrable _ _)
+      (middleMergedIntegrand_intervalIntegrable _ _))
+
+theorem computedPhasedBaseMiddleMergedChunk7Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk7Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk7CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk7Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup35IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup36IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup37IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup38IntegralCell_center_eq]
+  rw [computedPhasedBaseMiddleMergedGroup39IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk7CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk7Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk7Certificate.error = (computedPhasedBaseMiddleMergedChunk7ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk7Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup35IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup36IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup37IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup38IntegralCell_error_eq]
+  rw [computedPhasedBaseMiddleMergedGroup39IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk7ErrorQ, Rat.cast_add]
+
+def computedPhasedBaseMiddleMergedChunk8CenterQ : ℚ × ℚ :=
+  computedPhasedBaseMiddleMergedGroup40TaylorCenterQ
+
+def computedPhasedBaseMiddleMergedChunk8ErrorQ : ℚ :=
+  computedPhasedBaseMiddleMergedGroup40TaylorErrorQ
+
+noncomputable def computedPhasedBaseMiddleMergedChunk8Certificate :
+    ComplexIntegralCellCertificate middleMergedIntegrand
+      (((445 / 112 : ℚ) : ℚ) : ℝ)
+      (((1787 / 448 : ℚ) : ℚ) : ℝ) :=
+  computedPhasedBaseMiddleMergedGroup40IntegralCell
+
+theorem computedPhasedBaseMiddleMergedChunk8Certificate_center_eq :
+    computedPhasedBaseMiddleMergedChunk8Certificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedChunk8CenterQ := by
+  simp only [computedPhasedBaseMiddleMergedChunk8Certificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedGroup40IntegralCell_center_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk8CenterQ, computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedChunk8Certificate_error_eq :
+    computedPhasedBaseMiddleMergedChunk8Certificate.error = (computedPhasedBaseMiddleMergedChunk8ErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedChunk8Certificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedGroup40IntegralCell_error_eq]
+  simp only [computedPhasedBaseMiddleMergedChunk8ErrorQ, Rat.cast_add]
 
 def computedPhasedBaseMiddleMergedTaylorCenterQ
     (i : Fin 41) : ℚ × ℚ := ![
@@ -2363,135 +3473,38 @@ def computedPhasedBaseMiddleMergedTaylorErrorQ
 ] i
 
 def computedPhasedBaseMiddleMergedCompactCenterQ : ℚ × ℚ :=
-  (∑ i, (computedPhasedBaseMiddleMergedTaylorCenterQ i).1,
-    ∑ i, (computedPhasedBaseMiddleMergedTaylorCenterQ i).2)
+  ((((((((computedPhasedBaseMiddleMergedChunk0CenterQ + computedPhasedBaseMiddleMergedChunk1CenterQ) + computedPhasedBaseMiddleMergedChunk2CenterQ) + computedPhasedBaseMiddleMergedChunk3CenterQ) + computedPhasedBaseMiddleMergedChunk4CenterQ) + computedPhasedBaseMiddleMergedChunk5CenterQ) + computedPhasedBaseMiddleMergedChunk6CenterQ) + computedPhasedBaseMiddleMergedChunk7CenterQ) + computedPhasedBaseMiddleMergedChunk8CenterQ)
 
 def computedPhasedBaseMiddleMergedCompactErrorQ : ℚ :=
-  ∑ i, computedPhasedBaseMiddleMergedTaylorErrorQ i
+  ((((((((computedPhasedBaseMiddleMergedChunk0ErrorQ + computedPhasedBaseMiddleMergedChunk1ErrorQ) + computedPhasedBaseMiddleMergedChunk2ErrorQ) + computedPhasedBaseMiddleMergedChunk3ErrorQ) + computedPhasedBaseMiddleMergedChunk4ErrorQ) + computedPhasedBaseMiddleMergedChunk5ErrorQ) + computedPhasedBaseMiddleMergedChunk6ErrorQ) + computedPhasedBaseMiddleMergedChunk7ErrorQ) + computedPhasedBaseMiddleMergedChunk8ErrorQ)
 
 /-- The 41-cell exact compact middle certificate. -/
 noncomputable def computedPhasedBaseMiddleMergedCompactCertificate :
     ComplexIntegralCellCertificate middleMergedIntegrand
       (((7 / 2 : ℚ) : ℝ)) (((1787 / 448 : ℚ) : ℝ)) :=
-  ((((((((((((((((((((((((((((((((((((((((computedPhasedBaseMiddleMergedGroup0IntegralCell.append
-      computedPhasedBaseMiddleMergedGroup1IntegralCell
+  ((((((((computedPhasedBaseMiddleMergedChunk0Certificate.append
+      computedPhasedBaseMiddleMergedChunk1Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup2IntegralCell
+      computedPhasedBaseMiddleMergedChunk2Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup3IntegralCell
+      computedPhasedBaseMiddleMergedChunk3Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup4IntegralCell
+      computedPhasedBaseMiddleMergedChunk4Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup5IntegralCell
+      computedPhasedBaseMiddleMergedChunk5Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup6IntegralCell
+      computedPhasedBaseMiddleMergedChunk6Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup7IntegralCell
+      computedPhasedBaseMiddleMergedChunk7Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup8IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup9IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup10IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup11IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup12IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup13IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup14IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup15IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup16IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup17IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup18IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup19IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup20IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup21IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup22IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup23IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup24IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup25IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup26IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup27IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup28IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup29IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup30IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup31IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup32IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup33IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup34IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup35IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup36IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup37IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup38IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup39IntegralCell
-      (middleMergedIntegrand_intervalIntegrable _ _)
-      (middleMergedIntegrand_intervalIntegrable _ _)).append
-      computedPhasedBaseMiddleMergedGroup40IntegralCell
+      computedPhasedBaseMiddleMergedChunk8Certificate
       (middleMergedIntegrand_intervalIntegrable _ _)
       (middleMergedIntegrand_intervalIntegrable _ _))
 
@@ -2502,6 +3515,39 @@ theorem computedPhasedBaseMiddleMergedCompactIntegral_mem :
       computedPhasedBaseMiddleMergedCompactCertificate.error :=
   computedPhasedBaseMiddleMergedCompactCertificate.integral_mem
     (middleMergedIntegrand_intervalIntegrable _ _)
+
+theorem computedPhasedBaseMiddleMergedCompactCertificate_center_eq :
+    computedPhasedBaseMiddleMergedCompactCertificate.center =
+      computedPhasedRationalPairToComplex computedPhasedBaseMiddleMergedCompactCenterQ := by
+  simp only [computedPhasedBaseMiddleMergedCompactCertificate,
+    ComplexIntegralCellCertificate.append_center]
+  rw [computedPhasedBaseMiddleMergedChunk0Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk1Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk2Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk3Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk4Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk5Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk6Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk7Certificate_center_eq]
+  rw [computedPhasedBaseMiddleMergedChunk8Certificate_center_eq]
+  simp only [computedPhasedBaseMiddleMergedCompactCenterQ,
+    computedPhasedRationalPairToComplex_add]
+
+theorem computedPhasedBaseMiddleMergedCompactCertificate_error_eq :
+    computedPhasedBaseMiddleMergedCompactCertificate.error =
+      (computedPhasedBaseMiddleMergedCompactErrorQ : ℝ) := by
+  simp only [computedPhasedBaseMiddleMergedCompactCertificate,
+    ComplexIntegralCellCertificate.append_error]
+  rw [computedPhasedBaseMiddleMergedChunk0Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk1Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk2Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk3Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk4Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk5Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk6Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk7Certificate_error_eq]
+  rw [computedPhasedBaseMiddleMergedChunk8Certificate_error_eq]
+  simp only [computedPhasedBaseMiddleMergedCompactErrorQ, Rat.cast_add]
 
 end
 end RiemannVenue.Venue
