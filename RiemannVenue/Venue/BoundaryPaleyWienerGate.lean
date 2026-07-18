@@ -1,5 +1,6 @@
 import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
 import RiemannVenue.Venue.BoundaryCompletedTypeLaws
+import RiemannVenue.Venue.BoundaryExplicitStandardBump
 import RiemannVenue.Venue.BoundarySpectralAmplification
 
 /-!
@@ -18,20 +19,14 @@ open MeasureTheory
 
 noncomputable section
 
-/-- Canonical compactly supported smooth bump centered at zero. -/
-noncomputable def canonicalSmoothBumpData : ContDiffBump (0 : ℝ) :=
-  default
-
-noncomputable def canonicalSmoothBump : SmoothCompletedLogTest := by
-  let b := canonicalSmoothBumpData
-  have hb : ContDiff ℝ (⊤ : ℕ∞) b := b.contDiff
-  exact ⟨CompletedLogTest.ofWeilTest b hb.continuous
-    b.hasCompactSupport, hb⟩
+/-- Canonical compactly supported smooth bump centered at zero.  This is the
+explicit normalized standard bump used by the numerical certificate tools,
+not an opaque choice of `ContDiffBump`. -/
+noncomputable def canonicalSmoothBump : SmoothCompletedLogTest :=
+  explicitStandardBumpTest
 
 theorem canonicalSmoothBump_zero : canonicalSmoothBump 0 = 1 := by
-  change canonicalSmoothBumpData 0 = 1
-  apply canonicalSmoothBumpData.one_of_mem_closedBall
-  exact Metric.mem_closedBall_self canonicalSmoothBumpData.rIn_pos.le
+  simp [canonicalSmoothBump]
 
 theorem canonicalSmoothBump_ne_zero : canonicalSmoothBump ≠
     SmoothCompletedLogTest.zero := by

@@ -31,6 +31,8 @@ import RiemannVenue.Venue.BoundaryFiniteWindowGlobalGap
 import RiemannVenue.Venue.BoundaryFiniteWindowLeakage
 import RiemannVenue.Venue.BoundaryCanonicalWindowCompiler
 import RiemannVenue.Venue.BoundaryCanonicalInterpolationTail
+import RiemannVenue.Venue.BoundaryComputedPhasedCertificateConsequences
+import RiemannVenue.Venue.BoundaryExplicitBumpJets
 
 /-!
 # Terminal axiom audit
@@ -105,6 +107,9 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_RH
 #print axioms RiemannVenue.Venue.completedBoundarySmoothCorePositivity_of_openStripRH
 #print axioms RiemannVenue.Venue.boundaryPositivityReconnaissance
+#print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_eq_jet_mul_exp
+#print axioms RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero
+#print axioms RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment
 
 open Lean Elab Command
 

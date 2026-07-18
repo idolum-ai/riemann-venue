@@ -21,6 +21,21 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   numerical equalities. Its reported crossing is a computed proxy, not an
   interval certificate or an RH claim.
 
+- `export_localized_phased_certificate.py` reruns the selected phased solve,
+  makes reflection symmetry exact, rationalizes the 100 base coefficients,
+  and exports `artifacts/localized-phased-candidate.json`. The exporter also
+  identifies the two symmetric correction pairs used by Lean's exact Cramer
+  solve. The JSON remains candidate data (`proof_authority: false`): only the
+  kernel-checked interval modules may promote its numerical diagnostics to a
+  theorem.
+
+- `generate_computed_phased_interval_certificate.py` deterministically emits
+  the 270-cell exact-rational packet used by the computed phased candidate.
+  CI diffs the generated module against the committed copy. The packet makes
+  every transform and cell enclosure an explicit proof field; it is not
+  proof authority until `ComputedPhasedAnalyticIntervalCertificate` has a
+  constructed inhabitant.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.
