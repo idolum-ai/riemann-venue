@@ -149,6 +149,8 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.computedTransformBaseTestJetPointInterval_contains
 #print axioms RiemannVenue.Venue.completedFourierLaplaceTransform_computedPhasedBase_eq_paired
 #print axioms RiemannVenue.Venue.computedPhasedBaseOuterPairedCache_contains
+#print axioms RiemannVenue.Venue.computedPhasedBaseOuterRemainderMidpointCache_contains
+#print axioms RiemannVenue.Venue.norm_computedPhasedBaseOuterRemainder_le
 #print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval
 #print axioms RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval
 #print axioms RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide

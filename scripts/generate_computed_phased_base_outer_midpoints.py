@@ -15,12 +15,16 @@ from fractions import Fraction as Q
 from pathlib import Path
 
 from generate_computed_phased_derivative_cell0_leaves import (
-    Interval, bump_interval, bump_norm, lean_interval, lean_q, lean_trig,
-    outward, range_exp, trig_interval, trig_norm,
+    Interval, bounds, bump_interval, bump_norm, eval_poly, lean_interval,
+    lean_q, lean_trig, monotone_exp, outward, range_exp, trig_interval,
+    trig_norm,
 )
 from generate_canonical_bump_transform_packets import (
-    interval_mul, rational_transform_raw_cache, rectangle_add,
-    round_rectangle_outward, lean_rectangle,
+    interval_add, interval_mul, rational_transform_raw_cache, rectangle_add,
+    rectangle_mul, rectangle_pow, round_rectangle_outward, lean_rectangle,
+)
+from generate_computed_phased_transform_bump_global_bounds import (
+    boundary_coefficients, numerators,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +34,8 @@ RADIUS = Q(1, 28)
 MIDPOINTS = tuple(Q(113 + 2 * i, 28) for i in range(7))
 BENCHMARK_REAL = Q(14134725141734695, 10**15)
 FREQUENCIES = tuple(Q(8) + Q(34, 19) * i for i in range(20))
+JET_NUMERATORS = numerators()
+BOUNDARY_COEFFICIENTS_12 = boundary_coefficients(12, JET_NUMERATORS[12])
 
 
 def round_interval(value: Interval, grid: int = GRID) -> Interval:
@@ -101,6 +107,85 @@ def midpoint_data(q: Q):
     paired = [round_rectangle_outward(rectangle_add(a, b), GRID)
               for a, b in zip(forward, reflected)]
     return trig, bump, blocks, bases, kernels, paired
+
+
+def sparse_polynomial_interval(coefficients: list[int], value: Interval) -> Interval:
+    result = Interval()
+    power = Interval(1)
+    for coefficient in coefficients:
+        result = result.add(power.scale(coefficient))
+        power = power.mul(value)
+    return result
+
+
+def stable_bump_twelve_interval(q: Q) -> Interval:
+    coordinate = Interval(Q(2, 7) * (q - 1), 0)
+    gap = Interval(1).add(coordinate.power(2).neg())
+    inverse = bounds(1 / gap.upper, 1 / gap.lower)
+    boundary = coordinate.power(2).mul(inverse)
+    polynomial = sparse_polynomial_interval(BOUNDARY_COEFFICIENTS_12, boundary)
+    exponential = monotone_exp(32, boundary.neg(), bump_split(q))
+    return polynomial.mul(exponential).scale(Q(2, 7) ** 12)
+
+
+def rational_transform_raw_order(
+    order: int,
+    re: Q,
+    im: Q,
+    kernel,
+    base_cache: list[tuple[Q, Q]],
+):
+    transform_lambda = ((-im, Q(0)), (re, Q(0)))
+    result = ((Q(0), Q(0)), (Q(0), Q(0)))
+    for base_order in range(order + 1):
+        real_factor = (
+            interval_mul((Q(math.comb(order, base_order)), Q(0)),
+                         base_cache[base_order]),
+            (Q(0), Q(0)),
+        )
+        kernel_factor = rectangle_mul(
+            rectangle_pow(transform_lambda, order - base_order), kernel)
+        result = rectangle_add(result, rectangle_mul(real_factor, kernel_factor))
+    return result
+
+
+def remainder_midpoint_data(q: Q):
+    trig, bump, _, bases, kernels, _ = midpoint_data(q)
+    coordinate = Q(2, 7) * (q - 1)
+    boundary = coordinate**2 / (1 - coordinate**2)
+    polynomial = sum(Q(c) * boundary**k
+                     for k, c in enumerate(BOUNDARY_COEFFICIENTS_12))
+    exponential = outward(
+        range_exp(32, -boundary, bump_split(q)), 10**20)
+    bump_twelve = round_interval(
+        Interval(polynomial).mul(exponential).scale(Q(2, 7) ** 12), 10**20)
+    coeffs = coefficients()
+    blocks = []
+    for block in range(4):
+        total = Interval()
+        for g in range(5 * block, 5 * block + 5):
+            sin, cos = trig[g]
+            cycle = (cos, sin.neg(), cos.neg(), sin)
+            atom = Interval()
+            all_bumps = [*bump, bump_twelve]
+            for i in range(13):
+                atom = atom.add(cycle[i % 4].scale(FREQUENCIES[g] ** i)
+                    .mul(all_bumps[12 - i]).scale(math.comb(12, i)))
+            total = total.add(atom.scale(coeffs[5 * g + 4]))
+        blocks.append(round_interval(total))
+    base = Interval()
+    for value in blocks:
+        base = base.add(value)
+    base = round_interval(base)
+    all_bases = [*bases, base]
+    forward = rational_transform_raw_order(
+        12, BENCHMARK_REAL, Q(1, 4),
+        tuple(as_data(x) for x in kernels[0]), [as_data(x) for x in all_bases])
+    reflected = rational_transform_raw_order(
+        12, -BENCHMARK_REAL, Q(-1, 4),
+        tuple(as_data(x) for x in kernels[1]), [as_data(x) for x in all_bases])
+    paired = round_rectangle_outward(rectangle_add(forward, reflected), GRID)
+    return boundary, polynomial, exponential, bump_twelve, blocks, base, paired
 
 
 KERNEL_UNFOLD = """rationalComplexKernelInterval, rangeReducedExpInterval,
@@ -306,7 +391,7 @@ def render_cell(index: int, q: Q) -> str:
 
 
 def render_aggregate() -> str:
-    lines = [*(f"import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterMidpointCell{i}" for i in range(7)),
+    lines = [*(f"import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterRemainderMidpointCell{i}" for i in range(7)),
         "", "/-! Certified midpoint shard for the narrow outer regime. -/",
         "namespace RiemannVenue.Venue", "noncomputable section", "",
         "def computedPhasedBaseOuterMidpoint (i : Fin 7) : ℚ := ![113/28, 115/28, 117/28, 17/4, 121/28, 123/28, 125/28] i",
@@ -321,6 +406,353 @@ def render_aggregate() -> str:
         "def computedPhasedBaseOuterMidpointIntervalPaymentQ (i : Fin 7) : ℚ :=",
         "  2 * (1 / 28) * ((∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).re.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial) +",
         "    (∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).im.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial))",
+        "", "/-- Certified first-omitted-jet rectangle at each outer midpoint. -/",
+        "def computedPhasedBaseOuterRemainderMidpointCache (i : Fin 7) : RationalRectangle := ![",
+        ",\n".join(f"  computedPhasedBaseOuterCell{i}Paired12" for i in range(7)), "] i",
+        "theorem computedPhasedBaseOuterRemainderMidpointCache_contains (i : Fin 7) :",
+        "    (computedPhasedBaseOuterRemainderMidpointCache i).Contains",
+        "      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "        (computedPhasedBaseOuterMidpoint i : ℝ)) := by",
+        "  fin_cases i",
+        *[f"  simpa [computedPhasedBaseOuterRemainderMidpointCache, computedPhasedBaseOuterMidpoint, computedPhasedBaseOuterCell{i}Midpoint] using computedPhasedBaseOuterCell{i}Paired12_contains" for i in range(7)],
+        "", "def computedPhasedBaseOuterRemainderMidpointBoundQ (i : Fin 7) : ℚ :=",
+        "  rationalRectangleL1AbsUpper",
+        "    (computedPhasedBaseOuterRemainderMidpointCache i)",
+        "theorem norm_computedPhasedBaseOuterRemainderMidpoint_le (i : Fin 7) :",
+        "    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "        (computedPhasedBaseOuterMidpoint i : ℝ)‖ ≤",
+        "      (computedPhasedBaseOuterRemainderMidpointBoundQ i : ℝ) := by",
+        "  exact norm_le_rationalRectangleL1AbsUpper",
+        "    (computedPhasedBaseOuterRemainderMidpointCache_contains i)",
+        "", "/-- The remaining analytic obligation after midpoint cancellation has been",
+        "certified: control variation of the omitted jet across one radius-`1/28`",
+        "cell.  Different tail arguments can implement this contract unchanged. -/",
+        "structure ComputedPhasedBaseOuterRemainderVariationCertificate (i : Fin 7) where",
+        "  bound : ℚ",
+        "  bound_nonneg : 0 ≤ bound",
+        "  variation : ∀ x : ℝ,",
+        "    x ∈ Set.Icc ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28) →",
+        "    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x -",
+        "      computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "        (computedPhasedBaseOuterMidpoint i : ℝ)‖ ≤ (bound : ℝ)",
+        "", "/-- Convert a uniform order-thirteen bound into the local variation",
+        "contract by the Banach-valued mean value theorem.  This is the ordinary",
+        "cell route; endpoint flatness may provide a sharper certificate directly. -/",
+        "noncomputable def computedPhasedBaseOuterRemainderVariationOfThirteenBound",
+        "    (i : Fin 7) (C : ℚ) (hC : 0 ≤ C)",
+        "    (hthirteen : ∀ x : ℝ,",
+        "      x ∈ Set.Icc ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
+        "        ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28) →",
+        "      ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 13 x‖ ≤",
+        "        (C : ℝ)) :",
+        "    ComputedPhasedBaseOuterRemainderVariationCertificate i where",
+        "  bound := C / 28",
+        "  bound_nonneg := div_nonneg hC (by norm_num)",
+        "  variation := by",
+        "    intro x hx",
+        "    let f : ℝ → ℂ := computedPhasedBasePairedRawIntegrand",
+        "      computedPhasedBenchmarkPoint",
+        "    let s : Set ℝ := Set.Icc",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28)",
+        "    have hmid : (computedPhasedBaseOuterMidpoint i : ℝ) ∈ s := by",
+        "      change (computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28 ≤",
+        "          computedPhasedBaseOuterMidpoint i ∧",
+        "        (computedPhasedBaseOuterMidpoint i : ℝ) ≤",
+        "          computedPhasedBaseOuterMidpoint i + 1 / 28",
+        "      constructor <;> norm_num",
+        "    have hdiff : ∀ y ∈ s,",
+        "        DifferentiableAt ℝ (iteratedDeriv 12 f) y := by",
+        "      intro y _",
+        "      have hsmooth := computedPhasedBasePairedRawIntegrand_contDiff",
+        "        computedPhasedBenchmarkPoint",
+        "      exact (hsmooth.differentiable_iteratedDeriv 12",
+        "        (WithTop.coe_lt_coe.mpr (ENat.coe_lt_top 12))).differentiableAt",
+        "    have hderiv : ∀ y ∈ s,",
+        "        ‖_root_.deriv (iteratedDeriv 12 f) y‖ ≤ (C : ℝ) := by",
+        "      intro y hy",
+        "      rw [← iteratedDeriv_succ, show 12 + 1 = 13 by norm_num,",
+        "        iteratedDeriv_computedPhasedBasePairedRawIntegrand]",
+        "      exact hthirteen y hy",
+        "    have hmv := (convex_Icc _ _).norm_image_sub_le_of_norm_deriv_le",
+        "      hdiff hderiv hmid hx",
+        "    have hdist : ‖x - (computedPhasedBaseOuterMidpoint i : ℝ)‖ ≤",
+        "        (1 / 28 : ℝ) := by",
+        "      rw [Real.norm_eq_abs, abs_le]",
+        "      constructor <;> linarith [hx.1, hx.2]",
+        "    calc",
+        "      ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x -",
+        "          computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "            (computedPhasedBaseOuterMidpoint i : ℝ)‖ =",
+        "          ‖iteratedDeriv 12 f x - iteratedDeriv 12 f",
+        "            (computedPhasedBaseOuterMidpoint i : ℝ)‖ := by",
+        "            simp only [f, iteratedDeriv_computedPhasedBasePairedRawIntegrand]",
+        "      _ ≤ (C : ℝ) *",
+        "          ‖x - (computedPhasedBaseOuterMidpoint i : ℝ)‖ := hmv",
+        "      _ ≤ (C : ℝ) * (1 / 28 : ℝ) :=",
+        "        mul_le_mul_of_nonneg_left hdist (by exact_mod_cast hC)",
+        "      _ = ((C / 28 : ℚ) : ℝ) := by push_cast; ring",
+        "", "def computedPhasedBaseOuterRemainderBoundQ (i : Fin 7)",
+        "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) : ℚ :=",
+        "  computedPhasedBaseOuterRemainderMidpointBoundQ i + V.bound",
+        "", "theorem norm_computedPhasedBaseOuterRemainder_le (i : Fin 7)",
+        "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i)",
+        "    (x : ℝ)",
+        "    (hx : x ∈ Set.Icc ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28)) :",
+        "    ‖iteratedDeriv 12 (computedPhasedBasePairedRawIntegrand",
+        "        computedPhasedBenchmarkPoint) x‖ ≤",
+        "      (computedPhasedBaseOuterRemainderBoundQ i V : ℝ) := by",
+        "  rw [iteratedDeriv_computedPhasedBasePairedRawIntegrand]",
+        "  calc",
+        "    ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x‖ ≤",
+        "        ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x -",
+        "            computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "              (computedPhasedBaseOuterMidpoint i : ℝ)‖ +",
+        "          ‖computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "              (computedPhasedBaseOuterMidpoint i : ℝ)‖ := by",
+        "      simpa only [sub_add_cancel] using norm_add_le",
+        "        (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12 x -",
+        "          computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "            (computedPhasedBaseOuterMidpoint i : ℝ))",
+        "        (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        "          (computedPhasedBaseOuterMidpoint i : ℝ))",
+        "    _ ≤ (V.bound : ℝ) +",
+        "        (computedPhasedBaseOuterRemainderMidpointBoundQ i : ℝ) :=",
+        "      add_le_add (V.variation x hx)",
+        "        (norm_computedPhasedBaseOuterRemainderMidpoint_le i)",
+        "    _ = (computedPhasedBaseOuterRemainderBoundQ i V : ℝ) := by",
+        "      exact_mod_cast (add_comm V.bound",
+        "        (computedPhasedBaseOuterRemainderMidpointBoundQ i))",
+        "", "/-- A variation certificate closes the corresponding outer Taylor cell. -/",
+        "noncomputable def computedPhasedBaseOuterTaylorCell (i : Fin 7)",
+        "    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) :",
+        "    ComplexIntegralCellCertificate",
+        "      (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)",
+        "      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28) := by",
+        "  simpa using",
+        "    (computedPhasedBasePairedTaylorCellAtCached",
+        "      (computedPhasedBaseOuterMidpoint i) (1 / 28)",
+        "      (computedPhasedBaseOuterRemainderBoundQ i V)",
+        "      (by norm_num)",
+        "      (by",
+        "        have hmid := norm_computedPhasedBaseOuterRemainderMidpoint_le i",
+        "        have hmidNonneg : (0 : ℝ) ≤",
+        "            (computedPhasedBaseOuterRemainderMidpointBoundQ i : ℝ) :=",
+        "          (norm_nonneg _).trans hmid",
+        "        have hmidNonnegQ : (0 : ℚ) ≤",
+        "            computedPhasedBaseOuterRemainderMidpointBoundQ i := by",
+        "          exact_mod_cast hmidNonneg",
+        "        exact add_nonneg hmidNonnegQ V.bound_nonneg)",
+        "      (computedPhasedBaseOuterPairedCache i)",
+        "      (computedPhasedBaseOuterPairedCache_contains i)",
+        "      (by",
+        "        intro x hx",
+        "        apply norm_computedPhasedBaseOuterRemainder_le i V x",
+        "        norm_num at hx ⊢",
+        "        exact hx))",
+        "", "end", "end RiemannVenue.Venue", ""]
+    return "\n".join(lines)
+
+
+def render_remainder_cell(index: int, q: Q) -> str:
+    boundary, polynomial, exponential, bump_twelve, blocks, base, paired = \
+        remainder_midpoint_data(q)
+    p = f"computedPhasedBaseOuterCell{index}"
+    bump = f"{p}Bump12"
+    boundary_name = f"{p}BumpBoundary12"
+    polynomial_name = f"{p}BumpPolynomial12"
+    exponential_name = f"{p}BumpExponential12"
+    lines = [
+        f"import RiemannVenue.Venue.BoundaryComputedPhasedBaseOuterMidpointCell{index}",
+        "", "/-! Generated first-omitted-jet midpoint certificate. -/",
+        "namespace RiemannVenue.Venue", "open Finset",
+        "open scoped BigOperators", "noncomputable section", "",
+        f"def {boundary_name} : RationalInterval :=",
+        f"  RationalInterval.singleton ({lean_q(boundary)})",
+        f"def {polynomial_name} : RationalInterval :=",
+        f"  RationalInterval.singleton ({lean_q(polynomial)})",
+        lean_interval(exponential_name, exponential),
+        lean_interval(bump, bump_twelve),
+        f"theorem {boundary_name}_contains : {boundary_name}.Contains",
+        f"    ({lean_q(boundary)} : ℝ) := by",
+        f"  norm_num [{boundary_name}, RationalInterval.Contains,",
+        "    RationalInterval.singleton]", "",
+        f"theorem {polynomial_name}_contains : {polynomial_name}.Contains",
+        f"    (Polynomial.aeval ({lean_q(boundary)} : ℝ)",
+        "      computedTransformBumpBoundaryPolynomial12) := by",
+        f"  have heq : ({lean_q(polynomial)} : ℝ) =",
+        f"      Polynomial.aeval ({lean_q(boundary)} : ℝ)",
+        "        computedTransformBumpBoundaryPolynomial12 := by",
+        "    norm_num [computedTransformBumpBoundaryPolynomial12, map_add,",
+        "      map_mul, map_pow, Polynomial.aeval_X, map_ofNat, map_neg,",
+        "      map_intCast, Polynomial.aeval_monomial]",
+        f"  rw [{polynomial_name}, RationalInterval.Contains,",
+        "    RationalInterval.singleton, ← heq]",
+        "  norm_num", "",
+        f"theorem {exponential_name}_contains : {exponential_name}.Contains",
+        f"    (Real.exp (-({lean_q(boundary)} : ℝ))) := by",
+        "  have hraw := real_exp_mem_rangeReducedExpInterval",
+        f"    (n := 32) (k := {bump_split(q)}) (x := -({lean_q(boundary)} : ℚ))",
+        "    (by norm_num) (by norm_num)",
+        "  have hwide : (rangeReducedExpInterval 32",
+        f"      (-({lean_q(boundary)})) {bump_split(q)}).radius +",
+        f"      |(rangeReducedExpInterval 32 (-({lean_q(boundary)})) {bump_split(q)}).center -",
+        f"        {exponential_name}.center| ≤ {exponential_name}.radius := by",
+        f"    norm_num [{exponential_name}, rangeReducedExpInterval,",
+        "    rationalExpInterval, rationalExpTaylor, rationalExpRemainder,",
+        "    RationalInterval.pow, RationalInterval.mul, RationalInterval.one,",
+        "    RationalInterval.singleton, Finset.sum_range_succ]",
+        f"  simpa [{exponential_name}] using",
+        "    (RationalInterval.contains_of_center_radius_le hraw hwide)", "",
+        f"theorem {bump}_contains : {bump}.Contains",
+        f"    (computedPhasedBumpJet 12 (computedPhasedBaseOuterColumn 0)",
+        f"      ({p}Midpoint : ℝ)) := by",
+        "  have hmul := RationalInterval.contains_mul",
+        f"    {polynomial_name}_contains {exponential_name}_contains",
+        "  have hs := RationalInterval.contains_scale",
+        "    (q := (2 / 7 : ℚ) ^ 12) hmul",
+        "  have hjet := iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial12",
+        f"    (t := (2 / 7 : ℝ) * (({p}Midpoint : ℝ) - 1))",
+        f"    (by norm_num [{p}Midpoint])",
+        "  have hbump : computedPhasedBumpJet 12",
+        f"      (computedPhasedBaseOuterColumn 0) ({p}Midpoint : ℝ) =",
+        f"      (2 / 7 : ℝ) ^ 12 * ((Polynomial.aeval ({lean_q(boundary)} : ℝ)",
+        "        computedTransformBumpBoundaryPolynomial12) *",
+        f"          Real.exp (-({lean_q(boundary)} : ℝ))) := by",
+        "    simp only [computedPhasedBumpJet, computedPhasedScale,",
+        "      computedPhasedBaseOuterColumn_translation]",
+        f"    rw [show (7 / 2 : ℝ)⁻¹ = 2 / 7 by norm_num,",
+        f"      show ({p}Midpoint : ℝ) + -1 = ({p}Midpoint : ℝ) - 1 by ring, hjet]",
+        f"    norm_num [{p}Midpoint]",
+        "  rw [hbump]",
+        "  have hwide : (RationalInterval.scale ((2 / 7 : ℚ) ^ 12)",
+        f"      (RationalInterval.mul {polynomial_name} {exponential_name})).radius +",
+        "      |(RationalInterval.scale ((2 / 7 : ℚ) ^ 12)",
+        f"        (RationalInterval.mul {polynomial_name} {exponential_name})).center -",
+        f"        {bump}.center| ≤ {bump}.radius := by",
+        f"    norm_num [{bump}, {polynomial_name}, {exponential_name},",
+        "    RationalInterval.scale, RationalInterval.mul,",
+        "    RationalInterval.singleton]",
+        f"  simpa [{bump}] using",
+        "    (RationalInterval.contains_of_center_radius_le hs hwide)", "",
+    ]
+    block_names = []
+    block_unfold = (
+        f"{p}Leaves, {p}Trig, {p}Bump, {bump}, "
+        "computedPhasedBaseOuterPointBlockTwelve, "
+        "computedPhasedBaseOuterAtomPointTwelve, "
+        "computedPhasedBaseOuterCosinePointUpToTwelve, "
+        "computedPhasedBaseOuterBumpPointUpToTwelve, "
+        "computedPhasedBaseOuterColumn, computedPhasedBaseOuterActiveTranslation, "
+        "computedPhasedBaseCoefficientQ, computedPhasedFrequencyQ, "
+        "computedPhasedCell0FrequencyQ, rationalCosineJetInterval, "
+        "RationalInterval.finSum, RationalInterval.scale, RationalInterval.mul, "
+        "RationalInterval.add, RationalInterval.neg, RationalInterval.zero, "
+        "RationalInterval.singleton, finProdFinEquiv, Nat.choose"
+    )
+    all_leaves = ", ".join(
+        [f"{p}Trig{g}" for g in range(20)] +
+        [f"{p}Bump{n}" for n in range(12)])
+    for b, value in enumerate(blocks):
+        name = f"{p}RemainderBlock{b}"
+        block_names.append(name)
+        lines += [lean_interval(name, value),
+            "set_option maxRecDepth 20000 in",
+            f"theorem {name}_contains : {name}.Contains",
+            f"    (∑ k : Fin 5, computedPhasedBaseCoefficient",
+            f"      (computedPhasedBaseOuterColumn (finProdFinEquiv (({b} : Fin 4), k))) *",
+            "      (computedPhasedAtom (computedPhasedBaseOuterColumn",
+            f"        (finProdFinEquiv (({b} : Fin 4), k)))).iterDeriv 12",
+            f"          ({p}Midpoint : ℝ)) := by",
+            "  apply RationalInterval.contains_of_center_radius_le",
+            f"    (computedPhasedBaseOuterPointBlockTwelve_contains {p}Leaves {bump}",
+            f"      {bump}_contains ({b} : Fin 4))",
+            f"  norm_num (config := {{ maxSteps := 2000000 }}) [{name}, {block_unfold},",
+            f"    {all_leaves}]", ""]
+    raw = f"{p}Base12Raw"
+    cache = f"{p}Base12"
+    raw_expr = (f"RationalInterval.add {block_names[0]} "
+        f"(RationalInterval.add {block_names[1]} "
+        f"(RationalInterval.add {block_names[2]} {block_names[3]}))")
+    contains_expr = (f"RationalInterval.contains_add {block_names[0]}_contains "
+        f"(RationalInterval.contains_add {block_names[1]}_contains "
+        f"(RationalInterval.contains_add {block_names[2]}_contains "
+        f"{block_names[3]}_contains))")
+    lines += [f"def {raw} : RationalInterval := {raw_expr}",
+        lean_interval(cache, base),
+        f"theorem {raw}_contains : {raw}.Contains",
+        f"    (computedPhasedBaseTest.iterDeriv 12 ({p}Midpoint : ℝ)) := by",
+        f"  rw [computedPhasedBaseTest_iterDeriv_eq_outerActive 12 {p}Midpoint",
+        f"    (by norm_num [{p}Midpoint]),",
+        f"    computedPhasedBaseOuterActive_sum_eq_blocks 12 {p}Midpoint]",
+        f"  simpa [{raw}, Fin.sum_univ_succ] using {contains_expr}",
+        f"theorem {cache}_contains : {cache}.Contains",
+        f"    (computedPhasedBaseTest.iterDeriv 12 ({p}Midpoint : ℝ)) := by",
+        f"  apply RationalInterval.contains_of_center_radius_le {raw}_contains",
+        f"  norm_num [{cache}, {raw}, RationalInterval.add, " +
+          ", ".join(block_names) + "]", ""]
+    paired_name = f"{p}Paired12"
+    lines += [f"def {paired_name} : RationalRectangle := {lean_rectangle(paired)}",
+        f"theorem {paired_name}_contains : {paired_name}.Contains",
+        "    (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        f"      ({p}Midpoint : ℝ)) := by",
+        f"  have hf0 := computedPhasedBaseOuterRawTwelveInterval_contains",
+        f"    (J := {p}Jets) (baseTwelve := {cache}) {cache}_contains",
+        "    (re := computedPhasedBenchmarkRealQ) (im := 1 / 4)",
+        f"    (kernel := {p}ForwardKernel) (by",
+        "      simpa only [computedPhasedBenchmarkRationalCoordinates_eq_point] using",
+        f"        {p}ForwardKernel_contains)",
+        f"  have hr0 := computedPhasedBaseOuterRawTwelveInterval_contains",
+        f"    (J := {p}Jets) (baseTwelve := {cache}) {cache}_contains",
+        "    (re := -computedPhasedBenchmarkRealQ) (im := -1 / 4)",
+        f"    (kernel := {p}ReflectedKernel) (by",
+        "      simpa only [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] using",
+        f"        {p}ReflectedKernel_contains)",
+        "  rw [computedPhasedBenchmarkRationalCoordinates_eq_point] at hf0",
+        "  rw [computedPhasedBenchmarkReflectedRationalCoordinates_eq_point] at hr0",
+        "  have hraw : (computedPhasedBaseOuterPairedTwelveInterval",
+        f"      {p}Jets {cache} {p}ForwardKernel {p}ReflectedKernel).Contains",
+        "      (computedPhasedBasePairedRawJet computedPhasedBenchmarkPoint 12",
+        f"        ({p}Midpoint : ℝ)) := by",
+        "    rw [computedPhasedBaseOuterPairedTwelveInterval,",
+        "      computedPhasedBasePairedRawJet]",
+        "    exact RationalRectangle.contains_add hf0 hr0",
+        "  apply RationalRectangle.contains_of_wide hraw",
+        f"  · norm_num (config := {{ maxSteps := 2000000 }}) [{paired_name},",
+        f"      {p}Jets, {p}Base, " +
+          ", ".join(f"{p}Base{k}" for k in range(12)) +
+          f", {cache}, {p}ForwardKernel,",
+        f"      {p}ReflectedKernel, computedPhasedBenchmarkRealQ,",
+        "      computedPhasedBaseOuterPairedTwelveInterval,",
+        "      computedPhasedBaseOuterRawTwelveInterval,",
+        "      computedPhasedBaseOuterBaseCacheUpToTwelve,",
+        "      rationalTransformRawJetInterval, rationalTransformLambdaQ,",
+        "      RationalRectangle.finSum, RationalRectangle.ofRealInterval,",
+        "      RationalRectangle.pow, RationalRectangle.mul, RationalRectangle.add,",
+        "      RationalRectangle.one, RationalRectangle.zero,",
+        "      RationalRectangle.singleton, RationalInterval.pow,",
+        "      RationalInterval.mul, RationalInterval.sub, RationalInterval.add,",
+        "      RationalInterval.neg, RationalInterval.one, RationalInterval.zero,",
+        "      RationalInterval.singleton, Nat.choose]",
+        f"  · norm_num (config := {{ maxSteps := 2000000 }}) [{paired_name},",
+        f"      {p}Jets, {p}Base, " +
+          ", ".join(f"{p}Base{k}" for k in range(12)) +
+          f", {cache}, {p}ForwardKernel,",
+        f"      {p}ReflectedKernel, computedPhasedBenchmarkRealQ,",
+        "      computedPhasedBaseOuterPairedTwelveInterval,",
+        "      computedPhasedBaseOuterRawTwelveInterval,",
+        "      computedPhasedBaseOuterBaseCacheUpToTwelve,",
+        "      rationalTransformRawJetInterval, rationalTransformLambdaQ,",
+        "      RationalRectangle.finSum, RationalRectangle.ofRealInterval,",
+        "      RationalRectangle.pow, RationalRectangle.mul, RationalRectangle.add,",
+        "      RationalRectangle.one, RationalRectangle.zero,",
+        "      RationalRectangle.singleton, RationalInterval.pow,",
+        "      RationalInterval.mul, RationalInterval.sub, RationalInterval.add,",
+        "      RationalInterval.neg, RationalInterval.one, RationalInterval.zero,",
+        "      RationalInterval.singleton, Nat.choose]",
         "", "end", "end RiemannVenue.Venue", ""]
     return "\n".join(lines)
 
@@ -334,6 +766,7 @@ def main() -> None:
     indices = [args.cell] if args.cell is not None else list(range(7))
     for i in indices:
         outputs[VENUE / f"BoundaryComputedPhasedBaseOuterMidpointCell{i}.lean"] = render_cell(i, MIDPOINTS[i])
+        outputs[VENUE / f"BoundaryComputedPhasedBaseOuterRemainderMidpointCell{i}.lean"] = render_remainder_cell(i, MIDPOINTS[i])
     if args.cell is None:
         outputs[VENUE / "BoundaryComputedPhasedBaseOuterMidpoints.lean"] = render_aggregate()
     stale = []

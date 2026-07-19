@@ -368,9 +368,33 @@ range reduction; this is forced by the Taylor precondition and is checked in
 the generated proofs rather than hidden in floating-point preprocessing.
 
 `computedPhasedBaseOuterMidpointIntervalPaymentQ` records the exact rational
-midpoint-interval contribution for each cell.  It deliberately excludes the
-omitted order-twelve Taylor remainder.  Thus this shard proves the expensive
-midpoint data and its interval-arithmetic aggregation, but it does not yet
-certify the transform over the whole seven cells.  The next gate is a uniform
-order-twelve paired-jet bound on each radius-`1/28` cell; only after that
-payment is added may this shard contribute to `residual_mem`.
+midpoint-interval contribution for each cell.  The generated remainder leaves
+now also certify the first omitted order-twelve paired jet at all seven
+midpoints.  Their layered proof packets keep the exact boundary polynomial,
+exponential enclosure, four signed frequency blocks, reflected kernel, and
+rounded rectangle visible to Lean without asking the reducer to normalize the
+whole expression monolithically.
+
+The remaining obligation is no longer an unknown midpoint value.  It is the
+variation of that order-twelve jet across each radius-`1/28` cell.  The typed
+`ComputedPhasedBaseOuterRemainderVariationCertificate` isolates precisely that
+obligation, and `computedPhasedBaseOuterTaylorCell` turns any witness into a
+complete integral-cell certificate.  This is the reconnection point for two
+possible local arguments: centered higher-jet Taylor control on the first six
+cells and a dedicated flat-tail estimate at the support endpoint.
+
+The ordinary-cell branch is now connected formally.  A uniform bound `C` on
+the order-thirteen paired jet produces a variation certificate with exact
+rational payment `C / 28` by the Banach-valued mean value theorem.  A
+non-authoritative 65-point probe of the next two jets estimates the resulting
+normalized order-twelve payment across all seven cells at about `1.81e-7`,
+still below the full `1e-6` residual radius.  This is encouraging budget
+evidence, not a bound: the order-thirteen midpoint and order-fourteen local
+tail enclosures must still be kernel-certified.
+
+Two coarse routes have been tested and rejected.  Direct normalization of the
+full order-twelve expression over a cell overflows the reducer stack, while
+plain interval subdivision does not recover cancellation: even 128
+subdivisions per radius-`1/28` cell left natural interval extensions many
+orders of magnitude wider than sampled jet sizes.  The next proof must expose
+local cancellation analytically rather than purchase it with more boxes.
