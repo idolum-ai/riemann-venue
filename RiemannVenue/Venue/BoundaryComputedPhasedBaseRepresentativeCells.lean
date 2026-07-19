@@ -68,7 +68,7 @@ theorem computedPhasedBaseRepresentativeReflectedKernel_contains
   convert h using 1
   rw [computedPhasedBenchmarkPoint_eq_rat]
   push_cast
-  ring
+  ring_nf
 
 /-- Geometry and analytic range obligations retained by an order-one probe
 cell.  These fields are exactly the premises consumed by the support-aware
@@ -111,12 +111,13 @@ def computedPhasedBaseRepresentativeReflectedRawCache
 
 def computedPhasedBaseRepresentativePairedCache
     {q : ℚ} {I : RationalInterval}
-    (D : ComputedPhasedBaseRepresentativePointData q I)
+    (_D : ComputedPhasedBaseRepresentativePointData q I)
     (k : Fin 1) : RationalRectangle :=
   computedTransformBasePairedRawJetCellInterval 32 4 32 16 k
     (computedPhasedBaseRepresentativeForwardKernel q)
     (computedPhasedBaseRepresentativeReflectedKernel q) I
 
+set_option maxHeartbeats 2000000 in
 theorem computedPhasedBaseRepresentativeForwardRawCache_contains
     {q : ℚ} {I : RationalInterval}
     (D : ComputedPhasedBaseRepresentativePointData q I)
@@ -132,10 +133,22 @@ theorem computedPhasedBaseRepresentativeForwardRawCache_contains
             (((1 / 4 : ℚ) : ℝ) * Complex.I)) * ((q : ℝ) : ℂ))) := by
     simpa [computedPhasedBenchmarkPoint_eq_rat] using
       computedPhasedBaseRepresentativeForwardKernel_contains q hq
-  exact computedTransformBaseRawJetCellIntervalAtFrequency_contains
-    (hn := by omega) D.center_mem hkernel D.trig_range
+  have h := computedTransformBaseRawJetCellIntervalAtFrequency_contains
+    (trigOrder := 32) (trigHalvings := 4)
+    (bumpOrder := 32) (bumpSplit := 16) (n := (k : ℕ))
+    (re := computedPhasedBenchmarkRealQ) (im := (1 / 4 : ℚ))
+    (kernel := computedPhasedBaseRepresentativeForwardKernel q)
+    (I := I) (t := q) (by omega) D.center_mem hkernel D.trig_range
     D.bump_lower_range D.bump_upper_range (by norm_num)
+  have hpoint :
+      (((computedPhasedBenchmarkRealQ : ℚ) : ℝ) +
+        (((1 / 4 : ℚ) : ℝ) * Complex.I)) = computedPhasedBenchmarkPoint := by
+    rw [computedPhasedBenchmarkPoint_eq_rat]
+    push_cast
+    ring_nf
+  simpa only [computedPhasedBaseRepresentativeForwardRawCache, hpoint] using h
 
+set_option maxHeartbeats 2000000 in
 theorem computedPhasedBaseRepresentativeReflectedRawCache_contains
     {q : ℚ} {I : RationalInterval}
     (D : ComputedPhasedBaseRepresentativePointData q I)
@@ -152,10 +165,21 @@ theorem computedPhasedBaseRepresentativeReflectedRawCache_contains
     convert computedPhasedBaseRepresentativeReflectedKernel_contains q hq using 1
     rw [computedPhasedBenchmarkPoint_eq_rat]
     push_cast
-    ring
-  exact computedTransformBaseRawJetCellIntervalAtFrequency_contains
-    (hn := by omega) D.center_mem hkernel D.trig_range
+    ring_nf
+  have h := computedTransformBaseRawJetCellIntervalAtFrequency_contains
+    (trigOrder := 32) (trigHalvings := 4)
+    (bumpOrder := 32) (bumpSplit := 16) (n := (k : ℕ))
+    (re := -computedPhasedBenchmarkRealQ) (im := (-1 / 4 : ℚ))
+    (kernel := computedPhasedBaseRepresentativeReflectedKernel q)
+    (I := I) (t := q) (by omega) D.center_mem hkernel D.trig_range
     D.bump_lower_range D.bump_upper_range (by norm_num)
+  have hpoint :
+      (((-computedPhasedBenchmarkRealQ : ℚ) : ℝ) +
+        (((-1 / 4 : ℚ) : ℝ) * Complex.I)) = -computedPhasedBenchmarkPoint := by
+    rw [computedPhasedBenchmarkPoint_eq_rat]
+    push_cast
+    ring_nf
+  simpa only [computedPhasedBaseRepresentativeReflectedRawCache, hpoint] using h
 
 theorem computedPhasedBaseRepresentativePairedCache_contains
     {q : ℚ} {I : RationalInterval}
@@ -215,6 +239,7 @@ noncomputable def computedPhasedBaseRepresentativeTaylorCell
 
 /-! ## Three support regimes -/
 
+set_option maxHeartbeats 2000000 in
 theorem computedPhasedBaseInteriorPointData :
     ComputedPhasedBaseRepresentativePointData 0
       computedPhasedInteriorRegimeProbe where
@@ -235,7 +260,15 @@ theorem computedPhasedBaseInteriorPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedInteriorRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
   bump_upper_range := by
     intro j h
     fin_cases j <;>
@@ -246,8 +279,17 @@ theorem computedPhasedBaseInteriorPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedInteriorRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
 
+set_option maxHeartbeats 2000000 in
 theorem computedPhasedBaseBoundaryPointData :
     ComputedPhasedBaseRepresentativePointData (5 / 2)
       computedPhasedBoundaryRegimeProbe where
@@ -268,7 +310,15 @@ theorem computedPhasedBaseBoundaryPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedBoundaryRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
   bump_upper_range := by
     intro j h
     fin_cases j <;>
@@ -279,8 +329,17 @@ theorem computedPhasedBaseBoundaryPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedBoundaryRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
 
+set_option maxHeartbeats 2000000 in
 theorem computedPhasedBaseExteriorPointData :
     ComputedPhasedBaseRepresentativePointData 3
       computedPhasedExteriorRegimeProbe where
@@ -301,7 +360,15 @@ theorem computedPhasedBaseExteriorPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedExteriorRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
   bump_upper_range := by
     intro j h
     fin_cases j <;>
@@ -312,7 +379,15 @@ theorem computedPhasedBaseExteriorPointData :
         RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
         RationalInterval.mul, RationalInterval.one,
         RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper] at h ⊢
+        RationalInterval.lower, RationalInterval.upper] at h <;>
+      norm_num [computedPhasedExteriorRegimeProbe,
+        computedTransformBumpCoordinateInterval, computedPhasedTranslationQ,
+        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
+        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
+        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
+        RationalInterval.mul, RationalInterval.one,
+        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
+        RationalInterval.lower, RationalInterval.upper]
 
 noncomputable def computedPhasedBaseInteriorTaylorCell :=
   computedPhasedBaseRepresentativeTaylorCell
