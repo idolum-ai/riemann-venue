@@ -345,7 +345,11 @@ other three regimes contribute about `0.52%` together.  Cell 261,
 `[31/8, 63/16]`, is the largest single contributor at about `19.53%`.
 Finite sampling is proposal evidence only: the generated production packet
 must replace every sampled remainder with a proved uniform bound and every
-floating center with a kernel-checked rational enclosure.
+floating center with a kernel-checked rational enclosure.  CI does not demand
+portable byte identity from NumPy/libm output.  It binds the committed artifact
+to the candidate hash and checks the cell partition, exact rational sums,
+normalization, headroom, and verdict; same-platform byte regeneration remains
+an additional local diagnostic.
 
 Recommendation: proceed with the existing 270-cell geometry, but generate the
 last two regimes first.  They are both the numerical budget concentration and
