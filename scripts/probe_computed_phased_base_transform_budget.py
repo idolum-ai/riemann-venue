@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import cmath
+import copy
 import hashlib
 import json
 import math
@@ -43,6 +44,9 @@ JET_ABSOLUTE_PADDING = 2.0e-12
 REMAINDER_SAFETY_FACTOR = 1.25
 REMAINDER_ABSOLUTE_PADDING = 1.0
 DOMINANT_CELL_COUNT = 24
+BUMP_SCALE = Fraction(7, 2)
+CENTER_MISMATCH_RELATIVE_PADDING = 2.0e-12
+CENTER_MISMATCH_ABSOLUTE_PADDING = 2.0e-15
 
 BENCHMARK_REAL = Fraction(14134725141734695, 10**15)
 BENCHMARK_IMAG = Fraction(1, 4)
@@ -67,6 +71,93 @@ def rational_string(value: Fraction) -> str:
 
 def complex_rational(re: Fraction, im: Fraction) -> dict[str, str]:
     return {"re": rational_string(re), "im": rational_string(im)}
+
+
+def canonical_sha256(value: object) -> str:
+    encoded = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    ).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def generation_configuration() -> dict:
+    """Return every non-candidate input that can change generated evidence."""
+    return {
+        "positive_half_window": {
+            "left": rational_string(SEGMENTS[0][0]),
+            "right": rational_string(SEGMENTS[-1][1]),
+        },
+        "segments": [
+            {
+                "left": rational_string(left),
+                "right": rational_string(right),
+                "cell_count": count,
+            }
+            for left, right, count in SEGMENTS
+        ],
+        "cell_count": sum(count for _, _, count in SEGMENTS),
+        "taylor_order": ORDER,
+        "order_12_samples_per_cell": SAMPLE_POINTS,
+        "jet_center_and_radius_denominator": str(JET_DENOMINATOR),
+        "sampled_remainder_denominator": str(REMAINDER_DENOMINATOR),
+        "aggregate_denominator": str(AGGREGATE_DENOMINATOR),
+        "jet_relative_padding": rational_string(
+            Fraction(str(JET_RELATIVE_PADDING))
+        ),
+        "jet_absolute_padding": rational_string(
+            Fraction(str(JET_ABSOLUTE_PADDING))
+        ),
+        "sampled_remainder_safety_factor": rational_string(
+            Fraction(str(REMAINDER_SAFETY_FACTOR))
+        ),
+        "sampled_remainder_absolute_padding": rational_string(
+            Fraction(str(REMAINDER_ABSOLUTE_PADDING))
+        ),
+        "center_mismatch_relative_padding": rational_string(
+            Fraction(str(CENTER_MISMATCH_RELATIVE_PADDING))
+        ),
+        "center_mismatch_absolute_padding": rational_string(
+            Fraction(str(CENTER_MISMATCH_ABSOLUTE_PADDING))
+        ),
+        "dominant_cell_count": DOMINANT_CELL_COUNT,
+        "bump_scale": rational_string(BUMP_SCALE),
+        "benchmark_point": complex_rational(BENCHMARK_REAL, BENCHMARK_IMAG),
+        "benchmark_target_normalized": complex_rational(
+            BENCHMARK_TARGET_RE,
+            BENCHMARK_TARGET_IM,
+        ),
+        "residual_center_normalized": complex_rational(
+            RESIDUAL_CENTER_RE,
+            RESIDUAL_CENTER_IM,
+        ),
+        "normalized_target_radius": rational_string(NORMALIZED_TARGET_RADIUS),
+        "normalization_two_pi_lower": rational_string(TWO_PI_LOWER),
+    }
+
+
+def target_payload() -> dict:
+    return {
+        "benchmark_point": complex_rational(BENCHMARK_REAL, BENCHMARK_IMAG),
+        "benchmark_target_normalized": complex_rational(
+            BENCHMARK_TARGET_RE,
+            BENCHMARK_TARGET_IM,
+        ),
+        "residual_center_normalized": complex_rational(
+            RESIDUAL_CENTER_RE,
+            RESIDUAL_CENTER_IM,
+        ),
+        "base_transform_center_normalized": complex_rational(
+            BASE_TARGET_RE,
+            BASE_TARGET_IM,
+        ),
+        "normalized_radius": rational_string(NORMALIZED_TARGET_RADIUS),
+        "raw_radius_allowed_via_two_pi_lower": rational_string(
+            TWO_PI_LOWER * NORMALIZED_TARGET_RADIUS
+        ),
+    }
 
 
 def nearest(value: float, denominator: int) -> Fraction:
@@ -191,7 +282,7 @@ def base_jets(
     stable = [np.zeros_like(points, dtype=float) for _ in range(ORDER + 1)]
     compensation = [np.zeros_like(points, dtype=float) for _ in range(ORDER + 1)]
     naive = [np.zeros_like(points, dtype=float) for _ in range(ORDER + 1)]
-    scale = 3.5
+    scale = float(BUMP_SCALE)
     for coefficient, frequency, center in atoms:
         weighted = [
             float(coefficient) * jet
@@ -266,7 +357,7 @@ def candidate_atoms(payload: dict) -> list[tuple[Fraction, Fraction, Fraction]]:
         raise ValueError("candidate JSON must remain non-proof-authority")
 
     scale = Fraction(*payload["scale"])
-    if scale != Fraction(7, 2):
+    if scale != BUMP_SCALE:
         raise ValueError(f"expected scale 7/2, found {scale}")
     grid = payload["frequency_grid"]
     start = Fraction(*grid["start"])
@@ -304,11 +395,10 @@ def active_atoms(
     left: Fraction,
     right: Fraction,
 ) -> list[tuple[Fraction, Fraction, Fraction]]:
-    scale = Fraction(7, 2)
     return [
         atom
         for atom in atoms
-        if right > atom[2] - scale and left < atom[2] + scale
+        if right > atom[2] - BUMP_SCALE and left < atom[2] + BUMP_SCALE
     ]
 
 
@@ -496,7 +586,9 @@ def build_artifact(candidate_path: Path, payload: dict) -> dict:
     raw_center_float = complex(float(total_center_re), float(total_center_im))
     sampled_center_mismatch = abs(raw_center_float - raw_target)
     center_mismatch = outward_nonnegative(
-        sampled_center_mismatch * (1.0 + 2.0e-12) + 2.0e-15,
+        sampled_center_mismatch *
+        (1.0 + CENTER_MISMATCH_RELATIVE_PADDING) +
+        CENTER_MISMATCH_ABSOLUTE_PADDING,
         AGGREGATE_DENOMINATOR,
     )
     raw_total_budget = total_error + center_mismatch
@@ -563,6 +655,8 @@ def build_artifact(candidate_path: Path, payload: dict) -> dict:
 
     ranked_cells = sorted(cells, key=lambda cell: cell["_error"], reverse=True)
     candidate_bytes = candidate_path.read_bytes()
+    generator_bytes = Path(__file__).read_bytes()
+    configuration = generation_configuration()
     maximum_discrepancy = max(
         float(
             cell["floating_reconnaissance"][
@@ -573,7 +667,7 @@ def build_artifact(candidate_path: Path, payload: dict) -> dict:
     )
 
     return {
-        "schema": "riemann-venue/computed-phased-base-transform-budget-probe/v1",
+        "schema": "riemann-venue/computed-phased-base-transform-budget-probe/v2",
         "proof_authority": False,
         "authority_notice": (
             "NON-PROOF-AUTHORITY: NumPy/libm midpoint jets and finite-grid "
@@ -586,41 +680,11 @@ def build_artifact(candidate_path: Path, payload: dict) -> dict:
             "candidate_schema": payload["schema"],
             "candidate_sha256": hashlib.sha256(candidate_bytes).hexdigest(),
             "generator": relative_path(Path(__file__)),
+            "generator_sha256": hashlib.sha256(generator_bytes).hexdigest(),
+            "configuration_sha256": canonical_sha256(configuration),
         },
-        "configuration": {
-            "positive_half_window": {
-                "left": "0",
-                "right": "9/2",
-            },
-            "cell_count": len(cells),
-            "taylor_order": ORDER,
-            "order_12_samples_per_cell": SAMPLE_POINTS,
-            "jet_center_and_radius_denominator": str(JET_DENOMINATOR),
-            "sampled_remainder_denominator": str(REMAINDER_DENOMINATOR),
-            "aggregate_denominator": str(AGGREGATE_DENOMINATOR),
-            "jet_relative_padding": "1/5000000000",
-            "jet_absolute_padding": "1/500000000000",
-            "sampled_remainder_safety_factor": "5/4",
-            "sampled_remainder_absolute_padding": "1",
-            "normalization_two_pi_lower": rational_string(TWO_PI_LOWER),
-        },
-        "target": {
-            "benchmark_point": complex_rational(BENCHMARK_REAL, BENCHMARK_IMAG),
-            "benchmark_target_normalized": complex_rational(
-                BENCHMARK_TARGET_RE,
-                BENCHMARK_TARGET_IM,
-            ),
-            "residual_center_normalized": complex_rational(
-                RESIDUAL_CENTER_RE,
-                RESIDUAL_CENTER_IM,
-            ),
-            "base_transform_center_normalized": complex_rational(
-                BASE_TARGET_RE,
-                BASE_TARGET_IM,
-            ),
-            "normalized_radius": rational_string(NORMALIZED_TARGET_RADIUS),
-            "raw_radius_allowed_via_two_pi_lower": rational_string(raw_allowed),
-        },
+        "configuration": configuration,
+        "target": target_payload(),
         "aggregate": {
             "raw_taylor_center": complex_rational(
                 total_center_re,
@@ -716,6 +780,13 @@ def validate_committed_artifact(
             errors.append(f"invalid rational field {key}: {error}")
             return Fraction(0)
 
+    def rational_complex(mapping: dict, key: str) -> tuple[Fraction, Fraction]:
+        value = mapping.get(key, {})
+        if not isinstance(value, dict):
+            errors.append(f"invalid complex field {key}")
+            return Fraction(0), Fraction(0)
+        return rational(value, "re"), rational(value, "im")
+
     def reject_json_float(value: object, path: str = "artifact") -> None:
         if isinstance(value, float):
             errors.append(f"floating JSON number at {path}")
@@ -728,7 +799,7 @@ def validate_committed_artifact(
 
     expect(
         artifact.get("schema")
-        == "riemann-venue/computed-phased-base-transform-budget-probe/v1",
+        == "riemann-venue/computed-phased-base-transform-budget-probe/v2",
         "unexpected artifact schema",
     )
     expect(artifact.get("proof_authority") is False, "artifact claims proof authority")
@@ -736,14 +807,25 @@ def validate_committed_artifact(
 
     source = artifact.get("source", {})
     candidate_bytes = candidate_path.read_bytes()
+    generator_bytes = Path(__file__).read_bytes()
+    expected_configuration = generation_configuration()
+    expect(source.get("candidate") == relative_path(candidate_path),
+           "candidate path drift")
     expect(source.get("candidate_schema") == candidate_payload.get("schema"),
            "candidate schema drift")
     expect(source.get("candidate_sha256") == hashlib.sha256(candidate_bytes).hexdigest(),
            "candidate source hash drift")
     expect(source.get("generator") == relative_path(Path(__file__)),
            "generator path drift")
+    expect(source.get("generator_sha256") == hashlib.sha256(generator_bytes).hexdigest(),
+           "generator source hash drift")
+    expect(source.get("configuration_sha256") == canonical_sha256(expected_configuration),
+           "generator configuration hash drift")
 
     configuration = artifact.get("configuration", {})
+    expect(configuration == expected_configuration,
+           "stored configuration does not match live generator inputs")
+    expect(artifact.get("target") == target_payload(), "target configuration drift")
     cells = artifact.get("cells", [])
     regimes = artifact.get("regimes", [])
     expect(configuration.get("cell_count") == len(cells), "cell count mismatch")
@@ -751,6 +833,123 @@ def validate_committed_artifact(
            "regime cell counts do not partition the packet")
     expect([cell.get("global_index") for cell in cells] == list(range(len(cells))),
            "cell global indices are not contiguous")
+
+    two_pi_lower = rational(configuration, "normalization_two_pi_lower")
+    expect(two_pi_lower > 0, "normalization lower bound is not positive")
+    atoms = candidate_atoms(candidate_payload)
+    expected_global_index = 0
+    cells_by_segment: list[list[dict]] = []
+    for segment_index, (segment_left, segment_right, count) in enumerate(SEGMENTS):
+        width = (segment_right - segment_left) / count
+        segment_cells: list[dict] = []
+        for cell_index in range(count):
+            if expected_global_index >= len(cells):
+                errors.append(
+                    f"missing cell {expected_global_index} in segment {segment_index}"
+                )
+                break
+            cell = cells[expected_global_index]
+            segment_cells.append(cell)
+            left = segment_left + cell_index * width
+            right = left + width
+            midpoint = (left + right) / 2
+            half_width = width / 2
+            expect(cell.get("segment_index") == segment_index,
+                   f"cell {expected_global_index} segment index mismatch")
+            expect(cell.get("cell_index") == cell_index,
+                   f"cell {expected_global_index} local index mismatch")
+            expect(rational(cell, "left") == left,
+                   f"cell {expected_global_index} left endpoint mismatch")
+            expect(rational(cell, "right") == right,
+                   f"cell {expected_global_index} right endpoint mismatch")
+            expect(rational(cell, "midpoint") == midpoint,
+                   f"cell {expected_global_index} midpoint mismatch")
+            expect(rational(cell, "half_width") == half_width,
+                   f"cell {expected_global_index} half-width mismatch")
+            expect(
+                cell.get("active_columns") == len(active_atoms(atoms, left, right)),
+                f"cell {expected_global_index} active-column mismatch",
+            )
+            cell_error = rational(cell, "raw_error_budget")
+            cell_midpoint = rational(
+                cell, "raw_midpoint_interval_error_budget"
+            )
+            cell_remainder = rational(
+                cell, "raw_sampled_remainder_error_budget"
+            )
+            expect(
+                cell_error == cell_midpoint + cell_remainder,
+                f"cell {expected_global_index} budget decomposition mismatch",
+            )
+            expect(
+                cell_error == rational(cell, "raw_error_budget_re") +
+                    rational(cell, "raw_error_budget_im"),
+                f"cell {expected_global_index} real/imaginary budget mismatch",
+            )
+            if two_pi_lower > 0:
+                expect(
+                    rational(cell, "normalized_error_budget") ==
+                        cell_error / two_pi_lower,
+                    f"cell {expected_global_index} normalized budget mismatch",
+                )
+            expected_global_index += 1
+        cells_by_segment.append(segment_cells)
+    expect(expected_global_index == len(cells),
+           "configured segment geometry does not consume every cell")
+
+    expect(len(regimes) == len(SEGMENTS), "regime count mismatch")
+    regime_errors: list[Fraction] = []
+    for segment_index, (segment_left, segment_right, count) in enumerate(SEGMENTS):
+        if segment_index >= len(regimes):
+            break
+        regime = regimes[segment_index]
+        segment_cells = cells_by_segment[segment_index]
+        center_re = sum(
+            (rational_complex(cell, "raw_center")[0] for cell in segment_cells),
+            Fraction(0),
+        )
+        center_im = sum(
+            (rational_complex(cell, "raw_center")[1] for cell in segment_cells),
+            Fraction(0),
+        )
+        error = sum(
+            (rational(cell, "raw_error_budget") for cell in segment_cells),
+            Fraction(0),
+        )
+        midpoint = sum(
+            (rational(cell, "raw_midpoint_interval_error_budget")
+             for cell in segment_cells),
+            Fraction(0),
+        )
+        remainder = sum(
+            (rational(cell, "raw_sampled_remainder_error_budget")
+             for cell in segment_cells),
+            Fraction(0),
+        )
+        regime_errors.append(error)
+        expect(regime.get("segment_index") == segment_index,
+               f"regime {segment_index} index mismatch")
+        expect(rational(regime, "left") == segment_left,
+               f"regime {segment_index} left endpoint mismatch")
+        expect(rational(regime, "right") == segment_right,
+               f"regime {segment_index} right endpoint mismatch")
+        expect(regime.get("cell_count") == count,
+               f"regime {segment_index} cell count mismatch")
+        expect(regime.get("active_columns") == sorted(
+            {cell.get("active_columns") for cell in segment_cells}
+        ), f"regime {segment_index} active-column summary mismatch")
+        expect(rational_complex(regime, "raw_center") == (center_re, center_im),
+               f"regime {segment_index} center mismatch")
+        expect(rational(regime, "raw_error_budget") == error,
+               f"regime {segment_index} raw budget mismatch")
+        expect(rational(regime, "raw_midpoint_interval_error_budget") == midpoint,
+               f"regime {segment_index} midpoint budget mismatch")
+        expect(rational(regime, "raw_sampled_remainder_error_budget") == remainder,
+               f"regime {segment_index} remainder budget mismatch")
+        if two_pi_lower > 0:
+            expect(rational(regime, "normalized_error_budget") ==
+                   error / two_pi_lower,
+                   f"regime {segment_index} normalized budget mismatch")
 
     aggregate = artifact.get("aggregate", {})
     raw_midpoint = sum(
@@ -778,6 +977,58 @@ def validate_committed_artifact(
            "aggregate midpoint budget mismatch")
     expect(raw_remainder == rational(aggregate, "raw_sampled_remainder_error_budget"),
            "aggregate sampled remainder budget mismatch")
+    aggregate_center = (
+        sum((rational_complex(cell, "raw_center")[0] for cell in cells),
+            Fraction(0)),
+        sum((rational_complex(cell, "raw_center")[1] for cell in cells),
+            Fraction(0)),
+    )
+    expect(rational_complex(aggregate, "raw_taylor_center") == aggregate_center,
+           "aggregate raw center mismatch")
+
+    ranked_regime_indices = sorted(
+        range(len(regime_errors)),
+        key=lambda index: regime_errors[index],
+        reverse=True,
+    )
+    dominant_regimes = artifact.get("dominant_regimes", [])
+    expect(
+        [regime.get("segment_index") for regime in dominant_regimes]
+        == ranked_regime_indices,
+        "dominant regime ordering mismatch",
+    )
+    for rank, segment_index in enumerate(ranked_regime_indices, 1):
+        regime = regimes[segment_index]
+        expect(regime.get("error_rank") == rank,
+               f"regime {segment_index} rank mismatch")
+        if raw_packet > 0:
+            expect(rational(regime, "share_of_packet_error") ==
+                   regime_errors[segment_index] / raw_packet,
+                   f"regime {segment_index} packet share mismatch")
+
+    ranked_cells = sorted(
+        cells,
+        key=lambda cell: rational(cell, "raw_error_budget"),
+        reverse=True,
+    )[:DOMINANT_CELL_COUNT]
+    dominant_cells = artifact.get("dominant_cells", [])
+    expect(len(dominant_cells) == len(ranked_cells),
+           "dominant cell count mismatch")
+    for rank, cell in enumerate(ranked_cells, 1):
+        if rank > len(dominant_cells):
+            break
+        summary = dominant_cells[rank - 1]
+        expect(summary.get("rank") == rank,
+               f"dominant cell {rank} rank mismatch")
+        expect(summary.get("global_index") == cell.get("global_index"),
+               f"dominant cell {rank} identity mismatch")
+        expect(rational(summary, "raw_error_budget") ==
+               rational(cell, "raw_error_budget"),
+               f"dominant cell {rank} budget mismatch")
+        if raw_packet > 0:
+            expect(rational(summary, "share_of_packet_error") ==
+                   rational(cell, "raw_error_budget") / raw_packet,
+                   f"dominant cell {rank} packet share mismatch")
 
     two_pi_lower = rational(configuration, "normalization_two_pi_lower")
     raw_mismatch = rational(aggregate, "raw_center_mismatch_budget")
@@ -792,7 +1043,11 @@ def validate_committed_artifact(
     normalized_mismatch = rational(aggregate, "normalized_center_mismatch_budget")
     normalized_total = rational(aggregate, "normalized_total_budget")
     target_radius = rational(aggregate, "normalized_target_radius")
-    expect(two_pi_lower > 0, "normalization lower bound is not positive")
+    expected_raw_allowed = TWO_PI_LOWER * NORMALIZED_TARGET_RADIUS
+    expect(rational(aggregate, "raw_budget_allowed") == expected_raw_allowed,
+           "aggregate raw budget allowance mismatch")
+    expect(target_radius == NORMALIZED_TARGET_RADIUS,
+           "aggregate target radius drift")
     if two_pi_lower > 0:
         expect(normalized_packet == raw_packet / two_pi_lower,
                "normalized packet budget mismatch")
@@ -817,6 +1072,58 @@ def validate_committed_artifact(
         raise SystemExit("invalid reconnaissance artifact:\n- " + "\n- ".join(errors))
 
 
+def validate_validator_negative_controls(
+    candidate_path: Path,
+    candidate_payload: dict,
+    artifact: dict,
+) -> None:
+    """Prove the integrity checker rejects representative stale evidence."""
+
+    def expect_rejected(label: str, mutation) -> None:
+        changed = copy.deepcopy(artifact)
+        mutation(changed)
+        try:
+            validate_committed_artifact(candidate_path, candidate_payload, changed)
+        except SystemExit:
+            return
+        raise SystemExit(f"integrity validator accepted {label}")
+
+    expect_rejected(
+        "generator source drift",
+        lambda changed: changed["source"].__setitem__(
+            "generator_sha256", "0" * 64
+        ),
+    )
+
+    def mutate_configuration(changed: dict) -> None:
+        changed["configuration"]["taylor_order"] += 1
+        changed["source"]["configuration_sha256"] = canonical_sha256(
+            changed["configuration"]
+        )
+
+    expect_rejected("non-live but self-hashed configuration", mutate_configuration)
+
+    def mutate_compensating_cells(changed: dict) -> None:
+        first, second = changed["cells"][:2]
+        first_value = Fraction(first["raw_midpoint_interval_error_budget"])
+        second_value = Fraction(second["raw_midpoint_interval_error_budget"])
+        first["raw_midpoint_interval_error_budget"] = rational_string(
+            first_value + 1
+        )
+        second["raw_midpoint_interval_error_budget"] = rational_string(
+            second_value - 1
+        )
+
+    expect_rejected(
+        "aggregate-preserving per-cell budget corruption",
+        mutate_compensating_cells,
+    )
+    expect_rejected(
+        "cell geometry corruption",
+        lambda changed: changed["cells"][0].__setitem__("cell_index", 1),
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, default=DEFAULT_CANDIDATE)
@@ -839,11 +1146,9 @@ def main() -> None:
     if args.check:
         if not output_path.exists():
             raise SystemExit(f"missing reconnaissance artifact: {output_path}")
-        validate_committed_artifact(
-            candidate_path,
-            payload,
-            json.loads(output_path.read_text()),
-        )
+        artifact = json.loads(output_path.read_text())
+        validate_committed_artifact(candidate_path, payload, artifact)
+        validate_validator_negative_controls(candidate_path, payload, artifact)
         print(f"checked {output_path}")
         return
     rendered = render(build_artifact(candidate_path, payload))

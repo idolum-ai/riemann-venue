@@ -145,7 +145,8 @@ jobs:
       - name: Narrow outer midpoint shard drift gate
         run: python scripts/generate_computed_phased_base_outer_midpoints.py --check
       # The floating proposal is intentionally not portable proof authority.
-      # CI instead checks its source hash and exact-rational budget identities.
+      # CI instead checks candidate/generator/configuration hashes plus
+      # per-cell, per-regime, and aggregate exact-rational budget identities.
       - name: Base-transform budget artifact integrity gate
         run: python scripts/probe_computed_phased_base_transform_budget.py --check
       - name: Validate and execute notebooks

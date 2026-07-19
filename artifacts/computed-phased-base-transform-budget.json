@@ -1,18 +1,47 @@
 {
-  "schema": "riemann-venue/computed-phased-base-transform-budget-probe/v1",
+  "schema": "riemann-venue/computed-phased-base-transform-budget-probe/v2",
   "proof_authority": false,
   "authority_notice": "NON-PROOF-AUTHORITY: NumPy/libm midpoint jets and finite-grid order-12 samples only propose intervals. Lean must prove every jet enclosure and uniform remainder bound. All reported centers and budgets are exact rational strings after proposal rounding.",
   "source": {
     "candidate": "artifacts/localized-phased-candidate.json",
     "candidate_schema": "riemann-venue/localized-phased-candidate/v1",
     "candidate_sha256": "bbabdca35dfbd4face734ff6c03cf293fb34e8639f2d29983da17236e2f8e442",
-    "generator": "scripts/probe_computed_phased_base_transform_budget.py"
+    "generator": "scripts/probe_computed_phased_base_transform_budget.py",
+    "generator_sha256": "e29e510163529f737373e2219552c664303e9a32dab2260e0525dc419da3c18e",
+    "configuration_sha256": "360c671444e2a15c7e47b8dacc5e0ac84c4e461fe9e44eaed32870da53e7b131"
   },
   "configuration": {
     "positive_half_window": {
       "left": "0",
       "right": "9/2"
     },
+    "segments": [
+      {
+        "left": "0",
+        "right": "5/2",
+        "cell_count": 157
+      },
+      {
+        "left": "5/2",
+        "right": "3",
+        "cell_count": 67
+      },
+      {
+        "left": "3",
+        "right": "7/2",
+        "cell_count": 31
+      },
+      {
+        "left": "7/2",
+        "right": "4",
+        "cell_count": 8
+      },
+      {
+        "left": "4",
+        "right": "9/2",
+        "cell_count": 7
+      }
+    ],
     "cell_count": 270,
     "taylor_order": 12,
     "order_12_samples_per_cell": 65,
@@ -23,6 +52,23 @@
     "jet_absolute_padding": "1/500000000000",
     "sampled_remainder_safety_factor": "5/4",
     "sampled_remainder_absolute_padding": "1",
+    "center_mismatch_relative_padding": "1/500000000000",
+    "center_mismatch_absolute_padding": "1/500000000000000",
+    "dominant_cell_count": 24,
+    "bump_scale": "7/2",
+    "benchmark_point": {
+      "re": "2826945028346939/200000000000000",
+      "im": "1/4"
+    },
+    "benchmark_target_normalized": {
+      "re": "0",
+      "im": "1/4"
+    },
+    "residual_center_normalized": {
+      "re": "229/200000000000",
+      "im": "-51/1000000000000"
+    },
+    "normalized_target_radius": "1/1000000",
     "normalization_two_pi_lower": "157079632679489661923/25000000000000000000"
   },
   "target": {
