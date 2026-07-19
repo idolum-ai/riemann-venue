@@ -33,8 +33,11 @@ SEGMENTS = (
 )
 DATA_DENOMINATOR = 10**8
 TRANSFORM_DENOMINATOR = 10**12
-TRANSFORM_RADIUS = Fraction(1, 10**10)
-RESIDUAL_RADIUS = Fraction(1, 10**11)
+# Proof-budget tolerances, rather than floating-point error estimates. The
+# downstream determinant and payment calculation certifies that these still
+# keep both exact Cramer coefficients below 1e-5.
+TRANSFORM_RADIUS = Fraction(1, 10**4)
+RESIDUAL_RADIUS = Fraction(1, 10**6)
 # Independent high-precision reconstruction found cancellation-amplified
 # errors beyond one DATA_DENOMINATOR unit in the first two derived jets.  Keep
 # order-dependent radii comfortably outside those errors; Lean still has to
@@ -337,8 +340,26 @@ def render(payload: dict) -> str:
         f"  {lean_real(transforms['c1re'])} + {lean_real(transforms['c1im'])} * Complex.I",
         f"def computedPhasedResidualCenter : ℂ :=",
         f"  {lean_real(transforms['rre'])} + {lean_real(transforms['rim'])} * Complex.I",
+        "/-- Precision needed for the two correction-matrix entries. The determinant",
+        "margin, rather than the reconnaissance precision, governs this radius. -/",
         f"def computedPhasedTransformRadius : ℝ := {lean_real(TRANSFORM_RADIUS)}",
+        "",
+        "/-- Precision needed for the rounded base residual. Together with the",
+        "correction-entry radius this keeps both exact Cramer coefficients below",
+        "`10^-5`, which is sufficient for the final payment budget. -/",
         f"def computedPhasedResidualRadius : ℝ := {lean_real(RESIDUAL_RADIUS)}",
+        "",
+        "/-- The minimal transform contract needed to certify the correction matrix.",
+        "It deliberately excludes the base residual and derivative-payment packet:",
+        "those are required for quantitative payment bounds, but not for determinant",
+        "exclusion or the exact benchmark solve. -/",
+        "structure ComputedPhasedCorrectionTransformCertificate where",
+        "  correction0_mem :",
+        "    ‖computedPhasedCorrectionValue0 - computedPhasedCorrectionCenter0‖ ≤",
+        "      computedPhasedTransformRadius",
+        "  correction1_mem :",
+        "    ‖computedPhasedCorrectionValue1 - computedPhasedCorrectionCenter1‖ ≤",
+        "      computedPhasedTransformRadius",
         "",
         "/-- The exact analytic obligations not manufactured by floating-point",
         "reconnaissance.  Five equal-cell certificates cover 270 cells on",
@@ -385,6 +406,14 @@ def render(payload: dict) -> str:
         "  correction1_majorant_le :",
         "    completedZeroTransformDerivativeMajorant 2",
         "      computedPhasedCorrectionAtom1 ≤ 1000",
+        "",
+        "/-- Forget the residual and payment fields when only correction-matrix",
+        "invertibility is needed. -/",
+        "theorem ComputedPhasedAnalyticIntervalCertificate.correctionTransforms",
+        "    (C : ComputedPhasedAnalyticIntervalCertificate) :",
+        "    ComputedPhasedCorrectionTransformCertificate where",
+        "  correction0_mem := C.correction0_mem",
+        "  correction1_mem := C.correction1_mem",
         "",
         "/-- Exact sum of the five generated rational segment bounds. -/",
         f"def computedPhasedGeneratedHalfQuadrature : ℝ := {lean_real(total)}",

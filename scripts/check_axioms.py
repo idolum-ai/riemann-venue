@@ -82,6 +82,9 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Certificate",
     "RiemannVenue.Venue.computedPhasedAnalyticIntervalCertificateOfQuadratures",
     "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero",
+    "RiemannVenue.Venue.computedPhasedCorrectionTransforms_exactTarget",
+    "RiemannVenue.Venue.computedPhasedCorrectionDeterminant_ne_zero_of_canonicalBumpPackets",
+    "RiemannVenue.Venue.completedZeroTestTransform_computedPhasedCandidate_eq_target_of_canonicalBumpPackets",
     "RiemannVenue.Venue.computedPhasedCertificate_exactTarget_and_payment",
     "RiemannVenue.Venue.computedPhasedBaseTest_iterDeriv_apply",
     "RiemannVenue.Venue.real_sin_cos_mem_rationalTrigInterval",
@@ -91,9 +94,16 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.ExplicitBumpWeightedQuadratureCertificate.majorant_le",
     "RiemannVenue.Venue.explicitStandardBumpJetNumerator_eq_14",
     "RiemannVenue.Venue.computedPhasedRawJetInterval_contains",
+    "RiemannVenue.Venue.norm_computedTransformBaseRawJet_le_cellBound",
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval",
     "RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval",
     "RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide",
+    "RiemannVenue.Venue.computedPhased_bump0_majorant_le",
+    "RiemannVenue.Venue.computedPhased_bump1_majorant_le",
+    "RiemannVenue.Venue.computedPhased_bump2_majorant_le",
+    "RiemannVenue.Venue.RationalInterval.contains_roundedListSum",
+    "RiemannVenue.Venue.computedPhasedCell0_thirdJet_le",
+    "RiemannVenue.Venue.computedTransformCorrection0WideBlock12_integral_mem",
 }
 APPROVED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 

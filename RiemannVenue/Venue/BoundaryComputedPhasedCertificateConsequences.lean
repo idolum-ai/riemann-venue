@@ -23,7 +23,7 @@ noncomputable section
 
 /-- The two exact correction values enclosed by the generated norm balls. -/
 def computedPhasedCorrectionEnclosure
-    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    (C : ComputedPhasedCorrectionTransformCertificate) :
     TwoComplexValueCenterRadiusEnclosure
       computedPhasedCorrectionValue0 computedPhasedCorrectionValue1 where
   center0 := computedPhasedCorrectionCenter0
@@ -51,7 +51,7 @@ private theorem residualCenter_norm_le :
   norm_num [computedPhasedResidualCenter]
 
 private theorem correctionEnclosure_determinantCenter_gt
-    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    (C : ComputedPhasedCorrectionTransformCertificate) :
     (64 : ℝ) / 1000 <
       (computedPhasedCorrectionEnclosure C).determinantCenter := by
   norm_num [computedPhasedCorrectionEnclosure,
@@ -60,9 +60,9 @@ private theorem correctionEnclosure_determinantCenter_gt
     computedPhasedCorrectionCenter1]
 
 private theorem correctionEnclosure_errorRadius_lt
-    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    (C : ComputedPhasedCorrectionTransformCertificate) :
     (computedPhasedCorrectionEnclosure C).determinantErrorRadius <
-      (1 : ℝ) / 1000000000 := by
+      (1 : ℝ) / 1000 := by
   calc
     (computedPhasedCorrectionEnclosure C).determinantErrorRadius =
         computedPhasedTransformRadius * ‖computedPhasedCorrectionCenter1‖ +
@@ -78,34 +78,43 @@ private theorem correctionEnclosure_errorRadius_lt
         · exact mul_le_mul_of_nonneg_right correctionCenter0_norm_le
             (by norm_num [computedPhasedTransformRadius])
       · exact le_rfl
-    _ < (1 : ℝ) / 1000000000 := by
+    _ < (1 : ℝ) / 1000 := by
       norm_num [computedPhasedTransformRadius]
 
 /-- The generated transform enclosures force the exact correction matrix to
 be invertible. -/
 theorem computedPhasedCorrectionDeterminant_ne_zero
-    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    (C : ComputedPhasedCorrectionTransformCertificate) :
     complexCorrectionDeterminant computedPhasedCorrectionValue0
         computedPhasedCorrectionValue1 ≠ 0 := by
   let E := computedPhasedCorrectionEnclosure C
   apply E.determinant_ne_zero_of_errorRadius_lt_abs_center
   have hc : (64 : ℝ) / 1000 < E.determinantCenter :=
     correctionEnclosure_determinantCenter_gt C
-  have he : E.determinantErrorRadius < (1 : ℝ) / 1000000000 :=
+  have he : E.determinantErrorRadius < (1 : ℝ) / 1000 :=
     correctionEnclosure_errorRadius_lt C
   have hpos : 0 < E.determinantCenter := lt_trans (by norm_num) hc
   rw [abs_of_pos hpos]
   linarith
 
+/-- The two correction-transform balls alone certify the exact benchmark
+solve. No residual or derivative-payment enclosure is used here. -/
+theorem computedPhasedCorrectionTransforms_exactTarget
+    (C : ComputedPhasedCorrectionTransformCertificate) :
+    completedZeroTestTransform computedPhasedCandidate
+        computedPhasedBenchmarkPoint = computedPhasedBenchmarkTarget :=
+  completedZeroTestTransform_computedPhasedCandidate_eq
+    (computedPhasedCorrectionDeterminant_ne_zero C)
+
 private theorem computedPhasedCorrection0_abs_le
     (C : ComputedPhasedAnalyticIntervalCertificate) :
-    |computedPhasedCorrection0| ≤ (1 : ℝ) / 100000000 := by
-  let E := computedPhasedCorrectionEnclosure C
+    |computedPhasedCorrection0| ≤ (1 : ℝ) / 100000 := by
+  let E := computedPhasedCorrectionEnclosure C.correctionTransforms
   have hsep : E.determinantErrorRadius < |E.determinantCenter| := by
     have hc : (64 : ℝ) / 1000 < E.determinantCenter :=
-      correctionEnclosure_determinantCenter_gt C
-    have he : E.determinantErrorRadius < (1 : ℝ) / 1000000000 :=
-      correctionEnclosure_errorRadius_lt C
+      correctionEnclosure_determinantCenter_gt C.correctionTransforms
+    have he : E.determinantErrorRadius < (1 : ℝ) / 1000 :=
+      correctionEnclosure_errorRadius_lt C.correctionTransforms
     rw [abs_of_pos (lt_trans (by norm_num) hc)]
     linarith
   have h := E.abs_exactTargetCorrection0_le
@@ -117,16 +126,16 @@ private theorem computedPhasedCorrection0_abs_le
   have hden : (63 : ℝ) / 1000 <
       |E.determinantCenter| - E.determinantErrorRadius := by
     have hc : (64 : ℝ) / 1000 < E.determinantCenter :=
-      correctionEnclosure_determinantCenter_gt C
-    have he : E.determinantErrorRadius < (1 : ℝ) / 1000000000 :=
-      correctionEnclosure_errorRadius_lt C
+      correctionEnclosure_determinantCenter_gt C.correctionTransforms
+    have he : E.determinantErrorRadius < (1 : ℝ) / 1000 :=
+      correctionEnclosure_errorRadius_lt C.correctionTransforms
     rw [abs_of_pos (lt_trans (by norm_num) hc)]
     linarith
   have hnum :
       (‖computedPhasedResidualCenter‖ + computedPhasedResidualRadius) *
           (‖E.center1‖ + E.radius1) ≤
-        ((3 : ℝ) / 2000000000 + 1 / 100000000000) *
-          (3 / 8 + 1 / 10000000000) := by
+        ((3 : ℝ) / 2000000000 + 1 / 1000000) *
+          (3 / 8 + 1 / 10000) := by
     dsimp only [E, computedPhasedCorrectionEnclosure]
     apply mul_le_mul
     · exact add_le_add residualCenter_norm_le
@@ -141,13 +150,13 @@ private theorem computedPhasedCorrection0_abs_le
 
 private theorem computedPhasedCorrection1_abs_le
     (C : ComputedPhasedAnalyticIntervalCertificate) :
-    |computedPhasedCorrection1| ≤ (1 : ℝ) / 100000000 := by
-  let E := computedPhasedCorrectionEnclosure C
+    |computedPhasedCorrection1| ≤ (1 : ℝ) / 100000 := by
+  let E := computedPhasedCorrectionEnclosure C.correctionTransforms
   have hsep : E.determinantErrorRadius < |E.determinantCenter| := by
     have hc : (64 : ℝ) / 1000 < E.determinantCenter :=
-      correctionEnclosure_determinantCenter_gt C
-    have he : E.determinantErrorRadius < (1 : ℝ) / 1000000000 :=
-      correctionEnclosure_errorRadius_lt C
+      correctionEnclosure_determinantCenter_gt C.correctionTransforms
+    have he : E.determinantErrorRadius < (1 : ℝ) / 1000 :=
+      correctionEnclosure_errorRadius_lt C.correctionTransforms
     rw [abs_of_pos (lt_trans (by norm_num) hc)]
     linarith
   have h := E.abs_exactTargetCorrection1_le
@@ -159,16 +168,16 @@ private theorem computedPhasedCorrection1_abs_le
   have hden : (63 : ℝ) / 1000 <
       |E.determinantCenter| - E.determinantErrorRadius := by
     have hc : (64 : ℝ) / 1000 < E.determinantCenter :=
-      correctionEnclosure_determinantCenter_gt C
-    have he : E.determinantErrorRadius < (1 : ℝ) / 1000000000 :=
-      correctionEnclosure_errorRadius_lt C
+      correctionEnclosure_determinantCenter_gt C.correctionTransforms
+    have he : E.determinantErrorRadius < (1 : ℝ) / 1000 :=
+      correctionEnclosure_errorRadius_lt C.correctionTransforms
     rw [abs_of_pos (lt_trans (by norm_num) hc)]
     linarith
   have hnum :
       (‖computedPhasedResidualCenter‖ + computedPhasedResidualRadius) *
           (‖E.center0‖ + E.radius0) ≤
-        ((3 : ℝ) / 2000000000 + 1 / 100000000000) *
-          (2 / 5 + 1 / 10000000000) := by
+        ((3 : ℝ) / 2000000000 + 1 / 1000000) *
+          (2 / 5 + 1 / 10000) := by
     dsimp only [E, computedPhasedCorrectionEnclosure]
     apply mul_le_mul
     · exact add_le_add residualCenter_norm_le
@@ -271,7 +280,7 @@ theorem computedPhasedCertificate_exactTarget_and_payment
         computedPhasedBenchmarkPoint = computedPhasedBenchmarkTarget ∧
       completedZeroTransformDerivativeMajorant 2 computedPhasedCandidate < 354 :=
   ⟨completedZeroTestTransform_computedPhasedCandidate_eq
-      (computedPhasedCorrectionDeterminant_ne_zero C),
+      (computedPhasedCorrectionDeterminant_ne_zero C.correctionTransforms),
     computedPhasedCandidate_derivativeMajorant_lt_354 C⟩
 
 end

@@ -48,6 +48,35 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   Every recurrence step is rechecked by the Lean kernel, and CI byte-compares
   all generated shards.
 
+- `generate_computed_phased_transform_bump_global_bounds.py` emits the
+  source-sized order-6 through order-12 global derivative bounds consumed by
+  the correction-transform Taylor compiler. Python computes integer
+  polynomials and rational ceilings only; Lean proves every emitted bound.
+
+- `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
+  compile the first cancellation-preserving derivative cell. The generated
+  leaves are proved against exact transcendental interval evaluators, the
+  twenty frequency groups preserve all signed cancellation, and a sixth-order
+  Taylor transport produces the final whole-cell third-jet certificate. This
+  first cell is the reference implementation for the remaining packet, not a
+  claim that the other 269 cells have already been certified.
+
+- `generate_computed_phased_bump_quadrature.py` emits the exact rational
+  `3 x 256` upper table, 48 source-sized proof shards, and the selector used by
+  the weighted standard-bump quadrature. The JSON table is computed evidence,
+  not proof authority: 765 generated Lean leaves independently check its
+  support-interior entries against the rational interval evaluator, while the
+  final three entries are discharged by the analytic flat-edge bound.
+
+- `generate_canonical_bump_transform_packets.py` emits the 64-point shared
+  bump caches, eight forward/reflected kernel recurrences, and four paired
+  transform packets used by the correction matrix. Each packet is split into
+  sixteen independently kernel-checked four-cell blocks so CI can compile the
+  exact rational arithmetic in parallel. The resulting Lean theorem, rather
+  than Python's mirrored arithmetic, certifies the nonzero determinant and
+  exact benchmark transform equation. CI runs the generator in `--check`
+  mode to reject source drift.
+
 - `perron_certificates.py` regenerates
   `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
   corrected schedule audit cited by `notes/perron-vector-attack.md`.

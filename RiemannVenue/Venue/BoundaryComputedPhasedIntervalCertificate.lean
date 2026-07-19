@@ -351,8 +351,26 @@ def computedPhasedCorrectionCenter1 : ℂ :=
   (140913003529 : ℝ) / 500000000000 + (5481997317 : ℝ) / 62500000000 * Complex.I
 def computedPhasedResidualCenter : ℂ :=
   (229 : ℝ) / 200000000000 + (-51 : ℝ) / 1000000000000 * Complex.I
-def computedPhasedTransformRadius : ℝ := (1 : ℝ) / 10000000000
-def computedPhasedResidualRadius : ℝ := (1 : ℝ) / 100000000000
+/-- Precision needed for the two correction-matrix entries. The determinant
+margin, rather than the reconnaissance precision, governs this radius. -/
+def computedPhasedTransformRadius : ℝ := (1 : ℝ) / 10000
+
+/-- Precision needed for the rounded base residual. Together with the
+correction-entry radius this keeps both exact Cramer coefficients below
+`10^-5`, which is sufficient for the final payment budget. -/
+def computedPhasedResidualRadius : ℝ := (1 : ℝ) / 1000000
+
+/-- The minimal transform contract needed to certify the correction matrix.
+It deliberately excludes the base residual and derivative-payment packet:
+those are required for quantitative payment bounds, but not for determinant
+exclusion or the exact benchmark solve. -/
+structure ComputedPhasedCorrectionTransformCertificate where
+  correction0_mem :
+    ‖computedPhasedCorrectionValue0 - computedPhasedCorrectionCenter0‖ ≤
+      computedPhasedTransformRadius
+  correction1_mem :
+    ‖computedPhasedCorrectionValue1 - computedPhasedCorrectionCenter1‖ ≤
+      computedPhasedTransformRadius
 
 /-- The exact analytic obligations not manufactured by floating-point
 reconnaissance.  Five equal-cell certificates cover 270 cells on
@@ -399,6 +417,14 @@ structure ComputedPhasedAnalyticIntervalCertificate where
   correction1_majorant_le :
     completedZeroTransformDerivativeMajorant 2
       computedPhasedCorrectionAtom1 ≤ 1000
+
+/-- Forget the residual and payment fields when only correction-matrix
+invertibility is needed. -/
+theorem ComputedPhasedAnalyticIntervalCertificate.correctionTransforms
+    (C : ComputedPhasedAnalyticIntervalCertificate) :
+    ComputedPhasedCorrectionTransformCertificate where
+  correction0_mem := C.correction0_mem
+  correction1_mem := C.correction1_mem
 
 /-- Exact sum of the five generated rational segment bounds. -/
 def computedPhasedGeneratedHalfQuadrature : ℝ := (2029554031000697713 : ℝ) / 1826098400000000

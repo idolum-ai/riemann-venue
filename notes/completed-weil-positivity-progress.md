@@ -276,3 +276,38 @@ A finite LP dual certificate remains available if this fixed dictionary
 fails certification.  For the full-family fallback, the weighted `C0+C2` jet
 is constructed in `L1 +_1 L1`, with a proved Hahn--Banach
 closure/annihilator characterization.
+
+## Proof-Compiler Stabilization Pass
+
+The first generated derivative leaf is no longer one serial 12,000-line
+module.  Its shared bump polynomials and five translation columns are separate
+modules behind a thin compatibility import, so Lake can compile the expensive
+normalizations in parallel without changing any declaration names.  CI now
+regenerates and diffs this sharded topology.
+
+The support evaluator also has an explicit three-way regime type.  Lean proves
+that strict support interior uses the stable boundary-coordinate interval,
+strict support exterior is exactly zero, and only support-crossing cells use
+the global fallback.  Generated probes instantiate all three branches on the
+actual phased geometry.  This removes branch selection from generator
+folklore and makes boundary-cell subdivision an inspectable policy decision.
+
+For the base transform, the generic analytic compiler is now complete through
+the first omitted jet.  It aggregates all 100 signed columns before enclosing
+the base-test jet, lifts that interval through the complex benchmark kernel,
+and proves a rational whole-cell omitted-jet norm bound.  This rules out an
+unsound atomwise shortcut: the existing canonical-bump packets have raw error
+about `1.28e-5`, while the base coefficient amplification would require about
+`2.5e-10` per independent transform ball.  The correction solve cannot recover
+the residual either, because its coefficient bounds already consume the
+residual enclosure.
+
+The remaining base-residual obligation is therefore concrete but sizable: a
+cancellation-preserving positive-half Taylor packet over the support window.
+The existing 270-cell layout needs roughly 3,240 aggregate center-jet caches
+plus one omitted-jet payment per cell, split into independently buildable
+generated shards.  Until those exact rational caches inhabit
+`ComputedPhasedBaseTransformCertificate`, `residual_mem` remains open.  The
+compiler pass narrowed the choice to either paying that finite generation cost
+or first designing a more compact recurrence/cache representation; it did not
+quietly promote numerical reconnaissance into proof authority.

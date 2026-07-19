@@ -317,6 +317,59 @@ def rationalComplexCellsToSignedPackets
 
 /-! ## Exact rational benchmark leaves -/
 
+/-- Rational rectangle for `exp (I * (re + im I) * t)`. -/
+def rationalComplexKernelInterval
+    (expOrder expReduction trigOrder trigHalvings : ℕ)
+    (re im t : ℚ) : RationalRectangle :=
+  let growth := rangeReducedExpInterval expOrder (-im * t) expReduction
+  let phase := rationalTrigInterval trigOrder (re * t) trigHalvings
+  RationalRectangle.mul
+    ⟨growth, RationalInterval.zero⟩
+    ⟨phase.cos, phase.sin⟩
+
+theorem complex_exp_rational_eq_growth_cis (re im t : ℝ) :
+    Complex.exp (Complex.I * (re + im * Complex.I) * (t : ℂ)) =
+      (Real.exp (-im * t) : ℝ) *
+        (Real.cos (re * t) + Real.sin (re * t) * Complex.I) := by
+  rw [show Complex.I * (re + im * Complex.I) * (t : ℂ) =
+      (((-im * t : ℝ) : ℂ)) + (((re * t : ℝ) : ℂ)) * Complex.I by
+    apply Complex.ext <;> norm_num <;> ring]
+  rw [Complex.exp_add, Complex.exp_ofReal_mul_I, ← Complex.ofReal_exp]
+
+/-- Generic kernel checker for rational complex frequencies. -/
+theorem rationalComplexKernelInterval_contains
+    {expOrder expReduction trigOrder trigHalvings : ℕ} {re im t : ℚ}
+    (hexpReduction : 0 < expReduction)
+    (hexpOrder : |↑((-im * t) / expReduction : ℚ)| /
+        expOrder.succ ≤ (1 : ℝ) / 2)
+    (htrigOrder : |↑((re * t) / (2 ^ trigHalvings : ℕ) : ℚ)| /
+        trigOrder.succ ≤ (1 : ℝ) / 2) :
+    (rationalComplexKernelInterval expOrder expReduction trigOrder
+      trigHalvings re im t).Contains
+      (Complex.exp (Complex.I *
+        ((re : ℝ) + (im : ℝ) * Complex.I) * ((t : ℝ) : ℂ))) := by
+  have hgrowth := real_exp_mem_rangeReducedExpInterval
+    (n := expOrder) (k := expReduction) (x := -im * t)
+    hexpReduction hexpOrder
+  have hphase := real_sin_cos_mem_rationalTrigInterval
+    (n := trigOrder) (k := trigHalvings) (x := re * t) htrigOrder
+  rw [complex_exp_rational_eq_growth_cis]
+  apply RationalRectangle.contains_mul
+  · constructor
+    · change (rangeReducedExpInterval expOrder (-im * t)
+          expReduction).Contains (Real.exp (-(im : ℝ) * (t : ℝ)))
+      simpa only [Rat.cast_neg, Rat.cast_mul] using hgrowth
+    · change RationalInterval.zero.Contains 0
+      simpa [RationalInterval.zero] using
+        RationalInterval.contains_singleton 0
+  · constructor
+    · simpa only [Complex.add_re, Complex.mul_re, Complex.ofReal_re,
+        Complex.ofReal_im, Complex.I_re, Complex.I_im, mul_zero, mul_one,
+        sub_zero, add_zero, Rat.cast_mul] using hphase.2
+    · simpa only [Complex.add_im, Complex.mul_im, Complex.ofReal_im,
+        Complex.ofReal_re, Complex.I_re, Complex.I_im, mul_zero, mul_one,
+        zero_add, add_zero, Rat.cast_mul] using hphase.1
+
 /-- Exact rational real part of the benchmark frequency. -/
 def computedPhasedBenchmarkRealQ : ℚ :=
   14134725141734695 / 1000000000000000
