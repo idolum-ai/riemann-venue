@@ -428,3 +428,21 @@ zero through five.  The seventh cell remains a separate flat-tail theorem:
 replace the global boundary fallback by a bound on the boundary polynomial
 times `exp (-y)` as `y -> +infinity`, then reconnect both branches to the seven
 typed variation certificates.
+
+The first attempt to remove subdivision by Taylor-expanding only the signed
+trigonometric sum failed for a useful reason: on a full near-boundary cell,
+interval evaluation of the bump boundary polynomial explodes before its
+shared exponential is applied.  A whole-jet Taylor probe has the same defect.
+Thus the endpoint branch must preserve cancellation inside
+`P_n(y) * exp (-y)`, not merely inside the frequency sum.
+
+The analytic tail core now captures exactly that condition.  If a generated
+certificate proves that `P_n` has fixed sign and `P_n - P_n'` has the same
+sign beyond a rational threshold, Lean proves that
+`|P_n(y)| * exp (-y)` decreases on the resulting ray.  Integer reconnaissance
+finds a common threshold `y = 46` for all generated orders through fourteen
+(with parity-appropriate sign); this is proposal data, not yet a certificate.
+The next endpoint shard should generate and prove the shifted-polynomial sign
+identities at `46`, then evaluate the single threshold value with a rational
+exponential enclosure.  The compact interval below that threshold remains on
+the ordinary adaptive-cell route.
