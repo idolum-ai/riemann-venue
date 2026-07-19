@@ -142,6 +142,8 @@ jobs:
           done
       - name: Canonical-bump transform packet drift gate
         run: python scripts/generate_canonical_bump_transform_packets.py --check
+      - name: Narrow outer midpoint shard drift gate
+        run: python scripts/generate_computed_phased_base_outer_midpoints.py --check
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks its source hash and exact-rational budget identities.
       - name: Base-transform budget artifact integrity gate
