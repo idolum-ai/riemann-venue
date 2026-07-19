@@ -70,41 +70,31 @@ theorem computedPhasedBaseRepresentativeReflectedKernel_contains
   push_cast
   ring
 
-/-- The exact center-value enclosure needed by an order-one probe cell. -/
+/-- Geometry retained by an order-one probe cell.  Tight midpoint data is a
+production-packet concern; these seam probes deliberately use a coarse global
+raw-jet enclosure that is already proved analytically. -/
 structure ComputedPhasedBaseRepresentativePointData
     (q : ℚ) (I : RationalInterval) where
   center_mem : I.Contains (q : ℝ)
-  value_contains :
-    (computedTransformBaseTestJetPointInterval 32 4 32 16 0 q).Contains
-      (computedPhasedBaseTest q)
 
-def computedPhasedBaseRepresentativeRealRectangle
-    (I : RationalInterval) : RationalRectangle :=
-  ⟨I, RationalInterval.singleton 0⟩
+def computedPhasedBaseRepresentativeRawBound : ℚ :=
+  computedTransformBaseRawJetCellBound 0 computedPhasedBaseGlobalWindow
 
-theorem computedPhasedBaseRepresentativeRealRectangle_contains
-    {I : RationalInterval} {x : ℝ} (hx : I.Contains x) :
-    (computedPhasedBaseRepresentativeRealRectangle I).Contains (x : ℂ) := by
-  exact ⟨by simpa using hx, by
-    simpa using RationalInterval.contains_singleton (0 : ℚ)⟩
+def computedPhasedBaseRepresentativeRawRectangle : RationalRectangle :=
+  ⟨⟨0, computedPhasedBaseRepresentativeRawBound⟩,
+    ⟨0, computedPhasedBaseRepresentativeRawBound⟩⟩
 
 def computedPhasedBaseRepresentativeForwardRawCache
     {q : ℚ} {I : RationalInterval}
     (_D : ComputedPhasedBaseRepresentativePointData q I)
     (_k : Fin 1) : RationalRectangle :=
-  RationalRectangle.mul
-    (computedPhasedBaseRepresentativeRealRectangle
-      (computedTransformBaseTestJetPointInterval 32 4 32 16 0 q))
-    (computedPhasedBaseRepresentativeForwardKernel q)
+  computedPhasedBaseRepresentativeRawRectangle
 
 def computedPhasedBaseRepresentativeReflectedRawCache
     {q : ℚ} {I : RationalInterval}
     (_D : ComputedPhasedBaseRepresentativePointData q I)
     (_k : Fin 1) : RationalRectangle :=
-  RationalRectangle.mul
-    (computedPhasedBaseRepresentativeRealRectangle
-      (computedTransformBaseTestJetPointInterval 32 4 32 16 0 q))
-    (computedPhasedBaseRepresentativeReflectedKernel q)
+  computedPhasedBaseRepresentativeRawRectangle
 
 def computedPhasedBaseRepresentativePairedCache
     {q : ℚ} {I : RationalInterval}
@@ -122,11 +112,26 @@ theorem computedPhasedBaseRepresentativeForwardRawCache_contains
       (iteratedDeriv k
         (computedTransformRawIntegrand computedPhasedBaseTest
           computedPhasedBenchmarkPoint) (q : ℝ)) := by
-  fin_cases k
-  simpa [computedPhasedBaseRepresentativeForwardRawCache,
-    computedTransformRawIntegrand] using RationalRectangle.contains_mul
-      (computedPhasedBaseRepresentativeRealRectangle_contains D.value_contains)
-      (computedPhasedBaseRepresentativeForwardKernel_contains q hq)
+  have hk : (k : ℕ) = 0 := by omega
+  have hqR : |(q : ℝ)| ≤ 9 / 2 := by
+    have : |(q : ℝ)| ≤ 3 := by exact_mod_cast hq
+    linarith
+  have hnorm := norm_computedPhasedBaseRawJet_le_global
+    (n := 0) (by norm_num) hqR
+  have hnorm0 :
+      ‖computedTransformRawIntegrand computedPhasedBaseTest
+          computedPhasedBenchmarkPoint (q : ℝ)‖ ≤
+        (computedPhasedBaseRepresentativeRawBound : ℝ) := by
+    simpa only [iteratedDeriv_zero,
+      computedPhasedBaseRepresentativeRawBound] using hnorm
+  unfold computedPhasedBaseRepresentativeForwardRawCache
+  unfold computedPhasedBaseRepresentativeRawRectangle
+  rw [hk, iteratedDeriv_zero]
+  constructor
+  · simpa [RationalInterval.Contains] using
+      (Complex.abs_re_le_norm _).trans hnorm0
+  · simpa [RationalInterval.Contains] using
+      (Complex.abs_im_le_norm _).trans hnorm0
 
 theorem computedPhasedBaseRepresentativeReflectedRawCache_contains
     {q : ℚ} {I : RationalInterval}
@@ -136,11 +141,27 @@ theorem computedPhasedBaseRepresentativeReflectedRawCache_contains
       (iteratedDeriv k
         (computedTransformRawIntegrand computedPhasedBaseTest
           (-computedPhasedBenchmarkPoint)) (q : ℝ)) := by
-  fin_cases k
-  simpa [computedPhasedBaseRepresentativeReflectedRawCache,
-    computedTransformRawIntegrand] using RationalRectangle.contains_mul
-      (computedPhasedBaseRepresentativeRealRectangle_contains D.value_contains)
-      (computedPhasedBaseRepresentativeReflectedKernel_contains q hq)
+  have hk : (k : ℕ) = 0 := by omega
+  have hqR : |(-(q : ℝ))| ≤ 9 / 2 := by
+    have : |(q : ℝ)| ≤ 3 := by exact_mod_cast hq
+    simpa only [abs_neg] using this.trans (by norm_num)
+  have hnorm := norm_computedPhasedBaseRawJet_le_global
+    (n := 0) (t := -(q : ℝ)) (by norm_num) hqR
+  have hnorm0 :
+      ‖computedTransformRawIntegrand computedPhasedBaseTest
+          computedPhasedBenchmarkPoint (-(q : ℝ))‖ ≤
+        (computedPhasedBaseRepresentativeRawBound : ℝ) := by
+    simpa only [iteratedDeriv_zero,
+      computedPhasedBaseRepresentativeRawBound] using hnorm
+  rw [computedPhasedBaseRawIntegrand_neg] at hnorm0
+  unfold computedPhasedBaseRepresentativeReflectedRawCache
+  unfold computedPhasedBaseRepresentativeRawRectangle
+  rw [hk, iteratedDeriv_zero]
+  constructor
+  · simpa [RationalInterval.Contains] using
+      (Complex.abs_re_le_norm _).trans hnorm0
+  · simpa [RationalInterval.Contains] using
+      (Complex.abs_im_le_norm _).trans hnorm0
 
 theorem computedPhasedBaseRepresentativePairedCache_contains
     {q : ℚ} {I : RationalInterval}
@@ -201,95 +222,23 @@ noncomputable def computedPhasedBaseRepresentativeTaylorCell
 
 /-! ## Three support regimes -/
 
-def computedPhasedBaseInteriorPointData :
+theorem computedPhasedBaseInteriorPointData :
     ComputedPhasedBaseRepresentativePointData 0
       computedPhasedInteriorRegimeProbe where
   center_mem := by
     norm_num [computedPhasedInteriorRegimeProbe, RationalInterval.Contains]
-  value_contains := by
-    apply computedTransformBaseTestJetPointInterval_contains (by norm_num)
-    · intro j
-      fin_cases j <;> norm_num [
-        computedPhasedFrequencyQ, computedPhasedTranslationQ]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · norm_num
 
-def computedPhasedBaseBoundaryPointData :
+theorem computedPhasedBaseBoundaryPointData :
     ComputedPhasedBaseRepresentativePointData (5 / 2)
       computedPhasedBoundaryRegimeProbe where
   center_mem := by
     norm_num [computedPhasedBoundaryRegimeProbe, RationalInterval.Contains]
-  value_contains := by
-    apply computedTransformBaseTestJetPointInterval_contains (by norm_num)
-    · intro j
-      fin_cases j <;> norm_num [
-        computedPhasedFrequencyQ, computedPhasedTranslationQ]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · norm_num
 
-def computedPhasedBaseExteriorPointData :
+theorem computedPhasedBaseExteriorPointData :
     ComputedPhasedBaseRepresentativePointData 3
       computedPhasedExteriorRegimeProbe where
   center_mem := by
     norm_num [computedPhasedExteriorRegimeProbe, RationalInterval.Contains]
-  value_contains := by
-    apply computedTransformBaseTestJetPointInterval_contains (by norm_num)
-    · intro j
-      fin_cases j <;> norm_num [
-        computedPhasedFrequencyQ, computedPhasedTranslationQ]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · intro j
-      fin_cases j <;> norm_num [computedPhasedBumpCoordinateQ,
-        computedPhasedTranslationQ,
-        explicitBumpBoundaryYInterval, explicitBumpGapInterval,
-        RationalInterval.scale, RationalInterval.add, RationalInterval.singleton,
-        RationalInterval.sub, RationalInterval.neg, RationalInterval.pow,
-        RationalInterval.mul, RationalInterval.one,
-        RationalInterval.reciprocalPositive, RationalInterval.ofBounds,
-        RationalInterval.lower, RationalInterval.upper]
-    · norm_num
 
 noncomputable def computedPhasedBaseInteriorTaylorCell :=
   computedPhasedBaseRepresentativeTaylorCell
