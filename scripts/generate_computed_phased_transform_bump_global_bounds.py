@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate source-sized global bounds for explicit bump jets 6 through 14.
+"""Generate source-sized global bounds for explicit bump jets 0 through 14.
 
 Each output module proves one boundary-polynomial identity and pays its
 monomials through the generic `y^m * exp (-y)` bound.  The generator uses
@@ -92,6 +92,8 @@ def lean_polynomial(coefficients: list[int]) -> str:
 
 
 def numerator_shard(order: int) -> str:
+    if order <= 5:
+        return "BoundaryComputedPhasedTransformBumpJets0To5"
     if order <= 8:
         return "BoundaryComputedPhasedTransformBumpJets6To8"
     if order <= 11:
@@ -121,6 +123,12 @@ def render(order: int, coefficients: list[int], bound: int) -> str:
         if parity else
         f"  exact hbound\n"
     )
+    polynomial_finish = "  abel\n" if len(coefficients) > 1 else ""
+    algebra_finish = (
+        "  norm_num\n"
+        if order == 0 else
+        "  norm_num\n  field_simp\n  ring\n"
+    )
     return f"""import RiemannVenue.Venue.BoundaryComputedPhasedTransformBumpGlobalBoundsCore
 import RiemannVenue.Venue.{numerator_shard(order)}
 
@@ -145,7 +153,7 @@ theorem computedTransformBumpBoundaryPolynomial{order}_eq :
   simp [computedTransformBumpBoundaryPolynomial{order},
     computedTransformBoundaryPolynomial,
     computedTransformBumpBoundaryCoefficients{order}, Fin.sum_univ_succ]
-  abel
+{polynomial_finish}
 
 set_option maxRecDepth 20000 in
 theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial{order}
@@ -166,8 +174,7 @@ theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial{order}
   simp only [computedTransformBumpJetNumerator{order},
     computedTransformBumpBoundaryPolynomial{order}, map_add, map_mul,
     map_pow, aeval_X, map_ofNat, map_neg, map_intCast, aeval_monomial]
-  field_simp
-  ring
+{algebra_finish}
 
 private theorem computedTransformBumpJet{order}_interior_bound
     {{t : \u211d}} (ht : |t| < 1) :
@@ -208,7 +215,7 @@ def main() -> None:
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     values = numerators()
-    for order in range(6, 15):
+    for order in range(15):
         coefficients = boundary_coefficients(order, values[order])
         bound = global_bound(coefficients)
         path = args.output_dir / f"BoundaryComputedPhasedTransformBumpGlobalBound{order}.lean"

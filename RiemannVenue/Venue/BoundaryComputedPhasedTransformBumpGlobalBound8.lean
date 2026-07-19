@@ -31,6 +31,7 @@ theorem computedTransformBumpBoundaryPolynomial8_eq :
     computedTransformBumpBoundaryCoefficients8, Fin.sum_univ_succ]
   abel
 
+
 set_option maxRecDepth 20000 in
 theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial8
     {t : ℝ} (ht : |t| < 1) :
@@ -50,8 +51,10 @@ theorem iteratedDeriv_explicitStandardBump_eq_boundaryPolynomial8
   simp only [computedTransformBumpJetNumerator8,
     computedTransformBumpBoundaryPolynomial8, map_add, map_mul,
     map_pow, aeval_X, map_ofNat, map_neg, map_intCast, aeval_monomial]
+  norm_num
   field_simp
   ring
+
 
 private theorem computedTransformBumpJet8_interior_bound
     {t : ℝ} (ht : |t| < 1) :

@@ -160,12 +160,12 @@ def reciprocal_positive(interval):
     return bounds(1 / interval.upper, 1 / interval.lower)
 
 
-def bump_interval(order, coordinate, split=1):
+def bump_interval(order, coordinate, split=1, exp_order=24):
     gap = Interval(1).add(coordinate.power(2).neg())
     inverse = reciprocal_positive(gap)
     numerator = eval_poly(JET_POLYS[order], coordinate)
     rational = numerator.mul(inverse.power(2 * order))
-    exponential = monotone_exp(24, Interval(1).add(inverse.neg()), split)
+    exponential = monotone_exp(exp_order, Interval(1).add(inverse.neg()), split)
     return rational.mul(exponential).scale(Q(2, 7) ** order)
 
 

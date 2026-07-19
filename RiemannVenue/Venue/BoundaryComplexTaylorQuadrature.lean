@@ -349,6 +349,32 @@ namespace ComplexIntegralCellCertificate
 
 variable {f : ℝ → ℂ} {left right : ℝ} {order : ℕ}
 
+/-- Transport a certificate across equal endpoints. The signed center and
+error payment are data, so reindexing changes neither. -/
+def reindex {left' right' : ℝ}
+    (C : ComplexIntegralCellCertificate f left right)
+    (hleft : left = left') (hright : right = right') :
+    ComplexIntegralCellCertificate f left' right' := by
+  subst left'
+  subst right'
+  exact C
+
+@[simp] theorem reindex_center {left' right' : ℝ}
+    (C : ComplexIntegralCellCertificate f left right)
+    (hleft : left = left') (hright : right = right') :
+    (C.reindex hleft hright).center = C.center := by
+  subst left'
+  subst right'
+  rfl
+
+@[simp] theorem reindex_error {left' right' : ℝ}
+    (C : ComplexIntegralCellCertificate f left right)
+    (hleft : left = left') (hright : right = right') :
+    (C.reindex hleft hright).error = C.error := by
+  subst left'
+  subst right'
+  rfl
+
 /-- Forget the internal Taylor representation after retaining its signed
 moment and certified error. -/
 def ofTaylor (C : ComplexTaylorCellCertificate f left right order) :

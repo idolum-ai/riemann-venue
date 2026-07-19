@@ -35,8 +35,13 @@ theorem computedPhasedBaseOuterPairedCache_contains (i : Fin 7) (n : Fin 12) :
 
 /-- Exact midpoint-only Taylor payment; the omitted-jet remainder is deliberately excluded. -/
 def computedPhasedBaseOuterMidpointIntervalPaymentQ (i : Fin 7) : ℚ :=
-  2 * (1 / 28) * ((∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).re.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial) +
-    (∑ k : Fin 12, (computedPhasedBaseOuterPairedCache i k).im.radius * (1 / 28) ^ (k : ℕ) / (k : ℕ).factorial))
+  2 * (1 / 28) *
+    ((∑ k ∈ Finset.range 12, (if hk : k < 12 then
+        (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius else 0) *
+        (1 / 28) ^ k / k.factorial) +
+      (∑ k ∈ Finset.range 12, (if hk : k < 12 then
+        (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius else 0) *
+        (1 / 28) ^ k / k.factorial))
 
 /-- Certified first-omitted-jet rectangle at each outer midpoint. -/
 def computedPhasedBaseOuterRemainderMidpointCache (i : Fin 7) : RationalRectangle := ![
@@ -181,10 +186,9 @@ noncomputable def computedPhasedBaseOuterTaylorCell (i : Fin 7)
     (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) :
     ComplexIntegralCellCertificate
       (computedPhasedBasePairedRawIntegrand computedPhasedBenchmarkPoint)
-      ((computedPhasedBaseOuterMidpoint i : ℝ) - 1 / 28)
-      ((computedPhasedBaseOuterMidpoint i : ℝ) + 1 / 28) := by
-  simpa using
-    (computedPhasedBasePairedTaylorCellAtCached
+      ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))
+      ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ)) :=
+    computedPhasedBasePairedTaylorCellAtCached
       (computedPhasedBaseOuterMidpoint i) (1 / 28)
       (computedPhasedBaseOuterRemainderBoundQ i V)
       (by norm_num)
@@ -203,7 +207,71 @@ noncomputable def computedPhasedBaseOuterTaylorCell (i : Fin 7)
         intro x hx
         apply norm_computedPhasedBaseOuterRemainder_le i V x
         norm_num at hx ⊢
-        exact hx))
+        exact hx)
+
+/-- Exact rational payment of the first omitted jet in one outer cell. -/
+def computedPhasedBaseOuterRemainderPaymentQ (i : Fin 7)
+    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) : ℚ :=
+  4 * (1 / 28) * computedPhasedBaseOuterRemainderBoundQ i V *
+    (1 / 28) ^ 12 / Nat.factorial 12
+
+/-- The Taylor-cell error is exactly the retained-jet payment plus the
+first-omitted-jet payment. -/
+theorem computedPhasedBaseOuterTaylorCell_error (i : Fin 7)
+    (V : ComputedPhasedBaseOuterRemainderVariationCertificate i) :
+    (computedPhasedBaseOuterTaylorCell i V).error =
+      ((computedPhasedBaseOuterMidpointIntervalPaymentQ i +
+        computedPhasedBaseOuterRemainderPaymentQ i V : ℚ) : ℝ) := by
+  change
+    symmetricTaylorError 12 (fun k => if hk : k < 12 then
+      ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius : ℝ) else 0)
+      (computedPhasedBaseOuterRemainderBoundQ i V)
+      (taylorCellHalfWidth
+        ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))
+        ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ))) +
+    symmetricTaylorError 12 (fun k => if hk : k < 12 then
+      ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius : ℝ) else 0)
+      (computedPhasedBaseOuterRemainderBoundQ i V)
+      (taylorCellHalfWidth
+        ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))
+        ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ))) = _
+  have hr : taylorCellHalfWidth
+      ((computedPhasedBaseOuterMidpoint i : ℝ) - (1 / 28 : ℚ))
+      ((computedPhasedBaseOuterMidpoint i : ℝ) + (1 / 28 : ℚ)) =
+        (1 / 28 : ℚ) := by
+    unfold taylorCellHalfWidth
+    push_cast
+    ring
+  have hre :
+      (∑ k ∈ Finset.range 12, (if hk : k < 12 then
+          ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius : ℝ)
+        else 0) * ((1 / 28 : ℚ) : ℝ) ^ k / k.factorial) =
+        (((∑ k ∈ Finset.range 12, (if hk : k < 12 then
+            (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).re.radius else 0) *
+          (1 / 28 : ℚ) ^ k / k.factorial) : ℚ) : ℝ) := by
+    push_cast
+    apply Finset.sum_congr rfl
+    intro k hk
+    have hk' : k < 12 := Finset.mem_range.mp hk
+    simp only [hk', ↓reduceDIte]
+  have him :
+      (∑ k ∈ Finset.range 12, (if hk : k < 12 then
+          ((computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius : ℝ)
+        else 0) * ((1 / 28 : ℚ) : ℝ) ^ k / k.factorial) =
+        (((∑ k ∈ Finset.range 12, (if hk : k < 12 then
+            (computedPhasedBaseOuterPairedCache i ⟨k, hk⟩).im.radius else 0) *
+          (1 / 28 : ℚ) ^ k / k.factorial) : ℚ) : ℝ) := by
+    push_cast
+    apply Finset.sum_congr rfl
+    intro k hk
+    have hk' : k < 12 := Finset.mem_range.mp hk
+    simp only [hk', ↓reduceDIte]
+  simp only [symmetricTaylorError, hr,
+    computedPhasedBaseOuterMidpointIntervalPaymentQ,
+    computedPhasedBaseOuterRemainderPaymentQ]
+  rw [hre, him]
+  push_cast
+  ring
 
 end
 end RiemannVenue.Venue

@@ -15,6 +15,25 @@ open Polynomial
 
 noncomputable section
 
+/-- A small rational upper enclosure for `exp (-1)`.  Tail packets reuse this
+without reopening the finite exponential-series argument. -/
+theorem computedTransformExpNegOneLe :
+    Real.exp (-1) ≤ (252 : ℝ) / 685 := by
+  rw [Real.exp_neg]
+  have hexpOne : (685 : ℝ) / 252 ≤ Real.exp 1 := by
+    have h := Real.sum_le_exp_of_nonneg (x := (1 : ℝ)) (by norm_num) 8
+    norm_num [Finset.sum_range_succ] at h ⊢
+    exact h
+  have h := one_div_le_one_div_of_le (by norm_num) hexpOne
+  norm_num at h
+  simpa only [one_div] using h
+
+/-- Integer powers of the preceding enclosure. -/
+theorem computedTransformExpNegNatLe (n : ℕ) :
+    Real.exp (-(n : ℝ)) ≤ ((252 : ℝ) / 685) ^ n := by
+  rw [show -(n : ℝ) = (n : ℝ) * (-1) by ring, Real.exp_nat_mul]
+  exact pow_le_pow_left₀ (Real.exp_pos _).le computedTransformExpNegOneLe n
+
 theorem computedTransformPowMulExpNegLe (m : ℕ) {y : ℝ} (hy : 0 ≤ y) :
     y ^ m * Real.exp (-y) ≤ ((252 : ℝ) * m / 685) ^ m := by
   cases m with
@@ -40,15 +59,6 @@ theorem computedTransformPowMulExpNegLe (m : ℕ) {y : ℝ} (hy : 0 ≤ y) :
         dsimp only [M]
         push_cast
         field_simp
-      have hexpNegOne : Real.exp (-1) ≤ (252 : ℝ) / 685 := by
-        rw [Real.exp_neg]
-        have hexpOne : (685 : ℝ) / 252 ≤ Real.exp 1 := by
-          have h := Real.sum_le_exp_of_nonneg (x := (1 : ℝ)) (by norm_num) 8
-          norm_num [Finset.sum_range_succ] at h ⊢
-          exact h
-        have h := one_div_le_one_div_of_le (by norm_num) hexpOne
-        norm_num at h
-        simpa only [one_div] using h
       calc
         y ^ (m + 1) * Real.exp (-y) =
             M ^ (m + 1) *
@@ -59,7 +69,8 @@ theorem computedTransformPowMulExpNegLe (m : ℕ) {y : ℝ} (hy : 0 ≤ y) :
           mul_le_mul_of_nonneg_left hpow hscaleNonneg
         _ ≤ M ^ (m + 1) * ((252 : ℝ) / 685) ^ (m + 1) := by
           exact mul_le_mul_of_nonneg_left
-            (pow_le_pow_left₀ (Real.exp_pos _).le hexpNegOne (m + 1))
+            (pow_le_pow_left₀ (Real.exp_pos _).le
+              computedTransformExpNegOneLe (m + 1))
             hscaleNonneg
         _ = ((252 : ℝ) * ((m + 1 : ℕ) : ℝ) / 685) ^ (m + 1) := by
           rw [← mul_pow]
