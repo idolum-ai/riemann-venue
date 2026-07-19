@@ -145,6 +145,8 @@ exactly the repository's approved standard Mathlib axioms.
 #print axioms RiemannVenue.Venue.explicitStandardBumpJetNumerator_eq_14
 #print axioms RiemannVenue.Venue.computedPhasedRawJetInterval_contains
 #print axioms RiemannVenue.Venue.norm_computedTransformBaseRawJet_le_cellBound
+#print axioms RiemannVenue.Venue.computedTransformBaseTestJetPointInterval_contains
+#print axioms RiemannVenue.Venue.completedFourierLaplaceTransform_computedPhasedBase_eq_paired
 #print axioms RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval
 #print axioms RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval
 #print axioms RiemannVenue.Venue.computedPhasedSegment0Cell0Column0Sin_wide

@@ -18,6 +18,46 @@ open scoped BigOperators
 
 noncomputable section
 
+/-- Signed point interval for one derivative of the complete base test. -/
+def computedTransformBaseTestJetPointInterval
+    (trigOrder trigHalvings bumpOrder bumpSplit n : ℕ) (t : ℚ) :
+    RationalInterval :=
+  RationalInterval.finSum fun j : ComputedPhasedColumn =>
+    RationalInterval.scale (computedPhasedBaseCoefficientQ j)
+      (computedTransformAtomJetPointIntervalUpTo12 trigOrder trigHalvings
+        bumpOrder bumpSplit n j t)
+
+theorem computedTransformBaseTestJetPointInterval_contains
+    {trigOrder trigHalvings bumpOrder bumpSplit n : ℕ} {t : ℚ}
+    (hn : n ≤ 11)
+    (htrig : ∀ j : ComputedPhasedColumn,
+      |↑((computedPhasedFrequencyQ j *
+          (t + computedPhasedTranslationQ j)) /
+        (2 ^ trigHalvings : ℕ) : ℚ)| / trigOrder.succ ≤ (1 : ℝ) / 2)
+    (hbumpLower : ∀ j : ComputedPhasedColumn,
+      |(((RationalInterval.neg (explicitBumpBoundaryYInterval
+          (RationalInterval.singleton
+            (computedPhasedBumpCoordinateQ j t)))).lower /
+        bumpSplit : ℚ) : ℝ)| / bumpOrder.succ ≤ (1 : ℝ) / 2)
+    (hbumpUpper : ∀ j : ComputedPhasedColumn,
+      |(((RationalInterval.neg (explicitBumpBoundaryYInterval
+          (RationalInterval.singleton
+            (computedPhasedBumpCoordinateQ j t)))).upper /
+        bumpSplit : ℚ) : ℝ)| / bumpOrder.succ ≤ (1 : ℝ) / 2)
+    (hsplit : 0 < bumpSplit) :
+    (computedTransformBaseTestJetPointInterval trigOrder trigHalvings
+      bumpOrder bumpSplit n t).Contains
+        (computedPhasedBaseTest.iterDeriv n (t : ℝ)) := by
+  rw [computedPhasedBaseTest,
+    SmoothCompletedLogTest.iterDeriv_finiteRealCombination_apply]
+  apply RationalInterval.contains_finSum
+  intro j
+  have hs := RationalInterval.contains_scale
+    (q := computedPhasedBaseCoefficientQ j)
+    (computedTransformAtom_iterDeriv_mem_pointIntervalUpTo12 hn
+      (htrig j) (hbumpLower j) (hbumpUpper j) hsplit)
+  simpa only [computedPhasedBaseCoefficientQ_cast] using hs
+
 /-- Whole-cell signed interval for one derivative of the complete base test. -/
 def computedTransformBaseTestJetCellInterval
     (trigOrder trigHalvings bumpOrder bumpSplit n : ℕ)
@@ -61,6 +101,53 @@ theorem computedTransformBaseTestJetCellInterval_contains
     (computedTransformAtomJetCellIntervalUpTo12_contains hn ht (htrig j)
       (hbumpLower j) (hbumpUpper j) hsplit)
   simpa only [computedPhasedBaseCoefficientQ_cast] using hs
+
+/-- Raw complex jet interval for the signed base synthesis at an arbitrary
+rational frequency.  The base sum is performed before the complex kernel is
+applied, preserving cancellation among the 100 dictionary coefficients. -/
+def computedTransformBaseRawJetCellIntervalAtFrequency
+    (trigOrder trigHalvings bumpOrder bumpSplit n : ℕ)
+    (re im : ℚ) (kernel : RationalRectangle)
+    (I : RationalInterval) : RationalRectangle :=
+  rationalTransformRawJetInterval re im n kernel fun i =>
+    computedTransformBaseTestJetCellInterval trigOrder trigHalvings
+      bumpOrder bumpSplit i I
+
+theorem computedTransformBaseRawJetCellIntervalAtFrequency_contains
+    {trigOrder trigHalvings bumpOrder bumpSplit n : ℕ}
+    {re im : ℚ} {kernel : RationalRectangle}
+    {I : RationalInterval} {t : ℚ}
+    (hn : n ≤ 12) (ht : I.Contains (t : ℝ))
+    (hkernel : kernel.Contains
+      (Complex.exp (Complex.I *
+        ((re : ℝ) + (im : ℝ) * Complex.I) * ((t : ℝ) : ℂ))))
+    (htrig : ∀ j : ComputedPhasedColumn,
+      |(((computedPhasedFrequencyQ j *
+          (I.center + computedPhasedTranslationQ j)) /
+        (2 ^ trigHalvings : ℕ) : ℚ) : ℝ)| /
+          trigOrder.succ ≤ (1 : ℝ) / 2)
+    (hbumpLower : ∀ j : ComputedPhasedColumn,
+      (0 : ℚ) < (explicitBumpGapInterval
+          (computedTransformBumpCoordinateInterval j I)).lower →
+        |(((RationalInterval.neg (explicitBumpBoundaryYInterval
+            (computedTransformBumpCoordinateInterval j I))).lower /
+          bumpSplit : ℚ) : ℝ)| / bumpOrder.succ ≤ (1 : ℝ) / 2)
+    (hbumpUpper : ∀ j : ComputedPhasedColumn,
+      (0 : ℚ) < (explicitBumpGapInterval
+          (computedTransformBumpCoordinateInterval j I)).lower →
+        |(((RationalInterval.neg (explicitBumpBoundaryYInterval
+            (computedTransformBumpCoordinateInterval j I))).upper /
+          bumpSplit : ℚ) : ℝ)| / bumpOrder.succ ≤ (1 : ℝ) / 2)
+    (hsplit : 0 < bumpSplit) :
+    (computedTransformBaseRawJetCellIntervalAtFrequency
+      trigOrder trigHalvings bumpOrder bumpSplit n re im kernel I).Contains
+        (iteratedDeriv n
+          (computedTransformRawIntegrand computedPhasedBaseTest
+            ((re : ℝ) + (im : ℝ) * Complex.I)) (t : ℝ)) := by
+  apply rationalTransformRawJetInterval_contains hkernel
+  intro i
+  exact computedTransformBaseTestJetCellInterval_contains
+    (Nat.lt_succ_iff.mp i.isLt |>.trans hn) ht htrig hbumpLower hbumpUpper hsplit
 
 /-- Raw complex transform-jet interval obtained after the signed base sum. -/
 def computedTransformBaseRawJetCellInterval

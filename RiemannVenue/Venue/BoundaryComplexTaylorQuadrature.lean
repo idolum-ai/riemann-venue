@@ -292,6 +292,50 @@ theorem integral_mem (C : ComplexTaylorCellCertificate f left right order)
 
 end ComplexTaylorCellCertificate
 
+/-- Real projection commutes with iterated differentiation for a smooth
+complex-valued function. -/
+theorem iteratedDeriv_complex_re_eq
+    {f : ℝ → ℂ} (hf : ContDiff ℝ (⊤ : ℕ∞) f) (n : ℕ) (t : ℝ) :
+    iteratedDeriv n (fun x => (f x).re) t = (iteratedDeriv n f t).re := by
+  induction n generalizing t with
+  | zero => rfl
+  | succ n ih =>
+      rw [iteratedDeriv_succ, iteratedDeriv_succ]
+      have hfun : iteratedDeriv n (fun x => (f x).re) =
+          fun x => (iteratedDeriv n f x).re := by
+        funext x
+        exact ih x
+      rw [hfun]
+      have hd : DifferentiableAt ℝ (iteratedDeriv n f) t :=
+        (hf.differentiable_iteratedDeriv n
+          (WithTop.coe_lt_coe.mpr (ENat.coe_lt_top n))).differentiableAt
+      have hc : HasDerivAt (fun x => (iteratedDeriv n f x).re)
+          (_root_.deriv (iteratedDeriv n f) t).re t := by
+        exact (Complex.reCLM.hasFDerivAt.comp t hd.hasFDerivAt).hasDerivAt
+      exact hc.deriv
+
+/-- Imaginary projection commutes with iterated differentiation for a smooth
+complex-valued function. -/
+theorem iteratedDeriv_complex_im_eq
+    {f : ℝ → ℂ} (hf : ContDiff ℝ (⊤ : ℕ∞) f) (n : ℕ) (t : ℝ) :
+    iteratedDeriv n (fun x => (f x).im) t = (iteratedDeriv n f t).im := by
+  induction n generalizing t with
+  | zero => rfl
+  | succ n ih =>
+      rw [iteratedDeriv_succ, iteratedDeriv_succ]
+      have hfun : iteratedDeriv n (fun x => (f x).im) =
+          fun x => (iteratedDeriv n f x).im := by
+        funext x
+        exact ih x
+      rw [hfun]
+      have hd : DifferentiableAt ℝ (iteratedDeriv n f) t :=
+        (hf.differentiable_iteratedDeriv n
+          (WithTop.coe_lt_coe.mpr (ENat.coe_lt_top n))).differentiableAt
+      have hc : HasDerivAt (fun x => (iteratedDeriv n f x).im)
+          (_root_.deriv (iteratedDeriv n f) t).im t := by
+        exact (Complex.imCLM.hasFDerivAt.comp t hd.hasFDerivAt).hasDerivAt
+      exact hc.deriv
+
 /-- Common integral interface for Taylor cells and direct flat-tail cells. -/
 structure ComplexIntegralCellCertificate
     (f : ℝ → ℂ) (left right : ℝ) where
@@ -330,6 +374,92 @@ def ofNormBound (ordered : left ≤ right) (bound : ℚ) (bound_nonneg : 0 ≤ b
         rw [uIoc_of_le ordered] at hx
         exact ⟨hx.1.le, hx.2⟩)
     simpa [abs_of_nonneg (sub_nonneg.mpr ordered), mul_comm] using h
+
+/-- Build a Taylor cell for any smooth complex integrand from rational point
+jet rectangles and one uniform bound for the first omitted jet.  This is the
+shared proof boundary used by generated packet compilers: transcendental work
+is isolated in `hcache` and `hremainder`, while signed moments and error
+payments are computed by kernel-checked rational arithmetic. -/
+noncomputable def ofCachedTaylorWithRemainderOfOrder
+    (order : ℕ) (f : ℝ → ℂ) (q radius remainderBound : ℚ)
+    (hsmooth : ContDiff ℝ (⊤ : ℕ∞) f)
+    (horder : 0 < order) (hradius : 0 ≤ radius)
+    (hremainderNonneg : 0 ≤ remainderBound)
+    (cache : Fin order → RationalRectangle)
+    (hcache : ∀ k : Fin order,
+      (cache k).Contains (iteratedDeriv k f (q : ℝ)))
+    (hremainder : ∀ x : ℝ,
+      x ∈ Set.Icc ((q : ℝ) - radius) ((q : ℝ) + radius) →
+        ‖iteratedDeriv order f x‖ ≤ (remainderBound : ℝ)) :
+    ComplexIntegralCellCertificate f
+      ((q : ℝ) - radius) ((q : ℝ) + radius) :=
+  ComplexIntegralCellCertificate.ofTaylor (order := order) {
+    re := {
+      ordered := by
+        have hradiusR : (0 : ℝ) ≤ radius := by exact_mod_cast hradius
+        linarith
+      order_pos := horder
+      smooth := by
+        change ContDiff ℝ order (Complex.reCLM ∘ f)
+        exact (Complex.reCLM.contDiff.comp hsmooth).of_le
+          (WithTop.coe_le_coe.mpr le_top)
+      jetCenter := fun k => (cache k).re.center
+      jetRadius := fun k => (cache k).re.radius
+      jetRadius_nonneg := fun k => by
+        exact_mod_cast (abs_nonneg _).trans (hcache k).1
+      jet_mem := fun k => by
+        rw [iteratedDeriv_complex_re_eq hsmooth]
+        change (cache k).re.Contains
+          (iteratedDeriv k f
+            (taylorCellMidpoint ((q : ℝ) - radius)
+              ((q : ℝ) + radius))).re
+        convert (hcache k).1 using 1 <;> simp [taylorCellMidpoint]
+      remainderBound := remainderBound
+      remainderBound_nonneg := by exact_mod_cast hremainderNonneg
+      remainder := fun x hx => by
+        rw [iteratedDeriv_complex_re_eq hsmooth]
+        exact (Complex.abs_re_le_norm _).trans (hremainder x hx) }
+    im := {
+      ordered := by
+        have hradiusR : (0 : ℝ) ≤ radius := by exact_mod_cast hradius
+        linarith
+      order_pos := horder
+      smooth := by
+        change ContDiff ℝ order (Complex.imCLM ∘ f)
+        exact (Complex.imCLM.contDiff.comp hsmooth).of_le
+          (WithTop.coe_le_coe.mpr le_top)
+      jetCenter := fun k => (cache k).im.center
+      jetRadius := fun k => (cache k).im.radius
+      jetRadius_nonneg := fun k => by
+        exact_mod_cast (abs_nonneg _).trans (hcache k).2
+      jet_mem := fun k => by
+        rw [iteratedDeriv_complex_im_eq hsmooth]
+        change (cache k).im.Contains
+          (iteratedDeriv k f
+            (taylorCellMidpoint ((q : ℝ) - radius)
+              ((q : ℝ) + radius))).im
+        convert (hcache k).2 using 1 <;> simp [taylorCellMidpoint]
+      remainderBound := remainderBound
+      remainderBound_nonneg := by exact_mod_cast hremainderNonneg
+      remainder := fun x hx => by
+        rw [iteratedDeriv_complex_im_eq hsmooth]
+        exact (Complex.abs_im_le_norm _).trans (hremainder x hx) } }
+
+/-- Order-twelve specialization retained for production transform packets. -/
+noncomputable def ofCachedTaylorWithRemainder
+    (f : ℝ → ℂ) (q radius remainderBound : ℚ)
+    (hsmooth : ContDiff ℝ (⊤ : ℕ∞) f)
+    (hradius : 0 ≤ radius) (hremainderNonneg : 0 ≤ remainderBound)
+    (cache : Fin 12 → RationalRectangle)
+    (hcache : ∀ k : Fin 12,
+      (cache k).Contains (iteratedDeriv k f (q : ℝ)))
+    (hremainder : ∀ x : ℝ,
+      x ∈ Set.Icc ((q : ℝ) - radius) ((q : ℝ) + radius) →
+        ‖iteratedDeriv 12 f x‖ ≤ (remainderBound : ℝ)) :
+    ComplexIntegralCellCertificate f
+      ((q : ℝ) - radius) ((q : ℝ) + radius) :=
+  ofCachedTaylorWithRemainderOfOrder 12 f q radius remainderBound hsmooth
+    (by norm_num) hradius hremainderNonneg cache hcache hremainder
 
 end ComplexIntegralCellCertificate
 
