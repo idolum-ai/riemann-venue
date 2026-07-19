@@ -1099,46 +1099,6 @@ theorem computedTransformCorrection0RawIntegrand_contDiff :
     exact (contDiff_const.mul Complex.ofRealCLM.contDiff).cexp
   exact hh.mul hk
 
-theorem iteratedDeriv_complex_re_eq
-    {f : ℝ → ℂ} (hf : ContDiff ℝ (⊤ : ℕ∞) f) (n : ℕ) (t : ℝ) :
-    iteratedDeriv n (fun x => (f x).re) t = (iteratedDeriv n f t).re := by
-  induction n generalizing t with
-  | zero => rfl
-  | succ n ih =>
-      rw [iteratedDeriv_succ, iteratedDeriv_succ]
-      have hfun : iteratedDeriv n (fun x => (f x).re) =
-          fun x => (iteratedDeriv n f x).re := by
-        funext x
-        exact ih x
-      rw [hfun]
-      have hd : DifferentiableAt ℝ (iteratedDeriv n f) t :=
-        (hf.differentiable_iteratedDeriv n
-          (WithTop.coe_lt_coe.mpr (ENat.coe_lt_top n))).differentiableAt
-      have hc : HasDerivAt (fun x => (iteratedDeriv n f x).re)
-          (_root_.deriv (iteratedDeriv n f) t).re t := by
-        exact (Complex.reCLM.hasFDerivAt.comp t hd.hasFDerivAt).hasDerivAt
-      exact hc.deriv
-
-theorem iteratedDeriv_complex_im_eq
-    {f : ℝ → ℂ} (hf : ContDiff ℝ (⊤ : ℕ∞) f) (n : ℕ) (t : ℝ) :
-    iteratedDeriv n (fun x => (f x).im) t = (iteratedDeriv n f t).im := by
-  induction n generalizing t with
-  | zero => rfl
-  | succ n ih =>
-      rw [iteratedDeriv_succ, iteratedDeriv_succ]
-      have hfun : iteratedDeriv n (fun x => (f x).im) =
-          fun x => (iteratedDeriv n f x).im := by
-        funext x
-        exact ih x
-      rw [hfun]
-      have hd : DifferentiableAt ℝ (iteratedDeriv n f) t :=
-        (hf.differentiable_iteratedDeriv n
-          (WithTop.coe_lt_coe.mpr (ENat.coe_lt_top n))).differentiableAt
-      have hc : HasDerivAt (fun x => (iteratedDeriv n f x).im)
-          (_root_.deriv (iteratedDeriv n f) t).im t := by
-        exact (Complex.imCLM.hasFDerivAt.comp t hd.hasFDerivAt).hasDerivAt
-      exact hc.deriv
-
 /-! ## Generated equal-cell constructor -/
 
 /-- Canonical raw correction-zero integrand used by generated packet cells. -/

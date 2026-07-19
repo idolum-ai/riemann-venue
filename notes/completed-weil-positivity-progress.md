@@ -311,3 +311,138 @@ generated shards.  Until those exact rational caches inhabit
 compiler pass narrowed the choice to either paying that finite generation cost
 or first designing a more compact recurrence/cache representation; it did not
 quietly promote numerical reconnaissance into proof authority.
+
+## Base-Transform Packet Decision Gate
+
+The next pass proves the missing symmetry reduction for the base itself.  The
+full transform on `[-9/2, 9/2]` is exactly the integral on `[0, 9/2]` of the
+forward raw kernel plus its reflected kernel.  The same identity is available
+at every iterated derivative, and the shared Taylor-cell compiler now accepts
+an arbitrary positive order rather than being hard-coded to order twelve.
+
+Three order-one representative cells compile at centers where column zero is
+interior, boundary, and exterior to its translated bump.  Each cell passes
+through the complete signed 100-column point interval, exact forward and
+reflected benchmark kernels, their paired cache, and a proved global first-jet
+remainder.  This establishes the proof seam across all support regimes.  It is
+not a substitute for the production order-twelve packet.
+
+An attempted polymorphic order-twelve representative exceeded two million
+heartbeats after roughly one hundred seconds.  By contrast, the paired
+analytic module and the three order-one cells each compile from source in
+roughly half a minute on the development machine.  The decision is therefore
+to keep generic analytic transformations in hand-written modules and emit
+already-rounded rational center-jet caches in order- and cell-sharded generated
+leaves.  Lean should check containment and aggregation; it should not normalize
+the full 100-column transcendental expression repeatedly inside each leaf.
+
+The non-authoritative exact-rational budget probe covers the proposed 270-cell
+positive-half layout.  Its sampled order-twelve remainder and rounded midpoint
+budgets total about `2.91e-8` after normalization, using about `2.91%` of the
+current `1e-6` residual radius.  The intervals `[4, 9/2]` and `[7/2, 4]`
+contribute about `55.44%` and `44.05%` of the packet error respectively; the
+other three regimes contribute about `0.52%` together.  Cell 261,
+`[31/8, 63/16]`, is the largest single contributor at about `19.53%`.
+Finite sampling is proposal evidence only: the generated production packet
+must replace every sampled remainder with a proved uniform bound and every
+floating center with a kernel-checked rational enclosure.  CI does not demand
+portable byte identity from NumPy/libm output.  It binds the committed artifact
+to the candidate hash and checks the cell partition, exact rational sums,
+normalization, headroom, and verdict; same-platform byte regeneration remains
+an additional local diagnostic.
+
+Recommendation: proceed with the existing 270-cell geometry, but generate the
+last two regimes first.  They are both the numerical budget concentration and
+the strongest build-size test.  Stop and redesign the cache representation if
+one order-sharded generated leaf cannot remain comfortably below the current
+half-minute representative compile scale.
+
+## Narrow Outer Midpoint Shard
+
+The first production-shaped shard now certifies the seven radius-`1/28`
+midpoints covering `[4, 9/2]`.  For every midpoint and every order from zero
+through eleven, Lean checks the active 20-column base sum, the forward and
+reflected benchmark kernels, and the paired raw-transform jet enclosure.  The
+two points nearest the bump boundary use exact two- and four-fold exponential
+range reduction; this is forced by the Taylor precondition and is checked in
+the generated proofs rather than hidden in floating-point preprocessing.
+
+`computedPhasedBaseOuterMidpointIntervalPaymentQ` records the exact rational
+midpoint-interval contribution for each cell.  The generated remainder leaves
+now also certify the first omitted order-twelve paired jet at all seven
+midpoints.  Their layered proof packets keep the exact boundary polynomial,
+exponential enclosure, four signed frequency blocks, reflected kernel, and
+rounded rectangle visible to Lean without asking the reducer to normalize the
+whole expression monolithically.
+
+The remaining obligation is no longer an unknown midpoint value.  It is the
+variation of that order-twelve jet across each radius-`1/28` cell.  The typed
+`ComputedPhasedBaseOuterRemainderVariationCertificate` isolates precisely that
+obligation, and `computedPhasedBaseOuterTaylorCell` turns any witness into a
+complete integral-cell certificate.  This is the reconnection point for two
+possible local arguments: centered higher-jet Taylor control on the first six
+cells and a dedicated flat-tail estimate at the support endpoint.
+
+The ordinary-cell branch is now connected formally.  A uniform bound `C` on
+the order-thirteen paired jet produces a variation certificate with exact
+rational payment `C / 28` by the Banach-valued mean value theorem.  A
+non-authoritative 65-point probe of the next two jets estimates the resulting
+normalized order-twelve payment across all seven cells at about `1.81e-7`,
+still below the full `1e-6` residual radius.  This is encouraging budget
+evidence, not a bound: the order-thirteen midpoint and order-fourteen local
+tail enclosures must still be kernel-certified.
+
+Two coarse routes have been tested and rejected.  Direct normalization of the
+full order-twelve expression over a cell overflows the reducer stack, while
+plain interval subdivision does not recover cancellation: even 128
+subdivisions per radius-`1/28` cell left natural interval extensions many
+orders of magnitude wider than sampled jet sizes.  The next proof must expose
+local cancellation analytically rather than purchase it with more boxes.
+
+## Outer Variation Compiler
+
+The ordinary-cell route now has a kernel-checked compiler rather than only a
+numerical sketch.  The base derivative is rearranged so that all twenty signed
+frequency jets are summed before multiplication by the shared translation
+`-1` bump jet.  That identity is lifted through the forward and reflected
+benchmark kernels to a rational rectangle and an exact L1 norm ceiling for
+every paired raw jet through order fourteen.  A radius-`1/896` shard around the
+first outer midpoint instantiates the full order-thirteen path; after cached
+dependencies it compiles in roughly six seconds.
+
+The standard-bump interface now reaches orders thirteen and fourteen without
+weakening the support regime.  Strict interior cells use Horner evaluation of
+the generated boundary polynomial and retain the exponentially small factor;
+exterior cells are exactly zero; cells touching `|u| = 1` fall back to proved
+global ceilings.  The latter is a sound negative control, not the intended
+endpoint payment: its constants deliberately forget flat-tail decay.
+
+Reconnaissance with the same signed-before-multiplication topology confirms
+that midpoint order-thirteen plus local order-fourteen control is the better
+ordinary-cell route.  Across the first six outer cells, a 1024-way diagnostic
+estimated normalized payment about `8.2e-7`; direct local extension was about
+`2.8e-6`.  These figures are not proof authority, but they show both the narrow
+remaining margin and the concentration in the sixth ordinary cell.  The next
+implementation gate is therefore adaptive certified subdivision for cells
+zero through five.  The seventh cell remains a separate flat-tail theorem:
+replace the global boundary fallback by a bound on the boundary polynomial
+times `exp (-y)` as `y -> +infinity`, then reconnect both branches to the seven
+typed variation certificates.
+
+The first attempt to remove subdivision by Taylor-expanding only the signed
+trigonometric sum failed for a useful reason: on a full near-boundary cell,
+interval evaluation of the bump boundary polynomial explodes before its
+shared exponential is applied.  A whole-jet Taylor probe has the same defect.
+Thus the endpoint branch must preserve cancellation inside
+`P_n(y) * exp (-y)`, not merely inside the frequency sum.
+
+The analytic tail core now captures exactly that condition.  If a generated
+certificate proves that `P_n` has fixed sign and `P_n - P_n'` has the same
+sign beyond a rational threshold, Lean proves that
+`|P_n(y)| * exp (-y)` decreases on the resulting ray.  Integer reconnaissance
+finds a common threshold `y = 46` for all generated orders through fourteen
+(with parity-appropriate sign); this is proposal data, not yet a certificate.
+The next endpoint shard should generate and prove the shifted-polynomial sign
+identities at `46`, then evaluate the single threshold value with a rational
+exponential enclosure.  The compact interval below that threshold remains on
+the ordinary adaptive-cell route.

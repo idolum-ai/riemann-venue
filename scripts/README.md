@@ -49,9 +49,20 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   all generated shards.
 
 - `generate_computed_phased_transform_bump_global_bounds.py` emits the
-  source-sized order-6 through order-12 global derivative bounds consumed by
-  the correction-transform Taylor compiler. Python computes integer
-  polynomials and rational ceilings only; Lean proves every emitted bound.
+  source-sized order-6 through order-14 global derivative bounds consumed by
+  the correction-transform and outer-variation compilers. Python computes
+  integer polynomials and rational ceilings only; Lean proves every emitted
+  bound. Orders 13 and 14 also expose local Horner intervals so strict
+  interior cells retain flat-boundary decay instead of paying the global
+  ceiling.
+
+- `generate_computed_phased_base_outer_midpoints.py` emits the seven narrow
+  outer-regime midpoint packets on `[4, 9/2]`.  The first family certifies
+  paired jets through order 11; the remainder family independently certifies
+  the first omitted order-12 jet and the aggregate mean-value bridge to a
+  complete Taylor cell.  Its `--check` mode is the CI drift gate.  Uniform
+  order-13 control remains a separate proof obligation, not generated
+  authority.
 
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
