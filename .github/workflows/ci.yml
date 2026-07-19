@@ -95,6 +95,16 @@ jobs:
               "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean" \
               "/tmp/computed-phased-bump-global-bounds/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean"
           done
+      - name: Standard-bump flat-tail sign compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-bump-tail-signs
+          python scripts/generate_computed_phased_transform_bump_tail_signs.py \
+            --output-dir /tmp/computed-phased-bump-tail-signs
+          for order in $(seq 0 14); do
+            diff -u \
+              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpTailSign${order}.lean" \
+              "/tmp/computed-phased-bump-tail-signs/BoundaryComputedPhasedTransformBumpTailSign${order}.lean"
+          done
       - name: First derivative-cell compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-derivative-cell0
