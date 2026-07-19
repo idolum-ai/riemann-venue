@@ -91,7 +91,7 @@ def computedPhasedBaseOuterVariationProbeLeaves :
 
 def computedPhasedBaseOuterVariationProbeThirteenBound : ℚ :=
   computedPhasedBaseOuterPairedRawJetCellBound
-    computedPhasedBaseOuterVariationProbeLeaves 13
+    computedPhasedBaseOuterVariationProbeLeaves.toComputedPhasedBaseOuterVariationData 13
 
 theorem norm_computedPhasedBaseOuterVariationProbe_thirteen_le
     {x : ℝ} (hx : computedPhasedBaseOuterVariationProbeInterval.Contains x) :
