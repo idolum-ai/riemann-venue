@@ -104,6 +104,13 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   `[1339/448, 3]`; `BoundaryComputedPhasedBaseLowerFourCertificate` joins the
   resulting `[5/2, 3]` enclosure. CI rejects drift in every generated module.
 
+- `generate_computed_phased_base_full_five_compact_shards.py` crosses the
+  five-block support transition on `[2, 5/2]`. Four prior blocks are
+  transported recursively while the newly active fifth block is enclosed
+  directly. Its 139 compact shards, seven Taylor packets, endpoint packet,
+  and import surfaces form one bidirectionally checked generated family.
+  `BoundaryComputedPhasedBaseFullFiveCertificate` exposes the joined regime.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the
