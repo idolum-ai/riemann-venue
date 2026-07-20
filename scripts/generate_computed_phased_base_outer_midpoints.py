@@ -14,6 +14,7 @@ import math
 from fractions import Fraction as Q
 from pathlib import Path
 
+from check_generated_family import generated_inventory_errors
 from generate_computed_phased_derivative_cell0_leaves import (
     Interval, bounds, bump_interval, bump_norm, eval_poly, lean_interval,
     lean_q, lean_trig, monotone_exp, outward, range_exp, trig_interval,
@@ -36,6 +37,11 @@ MIDPOINT_BUMP_EXP_ORDER = 48
 MIDPOINTS = tuple(Q(113 + 2 * i, 28) for i in range(7))
 BENCHMARK_REAL = Q(14134725141734695, 10**15)
 FREQUENCIES = tuple(Q(8) + Q(34, 19) * i for i in range(20))
+GENERATED_PATTERNS = (
+    "BoundaryComputedPhasedBaseOuterMidpointCell*.lean",
+    "BoundaryComputedPhasedBaseOuterRemainderMidpointCell*.lean",
+    "BoundaryComputedPhasedBaseOuterMidpoints.lean",
+)
 JET_NUMERATORS = numerators()
 BOUNDARY_COEFFICIENTS_12 = boundary_coefficients(12, JET_NUMERATORS[12])
 
@@ -841,6 +847,13 @@ def main() -> None:
         outputs[VENUE / f"BoundaryComputedPhasedBaseOuterRemainderMidpointCell{i}.lean"] = render_remainder_cell(i, MIDPOINTS[i])
     if args.cell is None:
         outputs[VENUE / "BoundaryComputedPhasedBaseOuterMidpoints.lean"] = render_aggregate()
+    inventory_errors: list[str] = []
+    if args.check and args.cell is None:
+        inventory_errors, _ = generated_inventory_errors(
+            {path.relative_to(VENUE).as_posix() for path in outputs},
+            VENUE,
+            GENERATED_PATTERNS,
+        )
     stale = []
     for path, content in outputs.items():
         content += "\n" if not content.endswith("\n") else ""
@@ -850,8 +863,10 @@ def main() -> None:
         elif not path.exists() or path.read_text() != content:
             path.write_text(content)
             print(f"wrote {path.relative_to(ROOT)}")
-    if stale:
-        raise SystemExit("stale generated files: " + ", ".join(stale))
+    if stale or inventory_errors:
+        messages = ["stale generated file: " + path for path in stale]
+        messages.extend("generated-family drift: " + error for error in inventory_errors)
+        raise SystemExit("\n".join(messages))
 
 
 if __name__ == "__main__":

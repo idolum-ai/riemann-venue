@@ -19,6 +19,8 @@ from fractions import Fraction
 from functools import cache
 from pathlib import Path
 
+from check_generated_family import generated_inventory_errors
+
 
 ROOT = Path(__file__).resolve().parents[1]
 VENUE = ROOT / "RiemannVenue" / "Venue"
@@ -27,6 +29,13 @@ ORDER = 12
 IM = Fraction(7, 8)
 RADIUS = Fraction(1, 128)
 BENCHMARK_REAL = Fraction(14134725141734695, 10**15)
+GENERATED_PATTERNS = (
+    "BoundaryCanonicalBumpKernelRecurrenceCorrection*.lean",
+    "BoundaryCanonicalBumpPairedPacketCorrection0PlusCell00.lean",
+    "BoundaryCanonicalBumpPairedTransformPacket*.lean",
+    "BoundaryCanonicalBumpPointCache*.lean",
+    "BoundaryCanonicalBumpTransformPacket*.lean",
+)
 
 
 @dataclass(frozen=True)
@@ -2773,8 +2782,17 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    files = generated_files()
+    inventory_errors: list[str] = []
+    if args.check:
+        inventory_errors, _ = generated_inventory_errors(
+            {path.relative_to(VENUE).as_posix() for path in files},
+            VENUE,
+            GENERATED_PATTERNS,
+        )
+
     stale: list[Path] = []
-    for path, content in generated_files().items():
+    for path, content in files.items():
         if args.check:
             if not path.exists() or path.read_text() != content:
                 stale.append(path.relative_to(ROOT))
@@ -2785,6 +2803,10 @@ def main() -> None:
     if stale:
         for path in stale:
             print(f"stale generated file: {path}", file=sys.stderr)
+    if inventory_errors:
+        for error in inventory_errors:
+            print(f"generated-family drift: {error}", file=sys.stderr)
+    if stale or inventory_errors:
         raise SystemExit(1)
 
 
