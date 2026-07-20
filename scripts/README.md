@@ -81,6 +81,15 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   `BoundaryComputedPhasedBaseMiddleCertificate` expose the joined integral
   enclosure. CI regenerates every emitted module and rejects source drift.
 
+- `generate_computed_phased_base_lower_three_compact_shards.py` recursively
+  translates the same 139-shard mesh onto `[3, 1563/448]`. Its first two
+  active translation blocks reuse the outer and middle certificates, while
+  the newly entered `-1` block receives fresh rational bump enclosures. A
+  recursive Taylor endpoint closes `[1563/448, 7/2]`, and
+  `BoundaryComputedPhasedBaseLowerThreeCertificate` exposes the joined
+  three-block integral enclosure. CI regenerates every emitted shard and
+  packet and rejects source drift.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the

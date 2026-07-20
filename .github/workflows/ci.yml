@@ -170,6 +170,14 @@ jobs:
           for generated in /tmp/computed-phased-base-middle-compact/*.lean; do
             diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
           done
+      - name: Recursive three-block compact compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-lower-three-compact
+          python scripts/generate_computed_phased_base_lower_three_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-lower-three-compact
+          for generated in /tmp/computed-phased-base-lower-three-compact/*.lean; do
+            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
+          done
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.
