@@ -1,0 +1,9 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseMiddleCompactTaylorCell6
+
+/-! Generated import surface for compact middle packets. -/
