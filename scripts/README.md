@@ -9,6 +9,13 @@ modules. Negative controls prove that completed-Xi, completed-zeta, and
 zero-index escape routes are rejected. CI runs the audit after the full Lean
 build so stale object files cannot hide a changed terminal declaration.
 
+`check_generated_family.py` compares a generator's isolated output directory
+with explicit tracked filename patterns. It fails on content drift, newly
+generated files that are not tracked, and stale tracked files that the
+generator no longer emits. Multi-file generator gates use this bidirectional
+inventory check instead of assuming that walking generated output alone is a
+complete drift guarantee.
+
 Reproducibility helpers for notebooks, figures, and longer numerical notes.
 
 - `probe_localized_weighted_matrix.py` uses an explicit standard bump to scan

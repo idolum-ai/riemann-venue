@@ -75,36 +75,35 @@ jobs:
           diff -u \
             RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCertificate.lean \
             /tmp/BoundaryComputedPhasedDerivativeCertificate.lean
+      - name: Generated-family inventory checker tests
+        run: python scripts/test_check_generated_family.py
       - name: Standard-bump high-jet compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-jets
           python scripts/generate_computed_phased_transform_bump_jets.py \
             --output-dir /tmp/computed-phased-bump-jets
-          for shard in 0To5 6To8 9To11 12To14; do
-            diff -u \
-              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpJets${shard}.lean" \
-              "/tmp/computed-phased-bump-jets/BoundaryComputedPhasedTransformBumpJets${shard}.lean"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-bump-jets \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedTransformBumpJets*.lean'
       - name: Standard-bump global-bound compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-global-bounds
           python scripts/generate_computed_phased_transform_bump_global_bounds.py \
             --output-dir /tmp/computed-phased-bump-global-bounds
-          for order in $(seq 0 14); do
-            diff -u \
-              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean" \
-              "/tmp/computed-phased-bump-global-bounds/BoundaryComputedPhasedTransformBumpGlobalBound${order}.lean"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-bump-global-bounds \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedTransformBumpGlobalBound[0-9]*.lean'
       - name: Standard-bump flat-tail sign compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-tail-signs
           python scripts/generate_computed_phased_transform_bump_tail_signs.py \
             --output-dir /tmp/computed-phased-bump-tail-signs
-          for order in $(seq 0 14); do
-            diff -u \
-              "RiemannVenue/Venue/BoundaryComputedPhasedTransformBumpTailSign${order}.lean" \
-              "/tmp/computed-phased-bump-tail-signs/BoundaryComputedPhasedTransformBumpTailSign${order}.lean"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-bump-tail-signs \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedTransformBumpTailSign[0-9]*.lean'
       - name: First derivative-cell compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-derivative-cell0
@@ -115,41 +114,29 @@ jobs:
             --output-dir /tmp/computed-phased-derivative-cell0
           python scripts/generate_computed_phased_derivative_cell0_weighted.py \
             --output-dir /tmp/computed-phased-derivative-cell0
-          for generated in \
-            BoundaryComputedPhasedDerivativeCell0BumpPolynomials.lean \
-            BoundaryComputedPhasedDerivativeCell0Translation{0..4}.lean \
-            BoundaryComputedPhasedDerivativeCell0Leaves.lean; do
-            diff -u "RiemannVenue/Venue/$generated" \
-              "/tmp/computed-phased-derivative-cell0/$generated"
-          done
-          for mode in Point Cell; do
-            if [ "$mode" = Point ]; then orders=$(seq 2 10); else orders=$(seq 2 11); fi
-            for order in $orders; do
-              name="BoundaryComputedPhasedDerivativeCell0${mode}Order${order}Groups.lean"
-              diff -u "RiemannVenue/Venue/$name" \
-                "/tmp/computed-phased-derivative-cell0/$name"
-            done
-          done
-          diff -u \
-            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCell0Weighted.lean \
-            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeCell0Weighted.lean
           python scripts/generate_computed_phased_derivative_regime_probes.py \
             --output /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeRegimeProbes.lean
-          diff -u \
-            RiemannVenue/Venue/BoundaryComputedPhasedDerivativeRegimeProbes.lean \
-            /tmp/computed-phased-derivative-cell0/BoundaryComputedPhasedDerivativeRegimeProbes.lean
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-derivative-cell0 \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern BoundaryComputedPhasedDerivativeCell0BumpPolynomials.lean \
+            --pattern 'BoundaryComputedPhasedDerivativeCell0Translation*.lean' \
+            --pattern BoundaryComputedPhasedDerivativeCell0Leaves.lean \
+            --pattern 'BoundaryComputedPhasedDerivativeCell0PointOrder*Groups.lean' \
+            --pattern 'BoundaryComputedPhasedDerivativeCell0CellOrder*Groups.lean' \
+            --pattern BoundaryComputedPhasedDerivativeCell0Weighted.lean \
+            --pattern BoundaryComputedPhasedDerivativeRegimeProbes.lean
       - name: Standard-bump quadrature compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-quadrature
           python scripts/generate_computed_phased_bump_quadrature.py \
             --output-dir /tmp/computed-phased-bump-quadrature
-          for generated in \
-            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureTable.lean \
-            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureSelectors.lean \
-            RiemannVenue/Venue/BoundaryComputedPhasedBumpQuadratureLeavesN*Block*.lean; do
-            diff -u "$generated" \
-              "/tmp/computed-phased-bump-quadrature/$(basename "$generated")"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-bump-quadrature \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern BoundaryComputedPhasedBumpQuadratureTable.lean \
+            --pattern BoundaryComputedPhasedBumpQuadratureSelectors.lean \
+            --pattern 'BoundaryComputedPhasedBumpQuadratureLeavesN*Block*.lean'
       - name: Canonical-bump transform packet drift gate
         run: python scripts/generate_canonical_bump_transform_packets.py --check
       - name: Narrow outer midpoint shard drift gate
@@ -159,25 +146,45 @@ jobs:
           rm -rf /tmp/computed-phased-base-outer-compact
           python scripts/generate_computed_phased_base_outer_compact_shards.py \
             --output-dir /tmp/computed-phased-base-outer-compact
-          for generated in /tmp/computed-phased-base-outer-compact/*.lean; do
-            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-outer-compact \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseOuterCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseOuterCompactPointTrigs*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseOuterCompactPointKernels*.lean' \
+            --pattern BoundaryComputedPhasedBaseOuterCompactTrigSteps.lean \
+            --pattern BoundaryComputedPhasedBaseOuterCompactKernelSteps.lean \
+            --pattern 'BoundaryComputedPhasedBaseOuterCompactVariationCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseOuterCompactVariations.lean \
+            --pattern 'BoundaryComputedPhasedBaseOuterCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseOuterCompactTaylorPackets.lean \
+            --pattern BoundaryComputedPhasedBaseOuterCompactShards.lean
       - name: Adaptive middle compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-middle-compact
           python scripts/generate_computed_phased_base_middle_compact_shards.py \
             --output-dir /tmp/computed-phased-base-middle-compact
-          for generated in /tmp/computed-phased-base-middle-compact/*.lean; do
-            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-middle-compact \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseMiddleCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseMiddleCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseMiddleCompactFixedShifts.lean \
+            --pattern BoundaryComputedPhasedBaseMiddleTailTaylor.lean \
+            --pattern BoundaryComputedPhasedBaseMiddleCompactShards.lean \
+            --pattern BoundaryComputedPhasedBaseMiddleCompactTaylorPackets.lean
       - name: Recursive three-block compact compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-base-lower-three-compact
           python scripts/generate_computed_phased_base_lower_three_compact_shards.py \
             --output-dir /tmp/computed-phased-base-lower-three-compact
-          for generated in /tmp/computed-phased-base-lower-three-compact/*.lean; do
-            diff -u "RiemannVenue/Venue/$(basename "$generated")" "$generated"
-          done
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-lower-three-compact \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseLowerThreeCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseLowerThreeCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseLowerThreeCompactShards.lean \
+            --pattern BoundaryComputedPhasedBaseLowerThreeCompactTaylorPackets.lean
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.
