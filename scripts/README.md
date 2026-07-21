@@ -119,6 +119,13 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   without importing future inner-layer generators. CI checks the complete
   150-file InnerOne family bidirectionally and axiom-audits its public endpoint.
 
+- `generate_computed_phased_base_full_five_inner_two_compact_shards.py`
+  continues the full-support descent over `[1, 3/2]`. Together with
+  `generate_computed_phased_base_full_five_inner_certificates.py --layer Two`,
+  it emits the 150-file InnerTwo family and the joined
+  `BoundaryComputedPhasedBaseFullFiveInnerTwoCertificate`. CI checks the exact
+  inventory and content, then axiom-audits the public endpoint.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the
