@@ -111,6 +111,14 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   and import surfaces form one bidirectionally checked generated family.
   `BoundaryComputedPhasedBaseFullFiveCertificate` exposes the joined regime.
 
+- `generate_computed_phased_base_full_five_inner_one_compact_shards.py`
+  translates the full-support packet onto `[3/2, 2]` and emits its 139 compact
+  shards, seven Taylor packets, endpoint packet, and import surfaces.
+  `generate_computed_phased_base_full_five_inner_certificates.py --layer One`
+  emits the joined `BoundaryComputedPhasedBaseFullFiveInnerOneCertificate`
+  without importing future inner-layer generators. CI checks the complete
+  150-file InnerOne family bidirectionally and axiom-audits its public endpoint.
+
 - `generate_computed_phased_derivative_cell0_{leaves,groups,weighted}.py`
   compile the first cancellation-preserving derivative cell. The generated
   leaves are proved against exact transcendental interval evaluators, the

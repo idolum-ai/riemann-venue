@@ -211,6 +211,23 @@ jobs:
             --pattern BoundaryComputedPhasedBaseFullFiveTailTaylor.lean \
             --pattern BoundaryComputedPhasedBaseFullFiveCompactShards.lean \
             --pattern BoundaryComputedPhasedBaseFullFiveCompactTaylorPackets.lean
+      - name: FullFive InnerOne descent compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-full-five-inner-one
+          python scripts/generate_computed_phased_base_full_five_inner_one_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-full-five-inner-one
+          python scripts/generate_computed_phased_base_full_five_inner_certificates.py \
+            --layer One \
+            --output-dir /tmp/computed-phased-base-full-five-inner-one
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-full-five-inner-one \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseFullFiveInnerOneCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseFullFiveInnerOneCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseFullFiveInnerOneTailTaylor.lean \
+            --pattern BoundaryComputedPhasedBaseFullFiveInnerOneCompactShards.lean \
+            --pattern BoundaryComputedPhasedBaseFullFiveInnerOneCompactTaylorPackets.lean \
+            --pattern BoundaryComputedPhasedBaseFullFiveInnerOneCertificate.lean
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.
