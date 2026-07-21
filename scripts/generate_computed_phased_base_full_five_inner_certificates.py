@@ -4,22 +4,39 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 from pathlib import Path
 
 from generate_computed_phased_base_full_five_compact_shards import lean_q, write_if_changed
-from generate_computed_phased_base_full_five_inner_one_compact_shards import entries as inner_one_entries
-from generate_computed_phased_base_full_five_inner_two_compact_shards import entries as inner_two_entries
-from generate_computed_phased_base_full_five_inner_three_compact_shards import entries as inner_three_entries
-from generate_computed_phased_base_full_five_inner_four_compact_shards import entries as inner_four_entries
 
 ROOT = Path(__file__).resolve().parents[1]
 VENUE = ROOT / "RiemannVenue" / "Venue"
 
-LAYERS = (
-    ("One", inner_one_entries, "3 / 2", "2"),
-    ("Two", inner_two_entries, "1", "3 / 2"),
-    ("Three", inner_three_entries, "1 / 2", "1"),
-    ("Four", inner_four_entries, "0", "1 / 2"),
+LAYER_CONFIG = (
+    (
+        "One",
+        "generate_computed_phased_base_full_five_inner_one_compact_shards",
+        "3 / 2",
+        "2",
+    ),
+    (
+        "Two",
+        "generate_computed_phased_base_full_five_inner_two_compact_shards",
+        "1",
+        "3 / 2",
+    ),
+    (
+        "Three",
+        "generate_computed_phased_base_full_five_inner_three_compact_shards",
+        "1 / 2",
+        "1",
+    ),
+    (
+        "Four",
+        "generate_computed_phased_base_full_five_inner_four_compact_shards",
+        "0",
+        "1 / 2",
+    ),
 )
 
 
@@ -109,9 +126,23 @@ def render(layer: str, entries, lower: str, upper: str) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, default=VENUE)
+    parser.add_argument(
+        "--layer",
+        action="append",
+        choices=[layer for layer, *_ in LAYER_CONFIG],
+        help="generate only the selected inner layer; repeat for multiple layers",
+    )
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    for layer, entries, lower, upper in LAYERS:
+    selected = (
+        set(args.layer)
+        if args.layer
+        else {layer for layer, *_ in LAYER_CONFIG}
+    )
+    for layer, module_name, lower, upper in LAYER_CONFIG:
+        if layer not in selected:
+            continue
+        entries = importlib.import_module(module_name).entries
         write_if_changed(
             args.output_dir /
             f"BoundaryComputedPhasedBaseFullFiveInner{layer}Certificate.lean",
