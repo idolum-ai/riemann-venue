@@ -198,6 +198,19 @@ jobs:
             --pattern BoundaryComputedPhasedBaseLowerFourTailTaylor.lean \
             --pattern BoundaryComputedPhasedBaseLowerFourCompactShards.lean \
             --pattern BoundaryComputedPhasedBaseLowerFourCompactTaylorPackets.lean
+      - name: Five-block support-transition compiler drift gate
+        run: |
+          rm -rf /tmp/computed-phased-base-full-five-compact
+          python scripts/generate_computed_phased_base_full_five_compact_shards.py \
+            --output-dir /tmp/computed-phased-base-full-five-compact
+          python scripts/check_generated_family.py \
+            --generated-dir /tmp/computed-phased-base-full-five-compact \
+            --tracked-dir RiemannVenue/Venue \
+            --pattern 'BoundaryComputedPhasedBaseFullFiveCompactCell*Shard*.lean' \
+            --pattern 'BoundaryComputedPhasedBaseFullFiveCompactTaylorCell*.lean' \
+            --pattern BoundaryComputedPhasedBaseFullFiveTailTaylor.lean \
+            --pattern BoundaryComputedPhasedBaseFullFiveCompactShards.lean \
+            --pattern BoundaryComputedPhasedBaseFullFiveCompactTaylorPackets.lean
       # The floating proposal is intentionally not portable proof authority.
       # CI instead checks candidate/generator/configuration hashes plus
       # per-cell, per-regime, and aggregate exact-rational budget identities.

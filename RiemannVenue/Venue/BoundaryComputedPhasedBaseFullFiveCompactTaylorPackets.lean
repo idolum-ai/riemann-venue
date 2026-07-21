@@ -1,0 +1,9 @@
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell0
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell1
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell2
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell3
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell4
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell5
+import RiemannVenue.Venue.BoundaryComputedPhasedBaseFullFiveCompactTaylorCell6
+
+/-! Generated import surface for five-block packets. -/
