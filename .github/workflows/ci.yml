@@ -19,6 +19,9 @@ jobs:
             exit 1
           fi
 
+      - name: Require every Lean module in the build or audit closure
+        run: python3 scripts/check_lean_import_closure.py
+
       - name: Install elan
         run: |
           curl -sSfL https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz
@@ -61,6 +64,9 @@ jobs:
           python scripts/export_localized_phased_certificate.py \
             /tmp/localized-phased-candidate.json \
             --evaluation-samples 4001
+          python scripts/check_localized_phased_candidate.py \
+            --committed artifacts/localized-phased-candidate.json \
+            --generated /tmp/localized-phased-candidate.json
       - name: Localized phased interval-packet drift gate
         run: |
           python scripts/generate_computed_phased_interval_certificate.py \
@@ -75,8 +81,11 @@ jobs:
           diff -u \
             RiemannVenue/Venue/BoundaryComputedPhasedDerivativeCertificate.lean \
             /tmp/BoundaryComputedPhasedDerivativeCertificate.lean
-      - name: Generated-family inventory checker tests
-        run: python scripts/test_check_generated_family.py
+      - name: Trust-boundary checker tests
+        run: |
+          python scripts/test_check_generated_family.py
+          python scripts/test_check_lean_import_closure.py
+          python scripts/test_check_localized_phased_candidate.py
       - name: Standard-bump high-jet compiler drift gate
         run: |
           rm -rf /tmp/computed-phased-bump-jets

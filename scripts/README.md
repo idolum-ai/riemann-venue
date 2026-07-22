@@ -16,6 +16,19 @@ generator no longer emits. Multi-file generator gates use this bidirectional
 inventory check instead of assuming that walking generated output alone is a
 complete drift guarantee.
 
+`check_lean_import_closure.py` fails unless every tracked project Lean module
+is reachable from either the `RiemannVenue` library root or the separately
+compiled `RiemannVenue.AxiomAudit` entrypoint. This prevents generated source
+from passing text-drift checks without ever being checked by the Lean kernel.
+
+`check_localized_phased_candidate.py` compares the regenerated localized
+candidate with its committed counterpart after projecting away floating
+diagnostics and the solver-selected coefficient vector. It strictly binds the
+artifact to exporter, solver, requirements, and optimization-configuration
+hashes, and compares the stable dictionary and exact-correction geometry. The
+linear program can have multiple valid optima across solver platforms; Lean,
+not byte identity of that proposal vector, remains proof authority.
+
 Reproducibility helpers for notebooks, figures, and longer numerical notes.
 
 - `probe_localized_weighted_matrix.py` uses an explicit standard bump to scan
@@ -151,8 +164,10 @@ Reproducibility helpers for notebooks, figures, and longer numerical notes.
   mode to reject source drift.
 
 - `perron_certificates.py` regenerates
-  `artifacts/perron-certificates.{txt,json}`, the finite-N certificate and
-  corrected schedule audit cited by `notes/perron-vector-attack.md`.
+  `artifacts/perron-certificates.{txt,json}`, the finite-N float64 estimates
+  and corrected schedule audit cited by `notes/perron-vector-attack.md`. The
+  historical filenames are retained, but these outputs are numerical evidence,
+  not directed-rounding or kernel-checked lower-bound certificates.
 - `probe_boundary_finite_part.py` evaluates the compensated Hellinger
   residual on growing prime windows. It is an exploratory CND/arithmetic
   sensitivity probe, not a proof artifact. Its reference output is

@@ -10,7 +10,7 @@ run the Schur test with a near-optimal weight.
 Labels: **derived** (complete paper-math argument here, modulo classical
 cited inputs), **heuristic**, **numerical** (float64, deterministic seed
 20260708), **classical**. Reproducibility split: the §3.3 finite-N
-certificates, the §3.2 schedule/block validation, and the classical-input
+estimates, the §3.2 schedule/block validation, and the classical-input
 sweep are committed — `scripts/perron_certificates.py`, output artifact
 `artifacts/perron-certificates.{txt,json}`. The exploratory Perron-profile
 measurements (§1, §2, §4, §5) are session-computed scratch
@@ -71,7 +71,7 @@ reusing the factor-building code of `scripts/lambda_min_lanczos.py`; see
 ## 1. The measured Perron vector [numerical]
 
 `u_N` = Perron vector of `M_N` = `λ(n)·v_min(n)` by the W3a gauge; computed
-by Lanczos on the exact sparse inverse at `N = 10², …, 10⁶`
+by Lanczos on the explicit float64 sparse inverse at `N = 10², …, 10⁶`
 (`λ_max(K⁻¹)` reproduces the W3a §4.2 table to all printed digits at every
 N). Normalization `u(1) = 1` throughout.
 
@@ -128,20 +128,21 @@ A WLS multiplicative projection over prime-power features (mass-weighted,
 on the 99.9% support) reproduces the direct profiles; its use as a Schur
 weight is instructive and negative — see §2.
 
-## 2. The multiplicative class, optimized exactly [numerical + derived observation]
+## 2. The multiplicative class, optimized numerically [numerical + derived observation]
 
 **Convexity** [derived, elementary]. Parametrize multiplicative weights by
 increments `θ_{p,k} = log(W(p^k)/W(p^{k−1}))` on prime powers, so
 `log w(n) = −½log n + Σ_{p^k | n} θ_{p,k}` is affine in θ. Then
 `log T_m(θ) = log Σ_n M_{mn} e^{⟨χ_n,θ⟩} − ⟨χ_m,θ⟩` is convex (log-sum-exp
 of affine functions), and `max_m log T_m` is convex: the best
-multiplicative Schur bound at fixed N is a *global* convex minimum, and
-any evaluated weight is a rigorous certificate regardless of optimizer
-quality. (Gradients cost two matvecs per iteration via
+multiplicative Schur bound at fixed N is a *global* convex minimum. An exactly
+or outward-rounded evaluation of any weight would be a rigorous certificate
+regardless of optimizer quality; the float64 evaluations reported here remain
+numerical estimates. (Gradients cost two matvecs per iteration via
 `∇ = slice-sums of (M(s/Mw))·w − s`; L-BFGS with softmax annealing
 t = 30 → 1000.)
 
-**Result** (exact `max_m T_m` at the optimized weight):
+**Result** (float64 `max_m T_m` at the optimized weight):
 
 | N | `λ_max(K⁻¹)` | uniform-ρ best | mult-class opt | opt/λ_max | comp: opt | comp: λ_max |
 |---|---|---|---|---|---|---|
@@ -189,7 +190,7 @@ the `A/log p` branch *exceeds* `√(p−1)` by a factor
 `L₂²/(L₂−3L₃) = (1+o(1))·log log N` (and `y₀ < 2` for every
 `N < 10³⁰⁰`, so the claimed first-branch region is empty at any
 computable N) — the piecewise schedule was not the min family used by
-the headline and the §3.3 certificates. The two branches actually cross
+the headline and the §3.3 estimates. The two branches actually cross
 where `p·(log p)² ≈ log N·log log N`, i.e. at
 `y₁ = (1+o(1))·log N/log log N`, not `log N/(log log N)³`. §3.2 below
 now analyzes the min schedule itself, split at the true crossing `y₁`,
@@ -376,15 +377,15 @@ trivial. Status: derived (corrected 2026-07-09), paper-math, every
 displayed inequality evaluated numerically with its slack factor at
 `N = 10³…10⁶` and the classical inputs swept over every prime
 `x ∈ [286, 10⁷]` (`scripts/perron_certificates.py`); the finite-N
-certificates below are reproducible from the same committed script.
+estimates below are reproducible from the same committed script.
 
-### 3.3 Finite-N certificates and consistency [numerical, reproducible]
+### 3.3 Finite-N estimates and consistency [numerical, reproducible]
 
-Exact `max_m T_m` for the one-parameter family
+Float64 estimates of `max_m T_m` for the one-parameter family
 `η_p = min(√(p−1), A/log p)`, `A = fac·√(log N·log log N)` — computed by
 the committed `scripts/perron_certificates.py` (deterministic, seed
 20260708; output artifact `artifacts/perron-certificates.{txt,json}`),
-which rebuilds the exact sparse Möbius inverse, evaluates the row sums
+which rebuilds the explicit sparse Möbius inverse, evaluates the row sums
 `T_m = λ(m)·(K⁻¹(λ·w))_m / w(m)` for all m as two sparse matvecs per
 weight, cross-checks the §3.1 divisor-sum formula against the matvec row
 sums at `N = 10³` (max rel diff `1.1·10⁻¹⁵`), and prints every §3.2
@@ -399,12 +400,12 @@ block inequality with its slack factor at each N. At `fac = 0.7`:
 
 (The script's finer fac scan improves these marginally — 99.0 / 192.2 /
 337.6 / 553.2 at fac 0.75 / 0.75 / 0.65 / 0.75 — the optimum is flat to
-< 1% over `fac ∈ [0.65, 0.8]`; the quotable certificates are the
+< 1% over `fac ∈ [0.65, 0.8]`; the quotable numerical estimates are the
 fac-0.7 rows. The uniform-ρ column is the script's own scan of
 `w = ρ^Ω/√n`, ρ-step 0.05, marginally below the W3a-quoted 100.7/208.1
-at small N.) The η-schedule beats the uniform family at every N (each
-row is a rigorous certificate, e.g.
-`λ_min(K_{10⁶}) ≥ 1/554.2 = 1.80·10⁻³`, improving W3a's `1.53·10⁻³`),
+at small N.) The η-schedule beats the uniform family at every N numerically
+(for example `1/554.2 = 1.80·10⁻³` at `N = 10⁶`, improving on the W3a
+estimate `1.53·10⁻³`; neither decimal is a directed-rounding certificate),
 its argmax rows are primorials (30, 210, 210, 2310 — the equalized
 configuration), and its old-units compensated value *declines*
 (1.749 → 1.700) where the uniform family's was flat at ≈ 1.75 — the
@@ -413,7 +414,7 @@ matches the Perron plateau's 0.87 within family-tuning slack. The
 new-units column is still far above 2 and rising: at these N the `o(1)`
 is dominated by `+log log N/V ≈ 1.0–1.16` (Cl's Mertens piece) and the
 small-prime block; the same situation as W3a's 1.75-vs-2 (asymptotic
-ceiling not yet binding, finite-N certificates carrying the content).
+ceiling not yet binding, finite-N estimates illustrating the content).
 
 **Block validation** (same script, theorem schedule `fac = 1`, at
 `N = 10⁶`; `y₁ = 8.73`, so `{2,3,5,7}` sit on the `√(p−1)` branch;
@@ -475,7 +476,7 @@ for `N = 10³…10⁵` in the artifact.
 
 ## 4. The high-moment route [numerical + assessment]
 
-Exact dense spectra (N = 1600, 3200, 6400) and Hutchinson estimates
+Dense float64 spectra (N = 1600, 3200, 6400) and Hutchinson estimates
 (s = 40 Rademacher probes, validated at N = 3200 to 1.2–16% for
 r = 1–10):
 
@@ -565,15 +566,15 @@ trend a future account should reproduce first.
 
 - **Did the upper wall move?** Yes [derived]: `2√(log N)` →
   `(2+o(1))·√(log N/log log N)`, with lighter inputs and finite-N
-  certificates, reproducible from `scripts/perron_certificates.py`, that
+  estimates, reproducible from `scripts/perron_certificates.py`, that
   already beat the published family at every computed N. The corridor's relative width drops from `log log N` to
   `√(log log N)`, and the pure `exp(−c√(log N))` law for `λ_min` is
   excluded — the first shape-level consequence of the corridor since the
   W3a sandwich.
 - **Is there a provable multiplicative barrier?** Not at 2, and not at
-  any constant in the old units [numerical, class-exact]: the full
+  any constant in the old units [numerical, convex-class model]: the full
   multiplicative class tracks the Perron value within 10% over four
-  decades (convex-optimization certificates), and [derived] it reaches
+  decades (convex-optimization estimates), and [derived] it reaches
   `2√(log N/log log N)` asymptotically. Within the §3 derivation scheme
   the constant 2 is pinned by the same balance as before — the honest
   candidate "multiplicative barrier theorem" is now
@@ -600,7 +601,7 @@ trend a future account should reproduce first.
 
 All with `.venv/bin/python` (numpy 2.4.6/scipy 1.17.1), seed 20260708,
 reusing the sieve/factor construction of `scripts/lambda_min_lanczos.py`.
-The repro-critical items — §3.3 certificates, §3.2 schedule/block
+The repro-critical items — §3.3 estimates, §3.2 schedule/block
 validation, classical-input sweep — are committed as
 `scripts/perron_certificates.py`
 (→ `artifacts/perron-certificates.{txt,json}`). The exploratory items
@@ -614,14 +615,14 @@ below are session-computed scratch in `/tmp`:
   profiles, multiplicativity devs, WLS projection (§1).
 - `pv_item2.py` (→ `pv_item2.json`): convex class optimization; the
   Perron-weight sanity row reproduces `λ_max` to 0.8–1.8% (Lanczos vector
-  tolerance; certificates do not rely on it). Re-extraction of per-prime
+  tolerance; the Schur estimates do not rely on it). Re-extraction of per-prime
   schedules in a follow-up run (`pv_item2c.json`) after an indexing bug
   in the *reporting* path (optimization itself unaffected; re-optimized
   T values reproduce to 4 digits: 112.67, 189.12).
-- `pv_item2b.py` (→ `pv_item2b.json`): η-schedule certificates —
+- `pv_item2b.py` (→ `pv_item2b.json`): η-schedule estimates —
   superseded by the committed `scripts/perron_certificates.py` (§3.3),
   which reproduces its fac-0.7 table to all printed digits.
-- `pv_item3.py` (→ `pv_item3.json`): dense spectra to N = 6400, exact
+- `pv_item3.py` (→ `pv_item3.json`): dense float64 spectra to N = 6400,
   moments r ≤ 12, Hutchinson at 10⁵/10⁶ validated against dense at 3200;
   tail fits (§4).
 - `pv_item4.py`, `pv_item4b.py` (→ JSONs): KMS effective depths, edge

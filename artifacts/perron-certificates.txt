@@ -1,5 +1,5 @@
 perron_certificates.py  seed=20260708  (float64, deterministic)
-certificate: lambda_min(K_N) >= 1/max_m T_m, exact weighted row sums of M_N = |K_N^{-1}|
+numerical Schur estimate: lambda_min(K_N) ~ 1/max_m T_m, float64 weighted row sums of M_N = |K_N^{-1}|
 
 schedule exhibit: old cutoff y0 = L/L2^3 vs true min-crossing y1
 (branch1 = sqrt(y0-1), branch2 = A/log y0; the pre-correction text
@@ -26,14 +26,14 @@ classical-input sweep over every prime x in [286, 10000000]:
   (slack = bound/value; every value >= 1 means the displayed
    inequality holds everywhere on the sweep)
 
-N=10^3: eta-schedule best fac=0.75 maxT=99.0 argmax m=30 | uniform-rho best rho=1.65 maxT=100.4 | lambda_max(Kinv)=57.27 | cert lambda_min >= 1.010e-02
+N=10^3: eta-schedule best fac=0.75 maxT=99.0 argmax m=30 | uniform-rho best rho=1.65 maxT=100.4 | lambda_max(Kinv)=57.27 | estimated lambda_min ~ 1.010e-02
   formula check (section 3.1 divisor sum vs matvec), m in {1,2,6,30,210,30}: max rel diff 1.09e-15
-N=10^4: eta-schedule best fac=0.75 maxT=192.2 argmax m=210 | uniform-rho best rho=1.55 maxT=206.9 | lambda_max(Kinv)=104.17 | cert lambda_min >= 5.204e-03
-N=10^5: eta-schedule best fac=0.65 maxT=337.6 argmax m=2310 | uniform-rho best rho=1.70 maxT=390.2 | lambda_max(Kinv)=173.05 | cert lambda_min >= 2.962e-03
-N=10^6: eta-schedule best fac=0.75 maxT=553.2 argmax m=210 | uniform-rho best rho=1.60 maxT=654.7 | lambda_max(Kinv)=270.65 | cert lambda_min >= 1.808e-03
+N=10^4: eta-schedule best fac=0.75 maxT=192.2 argmax m=210 | uniform-rho best rho=1.55 maxT=206.9 | lambda_max(Kinv)=104.17 | estimated lambda_min ~ 5.204e-03
+N=10^5: eta-schedule best fac=0.65 maxT=337.6 argmax m=2310 | uniform-rho best rho=1.70 maxT=390.2 | lambda_max(Kinv)=173.05 | estimated lambda_min ~ 2.962e-03
+N=10^6: eta-schedule best fac=0.75 maxT=553.2 argmax m=210 | uniform-rho best rho=1.60 maxT=654.7 | lambda_max(Kinv)=270.65 | estimated lambda_min ~ 1.808e-03
 
-certificate table (eta-schedule, exact max_m T_m):
-       N best fac   T (eta)  argmax m best rho uniform-rho  lam_max logT/sqrtL  logT/V cert lam_min >=
+numerical estimate table (eta-schedule, float64 max_m T_m):
+       N best fac   T (eta)  argmax m best rho uniform-rho  lam_max logT/sqrtL  logT/V     est lam_min
     1000     0.75      99.0        30     1.65       100.4    57.27      1.748   2.431       1.010e-02
    10000     0.75     192.2       210     1.55       206.9   104.17      1.733   2.582       5.204e-03
   100000     0.65     337.6      2310     1.70       390.2   173.05      1.716   2.682       2.962e-03

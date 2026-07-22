@@ -5,7 +5,7 @@
   "source": {
     "candidate": "artifacts/localized-phased-candidate.json",
     "candidate_schema": "riemann-venue/localized-phased-candidate/v1",
-    "candidate_sha256": "bbabdca35dfbd4face734ff6c03cf293fb34e8639f2d29983da17236e2f8e442",
+    "candidate_sha256": "2a4f4ae4c3f4df5543d5406f680d4049da175ea9f62f07e02e3e7097b0709b8d",
     "generator": "scripts/probe_computed_phased_base_transform_budget.py",
     "generator_sha256": "e29e510163529f737373e2219552c664303e9a32dab2260e0525dc419da3c18e",
     "configuration_sha256": "360c671444e2a15c7e47b8dacc5e0ac84c4e461fe9e44eaed32870da53e7b131"

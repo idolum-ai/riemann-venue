@@ -134,7 +134,7 @@
    "argmin_x": 9993079.0
   }
  },
- "certificates": [
+ "estimates": [
   {
    "N": 1000,
    "eta_fac": 0.75,
@@ -143,7 +143,7 @@
    "rho_rho": 1.65,
    "rho_T": 100.35541469804149,
    "lambda_max_Kinv": 57.2747350413417,
-   "cert_lambda_min_lower": 0.010101636392536289,
+   "schur_lambda_min_estimate": 0.010101636392536289,
    "logT_over_sqrtlogN": 1.748326384048468,
    "logT_over_V": 2.4305162297840277,
    "fac_scan": [
@@ -232,7 +232,7 @@
    "rho_rho": 1.55,
    "rho_T": 206.94432522586482,
    "lambda_max_Kinv": 104.1687909058426,
-   "cert_lambda_min_lower": 0.005204022060312144,
+   "schur_lambda_min_estimate": 0.005204022060312144,
    "logT_over_sqrtlogN": 1.7326444800563965,
    "logT_over_V": 2.581772142654898,
    "fac_scan": [
@@ -321,7 +321,7 @@
    "rho_rho": 1.7,
    "rho_T": 390.1826495029834,
    "lambda_max_Kinv": 173.04558915291082,
-   "cert_lambda_min_lower": 0.00296210383397459,
+   "schur_lambda_min_estimate": 0.00296210383397459,
    "logT_over_sqrtlogN": 1.7158075560728812,
    "logT_over_V": 2.6820823826206097,
    "fac_scan": [
@@ -410,7 +410,7 @@
    "rho_rho": 1.6,
    "rho_T": 654.6857994406772,
    "lambda_max_Kinv": 270.64647004188777,
-   "cert_lambda_min_lower": 0.0018076348677233713,
+   "schur_lambda_min_estimate": 0.0018076348677233713,
    "logT_over_sqrtlogN": 1.699184343983996,
    "logT_over_V": 2.753408515577925,
    "fac_scan": [
