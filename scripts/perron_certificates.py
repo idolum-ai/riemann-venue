@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""Finite-N Schur certificates for the eta-schedule on M_N = |K_N^{-1}|.
+"""Finite-N float64 Schur estimates for the eta-schedule on M_N = |K_N^{-1}|.
 
-Reproduces the certificate table of notes/perron-vector-attack.md section 3.3
+Reproduces the numerical table of notes/perron-vector-attack.md section 3.3
 (lambda_min(K_N) >= 1/max_m T_m for the multiplicative weight
 w(n) = prod_p eta_p^{v_p(n)} / sqrt(n), eta_p = min(sqrt(p-1), A/log p),
 A = fac * sqrt(log N * log log N)), and validates the corrected section 3.2
@@ -13,12 +13,13 @@ Gram factorization (Lean-proved; see notes/lambda-min-rate.md section 0):
 K = C C^T with explicit sparse C^{-1} (Moebius), so K^{-1} x is two sparse
 matvecs (construction shared with scripts/lambda_min_lanczos.py).  By the
 W3a no-cancellation lemma M_N = |K_N^{-1}| = Lam K^{-1} Lam entrywise with
-Lam = diag(liouville(n)), hence the exact weighted row sums of M_N are
+Lam = diag(liouville(n)), hence the weighted row sums of M_N are algebraically
 
     T_m = lambda(m) * (K^{-1} (lambda * w))_m / w(m)  > 0 ,
 
-one matvec pair per weight, and max_m T_m >= lambda_max(K^{-1}) is a
-rigorous (float64) Schur/Gershgorin certificate: lambda_min(K_N) >= 1/max T.
+one matvec pair per weight. The implementation evaluates this identity with
+float64 sparse matvecs. It therefore supplies reproducible numerical evidence,
+not a directed-rounding certificate that lambda_min(K_N) >= 1/max T.
 
 What is printed / dumped
 ------------------------
@@ -26,7 +27,7 @@ What is printed / dumped
    evaluated numerically (branch values at y0, ratio ~ (log log N)), and the
    true min-crossing y1 (sqrt(y1-1) log y1 = A) with its sandwich
    L/L2 <= y1 <= L, L2-L3 <= log y1 <= L2;
-2. certificate table at N = 10^3..10^6: best fac, exact max_m T_m, argmax m,
+2. estimate table at N = 10^3..10^6: best fac, float64 max_m T_m, argmax m,
    uniform-rho comparison, lambda_max(K^{-1}) (Lanczos, seeded), and the
    direct divisor-sum formula check of T_m at N = 10^3;
 3. block-by-block validation of the corrected section 3.2 chain at fac = 1
@@ -147,7 +148,7 @@ def json_safe(x):
 
 
 # ---------------------------------------------------------------------------
-# exact row sums
+# float64 row-sum evaluation
 # ---------------------------------------------------------------------------
 
 class Workspace:
@@ -167,7 +168,7 @@ class Workspace:
         self.seed = seed
 
     def row_sums(self, logW):
-        """Exact T_m for all m, for the weight w(n) = W(n)/sqrt(n)."""
+        """Float64 T_m estimates for the weight w(n) = W(n)/sqrt(n)."""
         w = np.exp(logW - self.half_log_n)
         x = self.lam * w
         y = self.Cit @ (self.Cinv @ x)
@@ -175,7 +176,7 @@ class Workspace:
         return T
 
     def lambda_max_inverse(self):
-        """lambda_max(K^{-1}) by seeded Lanczos on the exact sparse inverse."""
+        """Float64 lambda_max(K^{-1}) by seeded Lanczos on the sparse inverse."""
         rng = np.random.default_rng(self.seed)
         v0 = rng.standard_normal(self.N)
         Kinv = LinearOperator(
@@ -445,8 +446,8 @@ def schedule_table(out):
     return rows
 
 
-def run_certificates(nexps, facs, rhos, seed, out):
-    cert_rows, block_reps, formula_checks = [], [], []
+def run_estimates(nexps, facs, rhos, seed, out):
+    estimate_rows, block_reps, formula_checks = [], [], []
     for k in nexps:
         N = 10**k
         ws = Workspace(N, seed)
@@ -477,16 +478,16 @@ def run_certificates(nexps, facs, rhos, seed, out):
         row = {"N": N, **{f"eta_{k2}": v for k2, v in best.items()},
                **{f"rho_{k2}": v for k2, v in best_rho.items()},
                "lambda_max_Kinv": lam_max,
-               "cert_lambda_min_lower": 1.0 / best["T"],
+               "schur_lambda_min_estimate": 1.0 / best["T"],
                "logT_over_sqrtlogN": math.log(best["T"]) / math.sqrt(L),
                "logT_over_V": math.log(best["T"]) / math.sqrt(L / L2),
                "fac_scan": scan}
-        cert_rows.append(row)
+        estimate_rows.append(row)
         out(f"N=10^{k}: eta-schedule best fac={best['fac']:.2f} "
             f"maxT={best['T']:.1f} argmax m={best['argmax']} | "
             f"uniform-rho best rho={best_rho['rho']:.2f} "
             f"maxT={best_rho['T']:.1f} | lambda_max(Kinv)={lam_max:.2f} "
-            f"| cert lambda_min >= {1.0 / best['T']:.3e}")
+            f"| estimated lambda_min ~ {1.0 / best['T']:.3e}")
 
         # direct divisor-sum formula check at N = 10^3
         if N == 1000:
@@ -508,7 +509,7 @@ def run_certificates(nexps, facs, rhos, seed, out):
         # block validation at the theorem schedule (fac = 1)
         block_reps.append(block_report(ws, fac=1.0))
         del ws
-    return cert_rows, block_reps, formula_checks
+    return estimate_rows, block_reps, formula_checks
 
 
 def print_block_table(rep, out):
@@ -559,8 +560,8 @@ def main():
 
     out("perron_certificates.py  seed=%d  (float64, deterministic)"
         % args.seed)
-    out("certificate: lambda_min(K_N) >= 1/max_m T_m, exact weighted row "
-        "sums of M_N = |K_N^{-1}|")
+    out("numerical Schur estimate: lambda_min(K_N) ~ 1/max_m T_m, float64 "
+        "weighted row sums of M_N = |K_N^{-1}|")
     out()
     sched_rows = schedule_table(out)
     out()
@@ -568,18 +569,18 @@ def main():
     out()
 
     nexps = list(range(args.nexp_min, args.nexp_max + 1))
-    cert_rows, block_reps, formula_checks = run_certificates(
+    estimate_rows, block_reps, formula_checks = run_estimates(
         nexps, args.facs, args.rhos, args.seed, out)
 
-    out("\ncertificate table (eta-schedule, exact max_m T_m):")
+    out("\nnumerical estimate table (eta-schedule, float64 max_m T_m):")
     out(f"{'N':>8} {'best fac':>8} {'T (eta)':>9} {'argmax m':>9} "
         f"{'best rho':>8} {'uniform-rho':>11} {'lam_max':>8} "
-        f"{'logT/sqrtL':>10} {'logT/V':>7} {'cert lam_min >=':>15}")
-    for r in cert_rows:
+          f"{'logT/sqrtL':>10} {'logT/V':>7} {'est lam_min':>15}")
+    for r in estimate_rows:
         out(f"{r['N']:>8} {r['eta_fac']:>8.2f} {r['eta_T']:>9.1f} "
             f"{r['eta_argmax']:>9} {r['rho_rho']:>8.2f} {r['rho_T']:>11.1f} "
             f"{r['lambda_max_Kinv']:>8.2f} {r['logT_over_sqrtlogN']:>10.3f} "
-            f"{r['logT_over_V']:>7.3f} {r['cert_lambda_min_lower']:>15.3e}")
+            f"{r['logT_over_V']:>7.3f} {r['schur_lambda_min_estimate']:>15.3e}")
 
     for rep in block_reps:
         print_block_table(rep, out)
@@ -590,7 +591,7 @@ def main():
     with open(args.json, "w") as f:
         payload = {"seed": args.seed, "schedule_table": sched_rows,
                    "classical_sweep": sweep,
-                   "certificates": cert_rows, "blocks": block_reps,
+                   "estimates": estimate_rows, "blocks": block_reps,
                    "formula_checks": formula_checks}
         json.dump(json_safe(payload), f, indent=1, allow_nan=False)
     print(f"\nwrote {args.txt} and {args.json}")

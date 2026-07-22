@@ -1,6 +1,15 @@
 {
   "schema": "riemann-venue/localized-phased-candidate/v1",
   "proof_authority": false,
+  "source": {
+    "exporter": "scripts/export_localized_phased_certificate.py",
+    "exporter_sha256": "a59ae2a2ade716b9aef8a9454582f379f5234cc4ef0dd45ed6f5f64f23d1407b",
+    "solver": "scripts/probe_localized_phased_matrix.py",
+    "solver_sha256": "de694b0869c802ad47936a17173031302a09c0f0e357155c4e96e97b670b30c9",
+    "requirements": "requirements.txt",
+    "requirements_sha256": "4a425c3a57601dc527a9e565a08b3a9c79a47bedceba54ae569b978c59a86055",
+    "optimization_samples": 801
+  },
   "scale": [
     7,
     2

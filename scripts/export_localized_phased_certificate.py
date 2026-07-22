@@ -10,6 +10,7 @@ values for that correction are diagnostics; they are not proof authority.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from fractions import Fraction
 from pathlib import Path
@@ -19,6 +20,9 @@ import numpy as np
 import probe_localized_phased_matrix as probe
 
 
+ROOT = Path(__file__).resolve().parents[1]
+PROBE_PATH = ROOT / "scripts" / "probe_localized_phased_matrix.py"
+REQUIREMENTS_PATH = ROOT / "requirements.txt"
 SCALE = Fraction(7, 2)
 FREQUENCY_COUNT = 20
 CENTER_VALUES = tuple(Fraction(i, 2) for i in range(-2, 3))
@@ -41,6 +45,20 @@ def pair_columns(frequency_index: int, center_abs: Fraction) -> tuple[int, ...]:
     if len(indices) != 2:
         raise AssertionError("expected one reflected center pair")
     return indices
+
+
+def source_binding(optimization_samples: int) -> dict:
+    """Bind the proposal to live code, dependencies, and solver geometry."""
+    exporter_path = Path(__file__).resolve()
+    return {
+        "exporter": exporter_path.relative_to(ROOT).as_posix(),
+        "exporter_sha256": hashlib.sha256(exporter_path.read_bytes()).hexdigest(),
+        "solver": PROBE_PATH.relative_to(ROOT).as_posix(),
+        "solver_sha256": hashlib.sha256(PROBE_PATH.read_bytes()).hexdigest(),
+        "requirements": REQUIREMENTS_PATH.relative_to(ROOT).as_posix(),
+        "requirements_sha256": hashlib.sha256(REQUIREMENTS_PATH.read_bytes()).hexdigest(),
+        "optimization_samples": optimization_samples,
+    }
 
 
 def main() -> None:
@@ -156,6 +174,7 @@ def main() -> None:
     payload = {
         "schema": "riemann-venue/localized-phased-candidate/v1",
         "proof_authority": False,
+        "source": source_binding(args.optimization_samples),
         "scale": [SCALE.numerator, SCALE.denominator],
         "frequency_grid": {
             "start": [8, 1],
