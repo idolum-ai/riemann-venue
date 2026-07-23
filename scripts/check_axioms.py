@@ -108,6 +108,7 @@ EXPECTED_DECLARATIONS = {
     "RiemannVenue.Venue.computedPhasedBaseFullFiveIntegral_mem",
     "RiemannVenue.Venue.computedPhasedBaseFullFiveInnerOneIntegral_mem",
     "RiemannVenue.Venue.computedPhasedBaseFullFiveInnerTwoIntegral_mem",
+    "RiemannVenue.Venue.computedPhasedBaseFullFiveInnerThreeIntegral_mem",
     "RiemannVenue.Venue.abs_polynomial_mul_exp_neg_le_of_nonnegative_tail",
     "RiemannVenue.Venue.iteratedDeriv_explicitStandardBump_mem_computedTransformInterval",
     "RiemannVenue.Venue.computedPhasedWeightedJet_mem_pointInterval",
