@@ -26,11 +26,58 @@ class LeanImportClosureTest(unittest.TestCase):
         return unreachable_modules(graph, roots)
 
     def test_accepts_transitive_and_multiple_imports(self) -> None:
-        self.write("Example.lean", "import Example.Middle Example.Leaf\n")
+        self.write("Example.lean", "import Example.Middle import Example.Leaf\n")
         self.write("Example/Middle.lean", "import Example.Leaf\n")
         self.write("Example/Leaf.lean")
 
         self.assertEqual(self.closure(), ([], []))
+
+    def test_ignores_commented_imports(self) -> None:
+        self.write(
+            "Example.lean",
+            "/- outer /- nested -/ -- still inside the block\n"
+            "import Example.Orphan\n-/\n"
+            "import Example.Leaf -- Example.Orphan\n",
+        )
+        self.write("Example/Leaf.lean")
+        self.write("Example/Orphan.lean")
+
+        self.assertEqual(self.closure(), ([], ["Example.Orphan"]))
+
+    def test_ignores_import_text_after_header(self) -> None:
+        self.write(
+            "Example.lean",
+            'def example := "\nimport Example.Orphan\n"\n',
+        )
+        self.write("Example/Orphan.lean")
+
+        self.assertEqual(self.closure(), ([], ["Example.Orphan"]))
+
+    def test_accepts_module_import_modifiers_and_whitespace(self) -> None:
+        self.write(
+            "Example.lean",
+            "module\nprelude\n  public meta import /- note -/ Example.Middle\n"
+            "import all\n Example.Leaf\n",
+        )
+        self.write("Example/Middle.lean")
+        self.write("Example/Leaf.lean")
+
+        self.assertEqual(self.closure(), ([], []))
+
+    def test_stops_at_public_section(self) -> None:
+        self.write(
+            "Example.lean",
+            'module\npublic section\ndef example := "\nimport Example.Orphan\n"\n',
+        )
+        self.write("Example/Orphan.lean")
+
+        self.assertEqual(self.closure(), ([], ["Example.Orphan"]))
+
+    def test_unterminated_comment_does_not_create_an_import(self) -> None:
+        self.write("Example.lean", "/-\nimport Example.Orphan\n")
+        self.write("Example/Orphan.lean")
+
+        self.assertEqual(self.closure(), ([], ["Example.Orphan"]))
 
     def test_rejects_an_unreachable_module(self) -> None:
         self.write("Example.lean")

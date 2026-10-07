@@ -4,23 +4,67 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Iterator
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ROOTS = ("RiemannVenue", "RiemannVenue.AxiomAudit")
+IDENTIFIER = r"(?:«[^»]+»|[^\W\d][\w']*)"
+MODULE_NAME = re.compile(rf"{IDENTIFIER}(?:\.{IDENTIFIER})*")
+HEADER_TOKEN = re.compile(rf"\s+|--[^\n]*|/-|{MODULE_NAME.pattern}|.", re.DOTALL)
+BLOCK_COMMENT_MARKER = re.compile(r"/-|-/")
 
 
 def _module_name(project_root: Path, path: Path) -> str:
     return ".".join(path.relative_to(project_root).with_suffix("").parts)
 
 
+def _header_tokens(source: str) -> Iterator[str]:
+    """Read header tokens lazily, skipping line and nested block comments."""
+    position = 0
+    while match := HEADER_TOKEN.match(source, position):
+        token = match.group()
+        position = match.end()
+        if token == "/-":
+            depth = 1
+            for marker in BLOCK_COMMENT_MARKER.finditer(source, position):
+                depth += 1 if marker.group() == "/-" else -1
+                if depth == 0:
+                    position = marker.end()
+                    break
+            else:
+                # Lean will reject the unclosed comment; it imports nothing.
+                return
+        elif not token.isspace() and not token.startswith("--"):
+            yield token
+
+
 def _imports(path: Path) -> list[str]:
+    # Match the pinned Lean header grammar, not apparent imports in the body.
+    # Each directive names one module; whitespace need not be a single space.
+    tokens = _header_tokens(path.read_text(encoding="utf-8"))
+    token = next(tokens, "")
+    if token == "module":
+        token = next(tokens, "")
+    if token == "prelude":
+        token = next(tokens, "")
     modules: list[str] = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if line.startswith("import "):
-            modules.extend(line.split()[1:])
+    while token:
+        if token == "public":
+            token = next(tokens, "")
+        if token == "meta":
+            token = next(tokens, "")
+        if token != "import":
+            break
+        name = next(tokens, "")
+        if name == "all":
+            name = next(tokens, "")
+        if not MODULE_NAME.fullmatch(name):
+            break
+        modules.append(name.replace("«", "").replace("»", ""))
+        token = next(tokens, "")
     return modules
 
 
