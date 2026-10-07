@@ -38,6 +38,58 @@ def candidate() -> dict:
 
 
 class LocalizedPhasedCandidateTest(unittest.TestCase):
+    def test_rejects_empty_or_non_object_candidates(self) -> None:
+        for payload in ({}, None, [], "candidate"):
+            with self.subTest(payload=payload):
+                errors = candidate_drift_errors(payload, payload)
+                self.assertTrue(any(error.startswith("committed:") for error in errors))
+                self.assertTrue(any(error.startswith("generated:") for error in errors))
+
+    def test_rejects_matching_missing_or_null_required_fields(self) -> None:
+        paths = (
+            ("schema",), ("proof_authority",), ("source",), ("scale",),
+            ("frequency_grid",), ("centers",), ("exact_correction",),
+            ("source", "exporter"), ("source", "exporter_sha256"),
+            ("source", "solver"), ("source", "solver_sha256"),
+            ("source", "requirements"), ("source", "requirements_sha256"),
+            ("source", "optimization_samples"),
+            ("frequency_grid", "start"), ("frequency_grid", "stop"),
+            ("frequency_grid", "count"),
+            ("exact_correction", "first_frequency_index"),
+            ("exact_correction", "second_frequency", "benchmark_real_offset"),
+            ("exact_correction", "center_abs"),
+            ("exact_correction", "first_column_pair"),
+            ("exact_correction", "second_pair_is_external_to_base_dictionary"),
+            ("exact_correction", "construction"),
+        )
+        for path in paths:
+            for omit in (True, False):
+                with self.subTest(path=path, omit=omit):
+                    payload = candidate()
+                    parent = payload
+                    for field in path[:-1]:
+                        parent = parent[field]
+                    if omit:
+                        del parent[path[-1]]
+                    else:
+                        parent[path[-1]] = None
+                    errors = candidate_drift_errors(payload, copy.deepcopy(payload))
+                    self.assertIn(
+                        f"committed: missing required field {'.'.join(path)}", errors
+                    )
+
+    def test_rejects_non_object_contract_sections_on_either_side(self) -> None:
+        for section in ("source", "frequency_grid", "exact_correction"):
+            for side in ("committed", "generated"):
+                with self.subTest(section=section, side=side):
+                    committed, generated = candidate(), candidate()
+                    payload = committed if side == "committed" else generated
+                    payload[section] = []
+                    self.assertIn(
+                        f"{side}: {section} must be an object",
+                        candidate_drift_errors(committed, generated),
+                    )
+
     def test_accepts_diagnostic_only_drift(self) -> None:
         committed = candidate()
         generated = copy.deepcopy(committed)
