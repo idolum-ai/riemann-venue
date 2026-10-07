@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PATH="$HOME/.elan/bin:$HOME/.local/bin:$repo_root/.venv/bin:$PATH"
+# No services or authentication to restore. Never install dependencies on wake.
+for executable in lean lake typst "$repo_root/.venv/bin/python"; do
+  if ! command -v "$executable" >/dev/null; then
+    printf 'Missing %s; run .agents/setup to repair this orb.\n' "$executable" >&2
+    exit 1
+  fi
+done
+printf 'Orb toolchains and Python environment are available.\n'

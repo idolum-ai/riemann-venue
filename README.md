@@ -235,6 +235,22 @@ The current RC pin is inherited from that exact Mathlib revision; its rationale
 and the stable-upgrade gate are recorded in
 [docs/toolchain-policy.md](docs/toolchain-policy.md).
 
+### Amp orbs
+
+`.agents/setup` installs the pinned Lean toolchain, fetches the Mathlib compiled
+cache without changing `lake-manifest.json`, installs `requirements.txt` in a
+Python 3.11 `.venv`, and installs Typst and Liberation fonts. Amp snapshots these
+dependencies for reuse; repeated setup runs retain installed tools and caches.
+The full proof build and long-running numerical experiments are not startup
+steps. No secrets or backing services are required.
+
+New login shells inside this checkout automatically expose Lean, Typst, and
+the Python virtual environment. Run `lake build` and the verification commands
+above as needed. `.agents/resume` only checks tool availability, with no installs
+or network access. To repair missing dependencies, rerun `.agents/setup` from
+the repository root. Setup changes must reach the project's default branch
+before fresh orbs can use them.
+
 ## Repository map
 
 - `RiemannVenue/` — Lean 4 formalizations: `Divisibility/` (finite poset,
