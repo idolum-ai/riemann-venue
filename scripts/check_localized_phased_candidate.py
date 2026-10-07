@@ -24,23 +24,54 @@ EXACT_CORRECTION_FIELDS = (
     "second_pair_is_external_to_base_dictionary",
     "construction",
 )
+REQUIRED_FIELDS = {
+    **dict.fromkeys(TOP_LEVEL_FIELDS),
+    "source": dict.fromkeys((
+        "exporter", "exporter_sha256", "solver", "solver_sha256",
+        "requirements", "requirements_sha256", "optimization_samples",
+    )),
+    "frequency_grid": dict.fromkeys(("start", "stop", "count")),
+    "exact_correction": {
+        **dict.fromkeys(EXACT_CORRECTION_FIELDS),
+        "second_frequency": {"benchmark_real_offset": None},
+    },
+}
+
+
+def _required_field_errors(payload: object, fields: dict, path: str = "") -> list[str]:
+    """Reject incomplete contracts even when both inputs omit the same data."""
+    if not isinstance(payload, dict):
+        return [f"{path or 'candidate'} must be an object"]
+    errors = []
+    for field, children in fields.items():
+        field_path = f"{path}.{field}" if path else field
+        if payload.get(field) is None:
+            errors.append(f"missing required field {field_path}")
+        elif children is not None:
+            errors.extend(_required_field_errors(payload[field], children, field_path))
+    return errors
 
 
 def stable_candidate_contract(payload: dict) -> dict:
-    """Project out solver-selected coefficients and floating diagnostics."""
-    exact_correction = payload.get("exact_correction", {})
-    if not isinstance(exact_correction, dict):
-        exact_correction = {}
-    projected = {field: payload.get(field) for field in TOP_LEVEL_FIELDS}
+    """Project a complete contract, excluding coefficients and diagnostics."""
+    exact_correction = payload["exact_correction"]
+    projected = {field: payload[field] for field in TOP_LEVEL_FIELDS}
     projected["exact_correction"] = {
-        field: exact_correction.get(field)
+        field: exact_correction[field]
         for field in EXACT_CORRECTION_FIELDS
     }
     return projected
 
 
-def candidate_drift_errors(committed: dict, generated: dict) -> list[str]:
-    """Return proof-relevant fields whose regenerated values differ."""
+def candidate_drift_errors(committed: object, generated: object) -> list[str]:
+    """Return incomplete-contract errors or stable fields that differ."""
+    errors = [
+        f"{side}: {error}"
+        for side, payload in (("committed", committed), ("generated", generated))
+        for error in _required_field_errors(payload, REQUIRED_FIELDS)
+    ]
+    if errors:
+        return errors
     left = stable_candidate_contract(committed)
     right = stable_candidate_contract(generated)
     errors = [
