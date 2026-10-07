@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+export PATH="$HOME/.elan/bin:$HOME/.local/bin:$PATH"
+
+step() {
+  local label="$1" start=$SECONDS
+  shift
+  printf '\n==> %s\n' "$label"
+  "$@"
+  printf '==> %s finished in %ss\n' "$label" "$((SECONDS - start))"
+}
+
+install_system_packages() {
+  local missing=() package
+  for package in ca-certificates curl git xz-utils zstd build-essential fonts-liberation; do
+    if [[ "$(dpkg-query -W -f='${Status}' "$package" 2>/dev/null || true)" != 'install ok installed' ]]; then
+      missing+=("$package")
+    fi
+  done
+  if ((${#missing[@]})); then
+    sudo apt-get update -qq
+    sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y "${missing[@]}"
+  fi
+}
+
+scratch="$(mktemp -d)"
+trap 'rm -rf "$scratch"' EXIT
+
+install_lean() {
+  if ! command -v elan >/dev/null; then
+    curl --fail --silent --show-error --location --retry 3 \
+      https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-unknown-linux-gnu.tar.gz \
+      -o "$scratch/elan.tar.gz"
+    tar -xzf "$scratch/elan.tar.gz" -C "$scratch"
+    "$scratch/elan-init" -y --no-modify-path --default-toolchain none
+  fi
+  elan toolchain install "$(cat lean-toolchain)"
+  lake --version
+}
+
+install_python() {
+  # uv is included in the orb image. Match CI's Python minor version.
+  if [[ ! -x .venv/bin/python ]]; then
+    uv venv --python 3.11 --seed .venv
+  fi
+  .venv/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 11), "Recreate .venv with Python 3.11"'
+  uv pip install --python .venv/bin/python -r requirements.txt
+}
+
+install_typst() {
+  # CI uses the latest release; retain an installed version on warm setup.
+  if ! command -v typst >/dev/null; then
+    curl --fail --silent --show-error --location --retry 3 \
+      https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz \
+      -o "$scratch/typst.tar.xz"
+    tar -xJf "$scratch/typst.tar.xz" -C "$scratch"
+    install -Dm755 "$scratch/typst-x86_64-unknown-linux-musl/typst" "$HOME/.local/bin/typst"
+  fi
+  typst --version
+}
+
+step 'System prerequisites' install_system_packages
+step 'Pinned Lean toolchain' install_lean
+step 'Python dependencies' install_python
+step 'Typst' install_typst
+# Lake uses lake-manifest.json; do not update the pinned dependency revisions.
+# Mathlib's cache command skips artifacts already available on warm runs.
+step 'Mathlib compiled dependencies' lake exe cache get
+
+# Amp and supervised services start in separate non-interactive login shells.
+# Keep automatic venv activation scoped to this checkout and its descendants.
+profile_marker="# riemann-venue orb environment: $repo_root"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+  {
+    printf '\n%s\n' "$profile_marker"
+    printf 'case "$PWD" in %q|%q/*)\n' "$repo_root" "$repo_root"
+    printf '  export PATH="$HOME/.elan/bin:$HOME/.local/bin:$PATH"\n'
+    printf '  if [[ "${VIRTUAL_ENV:-}" != %q ]]; then\n' "$repo_root/.venv"
+    printf '    source %q\n' "$repo_root/.venv/bin/activate"
+    printf '  fi\n;;\nesac\n'
+  } >> "$HOME/.bash_profile"
+fi
+printf '\nOrb dependencies ready. Run lake build or python scripts/check_notebooks.py --execute.\n'

@@ -26,3 +26,6 @@ venv/
 
 # Generated local logs
 *.log
+
+# Orb portal metadata
+.amp/portals/*
